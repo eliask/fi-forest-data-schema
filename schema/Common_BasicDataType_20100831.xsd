@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	***************************************************************
+	Yhteiset perustietotyypit (numero, teksti yms.) joita käytetään 
+	useissa	skeemoissa erilaisiin tarpeisiin. 
+	Skeema on JHS-170 -suosituksen mukainen.
+	***************************************************************
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+	xmlns="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
+	elementFormDefault="unqualified"
+	attributeFormDefault="unqualified"
+	version="1.0">
+	
+	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
+				schemaLocation="JHS170_20090304.xsd"/>
+
+	<xs:simpleType name="PositiveIntegerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Positiivisen kokonaisluvun määrittely.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Definition for positive integer.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="NegativeIntegerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Negatiivisen kokonaisluvun määrittely.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Definition for negative integer.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:maxExclusive value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="YesNoType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Määrittely kyllä- ja ei-arvoille</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Definition for yes and no value</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en">No</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kyllä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en">Yes</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Decimal1FractionDigitType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Desimaaliluku yhdellä desimaalilla.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Decimal number with 1 fraction digit.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="Decimal2FractionDigitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Desimaaliluku kahdella desimaalilla.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Decimal number with 2 fraction digits.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="2" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="Decimal3FractionDigitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Desimaaliluku kolmella desimaalilla.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Decimal number with 3 fraction digits.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Decimal4FractionDigitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Desimaaliluku neljällä desimaalilla.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Decimal number with 4 fraction digits.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="4" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Decimal3TotalDigitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Desimaaliluku maksimissaan 3 numeroa.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Decimal number with 3 total digits.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Decimal4TotalDigitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Desimaaliluku maksimissaan 4 numeroa.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Decimal number with 4 total digits.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="4" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="Decimal5TotalDigitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Desimaaliluku maksimissaan 5 numeroa.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Decimal number with 5 total digits.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="5" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Decimal6TotalDigitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Desimaaliluku maksimissaan 6 numeroa.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Decimal number with 6 total digits.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="6" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="TimeStampType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Aikaleiman tiedot muodossa VVVV-KK-PPTtt:mm:ss, minimivuosi on 1970.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Time stamp, time format YYYY-MM-DDThh:mm:ss with minimum year 1970.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:dateTime">
+			<xs:minInclusive value="1970-01-01T00:00:00"></xs:minInclusive>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="DateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Päivämäärä muodossa YYYY-MM-DD, minimivuosi on 1970.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Date, date format YYYY-MM-DD with minimum year 1970.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:date">
+			<xs:minInclusive value="1970-01-01"></xs:minInclusive>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="EmptyStringType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tyhjä merkkijono.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Empty string.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value=""/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="PercentType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Prosenttiluvun määrittely ilman desimaaleja.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Percent without fraction digits.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0" />
+			<xs:maxInclusive value="100" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="DateYYYY-MMOrYYYY-MM-DDType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Päivämäärä muodossa VVVV-KK (1.6, "--06-01" / "--06-01Z" UTC / "--06-01+02:00" UTC+02.00) tai VVVV-KK-PP (1.6.2009, "2009-06-01" / "2009-06-01Z" UTC / "2009-06-01+02.00" UTC+02.00).</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Date, date format YYYY-MM (1.6, "--06-01" / "--06-01Z" UTC / "--06-01+02:00" UTC+02.00) or YYYY-MM-DD (1.6.2009, "2009-06-01" / "2009-06-01Z" UTC / "2009-06-01+02.00" UTC+02.00).</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="xs:gMonthDay DateType"/>
+	</xs:simpleType>
+
+    <xs:simpleType name="YearType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Vuosi määrittely, minimivuosi 1970.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Definition of year with minimum year 1970.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:gYear">
+            <xs:minInclusive value="1970"/>
+        </xs:restriction>
+    </xs:simpleType>
+	
+</xs:schema>

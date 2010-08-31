@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	***************************************************************
+	Puustotiedon ajankohdan puusto-ositteiden elementit ja tyypit. 
+	Skeema on JHS-170 -suosituksen mukainen.
+	***************************************************************
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    targetNamespace="http://standardit.tapio.fi/schemas/forestData/treeStratum/2010/08/31" 
+    xmlns="http://standardit.tapio.fi/schemas/forestData/treeStratum/2010/08/31" 
+    xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+    elementFormDefault="qualified"
+    version="1.0">
+    
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+				schemaLocation="Common_BasicDataType_20100831.xsd"/>
+
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+				schemaLocation="Common_20100831.xsd"/>
+   
+	<!-- Elementtimääritykset -->
+   	<!-- Element definitions -->
+    <xs:element name="TreeStrata" type="TreeStrataType"/>
+    <xs:element name="TreeStratum" type="TreeStratumType"/>
+    <xs:element name="StratumNumber" type="StratumNumberType"/>
+    <xs:element name="TreeSpecies" type="TreeSpeciesType"/>
+    <xs:element name="Storey" type="StoreyType"/>
+    <xs:element name="Age" type="AgeType"/>
+    <xs:element name="BasalArea" type="BasalAreaType"/>
+    <xs:element name="StemCount" type="StemCountType"/>
+    <xs:element name="MeanDiameter" type="MeanDiameterType"/>    
+    <xs:element name="MeanHeight" type="MeanHeightType"/>
+    <xs:element name="Volume" type="VolumeType"/>
+    <xs:element name="SawLogPercent" type="SawLogPercentType"/>
+    <xs:element name="SawLogVolume" type="SawLogVolumeType"/>
+    <xs:element name="PulpWoodVolume" type="PulpWoodVolumeType"/>
+    <xs:element name="VolumeGrowth" type="VolumeGrowthType"/>
+    <xs:element name="LeafBiomass" type="LeafBiomassType"/>
+    <xs:element name="BranchBiomass" type="BranchBiomassType"/>
+    <xs:element name="StemBiomass" type="StemBiomassType"/>
+    <xs:element name="StumpBiomass" type="StumpBiomassType"/>
+    
+    <!-- Tyyppimääritykset -->
+    <!-- Type definitions -->
+    <xs:complexType name="TreeStrataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Ajankohdan puusto-ositteet</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Tree strata</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="TreeStratum" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>	
+
+	<xs:complexType name="TreeStratumType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Puusto-ositteen tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Tree stratum data</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="co:ChangeState" minOccurs="0"/>
+			<xs:element ref="co:ChangeTime" minOccurs="0"/>
+			<xs:element ref="StratumNumber"/>
+			<xs:element ref="TreeSpecies"/>
+			<xs:element ref="Storey"/>
+			<xs:element ref="Age"/>
+			<!-- Käyttösuositus: Joko Ppa tai Runkoluku pitää löytyä sanomasta -->
+			<!-- Recommendation: Either basal area or stem count has to find out in message -->
+			<xs:element ref="BasalArea" minOccurs="0"/>
+			<xs:element ref="StemCount" minOccurs="0"/>
+			<xs:element ref="MeanDiameter"/>
+			<xs:element ref="MeanHeight"/>
+			<xs:element ref="Volume" minOccurs="0"/>
+			<xs:element ref="SawLogPercent" minOccurs="0"/>
+			<xs:element ref="SawLogVolume" minOccurs="0"/>
+			<xs:element ref="PulpWoodVolume" minOccurs="0"/>
+			<xs:element ref="VolumeGrowth" minOccurs="0"/>
+			<xs:element ref="LeafBiomass" minOccurs="0"/>
+			<xs:element ref="BranchBiomass" minOccurs="0"/>
+			<xs:element ref="StemBiomass" minOccurs="0"/>
+			<xs:element ref="StumpBiomass" minOccurs="0"/>
+			<xs:element ref="co:DataSource"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Puusto-osite voidaan yksilöidä tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Tree stratum can be identified using string id.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>	
+	</xs:complexType>	
+
+	<xs:simpleType name="StratumNumberType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Puusto-ositteen numero.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Number of tree stratum.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+    
+    <xs:simpleType name="TreeSpeciesType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Puulajikoodi.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Code of tree species.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="co:TreeSpeciesType"/>
+    </xs:simpleType>
+
+	<xs:simpleType name="StoreyType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Ositteen jakso.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Storey of tree stratum.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="co:StoreyType"/>
+	</xs:simpleType>
+	
+	<xs:simpleType name="AgeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Ositteen ikä, v.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Age of tree stratum, year.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="co:AgeType"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="BasalAreaType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Pohjapinta-ala, m2/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Basal area, m2/ha.</xs:documentation>
+		</xs:annotation>
+	    <xs:restriction base="co:BasalAreaType"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="StemCountType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Runkoluku, kpl/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Stem count, stem/ha.</xs:documentation>
+		</xs:annotation>
+	    <xs:restriction base="co:StemCountType"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="MeanDiameterType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Keskiläpimitta, cm.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Mean diameter, cm.</xs:documentation>
+		</xs:annotation>
+	    <xs:restriction base="co:DiameterType"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="MeanHeightType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Keskipituus, m.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Mean height, m.</xs:documentation>
+		</xs:annotation>
+	    <xs:union memberTypes="co:HeightType bdt:EmptyStringType"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="VolumeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tilavuus, m3/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Volume, m3/ha.</xs:documentation>
+		</xs:annotation>
+	    <xs:restriction base="co:VolumeType"/>
+	</xs:simpleType>
+	
+	<xs:simpleType name="SawLogPercentType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tukkiosuus %.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Percent of saw log, %.</xs:documentation>
+		</xs:annotation>
+	    <xs:restriction base="co:SawLogPercentType"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="SawLogVolumeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tukkitilavuus, m3/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Volume of saw log, m3/ha.</xs:documentation>
+		</xs:annotation>
+	    <xs:restriction base="co:SawLogVolumeType"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="PulpWoodVolumeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kuitutilavuus, m3/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Volume of pulp wood, m3/ha.</xs:documentation>
+		</xs:annotation>
+	    <xs:restriction base="co:PulpWoodVolumeType"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="VolumeGrowthType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tilavuuskasvu, m3/ha/v.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Growth of volume, m3/ha/year.</xs:documentation>
+		</xs:annotation>
+	    <xs:restriction base="co:VolumeGrowthType"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="LeafBiomassType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Ositteen lehtien biomassa, t/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Leaf biomass of stratum, ton/ha.</xs:documentation>
+		</xs:annotation>
+	    <xs:restriction base="co:LeafBiomassType"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="BranchBiomassType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Ositteen oksien biomassa, t/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Branch biomass of stratum, ton/ha.</xs:documentation>
+		</xs:annotation>
+	    <xs:restriction base="co:BranchBiomassType"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="StemBiomassType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Ositteen runkojen biomassa, t/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Stem biomass of stratum, ton/ha.</xs:documentation>
+		</xs:annotation>
+	    <xs:restriction base="co:StemBiomassType"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="StumpBiomassType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Ositteen kantojen biomassa, t/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Stem biomass of stratum, ton/ha.</xs:documentation>
+		</xs:annotation>
+	    <xs:restriction base="co:StumpBiomassType"/>
+	</xs:simpleType>
+
+</xs:schema>
