@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 	***************************************************************
-	Yhteiset perustietotyypit (numero, teksti yms.) joita käytetään 
+	Yhteiset perustietotyypit (numero, teksti yms.), joita käytetään 
 	useissa	skeemoissa erilaisiin tarpeisiin. 
 	Skeema on JHS-170 -suosituksen mukainen.
 	***************************************************************
@@ -12,8 +12,14 @@
 	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
 	elementFormDefault="unqualified"
 	attributeFormDefault="unqualified"
-	version="1.0">
-	
+	version="1.1">
+
+    <!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
+    <!-- Uusi määrittely "YesNoNotKnownType". -->
+    <!-- Uusi määrittely "CountryCodeType". -->
+    <!-- Uusi määrittely "LanguageCode1Type". -->
+    <!-- Uusi määrittely "LanguageCode2Type". -->
+
 	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
 				schemaLocation="JHS170_20090304.xsd"/>
 
@@ -61,6 +67,32 @@
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="NotKnownType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Määrittely ei tietoa- arvolle</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Definition for not known value</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei tietoa</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en">Not known</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="YesNoNotKnownType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Määrittely kyllä-, ei- ja ei tietoa- arvoille</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Definition for yes, no and not known value</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="YesNoType NotKnownType"/>
 	</xs:simpleType>
 	
 	<xs:simpleType name="Decimal1FractionDigitType">
@@ -215,5 +247,38 @@
             <xs:minInclusive value="1970"/>
         </xs:restriction>
     </xs:simpleType>
+    
+    <xs:simpleType name="CountryCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Osoitemaan maakoodi (ISO 3166), esim. FI, SE, US.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Address country code (ISO 3166), e.g. FI, SE, US.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+    <xs:simpleType name="LanguageCode1Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kielikoodi (ISO 639-1), esim. fi, sv, en.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Language code (ISO 639-1), e.g. fi, sv, en.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+    <xs:simpleType name="LanguageCode2Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Osoitemaan maakoodi (ISO 639-2), esim. fin, swe, eng.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Address country code (ISO 639-2), e.g. fin, swe, eng.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
 	
 </xs:schema>

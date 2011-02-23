@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	***************************************************************
+	Kiinteistötietoihin liittyvät elementit ja tyypit.
+	Skeema on JHS-170 -suosituksen mukainen.
+	***************************************************************
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14"
+	xmlns="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14"
+	xmlns:st="http://standardit.tapio.fi/schemas/forestData/stand/2010/08/31"
+	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified"
+	version="1.0">
+	
+    <!-- VERSIOKOMMENTIT  -->
+    <!-- AreaNumberType muutettu yhtenäisyyden vuoksi vastaamaan muita kiinteistötunnuksen osia (numeropohjaisesta määrittelystä tekstipohjaiseen määrittelyyn) -->
+    <!-- MunicipalityName: Kiinteistön tiedoissa mahdollista esittää kunnan nimi -->
+	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/stand/2010/08/31"
+				schemaLocation="Stand_20100831.xsd"/>
+
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+			    schemaLocation="Common_BasicDataType_20100831.xsd"/>
+			    
+	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
+				schemaLocation="JHS170_20090304.xsd"/>
+
+	<!-- KIINTEISTÖ, REAL ESTATE -->
+	<!-- Elementtimääritykset -->
+   	<!-- Element definitions -->
+	<xs:element name="RealEstates" type="RealEstatesType"/>
+	<xs:element name="RealEstate" type="RealEstateType"/>
+	<xs:element name="RealEstateData" type="RealEstateDataType"/>
+	<xs:element name="MunicipalityNumber" type="MunicipalityNumberType"/>
+	<xs:element name="MunicipalityName" type="MunicipalityNameType"/>
+	<xs:element name="AreaNumber" type="AreaNumberType"/>
+	<xs:element name="GroupNumber" type="GroupNumberType"/>
+	<xs:element name="UnitNumber" type="UnitNumberType"/>
+	<xs:element name="UnseparetedParcelTypeChar" type="UnseparetedParcelTypeCharType"/>
+	<xs:element name="UnseparetedParcelNumber" type="UnseparetedParcelNumberType"/>
+	<xs:element name="RealEstateName" type="RealEstateNameType"/>
+
+	<!-- Tyyppimääritykset -->
+	<!-- Type definitions -->
+	<xs:complexType name="RealEstatesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kiinteistöjen tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Real estates data.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="RealEstate" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="RealEstateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kiinteistön tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Real estate data.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="MunicipalityNumber"/>
+			<xs:element ref="MunicipalityName" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="AreaNumber"/>
+			<xs:element ref="GroupNumber"/>
+			<xs:element ref="UnitNumber"/>
+			<xs:element ref="UnseparetedParcelTypeChar" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="UnseparetedParcelNumber" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="RealEstateName"/>
+			<xs:element ref="Parcels"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Kiinteistö voidaan yksilöidä tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Real estate can be identified using string id.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="RealEstateDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Suppeat kiinteistön tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Compact real estate data.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="MunicipalityNumber"/>
+			<xs:element ref="MunicipalityName" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="AreaNumber"/>
+			<xs:element ref="GroupNumber"/>
+			<xs:element ref="UnitNumber"/>
+			<xs:element ref="UnseparetedParcelTypeChar" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="UnseparetedParcelNumber" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="RealEstateName"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Kiinteistö voidaan yksilöidä tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Real estate can be identified using string id.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	
+	<xs:simpleType name="MunicipalityNumberType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kolmenumeroinen kuntanumero, kiinteistörekisterin kunta.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Municipality number of real estate.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="jhs:KuntaKoodiTyyppi">
+			<xs:pattern value="[0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="MunicipalityNameType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kunnan nimi maksimissaan 30 merkkiä.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Name of municipality.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="jhs:NimiTekstiTyyppi">
+			<xs:maxLength value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="AreaNumberType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kolmenumeroinen kylänumero, kiinteistörekisterin sijaintialue.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Area (village) number of real estate.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="GroupNumberType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Neljänumeroinen talonumero, kiinteistörekisterin ryhmä.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Group (house) number of real estate.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="UnitNumberType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Neljänumeroinen tilanumero, kiinteistörekisterin yksikkö.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Unit number of real estate.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="UnseparetedParcelTypeCharType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kiinteistötunnuksen määräalakirjain, kiinteistörekisterin tyyppikirjain.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Unsepareted parcel type character of real estate.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="UnseparetedParcelNumberType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kiinteistötunnuksen määräalanumero.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Unsepareted parcel number of real estate.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{0,4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="RealEstateNameType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kiinteistön nimi maksimissaan 30 merkkiä.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Name of real estates.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="jhs:NimiTekstiTyyppi">
+			<xs:maxLength value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!-- PALSTA - PARCEL -->
+	<!-- Elementtimääritykset -->
+   	<!-- Element definitions -->
+	<xs:element name="Parcels" type="ParcelsType"/>
+	<xs:element name="Parcel" type="ParcelType"/>
+	<xs:element name="ParcelNumber" type="ParcelNumberType"/>
+
+	<!-- Tyyppimääritykset -->
+	<!-- Type definitions -->
+	<xs:complexType name="ParcelsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Palstojen tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Parcels data.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="Parcel" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ParcelType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Palstan tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Parcel data.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ParcelNumber"/>
+			<xs:element ref="st:Stands"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Palsta voidaan yksilöidä tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Parcel can be identified using string id.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	
+	<xs:simpleType name="ParcelNumberType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Palstanumero.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Parcel number.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="bdt:PositiveIntegerType"/>
+	</xs:simpleType>
+	
+</xs:schema>

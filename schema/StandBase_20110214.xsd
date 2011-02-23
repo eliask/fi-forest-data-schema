@@ -1,55 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 	***************************************************************
-	Kuvion elementit ja tyypit. 
+	Kuvion peruselementit ja -tyypit. 
 	Skeema on JHS-170 -suosituksen mukainen.
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://standardit.tapio.fi/schemas/forestData/stand/2010/08/31"
-	xmlns="http://standardit.tapio.fi/schemas/forestData/stand/2010/08/31"
-	xmlns:ts="http://standardit.tapio.fi/schemas/forestData/treeStand/2010/08/31"
-	xmlns:op="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31"
-	xmlns:sf="http://standardit.tapio.fi/schemas/forestData/specialFeature/2010/08/31"
-	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes/2010/08/31"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14"
+	xmlns="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14"
 	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
-	xmlns:gml="http://www.opengis.net/gml"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified"
 	version="1.0">
 	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStand/2010/08/31"
-			    schemaLocation="TreeStand_20100831.xsd"/>
-			    
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31"
-				schemaLocation="Operation_20100831.xsd"/>
-	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeature/2010/08/31"
-				schemaLocation="SpecialFeature_20100831.xsd"/>
-
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes/2010/08/31"
-			    schemaLocation="Common_GeometricDataType_20100831.xsd"/>
-
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
 			    schemaLocation="Common_BasicDataType_20100831.xsd"/>
 
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
 				schemaLocation="Common_20100831.xsd"/>
 	
-	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" 
-				schemaLocation="JHS170_20090304.xsd"/>
-	
-	<xs:import namespace="http://www.opengis.net/gml"
-			    schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/>
-
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
-	<xs:element name="Stands" type="StandsType"/>
-	<xs:element name="Stand" type="StandType"/>
-	<xs:element name="StandBasicData" type="StandBasicDataType"/>
-	<xs:element name="CompleteState" type="CompleteStateType"/>
 	<xs:element name="Identifiers" type="IdentifiersType"/>
 	<xs:element name="Identifier" type="IdentifierType"/>
 	<xs:element name="IdentifierType" type="IdentifierTypeType"/>
@@ -72,90 +44,9 @@
 	<xs:element name="StandInfo" type="StandInfoType"/>
 	<xs:element name="Area" type="AreaType"/>
 	<xs:element name="AreaDecrease" type="AreaDecreaseType"/>
-	<xs:element name="SpecialFeatures" type="SpecialFeaturesType"/>
-	<xs:element name="SpecialFeature" type="sf:SpecialFeatureType"/>
 	
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
-	<xs:complexType name="StandsType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kuvioiden tiedot.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Stands data.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="Stand" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>	
-	</xs:complexType>
-	
-	<xs:complexType name="StandType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Yksittäisen kuvion tiedot.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Single stand data.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="StandBasicData"/>
-			<xs:element ref="ts:TreeStandData" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="op:Operations" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="op:PlannedOperationChains" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="SpecialFeatures" minOccurs="0" maxOccurs="1"/>
-		</xs:sequence>
-		<xs:attribute name="id" type="xs:string">
-			<xs:annotation>
-				<xs:documentation xml:lang="fi">Kuvio voidaan yksilöidä tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
-				<xs:documentation xml:lang="sv"></xs:documentation>
-				<xs:documentation xml:lang="en">Stand can be identified using string id.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
-
-	<xs:complexType name="StandBasicDataType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kuvion perustiedot.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Stand basic data.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="co:ChangeState" minOccurs="0"/>
-			<xs:element ref="co:ChangeTime" minOccurs="0"/>
-			<xs:element ref="CompleteState" minOccurs="0"/>
-			<xs:element ref="Identifiers" minOccurs="0"/>
-			<xs:element ref="StandNumber"/>
-			<xs:element ref="StandNumberExtension" minOccurs="0"/>
-			<xs:element ref="MainGroup"/>
-			<xs:element ref="SubGroup" minOccurs="0"/>
-			<xs:element ref="FertilityClass" minOccurs="0"/>
-			<xs:element ref="SoilType" minOccurs="0"/>
-			<xs:element ref="DrainageState" minOccurs="0"/>
-			<xs:element ref="DitchingYear" minOccurs="0"/>
-			<xs:element ref="DevelopmentClass" minOccurs="0"/>
-			<xs:element ref="StandQuality" minOccurs="0"/>
-			<xs:element ref="MainTreeSpecies" minOccurs="0"/>
-			<xs:element ref="Accessibility" minOccurs="0"/>
-			<xs:element ref="CuttingRestriction" minOccurs="0"/>
-            <xs:element ref="SilvicultureRestriction" minOccurs="0"/>
-			<xs:element ref="StandBasicDataDate"/>
-			<xs:element ref="StandInfo" minOccurs="0"/>
-			<xs:element ref="co:DataSource"/>
-			<xs:element ref="Area"/>
-			<xs:element ref="AreaDecrease" minOccurs="0"/>
-            <xs:choice>
-				<xs:element ref="gdt:PolygonGeometry"/>
-				<xs:element ref="gdt:MultiPolygonGeometry"/>
-            </xs:choice>
-		</xs:sequence>
-	</xs:complexType>
-	
-	<xs:simpleType name="CompleteStateType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Tiedon valmiustilalla esitetään tietojen sisällön valmiusaste, onko tiedot valmiit/keskeneräiset.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Is it data completed collect or some way incomplete.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="bdt:YesNoType"/>
-	</xs:simpleType>
-	
 	<xs:complexType name="IdentifiersType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvion tunnisteet.</xs:documentation>
@@ -1059,16 +950,5 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:Decimal4FractionDigitsType"/>
 	</xs:simpleType>
-
-    <xs:complexType name="SpecialFeaturesType">
-        <xs:annotation>
-            <xs:documentation xml:lang="fi">Kuvion erityispiirteet (mm. monimuotoisuustiedot)</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Special features (e.g. diversity data) of stand.</xs:documentation>
-        </xs:annotation>
-        <xs:sequence>
-            <xs:element ref="SpecialFeature" minOccurs="1" maxOccurs="unbounded"/>
-        </xs:sequence>	
-    </xs:complexType>
     
 </xs:schema>

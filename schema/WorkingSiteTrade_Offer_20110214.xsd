@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	***************************************************************
+	Työmaiden tarjouksen elementit ja tyypit.
+	Skeema on JHS-170 -suosituksen mukainen.
+	***************************************************************
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/offer/2011/02/14"
+	xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/offer/2011/02/14"
+	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+	xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
+	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
+	xmlns:ws="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14"
+	elementFormDefault="qualified"
+	attributeFormDefault="qualified"
+	version="1.0">
+
+	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14"
+				schemaLocation="WorkingSiteTrade_WorkingSite_20110214.xsd"/>
+
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
+				schemaLocation="ContactInformation_20110214.xsd"/>
+	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
+				schemaLocation="WorkingSiteTrade_Common_20110214.xsd"/>
+	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+			schemaLocation="Common_20100831.xsd"/>
+			
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+			    schemaLocation="Common_BasicDataType_20100831.xsd"/>
+
+	<!-- Elementtimääritykset -->
+   	<!-- Element definitions -->
+   	<xs:element name="Offer" type="OfferType"/>
+	<xs:element name="OfferBusinessSender" type="OfferBusinessSenderType"/>
+	<xs:element name="TechnicalContactPerson" type="TechnicalContactPersonType"/>
+	<xs:element name="OfferDate" type="OfferDateType"/>
+	<xs:element name="OfferExpirationDate" type="OfferExpirationDateType"/>
+	<xs:element name="OfferText" type="OfferTextType"/>
+	
+	<!-- Tyyppimääritykset -->
+	<!-- Type definitions -->
+	<xs:complexType name="OfferType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tarjouksen tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Offer data.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="co:TimeStamp"/>
+			<xs:element ref="OfferBusinessSender"/>
+			<xs:element ref="TechnicalContactPerson" minOccurs="0"/>
+			<xs:element ref="OfferDate"/>
+			<xs:element ref="OfferExpirationDate"/>
+			<xs:element ref="OfferText" minOccurs="0"/>
+			<xs:element ref="ws:OfferWorkingSites">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">VANHA NIMI = Stands</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="wtco:Documents" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Tarjous yksilöidään tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä. Id:llä viitataan tarjouspyyntöön.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Offer can be identified using string id. Id is foreign key to call for offer id.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="versionNo" type="xs:int" use="required">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Tarjouksen versiot yksilöidään tällä numerolla.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Offer versions are identified with this number.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="OfferBusinessSenderType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tarjouspyynnön jättäjän tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Business person who generated offer or has overall responsibility of it.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ci:ContactInformationType"/> 
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="TechnicalContactPersonType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Teknisistä asioista vastaavan henkilön yhteystiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Technical person, used for solving and informing if technical problems occurs.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ci:ContactInformationType"/> 
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="OfferDateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tarjouksen jättöpvm.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Date when offer has been generated and sent to recipients (business point of view).</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="bdt:DateType"/>
+	</xs:simpleType>
+	
+	<xs:simpleType name="OfferExpirationDateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">tarjouksen viimeinen mahdollinen hyväksymispvm.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Last day for recipient to accept offer.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="bdt:DateType"/>
+	</xs:simpleType>
+	
+	<xs:simpleType name="OfferTextType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tarjouksen teksti.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="500"/>
+		</xs:restriction>
+	</xs:simpleType>			
+</xs:schema>

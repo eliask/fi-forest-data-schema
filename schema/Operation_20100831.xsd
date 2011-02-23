@@ -12,7 +12,12 @@
     xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
     xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2010/05/14"
     elementFormDefault="qualified"
-    version="1.0">
+    version="1.1">
+    
+    <!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
+    <!-- Lisätty hakkuutapoja. Mukaan otettu metsänkäyttöilmoituksella ja puukaupassa käytetyt hakkuutavat. -->
+    <!-- Puutavaralajin runkolaji määrittelyt siirretty Common-määrittelyiksi. Uusia runkolajeja lisätty. -->
+    <!-- Toimenpiteen (hakkuun ja metsänhoidon) tarkenteita (CommonOperationExtraQualifierType) lisätty. -->
     
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
 				schemaLocation="Common_BasicDataType_20100831.xsd"/>
@@ -156,56 +161,56 @@
                 <xs:annotation>
                     <xs:documentation xml:lang="fi">Ylispuiden poisto</xs:documentation>
 					<xs:documentation xml:lang="sv">Avlägsnande av överståndare</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="en">Felling of hold-overs</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="2">
                 <xs:annotation>
                     <xs:documentation xml:lang="fi">Ensiharvennus</xs:documentation>
 					<xs:documentation xml:lang="sv">Första gallring</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="en">First thinning</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="3">
                 <xs:annotation>
                     <xs:documentation xml:lang="fi">Harvennus</xs:documentation>
 					<xs:documentation xml:lang="sv">Gallring</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="en">Thinning</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="4">
                 <xs:annotation>
                     <xs:documentation xml:lang="fi">Kaistalehakkuu</xs:documentation>
 					<xs:documentation xml:lang="sv">Kant- och teghuggning</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="en">Clear felling in strips</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="5">
                 <xs:annotation>
                     <xs:documentation xml:lang="fi">Avohakkuu</xs:documentation>
 					<xs:documentation xml:lang="sv">Kalavverkning</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="en">Regeneration felling</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="6">
                 <xs:annotation>
                     <xs:documentation xml:lang="fi">Verhopuuhakkuu</xs:documentation>
 					<xs:documentation xml:lang="sv">Huggning i lågskärm</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="en">Nurse crop felling</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="7">
                 <xs:annotation>
                     <xs:documentation xml:lang="fi">Suojuspuuhakkuu</xs:documentation>
 					<xs:documentation xml:lang="sv">Huggning i skärmställning</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="en">Shelterwood felling</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="8">
                 <xs:annotation>
                     <xs:documentation xml:lang="fi">Siemenpuuhakkuu</xs:documentation>
 					<xs:documentation xml:lang="sv">Huggning i fröträdsställning</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="en">Seeding felling</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="9">
@@ -232,6 +237,48 @@
             <xs:enumeration value="13">
                 <xs:annotation>
                     <xs:documentation xml:lang="fi">Kunnostushakkuu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="20">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Energiapuuharvennus</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="90">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Maankäyttömuodon muutokseen johtava erityishakkuu. Metsänkäyttöilmoituksella esiintyvä hakkuutapa.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="91">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Erityishakkuu (Metsälain 6§:n mukainen hakkuu). Metsänkäyttöilmoituksella esiintyvä hakkuutapa.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="92">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Muu hakkuu tai toimenpide. Metsänkäyttöilmoituksella esiintyvä hakkuutapa.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="93">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Uudistushakkuu metsätuhoalueella.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+             <xs:enumeration value="94">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Kasvatushakkuu metsätuhoalueella.</xs:documentation>
 					<xs:documentation xml:lang="sv"></xs:documentation>
 					<xs:documentation xml:lang="en"></xs:documentation>
                 </xs:annotation>
@@ -1423,9 +1470,9 @@
 
     <xs:simpleType name="PlanningYearType">
         <xs:annotation>
-            <xs:documentation xml:lang="fi">Toimenpiteen suunnitteluvuosi (vuosi, jolloin toimenpide on suunniteltu).</xs:documentation>
+            <xs:documentation xml:lang="fi">Vuosi, josta toimenpiteen kiireellisyys määrittyy, esim. toimenpiteen suunnitteluvuosi (vuosi, jolloin toimenpide on suunniteltu).</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Planning year of operation (year when operation is planned).</xs:documentation>
+			<xs:documentation xml:lang="en">Year which define operation urgency parameter e.g. planning year of operation (year when operation is planned).</xs:documentation>
         </xs:annotation>
         <xs:restriction base="bdt:YearType"></xs:restriction>
     </xs:simpleType>
@@ -2062,6 +2109,20 @@
 					<xs:documentation xml:lang="en"></xs:documentation>
         		</xs:annotation>
         	</xs:enumeration>
+        	<xs:enumeration value="1101">
+        		<xs:annotation>
+        			<xs:documentation xml:lang="fi">Maan käyttömuodon muutos</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+        		</xs:annotation>
+        	</xs:enumeration>
+        	<xs:enumeration value="1102">
+        		<xs:annotation>
+        			<xs:documentation xml:lang="fi">Kantojen korjuu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+        		</xs:annotation>
+        	</xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
 
@@ -2208,13 +2269,37 @@
         </xs:restriction>
     </xs:simpleType>
     
+    <xs:simpleType name="CommonOperationExtraQualifierType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Yleiset toimenpiteen lisämääreet.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Common extra qualifiers of operation.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+        	<xs:enumeration value="10001">
+        		<xs:annotation>
+        			<xs:documentation xml:lang="fi">Manuaalinen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+        		</xs:annotation>
+        	</xs:enumeration>
+        	<xs:enumeration value="10002">
+        		<xs:annotation>
+        			<xs:documentation xml:lang="fi">Koneellinen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+        		</xs:annotation>
+        	</xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    
     <xs:simpleType name="SpecificationCodeType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Hakkuu- tai metsänhoito toimenpiteen tarkennekoodi.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Operation specification code</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="CuttingDirectingType CuttingExtraQualifierType SilvicultureExtraQualifierType"/>
+        <xs:union memberTypes="CuttingDirectingType CuttingExtraQualifierType SilvicultureExtraQualifierType CommonOperationExtraQualifierType"/>
     </xs:simpleType>
     
     <xs:complexType name="CuttingType">
@@ -2289,85 +2374,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Stem type of assortment.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value = "1">
-                <xs:annotation>
-                    <xs:documentation xml:lang = "fi">Tukki</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value = "2">
-                <xs:annotation>
-                    <xs:documentation xml:lang = "fi">Pikkutukki</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value = "3">
-                <xs:annotation>
-                    <xs:documentation xml:lang = "fi">Parru</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value = "4">
-                <xs:annotation>
-                    <xs:documentation xml:lang = "fi">Pylväs</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value = "5">
-                <xs:annotation>
-                    <xs:documentation xml:lang = "fi">Kuitu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value = "6">
-                <xs:annotation>
-                    <xs:documentation xml:lang = "fi">Vaneri</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value = "7">
-                <xs:annotation>
-                    <xs:documentation xml:lang = "fi">Sellu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value = "8">
-                <xs:annotation>
-                    <xs:documentation xml:lang = "fi">Energiapuu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value = "9">
-                <xs:annotation>
-                    <xs:documentation xml:lang = "fi">Kannot</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value = "10">
-                <xs:annotation>
-                    <xs:documentation xml:lang = "fi">Hakkuutähde</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value = "11">
-                <xs:annotation>
-                    <xs:documentation xml:lang = "fi">Runko</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
+        <xs:restriction base="co:StemTypeType"/>
     </xs:simpleType>
         
     <xs:simpleType name="AssortmentPercentType">

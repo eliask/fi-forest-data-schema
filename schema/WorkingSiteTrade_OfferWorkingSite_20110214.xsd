@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	***************************************************************
+	Tarjouksen kohteen / työmaan elementit ja tyypit.
+	Skeema on JHS-170 -suosituksen mukainen.
+	***************************************************************
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/offerworkingsite/2011/02/14"
+	xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/offerworkingsite/2011/02/14"
+	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+	xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
+	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
+	xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14"
+	elementFormDefault="qualified"
+	attributeFormDefault="qualified"
+	version="1.0">
+
+	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14"
+				schemaLocation="WorkingSiteTrade_Assortment_20110214.xsd"/>
+
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
+				schemaLocation="ContactInformation_20110214.xsd"/>
+	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
+				schemaLocation="WorkingSiteTrade_Common_20110214.xsd"/>
+	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+			schemaLocation="Common_20100831.xsd"/>
+			
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+			    schemaLocation="Common_BasicDataType_20100831.xsd"/>
+
+	<!-- Elementtimääritykset -->
+   	<!-- Element definitions -->
+	<xs:element name="WorkingSite" type="WorkingSiteType"/>
+	<xs:element name="IncludedInOffer" type="IncludedInOfferType"/>
+	<xs:element name="PurchaserRepresentativePerson" type="PurchaserRepresentativePersonType"/>
+	<xs:element name="WorkingSiteText" type="WorkingSiteTextType"/>
+	<xs:element name="OfferWorkingSiteWoodTradeInfo" type="OfferWorkingSiteWoodTradeInfoType"/>
+	<xs:element name="FellingRightDuration" type="FellingRightDurationType"/>
+	<xs:element name="FellingRightValidityDate" type="FellingRightValidityDateType"/>
+	
+	<!-- Tyyppimääritykset -->
+	<!-- Type definitions -->
+	<xs:complexType name="WorkingSiteType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Yksittäisen työkohteen tarjouksen tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Single working site data included in offer.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="co:TimeStamp"/>
+			<xs:element ref="IncludedInOffer"/>
+			<xs:element ref="PurchaserRepresentativePerson"/>
+			<xs:element ref="WorkingSiteText" minOccurs="0"/>
+			<xs:element ref="OfferWorkingSiteWoodTradeInfo" minOccurs="0"/>
+			<xs:element ref="wtco:Documents" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="parentId" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Viiteavain pääsanoman avaintietoon (tarjouksen tunniste).</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Surrogate reference key for offer (offer id).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="parentVersionNo" type="xs:int" use="required">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Viiteavain pääsanoman avaintietoon (tarjouksen versionumero).</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Reference key for offer (offer version number).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="id" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Tarjouksen työmaa yksilöidään tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Working site of offer can be identified using string id.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	
+	<xs:simpleType name="IncludedInOfferType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kertoo onko leimikko sisällytty tarjoukseen (0 = ei sisällytetty, 1 = sisällytetty).</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Tell whether this stand is included in offer or no (0 = not included, 1 = included).</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="bdt:YesNoType"/>
+	</xs:simpleType>
+
+	<xs:complexType name="PurchaserRepresentativePersonType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Ostajan edustaja työmaahan liittyvissä käytännön kysymyksissä.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Representative person for this particular working site (not necessarily for whole offer.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ci:ContactInformationType"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="WorkingSiteTextType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Myyjän työmaakohtainen ostajalle toimitettava teksti (huomautusteksti).</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="500"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="FellingRightDurationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Hakkuuoikeuden kesto kuukausina. Hakkuuoikeuden alkamisajankohta kaupan tekoajankohta.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Felling right duration in moths. Usually starts when offer is accepted.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="bdt:PositiveIntegerType">
+			<xs:maxInclusive value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="FellingRightValidityDateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Pvm, johon asti hakkuuoikeus voimassa.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="bdt:DateType"/>
+	</xs:simpleType>
+
+	<xs:complexType name="OfferWorkingSiteWoodTradeInfoType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Yksittäisen leimikon tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Single stand data.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice>
+				<xs:element ref="FellingRightDuration"/>
+				<xs:element ref="FellingRightValidityDate"/>
+			</xs:choice>
+			<xs:element ref="as:AssortmentClasses">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tarjouksen puutavaralajiluokittaiset yhteenveto puutavaralajien hinnat ja mittavaatimukset.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en">Assortments with offered prices.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

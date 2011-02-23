@@ -10,7 +10,14 @@
 	xmlns="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
 	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
 	elementFormDefault="unqualified"
-	version="1.0">
+	version="1.1">
+	
+    <!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
+    <!-- Uusi määrittely aikaleimalle "TimeStampType". -->
+    <!-- Uusi määrittely valuutoille "CurrencyType". -->
+    <!-- Lisätty puulajeja puukaupan puutavaralajien tiedonsiirtotarpeisiin -->
+    <!-- Runkolajimäärittelyt siirretty tänne puukaupan puutavaralajien tiedonsiirtotarpeisiin liittyen -->
+    <!-- Lisätty puutavaran määrän yksikkömäärittelyt puukaupan tiedonsiirtotarpeisiin. -->
 	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
 			    schemaLocation="Common_BasicDataType_20100831.xsd"/>
@@ -19,8 +26,10 @@
 	<!-- Element definitions -->
 	<xs:element name="ChangeState" type="ChangeStateType"/>
 	<xs:element name="ChangeTime" type="ChangeTimeType"/>
+	<xs:element name="TimeStamp" type="TimeStampType"/>
 	<xs:element name="DataSource" type="DataSourceType"/>
 	<xs:element name="TreeSpecies" type="TreeSpeciesType"/>
+	<xs:element name="StemType" type="StemTypeType"/>
 	<xs:element name="Storey" type="StoreyType"/>
 	<xs:element name="Age" type="AgeType"/>
 	<xs:element name="BasalArea" type="BasalAreaType"/>
@@ -87,6 +96,15 @@
 			<xs:documentation xml:lang="fi">Tiedon muutosaika. Muutosajalla voidaan verrata tiedon muutosta suhteessa alkuperäiseen tietolähteeseen (onko tieto muuttunut alkuperäisessä tietolähteessä).</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Last modified time of data</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="bdt:TimeStampType"/>
+	</xs:simpleType>
+	
+	<xs:simpleType name="TimeStampType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tiedon tuottavan järjestelmän tuottama tiedon luonti-/päivityshetki.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Implemented by system. Insertion/update time for record produced by data sender.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="bdt:TimeStampType"/>
 	</xs:simpleType>
@@ -316,6 +334,167 @@
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Havupuu</xs:documentation>
 					<xs:documentation xml:lang="sv">Barrträd</xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ExtraTreeSpeciesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Esim. puutavaralajien yhteydessä käytetyt lisäpuulajikoodit.</xs:documentation>
+			<xs:documentation xml:lang="en">Extra tree species for e.g. assortments.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="103">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koivu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="106">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Leppä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+    <xs:simpleType name="StemTypeType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Puutavaralajin runkolaji, esim. tukki, kuitu, runko, kanto, energiapuu, pikkutukki, parru</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Stem type of assortment.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value = "1">
+                <xs:annotation>
+                    <xs:documentation xml:lang = "fi">Tukki</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value = "2">
+                <xs:annotation>
+                    <xs:documentation xml:lang = "fi">Pikkutukki</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value = "3">
+                <xs:annotation>
+                    <xs:documentation xml:lang = "fi">Parru</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value = "4">
+                <xs:annotation>
+                    <xs:documentation xml:lang = "fi">Pylväs</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value = "5">
+                <xs:annotation>
+                    <xs:documentation xml:lang = "fi">Kuitu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value = "6">
+                <xs:annotation>
+                    <xs:documentation xml:lang = "fi">Vaneri</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value = "7">
+                <xs:annotation>
+                    <xs:documentation xml:lang = "fi">Sellu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value = "8">
+                <xs:annotation>
+                    <xs:documentation xml:lang = "fi">Energiapuu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value = "9">
+                <xs:annotation>
+                    <xs:documentation xml:lang = "fi">Kannot</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value = "10">
+                <xs:annotation>
+                    <xs:documentation xml:lang = "fi">Hakkuutähde</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value = "11">
+                <xs:annotation>
+                    <xs:documentation xml:lang = "fi">Runko</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value = "12">
+                <xs:annotation>
+                    <xs:documentation xml:lang = "fi">Rungon osa</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value = "13">
+                <xs:annotation>
+                    <xs:documentation xml:lang = "fi">Erikoistyvi</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+	<xs:simpleType name="ExtraStemTypeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Puutavaralajin lisärunkolajikoodit.</xs:documentation>
+			<xs:documentation xml:lang="en">Extra stem types for assortment.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="101">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kokopuu (oksa- ja neulasmassa mukana)</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="102">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ranka (karsittua, ei oksa ja neulasmassaa mukana)</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="103">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Hake (haketettua materiaalia)</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="104">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Murske (murskattua materiaalia)</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
 					<xs:documentation xml:lang="en"></xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -554,6 +733,75 @@
 			<xs:documentation xml:lang="en">Value of identifier.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	
+	<xs:simpleType name="QuantityUnitType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Puutavaralajin määrän yksiköt.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Quantity units for assortments (cubic meters etc).</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kiintokuutiometri (m3), kuorellinen tilavuus</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kiintokuutiometri (m3), kuoreton tilavuus</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Megawattitunti (MWh)</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Irtokuutiometri (m3)</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tonni (t = 1000 kg)</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="CurrencyType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Valuutat.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Supported currencies.</xs:documentation>		
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="EUR">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Euro (esim. sata euroa 100.00).</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="EURc">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Eurosentit (esim. sata euroa 10000).</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
 	</xs:simpleType>
 	
 </xs:schema>

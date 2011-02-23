@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	***************************************************************
+	Tarjouspyynnön kohteen / työmaan elementit ja tyypit.
+	Skeema on JHS-170 -suosituksen mukainen.
+	***************************************************************
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforofferworkingsite/2011/02/14"
+	xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/callforofferworkingsite/2011/02/14"
+	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+	xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
+	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
+	xmlns:sf="http://standardit.tapio.fi/schemas/forestData/specialFeature/2011/02/14"
+	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14"
+	xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14"
+	xmlns:wsst="http://standardit.tapio.fi/schemas/workingsitetrade/stand/2011/02/14"
+	elementFormDefault="qualified"
+	attributeFormDefault="qualified"
+	version="1.0">
+
+	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/stand/2011/02/14"
+				schemaLocation="WorkingSiteTrade_Stand_20110214.xsd"/>
+
+	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14"
+				schemaLocation="WorkingSiteTrade_Assortment_20110214.xsd"/>
+
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14"
+				schemaLocation="RealEstate_20110214.xsd"/>
+
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeature/2011/02/14"
+				schemaLocation="SpecialFeature_20110214.xsd"/>
+
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
+				schemaLocation="ContactInformation_20110214.xsd"/>
+
+	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
+				schemaLocation="WorkingSiteTrade_Common_20110214.xsd"/>
+
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+				schemaLocation="Common_20100831.xsd"/>
+
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+			    schemaLocation="Common_BasicDataType_20100831.xsd"/>
+
+	<!-- Elementtimääritykset -->
+   	<!-- Element definitions -->
+   	<xs:element name="WorkingSite" type="WorkingSiteType"/>
+   	<xs:element name="CallForOfferWorkingSiteWoodTradeInfo" type="CallForOfferWorkingSiteWoodTradeInfoType"/>
+   	<xs:element name="IncludeInOffer" type="IncludeInOfferType"/>
+   	<xs:element name="SellerRepresentativePerson" type="SellerRepresentativePersonType"/>
+   	<xs:element name="Sellers" type="SellersType"/>
+   	<xs:element name="Seller" type="SellerType"/>
+   	<xs:element name="VATInfo" type="VATInfoType"/>
+   	<xs:element name="VATStatus" type="VATStatusType"/>
+   	<xs:element name="VATRegistrationDate" type="VATRegistrationDateType"/>
+   	<xs:element name="CertificationSystems" type="CertificationSystemsType"/>
+   	<xs:element name="CertificationSystem" type="CertificationSystemType"/>
+   	<xs:element name="RealEstate" type="RealEstateType"/>
+   	<xs:element name="WorkingSiteGeometries" type="WorkingSiteGeometriesType"/>
+   	<xs:element name="WorkingSiteGeometry" type="sf:LocatedSpecialFeature2Type"/>
+	<xs:element name="WorkingSiteName" type="WorkingSiteNameType"/>
+	<xs:element name="WorkingSiteText" type="WorkingSiteTextType"/>
+   	<xs:element name="ForestUseDeclarationResponsible" type="ForestUseDeclarationResponsibleType"/>
+   	<xs:element name="FellingRightValidityDate" type="FellingRightValidityDateType"/>
+   	<xs:element name="SupplyPoint" type="SupplyPointType"/>
+   	<xs:element name="Cuttings" type="CuttingsType"/>
+   	<xs:element name="Cutting" type="CuttingType"/>
+	<xs:element name="RoadUsingRight" type="RoadUsingRightType"/>
+   	
+	
+	<!-- Tyyppimääritykset -->
+	<!-- Type definitions -->
+	<xs:complexType name="WorkingSiteType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Yksittäisen työkohteen tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Single working site data.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="co:TimeStamp">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">VANHA NIMI = Timestamp</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="WorkingSiteName">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">VANHA NIMI = Stand1Name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="IncludeInOffer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">VANHA NIMI = MustBeIncludedInOffer</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="SellerRepresentativePerson"/>
+			<xs:element ref="Sellers">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">VANHA NIMI = RealPropertyOwner ja yksikkörakenne</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="VATInfo"/>
+			<xs:element ref="RealEstate">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">VANHA NIMI = RealProperty</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="WorkingSiteText" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">VANHA NIMI = StandText</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="RoadUsingRight" minOccurs="0"/>
+			<xs:element ref="CallForOfferWorkingSiteWoodTradeInfo" minOccurs="0"/>
+			<xs:element ref="wsst:Stands" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Leimikon kuvioiden tiedot. Hankinta- ja käteiskaupoissa ei sisällytetä mukaan.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="WorkingSiteGeometries" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">VANHA NIMI = StandGeometries.</xs:documentation>
+					<xs:documentation xml:lang="fi">Leimikon sijantialueen paikkatieto. Hakkuuseen ja lähikuljetukseen vaikuttavat kohteet. Pistemäisiä, viivamaisia ja aluemaisia kohteita.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en">Points, lines and polygons that have some mening for felling and forwarding. Eg. diversity objects.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="parentId" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Viiteavain pääsanoman avaintietoon (tarjouspyynnön tunniste).</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Surrogate reference key for call for offer.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="id" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Tarjouspyynnön työmaa yksilöidään tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
+				<xs:documentation xml:lang="en">Working site of call for offer can be identified using string id.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="CallForOfferWorkingSiteWoodTradeInfoType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Yksittäisen leimikon tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Single stand data.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ForestUseDeclarationResponsible"/>
+			<xs:element ref="FellingRightValidityDate" minOccurs="0"/>
+			<xs:element ref="SupplyPoint" minOccurs="0"/>
+			<xs:element ref="as:AssortmentClasses" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Leimikon puutavaralajiluokittaiset yhteenvetotiedot puutavaralajien määristä.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- LISTA TARJOLLA OLEVISTA HAKKUISTA (HAKKUUID:T) -->
+			<xs:element ref="Cuttings"/>
+			<xs:element ref="wtco:Documents" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="WorkingSiteNameType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Työmaan yksilöivä tai tunnistamista helpottava nimi.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Some short and not numeric name for working site.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="IncludeInOfferType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kertoo tuleeko tämä leimikko sisällyttää tarjoukseen (0 = ei pakollinen, 1 = sisällytettävä)</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Indicates whether this stand must be included in offer or not (0= not necessary, 1= must be)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="bdt:YesNoType"/>
+	</xs:simpleType>
+
+	<xs:complexType name="SellerRepresentativePersonType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Myyjän edustaja leimikkoon liittyvissä käytännön kysymyksissä.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Person who should be contacted in practical issues/questions.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ci:ContactInformationType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="SellerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Työmaan myyjän (kiinteistön omistajan/haltijan) tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Person who sell working site (owns or controls real estate).</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ci:ContactInformationType"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="SellerGroupType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Myyjäryhmäkoodi.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base = "xs:string">
+			<xs:enumeration value = "0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei tietoa</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value = "1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Yksinomistus</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value = "2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Avioparin omistus</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value = "3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Verotusyhtymä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value = "4">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Elinkeinoyhtymä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value = "5">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Yhteismetsä, tiekunta</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value = "6">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Rajoitetusti verovelvollinen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value = "7">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Yhteisö</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value = "8">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuolinpesä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="SellersType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Työmaan myyjät (kiinteistön omistajat/haltijat).</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Persons who sell working site (owns or controls real estate).</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="Seller" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="subsidyPossibility" type="bdt:YesNoNotKnownType" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Myyjän (Kemera-)tukikelpoisuus.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en"></xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="sellerGroup" type="SellerGroupType" use="required">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Myyjäryhmä.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en"></xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:simpleType name="VATStatusType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Arvonlisäverovelvollisuus.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base = "xs:string">
+			<xs:enumeration value = "0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Myyjä ei ole arvonlisäverovelvollinen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value = "1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Myyjä on arvonlisäverovelvollinen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value = "2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Arvonlisäverovelvollisuutta ei ole selvitetty</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="VATRegistrationDateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Arvonlisäverovelvollisuuden rekisteröimispäivämäärä.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base = "bdt:DateType"/>
+	</xs:simpleType>
+
+	<xs:complexType name="VATInfoType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Arvonlisäverotustiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="VATStatus"/>
+			<xs:element ref="VATRegistrationDate" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CertificationSystemsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kiinteistöllä voimassa olevat sertifiointijärjestelmät.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Valid certification systems in specified real estate.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="CertificationSystem" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="CertificationSystemType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Sertifiointijärjestelmät.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Certification systems.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base = "xs:string">
+			<xs:enumeration value = "0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei sertifiointia</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en">No certification</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value = "1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">PEFC</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en">PEFC</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value = "2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">FSC</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en">FSC</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="RealEstateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Työmaan sijaintikiinteistön tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Real property where working site is located.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="re:RealEstateDataType">
+				<xs:sequence>
+					<xs:element ref="CertificationSystems" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="WorkingSiteTextType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Myyjän työmaakohtainen ostajalle toimitettava teksti (huomautusteksti).</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="500"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="WorkingSiteGeometriesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Leimikon sijantialueen paikkatieto. Hakkuuseen ja lähikuljetukseen vaikuttavat kohteet. Pistemäisiä, viivamaisia ja aluemaisia kohteita.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Points, lines and polygons that have some mening for felling and forwarding. Eg. diversity objects.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="WorkingSiteGeometry" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="ForestUseDeclarationResponsibleType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsänkäyttöilmoituksen tekijä.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base = "xs:string">
+			<xs:enumeration value = "1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Myyjä tai myyjän edustaja</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value = "2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ostaja</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value = "3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="FellingRightValidityDateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Pvm, johon asti hakkuuoikeus voimassa.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="bdt:DateType"/>
+	</xs:simpleType>
+	
+	<xs:simpleType name="SupplyPointType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Varastopaikka olemassa / selvitetty</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="bdt:YesNoNotKnownType"/>
+	</xs:simpleType>
+	
+   	<xs:complexType name="CuttingsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Leimikon myytäväksi tarjottavat hakkuut.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="Cutting" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+   	</xs:complexType>
+   	
+   	<xs:complexType name="CuttingType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Leimikon myytäväksi tarjottava hakkuu.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="id" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Hakkuun yksilöivä id.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">id which identified cutting.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+   	</xs:complexType>
+	
+	<xs:simpleType name="RoadUsingRightType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tieoikeus olemassa / selvitetty</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="bdt:YesNoNotKnownType"/>
+	</xs:simpleType>
+</xs:schema>
