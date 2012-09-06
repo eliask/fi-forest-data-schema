@@ -4,13 +4,45 @@
 	Yhteiset tyypit joita käytetään useissa eri skeemoissa.
 	Skeema on JHS-170 -suosituksen mukainen.
 	*******************************************************************
+	
+	Käytetty koordinaatisto esitettävä gml:n srsName -attribuutissa (esim "EPSG:3067")
+	
+	SUOSITUS:
+	EPSG:3067: ETRS-TM35FIN
+	
+	MUUT:
+	EPSG:3126: ETRS89 / ETRS-GK19FIN
+	EPSG:3127: ETRS89 / ETRS-GK20FIN
+	EPSG:3128: ETRS89 / ETRS-GK21FIN
+	EPSG:3129: ETRS89 / ETRS-GK22FIN
+	EPSG:3130: ETRS89 / ETRS-GK23FIN
+	EPSG:3131: ETRS89 / ETRS-GK24FIN
+	EPSG:3132: ETRS89 / ETRS-GK25FIN
+	EPSG:3133: ETRS89 / ETRS-GK26FIN
+	EPSG:3134: ETRS89 / ETRS-GK27FIN
+	EPSG:3135: ETRS89 / ETRS-GK28FIN
+	EPSG:3136: ETRS89 / ETRS-GK29FIN
+	EPSG:3137: ETRS89 / ETRS-GK30FIN
+	EPSG:3138: ETRS89 / ETRS-GK31FIN
+	
+	EPSG:2391: KKJ / Finland zone 1
+	EPSG:2392: KKJ / Finland zone 2
+	EPSG:2393: KKJ / Finland Uniform Coordinate System
+	EPSG:2394: KKJ / Finland zone 4
+	EPSG:3386: KKJ / Finland zone 0 (ei juurikaan käytetty)
+	EPSG:3387: KKJ / Finland zone 5 (ei juurikaan käytetty)
+	
+	EPSG:3047: ETRS89 / ETRS-TM35	
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes/2010/08/31"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes/2010/08/31"
 	xmlns:gml="http://www.opengis.net/gml"
 	elementFormDefault="unqualified"
-	version="1.0">
+	version="1.1">
+	
+	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
+	<!-- Ryhmän "PolygonGeometryGroup" elementti "gml:pointProperty" muutettu valinnaiseksi. -->
 	
 	<xs:import namespace="http://www.opengis.net/gml"
 			    schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/>
@@ -24,7 +56,7 @@
 	<!-- Type definitions -->
 	<xs:group name="PolygonGeometryGroup">
 		<xs:sequence>
-			<xs:element ref="gml:pointProperty">
+			<xs:element ref="gml:pointProperty" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Tunnistepisteen sijainti (alueen sisäpiste).</xs:documentation>
 					<xs:documentation xml:lang="sv"></xs:documentation>

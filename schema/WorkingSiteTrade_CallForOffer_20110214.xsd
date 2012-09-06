@@ -15,7 +15,12 @@
 	xmlns:ws="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14"
 	elementFormDefault="qualified"
 	attributeFormDefault="qualified"
-	version="1.0">
+	version="1.1">
+	
+	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
+	<!-- Tyypin "IncludeForestFundPaymentType" määrittely muutettu tyypistä "YesNo" tyypiksi "YesNoNotKnown" (eli koodistoon tullut arvojen "kyllä" ja "ei" lisäksi "ei tietoa"). -->
+	<!-- Tyypit "UsedPricingMethodsType", "UsedPricingMethodType", "IncludePaymentPlanType" ja "IncludeForestFundPayment" siirrety skeemaan "WorkingSiteTrade_Common_20110214.xsd". -->
+	<!-- Lisätty tyyppi "CallForOfferSilvicultureInfoType" -->
 
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14"
 				schemaLocation="WorkingSiteTrade_WorkingSite_20110214.xsd"/>
@@ -35,19 +40,21 @@
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
 	<xs:element name="CallForOffer" type="CallForOfferType"/>
-	<xs:element name="CallForOfferWoodTradeInfo" type="CallForOfferWoodTradeInfoType"/>
+	<xs:element name="CallForOfferWoodTradeInfo" type="wtco:CallForOfferWoodTradeInfoType"/>
 	<xs:element name="PurchaseMode" type="PurchaseModeType"/>
 	<xs:element name="AdditionalCode" type="AdditionalCodeType"/>
 	<xs:element name="Publicity" type="PublicityType"/>
-	<xs:element name="CallForOfferBusinessSender" type="CallForOfferBusinessSenderType"/>
+	<xs:element name="CallForOfferBusinessSender" type="wtco:CallForOfferBusinessSenderType"/>
 	<xs:element name="TechnicalContactPerson" type="TechnicalContactPersonType"/>
 	<xs:element name="CallForOfferDate" type="CallForOfferDateType"/>
 	<xs:element name="OfferExpirationDate" type="OfferExpirationDateType"/>
-	<xs:element name="IncludePaymentPlan" type="IncludePaymentPlanType"/>
-	<xs:element name="IncludeForestFundPayment" type="IncludeForestFundPaymentType"/>
-	<xs:element name="UsedPricingMethods" type="UsedPricingMethodsType"/>
-	<xs:element name="UsedPricingMethod" type="UsedPricingMethodType"/>
-	<xs:element name="CallForOfferText" type="CallForOfferTextType"/>
+	<xs:element name="UsedPricingMethods" type="wtco:UsedPricingMethodsType"/>
+	<xs:element name="UsedPricingMethod" type="wtco:UsedPricingMethodType"/>
+	<xs:element name="CallForOfferText" type="wtco:CallForOfferTextType"/>
+	<xs:element name="CallForOfferSilvicultureInfo" type="CallForOfferSilvicultureInfoType"/>
+	<xs:element name="SilvicultureMode" type="SilvicultureModeType"/>
+	<xs:element name="IncludePaymentPlan" type="wtco:IncludePaymentPlanType"/>
+	<xs:element name="UsedPricingMethodType" type="UsedPricingMethodTypeType"/>
 	
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
@@ -74,7 +81,7 @@
 			<xs:element ref="OfferExpirationDate"/>
 			<xs:element ref="CallForOfferText" minOccurs="0"/>
 			<xs:element ref="CallForOfferWoodTradeInfo" minOccurs="0"/>
-			<!--  Vaihtoehtona metsähoitorakenne -->
+			<xs:element ref="CallForOfferSilvicultureInfo" minOccurs="0"/>			
 			<xs:element ref="ws:CallForOfferWorkingSites">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">VANHA NIMI = Stands</xs:documentation>
@@ -89,20 +96,6 @@
 				<xs:documentation xml:lang="en">Call for offer can be identified using string id.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-	</xs:complexType>
-	
-	<xs:complexType name="CallForOfferWoodTradeInfoType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Puukaupan tarjouspyynnön tiedot.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Wood purchase call for offer data.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="PurchaseMode"/>
-			<xs:element ref="IncludePaymentPlan" minOccurs="0"/>
-			<xs:element ref="IncludeForestFundPayment"/>
-			<xs:element ref="UsedPricingMethods" minOccurs="0"/>
-		</xs:sequence>
 	</xs:complexType>
 	
 	<xs:simpleType name="PurchaseModeType">
@@ -149,56 +142,6 @@
 		</xs:restriction>
 	</xs:simpleType>
 	
-	<xs:complexType name="CallForOfferBusinessSenderType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Tarjouspyynnön jättäjän yhteystiedot.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Business person who generated call for offer.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="ci:ContactInformationType">
-				<xs:attribute name="role" type="CallForOfferBusinessSenderRoleType" use="required">
-					<xs:annotation>
-						<xs:documentation xml:lang="fi">Henkilö/organisaation rooli.</xs:documentation>
-						<xs:documentation xml:lang="sv"></xs:documentation>
-						<xs:documentation xml:lang="en">Role of person/organization.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-			</xs:extension> 
-		</xs:complexContent>
-	</xs:complexType>
-	
-	<xs:simpleType name = "CallForOfferBusinessSenderRoleType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Tarjouspyynnön lähettäjän rooli.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Role of business sender of call for offer.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base = "xs:string">
-			<xs:enumeration value = "1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Metsänomistaja</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Avustaja puukaupassa</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Valtakirjan omistaja</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	
 	<xs:complexType name="TechnicalContactPersonType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Teknisistä asioista vastaavan henkilön yhteystiedot.</xs:documentation>
@@ -227,67 +170,69 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:DateType"/>
 	</xs:simpleType>
-	
-	<xs:simpleType name="IncludePaymentPlanType">
+
+	<xs:simpleType name="SilvicultureModeType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Toive puukaupan maksusuunnitelman sisällyttämisestä tarjoukseen.</xs:documentation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Request to include payment plan of wood trade in offer.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="bdt:YesNoType"/>
-	</xs:simpleType>
-	
-	<xs:simpleType name="IncludeForestFundPaymentType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Puukauppaan sisältyy metsäsäätiöavustus.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Wood trade includes forest fund payment.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="bdt:YesNoType"/>
-	</xs:simpleType>
-	
-	<xs:complexType name="UsedPricingMethodsType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Toiveet käytettävästä hinnoittelumenetelmästä.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Requests for used pricing method.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="UsedPricingMethod" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	
-	<xs:simpleType name="UsedPricingMethodType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Toive käytettävästä hinnoittelumenetelmästä.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Request for used pricing method.</xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>			
 		</xs:annotation>
 		<xs:restriction base = "xs:string">
 			<xs:enumeration value = "1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kaikki</xs:documentation>
+					<xs:documentation xml:lang="fi">Pelkkä työsuoritus</xs:documentation>
 					<xs:documentation xml:lang="sv"></xs:documentation>
 					<xs:documentation xml:lang="en"></xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value = "2">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tavaralajihinnoittelu</xs:documentation>
+					<xs:documentation xml:lang="fi">Pelkät materiaalit</xs:documentation>
 					<xs:documentation xml:lang="sv"></xs:documentation>
 					<xs:documentation xml:lang="en"></xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value = "3">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Rungonosahinnoittelu</xs:documentation>
+					<xs:documentation xml:lang="fi">Työsuoritus ja materiaalit</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>	
+	</xs:simpleType>
+
+	<xs:simpleType name="UsedPricingMethodTypeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Hinnoittelumenetelmä. Viisielementtinen koodistoarvo. Varmista koodien arvot!</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>			
+		</xs:annotation>
+		<xs:restriction base = "xs:string">
+			<xs:enumeration value = "1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pinta-alahinnoittelu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value = "2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tilavuushinnoittelu (esim. sora, murske, kantokäsittelyaine jne.)</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value = "3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kappalehinnoittelu</xs:documentation>
 					<xs:documentation xml:lang="sv"></xs:documentation>
 					<xs:documentation xml:lang="en"></xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value = "4">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Runkohinnoittelu</xs:documentation>
+					<xs:documentation xml:lang="fi">Aikahinnoittelu</xs:documentation>
 					<xs:documentation xml:lang="sv"></xs:documentation>
 					<xs:documentation xml:lang="en"></xs:documentation>
 				</xs:annotation>
@@ -299,25 +244,25 @@
 					<xs:documentation xml:lang="en"></xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value = "6">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Pinta-alahinnoittelu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		</xs:restriction>		
 	</xs:simpleType>
-	
-	<xs:simpleType name="CallForOfferTextType">
+
+	<xs:complexType name="CallForOfferSilvicultureInfoType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Tarjouspyynnön teksti.</xs:documentation>
+			<xs:documentation xml:lang="fi">Metsänhoitotyön tiedot.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="en">Silviculture data.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="500"/>
-		</xs:restriction>
-	</xs:simpleType>
-	
+		<xs:sequence>
+			<xs:element ref="SilvicultureMode" minOccurs="0"/>
+			<xs:element ref="IncludePaymentPlan" minOccurs="0"/>			
+			<xs:element ref="UsedPricingMethodType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koodistoarvo: pinta-alahinnoittelu, tilavuushinnoittelu, kappalehinnoittelu, aikahinnoittelu, sekahinnoittelu.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en">Enumerative.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>

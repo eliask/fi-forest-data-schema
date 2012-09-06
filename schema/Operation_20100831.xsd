@@ -12,13 +12,17 @@
     xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
     xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2010/05/14"
     elementFormDefault="qualified"
-    version="1.1">
+    version="1.2">
     
     <!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
     <!-- Lisätty hakkuutapoja. Mukaan otettu metsänkäyttöilmoituksella ja puukaupassa käytetyt hakkuutavat. -->
     <!-- Puutavaralajin runkolaji määrittelyt siirretty Common-määrittelyiksi. Uusia runkolajeja lisätty. -->
     <!-- Toimenpiteen (hakkuun ja metsänhoidon) tarkenteita (CommonOperationExtraQualifierType) lisätty. -->
-    
+	<!-- VERSIOKOMMENTIT 1.1 >>> 1.2 -->
+	<!-- Elementti "co:DataSource" muutettu valinnaiseksi. -->
+	<!-- Tyyppi "co:ExtraTreeSpeciesType" lisätty tyypin "TreeSpeciesType" union-määrittelyyn. -->
+	<!-- Tyypille "OperationDefType" lisätty elementti "Identifiers". -->
+	<!-- Lisätty koodi 1103 tyypin "CuttingExtraQualifierType" koodistoon. -->
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
 				schemaLocation="Common_BasicDataType_20100831.xsd"/>
     
@@ -32,6 +36,8 @@
    	<!-- Element definitions -->
     <xs:element name="Operations" type="OperationsType"/>
     <xs:element name="Operation" type="OperationDefType"/>
+	<xs:element name="Identifiers" type="IdentifiersType"/>
+	<xs:element name="Identifier" type="co:IdentifierType"/>
     <xs:element name="OperationType" type="OperationTypeType"/>
     <xs:element name="ProposalData" type="ProposalDataType"/>
     <xs:element name="ProposalType" type="ProposalTypeType"/>
@@ -83,11 +89,12 @@
         <xs:sequence>
             <xs:element ref="co:ChangeState" minOccurs="0"/>
             <xs:element ref="co:ChangeTime" minOccurs="0"/>
+        	<xs:element ref="Identifiers" minOccurs="0"/>
             <xs:element ref="OperationType"/>
             <xs:element ref="ProposalData" minOccurs="0"/>
             <xs:element ref="CompletionData" minOccurs="0"/>
             <xs:element ref="OperationInfo" minOccurs="0"/>
-            <xs:element ref="co:DataSource"/>
+            <xs:element ref="co:DataSource" minOccurs="0"/>
             <xs:element ref="Specifications" minOccurs="0" maxOccurs="1"/>
             <xs:choice>
                 <xs:element ref="Cutting"/>
@@ -109,6 +116,17 @@
             </xs:annotation>
         </xs:attribute>
     </xs:complexType>
+	
+	<xs:complexType name="IdentifiersType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Toimenpiteen tunnisteet.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Identifiers of an operation.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="Identifier" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
     
     <xs:simpleType name="MainTypeType">
         <xs:annotation>
@@ -2123,6 +2141,13 @@
 					<xs:documentation xml:lang="en"></xs:documentation>
         		</xs:annotation>
         	</xs:enumeration>
+			<xs:enumeration value="1103">
+        		<xs:annotation>
+        			<xs:documentation xml:lang="fi">Voidaan käsitellä joukkokäsittelykouralla</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+        		</xs:annotation>
+        	</xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
 
@@ -2316,9 +2341,9 @@
 
     <xs:simpleType name="CuttingVolumeType">
         <xs:annotation>
-            <xs:documentation xml:lang="fi">Hakkuun kertymä (arvio).</xs:documentation>
+            <xs:documentation xml:lang="fi">Hakkuun kertymä (arvio). Käytettävä yksikkö on m3.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Cutting volume (estimation).</xs:documentation>
+			<xs:documentation xml:lang="en">Cutting volume (estimation). Unit is m3.</xs:documentation>
         </xs:annotation>
         <xs:union memberTypes="bdt:Decimal5TotalDigitsType bdt:Decimal2FractionDigitsType"/>
     </xs:simpleType>
@@ -2365,7 +2390,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Tree species of assortment</xs:documentation>
        	</xs:annotation>
-        <xs:union memberTypes="co:TreeSpeciesType bdt:EmptyStringType"/>        
+        <xs:union memberTypes="co:TreeSpeciesType bdt:EmptyStringType co:ExtraTreeSpeciesType"/>        
     </xs:simpleType>
     
     <xs:simpleType name="StemTypeType">

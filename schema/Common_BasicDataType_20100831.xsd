@@ -12,13 +12,16 @@
 	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
 	elementFormDefault="unqualified"
 	attributeFormDefault="unqualified"
-	version="1.1">
+	version="1.2">
 
     <!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
     <!-- Uusi määrittely "YesNoNotKnownType". -->
     <!-- Uusi määrittely "CountryCodeType". -->
     <!-- Uusi määrittely "LanguageCode1Type". -->
     <!-- Uusi määrittely "LanguageCode2Type". -->
+	<!-- VERSIOKOMMENTIT 1.1 >>> 1.2 -->
+	<!-- Uusi määrittely "PositiveDecimalMax2IntegralPartMax1FractionalPartType". -->
+	<!-- Uusi määrittely "PositiveDecimalMax4IntegralPartMax2FractionalPartType". -->
 
 	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
 				schemaLocation="JHS170_20090304.xsd"/>
@@ -183,6 +186,28 @@
 		</xs:restriction>
 	</xs:simpleType>
 	
+	<xs:simpleType name="PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Positiivinen desimaaliluku, jonka kokonaislukuosassa maksimissaan 2 numeroa ja desimaaliosassa maksimissaan 1 numero. Kattaa siis arvot 0,0 - 99,9.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Positive decimal fraction with maximum 2 numbers in its integral part and maximum 1 number in its fractinoal part. Thus covers values 0,0 - 99,9.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,2}\.?[0-9]{0,1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="PositiveDecimalMax4IntegralPartMax2FractionalPartType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Positiivinen desimaaliluku, jonka kokonaislukuosassa maksimissaan 4 numeroa ja desimaaliosassa maksimissaan 2 numeroa. Kattaa siis arvot 0,0 - 9999,99.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Positive decimal fraction with maximum 4 numbers in its integral part and maximum 2 numbers in its fractinoal part. Thus covers values 0,0 - 9999,99.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,4}\.?[0-9]{0,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
 	<xs:simpleType name="TimeStampType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Aikaleiman tiedot muodossa VVVV-KK-PPTtt:mm:ss, minimivuosi on 1970.</xs:documentation>
@@ -235,6 +260,17 @@
 			<xs:documentation xml:lang="en">Date, date format YYYY-MM (1.6, "--06-01" / "--06-01Z" UTC / "--06-01+02:00" UTC+02.00) or YYYY-MM-DD (1.6.2009, "2009-06-01" / "2009-06-01Z" UTC / "2009-06-01+02.00" UTC+02.00).</xs:documentation>
 		</xs:annotation>
 		<xs:union memberTypes="xs:gMonthDay DateType"/>
+	</xs:simpleType>
+	
+	<xs:simpleType name="DateMmDdYyyyType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Päivämäärä muodossa pp.kk.vvvv. Esimerkiksi 1.6.2009 tai 01.06.2009.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Date in format dd.mm.yyyy. For example 1.6.2009 or 01.06.2009.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(0[1-9]|[12][0-9]|3[01])[.](0[1-9]|1[012])[.](19|20)\d\d"/>
+		</xs:restriction>
 	</xs:simpleType>
 
     <xs:simpleType name="YearType">

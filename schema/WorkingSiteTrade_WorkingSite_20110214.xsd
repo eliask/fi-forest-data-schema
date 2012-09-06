@@ -20,7 +20,6 @@
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/offerworkingsite/2011/02/14"
 				schemaLocation="WorkingSiteTrade_OfferWorkingSite_20110214.xsd"/>
 
-
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
    	<xs:element name="CallForOfferWorkingSites" type="CallForOfferWorkingSitesType"/>
@@ -28,7 +27,6 @@
 	<xs:element name="WorkingSiteKey" type="WorkingSiteKeyType"/>
    	<xs:element name="CallForOfferWorkingSiteDetails" type="CallForOfferWorkingSiteDetailsType"/>
    	<xs:element name="OfferWorkingSiteDetails" type="OfferWorkingSiteDetailsType"/>
-   	
 	
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
@@ -108,5 +106,4 @@
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
-
 </xs:schema>

@@ -57,7 +57,7 @@
             <xs:element ref="Validity" minOccurs="0"/>
             <xs:element ref="FeatureInfo" minOccurs="0"/>
             <xs:element ref="FeatureAdditionalInfo" minOccurs="0"/>
-            <xs:element ref="co:DataSource"/>
+            <xs:element ref="co:DataSource" minOccurs="0"/>
         </xs:sequence>	
         <xs:attribute name="id" type="xs:string">
             <xs:annotation>

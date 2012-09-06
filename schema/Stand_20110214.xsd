@@ -23,6 +23,8 @@
     <!-- VERSIOKOMMENTIT  -->
     <!-- Versio käyttää kuviotietojen perusmäärittelyistä "forestData/standbase/2011/02/14" perittyjä määrittelyjä, jotka vastaavat sisällöltään alkuperäisiä -->
     <!-- Versio käyttää erityispiirretietojen määrittelyä "forestData/specialFeature/2011/02/14" -->
+	<!-- VERSIOKOMMENTIT 1.1 >>> 1.2 -->
+	<!-- Lisätty elementit "ThinningYear", "CuttingRestrictionEnds" ja "SilvicultureRestrictionEnds". -->
 	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14"
 			    schemaLocation="StandBase_20110214.xsd"/>
@@ -64,12 +66,15 @@
 	<xs:element name="SoilType" type="SoilTypeType"/>
 	<xs:element name="DrainageState" type="DrainageStateType"/>
 	<xs:element name="DitchingYear" type="DitchingYearType"/>
+	<xs:element name="ThinningYear" type="bdt:YearType"/> 
 	<xs:element name="DevelopmentClass" type="DevelopmentClassType"/>
 	<xs:element name="StandQuality" type="StandQualityType"/>
 	<xs:element name="MainTreeSpecies" type="MainTreeSpeciesType"/>
 	<xs:element name="Accessibility" type="AccessibilityType"/>
 	<xs:element name="CuttingRestriction" type="CuttingRestrictionType"/>
+	<xs:element name="CuttingRestrictionEnds" type="bdt:DateType"/>	
 	<xs:element name="SilvicultureRestriction" type="SilvicultureRestrictionType"/>
+	<xs:element name="SilvicultureRestrictionEnds" type="bdt:DateType"/> 
 	<xs:element name="StandBasicDataDate" type="StandBasicDataDateType"/>
 	<xs:element name="StandInfo" type="StandInfoType"/>
 	<xs:element name="Area" type="AreaType"/>
@@ -131,15 +136,36 @@
 			<xs:element ref="SoilType" minOccurs="0"/>
 			<xs:element ref="DrainageState" minOccurs="0"/>
 			<xs:element ref="DitchingYear" minOccurs="0"/>
+			<xs:element ref="ThinningYear" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Viimeisimmän harvennuksen ajankohta.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>			
+			</xs:element>
 			<xs:element ref="DevelopmentClass" minOccurs="0"/>
 			<xs:element ref="StandQuality" minOccurs="0"/>
 			<xs:element ref="MainTreeSpecies" minOccurs="0"/>
 			<xs:element ref="Accessibility" minOccurs="0"/>
 			<xs:element ref="CuttingRestriction" minOccurs="0"/>
+			<xs:element ref="CuttingRestrictionEnds" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Hakkuun rajoituksen päättymispäivä.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>			
+			</xs:element>
             <xs:element ref="SilvicultureRestriction" minOccurs="0"/>
+			<xs:element ref="SilvicultureRestrictionEnds" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Metsänhoitotyön rajoituksen päättymispäivä.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>			
+			</xs:element>			
 			<xs:element ref="StandBasicDataDate"/>
 			<xs:element ref="StandInfo" minOccurs="0"/>
-			<xs:element ref="co:DataSource"/>
+			<xs:element ref="co:DataSource" minOccurs="0"/>
 			<xs:element ref="Area"/>
 			<xs:element ref="AreaDecrease" minOccurs="0"/>
             <xs:choice>
@@ -240,7 +266,7 @@
 		</xs:annotation>
 		<xs:restriction base="stb:DitchingYearType"></xs:restriction>
 	</xs:simpleType>
-	
+
 	<xs:simpleType name="DevelopmentClassType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kehitysluokka.</xs:documentation>

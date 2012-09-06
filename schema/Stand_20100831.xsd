@@ -18,7 +18,14 @@
 	xmlns:gml="http://www.opengis.net/gml"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified"
-	version="1.0">
+	version="1.2">
+	
+	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
+	<!-- Otettu käyttöön nimiavaruus "stb", jossa määritelty kuviotyypin käyttämiä yleisiä tyyppejä. -->
+	<!-- "realEstateId" ja "parcelId" -attribuutit lisätty kuvioelementille "Stand". -->
+	<!-- Elementti "co:DataSource" muutettu valinnaiseksi -->
+	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->	
+	<!-- Lisätty elementit "ThinningYear", "CuttingRestrictionEnds" ja "SilvicultureRestrictionEnds". -->	
 	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStand/2010/08/31"
 			    schemaLocation="TreeStand_20100831.xsd"/>
@@ -44,16 +51,13 @@
 	<xs:import namespace="http://www.opengis.net/gml"
 			    schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/>
 
-	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
 	<xs:element name="Stands" type="StandsType"/>
 	<xs:element name="Stand" type="StandType"/>
 	<xs:element name="StandBasicData" type="StandBasicDataType"/>
 	<xs:element name="CompleteState" type="CompleteStateType"/>
 	<xs:element name="Identifiers" type="IdentifiersType"/>
-	<xs:element name="Identifier" type="IdentifierType"/>
-	<xs:element name="IdentifierType" type="IdentifierTypeType"/>
-	<xs:element name="IdentifierValue" type="IdentifierValueType"/>
+	<xs:element name="Identifier" type="co:IdentifierType"/>
 	<xs:element name="StandNumber" type="StandNumberType"/>
 	<xs:element name="StandNumberExtension" type="StandNumberExtensionType"/>
 	<xs:element name="MainGroup" type="MainGroupType"/>
@@ -62,18 +66,22 @@
 	<xs:element name="SoilType" type="SoilTypeType"/>
 	<xs:element name="DrainageState" type="DrainageStateType"/>
 	<xs:element name="DitchingYear" type="DitchingYearType"/>
+	<xs:element name="ThinningYear" type="bdt:YearType"/>	
 	<xs:element name="DevelopmentClass" type="DevelopmentClassType"/>
 	<xs:element name="StandQuality" type="StandQualityType"/>
 	<xs:element name="MainTreeSpecies" type="MainTreeSpeciesType"/>
 	<xs:element name="Accessibility" type="AccessibilityType"/>
 	<xs:element name="CuttingRestriction" type="CuttingRestrictionType"/>
+	<xs:element name="CuttingRestrictionEnds" type="bdt:DateType"/>		
 	<xs:element name="SilvicultureRestriction" type="SilvicultureRestrictionType"/>
+	<xs:element name="SilvicultureRestrictionEnds" type="bdt:DateType"/> 	
 	<xs:element name="StandBasicDataDate" type="StandBasicDataDateType"/>
 	<xs:element name="StandInfo" type="StandInfoType"/>
 	<xs:element name="Area" type="AreaType"/>
 	<xs:element name="AreaDecrease" type="AreaDecreaseType"/>
 	<xs:element name="SpecialFeatures" type="SpecialFeaturesType"/>
 	<xs:element name="SpecialFeature" type="sf:SpecialFeatureType"/>
+	<xs:element name="GrowthPlaceDataSource" type="co:DataSourceType"/>
 	
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
@@ -108,6 +116,20 @@
 				<xs:documentation xml:lang="en">Stand can be identified using string id.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+		<xs:attribute name="realEstateId" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Viiteavain kiinteistöön.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Foreign key to real estate.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="parcelId" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Viiteavain palstaan.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Foreign key to parcel.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 
 	<xs:complexType name="StandBasicDataType">
@@ -129,15 +151,37 @@
 			<xs:element ref="SoilType" minOccurs="0"/>
 			<xs:element ref="DrainageState" minOccurs="0"/>
 			<xs:element ref="DitchingYear" minOccurs="0"/>
+			<xs:element ref="ThinningYear" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Viimeisimmän harvennuksen ajankohta.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>			
+			</xs:element>			
 			<xs:element ref="DevelopmentClass" minOccurs="0"/>
 			<xs:element ref="StandQuality" minOccurs="0"/>
 			<xs:element ref="MainTreeSpecies" minOccurs="0"/>
 			<xs:element ref="Accessibility" minOccurs="0"/>
 			<xs:element ref="CuttingRestriction" minOccurs="0"/>
+			<xs:element ref="CuttingRestrictionEnds" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Hakkuun rajoituksen päättymispäivä.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>			
+			</xs:element>			
             <xs:element ref="SilvicultureRestriction" minOccurs="0"/>
+			<xs:element ref="SilvicultureRestrictionEnds" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Metsänhoitotyön rajoituksen päättymispäivä.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>			
+			</xs:element>	
 			<xs:element ref="StandBasicDataDate"/>
 			<xs:element ref="StandInfo" minOccurs="0"/>
-			<xs:element ref="co:DataSource"/>
+			<xs:element ref="co:DataSource" minOccurs="0"/>
+			<xs:element ref="GrowthPlaceDataSource" minOccurs="0"/>
 			<xs:element ref="Area"/>
 			<xs:element ref="AreaDecrease" minOccurs="0"/>
             <xs:choice>
@@ -167,86 +211,6 @@
 		</xs:sequence>
 	</xs:complexType>
 	
-	<xs:complexType name="IdentifierType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Yksittäinen kuvion tunniste.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Single identifier of stand.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="IdentifierType"/>
-			<xs:element ref="IdentifierValue"/>
-		</xs:sequence>
-	</xs:complexType>
-	
-	<xs:simpleType name="IdentifierTypeType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Tunnisteen laji.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Type of identifier.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="co:IdentifierTypeType">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Alue. Aluetunniste.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Lohko. Lohkotunniste.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Metsäsuunnitelma. Metsäsuunnitelman tunniste.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Inventointialue. Inventointialuetunniste. Inventointialueen tai muun vastaavan tiedon tuottajaosapuolen aluejaon tunniste.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tiedon tuottaja. Tallentajatunniste. Tiedon tallentajaan, inventoijaan tai suunnittelijaan viittaava tunniste.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="6">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kuvion / tunnuspisteen kuvaustapa / laji.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="7">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kuvion tilaa kuvaava tunnus.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:simpleType name="IdentifierValueType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Tunnisteen arvo.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Value of identifier.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="co:IdentifierValueType"/>
-	</xs:simpleType>
-
 	<xs:simpleType name="StandNumberType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvionumero.</xs:documentation>

@@ -11,8 +11,14 @@
     xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
     xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
     elementFormDefault="qualified"
-    version="1.0">
-    
+    version="1.2">
+	
+	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
+	<!-- Tyypin "TreeStratumType" elementti "MeanDiameter" muutettu valinnaiseksi. -->
+	<!-- Elementti "co:DataSource" muutettu valinnaiseksi -->
+	<!-- VERSIOKOMMENTIT 1.1 >>> 1.2 -->
+	<!-- Lisätty elementit "Value", "Currency" ja "ValueGowthPercent" -->
+	
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
 				schemaLocation="Common_BasicDataType_20100831.xsd"/>
 
@@ -40,6 +46,9 @@
     <xs:element name="BranchBiomass" type="BranchBiomassType"/>
     <xs:element name="StemBiomass" type="StemBiomassType"/>
     <xs:element name="StumpBiomass" type="StumpBiomassType"/>
+    <xs:element name="Value" type="bdt:Decimal2FractionDigitsType"/>
+    <xs:element name="Currency" type="co:CurrencyType"/>
+    <xs:element name="ValueGrowthPercent" type="bdt:Decimal2FractionDigitsType"/>
     
     <!-- Tyyppimääritykset -->
     <!-- Type definitions -->
@@ -71,7 +80,7 @@
 			<!-- Recommendation: Either basal area or stem count has to find out in message -->
 			<xs:element ref="BasalArea" minOccurs="0"/>
 			<xs:element ref="StemCount" minOccurs="0"/>
-			<xs:element ref="MeanDiameter"/>
+			<xs:element ref="MeanDiameter" minOccurs="0"/>
 			<xs:element ref="MeanHeight"/>
 			<xs:element ref="Volume" minOccurs="0"/>
 			<xs:element ref="SawLogPercent" minOccurs="0"/>
@@ -82,7 +91,28 @@
 			<xs:element ref="BranchBiomass" minOccurs="0"/>
 			<xs:element ref="StemBiomass" minOccurs="0"/>
 			<xs:element ref="StumpBiomass" minOccurs="0"/>
-			<xs:element ref="co:DataSource"/>
+			<xs:element ref="co:DataSource" minOccurs="0"/>
+			<xs:element ref="Value" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pystypuuston arvo. Käytettävä yksikkö on euro.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="Currency" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pystypuuston arvo -kentässä käytettävä valuuttayksikkö.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="ValueGrowthPercent" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pystypuuston arvon kasvuprosentti. Käytettävä yksikkö on %.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>			
+			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
 			<xs:annotation>

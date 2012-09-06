@@ -91,6 +91,11 @@
 	</xs:complexType>
 
 	<xs:simpleType name="TreeStandDataMomentType">	
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Laskenta- ja ennustetyyppi eri koodeina koska ainakin aiemmin metsäkeskuksissa on käytetty tulevaisuuden puuston esittämisessä molempia. Laskentatyyppisessä tiedot on esitetty puusto-ositetarkkuudella ja ennustetyyppisessä on ollut pelkkä yhteenveto. Näiden kahden tyypin soveltamisesta voivat tiedonsiirtosovellukset päättää keskenään.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>	
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="1">
 				<xs:annotation>
@@ -101,7 +106,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="2">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Laskenta-tyyppi</xs:documentation>
+					<xs:documentation xml:lang="fi">Laskenta-tyyppi.</xs:documentation>
 					<xs:documentation xml:lang="sv"></xs:documentation>
 					<xs:documentation xml:lang="en"></xs:documentation>
 				</xs:annotation>
@@ -115,5 +120,4 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	
 </xs:schema>

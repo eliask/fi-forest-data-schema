@@ -13,7 +13,10 @@
     xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
     xmlns:gml="http://www.opengis.net/gml"
     elementFormDefault="qualified"
-    version="1.0">
+    version="1.1">
+
+    <!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
+    <!-- Elementti "co:DataSource" muutettu valinnaiseksi -->
     
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes/2010/08/31"
 			    schemaLocation="Common_GeometricDataType_20100831.xsd"/>
@@ -61,7 +64,7 @@
             <xs:element ref="Validity" minOccurs="0"/>
             <xs:element ref="FeatureInfo" minOccurs="0"/>
             <xs:element ref="FeatureAdditionalInfo" minOccurs="0"/>
-            <xs:element ref="co:DataSource"/>
+            <xs:element ref="co:DataSource" minOccurs="0"/>
         </xs:sequence>	
         <xs:attribute name="id" type="xs:string">
             <xs:annotation>

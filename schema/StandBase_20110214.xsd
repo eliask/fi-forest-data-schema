@@ -12,7 +12,10 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified"
-	version="1.0">
+	version="1.1">
+	
+	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
+	<!-- Elementin "Identifier" tyyppi otetaan nimiavaruudesta "co". -->
 	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
 			    schemaLocation="Common_BasicDataType_20100831.xsd"/>
@@ -23,9 +26,7 @@
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
 	<xs:element name="Identifiers" type="IdentifiersType"/>
-	<xs:element name="Identifier" type="IdentifierType"/>
-	<xs:element name="IdentifierType" type="IdentifierTypeType"/>
-	<xs:element name="IdentifierValue" type="IdentifierValueType"/>
+	<xs:element name="Identifier" type="co:IdentifierType"/>
 	<xs:element name="StandNumber" type="StandNumberType"/>
 	<xs:element name="StandNumberExtension" type="StandNumberExtensionType"/>
 	<xs:element name="MainGroup" type="MainGroupType"/>
@@ -58,86 +59,6 @@
 		</xs:sequence>
 	</xs:complexType>
 	
-	<xs:complexType name="IdentifierType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Yksittäinen kuvion tunniste.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Single identifier of stand.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="IdentifierType"/>
-			<xs:element ref="IdentifierValue"/>
-		</xs:sequence>
-	</xs:complexType>
-	
-	<xs:simpleType name="IdentifierTypeType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Tunnisteen laji.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Type of identifier.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="co:IdentifierTypeType">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Alue. Aluetunniste.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Lohko. Lohkotunniste.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Metsäsuunnitelma. Metsäsuunnitelman tunniste.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Inventointialue. Inventointialuetunniste. Inventointialueen tai muun vastaavan tiedon tuottajaosapuolen aluejaon tunniste.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tiedon tuottaja. Tallentajatunniste. Tiedon tallentajaan, inventoijaan tai suunnittelijaan viittaava tunniste.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="6">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kuvion / tunnuspisteen kuvaustapa / laji.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="7">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kuvion tilaa kuvaava tunnus.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:simpleType name="IdentifierValueType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Tunnisteen arvo.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Value of identifier.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="co:IdentifierValueType"/>
-	</xs:simpleType>
-
 	<xs:simpleType name="StandNumberType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvionumero.</xs:documentation>

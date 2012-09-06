@@ -44,7 +44,10 @@
 	<xs:element name="AssortmentClassCode" type="AssortmentClassCodeType"/>
 	<xs:element name="AssortmentClass" type="AssortmentClassType"/>
 	<xs:element name="AssortmentClasses" type="AssortmentClassesType"/>
-	
+	<xs:element name="AssortmentCompact" type="AssortmentCompactType"/>	
+	<xs:element name="AssortmentsCompact" type="AssortmentsCompactType"/>	
+	<xs:element name="AssortmentCompactClass" type="AssortmentCompactClassType"/>	
+	<xs:element name="AssortmentCompactClasses" type="AssortmentCompactClassesType"/>
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
 	<xs:simpleType name="WoodLotInformationTypeType">
@@ -357,12 +360,12 @@
 
 	<xs:group name="PricesAndCurrencyGroup">
 		<xs:sequence>
-			<xs:element ref="UnitPrice"/>
+			<xs:element ref="UnitPrice" minOccurs="0"/>
 			<xs:element ref="TotalPrice"/>
 			<xs:element ref="Currency"/>
 		</xs:sequence>
 	</xs:group>
-
+	
 	<xs:simpleType name="DiameterMinType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Minimilatvaläpimitta (cm).</xs:documentation>
@@ -462,6 +465,17 @@
 		</xs:sequence>
 	</xs:complexType>
 	
+	<xs:complexType name="AssortmentsCompactType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Puutavaralajit.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Assortments with compact information.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="AssortmentCompact" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>	
+	
 	<xs:simpleType name = "AssortmentClassCodeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tarkentava koodi puutavaralajille. Hintaluokka.</xs:documentation>
@@ -532,6 +546,31 @@
 		</xs:sequence>
 	</xs:complexType>
 
+	<xs:complexType name="AssortmentCompactClassType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Puutavaralajiluokan tiedot suppein tiedoin.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="AssortmentClassCode">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">VANHA NIMI = ClassCode</xs:documentation>
+					<xs:documentation xml:lang="fi">Puutavaralajiluokan tunnus, esim. hakkuutapa, hintaluokka, toimituskelpoisuus tai em. yhdistelmä.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en">Assortment class code, usually "first thinning", "thinning", "regeneretion felling".</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="AssortmentsCompact">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Puutavaralajiluokan puutavaralajit suppein tiedoin.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
 	<xs:complexType name="AssortmentClassesType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajiluokat.</xs:documentation>
@@ -541,6 +580,46 @@
 		<xs:sequence>
 			<xs:element ref="AssortmentClass" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="AssortmentCompactClassesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Puutavaralajiluokat suppein tiedoin.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="AssortmentCompactClass" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="AssortmentCompactElementsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Puutavaralajin suppeat tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Compact information about assortment.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:group ref="AssortmentIdentifierGroup"/>
+			<xs:group ref="QuantityGroup"/>
+			<xs:group ref="PricesAndCurrencyGroup" minOccurs="0"/>
+			<xs:element ref="AssortmentInfo" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">VANHA NIMI = Text</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="AssortmentCompactType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Puutavaralajin suppeat tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Compact information about assortment.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="AssortmentCompactElementsType"/>
+		</xs:complexContent>
 	</xs:complexType>
 
 </xs:schema>

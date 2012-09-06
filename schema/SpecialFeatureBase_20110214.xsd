@@ -11,7 +11,10 @@
     xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
     xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
     elementFormDefault="qualified"
-    version="1.0">
+    version="1.1">
+    
+    <!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
+    <!-- Tyypin "FeatureCodeType" koodistoon lisätty arvot 10031 ja 10032. -->
     
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
 				schemaLocation="Common_BasicDataType_20100831.xsd"/>
@@ -23262,6 +23265,20 @@
 					<xs:documentation xml:lang="en"></xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+            <xs:enumeration value="10031">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Tie</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="10032">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Oja</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
 			<xs:enumeration value="15010">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Harjujensuojelu</xs:documentation>

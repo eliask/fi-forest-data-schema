@@ -17,6 +17,9 @@
 	attributeFormDefault="qualified"
 	version="1.0">
 
+	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
+	<!-- Lisätty elementit "CallForOfferBusinessSender", "CallForOfferText" ja "CallForOfferWoodTradeInfo" -->
+	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14"
 				schemaLocation="WorkingSiteTrade_WorkingSite_20110214.xsd"/>
 
@@ -35,11 +38,14 @@
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
    	<xs:element name="Offer" type="OfferType"/>
+	<xs:element name="CallForOfferWoodTradeInfo" type="wtco:CallForOfferWoodTradeInfoType"/>	
 	<xs:element name="OfferBusinessSender" type="OfferBusinessSenderType"/>
+	<xs:element name="CallForOfferBusinessSender" type="wtco:CallForOfferBusinessSenderType"/>	
 	<xs:element name="TechnicalContactPerson" type="TechnicalContactPersonType"/>
 	<xs:element name="OfferDate" type="OfferDateType"/>
 	<xs:element name="OfferExpirationDate" type="OfferExpirationDateType"/>
 	<xs:element name="OfferText" type="OfferTextType"/>
+	<xs:element name="CallForOfferText" type="wtco:CallForOfferTextType"/>
 	
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
@@ -48,20 +54,23 @@
 			<xs:documentation xml:lang="fi">Tarjouksen tiedot.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Offer data.</xs:documentation>
-		</xs:annotation>
+		</xs:annotation>		
 		<xs:sequence>
 			<xs:element ref="co:TimeStamp"/>
 			<xs:element ref="OfferBusinessSender"/>
+			<xs:element ref="CallForOfferBusinessSender" minOccurs="0"/>
 			<xs:element ref="TechnicalContactPerson" minOccurs="0"/>
 			<xs:element ref="OfferDate"/>
 			<xs:element ref="OfferExpirationDate"/>
 			<xs:element ref="OfferText" minOccurs="0"/>
+			<xs:element ref="CallForOfferText" minOccurs="0"/>			
 			<xs:element ref="ws:OfferWorkingSites">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">VANHA NIMI = Stands</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="wtco:Documents" minOccurs="0"/>
+			<xs:element ref="CallForOfferWoodTradeInfo" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string" use="required">
 			<xs:annotation>

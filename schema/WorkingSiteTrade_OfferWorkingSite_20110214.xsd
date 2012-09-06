@@ -13,24 +13,35 @@
 	xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
 	xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14"
+	xmlns:ws="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14"
+	xmlns:cows="http://standardit.tapio.fi/schemas/workingsitetrade/callforofferworkingsite/2011/02/14"
+	xmlns:wsst="http://standardit.tapio.fi/schemas/workingsitetrade/stand/2011/02/14"
+	xmlns:pr="http://standardit.tapio.fi/schemas/workingsitetrade/product"
 	elementFormDefault="qualified"
 	attributeFormDefault="qualified"
 	version="1.0">
-
+	
+	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
+	<!-- Lisätty tyyppi "OfferWorkingSiteSilvicultureInfoType". -->
+	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14"
 				schemaLocation="WorkingSiteTrade_Assortment_20110214.xsd"/>
-
+	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14"
+				schemaLocation="WorkingSiteTrade_WorkingSite_20110214.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforofferworkingsite/2011/02/14"
+				schemaLocation="WorkingSiteTrade_CallForOfferWorkingSite_20110214.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
 				schemaLocation="ContactInformation_20110214.xsd"/>
-	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
 				schemaLocation="WorkingSiteTrade_Common_20110214.xsd"/>
-	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
 			schemaLocation="Common_20100831.xsd"/>
-			
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
 			    schemaLocation="Common_BasicDataType_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/stand/2011/02/14"
+				schemaLocation="WorkingSiteTrade_Stand_20110214.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/product"
+				schemaLocation="WorkingSiteTrade_Product.xsd"/>
 
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
@@ -39,8 +50,25 @@
 	<xs:element name="PurchaserRepresentativePerson" type="PurchaserRepresentativePersonType"/>
 	<xs:element name="WorkingSiteText" type="WorkingSiteTextType"/>
 	<xs:element name="OfferWorkingSiteWoodTradeInfo" type="OfferWorkingSiteWoodTradeInfoType"/>
+	<xs:element name="OfferWorkingSiteSilvicultureInfo" type="OfferWorkingSiteSilvicultureInfoType"/>	
 	<xs:element name="FellingRightDuration" type="FellingRightDurationType"/>
 	<xs:element name="FellingRightValidityDate" type="FellingRightValidityDateType"/>
+	<xs:element name="CallForOfferWorkingSiteWoodTradeInfo" type="wtco:CallForOfferWorkingSiteWoodTradeInfoType"/>
+	<xs:element name="WorkingSiteName" type="wtco:WorkingSiteNameType"/>
+	<xs:element name="SellerRepresentativePerson" type="wtco:SellerRepresentativePersonType"/>
+	<xs:element name="Sellers" type="wtco:SellersType"/>
+	<xs:element name="VATInfo" type="wtco:VATInfoType"/>
+	<xs:element name="RealEstate" type="wtco:RealEstateType"/>
+	<xs:element name="RoadUsingRight" type="wtco:RoadUsingRightType"/>
+	<xs:element name="WorkingSiteGeometries" type="wtco:WorkingSiteGeometriesType"/>
+	<xs:element name="OfferWorkingSiteSilvicultureText" type="xs:string"/>
+	<xs:element name="SilvicultureValidity" type="SilvicultureValidityType"/>
+	<xs:element name="DueDate" type="bdt:DateType"/>
+	<xs:element name="StartDate" type="bdt:DateYYYY-MMOrYYYY-MM-DDType"/>
+	<xs:element name="EndDate" type="bdt:DateYYYY-MMOrYYYY-MM-DDType"/>
+	<xs:element name="Products" type="pr:ProductsType"/>
+	<xs:element name="Text" type="xs:string"/>
+	<xs:element name="Documents" type="wtco:DocumentsType"/>
 	
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
@@ -56,7 +84,17 @@
 			<xs:element ref="PurchaserRepresentativePerson"/>
 			<xs:element ref="WorkingSiteText" minOccurs="0"/>
 			<xs:element ref="OfferWorkingSiteWoodTradeInfo" minOccurs="0"/>
+			<xs:element ref="OfferWorkingSiteSilvicultureInfo" minOccurs="0"/>			
 			<xs:element ref="wtco:Documents" minOccurs="0"/>
+			<xs:element ref="WorkingSiteName" minOccurs="0"/>
+			<xs:element ref="SellerRepresentativePerson" minOccurs="0"/>
+			<xs:element ref="Sellers" minOccurs="0"/>
+			<xs:element ref="VATInfo" minOccurs="0"/>
+			<xs:element ref="RealEstate" minOccurs="0"/>
+			<xs:element ref="RoadUsingRight" minOccurs="0"/>
+			<xs:element ref="CallForOfferWorkingSiteWoodTradeInfo" minOccurs="0"/>
+			<xs:element ref="wsst:Stands" minOccurs="0"/>
+			<xs:element ref="WorkingSiteGeometries" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute name="parentId" type="xs:string" use="required">
 			<xs:annotation>
@@ -148,6 +186,53 @@
 					<xs:documentation xml:lang="fi">Tarjouksen puutavaralajiluokittaiset yhteenveto puutavaralajien hinnat ja mittavaatimukset.</xs:documentation>
 					<xs:documentation xml:lang="sv"></xs:documentation>
 					<xs:documentation xml:lang="en">Assortments with offered prices.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Vapaamuotoista tekstiä.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="Documents" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SilvicultureValidityType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Voimassaolo (alkamis- ja/tai loppumisajankohta).</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Validity (starting and/or ending date).</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="StartDate"/>
+			<xs:element ref="EndDate"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="OfferWorkingSiteSilvicultureInfoType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsänhoitotyön toteutuksen aikavälistä pitäisi sopia kuten hakkuuoikeudesta. Puutavaralajien sijaan pitäisi olla ainakin metsänviljelymateriaalien luettelo. Luettelo muista materiaaliesta ja aineista esim. sora, murske, kantokäsittelyaine jne.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="DueDate"/>
+			<xs:element ref="SilvicultureValidity" minOccurs="0"/>
+			<xs:element ref="Products" minOccurs="0"/>
+			<xs:element ref="OfferWorkingSiteSilvicultureText" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Vapaa tekstikenttä tarjottavasta materiaalista tai palvelusta.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en">Free text field for informatino about offered materials or services.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="wtco:Documents" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Liitetiedosto, jossa voi olla esim pdf-muodossa välitettävän materiaalin tai palvelun tarkemmat tiedot. Esim. käyttöturvallisuustiedote, tekninen esite, kuva, mainos, käyttöohje yms.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en">Attached file that may contain details about offered material or service in pdf format. For example safety data sheet, technical brochure, picture, advertisement, manual etc.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

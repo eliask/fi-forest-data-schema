@@ -13,11 +13,14 @@
 	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified"
-	version="1.0">
+	version="1.1">
 	
     <!-- VERSIOKOMMENTIT  -->
     <!-- AreaNumberType muutettu yhtenäisyyden vuoksi vastaamaan muita kiinteistötunnuksen osia (numeropohjaisesta määrittelystä tekstipohjaiseen määrittelyyn) -->
     <!-- MunicipalityName: Kiinteistön tiedoissa mahdollista esittää kunnan nimi -->
+	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
+	<!-- "Parcels" elementti muutettu valinnaiseksi. -->
+	<!-- Tyypin "ParcelType" elementti "st:Stands" muutettu valinnaiseksi. -->
 	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/stand/2010/08/31"
 				schemaLocation="Stand_20100831.xsd"/>
@@ -71,7 +74,7 @@
 			<xs:element ref="UnseparetedParcelTypeChar" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="UnseparetedParcelNumber" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="RealEstateName"/>
-			<xs:element ref="Parcels"/>
+			<xs:element ref="Parcels" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
 			<xs:annotation>
@@ -223,7 +226,7 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="ParcelNumber"/>
-			<xs:element ref="st:Stands"/>
+			<xs:element ref="st:Stands" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
 			<xs:annotation>

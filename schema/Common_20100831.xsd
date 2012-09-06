@@ -10,7 +10,7 @@
 	xmlns="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
 	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
 	elementFormDefault="unqualified"
-	version="1.1">
+	version="1.4">
 	
     <!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
     <!-- Uusi määrittely aikaleimalle "TimeStampType". -->
@@ -18,6 +18,16 @@
     <!-- Lisätty puulajeja puukaupan puutavaralajien tiedonsiirtotarpeisiin -->
     <!-- Runkolajimäärittelyt siirretty tänne puukaupan puutavaralajien tiedonsiirtotarpeisiin liittyen -->
     <!-- Lisätty puutavaran määrän yksikkömäärittelyt puukaupan tiedonsiirtotarpeisiin. -->
+    <!-- VERSIOKOMMENTIT 1.1 >>> 1.2 -->
+    <!-- Lisätty tyypin "ExtraStemTypeType" määrittelyihin enumeratiivi 105 "Latvusmassa". -->
+	<!-- Tyypin "StoreyType" koodiston arvon 5 selite vaihdettu ja lisätty arvo 6. -->
+	<!-- Tyypin "ChangeState" koodistoon lisätty arvo 10. -->
+	<!-- Lisätty tyyppi "IdentifierTypeType". -->	
+	<!-- Tyypin "IdentifierTypeType" koodistoa täydennetty arvoilla 101 - 110. -->
+    <!-- VERSIOKOMMENTIT 1.2 >>> 1.3 -->
+	<!-- Korjattu IdentifierType tyypiksi IdentifierTypeType. -->
+    <!-- VERSIOKOMMENTIT 1.3 >>> 1.4 -->
+	<!-- Lisätty tyyppi "TreeClassType" -->	
 	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
 			    schemaLocation="Common_BasicDataType_20100831.xsd"/>
@@ -88,6 +98,13 @@
 					<xs:documentation xml:lang="en">Updated</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="10">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei saa muokata</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en">Not allowed to modify</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	
@@ -111,9 +128,9 @@
 	
 	<xs:simpleType name="DataSourceType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Yksilöi tiedon tuottajan esim. organisaatio</xs:documentation>
+			<xs:documentation xml:lang="fi">Yksilöi tiedon tuottajan esim. organisaatio. Merkityksen määrittää aina viime kädessä tiedon tuottaja (yhdessä vastaanottajan kanssa). Standardissa ei määritetä yhteisesti sovittuja koodeja, koska tämä koodisto on sisällöltään vakiintumaton ja uusia tarpeita voi ilmetä tulevaisuudessa.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Datasource code.</xs:documentation>
+			<xs:documentation xml:lang="en">Datasource code. Meaning is defined by the one who produced the information (in cooperation with the one who receives the information). No common codes are defined because this coding is relatively unstable and needs for modification may occur in the future.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:pattern value="[0-9]{0,4}"/>
@@ -498,6 +515,13 @@
 					<xs:documentation xml:lang="en"></xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="105">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Latvusmassa</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -537,6 +561,13 @@
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kaukokartoitus</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="6">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Poistettava puusto</xs:documentation>
 					<xs:documentation xml:lang="sv"></xs:documentation>
@@ -717,7 +748,7 @@
 		</xs:sequence>
 	</xs:complexType>
 	
-	<xs:simpleType name="IdentifierTypeType">
+	<xs:simpleType name="IdentifierBaseType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tunnisteen laji.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -804,4 +835,221 @@
 		</xs:restriction>
 	</xs:simpleType>
 	
+	<xs:simpleType name="IdentifierTypeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tunnisteen laji. Tiedonsiirron osapuolet määrittelevät tyyppien 101 - 110 merkitykset tapauskohtaisesti.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Type of identifier.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Alue. Aluetunniste.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lohko. Lohkotunniste.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Metsäsuunnitelma. Metsäsuunnitelman tunniste.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Inventointialue. Inventointialuetunniste. Inventointialueen tai muun vastaavan tiedon tuottajaosapuolen aluejaon tunniste.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tiedon tuottaja. Tallentajatunniste. Tiedon tallentajaan, inventoijaan tai suunnittelijaan viittaava tunniste.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="6">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuvion / tunnuspisteen kuvaustapa / laji.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="7">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuvion tilaa kuvaava tunnus.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="101">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tyyppi 1.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="102">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tyyppi 2.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="103">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tyyppi 3.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="104">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tyyppi 4.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="105">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tyyppi 5.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="106">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tyyppi 6.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="107">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tyyppi 7.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="108">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tyyppi 8.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="109">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tyyppi 9.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="110">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tyyppi 10.</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="TreeClassType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Puuluokka.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Tree class.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kehityskelvoton</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>		
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Normaali</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Juurivaurioitunut</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Runkovaurioitunut</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Viljelytaimi</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Luonnontaimi</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="6">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Täydentävä taimi</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="7">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuollut/kelvoton viljelytaimi</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="8">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kanto</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="9">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Siemenpuu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="MeanHeightType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Keskipituus, m.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Mean height, m.</xs:documentation>
+		</xs:annotation>
+	    <xs:union memberTypes="HeightType bdt:EmptyStringType"/>
+	</xs:simpleType>
 </xs:schema>
