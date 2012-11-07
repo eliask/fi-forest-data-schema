@@ -39,10 +39,12 @@
 	xmlns="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes/2010/08/31"
 	xmlns:gml="http://www.opengis.net/gml"
 	elementFormDefault="unqualified"
-	version="1.1">
+	version="1.2">
 	
 	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
 	<!-- Ryhmän "PolygonGeometryGroup" elementti "gml:pointProperty" muutettu valinnaiseksi. -->
+	<!-- VERSIOKOMMENTIT 1.1 >>> 1.2 -->
+	<!-- Lisätty elementti "PointGeometry" ja sille tyyppi "PointGeometryType" sekä attribuutille tyyppi "PointLocationType". -->	
 	
 	<xs:import namespace="http://www.opengis.net/gml"
 			    schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/>
@@ -51,6 +53,7 @@
 	<!-- Element definitions -->
     <xs:element name="PolygonGeometry" type="PolygonGeometryType"/>
     <xs:element name="MultiPolygonGeometry" type="MultiPolygonGeometryType"/>
+    <xs:element name="PointGeometry" type="PointGeometryType"/>	
 	
 	<!-- Tyyppimäärittelyt -->
 	<!-- Type definitions -->
@@ -118,4 +121,73 @@
 		</xs:sequence>
 	</xs:complexType>
 	
+	<xs:complexType name="PointGeometryType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Pistemuotoinen geometria.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Point geometry.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="gml:pointProperty"/>
+		</xs:sequence>
+		<xs:attribute name="dimension" type="xs:decimal" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Dimensio.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en"></xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="location" type="PointLocationType" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Sijainti.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en"></xs:documentation>
+			</xs:annotation>
+		</xs:attribute>			
+	</xs:complexType>
+	
+	<xs:simpleType name="PointLocationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Sijainti.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Keskipiste</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>		
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Vasen alakulma</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Vasen yläkulma</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Oikea alakulma</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Oikea yläkulma</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>			
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>

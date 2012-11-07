@@ -9,21 +9,24 @@
     targetNamespace="http://standardit.tapio.fi/schemas/forestData/treeStratum/2010/08/31" 
     xmlns="http://standardit.tapio.fi/schemas/forestData/treeStratum/2010/08/31" 
     xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" 
+    xmlns:cdd="http://standardit.tapio.fi/schemas/forestData/commondistributiondata" 
+	xmlns:tli="http://standardit.tapio.fi/schemas/forestData/treelistitem" 
     elementFormDefault="qualified"
-    version="1.2">
+    version="1.3">
 	
 	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
 	<!-- Tyypin "TreeStratumType" elementti "MeanDiameter" muutettu valinnaiseksi. -->
 	<!-- Elementti "co:DataSource" muutettu valinnaiseksi -->
 	<!-- VERSIOKOMMENTIT 1.1 >>> 1.2 -->
 	<!-- Lisätty elementit "Value", "Currency" ja "ValueGowthPercent" -->
+	<!-- VERSIOKOMMENTIT 1.2 >>> 1.3 -->
+	<!-- Lisätty "Trees" and "Distribution" -->
 	
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-				schemaLocation="Common_BasicDataType_20100831.xsd"/>
-
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-				schemaLocation="Common_20100831.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/commondistributiondata" schemaLocation="CommonDistributionData.xsd"/> 
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treelistitem" schemaLocation="TreeListItem.xsd"/> 	
    
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
@@ -36,7 +39,7 @@
     <xs:element name="BasalArea" type="BasalAreaType"/>
     <xs:element name="StemCount" type="StemCountType"/>
     <xs:element name="MeanDiameter" type="MeanDiameterType"/>    
-    <xs:element name="MeanHeight" type="MeanHeightType"/>
+    <xs:element name="MeanHeight" type="co:MeanHeightType"/>
     <xs:element name="Volume" type="VolumeType"/>
     <xs:element name="SawLogPercent" type="SawLogPercentType"/>
     <xs:element name="SawLogVolume" type="SawLogVolumeType"/>
@@ -49,6 +52,29 @@
     <xs:element name="Value" type="bdt:Decimal2FractionDigitsType"/>
     <xs:element name="Currency" type="co:CurrencyType"/>
     <xs:element name="ValueGrowthPercent" type="bdt:Decimal2FractionDigitsType"/>
+    <xs:element name="Trees" type="TreesType"/>
+	<xs:element name="TreeListItem" type="tli:TreeListItemType"/>
+	<xs:element name="Distribution" type="cdd:DistributionType"/>
+	<xs:element name="Weibull" type="cdd:WeibullType"/>
+	<xs:element name="Shape" type="cdd:ShapeType"/>
+	<xs:element name="Scale" type="cdd:ScaleType"/>
+	<xs:element name="Location" type="cdd:LocationType"/>
+	<xs:element name="JohnsonSB" type="cdd:JohnsonSBType"/>
+	<xs:element name="ShapeGamma" type="cdd:ShapeGammaType"/>
+	<xs:element name="ShapeDelta" type="cdd:ShapeDeltaType"/>
+	<xs:element name="Normal" type="cdd:NormalType"/>
+	<xs:element name="Mean" type="cdd:MeanType"/>
+	<xs:element name="Variance" type="cdd:VarianceType"/>
+	<xs:element name="Beta" type="cdd:BetaType"/>
+	<xs:element name="ShapeAlfa" type="cdd:ShapeAlfaType"/>
+	<xs:element name="ShapeBeta" type="cdd:ShapeBetaType"/>
+	<xs:element name="Minimum" type="cdd:MinimumType"/>
+	<xs:element name="Maximum" type="cdd:MaximumType"/>	
+	<xs:element name="Gamma" type="cdd:GammaType"/>
+	<xs:element name="CumulativePointDistribution" type="cdd:CumulativePointDistributionType"/>
+	<xs:element name="CumulativePoint" type="cdd:CumulativePointType"/>
+	<xs:element name="Diameter" type="cdd:DiameterType"/>
+	<xs:element name="CumulativeMass" type="cdd:CumulativeMassType"/>
     
     <!-- Tyyppimääritykset -->
     <!-- Type definitions -->
@@ -188,15 +214,6 @@
 	    <xs:restriction base="co:DiameterType"/>
 	</xs:simpleType>
 
-	<xs:simpleType name="MeanHeightType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Keskipituus, m.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Mean height, m.</xs:documentation>
-		</xs:annotation>
-	    <xs:union memberTypes="co:HeightType bdt:EmptyStringType"/>
-	</xs:simpleType>
-
 	<xs:simpleType name="VolumeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tilavuus, m3/ha.</xs:documentation>
@@ -277,5 +294,15 @@
 		</xs:annotation>
 	    <xs:restriction base="co:StumpBiomassType"/>
 	</xs:simpleType>
-
+	
+	<xs:complexType name="TreesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="TreeListItem" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>	
 </xs:schema>

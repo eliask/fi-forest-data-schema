@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	***************************************************************
+	Viranomaistarkastuksen osakohteen elementit ja tyypit.
+	Skeema on JHS-170 -suosituksen mukainen.
+	***************************************************************
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/virta/helpgeometry"
+	xmlns="http://standardit.tapio.fi/schemas/virta/helpgeometry"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"	
+	xmlns:gml="http://www.opengis.net/gml"
+	elementFormDefault="qualified"
+	attributeFormDefault="qualified"
+	version="1.0">
+	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>	
+	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/>				
+
+   	<!-- Element definitions -->
+   	<xs:element name="PolygonGeometry" type="PolygonGeometryType"/>
+	<xs:element name="Id" type="xs:string">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Geometrian ID.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>	
+	</xs:element>
+	<xs:element name="Status" type="co:ChangeStateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Geometriaobjektin muutostila.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>	
+	</xs:element>
+	<xs:element name="HelpGeometryType" type="xs:string">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Geometriaobjektin tyyppi.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>	
+	</xs:element>	
+   	<xs:element name="LineGeometry" type="LineGeometryType"/>
+	<xs:element name="PointGeometry" type="PointGeometryType"/>
+	
+	<!-- Type definitions -->
+	<xs:complexType name="PolygonGeometryType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Viranomaistarkastuksen aluetyyppinen apugeometria.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="Id" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="Status" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="HelpGeometryType" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="gml:Polygon" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="LineGeometryType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Viranomaistarkastuksen viivatyyppinen apugeometria.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="Id" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="Status" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="HelpGeometryType" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="gml:LineString" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="PointGeometryType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Viranomaistarkastuksen pistetyyppinen apugeometria.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="Id" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="Status" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="HelpGeometryType" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="gml:Point" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

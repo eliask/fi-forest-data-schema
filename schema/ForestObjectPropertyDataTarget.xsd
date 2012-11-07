@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	***************************************************************
+	Hila- ja mikrokuviomuotoisen metsävara-aineiston elementit ja
+	tyypit.
+	Skeema on JHS-170 -suosituksen mukainen.
+	***************************************************************
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/forestobjectpropertydatatarget"
+	xmlns="http://standardit.tapio.fi/schemas/forestData/forestobjectpropertydatatarget" 
+	elementFormDefault="qualified"
+	attributeFormDefault="qualified"
+	version="1.0">
+	
+   	<!-- Element definitions -->
+   	<xs:element name="Target" type="TargetType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tässä tiedonsiirron osapuolet voivat siirtää valitun kaltaisia tulkintayksikköön liittyviä kohteita / viitetietoja.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Name" type="xs:string"/>
+	<xs:element name="Description" type="xs:string"/>	
+	
+	<!-- Type definitions -->
+	<xs:complexType name="TargetType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tässä tiedonsiirron osapuolet voivat siirtää valitun kaltaisia tulkintayksikköön liittyviä kohteita / viitetietoja.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="Name" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="Description" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+        <xs:attribute name="id" type="xs:string">
+            <xs:annotation>
+                <xs:documentation xml:lang="fi">Kohteen/viitetiedon tunnus.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en"></xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+	</xs:complexType>
+</xs:schema>

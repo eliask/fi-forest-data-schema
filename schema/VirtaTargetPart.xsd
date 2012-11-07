@@ -1,0 +1,2521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	***************************************************************
+	Viranomaistarkastuksen kohteen elementit ja tyypit.
+	Skeema on JHS-170 -suosituksen mukainen.
+	***************************************************************
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/virta/targetpart"
+	xmlns="http://standardit.tapio.fi/schemas/virta/targetpart"
+	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"	
+	xmlns:sb="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14" 
+	xmlns:sp="http://standardit.tapio.fi/schemas/virta/sampleplot" 
+	xmlns:sfb="http://standardit.tapio.fi/schemas/forestData/specialFeatureBase/2011/02/14" 
+	xmlns:op="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31" 
+	xmlns:gml="http://www.opengis.net/gml"
+	elementFormDefault="qualified"
+	attributeFormDefault="qualified"
+	version="1.0">
+	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/virta/sampleplot" schemaLocation="VirtaSamplePlot.xsd"/>		
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14" schemaLocation="StandBase_20110214.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeatureBase/2011/02/14" schemaLocation="SpecialFeatureBase_20110214.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31" schemaLocation="Operation_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/virta/sampleplot" schemaLocation="VirtaSamplePlot.xsd"/>
+	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/> 
+
+   	<!-- Element definitions -->
+	<xs:element name="TargetPart" type="TargetPartType"/>
+	<xs:element name="Status3" type="co:ChangeStateType"/>
+	<xs:element name="PartNumber" type="xs:string">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Osan numero. Virta järjestelmän antava juokseva nro. Maastotallentimella osanumerointi tehdään manuaalisesti.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>	
+	</xs:element>
+	<xs:element name="PartsDetectedArea" type="bdt:PositiveDecimalMax4IntegralPartMax2FractionalPartType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Osan havaittu määrä ha. LT = valmiissa kohteessa kenttiin on syötettävä niin paljon arvoja, että niiden summa on vähintään kuvion tai kohteen ilmoitettu määrä -kentän suuruinen.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="CuttingMethod" type="op:CuttingTypeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Hakkuutapa.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="RegenerationType" type="VirtaRegenerationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Uudistamistapa.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="TargetPartStatus" type="VirtaTargetPartStatusType"/>
+	<xs:element name="OperationDate" type="bdt:DateMmDdYyyyType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Toimenpiteen päivämäärä.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="OperationYear" type="bdt:YearType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Uudistamisen tai hakkuun ajankohta.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Classification" type="bdt:PositiveIntegerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kemeravirrassa tl 30 1=taimikonh, 2=2. khlk metsänhoito, 3=verhop. poisto. Tallentimelta tulevalla uta kentän koodituksella 1-6 päivitetään kemeravirran luokitus (Lts) kenttää silloin, kun työlaji on 10-15, Uud. tapa (uta) 1 = luontainen 2 = kylvö 3 = istutus 4 = luontainen ja kylvö 5 = luontainen ja istutus 6 = kylvö ja istutus.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="Review" type="VirtaReviewType"/> 
+	<xs:element name="Reason" type="VirtaReasonType"/>
+	<xs:element name="Review2" type="VirtaReviewType"/>
+	<xs:element name="Reason2" type="VirtaReasonType"/>
+	<xs:element name="InspectionMethod" type="VirtaInspectionMethodType"/>
+	<xs:element name="StemCount" type="bdt:PositiveInteger6digitsType"> <!-- TODO: Tarkista määrittely. Pitääkö tyhjä hyväksyä lukumääräkentissä? -->
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Runkoluku kpl/ha. Laskentasääntö: 10 000 m2*muiden kuin puuluokaltaan arvot 0, 7, 8 tai 9 omaavien puiden lkm tietojen summa/Koealojen pinta-alojen summa m2 (huomioidaan siis myös puutason lkm tiedot, joissa plk on tyhjä) Hirvivahinkolaskennoissa TIH arvo.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SeedStemCount" type="bdt:PositiveInteger6digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Hakatun uudistushakkuun siemenpuiden määrä kpl/ha. Laskentasääntö: 10 000 m2*Puuluokkaan 9 kuuluvien puiden lkm/Koealojen pinta-alojen summa m2 (jos hta on muu kuin 2 tai 3, niin s/k. kpl/ha kenttään Virtaan siirretään tallentimelta tämän kentän arvo).</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="StubStemCount" type="bdt:PositiveInteger6digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Hakatun harvennushakkuun kantojan määrä kpl/ha. Laskentasääntö: 10 000 m2*Puuluokkaan 8 kuuluvien puiden lkm/Koealojen pinta-alojen summa m2 (jos hta on 2 tai 3, niin s/k. kpl/ha kenttään Virtaan siirretään tallentimelta tämän kentän arvo).</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="CultivatedCropStemCount" type="bdt:PositiveInteger6digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Viljelytaimien runkoluku kpl/ha Laskentasääntö: 10 000 m2*Puuluokkaan 4 kuuluvien puiden lkm/Koealojen pinta-alojen summa m2.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="NaturalCropStemCount" type="bdt:PositiveInteger6digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kasvatuskelpoisten luonnontaimien runkoluku kpl/ha Laskentasääntö: 10 000 m2*Puuluokkaan 5 kuuluvien puiden lkm/Koealojen pinta-alojen summa m2.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="CompletingNaturalCropStemCount" type="bdt:PositiveInteger6digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Täydentävien luonnontaimien runkoluku kpl/ha Laskentasääntö: 10 000 m2*Puuluokkaan 6 kuuluvien puiden lkm/Koealojen pinta-alojen summa m2.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="DeadStemCount" type="bdt:PositiveInteger6digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kuolleiden ja kelvottomien viljelytaimien runkoluku kpl/ha Laskentasääntö: 10 000 m2*Puuluokkaan 7 kuuluvien puiden lkm/Koealojen pinta-alojen summa m2.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="NotDamagedCount" type="bdt:PositiveInteger6digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Niiden taimien runkoluku kpl/ha joille ei ole aiheutunut kasvua tai laatua alentavaa pysyvää vauriota. Laskentasääntö: 10 000 m2*kpl summa/Koealojen pinta-alojen summa m2.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="Class1damageCount" type="bdt:PositiveInteger6digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">1. riistavaurioluokkaan kuuluvien taimien runkoluku eli rvl kentän arvo on 1. Laskentasääntö: 10 000 m2*kpl summa/Koealojen pinta-alojen summa m2 .</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="Class2damageCount" type="bdt:PositiveInteger6digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">2. riistavaurioluokkaan kuuluvien taimien runkoluku eli rvl kentän arvo on 2. Laskentasääntö: 10 000 m2*kpl summa/Koealojen pinta-alojen summa m2.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="Class3damageCount" type="bdt:PositiveInteger6digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">3. riistavaurioluokkaan kuuluvien taimien runkoluku eli rvl kentän arvo on 3. Laskentasääntö: 10 000 m2*kpl summa/Koealojen pinta-alojen summa m2.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="Class4damageCount" type="bdt:PositiveInteger6digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">4. riistavaurioluokkaan kuuluvien taimien runkoluku eli rvl kentän arvo on 4. Laskentasääntö: 10 000 m2*kpl summa/Koealojen pinta-alojen summa m2.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="LargePeelDamage" type="bdt:PositiveInteger6digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Suuren riistakuorivaurion omaavien taimien runkoluku eli rvl kentän arvo on 6. Laskentasääntö: 10 000 m2*kpl summa/Koealojen pinta-alojen summa m2.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="SmallPeelDamage" type="bdt:PositiveInteger6digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Pienen riistakuorivaurion omaavien taimien runkoluku eli rvl kentän arvo on 5. Laskentasääntö: 10 000 m2*kpl summa/Koealojen pinta-alojen summa m2.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="DamagedSeedlingCount" type="bdt:PositiveInteger6digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Riistavahingon vuoksi laskennallisesti kokonaan tuhoutuneiden puiden runkoluku varttuneemmissa metsissä kpl/ha.  TUH = 0,5 * A + B = X kpl/ha A=pkvrlk, B=skvrlk. Taimikoissa kun on käytetty riistavaurioluokkia 1-4 a) Kokonaan tuhoutuneiden taimien lukumäärä (TUH, kpl/ha) männylle ja muille havupuille, lukuun ottamatta kuusta ja lehtikuusta, lasketaan kaavalla: TUH = 0,15*A + 0,3*B + 0,5*C + D, missä A = taimet vahinkoluokassa I, kpl/ha B = taimet vahinkoluokassa II, kpl/ha C = taimet vahinkoluokassa III, kpl/ha D = taimet vahinkoluokassa IV, kpl/ha b) Kokonaan tuhoutuneiden taimien lukumäärä (TUH, kpl/ha) kuuselle, lehtikuuselle ja lehtipuille lasketaan kaavalla: TUH = 0,3*B + 0,5*C + D, missä B = taimet vahinkoluokassa II, kpl/ha C = taimet vahinkoluokassa III, kpl/ha D = taimet vahinkoluokassa IV, kpl/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="Volume" type="xs:decimal"> <!-- TODO: Tarkista regular expression koodistoista, pitäiskö käyttää sitä -->
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Puuston tilavuus m3/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="PineLog" type="bdt:PositiveInteger4digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Mäntytukkitilavuus m3/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="SpruceLog" type="bdt:PositiveInteger4digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kuusitukkitilavuus m3/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="BirchLog" type="bdt:PositiveInteger4digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Koivutukkitilavuus m3/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="LogM3sum" type="bdt:PositiveInteger4digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tukkipuutavaralajin tilavuus yhteensä m3/ha. Lasketaan mänty- kuusi- ja koivukenttien summa tai syötetään arvo.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="PinePulp" type="bdt:PositiveInteger4digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Mäntykuitutilavuus m3/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SprucePulp" type="bdt:PositiveInteger4digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kuusikuitutilavuus m3/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="BirchPulp" type="bdt:PositiveInteger4digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Koivukuitutilavuus m3/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>		
+	<xs:element name="PulpM3sum" type="bdt:PositiveInteger4digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kuitupuutavaralajin tilavuus yhteensä m3/ha. Lasketaan mänty- kuusi- ja koivukenttien summa tai syötetään arvo.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="OtherTimberValue" type="bdt:PositiveInteger5digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Muun puutavaralajin arvo euroa/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="EnergyTimberValue" type="bdt:PositiveInteger5digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Energiapuun arvo euroa/ha. Lenttää ei yleensä käytetä hirvivahinkojen tarkastuksissa.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="CuttingValue" type="bdt:PositiveInteger5digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">hakkuuarvo euroa/ha. Hakkuuarvoa laskettaessa käytetään Summa-arvotaulukot 2007 kirjasen s. 50 taulukkoa. ppl=1 =>mänty, ppl=2=>kuusi ja ppl on joku muu=> käytetään lehtipuun arvoa, jolla kerrotaan ytu ja yku-kenttien arvot, jotka summataan ja tulokseen lisätään mptl ja epuu kenttien summa.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="DestroyedCuttingValue" type="bdt:PositiveInteger5digitsType">	
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kokonaan tuhoutuneiden puiden hakkuuarvo e/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="ExpectedValueCoefficient" type="bdt:PositiveDecimalMax1IntegralPartMax2FractionalPartType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Odotusarvokerroin.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="ExpectedValueSurplus" type="bdt:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Odotusarvolisä euroa/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="Compensation" type="bdt:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kasvu- ja laatutappiokorvaus euroa.  Korvauksesta vähennetään taimikonhoitotyön arvo, mikäli  tata-kentän arvo on 1. Mikäli valtapituus on enintään 1,3m käytetään varhaishoidon kustannususta. Mikäli valtapituus on yli 1,3 m käytetään myöhempää kustannusta. Mikäli tata kentän arvo on 2, ei vähennystä tehdä.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="AlreadyPaidCompensation" type="bdt:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Aiemmin maksettu kasvu- ja laatutappiokorvaus euroa.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="TotalCompensation" type="bdt:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Korvaus yhteensä euroa.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="NeedForTreatment" type="bdt:VirtaYesNoType">	
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Taimikonhoitotyön tarve.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="Suggestion" type="VirtaSuggestionType"/>
+	<xs:element name="Phase2youngCropCount" type="bdt:PositiveInteger5digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Toisen jakson taimet kpl/ha. Lasketaan koealatason tjt kentän perusteella. Laskentasääntö: 10 000 m2*tjt kenttien arvojen summa/Koealojen pinta-alojen summa m2.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="RecommendedDensity" type="bdt:PositiveInteger5digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Ohjetiheys kpl/ha. Määräytyy puulajin ja kasvupaikan perusteella.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="RepairPlantingCosts" type="bdt:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Täydennysviljely- tai uudelleenmetsityskustannukset euroa/ha.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="BasalArea" type="bdt:PositiveInteger6digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Pohjapinta-ala.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="MeanDiameter" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Pohjapinta-alalla painotettu keskiläpimitta cm.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="StubMeanDiameter" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kantojen keskiläpimitta cm.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="Age" type="bdt:PositiveInteger3digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsikön ikä vuosissa.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="DominantHeight" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Valtapituus m. Osan koealojen valtapituuksien keskiarvo.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="AverageHeight" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Keskipituus m. Osan koealojen keskipituuksien keskiarvo.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="DevelopmentClass" type="sb:DevelopmentClassType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kehitysluokka.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="StandQuality" type="VirtaStandQualityType"/>
+	<xs:element name="HabitatCode" type="VirtaHabitatCodeType"/>
+	<xs:element name="HabitatType" type="VirtaHabitatTypeType"/>
+	<xs:element name="HabitatSurviving" type="VirtaHabitatSurvivingType"/>
+	<xs:element name="ExceptionalPermitForHandling" type="VirtaExceptionalPermitForHandlingType"/>
+	<xs:element name="MainGroup" type="sb:MainGroupType"/>
+	<xs:element name="DrainageState" type="sb:DrainageStateType"/>
+	<xs:element name="FertilityClass" type="sb:FertilityClassType"/>
+	<xs:element name="MainTreeSpecies" type="co:TreeSpeciesType"/>
+	<xs:element name="PineDecimal" type="VirtaTreeDecimalType"/>
+	<xs:element name="SpruceDecimal" type="VirtaTreeDecimalType"/>
+	<xs:element name="BirchDecimal" type="VirtaTreeDecimalType"/>
+	<xs:element name="SoilType" type="sb:SoilTypeType"/>
+	<xs:element name="StockingWithSeedlings" type="bdt:VirtaYesNoType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Onko taimettumista.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="GroundManipulationMethod" type="VirtaGroundManipulationMethodType"/>
+	<xs:element name="SoilImprovementEvaluation" type="sp:VirtaEvaluationType"/>
+	<xs:element name="ClearingEstimation" type="sp:VirtaEvaluationType"/>
+	<xs:element name="DamageSource" type="sfb:FeatureTypeType"/>
+	<xs:element name="RegenerationEnsuring" type="op:SilvicultureTypeType"/>
+	<xs:element name="CultivationMaterial" type="VirtaCultivationMaterialType"/>
+	<xs:element name="PlantEvaluation" type="VirtaPlantEvaluationType"/>
+	<xs:element name="GrassControlEvaluation" type="sp:VirtaEvaluationType"/>
+	<xs:element name="SproutForestControlEvaluation" type="sp:VirtaEvaluationType"/>
+	<xs:element name="SeedPlantEvaluation" type="sp:VirtaEvaluationType"/>
+	<xs:element name="RootRotControlEvaluation" type="VirtaRootRotControlEvaluationType"/>
+	<xs:element name="HarvestingClassifiation" type="VirtaHarvestingClassificationType"/>
+	<xs:element name="RootDamageCount" type="bdt:PositiveInteger3digitsType"/>
+	<xs:element name="StemDamageCount" type="bdt:PositiveInteger3digitsType"/>
+	<xs:element name="VehiclePathDistance" type="bdt:PositiveInteger3digitsType"/>
+	<xs:element name="VehiclePathWidth" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType"/>
+	<xs:element name="VehiclePathSubsidencePercentage" type="bdt:PositiveInteger3digitsType"/>
+	<xs:element name="TotalEstimation" type="VirtaTotalEstimationType"/>
+	<xs:element name="CuttingByMachine" type="VirtaCuttingByMachineType"/>
+	<xs:element name="HarvestingSeason" type="VirtaHarvestingSeasonType"/>
+	<xs:element name="PartEastingCoordinate" type="xs:string">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Osan itäkoordinaatti.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="PartNorthingCoordinate" type="xs:string">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Osan pohjoiskoordinaatti.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="GeometryStatus" type="xs:string"/>
+	<xs:element name="GeometryId" type="xs:string"/>
+	<xs:element name="SamplePlots" type="SamplePlotsType"/>
+	
+	<!-- Type definitions -->
+	<xs:complexType name="TargetPartType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Viranomaistarkastuksen osakohteen tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="Status3" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="PartNumber" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="PartsDetectedArea" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="CuttingMethod" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="RegenerationType" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="TargetPartStatus" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="OperationDate" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="OperationYear" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Classification" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Review" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Reason" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Review2" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Reason2" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="InspectionMethod" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="StemCount" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="SeedStemCount" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="StubStemCount" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="CultivatedCropStemCount" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="NaturalCropStemCount" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="CompletingNaturalCropStemCount" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="DeadStemCount" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Volume" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="BasalArea" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="MeanDiameter" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="StubMeanDiameter" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Age" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="DominantHeight" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="AverageHeight" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="DevelopmentClass" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="StandQuality" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="HabitatCode" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="HabitatType" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="HabitatSurviving" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ExceptionalPermitForHandling" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="MainGroup" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="DrainageState" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="FertilityClass" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="MainTreeSpecies" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="PineDecimal" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="SpruceDecimal" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="BirchDecimal" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="SoilType" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="StockingWithSeedlings" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="GroundManipulationMethod" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="SoilImprovementEvaluation" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ClearingEstimation" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="DamageSource" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="RegenerationEnsuring" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="CultivationMaterial" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="PlantEvaluation" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="GrassControlEvaluation" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="SproutForestControlEvaluation" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="SeedPlantEvaluation" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="RootRotControlEvaluation" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="HarvestingClassifiation" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="RootDamageCount" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="StemDamageCount" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="VehiclePathDistance" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="VehiclePathWidth" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="VehiclePathSubsidencePercentage" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="TotalEstimation" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="CuttingByMachine" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="HarvestingSeason" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="PartEastingCoordinate" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="PartNorthingCoordinate" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="NotDamagedCount" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Class1damageCount" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Class2damageCount" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Class3damageCount" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Class4damageCount" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="SmallPeelDamage" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="LargePeelDamage" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="DamagedSeedlingCount" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="PineLog" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="SpruceLog" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="BirchLog" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="PinePulp" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="LogM3sum" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="PulpM3sum" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="SprucePulp" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="BirchPulp" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="OtherTimberValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="EnergyTimberValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="CuttingValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="DestroyedCuttingValue" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ExpectedValueCoefficient" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ExpectedValueSurplus" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Compensation" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="AlreadyPaidCompensation" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="TotalCompensation" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="NeedForTreatment" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Suggestion" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Phase2youngCropCount" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="RecommendedDensity" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="RepairPlantingCosts" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="SamplePlots" minOccurs="0" maxOccurs="1"/>				
+			<xs:element ref="GeometryStatus" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="GeometryId" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="gml:Polygon" minOccurs="0" maxOccurs="1"/>			
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="SamplePlotsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Osakohteen koealat.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="sp:SamplePlot" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="VirtaRegenerationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Uudistamistapa.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Luontainen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kylvö</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Istutus</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Luontainen ja kylvö</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Luontainen ja istutus</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="6">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kylvö ja istutus</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>			
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="VirtaTargetPartStatusType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Osakohtainen tila.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei aloitettu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kesken</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Valmis</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="VirtaReviewType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Pakollinen kenttä muissa tarkastuslajeissa paitsi tlj 5=Perustamisilmoitsu ja 8=Riistavahinkotarkastus. Koodien merkitys riippuu osittain tarkastuslajista. Kemeravirrassa (työlaji 1,2 tai 6) eri koodisto kuin muilla tarkastuksilla.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Hyvä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kemeravirrassa 2=huomautus, muilla tarkastuksilla 2=rahoitus muuttunut</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Virheellinen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei tarkastushavaintoja</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Virheellinen ja mh:ssa puutteita</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>			
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="VirtaReasonType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Syy.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="101">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">työ tekemättä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="102">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">kitu- tai joutomaa</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="103">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">vesitalous ei kunnossa</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="104">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">kehitysluokka väärin</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="105">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Pinta-ala alle rahoitusehtojen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>
+			<xs:enumeration value="106">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">toteutettu ennen suunnitelman hyväksymistä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="107">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">työn laatu huono</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="108">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">karttamerkinnät väärin</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="109">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">rahoitettu aikaisemmin</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="110">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">kohde muuten minist. määräysten vastainen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="111">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">liikaa ilmoitettu määrä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="199">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">pinta-ala ilmoitettua suurempi</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="201">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">liian suuri kantorahatulo</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="202">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">uusintaviljely ei tarpeen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="203">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">metsittynyt luontaisesti</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="204">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">puutteellinen raivaus</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="205">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">puutteellinen heinäntorjunta</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="206">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">puutteellinen muokkaus</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="207">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">väärä muokkausmenetelmä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="208">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">väärä uudistamismenetelmä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="209">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">väärä uudistamispuulaji</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="210">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">taimitiheys liian pieni</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="301">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">kustannuslaji väärin (ent. työvaik.luokka)</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="302">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">liian pieni taimikko</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="303">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">keskiläpimitta liian suuri</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="304">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">poistuma liian pieni</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="305">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">myyntipuun määrä liian suuri</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="306">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">jäänyt harvaksi</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="307">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">jäänyt tiheäksi</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="308">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">tehty vain raivausta</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="309">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">verhopuusto poistamatta</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>
+			<xs:enumeration value="310">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">energiapuuta liian vähän</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="311">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">energiapuu keräämättä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="312">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">energiapuu maastossa</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="313">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">puuta ei ole luovutettu energiakäyttöön</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="314">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Valtapituus yli rahoitusehtojen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="401">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">keskiläpimitta liian suuri</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>
+			<xs:enumeration value="402">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">hyväksyttävästi karsittuja puita liian vähän</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="403">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">karsintakorkeus liian pieni</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="404">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">jäänyt oksantynkiä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="405">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">puusto laadultaan heikkoa</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="501">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">liian huono suotyyppi</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="502">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">liian alhainen lämpösumma</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="503">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">edellinen rahoituskerta liian nuori</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="504">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">metsänhoitotyöt pääosin tekemättä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="505">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">koko alle 2 ha</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="506">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">puustossa kasvuhäiriöitä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="507">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">puutteellinen maastosuunnittelu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="508">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">puutteelliset asiakirjat</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="509">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">liian pieni ojatiheys</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="510">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">liian suuri ojatiheys</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="511">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">liian pieni ojakoko</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="512">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">liian suuri ojakoko</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="513">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">kulkuyhteydet hoitamatta</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="514">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">puutteellinen vesiensuojelu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="601">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">metsätalouskäyttö alle 50 %</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="602">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">tiennormit eivät täyty</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="603">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">puutteellinen ympäristönsuojelu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="604">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">liian huono hinta/laatu-suhde</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="605">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">liian pieni tietiheys</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="606">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">liian suuri tietiheys</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="607">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">tie on liian lyhyt</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="608">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">liian nuori perusparannettavaksi</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="609">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">tieoikeudet perustamatta</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="701">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">puusto ei ole uudistuskypsää</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="702">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">ei ole harvennuksen tarvetta</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="703">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">uudistamiskypsän metsän harvennus</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="704">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">hakattu liian harvaksi</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="705">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">poistettu liikaa ylimpien latvuskerrosten puita</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="706">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">harvennus esitetty vajaatuottoiseen metsään</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="707">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">harvennus tehty vajaatuottoiseen metsään</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="708">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">esitetty hakkuu edellyttää viljelyä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="709">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">toteutettu hakkuu edellyttää viljelyä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="710">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">ei luontaisen uudistamisen edellytyksiä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="711">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">siemenpuita ei ole riittävästi</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="712">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">siemenpuut ovat heikkolaatuisia</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="713">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">kuusen luontainen uudistaminen ei ole mahdollista</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="714">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">reunametsä kaukana</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="715">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">ylispuiden alla ei ole riittävästi taimia</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="716">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Puuston pohjapinta-ala (m²/ha) on alle suositusrajan</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="717">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Puuston pohjapinta-ala (m²/ha) on alle lakirajan</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>
+			<xs:enumeration value="718">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Runsaasti puustovaurioita</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="719">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Runsaasti maastovaurioita</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="720">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">puusto ennen hakkuuta ryhmittäinen / vajaapuustoinen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="721">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Elinympäristöä käsitelty liian voimakkaasti</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="723">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">elinympäristöä ei riittävästi huomioitu esitetyssä hakkuussa</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="724">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">vain ryhmittäinen harvennus mahdollista</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="750">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">ei hakattavaa</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="751">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">esitetty väärä hakkuutapa</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="850">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">uudistamismenetelmää ei ole esitetty</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="851">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">uudistamisketju virheellinen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="852">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">uudistusalan raivaus pitää tehdä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="853">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">uudistusalan muokkaus pitää tehdä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="854">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">uudistusalan raivaus ja muokkaus pitää tehdä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="855">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">ala tarvitsee äestyksen tai laikutuksen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="856">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">ala tarvitsee ojitus-mätästyksen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="857">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">ala tarvitsee kaivurilaikutuksen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="858">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">esitetty muokkaus liian järeä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="859">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">pitää uudistaa viljelemällä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="860">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">uudistamispuulaji väärä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="861">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">istutus kylvön tilalle</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="862">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">kylvö istutuksen tilalle</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="863">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">voisi uudistaa luontaisesti</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="864">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">taimettunut luontaisesti</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="865">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">täydennysviljely riittää</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="866">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">kemiallinen heinäntorjunta tarpeellinen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="901">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Uudistamismenetelmää ei ole ilmoitettu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="902">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Ilmoitettua viljelyä ei ole tehty</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="903">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Ilmoitettu istutus toteutettu kylvönä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="904">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Ilmoitettu kylvö toteutettu istutuksena</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>
+			<xs:enumeration value="905">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Ilmoitettu istutus toteutunut luontaisesti</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="906">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Ilmoitettu kylvö toteutunut luontaisesti</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="907">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Ilmoitettu ala hakkaamatta</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="908">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Ilmoitettu puulaji virheellinen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="909">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Ilmoitettu ala saanut verovapauden jo aiemmin</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="910">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Pinta-ala ilmoitettua pienempi</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="911">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Pinta-ala ilmoitettua suurempi</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="912">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Luontainen uudistaminen ei ole onnistunut</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="913">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Uusintaviljely tarpeen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="914">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Uudistamispuulaji väärä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="915">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Istutus olisi ollut parempi vaihtoehto</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="916">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Kylvö olisi ollut parempi vaihtoehto</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="917">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Taimettunut luontaisesti, viljely tarpeeton</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="918">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Täydennysviljely olisi riittänyt</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="919">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Viljelytyön laatu heikko</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="920">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Viljelytiheys liian harva</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="921">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Täydennysviljely tarpeen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="922">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Jätepuuston raivaus tekemättä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="923">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taimikon perkaus tarpeellinen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="924">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Kasvatuskelpoisten taimien määrä liian pieni</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="925">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Maanpinnan muokkaus olisi pitänyt tehdä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="926">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Maanmuokkaustyön laatu heikko</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="927">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Raivaus ja muokkaus olisi pitänyt tehdä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="928">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Ala olisi tarvinnut ojitusmätästyksen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="929">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Maapohjan kuivaustoimenpiteet pitäisi tehdä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="930">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Tehty muokkaus liian järeä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="931">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Kemiallinen heinäntorjunta tarpeellinen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="932">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">Mekaaninen heinäntorjunta tarpeellinen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="933">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">siemenpuut poistamatta</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="951">
+				<xs:annotation>
+			    <xs:documentation xml:lang="fi">taimimäärä ei täytä metsänhoitosuosituksia</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>				
+			</xs:enumeration>			
+			<xs:enumeration value="952">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">taimimäärä ei täytä metsälain vaatimuksia</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="953">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">uudistamisvelvoitteen laiminlyönti</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="954">
+			    <xs:annotation>
+					<xs:documentation xml:lang="fi">ei ole taimettunut luontaisesti</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>			
+			<xs:enumeration value="999">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">muu syy - katso lisätieto</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>					
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="VirtaInspectionMethodType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tarkastustapa. Pakollinen kenttä kaikissa tarkastuslajeissa.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">s.mit</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">n.miy</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Arvio</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei tarkastettu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>			
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="VirtaSuggestionType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Toimenpide-ehdotus.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="11">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei toimenpidettä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Täydennysviljely</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="13">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Uudelleenviljely</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="VirtaStandQualityType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsikön laatu.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Stand quality.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kehityskelpoinen, hyvä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kehityskelpoinen, vähäpuustoinen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kehityskelpoinen, ylitiheä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kehityskelvoton, vähäpuustoinen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kehityskelvoton, ylitiheä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="6">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kehityskelvoton, sopimaton puulaji</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="7">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kehityskelvoton, yli-ikäinen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="8">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kehityskelvoton, huonokasvuinen, harsittu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="9">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kehityskelvoton, tuhometsikkö</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="VirtaHabitatCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Elinympäristön koodi.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="10">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lähde</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Puro</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Noro</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="13">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pieni lampi</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="20">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Rehevät korvet</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="21">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Letot Lapin läänin eteläpuolella</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="30">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Rehevät lehtolaikut</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="31">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Jalopuumetsiköt</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="40">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Metsäsaareke ojittamattomalla suolla</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+					<xs:enumeration value="50">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Rotkot, kurut</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="60">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Jyrkänteet ja niiden alusmetsät</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="70">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Hietikot</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="71">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kalliot</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+					<xs:enumeration value="72">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kivikot</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="73">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Vähäpuustoinen suo</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="74">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Rantaluhdat</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="80">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Harjujen avainbiotoopit</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="81">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Rantametsät</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="82">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Vaiheittainen vyöhyke</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="83">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pesä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="84">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Esiintymispaikka</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+					<xs:enumeration value="85">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Suojeltava kasvi</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="86">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Perinneympäristö</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="87">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muinaismuisto</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="88">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="VirtaHabitatTypeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Elinympäristön luonne.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Stand quality.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Luonnonsuojelulaki</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Metsälaki</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muut sertifioidut arvokkaat ja </xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muut huomioon otettavat luontokohteet</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="VirtaHabitatSurvivingType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Elinympäristön säilyminen.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Säilynyt</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei säilynyt</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="VirtaExceptionalPermitForHandlingType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Elinympäristön poikkeuslupa.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">On</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="VirtaTreeDecimalType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Puulajien osuudet kymmenyksinä. Laskentasääntö: Niiden plj arvon 1 omaavien puiden lkm kenttien summa, joiden plk arvo ei ole 0, 7 tai 8 jaettuna kaikkien niiden puiden, joiden plk arvo ei ole 0, 7, 8 tai 9, lkm kenttien summalla ja em. laskun lopputulos kerrottuna kymmenellä.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Definition for negative integer.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0" />
+			<xs:maxInclusive value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="VirtaGroundManipulationMethodType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Maanpinnan käsittelytapa.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="500">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei tarpeen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="501">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Maanpinnankäsittely</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="510">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Laikutus</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="520">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Laikkumätästys</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="521">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kääntömätästys</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="522">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Naveromätästys</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="530">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Äestys</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="540">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Auraus</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="550">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ojitusmätästys</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="560">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pellon muokkaus</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="570">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kulotus</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="580">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kaivurilaikutus</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="585">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muokkaus kantoja nostamalla</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="590">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ristiinäestys</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>			
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="VirtaCultivationMaterialType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Uudistamisen varmistamistoimenpiteet.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="11">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Männyn siemenet</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuusen siemenet</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="13">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koivun siemenet</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="14">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muut siemenet</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="21">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Mäntypaakku</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="22">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuusipaakku</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="23">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koivupaakku</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="24">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muu paakkutaimi</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="31">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Männyn paljasjuuritaimi</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="32">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuusen paljasjuurinen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="33">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koivun paljasjuurinen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="34">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muut paljasjuuriset taimet</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="VirtaPlantEvaluationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Taimimäärän arvostelu.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Hyvä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Huomautettavaa</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Virheellinen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="VirtaRootRotControlEvaluationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Juurikäävän torjunta.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Havaittu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ilmoitettu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei tehty</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="VirtaHarvestingClassificationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Korjuujälkitarkastuksen luokittelu.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Korjuujäljen otanta</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muu korjuujälki</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Energiapuun korjuun laadun otantatarkastus</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="VirtaTotalEstimationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kokonaisarvio.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Hyvä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Huomautettavaa</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Virheellinen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>	
+	
+	<xs:simpleType name="VirtaCuttingByMachineType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Hakkuun koneellisuus.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kone</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Metsuri</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="VirtaHarvestingSeasonType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kuljetusajankohta.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Maa sulana</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Maa jäässä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>	
+</xs:schema>

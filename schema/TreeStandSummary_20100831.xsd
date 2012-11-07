@@ -27,7 +27,7 @@
     <xs:element name="BasalArea" type="BasalAreaType"/>
     <xs:element name="StemCount" type="StemCountType"/>
     <xs:element name="MeanDiameter" type="MeanDiameterType"/>    
-    <xs:element name="MeanHeight" type="MeanHeightType"/>
+    <xs:element name="MeanHeight" type="co:MeanHeightType"/>
     <xs:element name="Volume" type="VolumeType"/>
     <xs:element name="SawLogVolume" type="SawLogVolumeType"/>
     <xs:element name="PulpWoodVolume" type="PulpWoodVolumeType"/>
@@ -129,15 +129,6 @@
 			<xs:documentation xml:lang="en">Mean diameter, cm.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="co:DiameterType"/>
-    </xs:simpleType>
-    
-    <xs:simpleType name="MeanHeightType">
-        <xs:annotation>
-            <xs:documentation xml:lang="fi">Keskipituus, m.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Mean height, m.</xs:documentation>
-        </xs:annotation>
-        <xs:union memberTypes="co:HeightType bdt:EmptyStringType"/>
     </xs:simpleType>
     
     <xs:simpleType name="VolumeType">

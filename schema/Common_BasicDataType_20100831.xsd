@@ -20,8 +20,11 @@
     <!-- Uusi määrittely "LanguageCode1Type". -->
     <!-- Uusi määrittely "LanguageCode2Type". -->
 	<!-- VERSIOKOMMENTIT 1.1 >>> 1.2 -->
-	<!-- Uusi määrittely "PositiveDecimalMax2IntegralPartMax1FractionalPartType". -->
-	<!-- Uusi määrittely "PositiveDecimalMax4IntegralPartMax2FractionalPartType". -->
+	<!-- Uusia määrittelyjä numerotietoja varten -->
+	<!-- Uusi määrittely "VirtaYesNoType", missä 1 = kyllä ja 2 = ei -->
+	<!-- Uusi märittely "PositiveDecimalMax5IntegralPartMax1FractionalPartType" -->
+	<!-- Uusi märittely "PositiveInteger1digitsType" -->
+	<!-- Uusi märittely "PositiveInteger2digitsType" -->	
 
 	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
 				schemaLocation="JHS170_20090304.xsd"/>
@@ -47,6 +50,78 @@
 			<xs:maxExclusive value="0"/>
 		</xs:restriction>
 	</xs:simpleType>
+	
+	<xs:simpleType name="PositiveInteger1digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Negatiivisen kokonaisluvun määrittely.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Definition for negative integer.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0" />
+			<xs:maxInclusive value="9" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="PositiveInteger2digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Negatiivisen kokonaisluvun määrittely.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Definition for negative integer.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0" />
+			<xs:maxInclusive value="99" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="PositiveInteger3digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Negatiivisen kokonaisluvun määrittely.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Definition for negative integer.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0" />
+			<xs:maxInclusive value="999" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="PositiveInteger4digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Negatiivisen kokonaisluvun määrittely.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Definition for negative integer.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0" />
+			<xs:maxInclusive value="9999" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="PositiveInteger5digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Negatiivisen kokonaisluvun määrittely.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Definition for negative integer.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0" />
+			<xs:maxInclusive value="99999" />
+		</xs:restriction>
+	</xs:simpleType>	
+	
+	<xs:simpleType name="PositiveInteger6digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Negatiivisen kokonaisluvun määrittely.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Definition for negative integer.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0" />
+			<xs:maxInclusive value="999999" />
+		</xs:restriction>
+	</xs:simpleType>	
 
 	<xs:simpleType name="YesNoType">
 		<xs:annotation>
@@ -67,6 +142,30 @@
 					<xs:documentation xml:lang="fi">Kyllä</xs:documentation>
 					<xs:documentation xml:lang="sv"></xs:documentation>
 					<xs:documentation xml:lang="en">Yes</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="VirtaYesNoType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Virta-järjestelmän määrittely kyllä- ja ei-arvoille.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Definition for yes and no value</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kyllä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en">Yes</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en">No</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -185,12 +284,23 @@
 			<xs:totalDigits value="6" />
 		</xs:restriction>
 	</xs:simpleType>
+
+	<xs:simpleType name="PositiveDecimalMax1IntegralPartMax2FractionalPartType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Positiivinen desimaaliluku, jonka kokonaislukuosassa maksimissaan 2 numeroa ja desimaaliosassa maksimissaan 1 numero. Kattaa siis arvot 0 - 99,9.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Positive decimal fraction with maximum 2 numbers in its integral part and maximum 1 number in its fractinoal part. Thus covers values 0 - 99,9.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,1}\.?[0-9]{0,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
 	
 	<xs:simpleType name="PositiveDecimalMax2IntegralPartMax1FractionalPartType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Positiivinen desimaaliluku, jonka kokonaislukuosassa maksimissaan 2 numeroa ja desimaaliosassa maksimissaan 1 numero. Kattaa siis arvot 0,0 - 99,9.</xs:documentation>
+			<xs:documentation xml:lang="fi">Positiivinen desimaaliluku, jonka kokonaislukuosassa maksimissaan 2 numeroa ja desimaaliosassa maksimissaan 1 numero. Kattaa siis arvot 0 - 99,9.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Positive decimal fraction with maximum 2 numbers in its integral part and maximum 1 number in its fractinoal part. Thus covers values 0,0 - 99,9.</xs:documentation>
+			<xs:documentation xml:lang="en">Positive decimal fraction with maximum 2 numbers in its integral part and maximum 1 number in its fractinoal part. Thus covers values 0 - 99,9.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:pattern value="[0-9]{1,2}\.?[0-9]{0,1}"/>
@@ -199,12 +309,34 @@
 	
 	<xs:simpleType name="PositiveDecimalMax4IntegralPartMax2FractionalPartType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Positiivinen desimaaliluku, jonka kokonaislukuosassa maksimissaan 4 numeroa ja desimaaliosassa maksimissaan 2 numeroa. Kattaa siis arvot 0,0 - 9999,99.</xs:documentation>
+			<xs:documentation xml:lang="fi">Positiivinen desimaaliluku, jonka kokonaislukuosassa maksimissaan 4 numeroa ja desimaaliosassa maksimissaan 2 numeroa. Kattaa siis arvot 0 - 9999,99.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Positive decimal fraction with maximum 4 numbers in its integral part and maximum 2 numbers in its fractinoal part. Thus covers values 0,0 - 9999,99.</xs:documentation>
+			<xs:documentation xml:lang="en">Positive decimal fraction with maximum 4 numbers in its integral part and maximum 2 numbers in its fractinoal part. Thus covers values 0 - 9999,99.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:pattern value="[0-9]{1,4}\.?[0-9]{0,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="PositiveDecimalMax5IntegralPartMax1FractionalPartType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Positiivinen desimaaliluku, jonka kokonaislukuosassa maksimissaan 5 numeroa ja desimaaliosassa maksimissaan 1 numero. Kattaa siis arvot 0 - 99999,9.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Positive decimal fraction with maximum 5 numbers in its integral part and maximum 1 numbers in its fractinoal part. Thus covers values 0 - 9999,99.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,5}\.?[0-9]{0,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="PositiveDecimalMax5IntegralPartMax2FractionalPartType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Positiivinen desimaaliluku, jonka kokonaislukuosassa maksimissaan 4 numeroa ja desimaaliosassa maksimissaan 2 numeroa. Kattaa siis arvot 0 - 9999,99.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Positive decimal fraction with maximum 4 numbers in its integral part and maximum 2 numbers in its fractinoal part. Thus covers values 0 - 9999,99.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,5}\.?[0-9]{0,2}"/>
 		</xs:restriction>
 	</xs:simpleType>
 	
@@ -316,5 +448,4 @@
 			<xs:maxLength value="3"/>
 		</xs:restriction>
 	</xs:simpleType>
-	
 </xs:schema>

@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	***************************************************************
+	Hila- ja mikrokuviomuotoisen metsävara-aineiston
+	tulkintayksiköt.
+	Skeema on JHS-170 -suosituksen mukainen.
+	***************************************************************
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/forestobject" 
+	xmlns="http://standardit.tapio.fi/schemas/forestData/forestobject" 
+    xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"  	
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" 
+    xmlns:gml="http://www.opengis.net/gml" 	
+	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes/2010/08/31"	
+    xmlns:stb="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14"	
+    xmlns:tst="http://standardit.tapio.fi/schemas/forestData/treeStratum/2010/08/31" 
+    xmlns:cdd="http://standardit.tapio.fi/schemas/forestData/commondistributiondata" 	
+	elementFormDefault="qualified"
+	attributeFormDefault="qualified"
+	version="1.0">
+	
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
+	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/> 		
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes/2010/08/31" schemaLocation="Common_GeometricDataType_20100831.xsd"/>	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14" schemaLocation="StandBase_20110214.xsd"/>	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStratum/2010/08/31" schemaLocation="TreeStratum_20100831.xsd"/>	
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/commondistributiondata" schemaLocation="CommonDistributionData.xsd"/> 
+   	
+	<!-- Element definitions -->
+   	<xs:element name="ForestObject" type="ForestObjectType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ChangeState" type="co:ChangeStateType"/>
+	<xs:element name="ChangeTime" type="co:ChangeTimeType"/>
+	<xs:element name="ObjectIdentifier" type="xs:string"/>	
+	<xs:element name="PolygonGeometry" type="gdt:PolygonGeometryType"/>	
+	<xs:element name="MultiPolygonGeometry" type="gdt:MultiPolygonGeometryType"/>
+	<xs:element name="PointGeometry" type="gdt:PointGeometryType"/>
+	<xs:element name="InventoryDate" type="xs:string"/>	
+	<xs:element name="InventoryMethod" type="InventoryMethodType"/>
+	<xs:element name="FertilityClass" type="stb:FertilityClassType"/>
+	<xs:element name="SoilType" type="stb:SoilTypeType"/>
+	<xs:element name="MainTreeSpecies" type="co:TreeSpeciesType"/>	
+	<xs:element name="DevelopmentClass" type="stb:DevelopmentClassType"/>
+	<xs:element name="TreeData" type="TreeDataType"/>
+	<xs:element name="Storeys" type="StoreysType"/>
+	<xs:element name="Storey" type="StoreyType"/>
+	<xs:element name="StoreyCode" type="tst:StoreyType"/>
+	<xs:element name="StoreyPercent" type="bdt:PercentType"/>
+	<xs:element name="ForestObjectStrata" type="ForestObjectStrataType"/>  
+	<xs:element name="ForestObjectStratum" type="ForestObjectStratumType"/> 
+	<xs:element name="TreeSpecies" type="co:TreeSpeciesType"/>
+	<xs:element name="Trees" type="ForestObjectTreesType"/>
+	<xs:element name="Tree" type="ForestObjectTreeType"/>
+	<xs:element name="Distribution" type="cdd:DistributionType"/>	
+	<xs:element name="Frequency" type="xs:decimal"/>
+	<xs:element name="TreeSummary" type="TreeSummaryType"/>	
+    <xs:element name="MeanHeight" type="xs:decimal"/>
+	<xs:element name="MeanDiameter" type="xs:decimal"/>
+    <xs:element name="DominantHeight" type="xs:decimal"/>
+	<xs:element name="Age" type="co:AgeType"/>	
+    <xs:element name="BasalArea" type="xs:decimal"/>
+	<xs:element name="StemCount" type="co:StemCountType"/>
+	<xs:element name="Diameter" type="co:DiameterType"/>
+	<xs:element name="Height" type="co:MeanHeightType"/>
+	<xs:element name="Volume" type="co:VolumeType"/>
+	<xs:element name="SawLogPercent" type="co:SawLogPercentType"/>
+	<xs:element name="SawLogVolume" type="co:SawLogVolumeType"/>
+	<xs:element name="PulpWoodVolume" type="co:PulpWoodVolumeType"/>
+	<xs:element name="ForestObjectTrees" type="ForestObjectTreesType"/>	
+	<xs:element name="ForestObjectTree" type="ForestObjectTreeType"/>
+    <xs:element name="StoreyIdentifiers" type="StoreyIdentifiersType"/> 
+	<xs:element name="StoreyIdentifier" type="StoreyIdentifierType"/> 
+    <xs:element name="Type" type="xs:string"/> 
+    <xs:element name="Value" type="xs:string"/> 	
+	
+	<!-- Type definitions -->
+	<xs:complexType name="ForestObjectType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Hila- ja mikrokuviomuotoisen metsävaratietoaineiston tulkintayksikkö.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ChangeState" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ChangeTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ObjectIdentifier"/>
+			<xs:choice>		
+				<xs:element ref="PolygonGeometry"/>
+				<xs:element ref="MultiPolygonGeometry"/>
+				<xs:element ref="PointGeometry"/>
+			</xs:choice>
+			<xs:element ref="InventoryDate"/>	
+			<xs:element ref="InventoryMethod"/>
+			<xs:element ref="FertilityClass" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="SoilType" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="MainTreeSpecies" minOccurs="0" maxOccurs="1"/>	
+			<xs:element ref="DevelopmentClass" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="TreeData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="StoreyIdentifiers" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi"></xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en"></xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="type" type="TypeOfForestObjectType" use="required">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi"></xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en"></xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="inventor" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi"></xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en"></xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="realestate" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi"></xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en"></xs:documentation>
+			</xs:annotation>
+		</xs:attribute>		
+		<xs:attribute name="target" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi"></xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en"></xs:documentation>
+			</xs:annotation>
+		</xs:attribute>			
+	</xs:complexType>
+	
+	<xs:complexType name="TreeDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Puustotiedot</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="Storeys" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="TreeSummary" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="StoreysType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Puustotiedot</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="Storey" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="StoreyType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Puustojakso</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="StoreyCode" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="StoreyPercent" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ForestObjectStrata" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+    <xs:complexType name="ForestObjectStrataType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element ref="ForestObjectStratum" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+	
+    <xs:complexType name="ForestObjectStratumType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+			<xs:element ref="TreeSpecies" minOccurs="0" maxOccurs="1"/>	
+			<xs:element ref="Age" minOccurs="0" maxOccurs="1"/>	
+			<xs:element ref="BasalArea" minOccurs="0" maxOccurs="1"/>				
+			<xs:element ref="StemCount" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Diameter" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Height" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Volume" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="SawLogPercent" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="SawLogVolume" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="PulpWoodVolume" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Trees" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Distribution" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ForestObjectTreesType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element ref="Tree"/>
+        </xs:sequence>
+    </xs:complexType>
+	
+    <xs:complexType name="ForestObjectTreeType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+			<xs:element ref="Frequency" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="gml:pointProperty" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Puun ID. Viittaa TreeListItem -tagin ID attribuuttiin.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en"></xs:documentation>
+			</xs:annotation>
+		</xs:attribute>		
+    </xs:complexType>	
+	
+    <xs:complexType name="TreeSummaryType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element ref="DominantHeight"/>
+            <xs:element ref="Age"/>
+            <xs:element ref="BasalArea"/>
+            <xs:element ref="StemCount"/>
+            <xs:element ref="MeanHeight"/>
+            <xs:element ref="MeanDiameter"/>
+            <xs:element ref="SawLogVolume" minOccurs="0"/>
+            <xs:element ref="PulpWoodVolume" minOccurs="0"/>
+            <xs:element ref="SawLogPercent"/>
+        </xs:sequence>
+    </xs:complexType>
+	
+	<xs:complexType name="StoreyIdentifiersType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Lisätunnukset.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="StoreyIdentifier" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="StoreyIdentifierType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Lisätunnus. Vapaa tyypitys. Edellyttää erityisen tarkkaa sopimista tiedonsiirto-osapuolten välillä!</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="Value" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="TypeOfForestObjectType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tulkintayksikön tyyppi</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Hila</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>		
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Mikrokuvio/puustokuvio</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuvio</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>			
+		</xs:restriction>
+	</xs:simpleType>
+	
+    <xs:simpleType name="InventoryMethodType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+        </xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kaukokartoitus</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>		
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Maastoinventointi</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Laskettu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tulkittu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>			
+		</xs:restriction>
+    </xs:simpleType>
+</xs:schema>

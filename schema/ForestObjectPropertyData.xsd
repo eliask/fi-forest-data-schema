@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	***************************************************************
+	Hila- ja mikrokuviomuotoisen metsävara-aineiston elementit ja
+	tyypit.
+	Skeema on JHS-170 -suosituksen mukainen.
+	***************************************************************
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestobjectpropertydata"
+	xmlns="http://standardit.tapio.fi/schemas/forestobjectpropertydata" 
+	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"		
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"	
+	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14" 	
+	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14" 	
+	xmlns:opt="http://standardit.tapio.fi/schemas/forestData/forestobjectpropertydatatarget" 
+	xmlns:tli="http://standardit.tapio.fi/schemas/forestData/treelistitem" 	
+	xmlns:fo="http://standardit.tapio.fi/schemas/forestData/forestobject" 
+	elementFormDefault="qualified"
+	attributeFormDefault="qualified"
+	version="1.0">
+	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14" schemaLocation="ContactInformation_20110214.xsd"/>	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14" schemaLocation="RealEstate_20110214.xsd"/>	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestobjectpropertydatatarget" schemaLocation="ForestObjectPropertyDataTarget.xsd"/> 
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treelistitem" schemaLocation="TreeListItem.xsd"/> 
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestobject" schemaLocation="ForestObject.xsd"/> 	
+	
+   	<!-- Element definitions -->
+   	<xs:element name="ForestObjectPropertyData" type="ForestObjectPropertyDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Hila- tai mikrokuviomuotoinen metsävaratieto.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Actors" type="ActorsType"/>
+	<xs:element name="Actor" type="ci:ContactInformationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Yhteystiedot, ainakin toimittajan nimi.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>	
+	</xs:element>
+	<!-- If these definitions are here then the XML files do not need to import contact information
+	     schema nor add name of the contact information namespace (here: "ci") to the tag names, but
+		 maintaining schema files will be a bit more -->
+	<!--<xs:element name="FirstName" type="ci:FirstNameType"/>
+	<xs:element name="LastName" type="ci:LastNameType"/>
+	<xs:element name="WholeName" type="ci:WholeNameType"/>
+	<xs:element name="OrganizationName" type="ci:OrganizationNameType"/>
+	<xs:element name="Address" type="ci:AddressType"/>
+	<xs:element name="PostalCode" type="ci:PostalCodeType"/>
+	<xs:element name="PostOffice" type="ci:PostOfficeType"/>
+	<xs:element name="CountryCode" type="ci:CountryCodeType"/>
+	<xs:element name="CountryText" type="ci:CountryTextType"/>	
+	<xs:element name="PhoneNumber" type="ci:PhoneNumberType"/>
+	<xs:element name="MobilePhoneNumber" type="ci:MobilePhoneNumberType"/> 
+	<xs:element name="TelefaxNumber" type="ci:TelefaxNumberType"/> 	
+	<xs:element name="EmailAddress" type="ci:EmailAddressType"/>-->	
+	<xs:element name="RealEstates" type="RealEstatesType"/>
+	<xs:element name="Targets" type="TargetsType"/>
+	<xs:element name="TreeList" type="TreeListType"/>
+	<xs:element name="ForestObjects" type="ForestObjectsType"/>
+	
+	<!-- Type definitions -->
+	<xs:complexType name="ForestObjectPropertyDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Hila- tai mikrokuviomuotoinen metsävaratieto.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="Actors" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="RealEstates" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Targets" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="TreeList" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ForestObjects" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ActorsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Toimijat.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="Actor" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="RealEstatesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kiinteistöt.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="re:RealEstateData" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>	
+	
+	<xs:complexType name="TargetsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tässä tiedonsiirron osapuolet voivat siirtää valitun kaltaisia tulkintayksikköön liittyviä kohteita / viitetietoja.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="opt:Target" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="TreeListType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Toimitukseen liittyvä puuluettelo.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="tli:TreeListItem" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ForestObjectsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tulkintayksiköt.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="fo:ForestObject" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
