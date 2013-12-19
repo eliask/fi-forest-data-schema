@@ -6,22 +6,16 @@
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14"
-	xmlns="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14"
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-	elementFormDefault="qualified"
-	attributeFormDefault="unqualified"
-	version="1.1">
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14" xmlns="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.2">
 	
 	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
 	<!-- Elementin "Identifier" tyyppi otetaan nimiavaruudesta "co". -->
+	<!-- VERSIOKOMMENTIT 1.1 >>> 1.2 -->
+	<!-- Koodistotyyppiset määrittelyt siirretty skeemaan ForestEnumeratives_20130620. -->	
 	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-			    schemaLocation="Common_BasicDataType_20100831.xsd"/>
-
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-				schemaLocation="Common_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
 	
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
@@ -29,18 +23,19 @@
 	<xs:element name="Identifier" type="co:IdentifierType"/>
 	<xs:element name="StandNumber" type="StandNumberType"/>
 	<xs:element name="StandNumberExtension" type="StandNumberExtensionType"/>
-	<xs:element name="MainGroup" type="MainGroupType"/>
-	<xs:element name="SubGroup" type="SubGroupType"/>
+	<!-- <xs:element name="MainGroup" type="fe:MainGroupType"/>
+	<xs:element name="SubGroup" type="fe:SubGroupType"/>
 	<xs:element name="FertilityClass" type="FertilityClassType"/>
 	<xs:element name="SoilType" type="SoilTypeType"/>
-	<xs:element name="DrainageState" type="DrainageStateType"/>
+	<xs:element name="DrainageState" type="DrainageStateType"/> -->
 	<xs:element name="DitchingYear" type="DitchingYearType"/>
-	<xs:element name="DevelopmentClass" type="DevelopmentClassType"/>
+	<!--<xs:element name="DevelopmentClass" type="fe:DevelopmentClassType"/>
 	<xs:element name="StandQuality" type="StandQualityType"/>
 	<xs:element name="MainTreeSpecies" type="MainTreeSpeciesType"/>
 	<xs:element name="Accessibility" type="AccessibilityType"/>
-	<xs:element name="CuttingRestriction" type="CuttingRestrictionType"/>
-	<xs:element name="SilvicultureRestriction" type="SilvicultureRestrictionType"/>
+	<xs:element name="CuttingRestriction" type="CuttingRestrictionType"/> -->
+	<xs:element name="SilvicultureRestriction" type="fe:SilvicultureRestrictionType"/>
+	<xs:element name="SilvicultureRestrictionEnds" type="bdt:DateType"/>	
 	<xs:element name="StandBasicDataDate" type="StandBasicDataDateType"/>
 	<xs:element name="StandInfo" type="StandInfoType"/>
 	<xs:element name="Area" type="AreaType"/>
@@ -58,7 +53,6 @@
 			<xs:element ref="Identifier" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	
 	<xs:simpleType name="StandNumberType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvionumero.</xs:documentation>
@@ -69,7 +63,6 @@
 			<xs:pattern value="[0-9]{1,4}"/>
 		</xs:restriction>
 	</xs:simpleType>
-	
 	<xs:simpleType name="StandNumberExtensionType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvion alanumero (lisämerkki).</xs:documentation>
@@ -80,400 +73,46 @@
 			<xs:maxLength value="1"/>
 		</xs:restriction>
 	</xs:simpleType>
-	
 	<xs:simpleType name="MainGroupType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Pääryhmä.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Main group.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Metsämaa</xs:documentation>
-					<xs:documentation xml:lang="sv">Skogsmark</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kitumaa</xs:documentation>
-					<xs:documentation xml:lang="sv">Tvinmark</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Joutomaa</xs:documentation>
-					<xs:documentation xml:lang="sv">Impediment</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Muu metsätalousmaa</xs:documentation>
-					<xs:documentation xml:lang="sv">Annan skogsbruksmark</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tontti</xs:documentation>
-					<xs:documentation xml:lang="sv">Tomtmark</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="6">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Maatalousmaa</xs:documentation>
-					<xs:documentation xml:lang="sv">Jordbruksmark</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="7">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Muu maa</xs:documentation>
-					<xs:documentation xml:lang="sv">Annan mark</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="8">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Vesistö</xs:documentation>
-					<xs:documentation xml:lang="sv">Vattendrag</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	
-	<xs:simpleType name="SubGroupType">
+		<xs:restriction base="fe:MainGroupType"/>
+	</xs:simpleType>	
+	<xs:simpleType name="SubGroupType">	
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Alaryhmä.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Sub group.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kangas</xs:documentation>
-					<xs:documentation xml:lang="sv">Momark</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Korpi</xs:documentation>
-					<xs:documentation xml:lang="sv">Kärr</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Räme</xs:documentation>
-					<xs:documentation xml:lang="sv">Myr</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Neva</xs:documentation>
-					<xs:documentation xml:lang="sv">Mosse</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Letto</xs:documentation>
-					<xs:documentation xml:lang="sv">Brunmosse</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	
+		<xs:restriction base="fe:SubGroupType"/>
+	</xs:simpleType>	
 	<xs:simpleType name="FertilityClassType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kasvupaikkaluokka.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Fertility classifier.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Lehto, letto ja lehtomainen suo (ja ruohoturvekangas)</xs:documentation>
-					<xs:documentation xml:lang="sv">Lund, motsvarande torvmark (och örttorvmo)</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Lehtomainen kangas, vastaava suo ja ruohoturvekangas</xs:documentation>
-					<xs:documentation xml:lang="sv">Lundartad mo, motsvarande torvmark och örttorvmo</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tuore kangas, vastaava suo ja mustikkaturvekangas</xs:documentation>
-					<xs:documentation xml:lang="sv">Frisk mo, motsvarande torvmark och torvmo av blåbärstyp</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kuivahko kangas, vastaava suo ja puolukkaturvekangas</xs:documentation>
-					<xs:documentation xml:lang="sv">Torr mo, motsvarande torvmark och torvmo</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kuiva kangas, vastaava suo ja varputurvekangas</xs:documentation>
-					<xs:documentation xml:lang="sv">Karg mo, motsvarande torvmark och torvmo</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="6">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Karukkokangas, vastaava suo (ja jäkäläturvekangas)</xs:documentation>
-					<xs:documentation xml:lang="sv">Lavmo, motsvarande torvmark och torvmo</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="7">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kalliomaa ja hietikko</xs:documentation>
-					<xs:documentation xml:lang="sv">Bergbundna marker och sandfält</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="8">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Lakimetsä ja tunturi</xs:documentation>
-					<xs:documentation xml:lang="sv">Skog i höjdläge och fjäll</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:FertilityClassType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="SoilTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Maalaji.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Soil type.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="10">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Keskikarkea tai karkea kangasmaa</xs:documentation>
-					<xs:documentation xml:lang="sv">Medelgrov och grov momark</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="11">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Karkea moreeni</xs:documentation>
-					<xs:documentation xml:lang="sv">Grov morän</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="12">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Karkea lajittunut maalaji</xs:documentation>
-					<xs:documentation xml:lang="sv">Grov sorterad jordart</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="20">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Hienojakoinen kangasmaa</xs:documentation>
-					<xs:documentation xml:lang="sv">Finfördelad momark</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="21">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Hienoainesmoreeni</xs:documentation>
-					<xs:documentation xml:lang="sv">Finmorän</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="22">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Hienojakoinen lajittunut maalaji</xs:documentation>
-					<xs:documentation xml:lang="sv">Finfördelad sorterad jordart</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="30">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kivinen keskikarkea tai karkea kangasmaa</xs:documentation>
-					<xs:documentation xml:lang="sv">Stenig medelgrov eller grov momark</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="31">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kivinen karkea moreeni</xs:documentation>
-					<xs:documentation xml:lang="sv">Stenig grov morän</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="32">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kivinen karkea lajittunut maalaji</xs:documentation>
-					<xs:documentation xml:lang="sv">Stenig grov sorterad jordart</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="40">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kivinen hienojakoinen kangasmaa</xs:documentation>
-					<xs:documentation xml:lang="sv">Stenig finfördelad momark</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="50">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kallio tai kivikko</xs:documentation>
-					<xs:documentation xml:lang="sv">Berg eller stenbunden mark</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="60">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Turvemaa</xs:documentation>
-					<xs:documentation xml:lang="sv">Torvjord</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="61">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Saraturve</xs:documentation>
-					<xs:documentation xml:lang="sv">Starrtorv</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="62">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Rahkaturve</xs:documentation>
-					<xs:documentation xml:lang="sv">Vitmosstorv</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="63">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Puuvaltainen turve</xs:documentation>
-					<xs:documentation xml:lang="sv">Trätorv</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="64">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Eroosioherkkä saraturve (von Post luokka yli 5)</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="65">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Eroosioherkkä rahkaturve (von Post luokka yli 5)</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="66">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Maatumaton saraturve (von Post luokka enintään 5)</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="67">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Maatumaton rahkaturve (von Post luokka enintään 5)</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="70">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Multamaa</xs:documentation>
-					<xs:documentation xml:lang="sv">Mulljord</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="80">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Liejumaa</xs:documentation>
-					<xs:documentation xml:lang="sv">Gyttjejord</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:SoilTypeType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="DrainageStateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuivatustilanne.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Drainage state.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ojittamaton kangas</xs:documentation>
-					<xs:documentation xml:lang="sv">Odikad momark</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Soistunut kangas</xs:documentation>
-					<xs:documentation xml:lang="sv">Försumpad momark</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ojitettu kangas</xs:documentation>
-					<xs:documentation xml:lang="sv">Dikad momark</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="6">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Luonnontilainen suo</xs:documentation>
-					<xs:documentation xml:lang="sv">Torvmark i naturtillstånd</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="7">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ojikko</xs:documentation>
-					<xs:documentation xml:lang="sv">Nydikning</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="8">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Muuttuma</xs:documentation>
-					<xs:documentation xml:lang="sv">Förändring</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="9">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Turvekangas</xs:documentation>
-					<xs:documentation xml:lang="sv">Torvmo</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:DrainageStateType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="DitchingYearType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Ojitusvuosi.</xs:documentation>
@@ -482,181 +121,22 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:YearType"></xs:restriction>
 	</xs:simpleType>
-	
 	<xs:simpleType name="DevelopmentClassType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kehitysluokka.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Development class.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="A0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Aukea</xs:documentation>
-					<xs:documentation xml:lang="sv">Kalmark</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="S0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Siemenpuumetsikkö</xs:documentation>
-					<xs:documentation xml:lang="sv">Bestånd i fröträdsställning</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="T1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Taimikko alle 1,3 m</xs:documentation>
-					<xs:documentation xml:lang="sv">Yngre plantbestånd</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="T2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Taimikko yli 1,3 m</xs:documentation>
-					<xs:documentation xml:lang="sv">Äldre plantbestånd</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Y1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ylispuustoinen taimikko</xs:documentation>
-					<xs:documentation xml:lang="sv">Plantbestånd med överståndare</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="02">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Nuori kasvatusmetsikkö</xs:documentation>
-					<xs:documentation xml:lang="sv">Klenare gallringsbestånd</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="03">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Varttunut kasvatusmetsikkö</xs:documentation>
-					<xs:documentation xml:lang="sv">Grövre gallringsbestånd</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="04">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Uudistuskypsä metsikkö</xs:documentation>
-					<xs:documentation xml:lang="sv">Förnyelsemogen skog</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="05">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Suojuspuumetsikkö</xs:documentation>
-					<xs:documentation xml:lang="sv">Bestånd i skärmställning</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>		
-	</xs:simpleType>
-	
+		<xs:restriction base="fe:DevelopmentClassType"></xs:restriction>
+	</xs:simpleType>	
 	<xs:simpleType name="StandQualityType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsikön laatu.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Stand quality.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="10">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Hyvä</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="11">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kehityskelpoinen, hyvä</xs:documentation>
-					<xs:documentation xml:lang="sv">Utvecklingsduglig, bra</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="20">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tyydyttävä</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="21">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kehityskelpoinen, tyydyttävä: aukkoinen, harva, vähäpuustoinen</xs:documentation>
-					<xs:documentation xml:lang="sv">Utvecklingsduglig, tillfredsställande: luckig, gles, lågt virkesförråd</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="22">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kehityskelpoinen, tyydyttävä: ylitiheä, hoitamaton</xs:documentation>
-					<xs:documentation xml:lang="sv">Utvecklingsduglig, tillfredsställande: övertät, oskött</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="23">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kehityskelpoinen tyydyttävä/välttävä: vajaalaatuinen</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="30">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Välttävä</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="31">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kehityskelvoton: aukkoinen, harva, vähäpuustoinen</xs:documentation>
-					<xs:documentation xml:lang="sv">Icke utvecklingsduglig: luckig, gles, lågt virkesförråd</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="32">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kehityskelvoton: ylitiheä, hoitamaton</xs:documentation>
-					<xs:documentation xml:lang="sv">Icke utvecklingsduglig: övertät, oskött</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="33">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kehityskelvoton: kasvupaikalle metsänhoidollisesti sopimaton puulaji</xs:documentation>
-					<xs:documentation xml:lang="sv">Icke utvecklingsduglig: för ståndorten olämpligt trädslag</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="34">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kehityskelvoton: yli-ikäinen</xs:documentation>
-					<xs:documentation xml:lang="sv">Icke utvecklingsduglig: överårig</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="35">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kehityskelvoton: huonokasvuinen, harsittu, jätemetsikkö</xs:documentation>
-					<xs:documentation xml:lang="sv">Icke utvecklingsduglig: dålig tillväxt, blädad, restskog</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="36">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kehityskelvoton: tuhometsikkö</xs:documentation>
-					<xs:documentation xml:lang="sv">Icke utvecklingsduglig: skadat bestånd</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:StandQualityType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="MainTreeSpeciesType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Pääpuulaji.</xs:documentation>
@@ -665,177 +145,43 @@
 		</xs:annotation>
 		<xs:restriction base="co:TreeSpeciesType"/>
 	</xs:simpleType>			
-		
 	<xs:simpleType name="AccessibilityType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Saavutettavuus</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Accessibility classifier.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Myös kelirikon aikana</xs:documentation>
-					<xs:documentation xml:lang="sv">Även under menföre</xs:documentation>
-					<xs:documentation xml:lang="en">All-year available</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Myös sulan maan, mutta ei kelirikon aikana</xs:documentation>
-					<xs:documentation xml:lang="sv">Även under barmark, men inte under menföre</xs:documentation>
-					<xs:documentation xml:lang="en">With melt soil but not during possible frost damage</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Myös sulan maan aikana kuivana kautena</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Vain kun maa on jäässä</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Only when soil is frozen</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:AccessibilityType"/>
 	</xs:simpleType>
-
 	<xs:simpleType name="CuttingRestrictionType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Hakkuurajoitus.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Cutting restriction.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei rajoituksia</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei ylispuidenpoistoa</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei ensiharvennuksia</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei harvennushakkuita</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei kasvatushakkuita</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei avohakkuuta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="6">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei suojuspuuhakkuuta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="7">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei siemenpuuhakkuuta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="8">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei uudistushakkuuta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="9">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei hakkuita</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:CuttingRestrictionType"/>
 	</xs:simpleType>
-
+	<xs:complexType name="SilvicultureRestrictionDetailsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsänhoidonrajoitus.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Silviculture restriction.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice>		
+				<xs:element ref="SilvicultureRestriction"/>
+				<xs:element ref="SilvicultureRestrictionEnds"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:simpleType name="SilvicultureRestrictionType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsänhoidonrajoitus.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Silviculture restriction.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei rajoituksia</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei viljelyä</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei maanmuokkausta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="6">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei ojitusta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="7">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei maa-ainestenottoa</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="9">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei metsänhoitotöitä</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:SilvicultureRestrictionType"/>
 	</xs:simpleType>
-
 	<xs:simpleType name="StandBasicDataDateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Perustietojen inventointi- / muutosajankohta.</xs:documentation>
@@ -844,7 +190,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:DateType"/>
 	</xs:simpleType>
-
 	<xs:simpleType name="StandInfoType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvion vapaamuotoinen teksti.</xs:documentation>
@@ -853,7 +198,6 @@
 		</xs:annotation>
 		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
-
 	<xs:simpleType name="AreaType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvion kokonaispinta-ala hehtaareina.</xs:documentation>
@@ -862,7 +206,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:Decimal4FractionDigitsType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="AreaDecreaseType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvion vähennysala hehtaareina. Kuvion metsäpinta-alaa vähentävä ala. Sisältää esim. tiet ja linjaviivat.</xs:documentation>
@@ -871,5 +214,4 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:Decimal4FractionDigitsType"/>
 	</xs:simpleType>
-    
 </xs:schema>

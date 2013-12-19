@@ -12,18 +12,15 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"	
 	xmlns:tgt="http://standardit.tapio.fi/schemas/virta/target" 
 	xmlns:sp="http://standardit.tapio.fi/schemas/virta/sampleplot" 
-	xmlns:hg="http://standardit.tapio.fi/schemas/virta/helpgeometry" 
-	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" 	
-	elementFormDefault="qualified"
-	attributeFormDefault="qualified"
-	version="1.0">
+	xmlns:hg="http://standardit.tapio.fi/schemas/virta/helpgeometry" xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
 	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/virta/target" schemaLocation="VirtaTarget.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/virta/sampleplot" schemaLocation="VirtaSamplePlot.xsd"/>	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/virta/helpgeometry" schemaLocation="VirtaHelpGeometry.xsd"/>
-	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" schemaLocation="JHS170_20090304.xsd"/>	 
+	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" schemaLocation="JHS170_20090304.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>	
 	
    	<!-- Element definitions -->
    	<xs:element name="InspectionData" type="InspectionDataType">
@@ -532,702 +529,92 @@
 			<xs:pattern value="[0-9]{13,13}"/>
 		</xs:restriction>
 	</xs:simpleType> 
-
 	<xs:simpleType name="VirtaInspectionTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Koodi, joka kuvaa sitä, millaista tarkastusta ollaan tekemässä.Tarkastuslaji voidaan usein päätellä tar ja tl kentistä.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kemera-uudistaminen (tl = 10-19)</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">NMH (tl = 30)</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Mki (tar = 1)</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Korjuujälki (tar = 1 tai 4, mutta käyttäjä muuttaa tlj koodin arvoksi 4)</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Perustamisilmoitus (tar = 2, 3, 5, 6, 7 tai 8)</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="6">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">"tl"-kentässä on jokin arvo, mutta arvo on muu kuin em.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="7">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Muu, jonka käyttäjä voi antaa esim. tehdessään tarkastuksia, jotka eivät ole viranomaistarkastuksia</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="8">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Riistavahinkotarkastus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="9">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Puuenergiatuki</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>			
-		</xs:restriction>
+		<xs:restriction base="fe:VirtaInspectionTypeType"/>
 	</xs:simpleType>
-
 	<xs:simpleType name="VirtaSaveIncompleteType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tallennuksen keskeneräisyys. Oletusarvoksi tulee 1, jonka käyttäjä voi vaihtaa. Käyttäjä voi nyt päivittää kenttää muistiinpanon omaisesti. Kentällä ei ole nykyversiossa vaikutusta tietojen siirtymiseen.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tallennus kesken</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tallennus valmis</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Siirtoa tauluihin ei tehdä</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Siirto Virran tauluihin ei onnistunut</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:VirtaSaveIncompleteType"/>
 	</xs:simpleType>	
-	
 	<xs:simpleType name="VirtaTargetSelectionType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kohdevalinta. Kohdevalinta on pakollinen tieto. Maastotallentimella voi päivittää vain kohdevalinnan 0 kohdevalinnaksi 2, 3 tai 4. Virran antamaa kohdevalintaa 1 ei voi muuttaa tai kopioida toiselle tietueelle maastotallentimella. Virrassa olevaa kohdelvalintaa 1 ei pävivitetä maastotallentimelta tulevalla tiedolla.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei tarkastusta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>		
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Otanta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Riskianalyysi</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Harkinta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Manuaalinen otanta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>				
-			<xs:enumeration value="9">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Poistettu tarkastuksesta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>				
-		</xs:restriction>
+		<xs:restriction base="fe:VirtaTargetSelectionType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="VirtaMastoInspectionType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Mastovirran tarkastus. Jos tar kenttä ei ole tyhjä, niin työlajikenttään ei voi syöttää merkkejä. HUOM. Jäkitarkastus tarkoittaa ns. toiskertaista tarkastusta eli on uudelleen tarkastettu toimenpide, joka on jo kertaalleen aiemmin tarkastettu.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Muu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>		
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Mki</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Perustamisilmoitus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Vakiintumisilmoitus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Mki jälkitarkastus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>				
-			<xs:enumeration value="5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Perustamisilmoituksen jälkitarkastus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="6">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Uudistamisrästitarkastus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="7">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Taimikon aikaansaamisen tarkastus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="8">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Taimikon aikaansaamisen jäkitarkastus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>			
-		</xs:restriction>
+		<xs:restriction base="fe:VirtaMastoInspectionType"/>
 	</xs:simpleType> 
-	
 	<xs:simpleType name="VirtaPhaseType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Vaihe. Virrasta tulevaa tietoa ei voi päivittää.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Suunnitelma</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Toteutus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Muu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:VirtaPhaseType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="VirtaProjectStatusType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tilat. Kemeravirrassa tarkastuskohtainen.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei aloitettu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kesken</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Valmis</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Toiskertainen tarkastus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Jälkihoito (hoito- ja kunnossapitovelvollisuus)</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="6">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Muu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:VirtaProjectStatusType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="VirtaLawType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Peruste.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Metsälaki</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Rahoituslaki</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Maatilatalouden tuloverolaki</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">TE-keskus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Muu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="6">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei perustamisilmoitusta, 5 vuotta hakkuusta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="7">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Luontaisesti uudistetulla alalla oltava riittävästi taimia</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="8">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">ML 8§ 3. momentin velvotteiden täyttäminen</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="9">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Riistavahinko</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Puuenergiatuki</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>			
-		</xs:restriction>
+		<xs:restriction base="fe:VirtaLawType"/>
 	</xs:simpleType> 
-	
 	<xs:simpleType name="VirtaAdvertiserType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Ilmoittaja. Ohjelma päättelee Maston ilmoittajan omistajaryhmästä, mutta käyttäjä voi päivittää.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Yksityinen maanomistaja</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Mhy</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Metsäkeskus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Metsähallitus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">StoraEnso</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="6">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Metsäliitto</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="7">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">UPM</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="8">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Muu yritys</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="9">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Yhteisö/yhteismetsä</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:VirtaAdvertiserType"/>
 	</xs:simpleType> 
-	
 	<xs:simpleType name="VirtaAdvertisementDatingType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Ilmoituksen jätön arvostelu.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ajoissa</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Poik. lupa</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Myöh</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei jätetty</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:VirtaAdvertisementDatingType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="VirtaSumTableAreaType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Summa-arvotaulukon alue. Päätellään tallentimella kuntakoodin perusteella XML-tiedostosta, johon kunnat on ryhmitelty alueittain. Käyttäjä voi päivittää pääteltyä arvoa, jolloin laskennat tapahtuvat päivitetyn arvon mukaisesti.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1a">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Rannikko (Etelärannikko)</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="1b">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Rannikko (Pohjanmaa)</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2E">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Lounais-Suomi (Etelä-Suomi)</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2V">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Lounais-Suomi (Väli-Suomi)</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>				
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Häme-Uusimaa</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>				
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kaakkois-Suomi</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>				
-			<xs:enumeration value="5E">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Pirkanmaa, Etelä-Suomi</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>				
-			<xs:enumeration value="5V">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Pirkanmaa, Väli-Suomi</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>				
-			<xs:enumeration value="6E">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Etelä-Savo, Etelä-Suomi</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>				
-			<xs:enumeration value="6V">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Etelä-Savo, Väli-Suomi</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>				
-			<xs:enumeration value="7">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Etelä-Pohjanmaa</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>				
-			<xs:enumeration value="8E">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Keski-Suomi, Etelä-Suomi</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>				
-			</xs:enumeration>
-			<xs:enumeration value="8V">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Keski-Suomi, Väli-Suomi</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>				
-			</xs:enumeration>
-			<xs:enumeration value="9">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Pohjois-Suomi</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>				
-			</xs:enumeration>
-			<xs:enumeration value="10">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Pohjois-Karjala</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>				
-			</xs:enumeration>
-			<xs:enumeration value="11V">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kainuu, Väli-Suomi</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>				
-			</xs:enumeration>
-			<xs:enumeration value="11P">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kainuu, Pohjois-Suomi</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>				
-			</xs:enumeration>
-			<xs:enumeration value="12V">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Pohjois-Pohjanmaa, Väli-Suomi</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>				
-			</xs:enumeration>
-			<xs:enumeration value="12P">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Pohjois-Pohjanmaa, Pohjois-Suomi</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>				
-			</xs:enumeration>
-			<xs:enumeration value="13a">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Lappi, eteläosa</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>				
-			</xs:enumeration>
-			<xs:enumeration value="13b">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Lappi, keskiosa</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>				
-			</xs:enumeration>
-			<xs:enumeration value="13c">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Lappi, pohjoisosa</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>				
-			</xs:enumeration>			
-		</xs:restriction>
+		<xs:restriction base="fe:VirtaSumTableAreaType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="VirtaApprovalType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Arvioinnin tai ehdotuksen hyväksyntä.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Hyväksyy</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei hyväksy</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:VirtaApprovalType"/>
 	</xs:simpleType>	
 </xs:schema>

@@ -5,18 +5,10 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://standardit.tapio.fi/schemas/virta/tree"
-	xmlns="http://standardit.tapio.fi/schemas/virta/tree" 
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"	
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" 
-	elementFormDefault="qualified"
-	attributeFormDefault="qualified"
-	version="1.0">
-	
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://standardit.tapio.fi/schemas/virta/tree" xmlns="http://standardit.tapio.fi/schemas/virta/tree" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
-	
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
    	<!-- Element definitions -->
 	<xs:element name="Tree" type="TreeType"/>
 	<xs:element name="Status5" type="co:ChangeStateType"/>
@@ -74,80 +66,20 @@
 			<xs:element ref="DamageClass" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
-	
 	<xs:simpleType name="VirtaWorkQualityType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Työn laatu.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Hyvä</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>		
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Virh.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:VirtaWorkQualityType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="VirtaDamageClassType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Riistavaurioluokka. Luokkia 1-4 käytetään taimikoissa ja kuorivaurioita 5-6 varttuneemmissa metsissä. Jos varttuneemmissa metsissä vauriokohdan vaipasta on vahingoittunut alle 50% on kyseessä pieni kuorivaurio.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">I</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>		
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">II</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">III</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">IV</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Pieni kuorivaurio</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Suuri kuorivaurio</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:VirtaDamageClassType"/>
 	</xs:simpleType>
 </xs:schema>

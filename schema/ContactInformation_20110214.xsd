@@ -11,14 +11,11 @@
 	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
 	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
 	elementFormDefault="qualified"
-	version="1.0">
-
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-			    schemaLocation="Common_BasicDataType_20100831.xsd"/>
-
-	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
-				schemaLocation="JHS170_20090304.xsd"/>
-
+	version="1.1">
+	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
+	<!-- Lisätty elementit "BusinessId" ja "PersonId", jotka määritelty vaihtoehtoisiksi. -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
+	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" schemaLocation="JHS170_20090304.xsd"/>
 	<!-- Elementtimääritykset -->
 	<!-- Element definitions -->
 	<xs:element name="FirstName" type="FirstNameType"/>
@@ -35,7 +32,8 @@
 	<xs:element name="TelefaxNumber" type="TelefaxNumberType"/>
 	<xs:element name="EmailAddress" type="EmailAddressType"/>
 	<xs:element name="ContactInformation" type="ContactInformationType"/>
-
+	<xs:element name="BusinessId" type="jhs:YritysTunnusTyyppi"/>
+	<xs:element name="PersonId" type="jhs:HenkiloTunnusTyyppi"/>
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
 	<xs:simpleType name="FirstNameType">
@@ -81,7 +79,6 @@
 			<xs:maxLength value="150"/>
 		</xs:restriction>
 	</xs:simpleType>
-	
 	<xs:simpleType name="OrganizationNameType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Henkilön organisaatio.</xs:documentation>
@@ -92,7 +89,26 @@
 			<xs:maxLength value="80"/>		
 		</xs:restriction>
 	</xs:simpleType>
-	
+	<xs:group name="IdentifierGroup">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element ref="BusinessId">
+					<xs:annotation>
+						<xs:documentation xml:lang="fi">Yritystunnus.</xs:documentation>
+						<xs:documentation xml:lang="sv"></xs:documentation>
+						<xs:documentation xml:lang="en">Business ID.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="PersonId">
+					<xs:annotation>
+						<xs:documentation xml:lang="fi">Henkilötunnus.</xs:documentation>
+						<xs:documentation xml:lang="sv"></xs:documentation>
+						<xs:documentation xml:lang="en">Person ID.</xs:documentation>
+					</xs:annotation>				
+				</xs:element>				
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
 	<xs:group name="NameAndOrganizationGroup">
 		<xs:sequence>
 			<xs:choice>
@@ -236,7 +252,6 @@
 			<xs:maxLength value="50"/>
 		</xs:restriction>
 	</xs:simpleType>
-
 	<xs:complexType name="ContactInformationType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Henkilön tai organisaation yhteystiedot.</xs:documentation>
@@ -244,6 +259,7 @@
 			<xs:documentation xml:lang="en">Person's or organization's contact information</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:group ref="IdentifierGroup" minOccurs="0" maxOccurs="1"/>
 			<xs:group ref="NameAndOrganizationGroup"/>
 			<xs:group ref="PostAddressGroup" minOccurs="0"/>
 			<xs:group ref="PhoneAndTelefaxGroup"/>
@@ -268,5 +284,4 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-
 </xs:schema>

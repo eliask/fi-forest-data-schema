@@ -9,15 +9,10 @@
     targetNamespace="http://standardit.tapio.fi/schemas/forestData/stemDistribution/2010/08/31" 
     xmlns="http://standardit.tapio.fi/schemas/forestData/stemDistribution/2010/08/31" 
     xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-    elementFormDefault="qualified"
-    version="1.0">
-    
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-		        schemaLocation="Common_BasicDataType_20100831.xsd"/>
-    
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-				schemaLocation="Common_20100831.xsd"/>
+    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" version="1.0">
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>	
     
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
@@ -49,7 +44,6 @@
 			<xs:element ref="Tree" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-
 	<xs:complexType name="TreeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puun tiedot.</xs:documentation>
@@ -81,7 +75,6 @@
 			</xs:annotation>
 		</xs:attribute>	
 	</xs:complexType>	
-
 	<xs:simpleType name="TreeNumberType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puun numero.</xs:documentation>
@@ -92,7 +85,6 @@
 			<xs:pattern value="[0-9]{1,5}"/>
 		</xs:restriction>
 	</xs:simpleType>
-
 	<xs:simpleType name="StratumNumberType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puun osite numero.</xs:documentation>
@@ -103,7 +95,6 @@
 			<xs:pattern value="[0-9]{1}"/>
 		</xs:restriction>
 	</xs:simpleType>
-    
     <xs:simpleType name="TreeSpeciesType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Puulajikoodi.</xs:documentation>
@@ -112,87 +103,14 @@
         </xs:annotation>
         <xs:restriction base="co:TreeSpeciesType"/>
     </xs:simpleType>
-
     <xs:simpleType name="TreeClassType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puuluokka / -luokittelija.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Tree classifier.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "xs:string">
-			<xs:enumeration value = "0">
-				<xs:annotation>
-					<xs:documentation xml:lang = "fi">Puu on kehityskelvoton.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "1">
-				<xs:annotation>
-					<xs:documentation xml:lang = "fi">Puu on normaali.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "2">
-				<xs:annotation>
-					<xs:documentation xml:lang = "fi">Puu on juurivaurioitunut.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "3">
-				<xs:annotation>
-					<xs:documentation xml:lang = "fi">Puu on runkovaurioitunut.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "4">
-				<xs:annotation>
-					<xs:documentation xml:lang = "fi">Puu on viljelytaimi.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "5">
-				<xs:annotation>
-					<xs:documentation xml:lang = "fi">Puu on luonnontaimi.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "6">
-				<xs:annotation>
-					<xs:documentation xml:lang = "fi">Puu on täydentävä taimi.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "7">
-				<xs:annotation>
-					<xs:documentation xml:lang = "fi">Puu on kuollut / kelvoton viljelytaimi.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "8">
-				<xs:annotation>
-					<xs:documentation xml:lang = "fi">Puu on kanto.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "9">
-				<xs:annotation>
-					<xs:documentation xml:lang = "fi">Puu on siemenpuu.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base = "fe:TreeClassType"/>
     </xs:simpleType>
-
 	<xs:simpleType name="StoreyType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puun jakso.</xs:documentation>
@@ -201,7 +119,6 @@
 		</xs:annotation>
 		<xs:restriction base="co:StoreyType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="AgeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puun ikä, v.</xs:documentation>
@@ -210,7 +127,6 @@
 		</xs:annotation>
 		<xs:restriction base="co:AgeType"/>
 	</xs:simpleType>
-
 	<xs:simpleType name="CountType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puiden lukumäärä, kpl.</xs:documentation>

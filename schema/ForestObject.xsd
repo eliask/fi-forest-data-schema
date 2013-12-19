@@ -15,10 +15,7 @@
 	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes/2010/08/31"	
     xmlns:stb="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14"	
     xmlns:tst="http://standardit.tapio.fi/schemas/forestData/treeStratum/2010/08/31" 
-    xmlns:cdd="http://standardit.tapio.fi/schemas/forestData/commondistributiondata" 	
-	elementFormDefault="qualified"
-	attributeFormDefault="qualified"
-	version="1.0">
+    xmlns:cdd="http://standardit.tapio.fi/schemas/forestData/commondistributiondata" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
 	
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
@@ -26,7 +23,8 @@
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes/2010/08/31" schemaLocation="Common_GeometricDataType_20100831.xsd"/>	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14" schemaLocation="StandBase_20110214.xsd"/>	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStratum/2010/08/31" schemaLocation="TreeStratum_20100831.xsd"/>	
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/commondistributiondata" schemaLocation="CommonDistributionData.xsd"/> 
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/commondistributiondata" schemaLocation="CommonDistributionData.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>	
    	
 	<!-- Element definitions -->
    	<xs:element name="ForestObject" type="ForestObjectType">
@@ -282,73 +280,20 @@
 			<xs:element ref="Value" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
-	
 	<xs:simpleType name="TypeOfForestObjectType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tulkintayksikön tyyppi</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Hila</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>		
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Mikrokuvio/puustokuvio</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kuvio</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>			
-		</xs:restriction>
+		<xs:restriction base="fe:TypeOfForestObjectType"/>
 	</xs:simpleType>
-	
     <xs:simpleType name="InventoryMethodType">
         <xs:annotation>
             <xs:documentation xml:lang="fi"></xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
         </xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kaukokartoitus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>		
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Maastoinventointi</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Laskettu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tulkittu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>			
-		</xs:restriction>
+		<xs:restriction base="fe:InventoryMethodType"/>
     </xs:simpleType>
 </xs:schema>

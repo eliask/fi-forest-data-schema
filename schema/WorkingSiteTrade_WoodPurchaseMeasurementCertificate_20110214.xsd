@@ -5,32 +5,13 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasemeasurementcertificate/2011/02/14"
-	xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasemeasurementcertificate/2011/02/14"
-	xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-	xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
-	xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14"
-	elementFormDefault="qualified"
-	attributeFormDefault="qualified"
-	version="1.0">
-
-	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14"
-				schemaLocation="WorkingSiteTrade_Assortment_20110214.xsd"/>
-
-	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
-				schemaLocation="WorkingSiteTrade_Common_20110214.xsd"/>
-
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-				schemaLocation="Common_20100831.xsd"/>
-
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-			    schemaLocation="Common_BasicDataType_20100831.xsd"/>
-
-	<xs:import namespace="http://www.w3.org/2005/05/xmlmime"
-  				schemaLocation="http://www.w3.org/2005/05/xmlmime"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasemeasurementcertificate/2011/02/14" xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasemeasurementcertificate/2011/02/14" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" schemaLocation="WorkingSiteTrade_Assortment_20110214.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" schemaLocation="WorkingSiteTrade_Common_20110214.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
+	<xs:import namespace="http://www.w3.org/2005/05/xmlmime" schemaLocation="http://www.w3.org/2005/05/xmlmime"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
 
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
@@ -133,7 +114,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:DateType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="InsertDateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Mittaustodistuksen tallennuspvm.</xs:documentation>
@@ -142,52 +122,14 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:DateType"/>
 	</xs:simpleType>
-
 	<xs:simpleType name="MeasurementCertificateTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Mittaustodistuksen tyypit.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Different types for measurement certificates: intermediate/final etc.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Poistettava mittaustodistus.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Measurement certificate deleted/should be deleted.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Välimitta.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Intermediate measurement.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Loppumitta.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Final measurement.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Bonusmitta.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Bonus measurement.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Hinnantarkistus.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Price adjustment measurement.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:MeasurementCertificateTypeType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="TextType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Mittaustodistuksen lisätieto.</xs:documentation>
@@ -198,7 +140,6 @@
 			<xs:maxLength value="2000"/>
 		</xs:restriction>
 	</xs:simpleType>
-	
 	<xs:simpleType name="ValueType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Mittauksen rahallinen arvo.</xs:documentation>
@@ -207,7 +148,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="VATType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Mittauksen ALV:n arvo.</xs:documentation>
@@ -216,7 +156,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="TotalValueType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Mittauksen rahallinen arvo mukaan lukien ALV.</xs:documentation>
@@ -225,7 +164,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="CurrencyType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Mittauksen valuutta.</xs:documentation>
@@ -234,5 +172,4 @@
 		</xs:annotation>
 		<xs:restriction base="co:CurrencyType"/>
 	</xs:simpleType>
-	
 </xs:schema>

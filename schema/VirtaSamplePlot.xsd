@@ -10,14 +10,11 @@
 	xmlns="http://standardit.tapio.fi/schemas/virta/sampleplot" 
 	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"	
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"	
-	xmlns:tr="http://standardit.tapio.fi/schemas/virta/tree" 
-	elementFormDefault="qualified"
-	attributeFormDefault="qualified"
-	version="1.0">
-	
+	xmlns:tr="http://standardit.tapio.fi/schemas/virta/tree" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/> 
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/virta/tree" schemaLocation="VirtaTree.xsd"/> 
+	<xs:import namespace="http://standardit.tapio.fi/schemas/virta/tree" schemaLocation="VirtaTree.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
 
    	<!-- Element definitions -->
 	<xs:element name="SamplePlot" type="SamplePlotType"/>
@@ -154,7 +151,6 @@
 			<xs:element ref="Trees" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
-	
 	<xs:complexType name="TreesType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Koealan puut.</xs:documentation>
@@ -165,49 +161,12 @@
 			<xs:element ref="tr:Tree" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-
 	<xs:simpleType name="VirtaEvaluationType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Koealan maanpinnan käsittelyn arviointi.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei tehty eikä tarvetta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Hyvä</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Huomautettavaa</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Virheellinen</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei tehty vaikka tarvetta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:VirtaEvaluationType"/>
 	</xs:simpleType>	
 </xs:schema>

@@ -5,30 +5,21 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	*******************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
-	xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
-	xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
-	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-	xmlns:sf="http://standardit.tapio.fi/schemas/forestData/specialFeature/2011/02/14"
-	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14"
-	xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14"	
-	elementFormDefault="qualified"
-	version="1.0">
-	
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" xmlns:sf="http://standardit.tapio.fi/schemas/forestData/specialFeature/2011/02/14" xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14" xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20"	 elementFormDefault="qualified" version="1.2">
 	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
 	<!-- Tyypit "UsedPricingMethodsType", "UsedPricingMethodType", "IncludePaymentPlanType" ja "IncludeForestFundPayment" siirrety skeemasta "WorkingSiteTrade_CallForOffer_20110214.xsd" tänne. -->
 	<!-- Lisätty nimiavaruusmäärittelyt "ci" (ContactInformation) ja "bdt" (BasicDataType) -->
 	<!-- Tyypit "WorkingSiteGeometriesType", "ForestUseDeclarationResponsibleType" "FellingRightValidityDateType", "SupplyPointType", "CuttingsType", "CuttingType" ja "CallForOfferWorkingSiteWoodTradeInfo" siirretty skeemasta "WorkingSiteTrade_CallForOfferWorkingSite_20110214.xsd" tänne. -->
-	
+	<!-- VERSIOKOMMENTIT 1.1 >>> 1.2 -->
+	<!-- Koodistotyyppiset määrittelyt siirretty skeemaan ForestEnumeratives_20130620. -->
+	<!-- Tyypin CallForOfferTextType määrittelyssä maksimipituudeksi muutettu 1500. -->	
 	<xs:import namespace="http://www.w3.org/2005/05/xmlmime" schemaLocation="http://www.w3.org/2005/05/xmlmime"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14" schemaLocation="ContactInformation_20110214.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeature/2011/02/14" schemaLocation="SpecialFeature_20110214.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14" schemaLocation="RealEstate_20110214.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" schemaLocation="WorkingSiteTrade_Assortment_20110214.xsd"/>	
-
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
 	<!-- Elementtimääritykset -->
 	<!-- Element definitions -->
 	<xs:element name="PurchaseMode" type="PurchaseModeType"/>
@@ -61,62 +52,16 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Modes for wood purchase.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "xs:string">
-			<xs:enumeration value = "1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Pystykauppa</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Hankintakauppa</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Käteiskauppa</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Toimituskauppa</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base = "fe:PurchaseModeType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="MessageTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Sanoman tyyppi.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Message type. Used at least to identify businessAcceptance message's target.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tarjous.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Offer.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Mittaustodistus.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Measurement.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:MessageTypeType"/>
 	</xs:simpleType>
-
 	<xs:complexType name="DocumentsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Dokumentit.</xs:documentation>
@@ -127,7 +72,6 @@
 			<xs:element ref="Document" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-
 	<xs:complexType name="DocumentType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Dokumentin tiedot.</xs:documentation>
@@ -147,73 +91,14 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	
 	<xs:simpleType name="DocumentClassType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Dokumenttiluokka / -tyyppi.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Document class / type.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "xs:string">
-			<xs:enumeration value = "0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Muu dokumentti</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Maisematyölupa</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Valtakirja</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Metsänkäyttöilmoitus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Leimausseloste</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Hinta-arvio</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "6">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Työmaaohje</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "7">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kartta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base = "fe:DocumentClassType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="DocumentDescriptionType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Dokumentin sisällön kuvaus.</xs:documentation>
@@ -224,38 +109,14 @@
 			<xs:maxLength value="250"/>
 		</xs:restriction>
 	</xs:simpleType>
-	
 	<xs:simpleType name = "CallForOfferBusinessSenderRoleType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tarjouspyynnön lähettäjän rooli.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Role of business sender of call for offer.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "xs:string">
-			<xs:enumeration value = "1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Metsänomistaja</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Avustaja puukaupassa</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Valtakirjan omistaja</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base = "fe:CallForOfferBusinessSenderRoleType"/>
 	</xs:simpleType>
-	
 	<xs:complexType name="CallForOfferBusinessSenderType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tarjouspyynnön jättäjän yhteystiedot.</xs:documentation>
@@ -274,7 +135,6 @@
 			</xs:extension> 
 		</xs:complexContent>
 	</xs:complexType>
-	
 	<xs:simpleType name="CallForOfferTextType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tarjouspyynnön teksti.</xs:documentation>
@@ -282,10 +142,9 @@
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:maxLength value="500"/>
+			<xs:maxLength value="1500"/>
 		</xs:restriction>
 	</xs:simpleType>
-	
 	<xs:simpleType name="IncludePaymentPlanType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toive puukaupan maksusuunnitelman sisällyttämisestä tarjoukseen.</xs:documentation>
@@ -294,7 +153,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:YesNoType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="IncludeForestFundPaymentType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puukauppaan sisältyy metsäsäätiöavustus.</xs:documentation>
@@ -303,7 +161,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:YesNoNotKnownType"/>
 	</xs:simpleType>
-	
 	<xs:complexType name="UsedPricingMethodsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toiveet käytettävästä hinnoittelumenetelmästä.</xs:documentation>
@@ -314,59 +171,14 @@
 			<xs:element ref="UsedPricingMethod" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	
 	<xs:simpleType name="UsedPricingMethodType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toive käytettävästä hinnoittelumenetelmästä.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Request for used pricing method.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "xs:string">
-			<xs:enumeration value = "1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kaikki</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tavaralajihinnoittelu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Rungonosahinnoittelu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Runkohinnoittelu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Sekahinnoittelu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "6">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Pinta-alahinnoittelu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base = "fe:UsedPricingMethodType"/>
 	</xs:simpleType>
-	
 	<xs:complexType name="CallForOfferWoodTradeInfoType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puukaupan tarjouspyynnön tiedot.</xs:documentation>
@@ -380,7 +192,6 @@
 			<xs:element ref="UsedPricingMethods" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
-	
 	<xs:complexType name="WorkingSiteGeometriesType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Leimikon sijantialueen paikkatieto. Hakkuuseen ja lähikuljetukseen vaikuttavat kohteet. Pistemäisiä, viivamaisia ja aluemaisia kohteita.</xs:documentation>
@@ -391,38 +202,14 @@
 			<xs:element ref="WorkingSiteGeometry" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	
 	<xs:simpleType name="ForestUseDeclarationResponsibleType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsänkäyttöilmoituksen tekijä.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "xs:string">
-			<xs:enumeration value = "1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Myyjä tai myyjän edustaja</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ostaja</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Muu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base = "fe:ForestUseDeclarationResponsibleType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="FellingRightValidityDateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Pvm, johon asti hakkuuoikeus voimassa.</xs:documentation>
@@ -431,7 +218,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:DateType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="SupplyPointType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Varastopaikka olemassa / selvitetty</xs:documentation>
@@ -440,7 +226,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:YesNoNotKnownType"/>
 	</xs:simpleType>
-	
 	<xs:complexType name="CuttingType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Leimikon myytäväksi tarjottava hakkuu.</xs:documentation>
@@ -455,7 +240,6 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	
 	<xs:complexType name="CuttingsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Leimikon myytäväksi tarjottavat hakkuut.</xs:documentation>
@@ -466,7 +250,6 @@
 			<xs:element ref="Cutting" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	
 	<xs:complexType name="CallForOfferWorkingSiteWoodTradeInfoType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Yksittäisen leimikon tiedot.</xs:documentation>
@@ -489,7 +272,6 @@
 			<xs:element ref="Documents" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>	
-	
 	<xs:simpleType name="RoadUsingRightType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tieoikeus olemassa / selvitetty</xs:documentation>
@@ -498,45 +280,14 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:YesNoNotKnownType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="CertificationSystemType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Sertifiointijärjestelmät.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Certification systems.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "xs:string">
-			<xs:enumeration value = "0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei sertifiointia</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">No certification</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">PEFC</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">PEFC</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">FSC</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">FSC</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei tietoa</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Unknown</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base = "fe:CertificationSystemType"/>
 	</xs:simpleType>
-	
 	<xs:complexType name="CertificationSystemsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kiinteistöllä voimassa olevat sertifiointijärjestelmät.</xs:documentation>
@@ -547,7 +298,6 @@
 			<xs:element ref="CertificationSystem" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	
 	<xs:complexType name="RealEstateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Työmaan sijaintikiinteistön tiedot.</xs:documentation>
@@ -562,7 +312,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
 	<xs:simpleType name="VATRegistrationDateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Arvonlisäverovelvollisuuden rekisteröimispäivämäärä.</xs:documentation>
@@ -571,38 +320,14 @@
 		</xs:annotation>
 		<xs:restriction base = "bdt:DateType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="VATStatusType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Arvonlisäverovelvollisuus.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "xs:string">
-			<xs:enumeration value = "0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Myyjä ei ole arvonlisäverovelvollinen</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Myyjä on arvonlisäverovelvollinen</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Arvonlisäverovelvollisuutta ei ole selvitetty</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base = "fe:VATStatusType"/>
 	</xs:simpleType>
-
 	<xs:complexType name="VATInfoType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Arvonlisäverotustiedot.</xs:documentation>
@@ -614,80 +339,14 @@
 			<xs:element ref="VATRegistrationDate" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
-	
 	<xs:simpleType name="SellerGroupType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Myyjäryhmäkoodi.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "xs:string">
-			<xs:enumeration value = "0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei tietoa</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Yksinomistus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Avioparin omistus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Verotusyhtymä</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Elinkeinoyhtymä</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Yhteismetsä, tiekunta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "6">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Rajoitetusti verovelvollinen</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "7">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Yhteisö</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "8">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kuolinpesä</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base = "fe:SellerGroupType"/>
 	</xs:simpleType>
-	
 	<xs:complexType name="SellerType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Työmaan myyjän (kiinteistön omistajan/haltijan) tiedot.</xs:documentation>
@@ -698,7 +357,6 @@
 			<xs:extension base="ci:ContactInformationType"/>
 		</xs:complexContent>
 	</xs:complexType>
-
 	<xs:complexType name="SellersType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Työmaan myyjät (kiinteistön omistajat/haltijat).</xs:documentation>
@@ -723,7 +381,6 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-
 	<xs:complexType name="SellerRepresentativePersonType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Myyjän edustaja leimikkoon liittyvissä käytännön kysymyksissä.</xs:documentation>
@@ -734,7 +391,6 @@
 			<xs:extension base="ci:ContactInformationType"/>
 		</xs:complexContent>
 	</xs:complexType>
-	
 	<xs:simpleType name="WorkingSiteNameType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Työmaan yksilöivä tai tunnistamista helpottava nimi.</xs:documentation>

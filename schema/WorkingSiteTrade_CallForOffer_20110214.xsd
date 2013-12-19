@@ -5,37 +5,19 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer/2011/02/14"
-	xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer/2011/02/14"
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-	xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
-	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
-	xmlns:ws="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14"
-	elementFormDefault="qualified"
-	attributeFormDefault="qualified"
-	version="1.1">
-	
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer/2011/02/14" xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer/2011/02/14" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14" xmlns:ws="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.2">
 	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
 	<!-- Tyypin "IncludeForestFundPaymentType" määrittely muutettu tyypistä "YesNo" tyypiksi "YesNoNotKnown" (eli koodistoon tullut arvojen "kyllä" ja "ei" lisäksi "ei tietoa"). -->
 	<!-- Tyypit "UsedPricingMethodsType", "UsedPricingMethodType", "IncludePaymentPlanType" ja "IncludeForestFundPayment" siirrety skeemaan "WorkingSiteTrade_Common_20110214.xsd". -->
 	<!-- Lisätty tyyppi "CallForOfferSilvicultureInfoType" -->
-
-	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14"
-				schemaLocation="WorkingSiteTrade_WorkingSite_20110214.xsd"/>
-
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
-				schemaLocation="ContactInformation_20110214.xsd"/>
-	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
-				schemaLocation="WorkingSiteTrade_Common_20110214.xsd"/>
-
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-				schemaLocation="Common_20100831.xsd"/>
-
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-			    schemaLocation="Common_BasicDataType_20100831.xsd"/>
+	<!-- VERSIOKOMMENTIT 1.1 >>> 1.2 -->	
+	<!-- Koodistotyyppiset määrittelyt siirretty skeemaan ForestEnumeratives_20130620. -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14" schemaLocation="WorkingSiteTrade_WorkingSite_20110214.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14" schemaLocation="ContactInformation_20110214.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" schemaLocation="WorkingSiteTrade_Common_20110214.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
 
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
@@ -117,31 +99,14 @@
 			<xs:maxLength value="100"/>
 		</xs:restriction>
 	</xs:simpleType>
-	
 	<xs:simpleType name="PublicityType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tarjouspyynnön julkisuus.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Publicity of call for offer.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "xs:string">
-			<xs:enumeration value = "1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Julkinen kaikille</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Julkinen kohderyhryhmälle</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base = "fe:PublicityType"/>
 	</xs:simpleType>
-	
 	<xs:complexType name="TechnicalContactPersonType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Teknisistä asioista vastaavan henkilön yhteystiedot.</xs:documentation>
@@ -152,7 +117,6 @@
 			<xs:extension base="ci:ContactInformationType"/> 
 		</xs:complexContent>
 	</xs:complexType>
-
 	<xs:simpleType name="CallForOfferDateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tarjouspyynnön jättöpvm.</xs:documentation>
@@ -161,7 +125,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:DateType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="OfferExpirationDateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tarjouksen viimeinen jättöpvm.</xs:documentation>
@@ -170,83 +133,22 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:DateType"/>
 	</xs:simpleType>
-
 	<xs:simpleType name="SilvicultureModeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi"></xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>			
 		</xs:annotation>
-		<xs:restriction base = "xs:string">
-			<xs:enumeration value = "1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Pelkkä työsuoritus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Pelkät materiaalit</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Työsuoritus ja materiaalit</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>	
+		<xs:restriction base = "fe:SilvicultureModeType"/>
 	</xs:simpleType>
-
 	<xs:simpleType name="UsedPricingMethodTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Hinnoittelumenetelmä. Viisielementtinen koodistoarvo. Varmista koodien arvot!</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>			
 		</xs:annotation>
-		<xs:restriction base = "xs:string">
-			<xs:enumeration value = "1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Pinta-alahinnoittelu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tilavuushinnoittelu (esim. sora, murske, kantokäsittelyaine jne.)</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kappalehinnoittelu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Aikahinnoittelu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Sekahinnoittelu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>		
+		<xs:restriction base = "fe:UsedPricingMethodTypeType"/>
 	</xs:simpleType>
-
 	<xs:complexType name="CallForOfferSilvicultureInfoType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsänhoitotyön tiedot.</xs:documentation>

@@ -10,15 +10,11 @@
 	xmlns="http://standardit.tapio.fi/schemas/virta/target" 
 	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 	
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"	
-	xmlns:tp="http://standardit.tapio.fi/schemas/virta/targetpart"
-	xmlns:gml="http://www.opengis.net/gml"
-	elementFormDefault="qualified"
-	attributeFormDefault="qualified"
-	version="1.0">
-	
+	xmlns:tp="http://standardit.tapio.fi/schemas/virta/targetpart" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" xmlns:gml="http://www.opengis.net/gml" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>		
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/> 
 	<xs:import namespace="http://standardit.tapio.fi/schemas/virta/targetpart" schemaLocation="VirtaTargetPart.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
 	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/> 
 
    	<!-- Element definitions -->
@@ -68,7 +64,7 @@
 		</xs:annotation>
 	</xs:element>
     <xs:element name="TargetParts" type="TargetPartsType"/>
-	
+
 	<!-- Type definitions -->
 	<xs:complexType name="TargetType">
 		<xs:annotation>
@@ -89,7 +85,6 @@
 			<xs:element ref="TargetParts" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
-	
 	<xs:complexType name="TargetPartsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tarkastuksen osakohteet.</xs:documentation>
@@ -100,7 +95,6 @@
 			<xs:element ref="tp:TargetPart" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType> 
-
 	<xs:simpleType name="VirtaPartNumberType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Perustamisosion jnro mastovirrassa voi saada arvot: tyhjä, 1, 2, 3, ... Ei käytetä kemeravirrassa.</xs:documentation>
@@ -111,80 +105,14 @@
 			<xs:pattern value="[1-9]{0,1}"/>
 		</xs:restriction>
 	</xs:simpleType> 
-	
 	<xs:simpleType name="VirtaHabitatAdvertisementType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Elinympäristöjen ilmoittaminen.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kohteita ei ole, eikä niitä ole ilmoitettu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kohteita on ja ne on ilmoitettu oikein</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Oikeat kohteet ilmoitettu, mutta koodeissa virhe</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kohteita ei ole vaikka on ilmoitettu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Jätetty osittain ilmoittamatta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="6">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ilmoitettu oikein ja tarpeettomasti sekä jätetty ilmoittamatta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="7">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ilmoitettu tarpeettomasti sekä jätetty ilmoittamatta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="8">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Jätetty ilmoittamatta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="9">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Olemassa olevat kohteet ilmoitettu muulla tavoin virheellisesti</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:VirtaHabitatAdvertisementType"/>
 	</xs:simpleType>	
-	
     <xs:simpleType name="VirtaExtraInfoType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuviokohtainen lisätieto.</xs:documentation>

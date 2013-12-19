@@ -5,20 +5,10 @@
     Skeema on JHS-170 -suosituksen mukainen.
     ***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-    targetNamespace="http://standardit.tapio.fi/schemas/forestData/deadTreeStrata/2010/08/31" 
-    xmlns="http://standardit.tapio.fi/schemas/forestData/deadTreeStrata/2010/08/31"
-    xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-    elementFormDefault="qualified"
-    version="1.0">
-    
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
- 				schemaLocation="Common_BasicDataType_20100831.xsd"/>
-    
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-				schemaLocation="Common_20100831.xsd"/>
-    
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://standardit.tapio.fi/schemas/forestData/deadTreeStrata/2010/08/31" xmlns="http://standardit.tapio.fi/schemas/forestData/deadTreeStrata/2010/08/31" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" version="1.0">
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>    
     <!-- Elementtimääritykset -->
    	<!-- Element definitions -->
     <xs:element name="DeadTreeStrata" type="DeadTreeStrataType"/>
@@ -40,7 +30,6 @@
             <xs:element ref="DeadTreeStratum" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
-    
     <xs:complexType name="DeadTreeStratumType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Kuolleen puusto-ositteen tiedot.</xs:documentation>
@@ -63,73 +52,14 @@
             </xs:annotation>
         </xs:attribute>	
     </xs:complexType>
-    
     <xs:simpleType name="DeadTreeTypeType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Kuolleen puun laatu.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Type of dead tree stratum.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kelo</xs:documentation>
-					<xs:documentation xml:lang="sv">Torrfura</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Lahonnut pystypuu</xs:documentation>
-					<xs:documentation xml:lang="sv">Murket stående träd</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Lahonnut maapuu</xs:documentation>
-					<xs:documentation xml:lang="sv">Murken låga</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Palanut puu</xs:documentation>
-					<xs:documentation xml:lang="sv">Brunnen ved</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-			<xs:enumeration value="5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Rakennuskelo</xs:documentation>
-					<xs:documentation xml:lang="sv">Torrfura som lämpar sig för byggnation</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-			<xs:enumeration value="6">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kanto</xs:documentation>
-					<xs:documentation xml:lang="sv">Stubbe</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-			<xs:enumeration value="7">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tuore kuollut pystypuu</xs:documentation>
-					<xs:documentation xml:lang="sv">Nyligen dött stående träd</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-			<xs:enumeration value="8">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tuore kuollut maapuu</xs:documentation>
-					<xs:documentation xml:lang="sv">Nyligen dött omkullfallet träd</xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
+        <xs:restriction base="fe:DeadTreeTypeType"/>
     </xs:simpleType>
-    
     <xs:simpleType name="TreeSpeciesType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Kuolleen puun puulaji.</xs:documentation>
@@ -138,7 +68,6 @@
         </xs:annotation>
         <xs:restriction base="co:TreeSpeciesType"/>
     </xs:simpleType>
-    
     <xs:simpleType name="MeanDiameterType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Kuolleen puun keskiläpimitta, cm</xs:documentation>
@@ -147,7 +76,6 @@
         </xs:annotation>
         <xs:restriction base="co:DiameterType"/>
     </xs:simpleType>	
-    
     <xs:simpleType name="VolumeType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Tilavuus, m3/ha</xs:documentation>
@@ -156,5 +84,4 @@
         </xs:annotation>
         <xs:restriction base="co:VolumeType"/>
     </xs:simpleType>
-        
 </xs:schema>

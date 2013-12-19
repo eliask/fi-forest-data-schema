@@ -5,24 +5,11 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasepayment/2011/02/14"
-	xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasepayment/2011/02/14"
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
-	elementFormDefault="qualified"
-	attributeFormDefault="qualified"
-	version="1.0">
-
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
-				schemaLocation="ContactInformation_20110214.xsd"/>
-	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-			schemaLocation="Common_20100831.xsd"/>
-
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-			    schemaLocation="Common_BasicDataType_20100831.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasepayment/2011/02/14" xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasepayment/2011/02/14" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14" schemaLocation="ContactInformation_20110214.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
 			    
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
@@ -91,59 +78,14 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:PositiveIntegerType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="PaymentTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Maksuerätyypit.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Payment types.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Maksuerä poistettu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Payment has been deleted.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ennakkomaksu.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Advance payment.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Välimaksu.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Intermediate payment.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Loppumaksu.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Final payment.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Bonusmaksu.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Bonus payment.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Hinnantarkistus.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Price adjustment.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:PaymentTypeType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="ValueType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Summa ilman ALV:tä ja vähennyksiä</xs:documentation>
@@ -152,7 +94,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
-
 	<xs:simpleType name="AbsoluteQuantityType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Absoluuttinen rahamäärä.</xs:documentation>
@@ -161,7 +102,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
-
 	<xs:simpleType name="PercentType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Prosenttiosuus.</xs:documentation>
@@ -170,14 +110,12 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
-
 	<xs:complexType name="MoneyAndPercentType">
 		<xs:sequence>
 			<xs:element ref="AbsoluteQuantity"/>
 			<xs:element ref="Percent"/>
 		</xs:sequence>
 	</xs:complexType>
-
 	<xs:complexType name="VATType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Maksettava ALV.</xs:documentation>
@@ -188,7 +126,6 @@
 			<xs:extension base="MoneyAndPercentType"/>
 		</xs:complexContent>
 	</xs:complexType>
-
 	<xs:complexType name="AdvanceTaxType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Ennakkona pidätettävä määrä.</xs:documentation>
@@ -199,7 +136,6 @@
 			<xs:extension base="MoneyAndPercentType"/>
 		</xs:complexContent>
 	</xs:complexType>
-
 	<xs:complexType name="ForestFundPaymentType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsäsäätiömaksun osuus.</xs:documentation>
@@ -210,7 +146,6 @@
 			<xs:extension base="MoneyAndPercentType"/>
 		</xs:complexContent>
 	</xs:complexType>
-
 	<xs:simpleType name="TotalValueType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Maksettava summa. Normaalisti TotalAmount = Amount + VAT - AdvanceTax - ForestFundPayment.</xs:documentation>
@@ -219,7 +154,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
-
 	<xs:simpleType name="CurrencyType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Maksuerällä käytetty valuutta.</xs:documentation>
@@ -228,7 +162,6 @@
 		</xs:annotation>
 		<xs:restriction base="co:CurrencyType"/>
 	</xs:simpleType>
-
 	<xs:simpleType name="DueDateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Eräpvm.</xs:documentation>
@@ -237,7 +170,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:DateType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="PaymentPermissionDateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Maksulupapvm.</xs:documentation>
@@ -246,7 +178,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:DateType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="PaymentDateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Maksettu pvm / maksupvm.</xs:documentation>
@@ -255,7 +186,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:DateType"/>
 	</xs:simpleType>
-
 	<xs:complexType name="PayeeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Maksunsaajan nimi- ja yhteystiedot.</xs:documentation>
@@ -267,5 +197,4 @@
 		</xs:complexContent>
 		<!-- VANHA: Identification, AccountNumber and ShareOfPayment; UUSI: Em. poistettu -->
 	</xs:complexType>
-
 </xs:schema>

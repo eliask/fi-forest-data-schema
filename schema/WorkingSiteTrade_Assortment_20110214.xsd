@@ -5,21 +5,10 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14"
-	xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14"
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-	elementFormDefault="qualified"
-	attributeFormDefault="qualified"
-	version="1.0">
-
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-				schemaLocation="Common_20100831.xsd"/>
-
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-			    schemaLocation="Common_BasicDataType_20100831.xsd"/>
-
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
 	<xs:element name="WoodLotInformationType" type="WoodLotInformationTypeType"/>
@@ -56,101 +45,8 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Assortment wood lot types.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="lot">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Erä.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Lot.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="part">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Osa.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Part.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="placeOfDelivery">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Toimituspaikka.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Place of delivery.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="type01">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tiedonsiirto-osapuolien keskenään määrittelemä tyyppi 1. Tiedonsiirto-osapuolet sopivat tyypin merkityksen omien tiedonsiirtotarpeiden mukaan. Tällä tyyppi ja arvo parilla täsmennetään puutavaralajin ominaisuustietoa jollakin tavoin.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Datatransfer partners defined own type 1 (meaning of type). Datatransfer partners agree on meaning of type between themselves.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="type02">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tiedonsiirto-osapuolien keskenään määrittelemä tyyppi 2. Tiedonsiirto-osapuolet sopivat tyypin merkityksen omien tiedonsiirtotarpeiden mukaan. Tällä tyyppi ja arvo parilla täsmennetään puutavaralajin ominaisuustietoa jollakin tavoin.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Datatransfer partners defined own type 2 (meaning of type). Datatransfer partners agree on meaning of type between themselves.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="type03">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tiedonsiirto-osapuolien keskenään määrittelemä tyyppi 3. Tiedonsiirto-osapuolet sopivat tyypin merkityksen omien tiedonsiirtotarpeiden mukaan. Tällä tyyppi ja arvo parilla täsmennetään puutavaralajin ominaisuustietoa jollakin tavoin.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Datatransfer partners defined own type 3 (meaning of type). Datatransfer partners agree on meaning of type between themselves.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="type04">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tiedonsiirto-osapuolien keskenään määrittelemä tyyppi 4. Tiedonsiirto-osapuolet sopivat tyypin merkityksen omien tiedonsiirtotarpeiden mukaan. Tällä tyyppi ja arvo parilla täsmennetään puutavaralajin ominaisuustietoa jollakin tavoin.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Datatransfer partners defined own type 4 (meaning of type). Datatransfer partners agree on meaning of type between themselves.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="type05">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tiedonsiirto-osapuolien keskenään määrittelemä tyyppi 5. Tiedonsiirto-osapuolet sopivat tyypin merkityksen omien tiedonsiirtotarpeiden mukaan. Tällä tyyppi ja arvo parilla täsmennetään puutavaralajin ominaisuustietoa jollakin tavoin.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Datatransfer partners defined own type 5 (meaning of type). Datatransfer partners agree on meaning of type between themselves.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="type06">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tiedonsiirto-osapuolien keskenään määrittelemä tyyppi 6. Tiedonsiirto-osapuolet sopivat tyypin merkityksen omien tiedonsiirtotarpeiden mukaan. Tällä tyyppi ja arvo parilla täsmennetään puutavaralajin ominaisuustietoa jollakin tavoin.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Datatransfer partners defined own type 6 (meaning of type). Datatransfer partners agree on meaning of type between themselves.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="type07">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tiedonsiirto-osapuolien keskenään määrittelemä tyyppi 7. Tiedonsiirto-osapuolet sopivat tyypin merkityksen omien tiedonsiirtotarpeiden mukaan. Tällä tyyppi ja arvo parilla täsmennetään puutavaralajin ominaisuustietoa jollakin tavoin.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Datatransfer partners defined own type 7 (meaning of type). Datatransfer partners agree on meaning of type between themselves.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="type08">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tiedonsiirto-osapuolien keskenään määrittelemä tyyppi 8. Tiedonsiirto-osapuolet sopivat tyypin merkityksen omien tiedonsiirtotarpeiden mukaan. Tällä tyyppi ja arvo parilla täsmennetään puutavaralajin ominaisuustietoa jollakin tavoin.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Datatransfer partners defined own type 8 (meaning of type). Datatransfer partners agree on meaning of type between themselves.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="type09">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tiedonsiirto-osapuolien keskenään määrittelemä tyyppi 9. Tiedonsiirto-osapuolet sopivat tyypin merkityksen omien tiedonsiirtotarpeiden mukaan. Tällä tyyppi ja arvo parilla täsmennetään puutavaralajin ominaisuustietoa jollakin tavoin.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Datatransfer partners defined own type 9 (meaning of type). Datatransfer partners agree on meaning of type between themselves.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="type10">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tiedonsiirto-osapuolien keskenään määrittelemä tyyppi 10. Tiedonsiirto-osapuolet sopivat tyypin merkityksen omien tiedonsiirtotarpeiden mukaan. Tällä tyyppi ja arvo parilla täsmennetään puutavaralajin ominaisuustietoa jollakin tavoin.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en">Datatransfer partners defined own type 10 (meaning of type). Datatransfer partners agree on meaning of type between themselves.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:WoodLotInformationTypeType"/>
 	</xs:simpleType>
-
 	<xs:simpleType name="WoodLotInformationValueType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajin erätunnuksen arvo.</xs:documentation>
@@ -161,7 +57,6 @@
 			<xs:maxLength value="50"/>
 		</xs:restriction>
 	</xs:simpleType>
-
 	<xs:group name="WoodLotInformationGroup">
 		<xs:sequence>
 			<xs:element ref="WoodLotInformationType">
@@ -176,7 +71,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:group>
-	
 	<xs:complexType name="WoodLotType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaraerän yksittäinen tunnistetieto.</xs:documentation>
@@ -187,7 +81,6 @@
 			<xs:group ref="WoodLotInformationGroup"/>
 		</xs:sequence>
 	</xs:complexType>
-
 	<xs:complexType name="WoodLotsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaraerän tunnistetiedot.</xs:documentation>
@@ -198,81 +91,14 @@
 			<xs:element ref="Woodlot" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-
 	<xs:simpleType name="MeasurementMethodType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toive käytettävästä mittausmenetelmästä.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Request for used measurement method.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "xs:string">
-			<xs:enumeration value = "1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Hakkuukonemittaus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Pinomittaus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tehdasmittaus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kuormainvaakamittaus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Pölkkyjen mittaus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "6">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Massan mittaus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "7">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tilavuusmittaus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "8">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Energiasisällön mittaus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value = "9">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Muu mittaustapa</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base = "fe:MeasurementMethodType"/>
 	</xs:simpleType>
-
-
 	<xs:simpleType name="TreeSpeciesType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajin puulajikoodi.</xs:documentation>
@@ -281,7 +107,6 @@
 		</xs:annotation>
 		<xs:union memberTypes="co:TreeSpeciesType bdt:EmptyStringType co:ExtraTreeSpeciesType"/>
 	</xs:simpleType>
-
     <xs:simpleType name="StemTypeType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Puutavaralajin runkolaji, esim. tukki, kuitu, runko, kanto, energiapuu, pikkutukki, parru</xs:documentation>
@@ -290,7 +115,6 @@
         </xs:annotation>
         <xs:union memberTypes="co:StemTypeType co:ExtraStemTypeType"/>
     </xs:simpleType>
-
 	<xs:group name="AssortmentIdentifierGroup">
 		<xs:sequence>
 			<xs:element ref="TreeSpecies">
@@ -305,7 +129,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:group>
-
 	<xs:simpleType name="QuantityType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajin arvioitu tai todettu määrä.</xs:documentation>
@@ -314,7 +137,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="QuantityUnitType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajin määrän yksikkö.</xs:documentation>
@@ -323,14 +145,12 @@
 		</xs:annotation>
 		<xs:restriction base="co:QuantityUnitType"/>
 	</xs:simpleType>
-
 	<xs:group name="QuantityGroup">
 		<xs:sequence>
 			<xs:element ref="Quantity"/>
 			<xs:element ref="QuantityUnit"/>
 		</xs:sequence>
 	</xs:group>
-
 	<xs:simpleType name="UnitPriceType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajin yksikköhinta.</xs:documentation>
@@ -339,7 +159,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="TotalPriceType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajin kokonaishinta.</xs:documentation>
@@ -348,7 +167,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="CurrencyType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajin hinnan valuutta.</xs:documentation>
@@ -357,7 +175,6 @@
 		</xs:annotation>
 		<xs:restriction base="co:CurrencyType"/>
 	</xs:simpleType>
-
 	<xs:group name="PricesAndCurrencyGroup">
 		<xs:sequence>
 			<xs:element ref="UnitPrice" minOccurs="0"/>
@@ -365,7 +182,6 @@
 			<xs:element ref="Currency"/>
 		</xs:sequence>
 	</xs:group>
-	
 	<xs:simpleType name="DiameterMinType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Minimilatvaläpimitta (cm).</xs:documentation>
@@ -374,7 +190,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:PositiveIntegerType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="DiameterMaxType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Maksimiläpimitta (cm).</xs:documentation>
@@ -383,7 +198,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:PositiveIntegerType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="LengthMinType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Minimipituus (m).</xs:documentation>
@@ -392,7 +206,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:Decimal1FractionDigitType"/>
 	</xs:simpleType>
-	
 	<xs:simpleType name="LengthMaxType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Minimipituus (m).</xs:documentation>
@@ -401,7 +214,6 @@
 		</xs:annotation>
 		<xs:restriction base="bdt:Decimal1FractionDigitType"/>
 	</xs:simpleType>
-
 	<xs:group name="DimensionRequirementsGroup">
 		<xs:sequence>
 			<xs:element ref="DiameterMin"/>
@@ -410,7 +222,6 @@
 			<xs:element name="LengthMax"/>
 		</xs:sequence>
 	</xs:group>
-	
 	<xs:simpleType name="AssortmentInfoType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajin lisätietoteksti.</xs:documentation>
@@ -421,7 +232,6 @@
 			<xs:maxLength value="80"/>
 		</xs:restriction>
 	</xs:simpleType>
-	
 	<xs:complexType name="AssortmentAllElementsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajin tiedot.</xs:documentation>
@@ -442,7 +252,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	
 	<xs:complexType name="AssortmentType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajin tiedot.</xs:documentation>
@@ -453,7 +262,6 @@
 			<xs:extension base="AssortmentAllElementsType"/>
 		</xs:complexContent>
 	</xs:complexType>
-	
 	<xs:complexType name="AssortmentsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajit.</xs:documentation>
@@ -464,7 +272,6 @@
 			<xs:element ref="Assortment" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	
 	<xs:complexType name="AssortmentsCompactType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajit.</xs:documentation>
@@ -475,52 +282,14 @@
 			<xs:element ref="AssortmentCompact" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>	
-	
 	<xs:simpleType name = "AssortmentClassCodeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tarkentava koodi puutavaralajille. Hintaluokka.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Additional code for wood assortment. Price group.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "xs:string">
-			<xs:enumeration value="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Muu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Uudistushakkuu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Harvennus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ensiharvennus</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Energiapuu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base = "fe:AssortmentClassCodeType"/>
 	</xs:simpleType>
-
 	<xs:complexType name="AssortmentClassType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajiluokan tiedot.</xs:documentation>
@@ -545,7 +314,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-
 	<xs:complexType name="AssortmentCompactClassType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajiluokan tiedot suppein tiedoin.</xs:documentation>
@@ -570,7 +338,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-
 	<xs:complexType name="AssortmentClassesType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajiluokat.</xs:documentation>
@@ -581,7 +348,6 @@
 			<xs:element ref="AssortmentClass" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	
 	<xs:complexType name="AssortmentCompactClassesType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajiluokat suppein tiedoin.</xs:documentation>
@@ -592,7 +358,6 @@
 			<xs:element ref="AssortmentCompactClass" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	
 	<xs:complexType name="AssortmentCompactElementsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajin suppeat tiedot.</xs:documentation>
@@ -610,7 +375,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	
 	<xs:complexType name="AssortmentCompactType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajin suppeat tiedot.</xs:documentation>
@@ -621,5 +385,4 @@
 			<xs:extension base="AssortmentCompactElementsType"/>
 		</xs:complexContent>
 	</xs:complexType>
-
 </xs:schema>

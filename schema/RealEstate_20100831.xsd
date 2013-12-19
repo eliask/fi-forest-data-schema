@@ -5,24 +5,10 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://standardit.tapio.fi/schemas/forestData/realEstate/2010/08/31"
-	xmlns="http://standardit.tapio.fi/schemas/forestData/realEstate/2010/08/31"
-	xmlns:st="http://standardit.tapio.fi/schemas/forestData/stand/2010/08/31"
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
-	elementFormDefault="qualified"
-	attributeFormDefault="unqualified"
-	version="1.0">
-	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/stand/2010/08/31"
-				schemaLocation="Stand_20100831.xsd"/>
-
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-			    schemaLocation="Common_BasicDataType_20100831.xsd"/>
-			    
-	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
-				schemaLocation="JHS170_20090304.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://standardit.tapio.fi/schemas/forestData/realEstate/2010/08/31" xmlns="http://standardit.tapio.fi/schemas/forestData/realEstate/2010/08/31" xmlns:st="http://standardit.tapio.fi/schemas/forestData/stand/2010/08/31" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/stand/2010/08/31" schemaLocation="Stand_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
+	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" schemaLocation="JHS170_20090304.xsd"/>
 
 	<!-- KIINTEISTÖ, REAL ESTATE -->
 	<!-- Elementtimääritykset -->
@@ -165,7 +151,6 @@
 			<xs:element ref="Parcel" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-
 	<xs:complexType name="ParcelType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Palstan tiedot.</xs:documentation>
@@ -184,7 +169,6 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	
 	<xs:simpleType name="ParcelNumberType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Palstanumero.</xs:documentation>

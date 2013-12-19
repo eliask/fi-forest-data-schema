@@ -15,33 +15,16 @@
 	xmlns:tss="http://standardit.tapio.fi/schemas/forestData/treeStandSummary/2010/08/31"
 	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
-	elementFormDefault="qualified"
-	version="1.0">
-
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStratum/2010/08/31"
-				schemaLocation="TreeStratum_20100831.xsd"/>
-		
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/stemDistribution/2010/08/31"
-				schemaLocation="StemDistribution_20100831.xsd"/>
-		
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/stemDistributionStratum/2010/08/31"
-				schemaLocation="StemDistributionStratum_20100831.xsd"/>
-		
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/deadTreeStrata/2010/08/31"
-				schemaLocation="DeadTreeStratum_20100831.xsd"/>
-	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStandSummary/2010/08/31"
-				schemaLocation="TreeStandSummary_20100831.xsd"/>
-	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-			    schemaLocation="Common_BasicDataType_20100831.xsd"/>
-			    
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-				schemaLocation="Common_20100831.xsd"/>
-	
-	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" 
-				schemaLocation="JHS170_20090304.xsd"/>
+	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" version="1.0">
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStratum/2010/08/31" schemaLocation="TreeStratum_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/stemDistribution/2010/08/31" schemaLocation="StemDistribution_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/stemDistributionStratum/2010/08/31" schemaLocation="StemDistributionStratum_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/deadTreeStrata/2010/08/31" schemaLocation="DeadTreeStratum_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStandSummary/2010/08/31" schemaLocation="TreeStandSummary_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
+	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" schemaLocation="JHS170_20090304.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
 
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
@@ -89,35 +72,12 @@
 			</xs:annotation>
 		</xs:attribute>	
 	</xs:complexType>
-
 	<xs:simpleType name="TreeStandDataMomentType">	
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Laskenta- ja ennustetyyppi eri koodeina koska ainakin aiemmin metsäkeskuksissa on käytetty tulevaisuuden puuston esittämisessä molempia. Laskentatyyppisessä tiedot on esitetty puusto-ositetarkkuudella ja ennustetyyppisessä on ollut pelkkä yhteenveto. Näiden kahden tyypin soveltamisesta voivat tiedonsiirtosovellukset päättää keskenään.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>	
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Inventointi-tyyppi</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Laskenta-tyyppi.</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ennuste-tyyppi</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+		<xs:restriction base="fe:TreeStandDataMomentType"/>
 	</xs:simpleType>
 </xs:schema>
