@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperationalUpdate" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperationalUpdate" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
+	<xs:element name="WorkingSiteOperationalUpdate" type="WorkingSiteOperationalUpdateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Lohkon tiedot, päivitys WF-> MJ</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="WorkingSiteOperationalUpdateType">
+		<xs:sequence>
+			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkingSiteId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ContractorId" type="bdt:String20Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Yrittäjän tunniste (alv-tunnus)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ImageCount" type="bdt:PositiveInteger2digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Valokuvien lukumäärä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Assortments" type="AssortmentsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Puutavaralajit</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Storages" type="StoragesType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Varastopaikat</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProductUserIds" type="ProductUserIdsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Varastopaikat</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductUserIdsType">
+		<xs:sequence>
+			<xs:element name="ProductUserId" type="bdt:String100Type" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AssortmentsType">
+		<xs:sequence>
+			<xs:element name="Assortment" type="AssortmentType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AssortmentType">
+		<xs:sequence>
+			<xs:element name="Code" type="bdt:String50Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">PTL-koodi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="bdt:String50Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">PTL-nimi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PriceGroup" type="bdt:String5Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">PTL-ryhmä (koodi)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Quality" type="bdt:String5Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Laatu</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Volume" type="bdt:PositiveIntegerType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">M3</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DestinationStorage" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Toimituspiste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MeasurementMethod" type="bdt:MeasurementMethodType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Mittausmenetelmä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MeasurementPlace" type="bdt:MeasurementPlaceType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Mittauspaikka</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DiameterMin" type="bdt:PositiveIntegerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Min lpm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DiameterMax" type="bdt:PositiveIntegerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Max lpm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HeightMin" type="bdt:Decimal1FractionDigitType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Min pituus</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HeightMax" type="bdt:Decimal1FractionDigitType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Max pituus</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CanModify" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Onko muutettavissa</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AssortmentInfo" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lisätieto</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StoragesType">
+		<xs:sequence>
+			<xs:element name="Storage" type="StorageType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StorageType">
+		<xs:sequence>
+			<xs:element name="StorageId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">varastopaikan tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Geometry" type="gdt:PointGeometryType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">paikkatieto gml</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GeometryModificationAllowed" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Saako VP:n sijaintia muuttaa</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlowingName" type="bdt:String50Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Aurausyrittäjän nimi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlowingTelephone" type="bdt:String20Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Aurausyrittäjän puhelin</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlowingEmail" type="bdt:String50Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Aurausyrittäjän puhelin</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlowingArranged" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Auraus järjestetty</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlowingDate" type="bdt:DateType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Aurauspvm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Accessibility" type="bdt:TransportAccessibilityType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuljetuskelpoisuus</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TurningPointClass" type="bdt:TurningPointClassType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kääntöpaikkaluokitus</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StorageInfo" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lisätiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DeliveryRestriction" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuljetuskielto</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StorageName" type="bdt:String50Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Varastopaikan nimi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StorageAddress" type="bdt:String50Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Varastopaikan osoite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StorageClass" type="bdt:StorageDryingClassType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Varastopaikkaluokka</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

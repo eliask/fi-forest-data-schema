@@ -3,39 +3,53 @@
 	***************************************************************
 	Kuvion peruselementit ja -tyypit. 
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	 VERSIOKOMMENTIT 1.0 >>> 1.1 
+	 Elementin "Identifier" tyyppi otetaan nimiavaruudesta "co".
+	 VERSIOKOMMENTIT 1.1 >>> 1.2
+	 Koodistotyyppiset määrittelyt siirretty skeemaan ForestEnumeratives_20130620.	
+	 
+	VERSIOKOMMENTIT 1.2 >> 1.3
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi namespaceksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
+
+   	Tässä skeemassa otettu käyttöön uusi common nimiavaruus 
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14" xmlns="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.2">
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14" 
+	xmlns="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14" 
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" 
+	elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.3">
+	<!--	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" 
+	xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" -->
+
 	
-	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
-	<!-- Elementin "Identifier" tyyppi otetaan nimiavaruudesta "co". -->
-	<!-- VERSIOKOMMENTIT 1.1 >>> 1.2 -->
-	<!-- Koodistotyyppiset määrittelyt siirretty skeemaan ForestEnumeratives_20130620. -->	
-	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
+	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
-	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>-->	
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
 	<xs:element name="Identifiers" type="IdentifiersType"/>
 	<xs:element name="Identifier" type="co:IdentifierType"/>
 	<xs:element name="StandNumber" type="StandNumberType"/>
 	<xs:element name="StandNumberExtension" type="StandNumberExtensionType"/>
-	<!-- <xs:element name="MainGroup" type="fe:MainGroupType"/>
-	<xs:element name="SubGroup" type="fe:SubGroupType"/>
+	<!-- <xs:element name="MainGroup" type="co:MainGroupType"/>
+	<xs:element name="SubGroup" type="co:SubGroupType"/>
 	<xs:element name="FertilityClass" type="FertilityClassType"/>
 	<xs:element name="SoilType" type="SoilTypeType"/>
 	<xs:element name="DrainageState" type="DrainageStateType"/> -->
 	<xs:element name="DitchingYear" type="DitchingYearType"/>
-	<!--<xs:element name="DevelopmentClass" type="fe:DevelopmentClassType"/>
+	<!--<xs:element name="DevelopmentClass" type="co:DevelopmentClassType"/>
 	<xs:element name="StandQuality" type="StandQualityType"/>
 	<xs:element name="MainTreeSpecies" type="MainTreeSpeciesType"/>
 	<xs:element name="Accessibility" type="AccessibilityType"/>
 	<xs:element name="CuttingRestriction" type="CuttingRestrictionType"/> -->
-	<xs:element name="SilvicultureRestriction" type="fe:SilvicultureRestrictionType"/>
-	<xs:element name="SilvicultureRestrictionEnds" type="bdt:DateType"/>	
+	<xs:element name="SilvicultureRestriction" type="co:SilvicultureRestrictionType"/>
+	<xs:element name="SilvicultureRestrictionEnds" type="co:DateType"/>	
 	<xs:element name="StandBasicDataDate" type="StandBasicDataDateType"/>
 	<xs:element name="StandInfo" type="StandInfoType"/>
 	<xs:element name="Area" type="AreaType"/>
@@ -79,7 +93,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Main group.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:MainGroupType"/>
+		<xs:restriction base="co:MainGroupType"/>
 	</xs:simpleType>	
 	<xs:simpleType name="SubGroupType">	
 		<xs:annotation>
@@ -87,7 +101,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Sub group.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:SubGroupType"/>
+		<xs:restriction base="co:SubGroupType"/>
 	</xs:simpleType>	
 	<xs:simpleType name="FertilityClassType">
 		<xs:annotation>
@@ -95,7 +109,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Fertility classifier.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:FertilityClassType"/>
+		<xs:restriction base="co:FertilityClassType"/>
 	</xs:simpleType>
 	<xs:simpleType name="SoilTypeType">
 		<xs:annotation>
@@ -103,7 +117,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Soil type.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:SoilTypeType"/>
+		<xs:restriction base="co:SoilTypeType"/>
 	</xs:simpleType>
 	<xs:simpleType name="DrainageStateType">
 		<xs:annotation>
@@ -111,7 +125,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Drainage state.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:DrainageStateType"/>
+		<xs:restriction base="co:DrainageStateType"/>
 	</xs:simpleType>
 	<xs:simpleType name="DitchingYearType">
 		<xs:annotation>
@@ -119,7 +133,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Ditching year.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:YearType"></xs:restriction>
+		<xs:restriction base="co:YearType"></xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="DevelopmentClassType">
 		<xs:annotation>
@@ -127,7 +141,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Development class.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:DevelopmentClassType"></xs:restriction>
+		<xs:restriction base="co:DevelopmentClassType"></xs:restriction>
 	</xs:simpleType>	
 	<xs:simpleType name="StandQualityType">
 		<xs:annotation>
@@ -135,7 +149,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Stand quality.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:StandQualityType"/>
+		<xs:restriction base="co:StandQualityType"/>
 	</xs:simpleType>
 	<xs:simpleType name="MainTreeSpeciesType">
 		<xs:annotation>
@@ -151,7 +165,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Accessibility classifier.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:AccessibilityType"/>
+		<xs:restriction base="co:AccessibilityType"/>
 	</xs:simpleType>
 	<xs:simpleType name="CuttingRestrictionType">
 		<xs:annotation>
@@ -159,7 +173,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Cutting restriction.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:CuttingRestrictionType"/>
+		<xs:restriction base="co:CuttingRestrictionType"/>
 	</xs:simpleType>
 	<xs:complexType name="SilvicultureRestrictionDetailsType">
 		<xs:annotation>
@@ -180,7 +194,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Silviculture restriction.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:SilvicultureRestrictionType"/>
+		<xs:restriction base="co:SilvicultureRestrictionType"/>
 	</xs:simpleType>
 	<xs:simpleType name="StandBasicDataDateType">
 		<xs:annotation>
@@ -188,7 +202,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Date of inventory of stand basic data.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:DateType"/>
+		<xs:restriction base="co:DateType"/>
 	</xs:simpleType>
 	<xs:simpleType name="StandInfoType">
 		<xs:annotation>
@@ -204,7 +218,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Total area of stand, ha. Normally area of polygon geometry.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:Decimal4FractionDigitsType"/>
+		<xs:restriction base="co:Decimal4FractionDigitsType"/>
 	</xs:simpleType>
 	<xs:simpleType name="AreaDecreaseType">
 		<xs:annotation>
@@ -212,6 +226,6 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Area which decrease total area of stand, ha. E.g. power lines, roads... Area - AreaDecrease = effective forest land area for forestry purposes.</xs:documentation>	
 		</xs:annotation>
-		<xs:restriction base="bdt:Decimal4FractionDigitsType"/>
+		<xs:restriction base="co:Decimal4FractionDigitsType"/>
 	</xs:simpleType>
 </xs:schema>

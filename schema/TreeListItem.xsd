@@ -4,18 +4,26 @@
 	Hila- ja mikrokuviomuotoisen metsävara-aineiston elementit ja
 	tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	VERSIOKOMMENTIT 1.0 >> 1.1
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi namespaceksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
+
+   	Tässä skeemassa otettu käyttöön uusi common nimiavaruus 
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/treelistitem"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/treelistitem" 
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"	
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"	
 	xmlns:cdd="http://standardit.tapio.fi/schemas/forestData/commondistributiondata"	
 	elementFormDefault="qualified"
 	attributeFormDefault="qualified"
-	version="1.0">
-	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>	
+	version="1.1">
+<!--	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"-->	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>	
+	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>	-->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/commondistributiondata" schemaLocation="CommonDistributionData.xsd"/>
 	
    	<!-- Element definitions -->

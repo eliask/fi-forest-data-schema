@@ -3,20 +3,31 @@
 	***************************************************************
 	Viranomaistarkastuksen osakohteen elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	VERSIOKOMMENTIT 1.0 >> 1.1
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi nimiavaruudeksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common"
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/virta/target"
-	xmlns="http://standardit.tapio.fi/schemas/virta/target" 
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 	
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"	
-	xmlns:tp="http://standardit.tapio.fi/schemas/virta/targetpart" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" xmlns:gml="http://www.opengis.net/gml" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>		
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/> 
+	xmlns="http://standardit.tapio.fi/schemas/virta/target" 	
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"	
+	xmlns:tp="http://standardit.tapio.fi/schemas/virta/targetpart" 
+	xmlns:gml="http://www.opengis.net/gml" 
+	elementFormDefault="qualified" attributeFormDefault="qualified" version="1.1">
+	
+	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>		-->
+	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/> -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/> 
 	<xs:import namespace="http://standardit.tapio.fi/schemas/virta/targetpart" schemaLocation="VirtaTargetPart.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
+	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/> -->
 	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/> 
 
+	<!-- 	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 
+		xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20"-->
+	
    	<!-- Element definitions -->
    	<xs:element name="Target" type="TargetType"/>
 	<xs:element name="Status2" type="co:ChangeStateType"/>
@@ -27,7 +38,7 @@
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="TargetNumber" type="bdt:PositiveDecimalMax5IntegralPartMax1FractionalPartType">
+	<xs:element name="TargetNumber" type="co:PositiveDecimalMax5IntegralPartMax1FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvion tai kohteen numero.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -48,7 +59,7 @@
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="TargetAnnouncedAmount" type="bdt:PositiveDecimalMax4IntegralPartMax2FractionalPartType">
+	<xs:element name="TargetAnnouncedAmount" type="co:PositiveDecimalMax4IntegralPartMax2FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvion tai kohteen ilmoitettu määrä ha/km. Mastovirrassa pohjatietona tai kemeravirrasta syöttö. LT kipala kentän arvon on oltava pienempi tai yhtäsuuri kuin valmiiksi tallennetun kohteen ohpala kenttien arvojen summan (eli kohteen ohpala kenttiin arvoja on syötettävä niin paljon, että niiden summa on vähintään kipala kentän suuruinen).</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -111,7 +122,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaHabitatAdvertisementType"/>
+		<xs:restriction base="co:VirtaHabitatAdvertisementType"/>
 	</xs:simpleType>	
     <xs:simpleType name="VirtaExtraInfoType">
 		<xs:annotation>

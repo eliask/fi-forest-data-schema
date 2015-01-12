@@ -3,25 +3,38 @@
 	***************************************************************
 	Viranomaistarkastuksen kohteen elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	VERSIOKOMMENTIT 1.0 >> 1.1
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi nimiavaruudeksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common"
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/virta/targetpart"
-	xmlns="http://standardit.tapio.fi/schemas/virta/targetpart"
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"	
+	xmlns="http://standardit.tapio.fi/schemas/virta/targetpart" 
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"	
 	xmlns:sb="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14" 
 	xmlns:sp="http://standardit.tapio.fi/schemas/virta/sampleplot" 
 	xmlns:sfb="http://standardit.tapio.fi/schemas/forestData/specialFeatureBase/2011/02/14" 
-	xmlns:op="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" xmlns:gml="http://www.opengis.net/gml" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
+	xmlns:op="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31"  
+	xmlns:gml="http://www.opengis.net/gml" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.1">
+	
+	<!-- 
+		xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"	
+	xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" 
+	-->
+	
+	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>	-->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
+	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/> -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/virta/sampleplot" schemaLocation="VirtaSamplePlot.xsd"/>		
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14" schemaLocation="StandBase_20110214.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeatureBase/2011/02/14" schemaLocation="SpecialFeatureBase_20110214.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31" schemaLocation="Operation_20100831.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/virta/sampleplot" schemaLocation="VirtaSamplePlot.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
+<!--	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>  -->
 	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/> 
 
    	<!-- Element definitions -->
@@ -34,7 +47,7 @@
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>	
 	</xs:element>
-	<xs:element name="PartsDetectedArea" type="bdt:PositiveDecimalMax4IntegralPartMax2FractionalPartType">
+	<xs:element name="PartsDetectedArea" type="co:PositiveDecimalMax4IntegralPartMax2FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Osan havaittu määrä ha. LT = valmiissa kohteessa kenttiin on syötettävä niin paljon arvoja, että niiden summa on vähintään kuvion tai kohteen ilmoitettu määrä -kentän suuruinen.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -56,21 +69,21 @@
 		</xs:annotation>
 	</xs:element>	
 	<xs:element name="TargetPartStatus" type="VirtaTargetPartStatusType"/>
-	<xs:element name="OperationDate" type="bdt:DateMmDdYyyyType">
+	<xs:element name="OperationDate" type="co:DateMmDdYyyyType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpiteen päivämäärä.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="OperationYear" type="bdt:YearType">
+	<xs:element name="OperationYear" type="co:YearType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Uudistamisen tai hakkuun ajankohta.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="Classification" type="bdt:PositiveIntegerType">
+	<xs:element name="Classification" type="co:PositiveIntegerType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kemeravirrassa tl 30 1=taimikonh, 2=2. khlk metsänhoito, 3=verhop. poisto. Tallentimelta tulevalla uta kentän koodituksella 1-6 päivitetään kemeravirran luokitus (Lts) kenttää silloin, kun työlaji on 10-15, Uud. tapa (uta) 1 = luontainen 2 = kylvö 3 = istutus 4 = luontainen ja kylvö 5 = luontainen ja istutus 6 = kylvö ja istutus.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -82,105 +95,105 @@
 	<xs:element name="Review2" type="VirtaReviewType"/>
 	<xs:element name="Reason2" type="VirtaReasonType"/>
 	<xs:element name="InspectionMethod" type="VirtaInspectionMethodType"/>
-	<xs:element name="StemCount" type="bdt:PositiveInteger6digitsType"> <!-- TODO: Tarkista määrittely. Pitääkö tyhjä hyväksyä lukumääräkentissä? -->
+	<xs:element name="StemCount" type="co:PositiveInteger6digitsType"> <!-- TODO: Tarkista määrittely. Pitääkö tyhjä hyväksyä lukumääräkentissä? -->
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Runkoluku kpl/ha. Laskentasääntö: 10 000 m2*muiden kuin puuluokaltaan arvot 0, 7, 8 tai 9 omaavien puiden lkm tietojen summa/Koealojen pinta-alojen summa m2 (huomioidaan siis myös puutason lkm tiedot, joissa plk on tyhjä) Hirvivahinkolaskennoissa TIH arvo.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SeedStemCount" type="bdt:PositiveInteger6digitsType">
+	<xs:element name="SeedStemCount" type="co:PositiveInteger6digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Hakatun uudistushakkuun siemenpuiden määrä kpl/ha. Laskentasääntö: 10 000 m2*Puuluokkaan 9 kuuluvien puiden lkm/Koealojen pinta-alojen summa m2 (jos hta on muu kuin 2 tai 3, niin s/k. kpl/ha kenttään Virtaan siirretään tallentimelta tämän kentän arvo).</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="StubStemCount" type="bdt:PositiveInteger6digitsType">
+	<xs:element name="StubStemCount" type="co:PositiveInteger6digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Hakatun harvennushakkuun kantojan määrä kpl/ha. Laskentasääntö: 10 000 m2*Puuluokkaan 8 kuuluvien puiden lkm/Koealojen pinta-alojen summa m2 (jos hta on 2 tai 3, niin s/k. kpl/ha kenttään Virtaan siirretään tallentimelta tämän kentän arvo).</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="CultivatedCropStemCount" type="bdt:PositiveInteger6digitsType">
+	<xs:element name="CultivatedCropStemCount" type="co:PositiveInteger6digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Viljelytaimien runkoluku kpl/ha Laskentasääntö: 10 000 m2*Puuluokkaan 4 kuuluvien puiden lkm/Koealojen pinta-alojen summa m2.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="NaturalCropStemCount" type="bdt:PositiveInteger6digitsType">
+	<xs:element name="NaturalCropStemCount" type="co:PositiveInteger6digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kasvatuskelpoisten luonnontaimien runkoluku kpl/ha Laskentasääntö: 10 000 m2*Puuluokkaan 5 kuuluvien puiden lkm/Koealojen pinta-alojen summa m2.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="CompletingNaturalCropStemCount" type="bdt:PositiveInteger6digitsType">
+	<xs:element name="CompletingNaturalCropStemCount" type="co:PositiveInteger6digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Täydentävien luonnontaimien runkoluku kpl/ha Laskentasääntö: 10 000 m2*Puuluokkaan 6 kuuluvien puiden lkm/Koealojen pinta-alojen summa m2.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="DeadStemCount" type="bdt:PositiveInteger6digitsType">
+	<xs:element name="DeadStemCount" type="co:PositiveInteger6digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuolleiden ja kelvottomien viljelytaimien runkoluku kpl/ha Laskentasääntö: 10 000 m2*Puuluokkaan 7 kuuluvien puiden lkm/Koealojen pinta-alojen summa m2.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="NotDamagedCount" type="bdt:PositiveInteger6digitsType">
+	<xs:element name="NotDamagedCount" type="co:PositiveInteger6digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Niiden taimien runkoluku kpl/ha joille ei ole aiheutunut kasvua tai laatua alentavaa pysyvää vauriota. Laskentasääntö: 10 000 m2*kpl summa/Koealojen pinta-alojen summa m2.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="Class1damageCount" type="bdt:PositiveInteger6digitsType">
+	<xs:element name="Class1damageCount" type="co:PositiveInteger6digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">1. riistavaurioluokkaan kuuluvien taimien runkoluku eli rvl kentän arvo on 1. Laskentasääntö: 10 000 m2*kpl summa/Koealojen pinta-alojen summa m2 .</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="Class2damageCount" type="bdt:PositiveInteger6digitsType">
+	<xs:element name="Class2damageCount" type="co:PositiveInteger6digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">2. riistavaurioluokkaan kuuluvien taimien runkoluku eli rvl kentän arvo on 2. Laskentasääntö: 10 000 m2*kpl summa/Koealojen pinta-alojen summa m2.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="Class3damageCount" type="bdt:PositiveInteger6digitsType">
+	<xs:element name="Class3damageCount" type="co:PositiveInteger6digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">3. riistavaurioluokkaan kuuluvien taimien runkoluku eli rvl kentän arvo on 3. Laskentasääntö: 10 000 m2*kpl summa/Koealojen pinta-alojen summa m2.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="Class4damageCount" type="bdt:PositiveInteger6digitsType">
+	<xs:element name="Class4damageCount" type="co:PositiveInteger6digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">4. riistavaurioluokkaan kuuluvien taimien runkoluku eli rvl kentän arvo on 4. Laskentasääntö: 10 000 m2*kpl summa/Koealojen pinta-alojen summa m2.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="LargePeelDamage" type="bdt:PositiveInteger6digitsType">
+	<xs:element name="LargePeelDamage" type="co:PositiveInteger6digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Suuren riistakuorivaurion omaavien taimien runkoluku eli rvl kentän arvo on 6. Laskentasääntö: 10 000 m2*kpl summa/Koealojen pinta-alojen summa m2.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="SmallPeelDamage" type="bdt:PositiveInteger6digitsType">
+	<xs:element name="SmallPeelDamage" type="co:PositiveInteger6digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Pienen riistakuorivaurion omaavien taimien runkoluku eli rvl kentän arvo on 5. Laskentasääntö: 10 000 m2*kpl summa/Koealojen pinta-alojen summa m2.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="DamagedSeedlingCount" type="bdt:PositiveInteger6digitsType">
+	<xs:element name="DamagedSeedlingCount" type="co:PositiveInteger6digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Riistavahingon vuoksi laskennallisesti kokonaan tuhoutuneiden puiden runkoluku varttuneemmissa metsissä kpl/ha.  TUH = 0,5 * A + B = X kpl/ha A=pkvrlk, B=skvrlk. Taimikoissa kun on käytetty riistavaurioluokkia 1-4 a) Kokonaan tuhoutuneiden taimien lukumäärä (TUH, kpl/ha) männylle ja muille havupuille, lukuun ottamatta kuusta ja lehtikuusta, lasketaan kaavalla: TUH = 0,15*A + 0,3*B + 0,5*C + D, missä A = taimet vahinkoluokassa I, kpl/ha B = taimet vahinkoluokassa II, kpl/ha C = taimet vahinkoluokassa III, kpl/ha D = taimet vahinkoluokassa IV, kpl/ha b) Kokonaan tuhoutuneiden taimien lukumäärä (TUH, kpl/ha) kuuselle, lehtikuuselle ja lehtipuille lasketaan kaavalla: TUH = 0,3*B + 0,5*C + D, missä B = taimet vahinkoluokassa II, kpl/ha C = taimet vahinkoluokassa III, kpl/ha D = taimet vahinkoluokassa IV, kpl/ha.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -194,126 +207,126 @@
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="PineLog" type="bdt:PositiveInteger4digitsType">
+	<xs:element name="PineLog" type="co:PositiveInteger4digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Mäntytukkitilavuus m3/ha.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="SpruceLog" type="bdt:PositiveInteger4digitsType">
+	<xs:element name="SpruceLog" type="co:PositiveInteger4digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuusitukkitilavuus m3/ha.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="BirchLog" type="bdt:PositiveInteger4digitsType">
+	<xs:element name="BirchLog" type="co:PositiveInteger4digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Koivutukkitilavuus m3/ha.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="LogM3sum" type="bdt:PositiveInteger4digitsType">
+	<xs:element name="LogM3sum" type="co:PositiveInteger4digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tukkipuutavaralajin tilavuus yhteensä m3/ha. Lasketaan mänty- kuusi- ja koivukenttien summa tai syötetään arvo.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="PinePulp" type="bdt:PositiveInteger4digitsType">
+	<xs:element name="PinePulp" type="co:PositiveInteger4digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Mäntykuitutilavuus m3/ha.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SprucePulp" type="bdt:PositiveInteger4digitsType">
+	<xs:element name="SprucePulp" type="co:PositiveInteger4digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuusikuitutilavuus m3/ha.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="BirchPulp" type="bdt:PositiveInteger4digitsType">
+	<xs:element name="BirchPulp" type="co:PositiveInteger4digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Koivukuitutilavuus m3/ha.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>		
-	<xs:element name="PulpM3sum" type="bdt:PositiveInteger4digitsType">
+	<xs:element name="PulpM3sum" type="co:PositiveInteger4digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuitupuutavaralajin tilavuus yhteensä m3/ha. Lasketaan mänty- kuusi- ja koivukenttien summa tai syötetään arvo.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="OtherTimberValue" type="bdt:PositiveInteger5digitsType">
+	<xs:element name="OtherTimberValue" type="co:PositiveInteger5digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Muun puutavaralajin arvo euroa/ha.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="EnergyTimberValue" type="bdt:PositiveInteger5digitsType">
+	<xs:element name="EnergyTimberValue" type="co:PositiveInteger5digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Energiapuun arvo euroa/ha. Lenttää ei yleensä käytetä hirvivahinkojen tarkastuksissa.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="CuttingValue" type="bdt:PositiveInteger5digitsType">
+	<xs:element name="CuttingValue" type="co:PositiveInteger5digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">hakkuuarvo euroa/ha. Hakkuuarvoa laskettaessa käytetään Summa-arvotaulukot 2007 kirjasen s. 50 taulukkoa. ppl=1 =>mänty, ppl=2=>kuusi ja ppl on joku muu=> käytetään lehtipuun arvoa, jolla kerrotaan ytu ja yku-kenttien arvot, jotka summataan ja tulokseen lisätään mptl ja epuu kenttien summa.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="DestroyedCuttingValue" type="bdt:PositiveInteger5digitsType">	
+	<xs:element name="DestroyedCuttingValue" type="co:PositiveInteger5digitsType">	
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kokonaan tuhoutuneiden puiden hakkuuarvo e/ha.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="ExpectedValueCoefficient" type="bdt:PositiveDecimalMax1IntegralPartMax2FractionalPartType">
+	<xs:element name="ExpectedValueCoefficient" type="co:PositiveDecimalMax1IntegralPartMax2FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Odotusarvokerroin.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="ExpectedValueSurplus" type="bdt:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
+	<xs:element name="ExpectedValueSurplus" type="co:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Odotusarvolisä euroa/ha.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="Compensation" type="bdt:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
+	<xs:element name="Compensation" type="co:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kasvu- ja laatutappiokorvaus euroa.  Korvauksesta vähennetään taimikonhoitotyön arvo, mikäli  tata-kentän arvo on 1. Mikäli valtapituus on enintään 1,3m käytetään varhaishoidon kustannususta. Mikäli valtapituus on yli 1,3 m käytetään myöhempää kustannusta. Mikäli tata kentän arvo on 2, ei vähennystä tehdä.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="AlreadyPaidCompensation" type="bdt:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
+	<xs:element name="AlreadyPaidCompensation" type="co:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Aiemmin maksettu kasvu- ja laatutappiokorvaus euroa.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="TotalCompensation" type="bdt:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
+	<xs:element name="TotalCompensation" type="co:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Korvaus yhteensä euroa.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="NeedForTreatment" type="bdt:VirtaYesNoType">	
+	<xs:element name="NeedForTreatment" type="co:VirtaYesNoType">	
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Taimikonhoitotyön tarve.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -321,63 +334,63 @@
 		</xs:annotation>
 	</xs:element>	
 	<xs:element name="Suggestion" type="VirtaSuggestionType"/>
-	<xs:element name="Phase2youngCropCount" type="bdt:PositiveInteger5digitsType">
+	<xs:element name="Phase2youngCropCount" type="co:PositiveInteger5digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toisen jakson taimet kpl/ha. Lasketaan koealatason tjt kentän perusteella. Laskentasääntö: 10 000 m2*tjt kenttien arvojen summa/Koealojen pinta-alojen summa m2.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="RecommendedDensity" type="bdt:PositiveInteger5digitsType">
+	<xs:element name="RecommendedDensity" type="co:PositiveInteger5digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Ohjetiheys kpl/ha. Määräytyy puulajin ja kasvupaikan perusteella.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="RepairPlantingCosts" type="bdt:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
+	<xs:element name="RepairPlantingCosts" type="co:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Täydennysviljely- tai uudelleenmetsityskustannukset euroa/ha.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="BasalArea" type="bdt:PositiveInteger6digitsType">
+	<xs:element name="BasalArea" type="co:PositiveInteger6digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Pohjapinta-ala.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="MeanDiameter" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+	<xs:element name="MeanDiameter" type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Pohjapinta-alalla painotettu keskiläpimitta cm.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="StubMeanDiameter" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+	<xs:element name="StubMeanDiameter" type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kantojen keskiläpimitta cm.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="Age" type="bdt:PositiveInteger3digitsType">
+	<xs:element name="Age" type="co:PositiveInteger3digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsikön ikä vuosissa.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="DominantHeight" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+	<xs:element name="DominantHeight" type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Valtapituus m. Osan koealojen valtapituuksien keskiarvo.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="AverageHeight" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+	<xs:element name="AverageHeight" type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Keskipituus m. Osan koealojen keskipituuksien keskiarvo.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -404,7 +417,7 @@
 	<xs:element name="SpruceDecimal" type="VirtaTreeDecimalType"/>
 	<xs:element name="BirchDecimal" type="VirtaTreeDecimalType"/>
 	<xs:element name="SoilType" type="sb:SoilTypeType"/>
-	<xs:element name="StockingWithSeedlings" type="bdt:VirtaYesNoType">
+	<xs:element name="StockingWithSeedlings" type="co:VirtaYesNoType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Onko taimettumista.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -423,11 +436,11 @@
 	<xs:element name="SeedPlantEvaluation" type="sp:VirtaEvaluationType"/>
 	<xs:element name="RootRotControlEvaluation" type="VirtaRootRotControlEvaluationType"/>
 	<xs:element name="HarvestingClassifiation" type="VirtaHarvestingClassificationType"/>
-	<xs:element name="RootDamageCount" type="bdt:PositiveInteger3digitsType"/>
-	<xs:element name="StemDamageCount" type="bdt:PositiveInteger3digitsType"/>
-	<xs:element name="VehiclePathDistance" type="bdt:PositiveInteger3digitsType"/>
-	<xs:element name="VehiclePathWidth" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType"/>
-	<xs:element name="VehiclePathSubsidencePercentage" type="bdt:PositiveInteger3digitsType"/>
+	<xs:element name="RootDamageCount" type="co:PositiveInteger3digitsType"/>
+	<xs:element name="StemDamageCount" type="co:PositiveInteger3digitsType"/>
+	<xs:element name="VehiclePathDistance" type="co:PositiveInteger3digitsType"/>
+	<xs:element name="VehiclePathWidth" type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType"/>
+	<xs:element name="VehiclePathSubsidencePercentage" type="co:PositiveInteger3digitsType"/>
 	<xs:element name="TotalEstimation" type="VirtaTotalEstimationType"/>
 	<xs:element name="CuttingByMachine" type="VirtaCuttingByMachineType"/>
 	<xs:element name="HarvestingSeason" type="VirtaHarvestingSeasonType"/>
@@ -574,7 +587,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaRegenerationType"/>
+		<xs:restriction base="co:VirtaRegenerationType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaTargetPartStatusType">
 		<xs:annotation>
@@ -582,7 +595,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaTargetPartStatusType"/>
+		<xs:restriction base="co:VirtaTargetPartStatusType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaReviewType">
 		<xs:annotation>
@@ -590,7 +603,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaReviewType"/>
+		<xs:restriction base="co:VirtaReviewType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaReasonType">
 		<xs:annotation>
@@ -598,7 +611,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaReasonType"/>
+		<xs:restriction base="co:VirtaReasonType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaInspectionMethodType">
 		<xs:annotation>
@@ -606,7 +619,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaInspectionMethodType"/>
+		<xs:restriction base="co:VirtaInspectionMethodType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaSuggestionType">
 		<xs:annotation>
@@ -614,7 +627,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaSuggestionType"/>
+		<xs:restriction base="co:VirtaSuggestionType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaStandQualityType">
 		<xs:annotation>
@@ -622,7 +635,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Stand quality.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaStandQualityType"/>
+		<xs:restriction base="co:VirtaStandQualityType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaHabitatCodeType">
 		<xs:annotation>
@@ -630,7 +643,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaHabitatCodeType"/>
+		<xs:restriction base="co:VirtaHabitatCodeType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaHabitatTypeType">
 		<xs:annotation>
@@ -638,7 +651,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Stand quality.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaHabitatTypeType"/>
+		<xs:restriction base="co:VirtaHabitatTypeType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaHabitatSurvivingType">
 		<xs:annotation>
@@ -646,7 +659,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaHabitatSurvivingType"/>
+		<xs:restriction base="co:VirtaHabitatSurvivingType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaExceptionalPermitForHandlingType">
 		<xs:annotation>
@@ -654,7 +667,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaExceptionalPermitForHandlingType"/>
+		<xs:restriction base="co:VirtaExceptionalPermitForHandlingType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaTreeDecimalType">
 		<xs:annotation>
@@ -673,7 +686,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaGroundManipulationMethodType"/>
+		<xs:restriction base="co:VirtaGroundManipulationMethodType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaCultivationMaterialType">
 		<xs:annotation>
@@ -681,7 +694,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaCultivationMaterialType"/>
+		<xs:restriction base="co:VirtaCultivationMaterialType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaPlantEvaluationType">
 		<xs:annotation>
@@ -689,7 +702,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaPlantEvaluationType"/>
+		<xs:restriction base="co:VirtaPlantEvaluationType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaRootRotControlEvaluationType">
 		<xs:annotation>
@@ -697,7 +710,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaRootRotControlEvaluationType"/>
+		<xs:restriction base="co:VirtaRootRotControlEvaluationType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaHarvestingClassificationType">
 		<xs:annotation>
@@ -705,7 +718,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaHarvestingClassificationType"/>
+		<xs:restriction base="co:VirtaHarvestingClassificationType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaTotalEstimationType">
 		<xs:annotation>
@@ -713,7 +726,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaTotalEstimationType"/>
+		<xs:restriction base="co:VirtaTotalEstimationType"/>
 	</xs:simpleType>	
 	<xs:simpleType name="VirtaCuttingByMachineType">
 		<xs:annotation>
@@ -721,7 +734,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaCuttingByMachineType"/>
+		<xs:restriction base="co:VirtaCuttingByMachineType"/>
 	</xs:simpleType>	
 	<xs:simpleType name="VirtaHarvestingSeasonType">
 		<xs:annotation>
@@ -729,6 +742,6 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaHarvestingSeasonType"/>
+		<xs:restriction base="co:VirtaHarvestingSeasonType"/>
 	</xs:simpleType>	
 </xs:schema>

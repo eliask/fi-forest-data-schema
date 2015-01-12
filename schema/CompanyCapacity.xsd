@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/CompanyCapacity" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/CompanyCapacity" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:element name="CompanyCapacity" type="CompanyCapacityType"/>
+	<xs:complexType name="CompanyCapacityType">
+		<xs:sequence>
+			<xs:element name="ContractorId" type="bdt:String20Type" minOccurs="1"/>
+			<xs:element name="Resources" type="ResourcesType" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourcesType">
+		<xs:sequence>
+			<xs:element name="Resource" type="ResourceDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourceDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Resurssi</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="StanfordResourceId" type="bdt:String50Type"/>
+			<xs:element name="ResourceId" type="bdt:String20Type"/>
+			<xs:element name="ServiceBuyerResourceId" type="bdt:String20Type"/>
+			<xs:element name="ResourceType" type="bdt:ResourceTypeType"/>
+			<xs:element name="Days" type="DaysType" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DaysType">
+		<xs:sequence>
+			<xs:element name="Day" type="DayType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DayType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Resurssin kalenterin paivat</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CalendarDay" type="bdt:DateType"/>
+			<xs:element name="Hours" type="bdt:PositiveInteger2digitsType"/>
+			<xs:element name="ServiceType" type="bdt:ServiceTypeType"/>
+			<xs:element name="WorkCode" type="bdt:WorkCodeType"/>
+			<xs:element name="Productivity" type="bdt:PositiveInteger4digitsType"/>
+			<xs:element name="ProductivityUnit" type="bdt:String10Type"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -3,13 +3,30 @@
 	***************************************************************
 	Puukaupan tilastojen elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	VERSIOKOMMENTIT 1.0 >> 1.1
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi nimiavaruudeksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasestatistics/2012/05/08" xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasestatistics/2012/05/08" xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasestatistics/2012/05/08" 
+xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasestatistics/2012/05/08" 
+xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" 
+xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" 
+xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" 
+xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" 
+elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+
+<!-- xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" -->
+
+
     <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" schemaLocation="WorkingSiteTrade_Assortment_20110214.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" schemaLocation="WorkingSiteTrade_Common_20110214.xsd"/>
     <xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" schemaLocation="JHS170_20090304.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
+	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/> -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
     <xs:element name="RoundWoodSalesData" type="RoundWoodSalesDataType"/>
@@ -77,7 +94,7 @@
             <xs:documentation xml:lang="sv"></xs:documentation>
             <xs:documentation xml:lang="en"></xs:documentation>
         </xs:annotation>
-        <xs:restriction base = "fe:AreaTypeType"/>
+        <xs:restriction base = "co:AreaTypeType"/>
     </xs:simpleType>
     <xs:simpleType name="AreaCodeType">
         <xs:annotation>

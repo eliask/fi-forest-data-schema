@@ -3,6 +3,24 @@
 	***************************************************************
 	Kuvion elementit ja tyypit. 
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	VERSIOKOMMENTIT  
+    Versio käyttää kuviotietojen perusmäärittelyistä "forestData/standbase/2011/02/14" perittyjä määrittelyjä, jotka vastaavat sisällöltään alkuperäisiä 
+    Versio käyttää erityispiirretietojen määrittelyä "forestData/specialFeature/2011/02/14" 
+	 VERSIOKOMMENTIT 1.1 >>> 1.2 
+	 Lisätty elementit "ThinningYear", "CuttingRestrictionEnds" ja "SilvicultureRestrictionEnds". 
+	
+	VERSIOKOMMENTIT 1.2 >> 1.3
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi namespaceksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
+
+   	Tässä skeemassa otettu käyttöön uusi common nimiavaruus 
+	
+	GeometricDataType Nimiavaruus ja tiedosto uudelleen nimetty ja otettu käyttöön tässä:
+	 Common_GeometricDataType_20100831.xsd -> Common_GeometricDataType.xsd
+	 "http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes/2010/08/31"->
+	 "http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -12,24 +30,24 @@
 	xmlns:sf="http://standardit.tapio.fi/schemas/forestData/specialFeature/2011/02/14"
 	xmlns:ts="http://standardit.tapio.fi/schemas/forestData/treeStand/2010/08/31"
 	xmlns:op="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31"
-	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes/2010/08/31"
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" xmlns:gml="http://www.opengis.net/gml" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+	xmlns:gml="http://www.opengis.net/gml" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.3">
 	
-    <!-- VERSIOKOMMENTIT  -->
-    <!-- Versio käyttää kuviotietojen perusmäärittelyistä "forestData/standbase/2011/02/14" perittyjä määrittelyjä, jotka vastaavat sisällöltään alkuperäisiä -->
-    <!-- Versio käyttää erityispiirretietojen määrittelyä "forestData/specialFeature/2011/02/14" -->
-	<!-- VERSIOKOMMENTIT 1.1 >>> 1.2 -->
-	<!-- Lisätty elementit "ThinningYear", "CuttingRestrictionEnds" ja "SilvicultureRestrictionEnds". -->
+	<!--	xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20"
+	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"	-->
+
 	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14" schemaLocation="StandBase_20110214.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeature/2011/02/14" schemaLocation="SpecialFeature_20110214.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStand/2010/08/31" schemaLocation="TreeStand_20100831.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31" schemaLocation="Operation_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes/2010/08/31" schemaLocation="Common_GeometricDataType_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>	
+<!--	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/> -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
+<!--	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/> 
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/> -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/> 	
 	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/>
 
 	<!-- Elementtimääritykset -->
@@ -41,22 +59,22 @@
 	<xs:element name="Identifiers" type="IdentifiersType"/>
 	<xs:element name="StandNumber" type="StandNumberType"/>
 	<xs:element name="StandNumberExtension" type="StandNumberExtensionType"/>
-	<xs:element name="MainGroup" type="fe:MainGroupType"/>
-	<xs:element name="SubGroup" type="fe:SubGroupType"/>
+	<xs:element name="MainGroup" type="co:MainGroupType"/>
+	<xs:element name="SubGroup" type="co:SubGroupType"/>
 	<xs:element name="FertilityClass" type="FertilityClassType"/>
 	<xs:element name="SoilType" type="SoilTypeType"/>
 	<xs:element name="DrainageState" type="DrainageStateType"/>
 	<xs:element name="DitchingYear" type="DitchingYearType"/>
-	<xs:element name="ThinningYear" type="bdt:YearType"/> 
+	<xs:element name="ThinningYear" type="co:YearType"/> 
 	<xs:element name="DevelopmentClass" type="DevelopmentClassType"/>
 	<xs:element name="StandQuality" type="StandQualityType"/>
 	<xs:element name="MainTreeSpecies" type="MainTreeSpeciesType"/>
 	<xs:element name="Accessibility" type="AccessibilityType"/>
 	<xs:element name="CuttingRestriction" type="CuttingRestrictionType"/>
-	<xs:element name="CuttingRestrictionEnds" type="bdt:DateType"/>	
+	<xs:element name="CuttingRestrictionEnds" type="co:DateType"/>	
 	<xs:element name="SilvicultureRestrictionDetails" type="stb:SilvicultureRestrictionDetailsType"/>	
 	<xs:element name="SilvicultureRestriction" type="stb:SilvicultureRestrictionType"/>
-	<xs:element name="SilvicultureRestrictionEnds" type="bdt:DateType"/> 
+	<xs:element name="SilvicultureRestrictionEnds" type="co:DateType"/> 
 	<xs:element name="StandBasicDataDate" type="StandBasicDataDateType"/>
 	<xs:element name="StandInfo" type="StandInfoType"/>
 	<xs:element name="Area" type="AreaType"/>
@@ -160,7 +178,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Is it data completed collect or some way incomplete.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:YesNoType"/>
+		<xs:restriction base="co:YesNoType"/>
 	</xs:simpleType>
 	<xs:complexType name="IdentifiersType">
 		<xs:annotation>
@@ -194,7 +212,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Main group.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:MainGroupType"/>
+		<xs:restriction base="co:MainGroupType"/>
 	</xs:simpleType>
 	<xs:simpleType name="SubGroupType">
 		<xs:annotation>
@@ -202,7 +220,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Sub group.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:SubGroupType"/>
+		<xs:restriction base="co:SubGroupType"/>
 	</xs:simpleType>
 	<xs:simpleType name="FertilityClassType">
 		<xs:annotation>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFeeBasis" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFeeBasis" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:element name="WorkingSiteFeeBasis" type="WorkingSiteFeeBasisType">
+		<xs:annotation>
+			<xs:documentation>Lohkon keskeytys</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="WorkingSiteFeeBasisType">
+		<xs:sequence>
+			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkingSiteId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lohkon tunniste, yksilöivä id</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FeeBasis" type="FeeBasisType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taksaperusteet</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FeeBasisType">
+		<xs:sequence>
+			<xs:element name="FeeBase" type="FeeBasisDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FeeBasisDataType">
+		<xs:sequence>
+			<xs:element name="FeeId" type="bdt:String10Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taksaperusteen id</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FeeListId" type="bdt:PositiveIntegerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taksaperustelistan id</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FeeYesNo" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taksaperuste kyllä/ei –tieto (jos peruste kyllä/ei –tyyppinen)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FeeValue" type="bdt:String10Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taksaperuste määrä (jos peruste määrä-tyyppinen)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FeeAssortment" type="bdt:String50Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taksaperusteen lisätieto</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Infotext" type="bdt:String1000Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lisätieto</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NeedToCheck" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taksaperusteilla tarkistustarve</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

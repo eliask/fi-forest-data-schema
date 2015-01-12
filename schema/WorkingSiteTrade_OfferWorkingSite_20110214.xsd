@@ -3,15 +3,25 @@
 	***************************************************************
 	Tarjouksen kohteen / työmaan elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	 
+	VERSIOKOMMENTIT 1.0 >>> 1.1 
+	-Lisätty tyyppi "OfferWorkingSiteSilvicultureInfoType". 
+
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi nimiavaruudeksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
+	
+	- ContactInformation_20110214.xsd -> ContactInformation.xsd
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
+	-> 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/offerworkingsite/2011/02/14"
 	xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/offerworkingsite/2011/02/14"
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
-	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
+	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14"
 	xmlns:ws="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14"
 	xmlns:cows="http://standardit.tapio.fi/schemas/workingsitetrade/callforofferworkingsite/2011/02/14"
@@ -19,25 +29,27 @@
 	xmlns:pr="http://standardit.tapio.fi/schemas/workingsitetrade/product"
 	elementFormDefault="qualified"
 	attributeFormDefault="qualified"
-	version="1.0">
+	version="1.1">
 	
-	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
-	<!-- Lisätty tyyppi "OfferWorkingSiteSilvicultureInfoType". -->
-	
+
+<!-- 	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" -->	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14"
 				schemaLocation="WorkingSiteTrade_Assortment_20110214.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14"
 				schemaLocation="WorkingSiteTrade_WorkingSite_20110214.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforofferworkingsite/2011/02/14"
 				schemaLocation="WorkingSiteTrade_CallForOfferWorkingSite_20110214.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
-				schemaLocation="ContactInformation_20110214.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation"
+				schemaLocation="ContactInformation.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
 				schemaLocation="WorkingSiteTrade_Common_20110214.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-			schemaLocation="Common_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-			    schemaLocation="Common_BasicDataType_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+			schemaLocation="Common.xsd"/>
+		<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+			schemaLocation="Common_20100831.xsd"/> -->
+<!--	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+			    schemaLocation="Common_BasicDataType_20100831.xsd"/> -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/stand/2011/02/14"
 				schemaLocation="WorkingSiteTrade_Stand_20110214.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/product"
@@ -63,9 +75,9 @@
 	<xs:element name="WorkingSiteGeometries" type="wtco:WorkingSiteGeometriesType"/>
 	<xs:element name="OfferWorkingSiteSilvicultureText" type="xs:string"/>
 	<xs:element name="SilvicultureValidity" type="SilvicultureValidityType"/>
-	<xs:element name="DueDate" type="bdt:DateType"/>
-	<xs:element name="StartDate" type="bdt:DateYYYY-MMOrYYYY-MM-DDType"/>
-	<xs:element name="EndDate" type="bdt:DateYYYY-MMOrYYYY-MM-DDType"/>
+	<xs:element name="DueDate" type="co:DateType"/>
+	<xs:element name="StartDate" type="co:DateYYYY-MMOrYYYY-MM-DDType"/>
+	<xs:element name="EndDate" type="co:DateYYYY-MMOrYYYY-MM-DDType"/>
 	<xs:element name="Products" type="pr:ProductsType"/>
 	<xs:element name="Text" type="xs:string"/>
 	<xs:element name="Documents" type="wtco:DocumentsType"/>
@@ -125,7 +137,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Tell whether this stand is included in offer or no (0 = not included, 1 = included).</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:YesNoType"/>
+		<xs:restriction base="co:YesNoType"/>
 	</xs:simpleType>
 
 	<xs:complexType name="PurchaserRepresentativePersonType">
@@ -156,7 +168,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Felling right duration in moths. Usually starts when offer is accepted.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:PositiveIntegerType">
+		<xs:restriction base="co:PositiveIntegerType">
 			<xs:maxInclusive value="99"/>
 		</xs:restriction>
 	</xs:simpleType>
@@ -167,7 +179,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:DateType"/>
+		<xs:restriction base="co:DateType"/>
 	</xs:simpleType>
 
 	<xs:complexType name="OfferWorkingSiteWoodTradeInfoType">

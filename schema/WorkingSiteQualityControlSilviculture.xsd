@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSilviculture" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSilviculture" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
+	<xs:element name="WorkingSiteQualityControlSilviculture" type="WorkingSiteQualityControlSilvicultureType"/>
+	<xs:complexType name="WorkingSiteQualityControlSilvicultureType">
+		<xs:sequence>
+			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkingSiteId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourceId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Resurssi ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Images" type="bdt:PositiveInteger2digitsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Valokuvien lukumäärä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlots" type="SamplePlotType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealatiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ServiceBuyerIdType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="WorkingSiteIdType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ResourceIdType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Resurssi ID</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="SamplePlotType">
+		<xs:sequence>
+			<xs:element name="SamplePlotNumber" type="bdt:PositiveIntegerType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealanumero</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StandNumber" type="bdt:String10Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuvion tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MeasureDate" type="bdt:DateType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Mittausaika</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Measurer" type="bdt:String50Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Mittaaja</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MeasurerType" type="bdt:MeasurerTypeType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Mittaajatyyppi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GeometryReal" type="gdt:PointGeometryType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealan sijainti, geometria_mitattu</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GeometryRequired" type="gdt:PointGeometryType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealan MJ:stä saatu sijainti, geometria_vaadittu</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Radius" type="bdt:Decimal2FractionDigitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealan säde</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="isGPSlocation" type="bdt:YesNoType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Gps</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlantCount" type="bdt:PositiveInteger3digitsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taimien lkm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="StandNumberType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kuvion tunniste</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MeasurerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Mittaaja</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MeasurerTypeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Mittaajatyyppi</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="isGPSlocationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">gps</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

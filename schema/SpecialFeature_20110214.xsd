@@ -3,28 +3,50 @@
 	***************************************************************
 	Erityispiirretietojen elementit ja tyypit. 
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+    VERSIOKOMMENTIT  
+     Versio (1.0) käyttää erityispiirretietojen perusmäärittelyistä "forestData/specialFeatureBase/2010/11/30" perittyjä määrittelyjä, 
+	 jotka vastaavat sisällöltään alkuperäisiä 
+
+	Versio 1.0 >>> 1.1
+	Lisätty tyypit:	
+		BasicFeature3Type
+		LocatedSpecialFeature3Type
+		
+	 
+	 15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi namespaceksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
+   	Tässä skeemassa otettu käyttöön uusi common nimiavaruus 
+	 
+	 GeometricDataType Nimiavaruus ja tiedosto uudelleen nimetty ja otettu käyttöön tässä:
+	 Common_GeometricDataType_20100831.xsd -> Common_GeometricDataType.xsd
+	 "http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes/2010/08/31"->
+	 "http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-    targetNamespace="http://standardit.tapio.fi/schemas/forestData/specialFeature/2011/02/14" 
+    targetNamespace="http://standardit.tapio.fi/schemas/forestData/specialFeature/2011/02/14" 	
     xmlns="http://standardit.tapio.fi/schemas/forestData/specialFeature/2011/02/14" 
-    xmlns:sf="http://standardit.tapio.fi/schemas/forestData/specialFeatureBase/2011/02/14"
-    xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes/2010/08/31"
-    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+	xmlns:sf="http://standardit.tapio.fi/schemas/forestData/specialFeatureBase/2011/02/14"
+	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
     elementFormDefault="qualified"
-    version="1.0">
+    version="1.1">
+       <!--
+    xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes/2010/08/31"
+    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"--> 
     
-    <!-- VERSIOKOMMENTIT  -->
-    <!-- Versio käyttää erityispiirretietojen perusmäärittelyistä "forestData/specialFeatureBase/2010/11/30" perittyjä määrittelyjä, jotka vastaavat sisällöltään alkuperäisiä -->
-    
+	    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
+		
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeatureBase/2011/02/14"
 			    schemaLocation="SpecialFeatureBase_20110214.xsd"/>
     
- 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes/2010/08/31"
-			    schemaLocation="Common_GeometricDataType_20100831.xsd"/>
+ 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+			    schemaLocation="Common_GeometricDataType.xsd"/>
     
-  	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-				schemaLocation="Common_20100831.xsd"/>
+ <!-- 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+				schemaLocation="Common_20100831.xsd"/> -->
     
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
@@ -36,7 +58,7 @@
     <xs:element name="Validity" type="ValidityType"/>
     <xs:element name="FeatureInfo" type="FeatureInfoType"/>
     <xs:element name="FeatureAdditionalInfo" type="FeatureAdditionalInfoType"/>
-    
+    <!--<xs:element name="LocatedSpecialFeature3" type="LocatedSpecialFeature3Type"/>    -->
     <!-- Tyyppimääritykset -->
     <!-- Type definitions -->
     <xs:complexType name="BasicFeature1Type">
@@ -114,6 +136,34 @@
    	<xs:complexType name="LocatedSpecialFeature2Type">
 		<xs:complexContent>
 			<xs:extension base="BasicFeature2Type">
+				<xs:group ref="gdt:AlternativeGeometriesGroup"></xs:group>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	   <xs:complexType name="BasicFeature3Type">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Yksittäisen erityispiirteen tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Single feature data.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:group ref="FeatureDataGroup"/>
+            <xs:element ref="FeatureInfo" minOccurs="0"/>
+            <xs:element ref="FeatureAdditionalInfo" minOccurs="0"/>
+        </xs:sequence>	
+        <xs:attribute name="id" type="xs:string">
+            <xs:annotation>
+                <xs:documentation xml:lang="fi">Erityispiirteen voidaan yksilöidä tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Feature can be identified using string id.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>	
+    </xs:complexType>
+
+	<xs:complexType name="LocatedSpecialFeature3Type">
+		<xs:complexContent>
+			<xs:extension base="BasicFeature3Type">
 				<xs:group ref="gdt:AlternativeGeometriesGroup"></xs:group>
 			</xs:extension>
 		</xs:complexContent>

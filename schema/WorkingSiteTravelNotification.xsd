@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteTravelNotification" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"  targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteTravelNotification" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0"> 
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:element name="WorkingSiteTravelNotification" type="WorkingSiteTravelNotificationType">
+		<xs:annotation>
+			<xs:documentation>Kilometri-ilmoitus</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="WorkingSiteTravelNotificationType">
+		<xs:sequence>
+			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkingSiteId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourceId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Resurssin tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TravelStartTime" type="bdt:TimeStampType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Matka alkoi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TravelEndTime" type="bdt:TimeStampType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Matka päättyi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Vehicle" type="bdt:VehicleType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kulkuväline</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Kilometers" type="bdt:PositiveInteger4digitsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ajokilometrit</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Route" type="bdt:String200Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ajoreitti, sanallinen kuvaus</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="KilometersWithTrailer" type="bdt:PositiveInteger4digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ajokilometrit:perävaunu</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="KilometersWithCaravan" type="bdt:PositiveInteger4digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ajokilometrit:asuntovaunu</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="KilometersWithBreakHouse" type="bdt:PositiveInteger4digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ajokilometrit:taukotupa</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExtraPerson1" type="bdt:PositiveInteger4digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ajokilometrit:kyydissä 1 lisähenkilö</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExtraPerson2" type="bdt:PositiveInteger4digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ajokilometrit:kyydissä 2 lisähenkilöä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExtraPerson3" type="bdt:PositiveInteger4digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ajokilometrit:kyydissä 3 lisähenkilöä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExtraPerson4" type="bdt:PositiveInteger4digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ajokilometrit:kyydissä 4 lisähenkilöä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExtraPersonText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lisähenkilöt</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -3,28 +3,45 @@
 	***************************************************************
 	Toimenpiteen tilan / statuksen päivityksen elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	VERSIOKOMMENTIT 1.0 >> 1.1
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi namespaceksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
+	- ContactInformation_20110214.xsd -> ContactInformation.xsd
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
+	-> 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation
+    Tässä skeemassa otettu käyttöön uudet common ja contactInformation nimiavaruudet 
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/operationStatusUpdate/2011/02/14"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/operationStatusUpdate/2011/02/14"
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:op="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31"
-	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation" 
+	elementFormDefault="qualified" attributeFormDefault="qualified" version="1.1">
 
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14" schemaLocation="ContactInformation_20110214.xsd"/>
+	
+<!--		xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" 
+	xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" 
+	-->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation" schemaLocation="ContactInformation.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31" schemaLocation="Operation_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
 
+
+	<!--	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>	 -->
+	
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
 	<xs:element name="Operations" type="OperationsType"/>
 	<xs:element name="Operation" type="OperationDefType"/>
 	<xs:element name="OperationType" type="OperationTypeType"/>
-	<xs:element name="OperationStatus" type="OperationStatusType"/>
+	<xs:element name="OperationStatus" type="co:OperationStatusType"/>
 	<xs:element name="ActingDate" type="ActingDateType"/>
 	<xs:element name="ResponsibleActor" type="ResponsibleActorType"/>
 	
@@ -94,21 +111,21 @@
         </xs:annotation>
         <xs:restriction base="op:OperationTypeType"/>
     </xs:simpleType>
-	<xs:simpleType name="OperationStatusType">
+<!--	<xs:simpleType name="OperationStatusType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Työlajin toteutusvaihe / -tilanne.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Different status that one operation can have (execution phases).</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:OperationStatusType"/>
-	</xs:simpleType>
+		<xs:restriction base="co:OperationStatusType"/>
+	</xs:simpleType> -->
     <xs:simpleType name="ActingDateType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Tapahtuma-aika</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Acting date of operation.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="bdt:DateType"/>
+        <xs:restriction base="co:DateType"/>
     </xs:simpleType>
 	<xs:complexType name="ResponsibleActorType">
 		<xs:annotation>

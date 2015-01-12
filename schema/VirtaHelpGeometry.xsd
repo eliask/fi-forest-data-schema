@@ -3,18 +3,24 @@
 	***************************************************************
 	Viranomaistarkastuksen osakohteen elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	VERSIOKOMMENTIT 1.0 >> 1.1
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi nimiavaruudeksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common"
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/virta/helpgeometry"
 	xmlns="http://standardit.tapio.fi/schemas/virta/helpgeometry"
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"	
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"	
 	xmlns:gml="http://www.opengis.net/gml"
 	elementFormDefault="qualified"
 	attributeFormDefault="qualified"
-	version="1.0">
-	
+	version="1.1">
+	<!-- xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"	-->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>	
+	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>	-->
 	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/>				
 
    	<!-- Element definitions -->

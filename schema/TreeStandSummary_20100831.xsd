@@ -3,32 +3,47 @@
     ***************************************************************
     Puustoyhteenvedon elementit ja tyypit. 
     Skeema on JHS-170 -suosituksen mukainen.
+	
+	 VERSIOKOMMENTIT 1.0 >>> 1.1 
+	 Lisätty elementit "Value", "Currency" ja "ValueGowthPercent" 
+	 VERSIOKOMMENTIT 1.1 >>> 1.2 
+	 Lisätty elementit "DevelopmentClass" ja "MainTreeSpecies" 
+	 
+	VERSIOKOMMENTIT 1.2 >> 1.3
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi namespaceksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
+
+   	Tässä skeemassa otettu käyttöön uusi common nimiavaruus 
     ***************************************************************
 -->
 <xs:schema 
     xmlns:xs="http://www.w3.org/2001/XMLSchema" 
     targetNamespace="http://standardit.tapio.fi/schemas/forestData/treeStandSummary/2010/08/31" 
     xmlns="http://standardit.tapio.fi/schemas/forestData/treeStandSummary/2010/08/31" 
-	xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" 	
-    xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
     elementFormDefault="qualified"
-    version="1.2">
+    version="1.3">
 	
-	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
-	<!-- Lisätty elementit "Value", "Currency" ja "ValueGowthPercent" -->
-	<!-- VERSIOKOMMENTIT 1.1 >>> 1.2 -->
-	<!-- Lisätty elementit "DevelopmentClass" ja "MainTreeSpecies" -->
+	<!--
+		xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" 	
+    xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"-->
+	
+
     
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>    
+	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>    
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/> -->
+
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
+    
     
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
     <xs:element name="TreeStandSummary" type="TreeStandSummaryType"/>
     <xs:element name="MeanAge" type="MeanAgeType"/>
-    <xs:element name="BasalArea" type="BasalAreaType"/>
+    <xs:element name="BasalArea" type="co:BasalAreaType"/> 
     <xs:element name="StemCount" type="StemCountType"/>
     <xs:element name="MeanDiameter" type="MeanDiameterType"/>    
     <xs:element name="MeanHeight" type="co:MeanHeightType"/>
@@ -40,10 +55,10 @@
     <xs:element name="BranchBiomass" type="BranchBiomassType"/>
     <xs:element name="StemBiomass" type="StemBiomassType"/>
     <xs:element name="StumpBiomass" type="StumpBiomassType"/>
-    <xs:element name="Value" type="bdt:Decimal2FractionDigitsType"/>
+    <xs:element name="Value" type="co:Decimal2FractionDigitsType"/>
 	<xs:element name="Currency" type="co:CurrencyType"/>
-    <xs:element name="ValueGrowthPercent" type="bdt:Decimal2FractionDigitsType"/>
-	<xs:element name="DevelopmentClass" type="fe:DevelopmentClassType"/>
+    <xs:element name="ValueGrowthPercent" type="co:Decimal2FractionDigitsType"/>
+	<xs:element name="DevelopmentClass" type="co:DevelopmentClassType"/>
 	<xs:element name="MainTreeSpecies" type="co:TreeSpeciesType"/>
     
     <!-- Tyyppimääritykset -->
@@ -72,7 +87,7 @@
             <xs:element ref="StumpBiomass" minOccurs="0"/>
 			<xs:element ref="Value" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Pystypuuston arvo. Käytettävä yksikkö on euro.</xs:documentation>
+					<xs:documentation xml:lang="fi">Pystypuuston arvo hehtaarilla. Käytettävä yksikkö on euro.</xs:documentation>
 					<xs:documentation xml:lang="sv"></xs:documentation>
 					<xs:documentation xml:lang="en"></xs:documentation>
 				</xs:annotation>
@@ -112,14 +127,14 @@
         <xs:restriction base="co:AgeType"/>
     </xs:simpleType>
     
-    <xs:simpleType name="BasalAreaType">
+<!--    <xs:simpleType name="BasalAreaType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Pohjapinta-ala, m2/ha.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Basal area, m2/ha.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="co:BasalAreaType"/>
-    </xs:simpleType>
+    </xs:simpleType>-->
     
     <xs:simpleType name="StemCountType">
         <xs:annotation>

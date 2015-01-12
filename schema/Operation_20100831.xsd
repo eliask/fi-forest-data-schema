@@ -3,32 +3,48 @@
 	***************************************************************
 	Kuvion toimenpiteiden  elementit ja tyypit. 
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	 VERSIOKOMMENTIT 1.0 >>> 1.1 
+     Lisätty hakkuutapoja. Mukaan otettu metsänkäyttöilmoituksella ja puukaupassa käytetyt hakkuutavat. 
+     Puutavaralajin runkolaji määrittelyt siirretty Common-määrittelyiksi. Uusia runkolajeja lisätty. 
+     Toimenpiteen (hakkuun ja metsänhoidon) tarkenteita (CommonOperationExtraQualifierType) lisätty. 
+	 VERSIOKOMMENTIT 1.1 >>> 1.2 
+	 Elementti "co:DataSource" muutettu valinnaiseksi. 
+	 Tyyppi "co:ExtraTreeSpeciesType" lisätty tyypin "TreeSpeciesType" union-määrittelyyn. 
+	 Tyypille "OperationDefType" lisätty elementti "Identifiers". 
+	 Lisätty koodi 1103 tyypin "CuttingExtraQualifierType" koodistoon. 
+	 VERSIOKOMMENTIT 1.2 >>> 1.3 
+	 Lisätty elementti "OriginalProposalYear" ja sille tyyppimäärittely. 
+	 Muokattu tyypin "CuttingVolumeType" selitettä siten, että yksiköksi muutettu m3/ha (aiemmin m3). 
+	 VERSIOKOMMENTIT 1.3 >>> 1.4 
+	 Tyyppi "MainTypeType" määrittely peritään skeemasta forestEnumeratives_20130620. 
+
+	VERSIOKOMMENTIT 1.4 >> 1.5
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi namespaceksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
+	
+    Tässä skeemassa otettu käyttöön uusi common nimiavaruus
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31"
     xmlns="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31" 
-    xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-    xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2010/05/14" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" version="1.4">
-    <!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
-    <!-- Lisätty hakkuutapoja. Mukaan otettu metsänkäyttöilmoituksella ja puukaupassa käytetyt hakkuutavat. -->
-    <!-- Puutavaralajin runkolaji määrittelyt siirretty Common-määrittelyiksi. Uusia runkolajeja lisätty. -->
-    <!-- Toimenpiteen (hakkuun ja metsänhoidon) tarkenteita (CommonOperationExtraQualifierType) lisätty. -->
-	<!-- VERSIOKOMMENTIT 1.1 >>> 1.2 -->
-	<!-- Elementti "co:DataSource" muutettu valinnaiseksi. -->
-	<!-- Tyyppi "co:ExtraTreeSpeciesType" lisätty tyypin "TreeSpeciesType" union-määrittelyyn. -->
-	<!-- Tyypille "OperationDefType" lisätty elementti "Identifiers". -->
-	<!-- Lisätty koodi 1103 tyypin "CuttingExtraQualifierType" koodistoon. -->
-	<!-- VERSIOKOMMENTIT 1.2 >>> 1.3 -->
-	<!-- Lisätty elementti "OriginalProposalYear" ja sille tyyppimäärittely. -->
-	<!-- Muokattu tyypin "CuttingVolumeType" selitettä siten, että yksiköksi muutettu m3/ha (aiemmin m3). -->
-	<!-- VERSIOKOMMENTIT 1.3 >>> 1.4 -->
-	<!-- Tyyppi "MainTypeType" määrittely peritään skeemasta forestEnumeratives_20130620. -->
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
+    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+    xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2010/05/14" 
+ 
+	elementFormDefault="qualified" version="1.5">
+	
+ <!--   xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+		xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"	
+		xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" -->
+		
+   <!--  <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/> -->
 	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" schemaLocation="JHS170_20090304.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>	
+   <!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>	-->
+   <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
+   
     <!-- Elementtimääritykset -->
    	<!-- Element definitions -->
     <xs:element name="Operations" type="OperationsType"/>
@@ -46,7 +62,7 @@
     <xs:element name="ProposalYear" type="ProposalYearType"/>
     <xs:element name="CompletionData" type="CompletionDataType"/>
     <xs:element name="CompletionDate" type="CompletionDateType"/>
-	<xs:element name="CompletionYear" type="bdt:YearType"/>
+	<xs:element name="CompletionYear" type="co:YearType"/>
     <xs:element name="OperationInfo" type="OperationInfoType"/>
     <xs:element name="Specifications" type="SpecificationsType"/>
     <xs:element name="Specification" type="SpecificationType"/>
@@ -65,7 +81,8 @@
     <xs:element name="PlannedOperationChain" type="PlannedOperationChainType"/>
     <xs:element name="AlternativeIdentifier" type="AlternativeIdentifierType"/>
     <xs:element name="AlternativeName" type="AlternativeNameType"/>
-    
+    <xs:element name="ProposalArea" type="ProposalAreaType"/>
+    <xs:element name="ProposalAreaPercent" type="ProposalAreaPercentType"/>
     <!-- Tyyppimääritykset -->
     <!-- Type definitions -->
     <xs:complexType name="OperationsType">
@@ -130,7 +147,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Operation main type.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="fe:MainTypeType"/>
+        <xs:restriction base="co:MainTypeType"/>
     </xs:simpleType>
     <xs:simpleType name="OperationTypeType">
         <xs:annotation>
@@ -146,7 +163,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Cutting type.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="fe:CuttingTypeType"/>
+        <xs:restriction base="co:CuttingTypeType"/>
      </xs:simpleType>
     <xs:simpleType name="SilvicultureTypeType">
         <xs:annotation>
@@ -154,7 +171,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Silvicultural operation type.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="fe:SilvicultureTypeType"/>
+        <xs:restriction base="co:SilvicultureTypeType"/>
      </xs:simpleType>
     <xs:complexType name="ProposalDataType">
         <xs:annotation>
@@ -169,15 +186,43 @@
 				<xs:group ref="TimeBetweenProposalYearsGroup"/>
 				<xs:group ref="ProposalAndOriginalYearGroup"/>
 			</xs:choice>
+			<xs:group ref="ProposalAreaGroup" minOccurs="0" maxOccurs="1"/>								
         </xs:sequence>
     </xs:complexType>
+	<xs:group name="ProposalAreaGroup">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+        </xs:annotation>
+        <xs:choice>
+			<xs:element ref="ProposalArea" minOccurs="0" maxOccurs="1"/>	
+			<xs:element ref="ProposalAreaPercent" minOccurs="0" maxOccurs="1"/>			
+        </xs:choice>	
+    </xs:group>	
+    <xs:simpleType name="ProposalAreaType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Toimenpiteen ehdotettu toteutuspinta-ala.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+        </xs:annotation>
+		<xs:union memberTypes="co:Decimal4TotalDigitsType co:Decimal2FractionDigitsType"/>
+    </xs:simpleType>
+    <xs:simpleType name="ProposalAreaPercentType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Toimenpiteen ehdotettu toteutuspinta-ala prosenttina kuvion pinta-alasta.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+        </xs:annotation>
+	<xs:union memberTypes="co:PercentType co:Decimal1FractionDigitType"/>
+    </xs:simpleType>	
     <xs:simpleType name="ProposalTypeType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Toimenpide-ehdotuksen tyyppi.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Proposal type.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="fe:ProposalTypeType"/>
+        <xs:restriction base="co:ProposalTypeType"/>
     </xs:simpleType>
 	<xs:group name="PlanningYearAndOperationUrgencyGroup">
 		<xs:annotation>
@@ -196,7 +241,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Year which define operation urgency parameter e.g. planning year of operation (year when operation is planned).</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="bdt:YearType"/>
+        <xs:restriction base="co:YearType"/>
     </xs:simpleType>
     <xs:simpleType name="OperationUrgencyType">
         <xs:annotation>
@@ -204,7 +249,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Classifier for operation urgency.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="fe:OperationUrgencyType"/>
+        <xs:restriction base="co:OperationUrgencyType"/>
      </xs:simpleType>
 	<xs:group name="TimeBetweenProposalYearsGroup">
 		<xs:annotation>
@@ -234,7 +279,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Minimum proposal year of operation.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="bdt:YearType"></xs:restriction>
+        <xs:restriction base="co:YearType"></xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="MaxProposalYearType">
         <xs:annotation>
@@ -242,7 +287,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Maximum proposal year of operation.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="bdt:YearType"></xs:restriction>
+        <xs:restriction base="co:YearType"></xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="OriginalProposalYearType">
         <xs:annotation>
@@ -250,7 +295,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Original proposal year of operation.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="bdt:YearType"></xs:restriction>
+        <xs:restriction base="co:YearType"></xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="ProposalYearType">
         <xs:annotation>
@@ -258,7 +303,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Proposal year of operation.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="bdt:YearType"></xs:restriction>
+        <xs:restriction base="co:YearType"></xs:restriction>
     </xs:simpleType>
     <xs:complexType name="CompletionDataType">
         <xs:annotation>
@@ -277,7 +322,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Date when operation is completed.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="bdt:DateType"/>
+        <xs:restriction base="co:DateType"/>
     </xs:simpleType>
     <xs:simpleType name="OperationInfoType">
         <xs:annotation>
@@ -324,7 +369,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Cutting directing classifiers.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:CuttingDirectingType"/>
+		<xs:restriction base="co:CuttingDirectingType"/>
 	</xs:simpleType>
     <xs:simpleType name="CuttingExtraQualifierType">
         <xs:annotation>
@@ -332,7 +377,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Extra qualifiers of cutting.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="fe:CuttingExtraQualifierType"/>
+        <xs:restriction base="co:CuttingExtraQualifierType"/>
      </xs:simpleType>
     <xs:simpleType name="SilvicultureExtraQualifierType">
         <xs:annotation>
@@ -340,7 +385,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Extra qualifiers of silvicultural operation.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="fe:SilvicultureExtraQualifierType"/>
+        <xs:restriction base="co:SilvicultureExtraQualifierType"/>
      </xs:simpleType>
     <xs:simpleType name="CommonOperationExtraQualifierType">
         <xs:annotation>
@@ -348,7 +393,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Common extra qualifiers of operation.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="fe:CommonOperationExtraQualifierType"/>
+        <xs:restriction base="co:CommonOperationExtraQualifierType"/>
     </xs:simpleType>
     <xs:simpleType name="SpecificationCodeType">
         <xs:annotation>
@@ -375,7 +420,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Cutting volume (estimation). Unit is m3/ha.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="bdt:Decimal5TotalDigitsType bdt:Decimal2FractionDigitsType"/>
+        <xs:union memberTypes="co:Decimal5TotalDigitsType co:Decimal2FractionDigitsType"/>
     </xs:simpleType>
     <xs:complexType name="AssortmentsType">
         <xs:annotation>
@@ -417,7 +462,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Tree species of assortment</xs:documentation>
        	</xs:annotation>
-        <xs:union memberTypes="co:TreeSpeciesType bdt:EmptyStringType co:ExtraTreeSpeciesType"/>        
+        <xs:union memberTypes="co:TreeSpeciesType co:EmptyStringType co:ExtraTreeSpeciesType"/>        
     </xs:simpleType>
     <xs:simpleType name="StemTypeType">
         <xs:annotation>
@@ -433,7 +478,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Assortment proportion of volume of cutting.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="bdt:PercentType bdt:Decimal1FractionDigitType"/>
+        <xs:union memberTypes="co:PercentType co:Decimal1FractionDigitType"/>
     </xs:simpleType>
 	<xs:simpleType name="AssortmentVolumeType">
         <xs:annotation>
@@ -459,7 +504,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Silvicultural operation is related cutting operation.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="bdt:YesNoType"/>
+        <xs:restriction base="co:YesNoType"/>
     </xs:simpleType>
     <xs:complexType name="PlannedOperationChainsType">
         <xs:annotation>

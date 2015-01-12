@@ -3,15 +3,33 @@
 	***************************************************************
 	Puukaupan mittaustodistuksen elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	VERSIOKOMMENTIT 1.0 >> 1.1
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi nimiavaruudeksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasemeasurementcertificate/2011/02/14" xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasemeasurementcertificate/2011/02/14" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasemeasurementcertificate/2011/02/14" 
+xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasemeasurementcertificate/2011/02/14" 
+xmlns:xmime="http://www.w3.org/2005/05/xmlmime" 
+xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" 
+xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" 
+
+elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+
+<!-- xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20"  --> 
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" schemaLocation="WorkingSiteTrade_Assortment_20110214.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" schemaLocation="WorkingSiteTrade_Common_20110214.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
+	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/> -->
+	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/> -->
 	<xs:import namespace="http://www.w3.org/2005/05/xmlmime" schemaLocation="http://www.w3.org/2005/05/xmlmime"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
+	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/> -->
 
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
@@ -94,7 +112,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Running number for measurement certificate (under certain purchase). With parentId and VersionNumber identifies measurement.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:PositiveIntegerType"/>
+		<xs:restriction base="co:PositiveIntegerType"/>
 	</xs:simpleType>
 	
 	<xs:simpleType name="VersionNoType">
@@ -103,7 +121,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Running version number for measurement certificate (under certain sequence number of measurement certificate). With parentId and SequenceNumber identifies measurement.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:PositiveIntegerType"/>
+		<xs:restriction base="co:PositiveIntegerType"/>
 	</xs:simpleType>
 	
 	<xs:simpleType name="MeasurementDateType">
@@ -112,7 +130,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Date when actual measurement has been done.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:DateType"/>
+		<xs:restriction base="co:DateType"/>
 	</xs:simpleType>
 	<xs:simpleType name="InsertDateType">
 		<xs:annotation>
@@ -120,7 +138,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Date when measurement has been saved in information system (might be separated from measurement date).</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:DateType"/>
+		<xs:restriction base="co:DateType"/>
 	</xs:simpleType>
 	<xs:simpleType name="MeasurementCertificateTypeType">
 		<xs:annotation>
@@ -128,7 +146,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Different types for measurement certificates: intermediate/final etc.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:MeasurementCertificateTypeType"/>
+		<xs:restriction base="co:MeasurementCertificateTypeType"/>
 	</xs:simpleType>
 	<xs:simpleType name="TextType">
 		<xs:annotation>
@@ -146,7 +164,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Value of measurement in money.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:Decimal2FractionDigitsType"/>
+		<xs:restriction base="co:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VATType">
 		<xs:annotation>
@@ -154,7 +172,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">VAT value of measurement in money.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:Decimal2FractionDigitsType"/>
+		<xs:restriction base="co:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
 	<xs:simpleType name="TotalValueType">
 		<xs:annotation>
@@ -162,7 +180,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Total value of measurement in money (VAT included).</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:Decimal2FractionDigitsType"/>
+		<xs:restriction base="co:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
 	<xs:simpleType name="CurrencyType">
 		<xs:annotation>

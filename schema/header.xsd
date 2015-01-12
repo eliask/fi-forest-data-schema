@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/header" targetNamespace="http://standardit.tapio.fi/schemas/header" elementFormDefault="qualified">
+	<xs:element name="Header" type="HeaderType"/>
+	<xs:complexType name="HeaderType">
+		<xs:sequence>
+			<xs:element name="MessageType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Viestin tyyppi</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TransmissionId" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Viestin yksilöivä ID</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="BusinessSender" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Lähettäjän tunniste</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="BusinessReceiver" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Vastaanottajan tunniste</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TransmissionSender" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Lähettävä järjestelmä</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TransmissionReceiver" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Vastaanottava järjestelmä</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="System" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Dev/Test/Prod</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="dev|test|prod"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TransmissionTime" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Action" type="ActionType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ActionType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation>Insert/Update</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation>Delete</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

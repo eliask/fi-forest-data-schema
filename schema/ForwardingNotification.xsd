@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/ForwardingNotification" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForwardingNotification" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:element name="ForwardingNotification" type="ForwardingNotificationType"/>
+	<xs:complexType name="ForwardingNotificationType">
+		<xs:sequence>
+			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkingSiteId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResouceId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Resurssin tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PurchaseContractNumber" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Puukaupan ostosopimusnumero</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StorageId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Varastopaikan tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ForestHaulageDistance" type="bdt:PositiveIntegerType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Mekumatka</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IsForestHaulageDistanceContinued" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Jatkettu mekumatka (kyllä/ei)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StorageFinished" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Varastopaikka päättynyt?</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StorageFinishedDate" type="bdt:DateType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Varastopaikka päättynyt pvm+klo</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkingSiteFinished" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lohko päättynyt?</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkingSiteFinishedDate" type="bdt:DateType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lohko päättynyt pvm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NotificationDate" type="bdt:DateType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Talletus pvm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Assortments" type="AssortmentsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Mekuilmoituksen PTL:t</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AssortmentsChanges" type="AssortmentsChangesType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lajisiirtymät</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CommonMessages" type="CommonMessagesType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Vakioviestit</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ScaleFactors" type="ScaleFactorsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuormainvaakatekijät</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AssortmentsType">
+		<xs:sequence>
+			<xs:element name="Assortment" type="AssortmentDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AssortmentsChangesType">
+		<xs:sequence>
+			<xs:element name="AssortmentsChange" type="AssortmentChangeDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommonMessagesType">
+		<xs:sequence>
+			<xs:element name="CommonMessage" type="CommonMessageDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ScaleFactorsType">
+		<xs:sequence>
+			<xs:element name="ScaleFactor" type="ScaleFactorDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AssortmentDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Mekuilmoituksen PTL:t</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="DestinationStorage" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Toimituspiste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Code" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ptl</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Volume" type="bdt:Decimal3FractionDigitsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Määrä m3 (3 desimaalia)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SentStorageVolume" type="bdt:Decimal3FractionDigitsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lähetetty vp  m3. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SentWorkingSiteVolume" type="bdt:Decimal3FractionDigitsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lähetetty lohko m3. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HarvesterVolume" type="bdt:Decimal3FractionDigitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Mitattu m3. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ForestHaulageDistanceContinued" type="bdt:PositiveIntegerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Jatkettu mekumatka. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Covered" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Peitetty</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HasAssormentChanges" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lajisiirtymiä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ScaleTransformation" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kva</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Finished" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Päättynyt</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AssortmentChangeDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Mekuilmoituksen lajisiirtymät</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="OldDestinationStorage" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Toimituspiste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OldCode" type="bdt:String50Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">PTL</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NewDestinationStorage" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">uusi toimituspiste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NewCode" type="bdt:String50Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Uusi PTL</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ChangeVolume" type="bdt:Decimal3FractionDigitsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Siirretään m3</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommonMessageDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Vakioviestit</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CommonMessageId" type="bdt:String20Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Vakioviesti</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CommonMessageFreeText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Viesti</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ScaleFactorDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kuormainvaakatekijät</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ScaleAssortmentType" type="bdt:String10Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muunnostyyppi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LoadCount" type="bdt:PositiveIntegerType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuormaluku</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Area" type="bdt:String10Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Alue</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Code" type="bdt:String50Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">PTL</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CodeName" type="bdt:String50Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Puutavaralajin nimi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TreeSpecies" type="bdt:String5Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Puulaji</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Month" type="bdt:String5Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Mittauskuukausi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HarvestingFinishedDate" type="bdt:DateType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Hakkuu päättyi pvm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SemiDry" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Puolikuiva</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SnowOrIce" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lumijää</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WeightClass" type="bdt:String5Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Painoluokka</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Humidity" type="bdt:Decimal1FractionDigitType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kosteus %</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HumidityMeasured" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kosteus % mitattu käyttäjän toimesta (K/E)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ForestHaulageFinishedDate" type="bdt:DateType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Metsäkuljetus päättyi pvm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CleanlinessClass" type="bdt:String5Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Puhtausluokka</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Weight" type="bdt:PositiveIntegerType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Paino kg</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Density" type="bdt:Decimal3FractionDigitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tiheys</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Volume" type="bdt:Decimal3FractionDigitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muunnettu m3</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MeltedWater" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Sulamisvesi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

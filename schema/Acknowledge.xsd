@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/Acknowledge" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/Acknowledge" version="1.0">
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:element name="Acknowledge" type="AcknowledgeType">
+		<xs:annotation>
+			<xs:documentation>Kuittaus</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="AcknowledgeType">
+		<xs:sequence>
+			<xs:element name="ReplyTo" type="bdt:String50Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Alkuperäisen viestin tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StatusCode" type="bdt:PositiveInteger3digitsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Alkuperäisen sanoman status, 0=Ok, muut virheitä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StatusMessage" type="bdt:String1000Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">OK/Virhekoodin selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OriginalMessageType" type="bdt:String50Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Alkuperäisen viestin tyyppi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

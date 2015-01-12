@@ -3,6 +3,13 @@
 	***************************************************************
 	Kuvion puustotietojen elementit ja tyypit. 
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	VERSIOKOMMENTIT 1.0 >> 1.1
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi namespaceksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
+
+   	Tässä skeemassa otettu käyttöön uusi common nimiavaruus 
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -13,18 +20,22 @@
 	xmlns:sds="http://standardit.tapio.fi/schemas/forestData/stemDistributionStratum/2010/08/31"
 	xmlns:dts="http://standardit.tapio.fi/schemas/forestData/deadTreeStrata/2010/08/31"
 	xmlns:tss="http://standardit.tapio.fi/schemas/forestData/treeStandSummary/2010/08/31"
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" 
+ elementFormDefault="qualified" version="1.0">
+ 	<!--xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" version="1.0">
+ 	xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStratum/2010/08/31" schemaLocation="TreeStratum_20100831.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/stemDistribution/2010/08/31" schemaLocation="StemDistribution_20100831.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/stemDistributionStratum/2010/08/31" schemaLocation="StemDistributionStratum_20100831.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/deadTreeStrata/2010/08/31" schemaLocation="DeadTreeStratum_20100831.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStandSummary/2010/08/31" schemaLocation="TreeStandSummary_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
+<!--	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/> 
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/> -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/> 
 	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" schemaLocation="JHS170_20090304.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
+ <!--   <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/> -->
 
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
@@ -64,7 +75,7 @@
 				<xs:documentation xml:lang="en">Type of moment.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>	
-		<xs:attribute name="date" type="bdt:DateType" use="required">
+		<xs:attribute name="date" type="co:DateType" use="required">
 			<xs:annotation>
 				<xs:documentation xml:lang="fi">Ajankohdan pvm. Inventointi-, laskenta- tai ennustepvm.</xs:documentation>
 				<xs:documentation xml:lang="sv"></xs:documentation>
@@ -78,6 +89,6 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>	
-		<xs:restriction base="fe:TreeStandDataMomentType"/>
+		<xs:restriction base="co:TreeStandDataMomentType"/>
 	</xs:simpleType>
 </xs:schema>

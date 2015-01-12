@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	*****************************************************************************
+	Metsänkäyttöilmoituksen elementit ja tyypit. 
+	Skeema on JHS-170 -suosituksen mukainen.
+	Ensimmäinen versio 1.0
+
+	15.8.2014
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi namespaceksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
+	- ContactInformation_20110214.xsd -> ContactInformation.xsd
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
+	-> 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation
+    Tässä skeemassa otettu käyttöön uudet common ja contactInformation nimiavaruudet 
+	
+	29.9.2014 CuttingType elementti poistettu sanomasta, SoilPreparationOperation,
+	RegenerationOperation, OtherOperaton ja CuttingRightsOwner vapaavalintaisiksi
+	****************************************************************************
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForestUseDeclaration" 
+xmlns="http://standardit.tapio.fi/schemas/forestData/ForestUseDeclaration" 
+xmlns:stb="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14"	 		
+xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
+ xmlns:spf="http://standardit.tapio.fi/schemas/forestData/specialFeature/2011/02/14"
+ xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14"
+ xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+xmlns:gml="http://www.opengis.net/gml" 
+elementFormDefault="qualified"
+version="1.0">
+	<!--xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+		
+		xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes/2010/08/31"  
+		xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+		xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
+		xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20"-->
+
+ 
+   <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/> 
+	 <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/> 
+	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14" schemaLocation="StandBase_20110214.xsd"/>
+	 <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14" schemaLocation="RealEstate_20110214.xsd"/> 
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation" schemaLocation="ContactInformation.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeature/2011/02/14" schemaLocation="SpecialFeature_20110214.xsd"/>
+						 
+	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/> -->
+	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/> -->
+	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/> -->
+	<!-- Elementtimääritykset -->
+   	<!-- Element definitions -->	
+	<!-- <xs:element name="DeclarationRealEstates" type="RealEstatesWithOwnersInformationType"/>	 -->
+	<xs:element name="ForestUseDeclaration" type="ForestUseDeclarationType"/>
+	<xs:element name="CuttingRightsOwner" type="ci:ContactInformationType"/>	
+	<xs:element name="Sender" type="SenderType"/>	
+	<xs:element name="PowerOfAttorney" type="co:YesNoType">
+		<!--	<xs:annotation>
+			<xs:documentation xml:lang="fi">Valtakirja</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Power of attorney</xs:documentation>
+		</xs:annotation> -->
+		</xs:element> 
+	<xs:element name="UpdatePreviousDeclaration" type="co:YesNoType"/>	
+	<xs:element name="DeclarationReference" type="co:ReferenceType"/>
+	<xs:element name="DeclarationTextInformation" type="co:AdditionalInfoType"/>	
+	<xs:element name="SpecialPermission" type="co:YesNoType"/>	 
+	<xs:element name="DeclarationRealEstates" type="DeclarationRealEstatesType"/>
+	<xs:element name="ProcessingAreas" type="ProcessingAreasType"/>	
+	<xs:element name="ProcessingArea" type="ProcessingAreaType"/>	
+	<xs:element name="ProcessingAreaNumber" type="ProcessingAreaNumberType"/>	
+	<xs:element name="ProcessingAreaReference" type="co:ReferenceType"/>		
+	<xs:element name="DeclarationStands" type="DeclarationStandsType"/>	
+	<xs:element name="DeclarationStand" type="DeclarationStandType"/>	
+	<xs:element name="StandNumber" type="stb:StandNumberType"/>
+	<xs:element name="StandNumberExtension" type="stb:StandNumberExtensionType"/>
+	<xs:element name="DeclarationStandReference" type="co:ReferenceType"/> <!--ForestUseDeclarationReference_20110214.xsd : DeclarationReferenceType-->
+	<xs:element name="Area" type="stb:AreaType"/>
+	<xs:element name="CuttingPurpose" type="co:CuttingPurposeType"/> 						<!--Hakkuun tarkoitus metsänkäyttöilmoituksesta(8)-->
+	<xs:element name="CuttingRealizationPractice" type="co:CuttingRealizationPracticeType"/> <!--Hakkuun toteuttamistapa metsänkäyttöilmoituksesta (12/17)-->
+	<!--<xs:element name="CuttingType" type="co:CuttingTypeType"/>		-->					 <!--Toimenpiteen hakkuutapa -->
+	<xs:element name="ForestDamageQualifier" type="co:ForestDamageQualifierType"/> 		<!--Tuhon laatu (metsakeskus-koodit-v27.pdf) -->
+	<xs:element name="HabitatCode" type="co:HabitatCodeType"/> 							<!--Erityisen tärkeä elinympäristö metsälaki  (metsakeskus-koodit-v27.pdf) -->
+    <xs:element name="HabitatOperation" type="co:HabitatOperationsType"/>  				<!--co:HabitatOperationsType: Erityisen tärkeä elinympäristö (metsälakikohde), muu toimenpide (metsakeskus-koodit-v27.pdf)-->
+	<xs:element name="HabitatOperations" type="HabitatOperationsType"/> 
+	<xs:element name="OtherHabitatCode" type="co:OtherHabitatCodeType"/>				 <!--muu luontokohde (metsakeskus-koodit-v27.pdf)-->
+	<xs:element name="MainGroup" type="co:MainGroupType"/>
+	<xs:element name="SubGroup" type="co:SubGroupType"/>
+	<xs:element name="FertilityClass" type="co:FertilityClassType"/>
+	<xs:element name="SoilType" type="co:SoilTypeType"/> 
+	<xs:element name="MainTreeSpecies" type="stb:MainTreeSpeciesType"/>	
+	<xs:element name="DevelopmentClass" type="co:DevelopmentClassType"/>
+	<xs:element name="MeanAge" type="co:AgeType"/>
+	<xs:element name="MeanDiameter" type="MeanDiameterType"/>
+	<xs:element name="DeclarationRegenerationCommitment" type="co:RegenerationCommitmentType"/>     <!--Määritetty uusi syykoodi uudistamisvelvoitteelle: 0 =Voimassa, syykoodit>0  Ei ole voimassa -->
+	<xs:element name="DeclarationRegenerationOperation" type="co:DeclarationRegenerationOperationType"/>       <!--Uudistamistapa ja puulaji  (metsakeskus-koodit-v27.pdf)-->
+	<xs:element name="DeclarationSoilPreparationOperation" type="co:DeclarationSoilPreparationOperationType"/> <!--Maanpinnan käsittelytapa  (metsakeskus-koodit-v27.pdf)-->
+	<xs:element name="DeclarationOtherOperations" type="DeclarationOtherOperationsType"/> 						 <!--Muu perustamistoimenpide 1 tai 2  (metsakeskus-koodit-v27.pdf)-->
+	<xs:element name="DeclarationOtherOperation" type="co:DeclarationOtherOperationType"/>
+	<xs:element name="DeclarationStandTextInformation" type="co:AdditionalInfoType"/> 
+	<xs:element name="LocationEstate" type="LocationEstateType"/> 	<!--kiinteistöid = xs:string-->
+	<xs:element name="LocationEstates" type="LocationEstatesType"/>	
+	<xs:element name="Documents" type="DocumentsType"/>		
+	<xs:element name="SpecialFeature" type="spf:LocatedSpecialFeature3Type"/> 
+	<xs:element name="SpecialFeatures" type="SpecialFeaturesType"/>		
+	
+
+	<!-- Tyyppimääritykset -->
+	<!-- Type definitions -->
+	<xs:complexType name="ForestUseDeclarationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsänkäyttöilmoitus.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Forest use declaration.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="UpdatePreviousDeclaration" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="DeclarationReference" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="DeclarationTextInformation" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="SpecialPermission" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="CuttingRightsOwner" minOccurs="0" maxOccurs="1"/> 	
+			<xs:element ref="Sender" minOccurs="1" maxOccurs="1"/>	
+			<xs:element ref="DeclarationRealEstates" minOccurs="1" maxOccurs="1"/> 
+		<!--	<xs:element ref="ProcessingAreas" minOccurs="1" maxOccurs="1"/> -->		
+			<xs:element ref="Documents" minOccurs="0" maxOccurs="1"/>	
+			<xs:element ref="SpecialFeatures" minOccurs="0" maxOccurs="1"/>			
+		</xs:sequence>	
+		<xs:attribute name="id" type="xs:string">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Metsänkäyttöilmoituksen id</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Forest use declaration id</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+		<xs:complexType name="SenderType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Ilmoituksen lähettäjä</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Sender</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ci:ContactInformationType">
+				<xs:sequence>
+					<xs:element ref="PowerOfAttorney" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence> 
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="DeclarationRealEstatesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsänkäyttöilmoituksen kiinteistöt</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Real estates of forest use declaration</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="re:RealEstatesWithOwnersInformationType">
+				<xs:sequence>
+					<xs:element ref="ProcessingAreas" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="ProcessingAreasType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Käsittelyalueiden tiedot</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Data of processing areas</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ProcessingArea" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>	
+	</xs:complexType>	
+	
+	<xs:complexType name="ProcessingAreaType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Käsittelyalueen tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Data of Processing Area.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ProcessingAreaNumber" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="ProcessingAreaReference" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="DeclarationStands" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>	
+		<xs:attribute name="id" type="xs:string">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Käsittelyalueen id</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">ProcessingArea id</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:simpleType name="ProcessingAreaNumberType">
+        <xs:annotation>
+			<xs:documentation xml:lang="fi">Käsittelyalueen numero</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Processing area number</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:integer"/>
+     </xs:simpleType>		
+	 
+	<xs:complexType name="DeclarationStandsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kuvioiden tiedot</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Stands data</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="DeclarationStand" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>	
+	</xs:complexType>
+	
+	<xs:complexType name="DeclarationStandType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kuvion tiedot</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Stand data</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="StandNumber" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="StandNumberExtension" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="DeclarationStandReference" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="Area" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="CuttingPurpose" minOccurs="1" maxOccurs="1"/> 			
+			<xs:element ref="CuttingRealizationPractice" minOccurs="1" maxOccurs="1"/> 
+		<!--	<xs:element ref="CuttingType" minOccurs="1" maxOccurs="1"/>	 -->
+			<xs:element ref="ForestDamageQualifier" minOccurs="0" maxOccurs="1"/> 			
+			<xs:element ref="HabitatCode" minOccurs="1" maxOccurs="1"/> 
+			<xs:element ref="HabitatOperations" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="OtherHabitatCode" minOccurs="1" maxOccurs="1"/> 	
+			<xs:element ref="MainGroup" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="SubGroup" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="FertilityClass" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="SoilType" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="MainTreeSpecies" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="DevelopmentClass" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="MeanAge" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="MeanDiameter" minOccurs="1" maxOccurs="1"/> 
+			<xs:element ref="DeclarationRegenerationCommitment" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="DeclarationRegenerationOperation" minOccurs="0" maxOccurs="1"/> 
+			<xs:element ref="DeclarationSoilPreparationOperation" minOccurs="0" maxOccurs="1"/> 		
+			<xs:element ref="DeclarationOtherOperations" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="DeclarationStandTextInformation" minOccurs="1" maxOccurs="1"/>	
+			<xs:element ref="gdt:PolygonGeometry" minOccurs="1" maxOccurs="1"/> 
+			<xs:element ref="LocationEstates" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>			
+	</xs:complexType>	
+	
+	<xs:simpleType name="MeanDiameterType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Keskiläpimitta, cm.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Mean diameter, cm.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="co:DiameterType"/>
+	</xs:simpleType>
+	 
+	<xs:complexType name="HabitatOperationsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="HabitatOperation" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>	
+
+
+	<xs:complexType name="DeclarationOtherOperationsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="DeclarationOtherOperation" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>	
+
+	<xs:simpleType name="LocationEstateType">
+        <xs:annotation>
+			<xs:documentation xml:lang="fi">Kuvion sijaintikiinteistön id.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Stand realestate id</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+     </xs:simpleType>	
+
+	<xs:complexType name="LocationEstatesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kuvion sijaintikiinteistöjen id:t</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Real estate ids of stands</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="LocationEstate" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>		 
+
+	<xs:complexType name="DocumentsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Dokumentit</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Documents</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="co:Document" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>	
+
+	<xs:complexType name="SpecialFeaturesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Sijainnilliset erityispiirteet.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Located special features.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="SpecialFeature" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>
+	

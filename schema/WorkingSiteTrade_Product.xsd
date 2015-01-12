@@ -3,24 +3,32 @@
 	***************************************************************
 	Tarjouksen ja tarjouspyynnön luettelo metsänviljelymateriaaleista.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	VERSIOKOMMENTIT 1.0 >>> 1.1 
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi nimiavaruudeksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/product"
 	xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/product"
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
 	elementFormDefault="qualified"
 	attributeFormDefault="qualified"
-	version="1.0">
+	version="1.1">
 
+	<!-- 	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"-->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
 				schemaLocation="WorkingSiteTrade_Common_20110214.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-			schemaLocation="Common_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-			    schemaLocation="Common_BasicDataType_20100831.xsd"/>
+	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+			schemaLocation="Common_20100831.xsd"/> -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+			schemaLocation="Common.xsd"/>
+	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+			    schemaLocation="Common_BasicDataType_20100831.xsd"/> -->
 				
    	<!-- Element definitions -->
 	<!--<xs:element name="Products" type="ProductsType"/>-->

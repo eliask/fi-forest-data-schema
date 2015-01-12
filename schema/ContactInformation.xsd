@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	******************************************************************
+	Yhteystietotyypit joita käytetään useissa eri skeemoissa.
+	Skeema on JHS-170 -suosituksen mukainen.
+	
+	VERSIOKOMMENTIT 1.0 >>> 1.1 
+	Lisätty elementit "BusinessId" ja "PersonId", jotka määritelty vaihtoehtoisiksi.
+	VERSIOKOMMENTIT 1.1 >>> 1.2
+	15.8. Muutettu nimi ContactInformation_20110214.xsd -> ContactInformation.xsd
+	ja nimiavaruus "http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14" 
+	-> "http://standardit.tapio.fi/schemas/forestData/contactInformation"
+	*******************************************************************
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation"
+	xmlns="http://standardit.tapio.fi/schemas/forestData/contactInformation"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
+	elementFormDefault="qualified"
+	version="1.2">
+	
+	<!-- xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"-->
+
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
+	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/> -->
+	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" schemaLocation="JHS170_20090304.xsd"/>
+	<!-- Elementtimääritykset -->
+	<!-- Element definitions -->
+	<xs:element name="FirstName" type="FirstNameType"/>
+	<xs:element name="LastName" type="LastNameType"/>
+	<xs:element name="WholeName" type="WholeNameType"/>
+	<xs:element name="OrganizationName" type="OrganizationNameType"/>
+	<xs:element name="Address" type="AddressType"/>
+	<xs:element name="PostalCode" type="PostalCodeType"/>
+	<xs:element name="PostOffice" type="PostOfficeType"/>
+	<xs:element name="CountryCode" type="CountryCodeType"/>
+	<xs:element name="CountryText" type="CountryTextType"/>
+	<xs:element name="PhoneNumber" type="PhoneNumberType"/>
+	<xs:element name="MobilePhoneNumber" type="MobilePhoneNumberType"/>
+	<xs:element name="TelefaxNumber" type="TelefaxNumberType"/>
+	<xs:element name="EmailAddress" type="EmailAddressType"/>
+	<xs:element name="ContactInformation" type="ContactInformationType"/>
+	<xs:element name="BusinessId" type="jhs:YritysTunnusTyyppi"/>
+	<xs:element name="PersonId" type="jhs:HenkiloTunnusTyyppi"/>
+	<!-- Tyyppimääritykset -->
+	<!-- Type definitions -->
+	<xs:simpleType name="FirstNameType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Henkilön etunimi/etunimet.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Firstnames(s).</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="jhs:EtunimetNimiTyyppi">
+			<xs:maxLength value="80"/>		
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="LastNameType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Henkilön sukunimi.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Last name / surname.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="jhs:SukuNimiTyyppi">
+			<xs:maxLength value="80"/>		
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:group name="FirstAndLastNameGroup">
+		<xs:sequence>
+			<xs:element ref="FirstName">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">VANHA NIMI = Firstname</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="LastName"/>
+		</xs:sequence>
+	</xs:group>
+	
+	<xs:simpleType name="WholeNameType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Henkilön koko nimi.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Whole name of person.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="jhs:NimiTekstiTyyppi">
+			<xs:maxLength value="150"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OrganizationNameType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Henkilön organisaatio.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">(Person's) organization name.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="jhs:NimiTekstiTyyppi">
+			<xs:maxLength value="80"/>		
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:group name="IdentifierGroup">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element ref="BusinessId">
+					<xs:annotation>
+						<xs:documentation xml:lang="fi">Yritystunnus.</xs:documentation>
+						<xs:documentation xml:lang="sv"></xs:documentation>
+						<xs:documentation xml:lang="en">Business ID.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="PersonId">
+					<xs:annotation>
+						<xs:documentation xml:lang="fi">Henkilötunnus.</xs:documentation>
+						<xs:documentation xml:lang="sv"></xs:documentation>
+						<xs:documentation xml:lang="en">Person ID.</xs:documentation>
+					</xs:annotation>				
+				</xs:element>				
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="NameAndOrganizationGroup">
+		<xs:sequence>
+			<xs:choice>
+				<xs:group ref="FirstAndLastNameGroup"/>
+				<xs:element ref="WholeName"/>
+			</xs:choice>
+			<xs:element ref="OrganizationName" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">VANHA NIMI = Organization</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+
+	<xs:simpleType name="LanguageCode1Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kielikoodi.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Language code.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="co:LanguageCode1Type"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="AddressType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Katuosoite.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Street address.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="PostalCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Postinumero. Myös ulkomaiset postinumerot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Postal code.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="jhs:PostinumeroKoodiTyyppi"/>
+	</xs:simpleType>
+	
+	<xs:simpleType name="PostOfficeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Postitoimipaikka.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Post office.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="jhs:PostitoimipaikkaNimiTyyppi">
+			<xs:maxLength value="25"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CountryCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Osoitemaan maakoodi.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Address country code.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="co:CountryCodeType"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="CountryTextType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Osoitemaa tekstinä.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Address country as a text.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:group name="PostAddressGroup">
+		<xs:sequence>
+			<xs:element ref="Address"/>
+			<xs:element ref="PostalCode"/>
+			<xs:element ref="PostOffice"/>
+			<xs:element ref="CountryCode" minOccurs="0"/>
+			<xs:element ref="CountryText" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+
+	<xs:simpleType name="PhoneNumberType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Puhelinnumero (kiinteä verkko).</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Phone number (old school phones).</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="jhs:PuhelinnumeroTekstiTyyppi">
+			<xs:maxLength value="18"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="MobilePhoneNumberType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Puhelinnumero (matkapuhelin).</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Phone number (mobile phones).</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="PhoneNumberType"/>
+	</xs:simpleType>
+	
+	<xs:simpleType name="TelefaxNumberType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Telefax-numero.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Telefax number.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="PhoneNumberType"/>
+	</xs:simpleType>
+
+	<xs:group name="PhoneAndTelefaxGroup">
+		<xs:sequence>
+			<xs:element ref="PhoneNumber" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">VANHA NIMI = Phone</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="MobilePhoneNumber" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">VANHA NIMI = MobilePhone</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="TelefaxNumber" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">VANHA NIMI = Telefax</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+
+	<xs:simpleType name="EmailAddressType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi" >Sähköpostiosoite.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en" >Email address.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="jhs:SahkopostiosoiteTekstiTyyppi">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ContactInformationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Henkilön tai organisaation yhteystiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Person's or organization's contact information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:group ref="IdentifierGroup" minOccurs="0" maxOccurs="1"/>
+			<xs:group ref="NameAndOrganizationGroup"/>
+			<xs:group ref="PostAddressGroup" minOccurs="0"/>
+			<xs:group ref="PhoneAndTelefaxGroup"/>
+			<xs:element ref="EmailAddress" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi" >VANHA NIMI = Email</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Henkilö/organisaatio voidaan yksilöidä tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Person/organization can be identified using string id.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="language" type="LanguageCode1Type">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Henkilön/organisaation kieli kielikoodina.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Person's/organization's language as a language code.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

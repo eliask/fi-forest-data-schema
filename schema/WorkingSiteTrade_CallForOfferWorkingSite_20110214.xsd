@@ -3,36 +3,50 @@
 	***************************************************************
 	Tarjouspyynnön kohteen / työmaan elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	 VERSIOKOMMENTIT 1.0 >>> 1.1 
+	 Tyypin "CertificationSystemType" koodistoon lisätty arvo 3 ("Ei tietoa") 
+	 Useita tyyppimäärittelyjä siirretty skeemaan "WorkingSiteTrade_Common_20110214.xsd" 
+	 Lisätty tyyppi "CallForOfferWorkingSiteSilvicultureInfoType" 
+	
+	VERSIOKOMMENTIT 1.1 >> 1.2
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi nimiavaruudeksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
+	
+	- ContactInformation_20110214.xsd -> ContactInformation.xsd
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
+	-> 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforofferworkingsite/2011/02/14"
 	xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/callforofferworkingsite/2011/02/14"
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
-	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
+	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	xmlns:wsst="http://standardit.tapio.fi/schemas/workingsitetrade/stand/2011/02/14"
 	xmlns:pr="http://standardit.tapio.fi/schemas/workingsitetrade/product"	
 	elementFormDefault="qualified"
 	attributeFormDefault="qualified"
-	version="1.1">
+	version="1.2">
 	
-	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
-	<!-- Tyypin "CertificationSystemType" koodistoon lisätty arvo 3 ("Ei tietoa") -->
-	<!-- Useita tyyppimäärittelyjä siirretty skeemaan "WorkingSiteTrade_Common_20110214.xsd" -->
-	<!-- Lisätty tyyppi "CallForOfferWorkingSiteSilvicultureInfoType" -->
+
+	<!--xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" -->
 	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/stand/2011/02/14"
 				schemaLocation="WorkingSiteTrade_Stand_20110214.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
-				schemaLocation="ContactInformation_20110214.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation"
+				schemaLocation="ContactInformation.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
 				schemaLocation="WorkingSiteTrade_Common_20110214.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+				schemaLocation="Common.xsd"/>			
+	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
 				schemaLocation="Common_20100831.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-			    schemaLocation="Common_BasicDataType_20100831.xsd"/>
+			    schemaLocation="Common_BasicDataType_20100831.xsd"/> -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/product"
 				schemaLocation="WorkingSiteTrade_Product.xsd"/>				
 
@@ -139,7 +153,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Indicates whether this stand must be included in offer or not (0= not necessary, 1= must be)</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:YesNoType"/>
+		<xs:restriction base="co:YesNoType"/>
 	</xs:simpleType>
 
 	<xs:simpleType name="WorkingSiteTextType">

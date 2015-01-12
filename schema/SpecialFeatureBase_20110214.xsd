@@ -3,23 +3,33 @@
 	***************************************************************
 	Erityispiirretietojen peruselementit ja -tyypit. 
 	Skeema on JHS-170 -suosituksen mukainen.
+
+     VERSIOKOMMENTIT 1.0 >>> 1.1 
+     Tyypin "FeatureCodeType" koodistoon lisätty arvot 10031 ja 10032.
+     VERSIOKOMMENTIT 1.1 >>> 1.2 
+	 Monimuotoisuuskoodit siirretty skeemaan "ForestEnumeratives_20130620.xsd". 
+
+
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi namespaceksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
+
+   	Tässä skeemassa otettu käyttöön uusi common nimiavaruus 
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
     targetNamespace="http://standardit.tapio.fi/schemas/forestData/specialFeatureBase/2011/02/14" 
     xmlns="http://standardit.tapio.fi/schemas/forestData/specialFeatureBase/2011/02/14"  
-    xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 
-    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" 
-	xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" 
+    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" 
     elementFormDefault="qualified"
     version="1.2">
-    <!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
-    <!-- Tyypin "FeatureCodeType" koodistoon lisätty arvot 10031 ja 10032. -->
-    <!-- VERSIOKOMMENTIT 1.1 >>> 1.2 -->	
-	<!-- Monimuotoisuuskoodit siirretty skeemaan "ForestEnumeratives_20130620.xsd". -->
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
+	    <!--xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" 
+		xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" 
+		xmlns:bdt="http://standardit.tapio.fi/schemas/forestDat/common/basicDataTypes/2010/08/31"-->
+	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/> -->
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
+    <!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>-->
+    <!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/> -->
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
 	<xs:element name="Identifiers" type="IdentifiersType"/>
@@ -66,7 +76,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Type of identifier.</xs:documentation>
 		</xs:annotation>
-		<xs:union memberTypes="co:IdentifierTypeType fe:SpecialFeatureIdentifierExtensionType"/>		
+		<xs:union memberTypes="co:IdentifierTypeType co:SpecialFeatureIdentifierExtensionType"/>		
 	</xs:simpleType>
 	<xs:simpleType name="IdentifierValueType">
 		<xs:annotation>
@@ -82,7 +92,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Boolean for the main special feature.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="bdt:YesNoType"/>
+        <xs:restriction base="co:YesNoType"/>
     </xs:simpleType>
     <xs:simpleType name="FeatureTypeType">
 		<xs:annotation>
@@ -90,7 +100,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Type of feature.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "fe:FeatureTypeType"/>
+		<xs:restriction base = "co:FeatureTypeType"/>
     </xs:simpleType>
     <xs:simpleType name="FeatureCodeType">
 		<xs:annotation>
@@ -98,7 +108,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Original special feature codes (1-9975) and extensions (10001-20182) that were added later.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:FeatureCodeType"/>
+		<xs:restriction base="co:FeatureCodeType"/>
     </xs:simpleType>    
     <xs:simpleType name="FeatureAdditionalCodeType">
         <xs:annotation>
@@ -106,7 +116,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Additional code of feature.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="fe:FeatureAdditionalCodeType"/>
+        <xs:restriction base="co:FeatureAdditionalCodeType"/>
      </xs:simpleType>
      <xs:complexType name="ValidityType">
 		<xs:annotation>
@@ -126,7 +136,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Starting date.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:DateYYYY-MMOrYYYY-MM-DDType"/>
+		<xs:restriction base="co:DateYYYY-MMOrYYYY-MM-DDType"/>
 	</xs:simpleType>
 	<xs:simpleType name="EndDateType">
 		<xs:annotation>
@@ -134,7 +144,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Ending date.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:DateYYYY-MMOrYYYY-MM-DDType"/>
+		<xs:restriction base="co:DateYYYY-MMOrYYYY-MM-DDType"/>
 	</xs:simpleType>
    	<xs:simpleType name="ExplanationType">
 		<xs:annotation>

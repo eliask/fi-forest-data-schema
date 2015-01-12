@@ -1,0 +1,147 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns="http://standardit.tapio.fi/schemas/forestData/common"
+xmlns:hdr="http://standardit.tapio.fi/schemas/header" 
+xmlns:cont="http://standardit.tapio.fi/schemas/forestData/Contract" 
+xmlns:cinfo="http://standardit.tapio.fi/schemas/forestData/CompanyInformation"  
+xmlns:wfb="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFeeBasis"
+xmlns:wabf="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditBioMassForwarding"
+xmlns:wabm="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditPlantManagement"
+xmlns:was="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSilviculture"
+xmlns:wasc="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSoilConditioning"
+xmlns:wasf="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditStumpForwarding"
+xmlns:wasl="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditStumpLifting"
+xmlns:wfp="http://standardit.tapio.fi/schemas/forestData/WorkingSiteForwardedProduction"
+xmlns:wsi="http://standardit.tapio.fi/schemas/forestData/WorkingSiteInterruption"
+xmlns:wso="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperational"
+xmlns:wqn="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityNotification"
+xmlns:wqcc="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting"
+xmlns:wqcpm="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlPlantManagement"
+xmlns:wsqcpm="http://standardit.tapio.fi/schemas/forestData/WorkingSiteForwardingQualityControl"
+xmlns:wqcs="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSilviculture"
+xmlns:wqcsc="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
+xmlns:wswl="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkLoad"
+xmlns:wstn="http://standardit.tapio.fi/schemas/forestData/WorkingSiteTravelNotification"
+xmlns:wswt="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkTime"
+xmlns:wc="http://standardit.tapio.fi/schemas/forestData/WeekCalendar" 
+xmlns:wsa="http://standardit.tapio.fi/schemas/forestData/WorkingSiteAccounting"
+xmlns:a="http://standardit.tapio.fi/schemas/forestData/Acknowledge"
+xmlns:cc="http://standardit.tapio.fi/schemas/forestData/CompanyCapacity"
+xmlns:fn="http://standardit.tapio.fi/schemas/forestData/ForwardingNotification"
+xmlns:ho="http://standardit.tapio.fi/schemas/forestData/HarvestingOrder"
+xmlns:oc="http://standardit.tapio.fi/schemas/forestData/OrderConfirmation"
+xmlns:qa="http://standardit.tapio.fi/schemas/forestData/QualityAttachment"
+xmlns:r="http://standardit.tapio.fi/schemas/forestData/Resource"
+xmlns:rs="http://standardit.tapio.fi/schemas/forestData/ResourceSchedule"
+xmlns:ui="http://standardit.tapio.fi/schemas/forestData/UserInformation"
+xmlns:fe="http://standardit.tapio.fi/schemas/forestData/ForwardingEstimate"
+xmlns:so="http://standardit.tapio.fi/schemas/forestData/SilvicultureOrder"
+xmlns:wsfah="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditHarvesting"
+xmlns:wshp="http://standardit.tapio.fi/schemas/forestData/WorkingSiteHarvestedProduction"
+xmlns:wshqc="http://standardit.tapio.fi/schemas/forestData/WorkingSiteHarvestingQualityControl"
+xmlns:wsqn="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityNotification"
+xmlns:wsou="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperationalUpdate"
+xmlns:wss="http://standardit.tapio.fi/schemas/forestData/WorkingSiteStatus"
+xmlns:ms="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
+targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" 
+elementFormDefault="unqualified" version="1.4">
+
+	
+<!--	<xs:import namespace="http://standardit.tapio.fi/schemas/header" schemaLocation="Header.xsd"/> -->
+
+	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/header"  schemaLocation="header.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Contract"  schemaLocation="Contract.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/MapSymbol"   schemaLocation="MapSymbol.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/CompanyInformation"   schemaLocation="CompanyInformation.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFeeBasis" schemaLocation="WorkingSiteFeeBasis.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditBioMassForwarding" schemaLocation="WorkingSiteFinalAuditBioMassForwarding.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditPlantManagement" schemaLocation="WorkingSiteFinalAuditPlantManagement.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSilviculture" schemaLocation="WorkingSiteFinalAuditSilviculture.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSoilConditioning" schemaLocation="WorkingSiteFinalAuditSoilConditioning.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditStumpForwarding" schemaLocation="WorkingSiteFinalAuditStumpForwarding.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditStumpLifting" schemaLocation="WorkingSiteFinalAuditStumpLifting.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteForwardedProduction" schemaLocation="WorkingSiteForwardedProduction.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteInterruption" schemaLocation="WorkingSiteInterruption.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperational" schemaLocation="WorkingSiteOperational.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityNotification" schemaLocation="WorkingSiteQualityNotification.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting" schemaLocation="WorkingSiteQualityControlCutting.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlPlantManagement" schemaLocation="WorkingSiteQualityControlPlantManagement.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteForwardingQualityControl" schemaLocation="WorkingSiteForwardingQualityControl.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSilviculture" schemaLocation="WorkingSiteQualityControlSilviculture.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning" schemaLocation="WorkingSiteQualityControlSoilConditioning.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkLoad" schemaLocation="WorkingSiteWorkLoad.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteTravelNotification" schemaLocation="WorkingSiteTravelNotification.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkTime" schemaLocation="WorkingSiteWorkTime.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/SilvicultureOrder" schemaLocation="SilvicultureOrder.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WeekCalendar"  schemaLocation="WeekCalendar.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteAccounting" schemaLocation="WorkingSiteAccounting.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Acknowledge" schemaLocation="Acknowledge.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/CompanyCapacity" schemaLocation="CompanyCapacity.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForwardingNotification" schemaLocation="ForwardingNotification.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/HarvestingOrder" schemaLocation="HarvestingOrder.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/OrderConfirmation" schemaLocation="OrderConfirmation.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/QualityAttachment" schemaLocation="QualityAttachment.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Resource" schemaLocation="Resource.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ResourceSchedule" schemaLocation="ResourceSchedule.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/UserInformation" schemaLocation="UserInformation.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForwardingEstimate" schemaLocation="ForwardingEstimate.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/SilvicultureOrder" schemaLocation="SilvicultureOrder.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditHarvesting" schemaLocation="WorkingSiteFinalAuditHarvesting.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteHarvestedProduction" schemaLocation="WorkingSiteHarvestedProduction.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteHarvestingQualityControl" schemaLocation="WorkingSiteHarvestingQualityControl.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityNotification" schemaLocation="WorkingSiteQualityNotification.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperationalUpdate" schemaLocation="WorkingSiteOperationalUpdate.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteStatus" schemaLocation="WorkingSiteStatus.xsd"/>
+
+	<xs:element name="Envelope" type="EnvelopeType"/>
+	<xs:complexType name="EnvelopeType">
+		<xs:sequence>
+			<xs:element name="Header" type="hdr:HeaderType"/>
+			<xs:element name="Message" type="PayloadType"/>
+		</xs:sequence>
+	</xs:complexType>
+				<!--<xs:element name="Image" type="cinfo:ImageType"/> -->
+
+	<xs:complexType name="PayloadType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tähän kaikkien käytettävien viestityyppien tyyppimäärittelyt</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="Acknowledge" type="a:AcknowledgeType"/>
+			<xs:element name="CompanyCapacity" type="cc:CompanyCapacityType"/>
+			<xs:element name="CompanyInformation" type="cinfo:CompanyInformationType"/>
+			<xs:element name="Contract" type="cont:ContractType"/>
+			<xs:element name="ForwardingEstimate" type="fe:ForwardingEstimateType"/>
+			<xs:element name="ForwardingNotification" type="fn:ForwardingNotificationType"/>
+			<xs:element name="HarvestingOrder" type="ho:HarvestingOrderType"/>
+			<xs:element name="MapSymbol" type="ms:MapSymbolType"/>
+			<xs:element name="OrderConfirmation" type="oc:OrderConfirmationType"/>
+			<xs:element name="QualityAttachment" type="qa:QualityAttachmentType"/>
+			<xs:element name="Resource" type="r:ResourceType"/>						
+			<xs:element name="ResourceSchedule" type="rs:ResourceScheduleType"/>
+			<xs:element name="SilvicultureOrder" type="so:SilvicultureOrderType"/>
+			<xs:element name="WeekCalendar" type="wc:WeekCalendarType"/>
+			<xs:element name="WoodforceUser" type="ui:UserInformationType"/> 
+			<xs:element name="WorkingSiteFeeBasis" type="wfb:WorkingSiteFeeBasisType"/>				
+			<xs:element name="WorkingSiteFinalAuditBiomassForwarding" type="wabf:WorkingSiteFinalAuditBioMassForwardingType"/>
+			<xs:element name="WorkingSiteFinalAuditHarvesting" type="wsfah:WorkingSiteFinalAuditHarvestingType"/> 
+			<xs:element name="WorkingSiteFinalAuditPlantManagement" type="wabm:WorkingSiteFinalAuditPlantManagementType"/>
+			<xs:element name="WorkingSiteFinalAuditSilviculture" type="was:WorkingSiteFinalAuditSilvicultureType"/>
+			<xs:element name="WorkingSiteFinalAuditSoilConditioning" type="wasc:WorkingSiteFinalAuditSoilConditioningType"/>
+			<xs:element name="WorkingSiteFinalAuditStumpForwarding" type="wasf:WorkingSiteFinalAuditStumpForwardingType"/>
+			<xs:element name="WorkingSiteFinalAuditStumpLifting" type="wasl:WorkingSiteFinalAuditStumpLiftingType"/>	
+			<xs:element name="WorkingSiteHarvestedProduction" type="wshp:WorkingSiteHarvestedProductionType"/>
+			<xs:element name="WorkingSiteInterruption" type="wsi:WorkingSiteInterruptionType"/>
+			<xs:element name="WorkingSiteOperational" type="wso:WorkingSiteOperationalType"/>
+			<xs:element name="WorkingSiteQualityControlCutting" type="wqcc:WorkingSiteQualityControlCuttingType"/>
+			<xs:element name="WorkingSiteQualityControlPlantManagement" type="wqcpm:WorkingSiteQualityControlPlantManagementType"/>
+			<xs:element name="WorkingSiteQualityControlSilviculture" type="wqcs:WorkingSiteQualityControlSilvicultureType"/>	
+			<xs:element name="WorkingSiteQualityControlSoilConditioning" type="wqcsc:WorkingSiteQualityControlSoilConditioningType"/>
+			<xs:element name="WorkingSiteQualityNotification" type="wsqn:WorkingSiteQualityNotificationType"/>
+			<xs:element name="WorkingSiteStatus" type="wss:WorkingSiteStatusType"/>
+			<xs:element name="WorkingSiteWorkLoad" type="wswl:WorkingSiteWorkLoadType"/>
+			<xs:element name="WorkingSiteWorkTime" type="wswt:WorkingSiteWorkTimeType"/>	
+			
+		</xs:choice>
+	</xs:complexType>
+</xs:schema>

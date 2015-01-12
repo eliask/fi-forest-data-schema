@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/MapSymbol" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/MapSymbol" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
+	<xs:element name="MapSymbol" type="MapSymbolType">
+		<xs:annotation>
+			<xs:documentation>Lohkon karttamerkit</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="MapSymbolType">
+		<xs:sequence>
+			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkingSiteId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lohkon tunniste, yksilöivä id</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MapSymbols" type="MapSymbolsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Karttamerkit (1..n)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MapSymbolsType">
+		<xs:sequence>
+			<xs:element name="Symbol" type="MapSymbolDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MapSymbolGeometryType">
+		<xs:group ref="gdt:AlternativeGeometriesGroup"/>
+	</xs:complexType>
+	<xs:complexType name="MapSymbolDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Karttamerkit</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MapSymbolId" type="bdt:String20Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Karttamerkin ID MJ:ssä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InsertedMapSymbolId" type="bdt:String20Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Karttamerkin ID WF:ssä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FeatureCode" type="bdt:FeatureCodeType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Karttamerkin tyyppi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FeatureAdditionalCode" type="bdt:FeatureCodeExtensionsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Avainbiotoopin lisämääre</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FeatureInfo" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Lisätiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Geometry" type="MapSymbolGeometryType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Karttamerkin geometria</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CanModify" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Lisätiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourceId" type="bdt:String20Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Resurssin tunniste lisätyille karttamerkeille</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

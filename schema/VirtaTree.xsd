@@ -3,12 +3,28 @@
 	***************************************************************
 	Viranomaistarkastuksen puutason elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	VERSIOKOMMENTIT 1.0 >> 1.1
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi nimiavaruudeksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://standardit.tapio.fi/schemas/virta/tree" xmlns="http://standardit.tapio.fi/schemas/virta/tree" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>	
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://standardit.tapio.fi/schemas/virta/tree" 
+xmlns="http://standardit.tapio.fi/schemas/virta/tree" 
+xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" 
+elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+
+<!-- 
+xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 
+xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" 
+xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" 
+-->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
+<!--	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/> -->
    	<!-- Element definitions -->
 	<xs:element name="Tree" type="TreeType"/>
 	<xs:element name="Status5" type="co:ChangeStateType"/>
@@ -20,21 +36,21 @@
 		</xs:annotation>			
 	</xs:element>
 	<xs:element name="TreeSpecies" type="co:TreeSpeciesType"/>
-	<xs:element name="TreeDiameter" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+	<xs:element name="TreeDiameter" type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">D 1,3 eli rinnankorkeusläpimitta (cm). Reaaliluku, jossa on pilkun jälkeen vasemmalla puolella 1-2 numeroa ja pilkun oikealla puolella 0-1 desimaalia.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Diameter at 1,3 meters from the ground (cm). Real number with 1-2 digits before comma and 0-1 digits after comma.</xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="StubDiameter" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+	<xs:element name="StubDiameter" type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kantoläpimitta (cm). Reaaliluku, jossa on pilkun jälkeen vasemmalla puolella 1-2 numeroa ja pilkun oikealla puolella 0-1 desimaalia.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Stub diameter (cm). Real number with 1-2 digits before comma and 0-1 digits after comma.</xs:documentation>
 		</xs:annotation>			
 	</xs:element>	
-	<xs:element name="TreeHeight" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+	<xs:element name="TreeHeight" type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puun pituus syntypistestä eli maanpinnan tasosta latvan huippuun (m). Reaaliluku, jossa on pilkun jälkeen vasemmalla puolella 1-2 numeroa ja pilkun oikealla puolella 0-1 desimaalia.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -72,7 +88,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaWorkQualityType"/>
+		<xs:restriction base="co:VirtaWorkQualityType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaDamageClassType">
 		<xs:annotation>
@@ -80,6 +96,6 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaDamageClassType"/>
+		<xs:restriction base="co:VirtaDamageClassType"/>
 	</xs:simpleType>
 </xs:schema>

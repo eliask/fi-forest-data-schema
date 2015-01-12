@@ -3,19 +3,29 @@
 	***************************************************************
 	Viranomaistarkastuksen koealan elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	VERSIOKOMMENTIT 1.0 >> 1.1
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi nimiavaruudeksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common"
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/virta/sampleplot"
 	xmlns="http://standardit.tapio.fi/schemas/virta/sampleplot" 
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"	
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"	
-	xmlns:tr="http://standardit.tapio.fi/schemas/virta/tree" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/> 
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/virta/tree" schemaLocation="VirtaTree.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+	xmlns:tr="http://standardit.tapio.fi/schemas/virta/tree" 
+	elementFormDefault="qualified" attributeFormDefault="qualified" version="1.1">
 
+		<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>	
+	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/> -->
+	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>	-->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/virta/tree" schemaLocation="VirtaTree.xsd"/>
+	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/> -->
+<!--
+		xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"	
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"	
+		xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" -->
    	<!-- Element definitions -->
 	<xs:element name="SamplePlot" type="SamplePlotType"/>
 	<xs:element name="Status4" type="co:ChangeStateType"/>
@@ -47,28 +57,28 @@
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-	<xs:element name="SamplePlotMeanDiameter" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+	<xs:element name="SamplePlotMeanDiameter" type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Koealan pohjapinta-alalla painotettu keskiläpimitta. Lasketaan puustotietojen läpimitoista. Yksikkönä cm.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>			
-	<xs:element name="SamplePlotStubDiameter" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+	<xs:element name="SamplePlotStubDiameter" type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kantojen keskiläpimitta. Niiden puutietojen dk arvojen keskiarvo, joiden puuluokka on 8. Dk arvoltaan tyhjiä rivejä ei huomioida laskennassa. Yksikkönä cm.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SamplePlotMeanHeight" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+	<xs:element name="SamplePlotMeanHeight" type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Koealan keskipituus. Lasketaan puutiedoista tai tallennetaan suoraan koealatasolle. Yksikkönä m.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SamplePlotDominantHeight" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+	<xs:element name="SamplePlotDominantHeight" type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Koealan valtapituus. Tallennetaan suoraan koealatasolle. Yksikkönä m.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -96,7 +106,7 @@
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SamplePlotTrackWidth" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+	<xs:element name="SamplePlotTrackWidth" type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Koealalla mitattu uraleveys. Yksikkönä m.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -167,6 +177,6 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaEvaluationType"/>
+		<xs:restriction base="co:VirtaEvaluationType"/>
 	</xs:simpleType>	
 </xs:schema>

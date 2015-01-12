@@ -5,7 +5,12 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://standardit.tapio.fi/schemas/forestData/2011/02/14" xmlns="http://standardit.tapio.fi/schemas/forestData/2011/02/14" xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14"  xmlns:st="http://standardit.tapio.fi/schemas/forestData/stand/2010/08/31" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://standardit.tapio.fi/schemas/forestData/2011/02/14" 
+xmlns="http://standardit.tapio.fi/schemas/forestData/2011/02/14" 
+xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14"  
+xmlns:st="http://standardit.tapio.fi/schemas/forestData/stand/2010/08/31" 
+elementFormDefault="qualified" attributeFormDefault="qualified" version="1.1">
 	
 	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
 	<!-- "re:RealEstates" elementti muutettu valinnaiseksi. -->

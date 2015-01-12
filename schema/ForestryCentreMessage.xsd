@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	***************************************************************
+	Työmaan kuvion elementit ja tyypit.
+	Metsäkeskus viesti
+	Ensimmäinen versio 1.0
+	Skeema on JHS-170 -suosituksen mukainen.
+	
+
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi namespaceksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
+	- ContactInformation_20110214.xsd -> ContactInformation.xsd
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
+	-> 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation
+    Tässä skeemassa otettu käyttöön uudet common ja contactInformation nimiavaruudet 
+	***************************************************************
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForestryCentreMessage" 
+xmlns="http://standardit.tapio.fi/schemas/forestData/ForestryCentreMessage" 
+xmlns:fud="http://standardit.tapio.fi/schemas/forestData/ForestUseDeclaration" 
+xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
+elementFormDefault="qualified"
+version="1.0">
+<!--xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"  -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestUseDeclaration"  schemaLocation="ForestUseDeclaration.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation" schemaLocation="ContactInformation.xsd"/>
+	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>-->
+	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/> -->
+	<!-- Elementtimääritykset -->
+   	<!-- Element definitions -->	
+	<xs:element name="ForestryCentreMessage" type="ForestryCentreMessageType"/>	
+	<xs:element name="Message" type="co:MessageType"/>	
+	<xs:element name="SenderEmail" type="ci:EmailAddressType"/>	
+	<xs:element name="ForestUseDeclaration" type="fud:ForestUseDeclarationType"/>
+
+
+	<!-- Tyyppimääritykset -->
+	<!-- Type definitions -->
+	<xs:complexType name="ForestryCentreMessageType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsäkeskusviesti</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Forestry Centre Message</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="Message" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="SenderEmail" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="ForestUseDeclaration" minOccurs="1" maxOccurs="1"/> 
+		</xs:sequence>	
+		<xs:attribute name="id" type="xs:string">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Viestin id</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Message id</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<!-- <xs:complexType name="ForestUseDeclarationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsänkäyttöilmoitus.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">ForestUseDeclaration.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="fud:ForestUseDeclaration" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType> --> 
+	 
+</xs:schema>
+	

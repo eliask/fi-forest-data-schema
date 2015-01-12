@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkLoad" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkLoad" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:element name="WorkingSiteWorkLoad" type="WorkingSiteWorkLoadType">
+		<xs:annotation>
+			<xs:documentation>Työmääräilmoitus</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="WorkingSiteWorkLoadType">
+		<xs:sequence>
+			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Urakanantajan tunnus</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkingSiteId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourceId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Resurssin tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StandNumber" type="bdt:String10Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lohkon kuvion numero</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkCodes" type="WorkCodesType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työlajit</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Materials" type="MaterialsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Materiaalit</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StandFinished" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuvio päättyy</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InfoText" type="bdt:String1000Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lisätiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MaterialsType">
+		<xs:sequence>
+			<xs:element name="Material" type="MaterialType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Materiaali</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WorkCodesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Työlajit</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="WorkCode" type="WorkCodeType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WorkCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Työlaji</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="WorkCode" type="bdt:WorkCodeType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työlaji</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkCodeQualifier" type="bdt:WorkCodeQualifierType1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työlajin lisämääre</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkLoad1" type="bdt:Decimal2FractionDigitsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työmäärä1</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkLoad1Unit" type="bdt:String10Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työmäärän1 yksikkö</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkLoad2" type="bdt:Decimal2FractionDigitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työmäärä2</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkLoadUnit2" type="bdt:String10Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työmäärän2 yksikkö</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkLoadInvoiced" type="bdt:Decimal2FractionDigitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Laskutettava työmäärä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkLoadUnitInvoiced" type="bdt:String10Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Laskutettava yksikkö</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MaterialType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Mariaali</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MaterialCode" type="bdt:MaterialCodeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Materiaali</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaterialVolume" type="bdt:PositiveIntegerType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Materiaalimäärä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaterialUnit" type="bdt:String10Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Materiaalin yksikkö</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaterialSupplier" type="bdt:String50Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Materiaalin toimittaja</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaterialProducer" type="bdt:String50Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Materiaalin alkuperä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaterialShipment" type="bdt:String20Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Materiaalierä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FreezingDate" type="bdt:DateType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pakastuspäivä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PackagingDate" type="bdt:DateType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pakkauspäivä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UnfreezingDate" type="bdt:DateType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Otettu sulamaan</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

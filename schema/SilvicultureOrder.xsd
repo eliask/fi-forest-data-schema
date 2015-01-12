@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/SilvicultureOrder" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/SilvicultureOrder" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:element name="SilvicultureOrder" type="SilvicultureOrderType">
+		<xs:annotation>
+			<xs:documentation>Metsänhoitotyön tilaus</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="SilvicultureOrderType">
+		<xs:sequence>
+			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Urakanantajan alv-tunnus</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ServiceBuyerArea" type="bdt:String20Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Urakanantajan organisaatiotieto</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ContractorId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Yrittäjän alv-tunnus</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OperationalRegion" type="bdt:String20Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Toiminta-alue</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OrderId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tilauksen ID metsäjärjestelmässä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkCodes" type="WorkCodesType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työlajit</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BeginDate" type="bdt:DateType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">alku pvm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EndDate" type="bdt:DateType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">loppu pvm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InfoText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lisätiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Attachments" type="AttachmentsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Liitteet</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WorkCodesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Työlajit</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="WorkCode" type="WorkCodeInfoType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WorkCodeInfoType">
+		<xs:sequence>
+			<xs:element name="WorkCodeGroup" type="bdt:WorkCodeGroupType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työlajiryhmä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkCode" type="bdt:WorkCodeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työlaji</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Amount" type="bdt:Decimal2FractionDigitsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Määrä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Unit" type="bdt:String10Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Yksikkö</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AttachmentsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Liitteet</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Attachment" type="AttachmentDataType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AttachmentDataType">
+		<xs:sequence>
+			<xs:element name="Name" type="bdt:String100Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Liitetiedoston nimi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Data" type="xs:hexBinary" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Liitetiedoston sisältö</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

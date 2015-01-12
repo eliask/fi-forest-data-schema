@@ -3,13 +3,33 @@
 	***************************************************************
 	Puukaupan maksuerän elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	VERSIOKOMMENTIT 1.0 >> 1.1
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi nimiavaruudeksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
+	- ContactInformation_20110214.xsd -> ContactInformation.xsd
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
+	-> 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation
+	
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasepayment/2011/02/14" xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasepayment/2011/02/14" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14" schemaLocation="ContactInformation_20110214.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasepayment/2011/02/14" 
+xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasepayment/2011/02/14" 
+xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" 
+xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation" 
+elementFormDefault="qualified" attributeFormDefault="qualified" version="1.1">
+
+<!--
+xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 
+xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" 
+xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation" schemaLocation="ContactInformation.xsd"/>
+		<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
+<!--	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/> -->
 			    
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
@@ -76,7 +96,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Running number for payment (under certain purchase). With parentId identifies payment.</xs:documentation>					
 		</xs:annotation>
-		<xs:restriction base="bdt:PositiveIntegerType"/>
+		<xs:restriction base="co:PositiveIntegerType"/>
 	</xs:simpleType>
 	<xs:simpleType name="PaymentTypeType">
 		<xs:annotation>
@@ -84,7 +104,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Payment types.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:PaymentTypeType"/>
+		<xs:restriction base="co:PaymentTypeType"/>
 	</xs:simpleType>
 	<xs:simpleType name="ValueType">
 		<xs:annotation>
@@ -92,7 +112,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Total sum in funds without VAT.</xs:documentation>					
 		</xs:annotation>
-		<xs:restriction base="bdt:Decimal2FractionDigitsType"/>
+		<xs:restriction base="co:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
 	<xs:simpleType name="AbsoluteQuantityType">
 		<xs:annotation>
@@ -100,7 +120,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Absolute money quantity.</xs:documentation>				
 		</xs:annotation>
-		<xs:restriction base="bdt:Decimal2FractionDigitsType"/>
+		<xs:restriction base="co:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
 	<xs:simpleType name="PercentType">
 		<xs:annotation>
@@ -108,7 +128,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Percentage.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:Decimal2FractionDigitsType"/>
+		<xs:restriction base="co:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
 	<xs:complexType name="MoneyAndPercentType">
 		<xs:sequence>
@@ -152,7 +172,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Total sum which is payed. Normally TotalAmount = Amount + VAT - AdvanceTax - ForestFundPayment</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:Decimal2FractionDigitsType"/>
+		<xs:restriction base="co:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
 	<xs:simpleType name="CurrencyType">
 		<xs:annotation>
@@ -168,7 +188,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Day when payment will be paid to payee.</xs:documentation>					
 		</xs:annotation>
-		<xs:restriction base="bdt:DateType"/>
+		<xs:restriction base="co:DateType"/>
 	</xs:simpleType>
 	<xs:simpleType name="PaymentPermissionDateType">
 		<xs:annotation>
@@ -176,7 +196,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Day when payment is given permission to pay.</xs:documentation>					
 		</xs:annotation>
-		<xs:restriction base="bdt:DateType"/>
+		<xs:restriction base="co:DateType"/>
 	</xs:simpleType>
 	<xs:simpleType name="PaymentDateType">
 		<xs:annotation>
@@ -184,7 +204,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Day when payment is paid to payee.</xs:documentation>					
 		</xs:annotation>
-		<xs:restriction base="bdt:DateType"/>
+		<xs:restriction base="co:DateType"/>
 	</xs:simpleType>
 	<xs:complexType name="PayeeType">
 		<xs:annotation>

@@ -3,12 +3,26 @@
 	***************************************************************
 	Työmaan puutavaralajien elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	VERSIOKOMMENTIT 1.0 >> 1.1
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi nimiavaruudeksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" 
+xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" 
+xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+elementFormDefault="qualified" attributeFormDefault="qualified" version="1.1">
+<!-- 
+xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 
+xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" 
+xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
+	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/> -->
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
 	<xs:element name="WoodLotInformationType" type="WoodLotInformationTypeType"/>
@@ -45,7 +59,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Assortment wood lot types.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:WoodLotInformationTypeType"/>
+		<xs:restriction base="co:WoodLotInformationTypeType"/>
 	</xs:simpleType>
 	<xs:simpleType name="WoodLotInformationValueType">
 		<xs:annotation>
@@ -97,7 +111,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Request for used measurement method.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "fe:MeasurementMethodType"/>
+		<xs:restriction base = "co:MeasurementMethodType"/>
 	</xs:simpleType>
 	<xs:simpleType name="TreeSpeciesType">
 		<xs:annotation>
@@ -105,7 +119,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Tree species of assortment.</xs:documentation>
 		</xs:annotation>
-		<xs:union memberTypes="co:TreeSpeciesType bdt:EmptyStringType co:ExtraTreeSpeciesType"/>
+		<xs:union memberTypes="co:TreeSpeciesType co:EmptyStringType co:ExtraTreeSpeciesType"/>
 	</xs:simpleType>
     <xs:simpleType name="StemTypeType">
         <xs:annotation>
@@ -135,7 +149,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Estimated or measured amount of assortment.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:Decimal2FractionDigitsType"/>
+		<xs:restriction base="co:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
 	<xs:simpleType name="QuantityUnitType">
 		<xs:annotation>
@@ -157,7 +171,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Unit price for assortment.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:Decimal2FractionDigitsType"/>
+		<xs:restriction base="co:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
 	<xs:simpleType name="TotalPriceType">
 		<xs:annotation>
@@ -165,7 +179,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Total price for assortment.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:Decimal2FractionDigitsType"/>
+		<xs:restriction base="co:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
 	<xs:simpleType name="CurrencyType">
 		<xs:annotation>
@@ -188,7 +202,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Minimum top diameter in centimeters.</xs:documentation>					
 		</xs:annotation>
-		<xs:restriction base="bdt:PositiveIntegerType"/>
+		<xs:restriction base="co:PositiveIntegerType"/>
 	</xs:simpleType>
 	<xs:simpleType name="DiameterMaxType">
 		<xs:annotation>
@@ -196,7 +210,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Maximum base diameter in centimeters.</xs:documentation>					
 		</xs:annotation>
-		<xs:restriction base="bdt:PositiveIntegerType"/>
+		<xs:restriction base="co:PositiveIntegerType"/>
 	</xs:simpleType>
 	<xs:simpleType name="LengthMinType">
 		<xs:annotation>
@@ -204,7 +218,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Minimum length (m).</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:Decimal1FractionDigitType"/>
+		<xs:restriction base="co:Decimal1FractionDigitType"/>
 	</xs:simpleType>
 	<xs:simpleType name="LengthMaxType">
 		<xs:annotation>
@@ -212,7 +226,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Maximum length (m).</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:Decimal1FractionDigitType"/>
+		<xs:restriction base="co:Decimal1FractionDigitType"/>
 	</xs:simpleType>
 	<xs:group name="DimensionRequirementsGroup">
 		<xs:sequence>
@@ -288,7 +302,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Additional code for wood assortment. Price group.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "fe:AssortmentClassCodeType"/>
+		<xs:restriction base = "co:AssortmentClassCodeType"/>
 	</xs:simpleType>
 	<xs:complexType name="AssortmentClassType">
 		<xs:annotation>

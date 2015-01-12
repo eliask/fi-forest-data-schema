@@ -3,21 +3,47 @@
 	***************************************************************
 	Työmaiden tarjouspyynnön elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	 VERSIOKOMMENTIT 1.0 >>> 1.1 
+	 Tyypin "IncludeForestFundPaymentType" määrittely muutettu tyypistä "YesNo" tyypiksi "YesNoNotKnown" (eli koodistoon tullut arvojen "kyllä" ja "ei" lisäksi "ei tietoa"). 
+	 Tyypit "UsedPricingMethodsType", "UsedPricingMethodType", "IncludePaymentPlanType" ja "IncludeForestFundPayment" siirrety skeemaan "WorkingSiteTrade_Common_20110214.xsd". 
+	 Lisätty tyyppi "CallForOfferSilvicultureInfoType" 
+	 VERSIOKOMMENTIT 1.1 >>> 1.2 	
+	 Koodistotyyppiset määrittelyt siirretty skeemaan ForestEnumeratives_20130620. 
+	 VERSIOKOMMENTIT 1.2 >>> 1.3 	
+	 Lisätty elementit PlannedBasalArea ja PlannedStemCount. 
+	 VERSIOKOMMENTIT 1.3 >>> 1.4 
+	 Elementit StandWoodTradeInfo ja PlannedBasalArea siirretty skeemaan WorkingSiteTrade_Stand_20110214.xsd (tyyppiin StandWoodTradeInfoType) 
+	 
+	VERSIOKOMMENTIT 1.4 >> 1.5
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi nimiavaruudeksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
+	
+	- ContactInformation_20110214.xsd -> ContactInformation.xsd
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
+	-> 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer/2011/02/14" xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer/2011/02/14" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14" xmlns:ws="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.2">
-	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
-	<!-- Tyypin "IncludeForestFundPaymentType" määrittely muutettu tyypistä "YesNo" tyypiksi "YesNoNotKnown" (eli koodistoon tullut arvojen "kyllä" ja "ei" lisäksi "ei tietoa"). -->
-	<!-- Tyypit "UsedPricingMethodsType", "UsedPricingMethodType", "IncludePaymentPlanType" ja "IncludeForestFundPayment" siirrety skeemaan "WorkingSiteTrade_Common_20110214.xsd". -->
-	<!-- Lisätty tyyppi "CallForOfferSilvicultureInfoType" -->
-	<!-- VERSIOKOMMENTIT 1.1 >>> 1.2 -->	
-	<!-- Koodistotyyppiset määrittelyt siirretty skeemaan ForestEnumeratives_20130620. -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer/2011/02/14" 
+xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer/2011/02/14"  
+xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" 
+xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation" 
+xmlns:ws="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14" 
+xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+elementFormDefault="qualified" attributeFormDefault="qualified" version="1.5">
+<!--
+xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 
+xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14" schemaLocation="WorkingSiteTrade_WorkingSite_20110214.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14" schemaLocation="ContactInformation_20110214.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation" schemaLocation="ContactInformation.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" schemaLocation="WorkingSiteTrade_Common_20110214.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
+	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/> -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/> 
+<!--	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/> -->
 
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
@@ -105,7 +131,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Publicity of call for offer.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "fe:PublicityType"/>
+		<xs:restriction base = "co:PublicityType"/>
 	</xs:simpleType>
 	<xs:complexType name="TechnicalContactPersonType">
 		<xs:annotation>
@@ -123,7 +149,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Date when call for offer has been generated and sent to recipients (business point of view).</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:DateType"/>
+		<xs:restriction base="co:DateType"/>
 	</xs:simpleType>
 	<xs:simpleType name="OfferExpirationDateType">
 		<xs:annotation>
@@ -131,7 +157,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Last day for recipient to sent offer back.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:DateType"/>
+		<xs:restriction base="co:DateType"/>
 	</xs:simpleType>
 	<xs:simpleType name="SilvicultureModeType">
 		<xs:annotation>
@@ -139,7 +165,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>			
 		</xs:annotation>
-		<xs:restriction base = "fe:SilvicultureModeType"/>
+		<xs:restriction base = "co:SilvicultureModeType"/>
 	</xs:simpleType>
 	<xs:simpleType name="UsedPricingMethodTypeType">
 		<xs:annotation>
@@ -147,7 +173,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>			
 		</xs:annotation>
-		<xs:restriction base = "fe:UsedPricingMethodTypeType"/>
+		<xs:restriction base = "co:UsedPricingMethodTypeType"/>
 	</xs:simpleType>
 	<xs:complexType name="CallForOfferSilvicultureInfoType">
 		<xs:annotation>

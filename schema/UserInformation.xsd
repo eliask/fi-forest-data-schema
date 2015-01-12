@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/UserInformation" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/UserInformation" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
+	<xs:element name="UserInformation" type="UserInformationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Käyttäjä</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="UserInformationType">
+		<xs:sequence>
+			<xs:element name="ContractorId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Yrityksen alv-tunnus</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxNumber" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Veronumero</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="bdt:String50Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Nimi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Address" type="bdt:String50Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Osoite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BirthDate" type="bdt:String10Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Syntymäaika (yyyymmdd)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourceName" type="bdt:String50Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Resurssin nimi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Telephone" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Puhelin</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ICE" type="bdt:String20Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Toinen yhteystieto</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Email" type="bdt:String50Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">sähköposti</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UserRoles" type="UserRolesType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Käyttäjäroolit</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UserName" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Käyttäjätunnus</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AdditionalName" type="bdt:String20Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Vapaamuotoinen nimi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Educations" type="EducationsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koulutustiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Employment" type="EmploymentDataType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työsuhde</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Machines" type="MachinesType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Konetiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Languages" type="LanguagesType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kielet</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Nationality" type="bdt:String50Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kansalaisuus</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Servicetypes" type="ServiceTypesType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Palvelukokonaisuudet</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkCodeGroups" type="WorkCodeGroupsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työlajiryhmät</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkCodes" type="WorkCodesType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työlajikoodit</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Location" type="MapSymbolGeometryType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Sijaintitieto</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="E101" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">E101</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="A1" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">A1</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MapSymbolGeometryType">
+		<xs:group ref="gdt:AlternativeGeometriesGroup"/>
+	</xs:complexType>
+	<xs:complexType name="UserRolesType">
+		<xs:sequence>
+			<xs:element name="UserRole" type="bdt:String20Type" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EducationsType">
+		<xs:sequence>
+			<xs:element name="Education" type="EducationDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MachinesType">
+		<xs:sequence>
+			<xs:element name="Machine" type="bdt:MachineTypeType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LanguagesType">
+		<xs:sequence>
+			<xs:element name="Language" type="bdt:LanguageCode1Type" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ServiceTypesType">
+		<xs:sequence>
+			<xs:element name="ServiceType" type="bdt:ServiceTypeType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WorkCodeGroupsType">
+		<xs:sequence>
+			<xs:element name="WorkCodeGroup" type="bdt:WorkCodeGroupType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WorkCodesType">
+		<xs:sequence>
+			<xs:element name="WorkCode" type="bdt:WorkCodeType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EmploymentDataType">
+		<xs:sequence>
+			<xs:element name="Startdate" type="bdt:DateType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työsuhteen alku pvm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Enddate" type="bdt:DateType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työsuhteen loppu pvm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkingContract" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työsopimus</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Active" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Töissä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EducationDataType">
+		<xs:sequence>
+			<xs:element name="Education" type="bdt:String50Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tutkinto</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EducationDate" type="bdt:DateType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Suoritus pvm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

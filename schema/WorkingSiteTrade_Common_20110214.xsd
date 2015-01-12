@@ -3,23 +3,47 @@
 	******************************************************************
 	Yhteiset tyypit, joita käytetään useissa eri skeemoissa.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	 VERSIOKOMMENTIT 1.0 >>> 1.1 
+	 Tyypit "UsedPricingMethodsType", "UsedPricingMethodType", "IncludePaymentPlanType" ja "IncludeForestFundPayment" siirrety skeemasta "WorkingSiteTrade_CallForOffer_20110214.xsd" tänne. 
+	 Lisätty nimiavaruusmäärittelyt "ci" (ContactInformation) ja "bdt" (BasicDataType) 
+	 Tyypit "WorkingSiteGeometriesType", "ForestUseDeclarationResponsibleType" "FellingRightValidityDateType", "SupplyPointType", "CuttingsType", "CuttingType" ja "CallForOfferWorkingSiteWoodTradeInfo" siirretty skeemasta "WorkingSiteTrade_CallForOfferWorkingSite_20110214.xsd" tänne. 
+	 VERSIOKOMMENTIT 1.1 >>> 1.2 
+	 Koodistotyyppiset määrittelyt siirretty skeemaan ForestEnumeratives_20130620. 
+	 Tyypin CallForOfferTextType määrittelyssä maksimipituudeksi muutettu 1500. 
+
+
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi nimiavaruudeksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
+	
+	- ContactInformation_20110214.xsd -> ContactInformation.xsd
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
+	-> 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation
 	*******************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" xmlns:sf="http://standardit.tapio.fi/schemas/forestData/specialFeature/2011/02/14" xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14" xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20"	 elementFormDefault="qualified" version="1.2">
-	<!-- VERSIOKOMMENTIT 1.0 >>> 1.1 -->
-	<!-- Tyypit "UsedPricingMethodsType", "UsedPricingMethodType", "IncludePaymentPlanType" ja "IncludeForestFundPayment" siirrety skeemasta "WorkingSiteTrade_CallForOffer_20110214.xsd" tänne. -->
-	<!-- Lisätty nimiavaruusmäärittelyt "ci" (ContactInformation) ja "bdt" (BasicDataType) -->
-	<!-- Tyypit "WorkingSiteGeometriesType", "ForestUseDeclarationResponsibleType" "FellingRightValidityDateType", "SupplyPointType", "CuttingsType", "CuttingType" ja "CallForOfferWorkingSiteWoodTradeInfo" siirretty skeemasta "WorkingSiteTrade_CallForOfferWorkingSite_20110214.xsd" tänne. -->
-	<!-- VERSIOKOMMENTIT 1.1 >>> 1.2 -->
-	<!-- Koodistotyyppiset määrittelyt siirretty skeemaan ForestEnumeratives_20130620. -->
-	<!-- Tyypin CallForOfferTextType määrittelyssä maksimipituudeksi muutettu 1500. -->	
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" 
+xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" 
+xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+xmlns:xmime="http://www.w3.org/2005/05/xmlmime" 
+xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation" 
+xmlns:sf="http://standardit.tapio.fi/schemas/forestData/specialFeature/2011/02/14" 
+xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14" 
+xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" 
+elementFormDefault="qualified" version="1.2">
+
+<!--
+xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20"	
+xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"  -->
 	<xs:import namespace="http://www.w3.org/2005/05/xmlmime" schemaLocation="http://www.w3.org/2005/05/xmlmime"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14" schemaLocation="ContactInformation_20110214.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation" schemaLocation="ContactInformation.xsd"/>
+	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/> -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"	schemaLocation="Common.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeature/2011/02/14" schemaLocation="SpecialFeature_20110214.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14" schemaLocation="RealEstate_20110214.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" schemaLocation="WorkingSiteTrade_Assortment_20110214.xsd"/>	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
+	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/> -->
 	<!-- Elementtimääritykset -->
 	<!-- Element definitions -->
 	<xs:element name="PurchaseMode" type="PurchaseModeType"/>
@@ -52,7 +76,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Modes for wood purchase.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "fe:PurchaseModeType"/>
+		<xs:restriction base = "co:PurchaseModeType"/>
 	</xs:simpleType>
 	<xs:simpleType name="MessageTypeType">
 		<xs:annotation>
@@ -60,7 +84,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Message type. Used at least to identify businessAcceptance message's target.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:MessageTypeType"/>
+		<xs:restriction base="co:MessageTypeType"/>
 	</xs:simpleType>
 	<xs:complexType name="DocumentsType">
 		<xs:annotation>
@@ -97,7 +121,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Document class / type.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "fe:DocumentClassType"/>
+		<xs:restriction base = "co:DocumentClassType"/>
 	</xs:simpleType>
 	<xs:simpleType name="DocumentDescriptionType">
 		<xs:annotation>
@@ -115,7 +139,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Role of business sender of call for offer.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "fe:CallForOfferBusinessSenderRoleType"/>
+		<xs:restriction base = "co:CallForOfferBusinessSenderRoleType"/>
 	</xs:simpleType>
 	<xs:complexType name="CallForOfferBusinessSenderType">
 		<xs:annotation>
@@ -151,7 +175,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Request to include payment plan of wood trade in offer.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:YesNoType"/>
+		<xs:restriction base="co:YesNoType"/>
 	</xs:simpleType>
 	<xs:simpleType name="IncludeForestFundPaymentType">
 		<xs:annotation>
@@ -159,7 +183,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Wood trade includes forest fund payment.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:YesNoNotKnownType"/>
+		<xs:restriction base="co:YesNoNotKnownType"/>
 	</xs:simpleType>
 	<xs:complexType name="UsedPricingMethodsType">
 		<xs:annotation>
@@ -177,7 +201,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Request for used pricing method.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "fe:UsedPricingMethodType"/>
+		<xs:restriction base = "co:UsedPricingMethodType"/>
 	</xs:simpleType>
 	<xs:complexType name="CallForOfferWoodTradeInfoType">
 		<xs:annotation>
@@ -208,7 +232,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "fe:ForestUseDeclarationResponsibleType"/>
+		<xs:restriction base = "co:ForestUseDeclarationResponsibleType"/>
 	</xs:simpleType>
 	<xs:simpleType name="FellingRightValidityDateType">
 		<xs:annotation>
@@ -216,7 +240,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:DateType"/>
+		<xs:restriction base="co:DateType"/>
 	</xs:simpleType>
 	<xs:simpleType name="SupplyPointType">
 		<xs:annotation>
@@ -224,7 +248,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:YesNoNotKnownType"/>
+		<xs:restriction base="co:YesNoNotKnownType"/>
 	</xs:simpleType>
 	<xs:complexType name="CuttingType">
 		<xs:annotation>
@@ -278,7 +302,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="bdt:YesNoNotKnownType"/>
+		<xs:restriction base="co:YesNoNotKnownType"/>
 	</xs:simpleType>
 	<xs:simpleType name="CertificationSystemType">
 		<xs:annotation>
@@ -286,7 +310,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Certification systems.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "fe:CertificationSystemType"/>
+		<xs:restriction base = "co:CertificationSystemType"/>
 	</xs:simpleType>
 	<xs:complexType name="CertificationSystemsType">
 		<xs:annotation>
@@ -318,7 +342,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "bdt:DateType"/>
+		<xs:restriction base = "co:DateType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VATStatusType">
 		<xs:annotation>
@@ -326,7 +350,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "fe:VATStatusType"/>
+		<xs:restriction base = "co:VATStatusType"/>
 	</xs:simpleType>
 	<xs:complexType name="VATInfoType">
 		<xs:annotation>
@@ -345,7 +369,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "fe:SellerGroupType"/>
+		<xs:restriction base = "co:SellerGroupType"/>
 	</xs:simpleType>
 	<xs:complexType name="SellerType">
 		<xs:annotation>
@@ -366,7 +390,7 @@
 		<xs:sequence>
 			<xs:element ref="Seller" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="subsidyPossibility" type="bdt:YesNoNotKnownType" use="optional">
+		<xs:attribute name="subsidyPossibility" type="co:YesNoNotKnownType" use="optional">
 			<xs:annotation>
 				<xs:documentation xml:lang="fi">Myyjän (Kemera-)tukikelpoisuus.</xs:documentation>
 				<xs:documentation xml:lang="sv"></xs:documentation>

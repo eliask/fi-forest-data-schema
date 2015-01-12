@@ -3,25 +3,34 @@
 	***************************************************************
 	Viranomaistarkastuksen elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	VERSIOKOMMENTIT 1.0 >> 1.1
+	15.8.2014 
+	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
+	yhdeksi nimiavaruudeksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common"
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/virta/inspectiondata"
-	xmlns="http://standardit.tapio.fi/schemas/virta/inspectiondata" 
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"		
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"	
+	xmlns="http://standardit.tapio.fi/schemas/virta/inspectiondata" 	
 	xmlns:tgt="http://standardit.tapio.fi/schemas/virta/target" 
 	xmlns:sp="http://standardit.tapio.fi/schemas/virta/sampleplot" 
-	xmlns:hg="http://standardit.tapio.fi/schemas/virta/helpgeometry" xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+	xmlns:hg="http://standardit.tapio.fi/schemas/virta/helpgeometry" 
+	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" 
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+	elementFormDefault="qualified" attributeFormDefault="qualified" version="1.1">
 	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>	
+	<!--	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"		
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
+		xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" -->
+	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/> -->	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/virta/target" schemaLocation="VirtaTarget.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/virta/sampleplot" schemaLocation="VirtaSamplePlot.xsd"/>	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/virta/helpgeometry" schemaLocation="VirtaHelpGeometry.xsd"/>
 	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" schemaLocation="JHS170_20090304.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>	
-	
+   <!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>	-->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
    	<!-- Element definitions -->
    	<xs:element name="InspectionData" type="InspectionDataType">
 		<xs:annotation>
@@ -89,7 +98,7 @@
 		</xs:annotation>
 	</xs:element>	
     <xs:element name="Status1" type="co:ChangeStateType"/>
-	<xs:element name="LevelCount" type="bdt:PositiveInteger1digitsType">
+	<xs:element name="LevelCount" type="co:PositiveInteger1digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tasojen lukumäärä. Näyttää monellako tasolla tarkastustietueella on tietoja. Mahdolliset arvot: 1-5.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -166,7 +175,7 @@
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-    <xs:element name="ArrivalDate" type="bdt:DateMmDdYyyyType">
+    <xs:element name="ArrivalDate" type="co:DateMmDdYyyyType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Saapumispvm.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -174,7 +183,7 @@
 		</xs:annotation>
 	</xs:element>	
     <xs:element name="TargetSelection" type="VirtaTargetSelectionType"/>
-    <xs:element name="Population" type="bdt:PositiveInteger3digitsType">
+    <xs:element name="Population" type="co:PositiveInteger3digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Perusjoukko.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -182,7 +191,7 @@
 		</xs:annotation>
 	</xs:element>	
     <xs:element name="MastoInspection" type="VirtaMastoInspectionType"/>
-    <xs:element name="WorkType" type="bdt:PositiveInteger2digitsType">
+    <xs:element name="WorkType" type="co:PositiveInteger2digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Työlaji.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -191,14 +200,14 @@
 	</xs:element>	
     <xs:element name="Phase" type="VirtaPhaseType"/>
     <xs:element name="ProjectStatus" type="VirtaProjectStatusType"/>
-    <xs:element name="AnnouncedArea" type="bdt:PositiveDecimalMax4IntegralPartMax2FractionalPartType">
+    <xs:element name="AnnouncedArea" type="co:PositiveDecimalMax4IntegralPartMax2FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Ilmoitettu pinta-ala.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-    <xs:element name="AnnouncedLength" type="bdt:PositiveDecimalMax4IntegralPartMax2FractionalPartType">
+    <xs:element name="AnnouncedLength" type="co:PositiveDecimalMax4IntegralPartMax2FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Ilmoitettu pituus.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -207,7 +216,7 @@
 	</xs:element>	
     <xs:element name="Law" type="VirtaLawType">
 	</xs:element>	
-    <xs:element name="EarliestInspectionDate" type="bdt:DateMmDdYyyyType">
+    <xs:element name="EarliestInspectionDate" type="co:DateMmDdYyyyType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kemeravirran tarkastettavissa pvm.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -257,21 +266,21 @@
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-    <xs:element name="AnnouncedEnergyWood" type="bdt:PositiveInteger6digitsType">
+    <xs:element name="AnnouncedEnergyWood" type="co:PositiveInteger6digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Ilmoitettu luovutetun energiapuun määrä m3.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-    <xs:element name="DetectedEnergyWood" type="bdt:PositiveInteger6digitsType">
+    <xs:element name="DetectedEnergyWood" type="co:PositiveInteger6digitsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Havaittu korjatun energiapuun määrä m3.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-    <xs:element name="DetectedGroundWood" type="bdt:PositiveInteger6digitsType">	
+    <xs:element name="DetectedGroundWood" type="co:PositiveInteger6digitsType">	
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Havaittu korjatun ainespuun määrä m3.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -299,35 +308,35 @@
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-    <xs:element name="EvaluationCost" type="bdt:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
+    <xs:element name="EvaluationCost" type="co:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Arviointikustannukset euroa.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-    <xs:element name="InsuranceOrOtherCompensation" type="bdt:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
+    <xs:element name="InsuranceOrOtherCompensation" type="co:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Vakuutuksen tai muun lainsäädännön nojalla maksettavat korvaukset euroa.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-    <xs:element name="TotalCompensation" type="bdt:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
+    <xs:element name="TotalCompensation" type="co:PositiveDecimalMax5IntegralPartMax2FractionalPartType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Korvattava yhteensä euroa.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-    <xs:element name="OwnerInvolvement" type="bdt:VirtaYesNoType">
+    <xs:element name="OwnerInvolvement" type="co:VirtaYesNoType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Maanomistajan/hakijan mukanaolo.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-    <xs:element name="AssociationInvolvement" type="bdt:VirtaYesNoType">
+    <xs:element name="AssociationInvolvement" type="co:VirtaYesNoType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Rhy:n/toimijan mukanaolo.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -348,7 +357,7 @@
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-    <xs:element name="MoosePercentage" type="bdt:PercentType">
+    <xs:element name="MoosePercentage" type="co:PercentType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Riistanhoitoyhdistyksen edustajan käsitys hirvieläinten osuudesta vahinkoon..</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -362,7 +371,7 @@
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 	</xs:element>	
-    <xs:element name="InspectionDate" type="bdt:DateMmDdYyyyType">
+    <xs:element name="InspectionDate" type="co:DateMmDdYyyyType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tarkastuksen pvm. LT: pakollinen tieto.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
@@ -535,7 +544,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaInspectionTypeType"/>
+		<xs:restriction base="co:VirtaInspectionTypeType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaSaveIncompleteType">
 		<xs:annotation>
@@ -543,7 +552,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaSaveIncompleteType"/>
+		<xs:restriction base="co:VirtaSaveIncompleteType"/>
 	</xs:simpleType>	
 	<xs:simpleType name="VirtaTargetSelectionType">
 		<xs:annotation>
@@ -551,7 +560,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaTargetSelectionType"/>
+		<xs:restriction base="co:VirtaTargetSelectionType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaMastoInspectionType">
 		<xs:annotation>
@@ -559,7 +568,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaMastoInspectionType"/>
+		<xs:restriction base="co:VirtaMastoInspectionType"/>
 	</xs:simpleType> 
 	<xs:simpleType name="VirtaPhaseType">
 		<xs:annotation>
@@ -567,7 +576,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaPhaseType"/>
+		<xs:restriction base="co:VirtaPhaseType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaProjectStatusType">
 		<xs:annotation>
@@ -575,7 +584,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaProjectStatusType"/>
+		<xs:restriction base="co:VirtaProjectStatusType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaLawType">
 		<xs:annotation>
@@ -583,7 +592,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaLawType"/>
+		<xs:restriction base="co:VirtaLawType"/>
 	</xs:simpleType> 
 	<xs:simpleType name="VirtaAdvertiserType">
 		<xs:annotation>
@@ -591,7 +600,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaAdvertiserType"/>
+		<xs:restriction base="co:VirtaAdvertiserType"/>
 	</xs:simpleType> 
 	<xs:simpleType name="VirtaAdvertisementDatingType">
 		<xs:annotation>
@@ -599,7 +608,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaAdvertisementDatingType"/>
+		<xs:restriction base="co:VirtaAdvertisementDatingType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaSumTableAreaType">
 		<xs:annotation>
@@ -607,7 +616,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaSumTableAreaType"/>
+		<xs:restriction base="co:VirtaSumTableAreaType"/>
 	</xs:simpleType>
 	<xs:simpleType name="VirtaApprovalType">
 		<xs:annotation>
@@ -615,6 +624,6 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="fe:VirtaApprovalType"/>
+		<xs:restriction base="co:VirtaApprovalType"/>
 	</xs:simpleType>	
 </xs:schema>
