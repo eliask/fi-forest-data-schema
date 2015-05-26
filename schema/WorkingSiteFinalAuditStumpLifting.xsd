@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditStumpLifting" 
-xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" 
-targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditStumpLifting" 
-
-elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditStumpLifting"
+           xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
+           targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditStumpLifting"
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.3">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:element name="WorkingSiteFinalAuditStumpLifting" type="WorkingSiteFinalAuditStumpLiftingType">
 		<xs:annotation>
@@ -24,12 +23,7 @@ elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
 					<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="HarvesterId" type="bdt:String20Type" minOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Yrittäjän tunniste (alv-tunnus)</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="ForwarderId" type="bdt:String20Type" minOccurs="1">
+			<xs:element name="ResourceId" type="bdt:String20Type" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Resurssin tunniste</xs:documentation>
 				</xs:annotation>

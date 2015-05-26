@@ -40,11 +40,6 @@
 					<xs:documentation xml:lang="fi">Syntymäaika (yyyymmdd)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ResourceName" type="bdt:String50Type" minOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Resurssin nimi</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="Telephone" type="bdt:String20Type" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Puhelin</xs:documentation>
@@ -65,7 +60,7 @@
 					<xs:documentation xml:lang="fi">Käyttäjäroolit</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="UserName" type="bdt:String20Type" minOccurs="1">
+			<xs:element name="UserName" type="bdt:String100Type" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Käyttäjätunnus</xs:documentation>
 				</xs:annotation>
@@ -115,7 +110,7 @@
 					<xs:documentation xml:lang="fi">Työlajikoodit</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Location" type="MapSymbolGeometryType">
+			<xs:element name="Location" type="gdt:PointGeometryType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Sijaintitieto</xs:documentation>
 				</xs:annotation>
@@ -131,9 +126,6 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="MapSymbolGeometryType">
-		<xs:group ref="gdt:AlternativeGeometriesGroup"/>
 	</xs:complexType>
 	<xs:complexType name="UserRolesType">
 		<xs:sequence>

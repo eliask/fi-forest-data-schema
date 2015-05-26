@@ -119,17 +119,7 @@
 					<xs:documentation xml:lang="fi">Työnantajarekisteri</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="EmployerRegisterStartDate" type="bdt:DateType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Alku pvm</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="EmployerRegisterEndDate" type="bdt:DateType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Loppu pvm</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="BankAccount" type="bdt:String20Type" minOccurs="1">
+			<xs:element name="BankAccount" type="bdt:String50Type" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Pankkiyhteystiedot (IBAN)</xs:documentation>
 				</xs:annotation>

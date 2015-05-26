@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://standardit.tapio.fi/schemas/forestData/RoadOrDitchObjectUpdate"
+           xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
+           xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+           targetNamespace="http://standardit.tapio.fi/schemas/forestData/RoadOrDitchObjectUpdate"
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.3">
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
+	<xs:element name="RoadOrDitchObjectUpdate" type="RoadOrDitchObjectUpdateType">
+		<xs:annotation>
+			<xs:documentation>Tie/Ojituskohteen päivitys</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="RoadOrDitchObjectUpdateType">
+		<xs:sequence>
+			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkingSiteId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ContractorId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Yrittäjän tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourceId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Resurssin tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UserId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Käyttäjätunnus</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RoadOrDitchObjects" type="RoadDitchObjectsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Matka alkoi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RoadDitchObjectsType">
+		<xs:sequence>
+			<xs:element name="RoadDitchObject" type="RoadDitchObjectType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työlajin kohteet</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RoadDitchObjectType">
+		<xs:sequence>
+			<xs:element name="ForestSystemId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Metsäjärjestelmän tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ObjectCode" type="bdt:WorkCodeType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kohteen koodi (=työlajin koodi)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Amount" type="bdt:Decimal2FractionDigitsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Materiaalin määrä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Unit" type="bdt:WorkCodeUnitType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Materiaalin yksikkö</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InfoText" type="bdt:String500Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lisätieto</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Geometry" type="gdt:AlternativeGeometriesType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kohteen sijaintitieto</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Placement" type="bdt:PlacementType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kohteen sijaintitieto</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ObjectName" type="bdt:String100Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kohteen nimi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SideDitchSize" type="bdt:Decimal2FractionDigitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Sivuojan koko</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RoadName" type="bdt:String100Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tien nimi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RoadNumber" type="bdt:String10Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tien numero</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RoadClass" type="bdt:String5Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tieluokka</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Width" type="bdt:Decimal2FractionDigitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Leveys</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Depth" type="bdt:Decimal2FractionDigitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Syvyys</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Length" type="bdt:Decimal2FractionDigitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pituus</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Thickness" type="bdt:Decimal2FractionDigitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Paksuus</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DitchName" type="bdt:String50Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ojan nimi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DrainageBasin" type="bdt:Decimal2FractionDigitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Valuma-ala (ha)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DeliveryDitchDepth" type="bdt:Decimal2FractionDigitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Purkuojan syvyys (m)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Volume" type="bdt:Decimal2FractionDigitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tilavuus (m3)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WallSlant" type="bdt:Decimal1FractionDigitType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Laskeutusaltaan seinäkaltevuus (0.0 - 1.0)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RoadDitchObjectMaterials" type="RoadDitchObjectMaterialsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työlajin kohteen materiaalit</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RoadDitchObjectMaterialType">
+		<xs:sequence>
+			<xs:element name="MaterialCode" type="bdt:MaterialCodeType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Viittaus materiaaliin</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Geometry" type="gdt:AlternativeGeometriesType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Materiaalin sijaintitieto</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Amount" type="bdt:Decimal2FractionDigitsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Materiaalin määrä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Unit" type="bdt:WorkCodeUnitType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Materiaalin yksikkö</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Diameter" type="bdt:Decimal2FractionDigitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Läpimitta, cm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Length" type="bdt:Decimal2FractionDigitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pituus, m</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GrainSize" type="bdt:Decimal2FractionDigitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Raekoko, mm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RoadDitchObjectMaterialsType">
+		<xs:sequence>
+			<xs:element name="RoadDitchObjectMaterial" type="RoadDitchObjectMaterialType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työlajin kohteen materiaalit</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

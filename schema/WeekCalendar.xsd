@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WeekCalendar" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WeekCalendar" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WeekCalendar" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WeekCalendar" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.3">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:element name="WeekCalendar" type="WeekCalendarType"/>
 	<xs:complexType name="WeekCalendarType">
@@ -48,12 +48,27 @@
 					<xs:documentation xml:lang="fi">Lohkon tunniste, yksilöivä id</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="WorkingHoursBusinessDay" type="bdt:PositiveInteger2digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Viikkotyoaika, oletustyöskentely tunnit arkisin</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkingHoursSaturday" type="bdt:PositiveInteger2digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Viikkotyoaika, oletustyöskentely tunnit lauantai</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkingHoursSunday" type="bdt:PositiveInteger2digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Viikkotyoaika, oletustyöskentely tunnit sunnuntai</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Days" type="DaysType" minOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DaysType">
 		<xs:sequence>
-			<xs:element name="Day" type="DayType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="Day" type="DayType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DayType">
@@ -69,11 +84,6 @@
 			<xs:element name="Hours" type="bdt:PositiveInteger2digitsType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Työskentely tunnit</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="ServiceType" type="bdt:ServiceTypeType">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Palvelukokonaisuus</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

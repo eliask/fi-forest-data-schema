@@ -5,6 +5,7 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	Ensimmäinen versio 1.0
 
+	VERSIOKOMMENTIT 1.0
 	15.8.2014
 	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
 	yhdeksi namespaceksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
@@ -15,6 +16,9 @@
 	
 	29.9.2014 CuttingType elementti poistettu sanomasta, SoilPreparationOperation,
 	RegenerationOperation, OtherOperaton ja CuttingRightsOwner vapaavalintaisiksi
+	
+	VERSIOKOMMENTIT 1.0 >>> 1.1
+	10.4.2015 Otettu käyttön lokaalit gml skeemat
 	****************************************************************************
 -->
 
@@ -29,7 +33,7 @@ xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
  xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
 xmlns:gml="http://www.opengis.net/gml" 
 elementFormDefault="qualified"
-version="1.0">
+version="1.1">
 	<!--xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
 		
 		xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes/2010/08/31"  
@@ -40,7 +44,8 @@ version="1.0">
  
    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/> 
 	 <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/> 
-	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/>
+	<!-- <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/> 		-->
+	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="../gml/3.1.1/base/gml.xsd"/> 
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14" schemaLocation="StandBase_20110214.xsd"/>
 	 <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14" schemaLocation="RealEstate_20110214.xsd"/> 
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation" schemaLocation="ContactInformation.xsd"/>
@@ -90,7 +95,7 @@ version="1.0">
 	<xs:element name="FertilityClass" type="co:FertilityClassType"/>
 	<xs:element name="SoilType" type="co:SoilTypeType"/> 
 	<xs:element name="MainTreeSpecies" type="stb:MainTreeSpeciesType"/>	
-	<xs:element name="DevelopmentClass" type="co:DevelopmentClassType"/>
+	<xs:element name="DeclarationDevelopmentClass" type="co:DeclarationDevelopmentClassType"/>
 	<xs:element name="MeanAge" type="co:AgeType"/>
 	<xs:element name="MeanDiameter" type="MeanDiameterType"/>
 	<xs:element name="DeclarationRegenerationCommitment" type="co:RegenerationCommitmentType"/>     <!--Määritetty uusi syykoodi uudistamisvelvoitteelle: 0 =Voimassa, syykoodit>0  Ei ole voimassa -->
@@ -239,7 +244,7 @@ version="1.0">
 			<xs:element ref="FertilityClass" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="SoilType" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="MainTreeSpecies" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="DevelopmentClass" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="DeclarationDevelopmentClass" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="MeanAge" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="MeanDiameter" minOccurs="1" maxOccurs="1"/> 
 			<xs:element ref="DeclarationRegenerationCommitment" minOccurs="1" maxOccurs="1"/>
@@ -271,7 +276,6 @@ version="1.0">
 			<xs:element ref="HabitatOperation" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>	
-
 
 	<xs:complexType name="DeclarationOtherOperationsType">
 		<xs:annotation>

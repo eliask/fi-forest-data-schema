@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSilviculture" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSilviculture" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSilviculture"
+           xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
+           targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSilviculture"
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.3">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:element name="WorkingSiteFinalAuditSilviculture" type="WorkingSiteFinalAuditSilvicultureType">
 		<xs:annotation>
@@ -72,11 +76,6 @@
 			<xs:element name="SamplePlotCountRequired" type="bdt:PositiveInteger3digitsType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Koealojen lkm (toteutunut)</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="GrowablePlants" type="bdt:PositiveInteger4digitsType" minOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kasvatuskelpoisia taimia</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="InfoText" type="bdt:String1000Type" minOccurs="0">

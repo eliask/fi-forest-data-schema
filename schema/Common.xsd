@@ -21,6 +21,7 @@
 	 Lisätty tyyppi "TreeClassType" 	
 	 VERSIOKOMMENTIT 1.4 >>> 1.5 
 	 Lisätty skeema ForestEnumeratives_20130620.xsd 
+	 Lisätty skeema ForestEnumeratives_20130620.xsd 
 	 VERSIOKOMMENTIT 1.5 >>> 1.6
 	 Lisätty tyypit: 
 		ReferenceType
@@ -32,13 +33,25 @@
 	 15.8.2014  Yhdistetty skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd
 	 yhdeksi namespaceksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
 	 
+	 VERSIOKOMMENTIT 1.6 >>> 1.7
+	 8.4.2015 
+	 -NotDefinedType lisätty
+	 -AgeType määritystä muutettu hyväksymään -1 arvoksi, kun ikää ei ole annettu 
+	 
+	VERSIOKOMMENTIT 1.7 >>> 1.8
+	10.4.2015 Otettu käyttön lokaali xmlmime skeema
+	
+	VERSIOKOMMENTIT 1.8 >>> 1.9
+	24.4.2015 Vanha AgeType määritys otettu takaisin käyttön. 'Ei määritelty' tieto pakollisessa kentässä olisi loogisesti ristiriitaista,
+	ja päätettiin  (Metsätietojen standardoinnin valmisteluryhmän kokouksessa 13.4.2015 )
+	että tieto on aina pakollinen ja ei mahdollisestat 'Ei määritelty' vaihtoehdon antamista.
 	*******************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
 targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" 
 xmlns="http://standardit.tapio.fi/schemas/forestData/common"  
  xmlns:xmime="http://www.w3.org/2005/05/xmlmime" 
- elementFormDefault="unqualified" version="1.6">
+ elementFormDefault="unqualified" version="1.8">
 	<xs:include schemaLocation="Common_BasicDataType.xsd"/>
 	<!--<xs:include schemaLocation="Common_GeometricDataType.xsd"/> ei includata tätä koska muuten tulee päällekkäisiä includeja-->
 
@@ -46,7 +59,8 @@ xmlns="http://standardit.tapio.fi/schemas/forestData/common"
  xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20"-->
 <!--	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/> -->
-	<xs:import namespace="http://www.w3.org/2005/05/xmlmime" schemaLocation="http://www.w3.org/2005/05/xmlmime"/>
+<!--	<xs:import namespace="http://www.w3.org/2005/05/xmlmime" schemaLocation="http://www.w3.org/2005/05/xmlmime"/> -->
+<xs:import namespace="http://www.w3.org/2005/05/xmlmime" schemaLocation="../w3c/2005/xmlmime.xsd"/> 
 	<!-- Elementtimääritykset -->
 	<!-- Element definitions -->
 	<xs:element name="ChangeState" type="ChangeStateType"/>  
@@ -157,6 +171,15 @@ xmlns="http://standardit.tapio.fi/schemas/forestData/common"
 		</xs:annotation>
 		<xs:restriction base="fe:StoreyType"/>
 	</xs:simpleType>-->
+<!--	<xs:simpleType name="AgeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Ikä, v.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Age, years</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="PositiveInteger3digitsType 
+							   NotDefinedType"/>		
+	</xs:simpleType> -->
 	<xs:simpleType name="AgeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Ikä, v.</xs:documentation>
@@ -166,7 +189,26 @@ xmlns="http://standardit.tapio.fi/schemas/forestData/common"
 		<xs:restriction base="xs:string">
 			<xs:pattern value="[0-9]{1,3}"/>
 		</xs:restriction>
+	</xs:simpleType>  
+
+	<xs:simpleType name="NotDefinedType">
+		<xs:annotation>		
+			<xs:documentation xml:lang="fi">Ei määritelty</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Not defined</xs:documentation>
+		</xs:annotation>			
+		<xs:restriction base="xs:integer">
+		<xs:enumeration value="-1"> 
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Ei määritelty</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Not defined</xs:documentation>
+		</xs:annotation>
+		</xs:enumeration>
+		</xs:restriction>
 	</xs:simpleType>
+
+	
 	<xs:simpleType name="BasalAreaType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Pohjapinta-ala, m2/ha</xs:documentation>

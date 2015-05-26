@@ -8,6 +8,9 @@
 	15.8.2014 
 	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
 	yhdeksi nimiavaruudeksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common"
+	
+	VERSIOKOMMENTIT 1.1 >>> 1.2
+	10.4.2015 Otettu käyttön lokaalit gml skeemat
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -18,7 +21,7 @@
 	xmlns:sp="http://standardit.tapio.fi/schemas/virta/sampleplot" 
 	xmlns:sfb="http://standardit.tapio.fi/schemas/forestData/specialFeatureBase/2011/02/14" 
 	xmlns:op="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31"  
-	xmlns:gml="http://www.opengis.net/gml" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.1">
+	xmlns:gml="http://www.opengis.net/gml" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.2">
 	
 	<!-- 
 		xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 
@@ -35,7 +38,8 @@
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31" schemaLocation="Operation_20100831.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/virta/sampleplot" schemaLocation="VirtaSamplePlot.xsd"/>
 <!--	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>  -->
-	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/> 
+	<!-- <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/> 		-->
+	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="../gml/3.1.1/base/gml.xsd"/> 
 
    	<!-- Element definitions -->
 	<xs:element name="TargetPart" type="TargetPartType"/>

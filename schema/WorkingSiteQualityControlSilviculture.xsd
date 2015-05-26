@@ -16,17 +16,21 @@
 					<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ResourceId" type="bdt:String20Type" minOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Resurssi ID</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="Images" type="bdt:PositiveInteger2digitsType" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Valokuvien lukumäärä</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SamplePlots" type="SamplePlotType" minOccurs="1">
+			<xs:element name="SamplePlots" type="SamplePlotsType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealatiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SamplePlotsType">
+		<xs:sequence>
+			<xs:element name="SamplePlot" type="SamplePlotType" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Koealatiedot</xs:documentation>
 				</xs:annotation>
@@ -67,6 +71,11 @@
 			<xs:element name="StandNumber" type="bdt:String10Type" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Kuvion tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourceId" type="bdt:String20Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Resurssi ID</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="MeasureDate" type="bdt:DateType" minOccurs="1">

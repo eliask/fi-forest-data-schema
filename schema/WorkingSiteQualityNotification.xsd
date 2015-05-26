@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityNotification" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityNotification" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityNotification"
+           xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
+           targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityNotification"
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.3">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:element name="WorkingSiteQualityNotification" type="WorkingSiteQualityNotificationType">
 		<xs:annotation>
@@ -84,7 +88,7 @@
 					<xs:documentation>Katkontatarkkuus (+/-)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Document" type="xs:base64Binary" minOccurs="1">
+			<xs:element name="Document" type="xs:base64Binary" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>VOT</xs:documentation>
 				</xs:annotation>
@@ -94,16 +98,16 @@
 					<xs:documentation>Valokuva</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DisQualificationReasons" type="DisQualificationReasonsType" minOccurs="1">
+			<xs:element name="DisQualificationReasons" type="DisQualificationReasonsType">
 				<xs:annotation>
-					<xs:documentation>Hylkäyssyyt (1..4)</xs:documentation>
+					<xs:documentation>Hylkäyssyyt</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DisQualificationReasonsType">
 		<xs:sequence>
-			<xs:element name="DisQualificationReason" type="DisQualificationReasonDataType" minOccurs="1" maxOccurs="4"/>
+			<xs:element name="DisQualificationReason" type="DisQualificationReasonDataType" minOccurs="0" maxOccurs="4"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DisQualificationReasonDataType">

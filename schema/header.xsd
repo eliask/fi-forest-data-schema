@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/header" targetNamespace="http://standardit.tapio.fi/schemas/header" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://standardit.tapio.fi/schemas/header"
+           targetNamespace="http://standardit.tapio.fi/schemas/header"
+           elementFormDefault="qualified" version="0.3">
 	<xs:element name="Header" type="HeaderType"/>
 	<xs:complexType name="HeaderType">
 		<xs:sequence>
@@ -9,7 +12,7 @@
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
-						<xs:maxLength value="30"/>
+						<xs:maxLength value="50"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>

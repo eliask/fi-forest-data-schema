@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/SilvicultureOrder" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/SilvicultureOrder" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://standardit.tapio.fi/schemas/forestData/SilvicultureOrder"
+           xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
+           targetNamespace="http://standardit.tapio.fi/schemas/forestData/SilvicultureOrder"
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.3">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:element name="SilvicultureOrder" type="SilvicultureOrderType">
 		<xs:annotation>
@@ -86,7 +90,7 @@
 					<xs:documentation xml:lang="fi">Määrä</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Unit" type="bdt:String10Type" minOccurs="1">
+			<xs:element name="Unit" type="bdt:WorkCodeUnitType" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Yksikkö</xs:documentation>
 				</xs:annotation>

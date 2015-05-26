@@ -25,7 +25,19 @@
 	yhdeksi namespaceksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
 	
     Tässä skeemassa otettu käyttöön uusi common nimiavaruus
-	***************************************************************
+    
+    VERSIOKOMMENTIT 1.5 >> 1.6
+    8.4.2015   CuttingIncome ja Cost elementit ja määrittelyt lisätty ja otettu käyttöön
+    Cutting ja Silviculture määrittelyissä.
+    
+    VERSIOKOMMENTIT 1.6 >> 1.7
+    27.4.2015   Metsätietojen standardoinnin valmisteluryhmän kokouksessa (13.4.2015) päätettiin kasvattaa 
+	CuttingIncome ja Cost elementtien määrittelyä, niin että sallivat isotkin luvut
+    
+	Samalla korjattiin sekä näihin, että CuttingVolumeType määrittelyyn desimaaliluvun määrittely.
+	Aikaisempi Union- määrittely salli ylipitkiä decimaalilukuja. 
+
+    ***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31"
@@ -33,7 +45,7 @@
     xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
     xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2010/05/14" 
  
-	elementFormDefault="qualified" version="1.5">
+	elementFormDefault="qualified" version="1.7">
 	
  <!--   xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
 		xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"	
@@ -83,6 +95,8 @@
     <xs:element name="AlternativeName" type="AlternativeNameType"/>
     <xs:element name="ProposalArea" type="ProposalAreaType"/>
     <xs:element name="ProposalAreaPercent" type="ProposalAreaPercentType"/>
+    <xs:element name="CuttingIncome" type="CuttingIncomeType"/>    
+	<xs:element name="Cost" type="CostType"/>    
     <!-- Tyyppimääritykset -->
     <!-- Type definitions -->
     <xs:complexType name="OperationsType">
@@ -411,17 +425,28 @@
         </xs:annotation>
         <xs:sequence>
             <xs:element ref="CuttingVolume" minOccurs="0"/>
-            <xs:element ref="Assortments" minOccurs="0" maxOccurs="1"/> 
+            <xs:element ref="Assortments" minOccurs="0" maxOccurs="1"/>
+            <xs:element ref="CuttingIncome" minOccurs="0" maxOccurs="1"/>            
         </xs:sequence>
     </xs:complexType>
-    <xs:simpleType name="CuttingVolumeType">
+   <xs:simpleType name="CuttingVolumeType"> 
         <xs:annotation>
             <xs:documentation xml:lang="fi">Hakkuun kertymä (arvio). Käytettävä yksikkö on m3/ha.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Cutting volume (estimation). Unit is m3/ha.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="co:Decimal5TotalDigitsType co:Decimal2FractionDigitsType"/>
+        <!--<xs:union memberTypes="co:Decimal5TotalDigitsType co:Decimal2FractionDigitsType"/> -->
+		<xs:restriction base="co:PositiveDecimal_Max5IntegralPart_Max2FractionalPartType"></xs:restriction>		
     </xs:simpleType>
+   <xs:simpleType name="CuttingIncomeType">	
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Kokonaistulo. Käyettävä ykskkö on €.</xs:documentation>
+            <xs:documentation xml:lang="sv"></xs:documentation>
+            <xs:documentation xml:lang="en">Cutting income. Unit is €.</xs:documentation>
+        </xs:annotation>
+      <!-- <xs:union memberTypes="co:Decimal6TotalDigitsType co:Decimal2FractionDigitsType"/>-->
+		<xs:restriction base="co:PositiveDecimal_Max7IntegralPart_Max2FractionalPartType"></xs:restriction>	  
+    </xs:simpleType>   
     <xs:complexType name="AssortmentsType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Hakkuun puutavaralajit.</xs:documentation>
@@ -496,6 +521,7 @@
         </xs:annotation>
         <xs:sequence>
             <xs:element ref="CuttingRelated" minOccurs="0"/>
+			<xs:element ref="Cost" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
     <xs:simpleType name="CuttingRelatedType">
@@ -506,6 +532,15 @@
         </xs:annotation>
         <xs:restriction base="co:YesNoType"/>
     </xs:simpleType>
+	<xs:simpleType name="CostType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Toimenpiteen kokonaiskustannus. Käyettävä ykskkö on €.</xs:documentation>
+            <xs:documentation xml:lang="sv"></xs:documentation>
+            <xs:documentation xml:lang="en">Income of silvicultural operation. Unit is €.</xs:documentation>
+        </xs:annotation>
+        <!--<xs:union memberTypes="co:Decimal6TotalDigitsType co:Decimal2FractionDigitsType"/> -->
+		<xs:restriction base="co:PositiveDecimal_Max7IntegralPart_Max2FractionalPartType"></xs:restriction> 
+    </xs:simpleType>   
     <xs:complexType name="PlannedOperationChainsType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Suunnitteluvaihtoehdot. Vaihtoehtoiset toimenpideketjut.</xs:documentation>

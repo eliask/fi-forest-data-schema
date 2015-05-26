@@ -10,6 +10,10 @@
 	yhdeksi namespaceksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
 
    	Tässä skeemassa otettu käyttöön uusi common nimiavaruus 
+   	
+   	VERSIOKOMMENTIT 1.1 >> 1.2
+   	8.4.2015
+   	AlternativeIdentifierType määritys lisätty ja elementti otettu käyttöön TreeStandDataDateType määrittelyssä
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -22,7 +26,7 @@
 	xmlns:tss="http://standardit.tapio.fi/schemas/forestData/treeStandSummary/2010/08/31"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" 
- elementFormDefault="qualified" version="1.0">
+ elementFormDefault="qualified" version="1.2">
  	<!--xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
  	xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" -->
@@ -41,9 +45,19 @@
    	<!-- Element definitions -->
 	<xs:element name="TreeStandData" type="TreeStandDataType"/>
 	<xs:element name="TreeStandDataDate" type="TreeStandDataDateType"/>
+	<xs:element name="AlternativeIdentifier" type="AlternativeIdentifierType"/>
 	
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
+
+	<xs:simpleType name="AlternativeIdentifierType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Suunnitelmavaihtoehdon tunniste. Erottaa eri suunnitelmavaihtoehtojen TreeStandSummary-elementit.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
 	<xs:complexType name="TreeStandDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvion puustotiedot tyypeittäin ja ajankohdittain.</xs:documentation>
@@ -62,6 +76,7 @@
 			<xs:documentation xml:lang="en">Some moment data of tree stand specified by date and type.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element ref="AlternativeIdentifier" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="tst:TreeStrata" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="dts:DeadTreeStrata" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="tss:TreeStandSummary" minOccurs="0" maxOccurs="1"/>

@@ -69,11 +69,6 @@
 					<xs:documentation xml:lang="fi">Koealojen lkm (vaadittu)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PlantingSiteCount" type="bdt:PositiveInteger4digitsType" minOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kasvatuskelpoisia taimia/ha</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="InfoText" type="bdt:String1000Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Lisätiedot</xs:documentation>
@@ -136,11 +131,6 @@
 			<xs:element name="ClearingDoneText" type="bdt:String200Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Onko raivaus tehty selite</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="SoilConditioningMethod" type="bdt:WorkCodeType">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Maanmuokkausmenetelmä</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SoilConditioningMethodCorrect" type="bdt:YesNoType">

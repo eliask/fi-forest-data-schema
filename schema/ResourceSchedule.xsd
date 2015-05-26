@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/ResourceSchedule" 
-xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" 
-targetNamespace="http://standardit.tapio.fi/schemas/forestData/ResourceSchedule" 
-elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
-	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/> -->
-		<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://standardit.tapio.fi/schemas/forestData/ResourceSchedule"
+           xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
+           targetNamespace="http://standardit.tapio.fi/schemas/forestData/ResourceSchedule"
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.3">
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:element name="ResourceSchedule" type="ResourceScheduleType"/>
 	<xs:complexType name="ResourceScheduleType">
 		<xs:sequence>
-			<xs:element name="ContractorId" type="co:String20Type" minOccurs="1"/>
+			<xs:element name="ContractorId" type="bdt:String20Type" minOccurs="1"/>
 			<xs:element name="Resources" type="ResourcesType" minOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -23,22 +23,22 @@ elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
 			<xs:documentation xml:lang="fi">Resurssit</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="StanfordResourceId" type="co:String50Type" minOccurs="0">
+			<xs:element name="StanfordResourceId" type="bdt:String50Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Stanford Id</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ResourceId" type="co:String20Type">
+			<xs:element name="ResourceId" type="bdt:String20Type">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Yksilöivä id </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ServiceBuyerResourceId" type="co:String20Type" minOccurs="0">
+			<xs:element name="ServiceBuyerResourceId" type="bdt:String20Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Urakanantajan resurssi Id</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ResourceType" type="co:ResourceTypeType">
+			<xs:element name="ResourceType" type="bdt:ResourceTypeType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Resurssin tyyppi</xs:documentation>
 				</xs:annotation>
@@ -60,32 +60,32 @@ elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
 			<xs:documentation xml:lang="fi">Resurssin kalenteritiedot</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ServiceBuyerId" type="co:String20Type" minOccurs="0">
+			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkingSiteId" type="co:String20Type" minOccurs="0">
+			<xs:element name="WorkingSiteId" type="bdt:String20Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TeamName" type="co:String50Type" minOccurs="0">
+			<xs:element name="TeamName" type="bdt:String50Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Työryhmän nimi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StartDate" type="co:DateType">
+			<xs:element name="StartDate" type="bdt:DateType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Aloitus pvm</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="EndDate" type="co:DateType">
+			<xs:element name="EndDate" type="bdt:DateType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Lopetuspvm</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ForwarderDelay" type="co:PositiveInteger2digitsType" minOccurs="0">
+			<xs:element name="ForwarderDelay" type="bdt:PositiveInteger2digitsType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Mekuviive (pv)</xs:documentation>
 				</xs:annotation>

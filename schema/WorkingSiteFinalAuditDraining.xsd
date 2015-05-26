@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditDraining"
+           xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
+           targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditDraining"
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.3">
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:element name="WorkingSiteFinalAuditDraining" type="WorkingSiteFinalAuditDrainingType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Ojituksen loppuarviointi/laadunseuranta</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="WorkingSiteFinalAuditDrainingType">
+		<xs:sequence>
+			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourceId" type="bdt:String20Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Resurssin tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkingSiteId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkCodeGroup" type="bdt:WorkCodeGroupType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työlajiryhmän koodi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkCode" type="bdt:WorkCodeType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työlajin koodi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Area" type="bdt:Decimal2FractionDigitsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pinta-ala ha</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkingTime" type="bdt:DateType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työskentelyn ajankohta (YYYY-MM-DD)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Audit" type="AuditionType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Arvioinnin tiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InfoText" type="bdt:String1000Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lisätiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Images" type="bdt:PositiveInteger2digitsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Valokuvien lkm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Audits" type="AuditsType" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AuditionType">
+		<xs:sequence>
+			<xs:element name="FinalAuditType" type="bdt:FinalAuditTypeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Arvioinnin tyyppi (laaja/suppea)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FinalAuditerType" type="bdt:FinalAuditerTypeType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Arvioitsijan tyyppi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FinalAuditerId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Arvioitsijan Id</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FinalAuditerName" type="bdt:String50Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Arvioitsijan nimi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FinalAuditDate" type="bdt:TimeStampType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">pvm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FinalAuditRequired" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Loppuarvioinnin vaadittu MJ:stä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AuditsType">
+		<xs:sequence>
+			<xs:element name="SedimentationBasinAndDamDimensioningIsFollowed" type="bdt:YesNoNotKnownType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Onko suunnitelman mukaisten laskeutusaltaiden ja patojen mitoitusta noudatettu</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SedimentationBasinAndDamDimensioningIsFollowedText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Onko suunnitelman mukaisten laskeutusaltaiden ja patojen mitoitusta noudatettu selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SedimentationBasinSizeShapeAndFunctionality" type="bdt:WorkingQualityType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Laskeutusaltaiden koko, muoto ja toimivuus</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SedimentationBasinSizeShapeAndFunctionalityText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Laskeutusaltaiden koko, muoto ja toimivuus selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SuspensionHoleDensitySizeAndLocation" type="bdt:WorkingQualityType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lietekuoppien tiheys, koko ja sijoittelu</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SuspensionHoleDensitySizeAndLocationText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lietekuoppien tiheys, koko ja sijoittelu selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CleaningBreaksDone" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Onko perkauskatkoja  toteutettu</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CleaningBreaksDoneText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Onko perkauskatkoja  toteutettu selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SurfaceRunoffFieldGroundIsUnbroken" type="bdt:YesNoNotKnownType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Onko pintavalutuskenttien maanpinta rikkomaton</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SurfaceRunoffFieldGroundIsUnbrokenText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Onko pintavalutuskenttien maanpinta rikkomaton selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DitchDepthWidthAndDrainageEffect" type="bdt:WorkingQualityType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ojien syvyys, leveys ja kuivatusvaikutus</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DitchDepthWidthAndDrainageEffectText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ojien syvyys, leveys ja kuivatusvaikutus selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExcavationSoilLocation" type="bdt:WorkingQualityType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kaivumaiden sijoittelu</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExcavationSoilLocationText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kaivumaiden sijoittelu selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExcavatorMovingAndTreeDamages" type="bdt:WorkingQualityType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kaivinkoneella liikkuminen työmaalla / puustovauriot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExcavatorMovingAndTreeDamagesText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kaivinkoneella liikkuminen työmaalla / puustovauriot selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DitchCleaningBreakLocation" type="bdt:WorkingQualityType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">kaivu/perkauskatkojen sijainti</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DitchCleaningBreakLocationText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">kaivu/perkauskatkojen sijainti selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hasEnvironmentalObjects" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Onko työmaalla ympäristökohteita</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hasEnvironmentalObjectsText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Onko työmaalla ympäristökohteita selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NewEnvironmentalObjects" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Onko työmaalla havaittu uusia ympäristökohteita</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NewEnvironmentalObjectsText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Onko työmaalla havaittu uusia ympäristökohteita selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnvironmentalObjectNoticed" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Onko ympäristö- ja muinaismuistokohteet huomioitu ohjeistuksen mukaisesti</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnvironmentalObjectNoticedText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Onko ympäristö- ja muinaismuistokohteet huomioitu ohjeistuksen mukaisesti selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LimitsToWaterSystem" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Rajoittuuko vesistöön</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LimitsToWaterSystemText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Rajoittuuko vesistöön selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WaterEconomySystemNoticed" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Vesitalouden järjestelyt huomioitu</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WaterEconomySystemNoticedText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Vesitalouden järjestelyt huomioitu selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WaterSystemProtection" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Suojakaista vesistöön huomioitu koneellisessa istutuksessa</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WaterSystemProtectionText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Suojakaista vesistöön huomioitu koneellisessa istutuksessa selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkingSafetyNoticed" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Onko työturvallisuusasiat huomioitu</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkingSafetyNoticedText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Onko työturvallisuusasiat huomioitu selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkingInstructionsSufficient" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Onko työohje ja maastomerkinnät riittävät</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkingInstructionsSufficientText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Onko työohje ja maastomerkinnät riittävät selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -34,6 +34,11 @@
 					<xs:documentation xml:lang="fi">Työlajin koodi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="WorkCodeQualifier" type="bdt:WorkCodeQualifierType1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työlajin lisämääre</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="ContractorId" type="bdt:String20Type" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Yrittäjän tunniste (alv-tunnus)</xs:documentation>
