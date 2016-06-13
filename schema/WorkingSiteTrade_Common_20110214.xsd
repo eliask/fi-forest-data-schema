@@ -12,7 +12,6 @@
 	 Koodistotyyppiset määrittelyt siirretty skeemaan ForestEnumeratives_20130620. 
 	 Tyypin CallForOfferTextType määrittelyssä maksimipituudeksi muutettu 1500. 
 
-
 	15.8.2014 
 	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
 	yhdeksi nimiavaruudeksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
@@ -25,29 +24,33 @@
 	10.4.2015 Otettu käyttön lokaali xmlmime skeema
 	*******************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" 
-xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" 
-xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
-xmlns:xmime="http://www.w3.org/2005/05/xmlmime" 
-xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation" 
-xmlns:sf="http://standardit.tapio.fi/schemas/forestData/specialFeature/2011/02/14" 
-xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14" 
-xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" 
-elementFormDefault="qualified" version="1.3">
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" 
+	xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" 
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+	xmlns:xmime="http://www.w3.org/2005/05/xmlmime" 
+	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation" 
+	xmlns:sf="http://standardit.tapio.fi/schemas/forestData/specialFeature" 
+	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate" 
+	xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" 
+	elementFormDefault="qualified"
+	version="1.3">
 
-<!--
-xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20"	
-xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"  -->
-	<!-- <xs:import namespace="http://www.w3.org/2005/05/xmlmime" schemaLocation="http://www.w3.org/2005/05/xmlmime"/> -->
-	<xs:import namespace="http://www.w3.org/2005/05/xmlmime" schemaLocation="../w3c/2005/xmlmime.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation" schemaLocation="ContactInformation.xsd"/>
-	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/> -->
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"	schemaLocation="Common.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeature/2011/02/14" schemaLocation="SpecialFeature_20110214.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14" schemaLocation="RealEstate_20110214.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14" schemaLocation="WorkingSiteTrade_Assortment_20110214.xsd"/>	
-	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/> -->
+	<!-- Imports / Includes -->
+	<xs:import namespace="http://www.w3.org/2005/05/xmlmime"
+		schemaLocation="../w3c/2005/xmlmime.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation"
+		schemaLocation="ContactInformation.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+		schemaLocation="Common.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeature"
+		schemaLocation="SpecialFeature.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/realEstate"
+		schemaLocation="RealEstate.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14"
+		schemaLocation="WorkingSiteTrade_Assortment_20110214.xsd"/>	
+
 	<!-- Elementtimääritykset -->
 	<!-- Element definitions -->
 	<xs:element name="PurchaseMode" type="PurchaseModeType"/>
@@ -318,9 +321,9 @@ xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2
 	</xs:simpleType>
 	<xs:complexType name="CertificationSystemsType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kiinteistöllä voimassa olevat sertifiointijärjestelmät.</xs:documentation>
+			<xs:documentation xml:lang="fi">Voimassa olevat sertifiointijärjestelmät.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Valid certification systems in specified real estate.</xs:documentation>
+			<xs:documentation xml:lang="en">Valid certification systems.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="CertificationSystem" minOccurs="1" maxOccurs="unbounded"/>
@@ -333,7 +336,7 @@ xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2
 			<xs:documentation xml:lang="en">Real property where working site is located.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="re:RealEstateDataType">
+			<xs:extension base="re:BaseRealEstateType">
 				<xs:sequence>
 					<xs:element ref="CertificationSystems" minOccurs="0"/>
 				</xs:sequence>

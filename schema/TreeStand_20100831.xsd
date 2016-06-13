@@ -14,96 +14,18 @@
    	VERSIOKOMMENTIT 1.1 >> 1.2
    	8.4.2015
    	AlternativeIdentifierType määritys lisätty ja elementti otettu käyttöön TreeStandDataDateType määrittelyssä
+   	
+   	VERSIOKOMMENTIT 1.2 >>> 1.3
+   	26.11.2015
+   	- TreeStand_20100831.xsd on nimetty TreeStand.xsd:ksi. Sisältö on
+   	siirretty tähän uuteen tiedostoon.
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/treeStand/2010/08/31"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/treeStand/2010/08/31"
-	xmlns:tst="http://standardit.tapio.fi/schemas/forestData/treeStratum/2010/08/31"
-	xmlns:sd="http://standardit.tapio.fi/schemas/forestData/stemDistribution/2010/08/31"
-	xmlns:sds="http://standardit.tapio.fi/schemas/forestData/stemDistributionStratum/2010/08/31"
-	xmlns:dts="http://standardit.tapio.fi/schemas/forestData/deadTreeStrata/2010/08/31"
-	xmlns:tss="http://standardit.tapio.fi/schemas/forestData/treeStandSummary/2010/08/31"
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
-	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" 
- elementFormDefault="qualified" version="1.2">
- 	<!--xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
- 	xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" -->
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStratum/2010/08/31" schemaLocation="TreeStratum_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/stemDistribution/2010/08/31" schemaLocation="StemDistribution_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/stemDistributionStratum/2010/08/31" schemaLocation="StemDistributionStratum_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/deadTreeStrata/2010/08/31" schemaLocation="DeadTreeStratum_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStandSummary/2010/08/31" schemaLocation="TreeStandSummary_20100831.xsd"/>
-<!--	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/> 
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/> -->
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/> 
-	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" schemaLocation="JHS170_20090304.xsd"/>
- <!--   <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/> -->
+	elementFormDefault="qualified"
+	version="1.3">
 
-	<!-- Elementtimääritykset -->
-   	<!-- Element definitions -->
-	<xs:element name="TreeStandData" type="TreeStandDataType"/>
-	<xs:element name="TreeStandDataDate" type="TreeStandDataDateType"/>
-	<xs:element name="AlternativeIdentifier" type="AlternativeIdentifierType"/>
-	
-	<!-- Tyyppimääritykset -->
-	<!-- Type definitions -->
-
-	<xs:simpleType name="AlternativeIdentifierType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Suunnitelmavaihtoehdon tunniste. Erottaa eri suunnitelmavaihtoehtojen TreeStandSummary-elementit.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string"/>
-	</xs:simpleType>
-	<xs:complexType name="TreeStandDataType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kuvion puustotiedot tyypeittäin ja ajankohdittain.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Tree stand data grouped by type and moment.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="TreeStandDataDate" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>	
-	</xs:complexType>
-
-	<xs:complexType name="TreeStandDataDateType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kuvion osoitetun tyyppinen (inventointi/laskenta/ennuste) puusto ajankohtana pvm.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Some moment data of tree stand specified by date and type.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="AlternativeIdentifier" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="tst:TreeStrata" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="dts:DeadTreeStrata" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="tss:TreeStandSummary" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="sd:StemDistribution" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="sds:StemDistributionStrata" minOccurs="0" maxOccurs="1"/>
-		</xs:sequence>
-		<xs:attribute name="type" type="TreeStandDataMomentType" use="required">
-			<xs:annotation>
-				<xs:documentation xml:lang="fi">Ajankohdan tyyppi</xs:documentation>
-				<xs:documentation xml:lang="sv"></xs:documentation>
-				<xs:documentation xml:lang="en">Type of moment.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>	
-		<xs:attribute name="date" type="co:DateType" use="required">
-			<xs:annotation>
-				<xs:documentation xml:lang="fi">Ajankohdan pvm. Inventointi-, laskenta- tai ennustepvm.</xs:documentation>
-				<xs:documentation xml:lang="sv"></xs:documentation>
-				<xs:documentation xml:lang="en">Date of moment.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>	
-	</xs:complexType>
-	<xs:simpleType name="TreeStandDataMomentType">	
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Laskenta- ja ennustetyyppi eri koodeina koska ainakin aiemmin metsäkeskuksissa on käytetty tulevaisuuden puuston esittämisessä molempia. Laskentatyyppisessä tiedot on esitetty puusto-ositetarkkuudella ja ennustetyyppisessä on ollut pelkkä yhteenveto. Näiden kahden tyypin soveltamisesta voivat tiedonsiirtosovellukset päättää keskenään.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
-		</xs:annotation>	
-		<xs:restriction base="co:TreeStandDataMomentType"/>
-	</xs:simpleType>
 </xs:schema>

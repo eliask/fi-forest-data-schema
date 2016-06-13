@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	*****************************************************************************
+	Kemera rahoitushakemuksen päätösviesti
+	Skeema on JHS-170 -suosituksen mukainen.
+	Ensimmäinen versio 1.0
+	
+	18.9.2015
+	- ForestryCentreDecisionType -tyypille lisätty lapsielementti fac:FinancingActNumber
+	****************************************************************************
+-->
+
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreDecision"
+	xmlns="http://standardit.tapio.fi/schemas/forestData/ForestCentreDecision"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+	xmlns:fac="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
+	elementFormDefault="qualified"
+	version="1.0">
+
+	<!-- Imports / Includes -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+		schemaLocation="Common.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
+        schemaLocation="FinancingActCommon.xsd"/>
+		
+	<!-- Elementtimääritykset -->
+	<!-- Element definitions -->
+	<xs:element name="ForestCentreDecision" type="ForestCentreDecisionType"/>
+	<xs:element name="Acceptance" type="co:AcceptanceType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Hyväksytty / Hylätty / Osittain hyväksytty</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Accepted / Rejected / Partially accepted</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DesicionType" type="DesicionTypeType"/>
+	<xs:element name="DesicionDate" type="co:DateType"/>
+	<xs:element name="DecisionDocument" type="co:DocumentType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Päätösdokumentti</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Decision document</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="RectificationDemand" type="co:DocumentType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Oikaisuvaatimusosoitus dokumenttina</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Rectification demand as a document</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<!-- Tyyppimääritykset -->
+	<!-- Type definitions -->
+	<xs:complexType name="ForestCentreDecisionType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsäkeskuksen Kemera-päätös</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Forest centre Kemera desicion</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+            <xs:element ref="fac:FinancingActNumber" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fac:FinancingActApplicationReference" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="fac:CompletionDeclarationReference" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="fac:CustomerReference" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="DesicionType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Rahoituspäätös, Lisärahoituspäätös</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="DesicionDate"/>
+			<xs:element ref="Acceptance" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="DecisionDocument"/>
+			<xs:element ref="RectificationDemand"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Päätöksen id</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en">Decision id</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	
+	<xs:simpleType name="DesicionTypeType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+
+</xs:schema>

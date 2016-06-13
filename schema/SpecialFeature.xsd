@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	***************************************************************
+	Erityispiirretietojen elementit ja tyypit. 
+	Skeema on JHS-170 -suosituksen mukainen.
+
+	***************************************************************
+-->
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    targetNamespace="http://standardit.tapio.fi/schemas/forestData/specialFeature" 	
+    xmlns="http://standardit.tapio.fi/schemas/forestData/specialFeature" 
+	xmlns:sf="http://standardit.tapio.fi/schemas/forestData/specialFeatureBase"
+	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+    elementFormDefault="qualified"
+    version="1.1">
+    
+	<!-- Imports / Includes -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+		schemaLocation="Common.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeatureBase"
+		schemaLocation="SpecialFeatureBase.xsd"/>
+ 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+		schemaLocation="Common_GeometricDataType.xsd"/>
+    
+	<!-- Elementtimääritykset -->
+   	<!-- Element definitions -->
+	<xs:element name="Identifiers" type="IdentifiersType"/>
+    <xs:element name="MainFeature" type="MainFeatureType"/>
+    <xs:element name="FeatureType" type="FeatureTypeType"/>
+    <xs:element name="FeatureCode" type="FeatureCodeType"/>
+    <xs:element name="FeatureAdditionalCode" type="FeatureAdditionalCodeType"/>
+    <xs:element name="Validity" type="ValidityType"/>
+    <xs:element name="FeatureInfo" type="FeatureInfoType"/>
+    <xs:element name="FeatureAdditionalInfo" type="FeatureAdditionalInfoType"/>
+
+    <!-- Tyyppimääritykset -->
+    <!-- Type definitions -->
+    <xs:complexType name="BasicFeature1Type">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Yksittäisen erityispiirteen tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Single feature data.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element ref="co:ChangeState" minOccurs="0"/>
+            <xs:element ref="co:ChangeTime" minOccurs="0"/>
+            <xs:element ref="Identifiers" minOccurs="0"/>
+            <xs:element ref="MainFeature" minOccurs="0"/>
+            <xs:choice>
+	            <xs:element ref="FeatureType"/>
+	            <xs:group ref="FeatureDataGroup"/>
+            </xs:choice>
+            <xs:element ref="Validity" minOccurs="0"/>
+            <xs:element ref="FeatureInfo" minOccurs="0"/>
+            <xs:element ref="FeatureAdditionalInfo" minOccurs="0"/>
+            <xs:element ref="co:DataSource" minOccurs="0"/>
+        </xs:sequence>	
+        <xs:attribute name="id" type="xs:string">
+            <xs:annotation>
+                <xs:documentation xml:lang="fi">Erityispiirteen voidaan yksilöidä tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Feature can be identified using string id.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>	
+    </xs:complexType>
+    
+	<xs:complexType name="SpecialFeature1Type">
+		<xs:complexContent> 
+			<xs:extension base="BasicFeature1Type"/> 
+		</xs:complexContent> 
+	</xs:complexType>
+    
+   	<xs:complexType name="LocatedSpecialFeature1Type">
+		<xs:complexContent>
+			<xs:extension base="BasicFeature1Type">
+				<xs:group ref="gdt:AlternativeGeometriesGroup"></xs:group>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+    
+    <xs:complexType name="BasicFeature2Type">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Yksittäisen erityispiirteen tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Single feature data.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element ref="Identifiers" minOccurs="0"/>
+            <xs:element ref="FeatureType"/>
+            <xs:group ref="FeatureDataGroup" minOccurs="0"/>
+            <xs:element ref="Validity" minOccurs="0"/>
+            <xs:element ref="FeatureInfo" minOccurs="0"/>
+            <xs:element ref="FeatureAdditionalInfo" minOccurs="0"/>
+        </xs:sequence>	
+        <xs:attribute name="id" type="xs:string">
+            <xs:annotation>
+                <xs:documentation xml:lang="fi">Erityispiirteen voidaan yksilöidä tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Feature can be identified using string id.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>	
+    </xs:complexType>
+
+	<xs:complexType name="SpecialFeature2Type">
+		<xs:complexContent> 
+			<xs:extension base="BasicFeature2Type"/> 
+		</xs:complexContent> 
+	</xs:complexType>
+    
+   	<xs:complexType name="LocatedSpecialFeature2Type">
+		<xs:complexContent>
+			<xs:extension base="BasicFeature2Type">
+				<xs:group ref="gdt:AlternativeGeometriesGroup"></xs:group>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	   <xs:complexType name="BasicFeature3Type">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Yksittäisen erityispiirteen tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Single feature data.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:group ref="FeatureDataGroup"/>
+            <xs:element ref="FeatureInfo" minOccurs="0"/>
+            <xs:element ref="FeatureAdditionalInfo" minOccurs="0"/>
+        </xs:sequence>	
+        <xs:attribute name="id" type="xs:string">
+            <xs:annotation>
+                <xs:documentation xml:lang="fi">Erityispiirteen voidaan yksilöidä tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Feature can be identified using string id.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>	
+    </xs:complexType>
+
+	<xs:complexType name="LocatedSpecialFeature3Type">
+		<xs:complexContent>
+			<xs:extension base="BasicFeature3Type">
+				<xs:group ref="gdt:SimpleAlternativeGeometriesGroup"></xs:group>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+    
+	<xs:complexType name="IdentifiersType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kohteen (pisteen, viivan tai alueen) tunnisteet.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Identifiers of object.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="sf:IdentifiersType"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+    <xs:simpleType name="MainFeatureType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Pääasiallisen erityispiirteen osoittava tieto.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Boolean for the main special feature.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="sf:MainFeatureType"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="FeatureTypeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Erityispiirteen tyyppi.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Type of feature.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base = "sf:FeatureTypeType"/>
+    </xs:simpleType>
+    
+    <xs:group name="FeatureDataGroup">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Yksittäisen erityispiirteen tarkat tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Single feature detailed data.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element ref="FeatureCode"/>
+            <xs:element ref="FeatureAdditionalCode" minOccurs="0"/>
+        </xs:sequence>	
+    </xs:group>
+
+    <xs:simpleType name="FeatureCodeType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Erityispiirteen koodi (mm. monimuotoisuuskoodi).</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Code of feature (e.g. diversity code)</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="sf:FeatureCodeType"/>
+    </xs:simpleType>
+    
+     <xs:simpleType name="FeatureAdditionalCodeType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Erityispiirteen lisämääre.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Additional code of feature.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="sf:FeatureAdditionalCodeType"/>
+    </xs:simpleType>
+    
+    <xs:complexType name="ValidityType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Voimassaolo (alkamis- ja/tai loppumisajankohta).</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Validity (starting and/or ending date).</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="sf:ValidityType"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+   	<xs:simpleType name="FeatureInfoType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Erityispiirrettä kuvaava teksti. Sijainnillisten kohteiden osalta tämä voi olla esim. kartalla näkyvä teksti.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Information text for feature. E.g. located object, this can be text on map.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="sf:FeatureInfoType"/>
+	</xs:simpleType>
+    
+   	<xs:simpleType name="FeatureAdditionalInfoType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Erityispiirrettä kuvaava lisäteksti. Sijainnillisten kohteiden osalta tämä voi olla esim. erikseen näytettävä teksti (ei kartalla näkyvä teksti).</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Additional information text for feature. E.g. located object, this can be separately shown text on map.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="sf:FeatureAdditionalInfoType"/>
+	</xs:simpleType>
+	
+</xs:schema>

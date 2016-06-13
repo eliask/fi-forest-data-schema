@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	*****************************************************************************
+	Kemera rahoitushakemuksen maksatusviesti
+	Skeema on JHS-170 -suosituksen mukainen.
+	Ensimmäinen versio 1.0
+	
+	9.2.2015
+
+	18.9.2015
+	- ForestCentrePaymentsType -tyypille lisätty lapsielementti "fac:Documents"
+	****************************************************************************
+-->
+
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForestryCentrePayments"
+	xmlns="http://standardit.tapio.fi/schemas/forestData/ForestryCentrePayments"
+	xmlns:fac="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+	elementFormDefault="qualified" version="1.0">
+
+	<!-- Imports / Includes -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+		schemaLocation="Common.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
+		schemaLocation="FinancingActCommon.xsd"/>
+
+	<!-- Elementtimääritykset -->
+	<!-- Element definitions -->
+	<xs:element name="ForestCentrePayments" type="ForestCentrePaymentsType"/>
+	<xs:element name="ForestCentreMessageReference" type="co:ReferenceType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsäkeskusviestin viite</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Reference of Forest Centre Message</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<!-- Tyyppimääritykset -->
+	<!-- Type definitions -->
+	<xs:complexType name="ForestCentrePaymentsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsäkeskuksen maksatussanoma</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Forest Centre payments</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ForestCentreMessageReference" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fac:FinancingActApplicationReference" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fac:FinancingActNumber" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fac:ArrivalDate" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fac:SubsidyAppliers" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fac:SubsidyAmount" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fac:PaymentsReference" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fac:PaymentsDate" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fac:Documents" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Maksatussanoman id</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en">Payments id</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+</xs:schema>

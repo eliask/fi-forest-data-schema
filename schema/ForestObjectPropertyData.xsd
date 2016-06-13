@@ -15,12 +15,13 @@
     Tässä skeemassa otettu käyttöön uudet common ja contactInformation nimiavaruudet 
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/forestobjectpropertydata"
 	xmlns="http://standardit.tapio.fi/schemas/forestobjectpropertydata" 		
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"	
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation" 	
-	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14" 	
+	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate" 	
 	xmlns:opt="http://standardit.tapio.fi/schemas/forestData/forestobjectpropertydatatarget" 
 	xmlns:tli="http://standardit.tapio.fi/schemas/forestData/treelistitem" 	
 	xmlns:fo="http://standardit.tapio.fi/schemas/forestData/forestobject" 
@@ -28,18 +29,16 @@
 	attributeFormDefault="qualified"
 	version="1.0">
 	
-	<!-- 	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"		
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"-->
+	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
-	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/> -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation" schemaLocation="ContactInformation.xsd"/>	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14" schemaLocation="RealEstate_20110214.xsd"/>	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/realEstate" schemaLocation="RealEstate.xsd"/>	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestobjectpropertydatatarget" schemaLocation="ForestObjectPropertyDataTarget.xsd"/> 
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treelistitem" schemaLocation="TreeListItem.xsd"/> 
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestobject" schemaLocation="ForestObject.xsd"/> 	
 	
-   	<!-- Element definitions -->
+	<!-- Elementtimääritykset -->
+	<!-- Element definitions -->
    	<xs:element name="ForestObjectPropertyData" type="ForestObjectPropertyDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Hila- tai mikrokuviomuotoinen metsävaratieto.</xs:documentation>
@@ -55,27 +54,12 @@
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>	
 	</xs:element>
-	<!-- If these definitions are here then the XML files do not need to import contact information
-	     schema nor add name of the contact information namespace (here: "ci") to the tag names, but
-		 maintaining schema files will be a bit more -->
-	<!--<xs:element name="FirstName" type="ci:FirstNameType"/>
-	<xs:element name="LastName" type="ci:LastNameType"/>
-	<xs:element name="WholeName" type="ci:WholeNameType"/>
-	<xs:element name="OrganizationName" type="ci:OrganizationNameType"/>
-	<xs:element name="Address" type="ci:AddressType"/>
-	<xs:element name="PostalCode" type="ci:PostalCodeType"/>
-	<xs:element name="PostOffice" type="ci:PostOfficeType"/>
-	<xs:element name="CountryCode" type="ci:CountryCodeType"/>
-	<xs:element name="CountryText" type="ci:CountryTextType"/>	
-	<xs:element name="PhoneNumber" type="ci:PhoneNumberType"/>
-	<xs:element name="MobilePhoneNumber" type="ci:MobilePhoneNumberType"/> 
-	<xs:element name="TelefaxNumber" type="ci:TelefaxNumberType"/> 	
-	<xs:element name="EmailAddress" type="ci:EmailAddressType"/>-->	
 	<xs:element name="RealEstates" type="RealEstatesType"/>
 	<xs:element name="Targets" type="TargetsType"/>
 	<xs:element name="TreeList" type="TreeListType"/>
 	<xs:element name="ForestObjects" type="ForestObjectsType"/>
 	
+	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
 	<xs:complexType name="ForestObjectPropertyDataType">
 		<xs:annotation>

@@ -31,10 +31,12 @@
 	ja Common_BasicDataType_20100831.xsd on nimetty Common_BasicDataType.xsd:ksi
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-targetNamespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 
-xmlns="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"  
-elementFormDefault="unqualified" 
-attributeFormDefault="unqualified" 
-version="1.5">
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 
+	xmlns="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"  
+	elementFormDefault="unqualified" 
+	attributeFormDefault="unqualified" 
+	version="1.5">
+
 </xs:schema>

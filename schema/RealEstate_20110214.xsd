@@ -15,7 +15,6 @@
 	 Lisätty elementti LocationMunicipalityNumber tyyppiin RealEstateType 
 	 Lisätty elementit RealEstatesWithOwnersInformation,RealEstateOwners,RealEstateOwner
 	 
-
 	15.8.2014 
 	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
 	yhdeksi namespaceksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
@@ -39,92 +38,19 @@
 	
 	3.11.2014 
 	- RealEstateType: korjattu Parcels ja RealEstateOwners elementit vapaaehtoisiksi
+	
+	VERSIOKOMMENTIT 1.3 >>> 1.4
+	26.11.2015
+	- RealEstate_20110214.xsd on nimetty RealEstate.xsd:ksi. Sisältö on siirretty tähän
+	uuteen tiedostoon.
 	************************************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/realEstate/2011/02/14"
-	xmlns:st="http://standardit.tapio.fi/schemas/forestData/stand/2010/08/31"
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
-	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
-	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
-	elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.3">
-
-	<xs:include schemaLocation="RealEstateBase.xsd"/>
-
-
-	<!--	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="RealEstateBase.xsd"/> 	
-	xmlns:reb="http://standardit.tapio.fi/schemas/forestData/realEstateBase"-->
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
-		schemaLocation="Common.xsd"/>
-
-	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
-		schemaLocation="JHS170_20090304.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/stand/2010/08/31"
-		schemaLocation="Stand_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation"
-		schemaLocation="ContactInformation.xsd"/>
-	<!-- KIINTEISTÖ, REAL ESTATE -->
-	<!-- Elementtimääritykset -->
-	<!-- Element definitions -->
-	<xs:element name="RealEstates" type="RealEstatesType"/>
-	<xs:element name="BaseRealEstates" type="BaseRealEstatesType"/> 
-	<xs:element name="RealEstatesWithOwnersInformation" type="RealEstatesWithOwnersInformationType"/>
-	<xs:element name="RealEstate" type="RealEstateType"/>
-	<xs:element name="RealEstateOwners" type="RealEstateOwnersType"/>
-	<xs:element name="RealEstateOwner" type="ci:ContactInformationType"/>
-	
-
-	<!-- Tyyppimääritykset -->
-	<!-- Type definitions -->
-
-	
-	<xs:complexType name="RealEstatesType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kiinteistöjen tiedot.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Real estates data.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="RealEstate" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-
-	<xs:complexType name="RealEstatesWithOwnersInformationType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kiintestö- ja omistajainformaatio.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">RealEstates and Owners Information</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="RealEstateOwners" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="BaseRealEstates" minOccurs="1" maxOccurs="1"/>
-		</xs:sequence>
-	</xs:complexType>
-
-	<xs:complexType name="RealEstateType">
-		<xs:complexContent>
-			<xs:extension base="BaseRealEstateType">
-				<xs:sequence>
-					<xs:element ref="RealEstateOwners" minOccurs="0" maxOccurs="1"/>
-					<xs:element ref="Parcels" minOccurs="0" maxOccurs="1"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-
-
-	<xs:complexType name="RealEstateOwnersType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kiinteistöjen omistajien tiedot.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">RealEstates Owners Information</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="RealEstateOwner" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-
-
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified"
+	version="1.4">
 
 </xs:schema>

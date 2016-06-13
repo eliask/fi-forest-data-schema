@@ -14,27 +14,20 @@
     Tässä skeemassa otettu käyttöön uudet common ja contactInformation nimiavaruudet 
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/operationStatusUpdate/2011/02/14"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/operationStatusUpdate/2011/02/14"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
-	xmlns:op="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation" 
-	elementFormDefault="qualified" attributeFormDefault="qualified" version="1.1">
-
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified"
+	version="1.1">
 	
-<!--		xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" 
-	xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" 
-	-->
+	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation" schemaLocation="ContactInformation.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31" schemaLocation="Operation_20100831.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
-
-
-	<!--	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>	 -->
 	
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
@@ -57,7 +50,6 @@
 			<xs:element ref="Operation" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-
 	<xs:complexType name="OperationDefType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpidekohtaiset tiedot.</xs:documentation>
@@ -93,32 +85,22 @@
             </xs:annotation>
         </xs:attribute>
 	</xs:complexType>
-	
     <xs:simpleType name="MainTypeType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Toimenpiteen päälaji: hakkuu tai metsänhoito.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Operation main type.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="op:MainTypeType"/>
+        <xs:restriction base="co:MainTypeType"/>
     </xs:simpleType>
-
     <xs:simpleType name="OperationTypeType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Toimenpiteen laji: hakkuu- tai työlaji.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Operation type: accurate type of cutting or silvicultural operation.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="op:OperationTypeType"/>
+        <xs:restriction base="co:OperationTypeType"/>
     </xs:simpleType>
-<!--	<xs:simpleType name="OperationStatusType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Työlajin toteutusvaihe / -tilanne.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Different status that one operation can have (execution phases).</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="co:OperationStatusType"/>
-	</xs:simpleType> -->
     <xs:simpleType name="ActingDateType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Tapahtuma-aika</xs:documentation>
@@ -137,4 +119,5 @@
 			<xs:extension base="ci:ContactInformationType"/> 
 		</xs:complexContent>
 	</xs:complexType>
+
 </xs:schema>

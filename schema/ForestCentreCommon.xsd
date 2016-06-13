@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	***************************************************************
+	Metsäkeskussanomien yleiset elementit ja tyypit.
+	Skeema on JHS-170 -suosituksen mukainen.
+	Ensimmäinen versio 1.0
+	18.9.2015
+	
+
+	***************************************************************
+-->
+
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
+	xmlns="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+	elementFormDefault="qualified"
+	version="1.0">
+
+	<!-- Imports / Includes -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+		schemaLocation="Common.xsd"/>
+
+	<!-- Elementtimääritykset -->
+	<!-- Element definitions -->
+
+	<!-- Tyyppimääritykset -->
+	<!-- Type definitions -->
+	<xs:simpleType name="LocationEstateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Sijaintikiinteistön id. Puuttuva id ei sallittu.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Id of location real estate. Empty id is not valid.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="co:IdStringNotEmptyType"/>
+	</xs:simpleType>
+	
+	<xs:simpleType name="PowerOfAttorneyType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Valtakirja olemassa</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Power of attorney exists</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="co:YesNoType"/>
+	</xs:simpleType>
+
+</xs:schema>

@@ -5,7 +5,8 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/2010/08/31"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/2010/08/31"
 	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate/2010/08/31"
@@ -13,8 +14,9 @@
 	attributeFormDefault="qualified"
 	version="1.0">
 
+	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/realEstate/2010/08/31"
-				schemaLocation="RealEstate_20100831.xsd"/>
+		schemaLocation="RealEstate_20100831.xsd"/>
 
 	<!-- Elementtimääritykset -->
 	<!-- Element definitions -->

@@ -3,21 +3,26 @@
 	***************************************************************
 	Erityispiirretietojen elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	VERSIOKOMMENTIT
+	- Versio käyttää erityispiirretietojen määrittelyä "forestData/specialFeature/2011/02/14"
+	
+	11.12.2015
+	- Versio käyttää erityispiirretietojen määrittelyä "forestData/specialFeature"
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/specialFeatureData/2011/02/14"
 	xmlns="http://standardit.tapio.fi/schemas/specialFeatureData/2011/02/14"
-	xmlns:sf="http://standardit.tapio.fi/schemas/forestData/specialFeature/2011/02/14"
+	xmlns:sf="http://standardit.tapio.fi/schemas/forestData/specialFeature"
 	elementFormDefault="qualified"
 	attributeFormDefault="qualified"
 	version="1.0">
 
-    <!-- VERSIOKOMMENTIT  -->
-    <!-- Versio käyttää erityispiirretietojen määrittelyä "forestData/specialFeature/2011/02/14" -->
-
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeature/2011/02/14"
-				schemaLocation="SpecialFeature_20110214.xsd"/>
+	<!-- Imports / Includes -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeature"
+		schemaLocation="SpecialFeature.xsd"/>
 
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->

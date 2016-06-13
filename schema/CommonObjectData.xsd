@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	***************************************************************
+	Toimenpiteen toteumatiedot.
+	Skeema on JHS-170 -suosituksen mukainen.
+	***************************************************************
+-->
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/commonObjectData" 
+	xmlns="http://standardit.tapio.fi/schemas/forestData/commonObjectData" 
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
+	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate"
+	xmlns:st="http://standardit.tapio.fi/schemas/forestData/Stand"
+	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+	xmlns:ts="http://standardit.tapio.fi/schemas/forestData/treeStand"
+	xmlns:op="http://standardit.tapio.fi/schemas/forestData/operation"
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified"
+	version="1.0">
+	
+	<!-- Imports / Includes -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+		schemaLocation="Common.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation"
+		schemaLocation="ContactInformation.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/realEstate"
+		schemaLocation="RealEstate.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Stand"
+		schemaLocation="Stand.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+		schemaLocation="Common_GeometricDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStand"
+		schemaLocation="TreeStand.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operation" 
+		schemaLocation="Operation.xsd"/>
+   	
+	<!-- Element definitions -->
+	<xs:element name="CommonObjectData" type="CommonObjectDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+   	</xs:element>
+	<xs:element name="AdditionalDetails" type="co:String2000Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Sender" type="ci:ContactInformationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="UseCase" type="xs:string"> <!-- MÄÄRITÄ KOODISTO -->
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">KOODISTO</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="OtherObjects" type="OtherObjectsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="OtherObject" type="OtherObjectType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GeometryObjects" type="GeometryObjectsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GeometryObject" type="GeometryObjectType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ObjectGeometry" type="ObjectGeometryType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Area" type="co:AreaType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Alueen geometrian kokonaispinta-ala hehtaareina</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="AreaDecrease" type="co:AreaType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Alueen vähennysala hehtaareina. Vähennysalalla tarkoitetaan muuhun kuin alueen pääasialliseen tarkoitukseen liittyvää pinta-alaa</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ParentObjects" type="ParentObjectsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Viittaukset muihin kohteisiin</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ParentObject" type="ParentObjectType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Viittaus muuhun kohteeseen</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ParentObjectType" type="ObjectTypeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Viitatun kohteen tyyppi</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ParentObjectTypeSpecifier" type="ObjectTypeSpecifierType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Viitatun kohteen tyypin tarkenne, kun kyse muusta kohteesta.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ParentObjectId" type="co:IdStringNotEmptyType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Viitatun kohteen id</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Actors" type="ActorsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Actor" type="ActorType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="RealEstate" type="RealEstateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="StandBasicData" type="st:StandBasicDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SoilData" type="st:SoilDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="TreeStandBasedData" type="st:TreeStandBasedDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="RestrictionData" type="st:RestrictionDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SpecialFeaturesControl" type="SpecialFeaturesControlType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SpecialFeatureControl" type="TiedotType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	
+	<!-- Type definitions -->
+	<xs:complexType name="CommonObjectDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsävaratietojen päivitystietojen (toteuma- ja muut tiedot) määrittely.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="AdditionalDetails" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="Sender" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="UseCase" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="OtherObjects" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="GeometryObjects" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi"></xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en"></xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	
+	<xs:complexType name="OtherObjectsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Muut kohteet -määrittely</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Other objects definition</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="OtherObject" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>	
+	</xs:complexType>
+	
+	<xs:complexType name="OtherObjectType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Muun kohteen määrittely.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Other object definition</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:group ref="ObjectDataGroup" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="co:IdStringNotEmptyType">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Kohde voidaan yksilöidä tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Object can be identified using string id.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="type" type="ObjectTypeType">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Kohteen tyyppi</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en"></xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="typeSpecifier" type="ObjectTypeSpecifierType">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Kohteen tyypin tarkenne</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en"></xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	
+	<xs:complexType name="GeometryObjectsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Paikannetut kohteet -määrittely</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Geometry objects definition</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="GeometryObject" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>	
+	</xs:complexType>
+
+	<xs:complexType name="GeometryObjectType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Paikannetun kohteen määrittely.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Geometry object definition</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ObjectGeometry" minOccurs="0" maxOccurs="1"/>
+			<xs:group ref="ObjectDataGroup" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="co:IdStringNotEmptyType">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Kohde voidaan yksilöidä tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en">Object can be identified using string id.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="objectType" type="ObjectTypeType">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Kohteen tyyppi</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en"></xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="objectTypeSpecifier" type="ObjectTypeSpecifierType">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Kohteen tyypin tarkenne</xs:documentation>
+				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="en"></xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:group name="ObjectDataGroup">
+		<xs:sequence>
+			<xs:element ref="ParentObjects" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Actors" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="RealEstate" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="SoilData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="TreeStandBasedData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="RestrictionData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="StandBasicData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ts:TreeStandData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="op:Operations" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="st:SpecialFeatures" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ControlBasicData" type="TiedotType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tarkastuksen perustiedot</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ControlObjectBasicData" type="TiedotType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tarkastettavan kohteen perustiedot</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ControlOverallEvaluationData" type="TiedotType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kokonaisarvostelu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ControlStandBasicData" type="TiedotType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tarkastuskuvion perustieto</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ControlStandEvaluationData" type="TiedotType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tarkastuskuvion arvostelu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ControlStandTreeStandSummary" type="TiedotType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tarkastuskuvion summapuusto</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="SpecialFeaturesControl" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Erityispiirteiden valvontatiedot</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RegenerationData" type="TiedotType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Uudistaminen</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="YoungForestManagementData" type="TiedotType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Nuoren metsänhoito (NMH)</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HarvestingSignData" type="TiedotType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Korjuujälki</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MooseDamageData" type="TiedotType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Hirvivahinko</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlotBasicData" type="TiedotType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealan perustiedot</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlotTreeSummary" type="TiedotType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealan summapuusto</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WaterSystemProtectionData" type="TiedotType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Vesiensuojelun tiedot</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MuutTiedot1" type="TiedotType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MuutTiedot2" type="TiedotType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:group>
+
+	<xs:complexType name="ObjectGeometryType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="co:ChangeState" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="co:ChangeTime" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Paikkatiedon muutosajankohta</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="Area" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="AreaDecrease" minOccurs="0" maxOccurs="1"/>
+			<xs:group ref="gdt:AlternativeGeometriesGroup" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ParentObjectsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Viittaukset muihin kohteisiin</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Reference to other objects</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ParentObject" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>	
+	</xs:complexType>
+
+	<xs:complexType name="ParentObjectType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ParentObjectType" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="ParentObjectTypeSpecifier" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ParentObjectId" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="ObjectTypeType"> <!-- ONKO TÄMÄ KOODISTO? -->
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">KOODISTO</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	
+	<xs:simpleType name="ObjectTypeSpecifierType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tarkentaa ObjectType:ä, kun kyse muusta kohteesta. Vapaata tekstiä.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+
+	<xs:complexType name="ActorsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kohteeseen liittyvien toimijoiden -määrittely</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Definition for actors linked to object</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="Actor" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>	
+	</xs:complexType>
+
+	<xs:complexType name="ActorType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kohteeseen liittyvän toimijan -määrittely</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Definition for actor linked to object</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ci:ContactInformationType">
+				<!--
+				<xs:sequence>
+					<xs:element ref="BankAccount" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+				-->
+				<xs:attribute name="actorType" type="ActorTypeType">
+					<xs:annotation>
+						<xs:documentation xml:lang="fi">Kohteen tyyppi</xs:documentation>
+						<xs:documentation xml:lang="sv"></xs:documentation>
+						<xs:documentation xml:lang="en"></xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="actorTypeSpecifier" type="ActorTypeSpecifierType">
+					<xs:annotation>
+						<xs:documentation xml:lang="fi">Kohteen tyypin tarkenne</xs:documentation>
+						<xs:documentation xml:lang="sv"></xs:documentation>
+						<xs:documentation xml:lang="en"></xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:simpleType name="ActorTypeType"> <!-- ONKO TÄMÄ KOODISTO? -->
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">KOODISTO</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Hakkuoikeuden haltija</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Metsänkäyttöilmoituksen lähettäjä</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Toimenpiteen toteuttaja</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="ActorTypeSpecifierType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tarkentaa ActorType:ä, kun kyse muusta toimijasta. Vapaata tekstiä.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+
+	<xs:complexType name="RealEstateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kohteeseen liittyvän kiinteistön -määrittely</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Definition for real estate linked to object</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="re:RealEstateDataType"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="SpecialFeaturesControlType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Erityispiirteiden valvonnan -määrittely</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="SpecialFeatureControl" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>	
+	</xs:complexType>
+
+	<xs:complexType name="TiedotType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Tieto1" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Tieto2" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Tieto3" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Tieto4" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Tieto5" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

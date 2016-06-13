@@ -5,7 +5,8 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	*******************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/commondistributiondata"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/commondistributiondata" 
 	elementFormDefault="qualified"
@@ -34,6 +35,8 @@
 	<xs:element name="Diameter" type="DiameterType"/>
 	<xs:element name="CumulativeMass" type="CumulativeMassType"/>	
 	
+	<!-- Tyyppimääritykset -->
+	<!-- Type definitions -->
 	<xs:complexType name="WeibullType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Weibull-todennäköisyysjakauman parametrit.</xs:documentation>

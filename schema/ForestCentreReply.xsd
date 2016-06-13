@@ -8,126 +8,144 @@
 	31.10.2014 
 	-EstateOwer elementti poistettu tarpeettomana
 	-AdditionalInfo lisätty vapaamuotoista tietoa varten
+	
+	21.10.2015
+	- ForestryCentreReply element and  ForestryCentreReplyType type renamed ForestCentre
 	****************************************************************************
 -->
 
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreReply" 
-xmlns="http://standardit.tapio.fi/schemas/forestData/ForestCentreReply" 	
-xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
-xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
-elementFormDefault="qualified"
-version="1.0">
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreReply"
+	xmlns="http://standardit.tapio.fi/schemas/forestData/ForestCentreReply"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
+	elementFormDefault="qualified"
+	version="1.0">
 
-<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/> 
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation" schemaLocation="ContactInformation.xsd"/>
+	<!-- Imports / Includes -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+		schemaLocation="Common.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation"
+		schemaLocation="ContactInformation.xsd"/>
 
-	<xs:element name="ForestryCentreReply" type="ForestryCentreReplyType"/>
-	<xs:element name="Acceptance" type="co:YesNoType">
+	<!-- Elementtimääritykset -->
+	<!-- Element definitions -->
+	<xs:element name="ForestCentreReply" type="ForestCentreReplyType"/>
+	<xs:element name="TimeStamp" type="co:TimeStampType"/>
+	<xs:element name="Acceptance" type="co:AcceptanceType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Hyväksytty / Hylätty</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Acceptance</xs:documentation>
+			<xs:documentation xml:lang="fi">Hyväksytty / Hylätty / Osittain hyväksytty. MKI-palautussanomassa Acceptance (hyväksyntä) tarkoittaa business-kuittausta seuraavasti: 0 = hylätty (MKI ei ole voimassa), 1 = hyväksytty (MKI vastaanotettu hyväksytysti ja hakkuut on lähtökohtaisesti sallittuja suoja-ajan kuluttua, mikäli metsäkeskus ei pyydä lisäselvityksiä); KEMERA-hakemuksien palautussanomassa Acceptance (hyväksyntä) tarkoittaa vastaanottokuittausta seuraavasti: 0 = hylätty (Kemera-sanomaa ei ole kyetty ottamaan vastaan eikä se näin ollen siirry käsittelyyn), 1 = hyväksytty (Kemera-sanoma vastaanotettu ja se siirtyy käsitelyyn. Hakemukseen vastataan erillisellä päätöksellä, josta selviää onko hakemus hyväksytty / hylätty (business-kuittaus))</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Accepted / Rejected / Partially accepted</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ReplyCode" type="co:ReplyCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Vastaanotettu / Vastaantotettu virheellisenä / Tiedonsiirto epäonnistui</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Received / Received with errors / Data transfer failed</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="MessageType" type="co:MessageType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Viestin tyyppi</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="fi">Tämä viestityyppi kertoo sen viestin tyypin, jonka palautesanomasta kulloinkin on kyse. Kun kyse on metsänkäyttöilmoituksen palautesanomasta arvo on MKI, Kemera rahoitushakemuksen tapauksessa KMRHA, Kemera toteutusilmoituksen tapauksessa KMRTI, Kemera rahoitushakemuksen päätösviestin tapauksessa KMRPS ja Kemera maksatusviestin tapauksessa KMRMA</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">MessageType</xs:documentation>
 		</xs:annotation>
-	</xs:element>		
-	<xs:element name="DeclarationReference" type="co:ReferenceType">
+	</xs:element>
+	<xs:element name="ForestCentreMessageReference" type="co:ReferenceType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Ilmoituksen viite</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Reference of declaration</xs:documentation>
+			<xs:documentation xml:lang="fi">Metsäkeskusviestin viite</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Reference of Forest Centre Message</xs:documentation>
 		</xs:annotation>
-	</xs:element>  
+	</xs:element>
 	<xs:element name="ArrivalDate" type="co:DateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Saapumispäivä</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Arrival date</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:element name="RegistrationId" type="co:ReferenceType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Registeröinti id</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="fi">Rekisteröinti id</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">RegistrationId</xs:documentation>
 		</xs:annotation>
-	</xs:element>	
+	</xs:element>
 	<xs:element name="ErrorMessages" type="ErrorMessagesType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Lista MKI-ilmoituksen virhekoodeista ja selitteistä</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">The list of the error codes and messages of the declaration</xs:documentation>
+			<xs:documentation xml:lang="fi">Lista metsäkeskusviestin virhekoodeista ja selitteistä</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">The list of the error codes and messages of the Forest Centre message</xs:documentation>
 		</xs:annotation>
-	</xs:element>	
+	</xs:element>
 	<xs:element name="ErrorMessageData" type="ErrorMessageDataType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">MKI-ilmoituksen virhekoodi ja selite</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">The error code and message of the declaration</xs:documentation>
+			<xs:documentation xml:lang="fi">Metsäkeskusviestin virhekoodi ja selite</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">The error code and message of the Forest Centre message</xs:documentation>
 		</xs:annotation>
-	</xs:element>			
-	<xs:element name="ReferenceType" type="co:DeclarationReferenceType">
+	</xs:element>
+	<xs:element name="ReferenceType" type="co:ForestCentreMessageReferenceType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Virheilmoituksen viitetyyppi</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="fi">Virheilmoituksen viitetyyppi.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Reference type of error message</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="Reference" type="co:ReferenceType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Virheilmoituksen viite</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Reference of error message</xs:documentation>
 		</xs:annotation>
-	</xs:element> 		
-	<xs:element name="ErrorCode" type="co:PositiveIntegerType">
-	<xs:annotation>
-		<xs:documentation xml:lang="fi">Virhekoodi</xs:documentation>
-		<xs:documentation xml:lang="sv"></xs:documentation>
-		<xs:documentation xml:lang="en">Error code</xs:documentation>
-	</xs:annotation>
-	</xs:element>  	
+	</xs:element>
+	<xs:element name="ErrorCode" type="co:String25Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Virhekoodi</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Error code</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="ErrorMessage" type="co:String1000Type">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Virheviesti</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Error message</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="AdditionalInfo" type="co:String1000Type">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Lisätieto. Vapamuotoinen teksti.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="fi">Lisätieto. Vapaamuotoinen teksti.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">AdditionalInfo. Free text</xs:documentation>
-		</xs:annotation>		
+		</xs:annotation>
 	</xs:element>
-	
+
+	<!-- Tyyppimääritykset -->
+	<!-- Type definitions -->
 	<xs:complexType name="ErrorMessageDataType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Metsänkäyttöilmoituksen palauteviesti</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Stand data</xs:documentation>
+			<xs:documentation xml:lang="fi">Metsäkeskuksen palauteviesti</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Forest Centre Reply</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="ReferenceType" minOccurs="1" maxOccurs="1"/> 
-			<xs:element ref="Reference" minOccurs="1" maxOccurs="1"/> 
-			<xs:element ref="ErrorCode" minOccurs="1" maxOccurs="1"/> 
-			<xs:element ref="ErrorMessage" minOccurs="1" maxOccurs="1"/> 
-		</xs:sequence>			
-	</xs:complexType>	
-	
+			<xs:element ref="ReferenceType" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="Reference" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="ErrorCode" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="ErrorMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
 	<xs:complexType name="ErrorMessagesType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kuvion sijaintikiinteistöjen id:t</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Real estate ids of stands</xs:documentation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="ErrorMessageData" minOccurs="1" maxOccurs="unbounded"/>
@@ -137,24 +155,25 @@ version="1.0">
 	<xs:complexType name="EstateOwnerType">
 		<xs:sequence>
 			<xs:group ref="ci:NameAndOrganizationGroup" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>		
+		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="ForestryCentreReplyType">
+	<xs:complexType name="ForestCentreReplyType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Metsänkäyttöilmoituksen palauteviesti</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Stand data</xs:documentation>
+			<xs:documentation xml:lang="fi">Metsäkeskuksen palauteviesti</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Forest centre Reply</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element ref="TimeStamp"/>
 			<xs:element ref="Acceptance" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="ReplyCode"/>
 			<xs:element ref="MessageType" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="DeclarationReference" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="ArrivalDate" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="RegistrationId" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="ErrorMessages" minOccurs="0" maxOccurs="1"/> 	
-			<xs:element ref="AdditionalInfo" minOccurs="1" maxOccurs="1"/> 				
-		</xs:sequence>			
+			<xs:element ref="ForestCentreMessageReference" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="ArrivalDate" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="RegistrationId" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ErrorMessages" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="AdditionalInfo" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
 	</xs:complexType>
-				
 </xs:schema>

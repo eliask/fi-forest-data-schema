@@ -57,9 +57,6 @@
 	xmlns:workingSiteQualityControlFertilization="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlFertilization"	
 	elementFormDefault="unqualified" version="1.4">
 
-	<!--	<xs:import namespace="http://standardit.tapio.fi/schemas/header" schemaLocation="Header.xsd"/> -->
-
-
 	<xs:import namespace="http://standardit.tapio.fi/schemas/header" schemaLocation="header.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
 		schemaLocation="Common.xsd"/>
@@ -193,28 +190,23 @@
 		schemaLocation="WorkingSiteTravelNotification.xsd"/>
 	<xs:import
 		namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteForwardingQualityControl"
-		schemaLocation="WorkingSiteHarvestingQualityControl.xsd"/>
-	<xs:import
-		namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteForwardingQualityControl"
 		schemaLocation="WorkingSiteForwardingQualityControl.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteAccounting"
 		schemaLocation="WorkingSiteAccounting.xsd"/>
 
 	<xs:element name="Envelope" type="EnvelopeType"/>
+
 	<xs:complexType name="EnvelopeType">
 		<xs:sequence>
 			<xs:element name="Header" type="header:HeaderType"/>
 			<xs:element name="Message" type="PayloadType"/>
 		</xs:sequence>
 	</xs:complexType>
-
-
 	<xs:complexType name="PayloadType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tähän kaikkien käytettävien viestityyppien tyyppimäärittelyt</xs:documentation>
 		</xs:annotation>
 		<xs:choice>
-
 			<xs:element name="Acknowledge" type="acknowledge:AcknowledgeType"/>
 			<xs:element name="CompanyCapacity" type="companyCapacity:CompanyCapacityType"/>
 			<xs:element name="CompanyInformation" type="companyInformation:CompanyInformationType"/>
@@ -292,8 +284,7 @@
 			<xs:element name="WorkingSiteWorkTime"
 				type="workingSiteWorkTime:WorkingSiteWorkTimeType"/>
 			<!--<xs:element name="WorkingSiteHarvestingQualityControlManual" type="workingSiteHarvestingQualityControlManual:WorkingSiteHarvestingQualityControlManualType"/> -->
-
-
 		</xs:choice>
 	</xs:complexType>
+
 </xs:schema>

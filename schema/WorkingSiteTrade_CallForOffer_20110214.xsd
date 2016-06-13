@@ -32,7 +32,7 @@ xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/1
 xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation" 
 xmlns:ws="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14" 
 xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
-elementFormDefault="qualified" attributeFormDefault="qualified" version="1.5">
+elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.5">
 <!--
 xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 
 xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
@@ -140,7 +140,7 @@ xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/
 			<xs:documentation xml:lang="en">Technical person, used for solving and informing if technical problems occurs.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="ci:ContactInformationType"/> 
+			<xs:extension base="ci:ContactInformationType"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:simpleType name="CallForOfferDateType">

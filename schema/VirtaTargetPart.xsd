@@ -13,35 +13,31 @@
 	10.4.2015 Otettu käyttön lokaalit gml skeemat
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/virta/targetpart"
 	xmlns="http://standardit.tapio.fi/schemas/virta/targetpart" 
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"	
-	xmlns:sb="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14" 
+	xmlns:sb="http://standardit.tapio.fi/schemas/forestData/standbase" 
 	xmlns:sp="http://standardit.tapio.fi/schemas/virta/sampleplot" 
-	xmlns:sfb="http://standardit.tapio.fi/schemas/forestData/specialFeatureBase/2011/02/14" 
-	xmlns:op="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31"  
-	xmlns:gml="http://www.opengis.net/gml" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.2">
+	xmlns:sfb="http://standardit.tapio.fi/schemas/forestData/specialFeatureBase" 
+	xmlns:op="http://standardit.tapio.fi/schemas/forestData/operation"  
+	xmlns:gml="http://www.opengis.net/gml"
+	elementFormDefault="qualified"
+	attributeFormDefault="qualified"
+	version="1.2">
 	
-	<!-- 
-		xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"	
-	xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" 
-	-->
-	
-	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>	-->
+	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
-	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/> -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/virta/sampleplot" schemaLocation="VirtaSamplePlot.xsd"/>		
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase/2011/02/14" schemaLocation="StandBase_20110214.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeatureBase/2011/02/14" schemaLocation="SpecialFeatureBase_20110214.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31" schemaLocation="Operation_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase" schemaLocation="StandBase.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeatureBase" schemaLocation="SpecialFeatureBase.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operation" schemaLocation="Operation.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/virta/sampleplot" schemaLocation="VirtaSamplePlot.xsd"/>
-<!--	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>  -->
-	<!-- <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/> 		-->
 	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="../gml/3.1.1/base/gml.xsd"/> 
 
-   	<!-- Element definitions -->
+	<!-- Elementtimääritykset -->
+	<!-- Element definitions -->
 	<xs:element name="TargetPart" type="TargetPartType"/>
 	<xs:element name="Status3" type="co:ChangeStateType"/>
 	<xs:element name="PartNumber" type="xs:string">
@@ -466,6 +462,7 @@
 	<xs:element name="GeometryId" type="xs:string"/>
 	<xs:element name="SamplePlots" type="SamplePlotsType"/>
 	
+	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
 	<xs:complexType name="TargetPartType">
 		<xs:annotation>

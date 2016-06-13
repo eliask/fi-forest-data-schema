@@ -21,9 +21,7 @@ xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
 elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.1">
 
 
-<!--xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/stand/2010/08/31" schemaLocation="Stand_20100831.xsd"/>
-	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/> -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/> 
 	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" schemaLocation="JHS170_20090304.xsd"/>
 

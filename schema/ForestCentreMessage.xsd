@@ -1,77 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 	***************************************************************
-	Työmaan kuvion elementit ja tyypit.
 	Metsäkeskus viesti
-	Ensimmäinen versio 1.0
 	Skeema on JHS-170 -suosituksen mukainen.
-	
-
-	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
-	yhdeksi namespaceksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
-	- ContactInformation_20110214.xsd -> ContactInformation.xsd
-	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
-	-> 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation
-    Tässä skeemassa otettu käyttöön uudet common ja contactInformation nimiavaruudet 
+	Ensimmäinen versio 1.0
 	
 	1.12.2104 Nimi muutettu kaikkialle: ForestryCentreMessage -> ForestCentreMessage
 	***************************************************************
 -->
 
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreMessage" 
-xmlns="http://standardit.tapio.fi/schemas/forestData/ForestCentreMessage" 
-xmlns:fud="http://standardit.tapio.fi/schemas/forestData/ForestUseDeclaration" 
-xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
-xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
-elementFormDefault="qualified"
-version="1.0">
-<!--xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"  -->
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestUseDeclaration"  schemaLocation="../V6/ForestUseDeclaration.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="../V6/Common.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation" schemaLocation="../V6/ContactInformation.xsd"/>
-	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>-->
-	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/> -->
-	<!-- Elementtimääritykset -->
-   	<!-- Element definitions -->	
-	<xs:element name="ForestCentreMessage" type="ForestCentreMessageType"/>	
-	<xs:element name="Message" type="co:MessageType"/>	
-	<xs:element name="SenderEmail" type="ci:EmailAddressType"/>	
-	<xs:element name="ForestUseDeclaration" type="fud:ForestUseDeclarationType"/>
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreMessage"
+	xmlns="http://standardit.tapio.fi/schemas/forestData/ForestCentreMessage"
+	xmlns:fud="http://standardit.tapio.fi/schemas/forestData/ForestUseDeclaration"
+	xmlns:fac="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
+	xmlns:faa="http://standardit.tapio.fi/schemas/forestData/FinancingActApplication"
+	xmlns:facd="http://standardit.tapio.fi/schemas/forestData/FinancingActCompletionDeclaration"
+	xmlns:cod="http://standardit.tapio.fi/schemas/forestData/commonObjectData"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
+	elementFormDefault="qualified"
+	version="1.0">
 
+	<!-- Imports / Includes -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestUseDeclaration"
+		schemaLocation="ForestUseDeclaration.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
+		schemaLocation="FinancingActCommon.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/FinancingActApplication"
+		schemaLocation="FinancingActApplication.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/FinancingActCompletionDeclaration"
+		schemaLocation="FinancingActCompletionDeclaration.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/commonObjectData"
+		schemaLocation="CommonObjectData.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+		schemaLocation="Common.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation"
+		schemaLocation="ContactInformation.xsd"/>
+
+	<!-- Elementtimääritykset -->
+	<!-- Element definitions -->
+	<xs:element name="ForestCentreMessage" type="ForestCentreMessageType"/>
+	<xs:element name="TimeStamp" type="co:TimeStampType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Viestin lähetysajankohta, aikaleima</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Message" type="co:MessageType"/>
+	<xs:element name="SenderEmail" type="ci:EmailAddressType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Selain-lähetyksen palautteet lähetetään tähän sähköpostiosoitteeseen</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ForestUseDeclaration" type="fud:ForestUseDeclarationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsänkäyttöilmoituksen tiedot, kun Message = MKI</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Forest use declaration data, when Message = MKI</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FinancingActApplication" type="faa:FinancingActApplicationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kemera-hakemuksen tiedot, kun Message = KMRHA</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Financing act completion declaration data, when Message = KMRHA</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FinancingActCompletionDeclaration" type="facd:FinancingActCompletionDeclarationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kemera-toteutusilmoituksen tiedot, kun Message = KMRTI</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Financing act completion declaration data, when Message = KMRTI</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="CommonObjectData" type="cod:CommonObjectDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsävaratietojen päivitys toteuma- tai muilla tiedoilla, kun Message = MVPAIV</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Forest realization data, when Message = MVPAIV</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
 	<xs:complexType name="ForestCentreMessageType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsäkeskusviesti</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Forest Centre Message</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element ref="TimeStamp"/>
 			<xs:element ref="Message" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="SenderEmail" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="ForestUseDeclaration" minOccurs="1" maxOccurs="1"/> 
-		</xs:sequence>	
+			<xs:element ref="SenderEmail" minOccurs="0"/>
+			<xs:choice>
+				<xs:element ref="ForestUseDeclaration" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="FinancingActApplication" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="FinancingActCompletionDeclaration" minOccurs="1" maxOccurs="1"/>
+				<!-- <xs:element ref="CommonObjectData" minOccurs="1" maxOccurs="1"/> -->
+			</xs:choice>
+		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
 			<xs:annotation>
 				<xs:documentation xml:lang="fi">Viestin id</xs:documentation>
-				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="sv"/>
 				<xs:documentation xml:lang="en">Message id</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+		<xs:attribute name="schemaPackageVersion" type="co:ForestDataStandardSchemaPackageVersionType">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Viesti perustuu skeemapakettiin ...</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en">Message based on schema package ...</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
-	<!-- <xs:complexType name="ForestUseDeclarationType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Metsänkäyttöilmoitus.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">ForestUseDeclaration.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="fud:ForestUseDeclaration" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType> --> 
-	 
+
 </xs:schema>
-	

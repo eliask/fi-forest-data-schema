@@ -5,15 +5,17 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/forestobject" 
 	xmlns="http://standardit.tapio.fi/schemas/forestData/forestobject" 
-	xmlns:ts="http://standardit.tapio.fi/schemas/forestData/treeStand/2010/08/31"
+	xmlns:ts="http://standardit.tapio.fi/schemas/forestData/treeStand"
 	elementFormDefault="qualified"
-	attributeFormDefault="qualified"
+	attributeFormDefault="unqualified"
 	version="1.0">
 	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStand/2010/08/31" schemaLocation="TreeStand_20100831.xsd"/>
+	<!-- Imports / Includes -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStand" schemaLocation="TreeStand.xsd"/>
    	
 	<!-- Element definitions -->
    	<xs:element name="ObjectsRealizationData" type="ObjectsRealizationDataType">

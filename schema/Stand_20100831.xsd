@@ -31,11 +31,13 @@
 	 10.4.2015 Otettu käyttön lokaalit gml skeemat
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/stand/2010/08/31"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/stand/2010/08/31"
-	xmlns:ts="http://standardit.tapio.fi/schemas/forestData/treeStand/2010/08/31"
-	xmlns:op="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31"
+	xmlns:stb="http://standardit.tapio.fi/schemas/forestData/standbase"
+	xmlns:ts="http://standardit.tapio.fi/schemas/forestData/treeStand"
+	xmlns:op="http://standardit.tapio.fi/schemas/forestData/operation"
 	xmlns:sf="http://standardit.tapio.fi/schemas/forestData/specialFeature/2010/08/31"
 	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
@@ -45,33 +47,34 @@
 	attributeFormDefault="unqualified"
 	version="1.4">
 	
-	<!-- 	xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20"
-	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes/2010/08/31"
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" -->
+	<!-- Imports / Includes -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase"
+		schemaLocation="StandBase.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStand"
+		schemaLocation="TreeStand.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operation" 
+		schemaLocation="Operation.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeature/2010/08/31"
+		schemaLocation="SpecialFeature_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+		schemaLocation="Common_GeometricDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+		schemaLocation="Common.xsd"/>
+	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
+		schemaLocation="JHS170_20090304.xsd"/>
+	<xs:import namespace="http://www.opengis.net/gml"
+		schemaLocation="../gml/3.1.1/base/gml.xsd"/> 
 
-	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStand/2010/08/31" schemaLocation="TreeStand_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operation/2010/08/31" schemaLocation="Operation_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeature/2010/08/31" schemaLocation="SpecialFeature_20100831.xsd"/>
-<!--	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/> -->
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
-	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" schemaLocation="JHS170_20090304.xsd"/>
-	<!-- <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/> 		-->
-	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="../gml/3.1.1/base/gml.xsd"/> 
-
-   	<!-- Element definitions -->
+	<!-- Elementtimääritykset -->
+	<!-- Element definitions -->
 	<xs:element name="Stands" type="StandsType"/>
 	<xs:element name="Stand" type="StandType"/>
 	<xs:element name="StandBasicData" type="StandBasicDataType"/>
 	<xs:element name="CompleteState" type="CompleteStateType"/>
 	<xs:element name="Identifiers" type="IdentifiersType"/>
 	<xs:element name="Identifier" type="co:IdentifierType"/>
-	<xs:element name="StandNumber" type="StandNumberType"/>
-	<xs:element name="StandNumberExtension" type="StandNumberExtensionType"/>
+	<xs:element name="StandNumber" type="stb:StandNumberType"/>
+	<xs:element name="StandNumberExtension" type="stb:StandNumberExtensionType"/>
 	<xs:element name="MainGroup" type="co:MainGroupType"/>
 	<xs:element name="SubGroup" type="co:SubGroupType"/>
 	<xs:element name="FertilityClass" type="FertilityClassType"/>
@@ -96,9 +99,6 @@
 	<xs:element name="SpecialFeatures" type="SpecialFeaturesType"/>
 	<xs:element name="SpecialFeature" type="sf:SpecialFeatureType"/>
 	<xs:element name="GrowthPlaceDataSource" type="co:DataSourceType"/>
-	<!--<xs:element name="SilvicultureRestrictionMainGroup" type="SilvicultureRestrictionMainGroupType"/>
-	<xs:element name="SilvicultureRestrictionGroup" type="SilvicultureRestrictionGroupType"/> -->
-
 	
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
@@ -216,26 +216,6 @@
 			<xs:element ref="Identifier" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:simpleType name="StandNumberType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kuvionumero.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Stand number.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:pattern value="[0-9]{1,4}"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="StandNumberExtensionType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kuvion alanumero (lisämerkki).</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Stand number extension (extra character, normally number).</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="1"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="FertilityClassType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kasvupaikkaluokka.</xs:documentation>
