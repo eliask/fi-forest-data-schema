@@ -31772,6 +31772,13 @@
 					<xs:documentation xml:lang="en">Measurement.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tarjouspyyntö</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Call for offer</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="DocumentClassType">
@@ -32626,9 +32633,9 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="2">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei</xs:documentation>
+					<xs:documentation xml:lang="fi">Ei tietoa</xs:documentation>
 					<xs:documentation xml:lang="sv" />
-					<xs:documentation xml:lang="en">No</xs:documentation>
+					<xs:documentation xml:lang="en">No facts</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -43716,6 +43723,36 @@
 					<xs:documentation xml:lang="fi">Keskiläpimitta 16 cm tai alle</xs:documentation>
 					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en">Mean diameter is 16 cm or less than 16 cm</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BusinessAcceptanceStatusType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Businesskuittauksen status</xs:documentation>
+			<xs:documentation xml:lang="sv" />
+			<xs:documentation xml:lang="en">Business acceptance status</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Hylätty</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Disagree</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Hyväksytty</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Agree</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Peruutettu</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Cancel</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>

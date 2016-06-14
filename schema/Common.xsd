@@ -93,6 +93,8 @@
 	<xs:element name="DocumentClass" type="DocumentClassType"/>
 	<xs:element name="DocumentDescription" type="DocumentDescriptionType"/>
 	<xs:element name="FileBinary" type="xmime:base64Binary"/>
+	<xs:element name="DocumentFileName" type="DocumentFileNameType"/>
+	<xs:element name="FileType" type="FileTypeType"/>
 
 	<!-- Tyyppimäärittelyt -->
 	<!-- Type definitions -->
@@ -363,9 +365,11 @@
 			<xs:documentation xml:lang="en">Document data.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="DocumentClass"/>
-			<xs:element ref="DocumentDescription" minOccurs="0"/>
-			<xs:element ref="FileBinary" minOccurs="0"/>
+			<xs:element ref="DocumentClass" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="DocumentDescription" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="DocumentFileName" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="FileType" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="FileBinary" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
 			<xs:annotation>
@@ -386,5 +390,26 @@
 			<xs:maxLength value="250"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="DocumentFileNameType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Dokumenttitiedoston nimi.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Document file name.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="250"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FileTypeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Dokumenttitiedoston tyyppi.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Document file type.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="250"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
 
 </xs:schema>

@@ -622,6 +622,16 @@
 			<xs:maxLength value="1000"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="String1500Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Merkkijono max 1500 merkkiä</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1500"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="String2000Type">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Merkkijono max 2000 merkkiä</xs:documentation>

@@ -5,22 +5,22 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	***************************************************************
 -->
-<xs:schema
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-	targetNamespace="http://standardit.tapio.fi/schemas/forestData/commonObjectData" 
-	xmlns="http://standardit.tapio.fi/schemas/forestData/commonObjectData" 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/commonObjectData"
+	xmlns="http://standardit.tapio.fi/schemas/forestData/commonObjectData"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate"
+	xmlns:stb="http://standardit.tapio.fi/schemas/forestData/standbase"
 	xmlns:st="http://standardit.tapio.fi/schemas/forestData/Stand"
 	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
 	xmlns:ts="http://standardit.tapio.fi/schemas/forestData/treeStand"
 	xmlns:op="http://standardit.tapio.fi/schemas/forestData/operation"
-	elementFormDefault="qualified"
-	attributeFormDefault="unqualified"
-	version="1.0">
-	
+	elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+
 	<!-- Imports / Includes -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase"
+		schemaLocation="StandBase.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
 		schemaLocation="Common.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation"
@@ -33,192 +33,193 @@
 		schemaLocation="Common_GeometricDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStand"
 		schemaLocation="TreeStand.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operation" 
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operation"
 		schemaLocation="Operation.xsd"/>
-   	
+
 	<!-- Element definitions -->
 	<xs:element name="CommonObjectData" type="CommonObjectDataType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
-   	</xs:element>
+	</xs:element>
 	<xs:element name="AdditionalDetails" type="co:String2000Type">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="Sender" type="ci:ContactInformationType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="UseCase" type="xs:string"> <!-- MÄÄRITÄ KOODISTO -->
+	<xs:element name="UseCase" type="xs:string">
+		<!-- MÄÄRITÄ KOODISTO -->
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">KOODISTO</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="OtherObjects" type="OtherObjectsType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="OtherObject" type="OtherObjectType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="GeometryObjects" type="GeometryObjectsType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="GeometryObject" type="GeometryObjectType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ObjectGeometry" type="ObjectGeometryType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="Area" type="co:AreaType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Alueen geometrian kokonaispinta-ala hehtaareina</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="AreaDecrease" type="co:AreaType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Alueen vähennysala hehtaareina. Vähennysalalla tarkoitetaan muuhun kuin alueen pääasialliseen tarkoitukseen liittyvää pinta-alaa</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ParentObjects" type="ParentObjectsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Viittaukset muihin kohteisiin</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ParentObject" type="ParentObjectType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Viittaus muuhun kohteeseen</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ParentObjectType" type="ObjectTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Viitatun kohteen tyyppi</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ParentObjectTypeSpecifier" type="ObjectTypeSpecifierType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Viitatun kohteen tyypin tarkenne, kun kyse muusta kohteesta.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ParentObjectId" type="co:IdStringNotEmptyType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Viitatun kohteen id</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="Actors" type="ActorsType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="Actor" type="ActorType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="RealEstate" type="RealEstateType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="StandBasicData" type="st:StandBasicDataType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="SoilData" type="st:SoilDataType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="TreeStandBasedData" type="st:TreeStandBasedDataType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="RestrictionData" type="st:RestrictionDataType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="SpecialFeaturesControl" type="SpecialFeaturesControlType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="SpecialFeatureControl" type="TiedotType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	
+
 	<!-- Type definitions -->
 	<xs:complexType name="CommonObjectDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsävaratietojen päivitystietojen (toteuma- ja muut tiedot) määrittely.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="AdditionalDetails" minOccurs="1" maxOccurs="1"/>
@@ -229,28 +230,28 @@
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
 			<xs:annotation>
-				<xs:documentation xml:lang="fi"></xs:documentation>
-				<xs:documentation xml:lang="sv"></xs:documentation>
-				<xs:documentation xml:lang="en"></xs:documentation>
+				<xs:documentation xml:lang="fi"/>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en"/>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	
+
 	<xs:complexType name="OtherObjectsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Muut kohteet -määrittely</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Other objects definition</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="OtherObject" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>	
+		</xs:sequence>
 	</xs:complexType>
-	
+
 	<xs:complexType name="OtherObjectType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Muun kohteen määrittely.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Other object definition</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
@@ -259,41 +260,41 @@
 		<xs:attribute name="id" type="co:IdStringNotEmptyType">
 			<xs:annotation>
 				<xs:documentation xml:lang="fi">Kohde voidaan yksilöidä tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
-				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="sv"/>
 				<xs:documentation xml:lang="en">Object can be identified using string id.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="type" type="ObjectTypeType">
 			<xs:annotation>
 				<xs:documentation xml:lang="fi">Kohteen tyyppi</xs:documentation>
-				<xs:documentation xml:lang="sv"></xs:documentation>
-				<xs:documentation xml:lang="en"></xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en"/>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="typeSpecifier" type="ObjectTypeSpecifierType">
 			<xs:annotation>
 				<xs:documentation xml:lang="fi">Kohteen tyypin tarkenne</xs:documentation>
-				<xs:documentation xml:lang="sv"></xs:documentation>
-				<xs:documentation xml:lang="en"></xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en"/>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	
+
 	<xs:complexType name="GeometryObjectsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Paikannetut kohteet -määrittely</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Geometry objects definition</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="GeometryObject" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>	
+		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="GeometryObjectType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Paikannetun kohteen määrittely.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Geometry object definition</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
@@ -303,22 +304,22 @@
 		<xs:attribute name="id" type="co:IdStringNotEmptyType">
 			<xs:annotation>
 				<xs:documentation xml:lang="fi">Kohde voidaan yksilöidä tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
-				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="sv"/>
 				<xs:documentation xml:lang="en">Object can be identified using string id.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="objectType" type="ObjectTypeType">
 			<xs:annotation>
 				<xs:documentation xml:lang="fi">Kohteen tyyppi</xs:documentation>
-				<xs:documentation xml:lang="sv"></xs:documentation>
-				<xs:documentation xml:lang="en"></xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en"/>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="objectTypeSpecifier" type="ObjectTypeSpecifierType">
 			<xs:annotation>
 				<xs:documentation xml:lang="fi">Kohteen tyypin tarkenne</xs:documentation>
-				<xs:documentation xml:lang="sv"></xs:documentation>
-				<xs:documentation xml:lang="en"></xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en"/>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -335,122 +336,134 @@
 			<xs:element ref="ts:TreeStandData" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="op:Operations" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="st:SpecialFeatures" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ControlBasicData" type="TiedotType" minOccurs="0" maxOccurs="1">
+			<xs:element name="ControlBasicData" type="ControlBasicDataType" minOccurs="0"
+				maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Tarkastuksen perustiedot</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ControlObjectBasicData" type="TiedotType" minOccurs="0" maxOccurs="1">
+			<xs:element name="ControlObjectBasicData" type="ControlObjectBasicDataType"
+				minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Tarkastettavan kohteen perustiedot</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ControlOverallEvaluationData" type="TiedotType" minOccurs="0" maxOccurs="1">
+			<xs:element name="ControlOverallEvaluationData" type="ControlOverallEvaluationDataType"
+				minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Kokonaisarvostelu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ControlStandBasicData" type="TiedotType" minOccurs="0" maxOccurs="1">
+			<xs:element name="ControlStandBasicData" type="ControlStandBasicDataType" minOccurs="0"
+				maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Tarkastuskuvion perustieto</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ControlStandEvaluationData" type="TiedotType" minOccurs="0" maxOccurs="1">
+			<xs:element name="ControlStandEvaluationData" type="ControlStandEvaluationDataType"
+				minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Tarkastuskuvion arvostelu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ControlStandTreeStandSummary" type="TiedotType" minOccurs="0" maxOccurs="1">
+			<xs:element name="ControlStandTreeStandSummary" type="ControlStandTreeStandSummaryType"
+				minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Tarkastuskuvion summapuusto</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="SpecialFeaturesControl" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Erityispiirteiden valvontatiedot</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="RegenerationData" type="TiedotType" minOccurs="0" maxOccurs="1">
+			<xs:element name="RegenerationData" type="RegenerationDataType" minOccurs="0"
+				maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Uudistaminen</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="YoungForestManagementData" type="TiedotType" minOccurs="0" maxOccurs="1">
+			<xs:element name="YoungForestManagementData" type="YoungForestManagementDataType"
+				minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Nuoren metsänhoito (NMH)</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="HarvestingSignData" type="TiedotType" minOccurs="0" maxOccurs="1">
+			<xs:element name="HarvestingSignData" type="HarvestingSignDataType" minOccurs="0"
+				maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Korjuujälki</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="MooseDamageData" type="TiedotType" minOccurs="0" maxOccurs="1">
+			<xs:element name="MooseDamageData" type="MooseDamageDataType" minOccurs="0"
+				maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Hirvivahinko</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SamplePlotBasicData" type="TiedotType" minOccurs="0" maxOccurs="1">
+			<xs:element name="SamplePlotBasicData" type="SamplePlotBasicDataType" minOccurs="0"
+				maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Koealan perustiedot</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SamplePlotTreeSummary" type="TiedotType" minOccurs="0" maxOccurs="1">
+			<xs:element name="SamplePlotTreeSummary" type="SamplePlotTreeSummaryType" minOccurs="0"
+				maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Koealan summapuusto</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WaterSystemProtectionData" type="TiedotType" minOccurs="0" maxOccurs="1">
+			<xs:element name="WaterSystemProtectionData" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Vesiensuojelun tiedot</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="MuutTiedot1" type="TiedotType" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="MuutTiedot2" type="TiedotType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="StandEvaluationData" type="StandEvaluationDataType" minOccurs="0"
+				maxOccurs="1"/>
 		</xs:sequence>
 	</xs:group>
 
 	<xs:complexType name="ObjectGeometryType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="co:ChangeState" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="co:ChangeTime" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Paikkatiedon muutosajankohta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="Area" minOccurs="0" maxOccurs="1"/>
@@ -458,23 +471,23 @@
 			<xs:group ref="gdt:AlternativeGeometriesGroup" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
-	
+
 	<xs:complexType name="ParentObjectsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Viittaukset muihin kohteisiin</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Reference to other objects</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="ParentObject" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>	
+		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="ParentObjectType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="ParentObjectType" minOccurs="1" maxOccurs="1"/>
@@ -482,8 +495,9 @@
 			<xs:element ref="ParentObjectId" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
-	
-	<xs:simpleType name="ObjectTypeType"> <!-- ONKO TÄMÄ KOODISTO? -->
+
+	<xs:simpleType name="ObjectTypeType">
+		<!-- ONKO TÄMÄ KOODISTO? -->
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">KOODISTO</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
@@ -491,7 +505,7 @@
 		</xs:annotation>
 		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
-	
+
 	<xs:simpleType name="ObjectTypeSpecifierType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tarkentaa ObjectType:ä, kun kyse muusta kohteesta. Vapaata tekstiä.</xs:documentation>
@@ -504,18 +518,18 @@
 	<xs:complexType name="ActorsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kohteeseen liittyvien toimijoiden -määrittely</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Definition for actors linked to object</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="Actor" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>	
+		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="ActorType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kohteeseen liittyvän toimijan -määrittely</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Definition for actor linked to object</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
@@ -528,22 +542,23 @@
 				<xs:attribute name="actorType" type="ActorTypeType">
 					<xs:annotation>
 						<xs:documentation xml:lang="fi">Kohteen tyyppi</xs:documentation>
-						<xs:documentation xml:lang="sv"></xs:documentation>
-						<xs:documentation xml:lang="en"></xs:documentation>
+						<xs:documentation xml:lang="sv"/>
+						<xs:documentation xml:lang="en"/>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="actorTypeSpecifier" type="ActorTypeSpecifierType">
 					<xs:annotation>
 						<xs:documentation xml:lang="fi">Kohteen tyypin tarkenne</xs:documentation>
-						<xs:documentation xml:lang="sv"></xs:documentation>
-						<xs:documentation xml:lang="en"></xs:documentation>
+						<xs:documentation xml:lang="sv"/>
+						<xs:documentation xml:lang="en"/>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
-	<xs:simpleType name="ActorTypeType"> <!-- ONKO TÄMÄ KOODISTO? -->
+
+	<xs:simpleType name="ActorTypeType">
+		<!-- ONKO TÄMÄ KOODISTO? -->
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">KOODISTO</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
@@ -553,27 +568,27 @@
 			<xs:enumeration value="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Hakkuoikeuden haltija</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="2">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Metsänkäyttöilmoituksen lähettäjä</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="3">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Toimenpiteen toteuttaja</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	
+
 	<xs:simpleType name="ActorTypeSpecifierType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tarkentaa ActorType:ä, kun kyse muusta toimijasta. Vapaata tekstiä.</xs:documentation>
@@ -586,25 +601,950 @@
 	<xs:complexType name="RealEstateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kohteeseen liittyvän kiinteistön -määrittely</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Definition for real estate linked to object</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="re:RealEstateDataType"/>
+			<xs:extension base="re:BaseRealEstateType"/>
 		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="SpecialFeaturesControlType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Erityispiirteiden valvonnan -määrittely</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="SpecialFeatureControl" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>	
+			<xs:element minOccurs="0" name="HabitatCode" type="TwoDigitPositiveIntegerType">
+				<xs:annotation>
+					<xs:documentation>Kuviokohtainen lisätieto</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HabitatType" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>Elinympäristön tyyppi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HabitatSurviving" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>Elinympäristön säilyneisyys</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExceptionalPermitForHandling" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>Poikkeuslupa elinympäristön käsittelylle
+</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 
+	<xs:complexType name="ControlBasicDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TargetSelection" type="TargetSelectionType" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kohdevalinta: 0=ei tarkastusta 1=otanta, 2=riskianalyysi 3=harkinta 4=manuaalinen otanta 9=poistettu tarkastuksesta. Kohdevalinta on pakollinen tieto. Maastotallentimella voi päivittää vain kohdevalinnan 0 kohdevalinnaksi 2, 3, tai 4. Virran antamaa kohdevalintaa 1 ei voi muuttaa tai kopioida toiselle tietueelle maastotallentimella. Virrassa olevaa kohdevalintaa 1 ei päivitetä maastotallentimelta tulevalla tiedolla.</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AppliedArea" type="Decimal6_2Type" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ilmoitettu pinta-ala pohjatietona Mastovirrassa ja saadaan Virrasta maastotallentimelle. Kemeravirrassa tallennetaan. Kenttää ei käytetä työlajeilla 60, 70 ja 71. LT  Ilm. pala on oltava yhtä suuri kuin tietueen kuvioiden kipala -kenttien summa. </xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AppliedHeight" type="Decimal6_2Type" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ilmoitettu pituus km. Käytetään vain jos tl kentän arvo on 60, 70 tai 71. LT On oltava yhtä suuri kuin tietueen kipala kenttien arvojen summa.</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InspectionDate" type="co:DateType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tarkastuksen pvm LT:pakollinen tieto.</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InspectorName" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tarkastajan nimi asteesta tallennettuna Virtaan ja Virrasta siirrettynä maastotallentimelle.  Nimi voidaan tallentaa myös maastotallentimella.</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExtraInfo" type="co:String500Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tekstikenttä tarkastuksen lisätiedoille</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="TargetSelectionType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kokonaisluku</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:int"/>
+	</xs:simpleType>
+	<xs:simpleType name="Decimal6_2Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Max. 6-numeroinen luku, kahden desimaalin tarkkuudella</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="6"/>
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ControlObjectBasicDataType">
+		<xs:sequence>
+			<xs:element name="TargetNumber" type="stb:StandNumberType">
+				<xs:annotation>
+					<xs:documentation>Kuvion numero mastovirrassa pohjatietona tai kemeravirrasta syöttö. Jos on syötetty knro 0,1-0,9 ei kuviota huomioida ilmoituksen/hankkeen pinta-alassa. Kuvion numero ja osioiden numerot muodostavat avaintiedon. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TargetAnnouncedAmount" type="Decimal5_1Type">
+				<xs:annotation>
+					<xs:documentation>Ilmoitettu määrä ha/km. Mastovirrassa pohjatietona tai kemeravirrasta syöttö. LT kipala kentän arvon on oltava pienempi tai yhtäsuuri kuin valmiiksi tallennetun kohteen ohpala kenttien arvojen summan (eli kohteen ohpala kenttiin arvoja on syötettävä niin paljon, että niiden summa on vähintään kipala kentän suuruinen)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HabitatAdvertisement" type="TargetSelectionType">
+				<xs:annotation>
+					<xs:documentation/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Decimal5_1Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Max. 5-numeroinen luku, yhden desimaalin tarkkuudella</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="5"/>
+			<xs:fractionDigits value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="HarvestingSignDataType">
+		<xs:sequence>
+			<xs:element name="HarvestingClassification" type="TargetSelectionType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">1=korjuujäljen otanta 2=muu korjuuj. 3=energiapuun korjuun laadun otantatarkastus</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RootDamageCount" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">kpl/ha Laskentasääntö: 10 000 m2*Puuluokkaan 2 kuuluvien puiden lkm/Koealojen kokojen summa</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StemDamageCount" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">kpl/ha Laskentasääntö: 10 000 m2*Puuluokkaan 2 kuuluvien puiden lkm/Koealojen kokojen summa</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VehiclePathDistance" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">m Laskentasääntö:koealatietojen uravälien keskiarvo pyöristettynä kokonaisluvuksi</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VehiclePathWidth" type="Decimal5_1Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">m Laskentasääntö: koealatietojen uraleveyksien keskiarvo</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VehiclePathSudsidencePercentage" type="Decimal3_1Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Urapainaumat, %. Laskentasääntö: 100*urapainumamittausten summa/urapainumamittausten lkm*30</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CuttingByMachine" type="co:VirtaCuttingByMachineType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">1=kone, 2=metsuri</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HarvestingSeason" type="co:VirtaHarvestingSeasonType">
+				<xs:annotation>
+					<xs:documentation>1=maa sulana, 2=maa jäässä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlotTrackWidth"
+				type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+				<xs:annotation>
+					<xs:documentation>koealalla mitattu uraleveys m</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlotTrackDepth" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>Koealalla mitatut urapainumat m/30m</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlotTrackDistance" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>Koealalla mitattu uraväli, m</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="VehiclePathDistanceType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Koealatietojen uravälien keskiarvo pyöristettynä kokonaisluvuksi (metriä).</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:integer"/>
+	</xs:simpleType>
+	<xs:simpleType name="VehiclePathWidthType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Koealatietojen uraleveyksien keskiarvo (metriä), yhden desimaalin tarkkuudella.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="4"/>
+			<xs:fractionDigits value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VehiclePathSubsidencePercentageType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Urapainaumat, %. Laskentasääntö: 100*urapainumamittausten summa/urapainumamittausten lkm*30</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="120"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CuttingByMachineType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Hakkuun koneellisuus-koodisto</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:integer"> </xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SamplePlotTrackWidthType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Koealalla mitattu uraleveys (metriä), yhden desimaalin tarkkuudella.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="4"/>
+			<xs:fractionDigits value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SamplePlotTrackDepthType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Koealalla mitatut urapainumat (m/30m), yhden desimaalin tarkkuudella.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="4"/>
+			<xs:fractionDigits value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SamplePlotTrackDistanceType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Koealalla mitattu uraväli (metriä), yhden desimaalin tarkkuudella.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="4"/>
+			<xs:fractionDigits value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HarvestingSeasonType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Korjuuajankohta. 1=maa sulana, 2=maa jäässä.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:integer"> </xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ControlStandTreeStandSummaryType">
+		<xs:sequence>
+			<xs:element name="StemCount" type="co:StemCountType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Runkoluku kpl/ha. Laskentasääntö: 10 000 m2*muiden kuin puuluokaltaan arvot 0, 7, 8 tai 9 omaavien puiden lkm tietojen summa/Koealojen pinta-alojen summa m2 (huomioidaan siis myös puutason lkm tiedot, joissa plk on tyhjä) Hirvivahinkolaskennoissa TIH arvo.</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SeedStemCount" type="co:PositiveInteger6digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Hakatun uudistushakkuun siemenpuiden määrä kpl/ha. Laskentasääntö: 10 000 m2*Puuluokkaan 9 kuuluvien puiden lkm/Koealojen pinta-alojen summa m2 (jos hta on muu kuin 2 tai 3, niin s/k. kpl/ha kenttään Virtaan siirretään tallentimelta tämän kentän arvo).</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StubStemCount" type="co:PositiveInteger6digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Hakatun harvennushakkuun kantojan määrä. Kpl/ha Laskentasääntö: 10 000 m2*Puuluokkaan 8 kuuluvien puiden lkm/Koealojen pinta-alojen summa m2 (jos hta on 2 tai 3, niin s/k. kpl/ha kenttään Virtaan siirretään tallentimelta tämän kentän arvo)</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BasalArea" type="co:BasalAreaType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">pohjapinta-ala (mahtuu peräti 6 merkkiä, mutta maastotallentimelle tila 3 viimeiselle numerolle) Laskentasääntö: 10 000 m2*muiden kuin puuluokaltaan arvot 0, 7 tai 8 omaavien puiden pohjapinta-alojen m2 summa/Koealojen pinta-alojen summa m2. Yksittäisen puun pohjapinta-ala lasketaan kaavalla  πr2 jossa r=lpm/2. Pyöristetään kokonaisluvuksi. Osatasolle lasketaan koealojen keskiarvona. Voidaan syöttää myös numeroarvona relaskooppia käytettäessä.</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MeanDiameter"
+				type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">pohjapinta-alalla painotettu keskiläpimitta cm. Suurin mahdollinen arvo on 99,9. Laskentasääntö: muiden kuin puuluokaltaan arvot 0, 7 tai 8 omaavien puiden läpimittojen neliöiden summa jaettuna niiden kuutioiden summalla.</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StubMeanDiameter"
+				type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kantojen keskiläpimitta cm. Suurin mahdollinen arvo on on 99,9. Laskentasääntö: Koealakohtaisten dk arvojen keskiarvo.</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Age" type="co:AgeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Metsikön ikä vuosissa</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DominantHeight"
+				type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Valtapituus metriä, osan koealojen valtapituuksien keskiarvo. Voidaan tallentaa myös suoraan osatasolle.</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AverageHeight"
+				type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Keskipituus metriä, osan koealojen keskipituuksien keskiarvo. Voidaan tallentaa myös suoraan osatasolle.</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DevelopmentClass" type="co:DevelopmentClassType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koodistosta KEHLK kooditus (A0=Aukea,S0=Siemenpuumetsikkö, T1=taimikko alle 1,3m, T2=taimikko yli 1,3m, Y1=ylispuustoinen taimikko, 02=Nuori kasvatusmetsikkö, 03=Varttunut kasvatusmetsikkö, 04=Uudistuskypsä metsikkö, 05=Suojuspuumetsikkö)</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="StubStemCountType">
+		<xs:restriction base="xs:integer"/>
+	</xs:simpleType>
+	<xs:complexType name="SamplePlotTreeSummaryType">
+		<xs:sequence>
+			<xs:element name="Age" type="co:AgeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Metsikön ikä vuosissa</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlotStubDiameter"
+				type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kantojen keskiläpimitta cm. Niiden puutietojen dk arvojen keskiarvo, joiden puuluokka on 8.  dk arvoltaan tyhjiä rivejä ei huomioida laskennassa. Koealatason (4) dk arvoja laskettaessa huomioidaan vain ne puutietorivit,  joissa on syötetty dk arvo</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlotMeanDiameter"
+				type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealan pohjapinta-alalla painotettu keskiläpimitta (cm). Lasketaan puutietojen läpimitoista, tai tallennetaan suoraan.</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlotMeanHeight"
+				type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealan keskipituus, m. Lasketaan puutiedoista, tai tallennetaan suoraan koealatasolle.</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlotDominantHeight"
+				type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealan valtapituus, m. Tallennetaan suoraan koealatasolle.</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlotBasalArea" type="co:BasalAreaType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">10 000 m2*muiden kuin puuluokaltaan arvot 0, 7 tai 8 omaavien puiden pohjapinta-alojen m2 summa/Koealan pinta-ala. Jos koealan puilla ei ole lpm tietoja, jätetään tyhjäksi manuaalista syöttöä varten, eikä laiteta nollaa. Ppa lasketaan tasolta 5 tasolle 4 vain jos jokaisella rivillä, jolle on syötetty lpm on syötetty myös lkm.</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Decimal3_1Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Max. 3-numeroinen luku, yhden desimaalin tarkkuudella</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="3"/>
+			<xs:fractionDigits value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="StandEvaluationDataType">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="TargetExtraInfo" type="co:String500Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuviokohtainen lisätieto</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="TwoDigitPositiveIntegerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Max kaksinumeroinen kokonaisluku (0-99)</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="SamplePlotBasicDataType">
+		<xs:sequence>
+			<xs:element name="SamplePlotEastingCoordinate" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealan itäkoordinaatti</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlotNorthingCoordinate" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealan pohjoiskoordinaatti</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlotNumber" type="TwoDigitPositiveIntegerType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealan numero</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlotSize" type="SamplePlotSizeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealan koko m2</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="SamplePlotSizeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Koealan koko neliömetreinä (m2)</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="co:Decimal3And2PositiveType"/>
+	</xs:simpleType>
+	<xs:complexType name="RegenerationDataType">
+		<xs:sequence>
+			<xs:element name="CultivatedCropStemCount" type="co:StemCountType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">viljelytaimia kpl/ha</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NaturalCropStemCount" type="co:StemCountType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">luonnontaimien rlk kpl/ha</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="CompletingNaturalCropStemCount" type="co:StemCountType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">täydentävien luonnontaimien rlk kpl/ha</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="DeadStemCount" type="co:StemCountType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuolleiden ja kelvottomien viljelytaimien runkoluku kpl/ha</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StockingWIthSeedlings" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taimettumista (1=on, 2=ei)</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GroundManipulationMethod" type="ThreeDigitPositiveIntegerType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Maanpinnan käsittelytapa</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RegenerationEnsuring" minOccurs="0"
+				type="ThreeDigitPositiveIntegerType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">uudistamisen varmistamistoimenpiteet</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CultivationMaterial" type="TwoDigitPositiveIntegerType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Viljelymateriaali (koodisto)</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlantEvaluation" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taimimäärän arvostelu</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GrassControlEvaluation" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Heinäntorjunnan arvostelu</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SproutForestControlEvaluation" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Vesakontorjunnan arvostelu</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SeedPlantEvaluation" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kylvötuppaiden harvennuksen arvostelu</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlantingWorkQuality" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Istutustyön laatu</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SoilModificationEstimate" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealan maanpinnan käsittelyn arviointi</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ThreeDigitPositiveIntegerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Max kolminumeroinen kokonaisluku (0-999)</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ControlOverallEvaluationDataType">
+		<xs:sequence>
+			<xs:element name="AdvertisementDating" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ilmoituksen jätön arvostelu (koodisto)</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AreaAndMapEvaluation" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pinta-alan ja kartan arvostelu (koodisto)</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="OtherEvaluation" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muiden ilmoituskohtaisten asioiden arvostelu (koodisto)</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="TreeDamageOutsideStand" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuvion ulkopuoliset puustovauriot (koodisto)</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="TerrainDamageOutsideStand" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuvion ulkopuoliset maastovauriot (koodisto)</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="FourDigitPositiveIntegerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Max nelinumeroinen kokonaisluku (0-9999)</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="9999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ControlStandBasicDataType">
+		<xs:sequence>
+			<xs:element name="PartsDetectedArea" type="co:AreaType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Osan havaittu määrä, hehtaaria</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PartEastingCoordinate" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Osan itäkoordinaatit</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PartNorthingCoordinate" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Osan pohjoiskoordinaatit</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InspectionMethod" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tarkastustapa (koodisto)</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StandQuality" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Metsikön laatu (koodisto)</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MainTreeSpecies" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pääpuulaji (koodisto)</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PineDecimal" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Männyn osuus kymmenyksinä</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SpruceDecimal" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuusen osuus kymmenyksinä</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BirchDecimal" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koivujen osuus kymmenyksinä</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DamageSource" type="FourDigitPositiveIntegerType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tuhon aiheuttaja (koodisto)</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ControlStandEvaluationDataType">
+		<xs:sequence>
+			<xs:element name="SoilImprovementEvaluation" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Maanpinnan käsittelyn arviointi (koodisto)</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ClearingEstimation" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Raivauksen arviointi (koodisto)</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RootRotControlEvaluation" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Juurikäävän torjunnan arviointi (koodisto)</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="YoungForestManagementDataType">
+		<xs:sequence>
+			<xs:element name="HeightClass">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pituusluokka</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RemovalClass">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Poistumaluokka</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CuttingStemCount">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Poistuman runkoluku</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SmallWoodRemovalClass">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pienpuun poistumaluokka</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MooseDamageDataType">
+		<xs:sequence>
+			<xs:element name="EvaluationCost" type="co:Decimal7And2PositiveType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Arviointikustannukset, euroa</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InsuranceOrOtherCompensation" type="co:Decimal7And2PositiveType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Vakuutuksen tai muun lainsäädännön nojalla maksettavat korvaukset, euroa</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TotalCompensation" type="co:Decimal7And2PositiveType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Korvattava yhteensä, euroa</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OwnerInvolvement" type="co:VirtaYesNoType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Maanomistajan/hakijan mukanaolo</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AssociationInvolvement" type="co:VirtaYesNoType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Rhy:n/toimijan mukanaolo</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MoosePercentage" type="co:PercentType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Rhy edustajan käsitys hirvieläinten osuudesta vahinkoon</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NotDamagedCount" type="co:StemCountType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei riistavaurioita kpl/ha</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Class1DamageCount" type="co:StemCountType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">1. lk riistavauriot kpl/ha</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Class2DamageCount" type="co:StemCountType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">2. lk riistavauriot kpl/ha</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Class3DamageCount" type="co:StemCountType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">3. lk riistavauriot kpl/ha</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Class4DamageCount" type="co:StemCountType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">4. lk riistavauriot kpl/ha</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LargePeelDamage" type="co:StemCountType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Suuri kuorivaurio kpl/ha</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SmallPeelDamage" type="co:StemCountType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pieni kuorivaurio kpl/ha</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DamagedSeedlingCount" type="co:StemCountType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Riistavahingon vuoksi laskennallisesti kokonaan tuhoutuneiden puiden runkoluku varttuneemmissa metsissä kpl/ha</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Compensation" type="co:Decimal7And2PositiveType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Korvaus, euroa</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AlreadyPaidCompensation" type="co:Decimal7And2PositiveType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Aiempi korvaus, euroa</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TotalCompensations" type="co:Decimal7And2PositiveType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Korvaus yhteensä, euroa</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NeedForTreatment" type="co:VirtaYesNoType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taimikonhoitotyön tarve</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Suggestion" type="TwoDigitPositiveIntegerType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Toimenpide-ehdotus</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RepairPlantingCosts" type="co:Decimal7And2PositiveType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Täydennysviljely- tai uudelleenmetsityskustannukset, euroa/ha</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DamageClass" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Riistavaurioluokka (koodisto)</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="TiedotType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi"></xs:documentation>
@@ -619,5 +1559,5 @@
 			<xs:element name="Tieto5" type="xs:string" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
-
+	
 </xs:schema>
