@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!--
 	******************************************************************
 	Metsävaratietojen koodistotyyppisten (enumerative) tietokenttien
@@ -22646,14 +22646,14 @@
 			</xs:enumeration>
 			<xs:enumeration value="10064">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Liikkuminen kielletty,Tulkittu n kpl MJ:n tasoista kuljettajalle tiedoksi</xs:documentation>
+					<xs:documentation xml:lang="fi">Liikkuminen kielletty</xs:documentation>
 					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="10065">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Liikkuminen rajoitettu,Tulkittu n kpl MJ:n tasoista kuljettajalle tiedoksi</xs:documentation>
+					<xs:documentation xml:lang="fi">Liikkuminen rajoitettu</xs:documentation>
 					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
@@ -22728,9 +22728,352 @@
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="10076">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tuulen aiheuttama tuho</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10077">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ulkoilureitti</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="10078">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Kiinteistö</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10079">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Uppoamisvaara</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10080">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pienaukkohakkuu</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10081">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Korkeusrajoite</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10082">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muokkaussuunta             </xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10083">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Runkotie, uusi</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10084">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Runkotie, perusparannus</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10085">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Aluetie, uusi</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10086">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Aluetie, perusparannus</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10087">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Varsitie, uusi</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10088">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Varsitie, perusparannus</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10089">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Laskuoja, uusi</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10090">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Laskuoja, perkaus</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10091">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Laskeutusallas (tie)</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10092">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lietekuoppa (tie)</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10093">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ympyräkääntöpaikka</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10094">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">L-haarakääntöpaikka</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10095">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">I-haarakääntöpaikka</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10096">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Metsäliittymä rummulla</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10097">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Varastopaikka (työn toteutus)</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10098">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Maanottopaikka</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10099">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Soranottopaikka</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10100">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Uuden tien suunnittelu</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10101">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tien peruskorjauksen suunnittelu</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10102">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Reunapalteen poisto</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10103">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Polanteen poisto</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10104">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tienpidon muut työt</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10105">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ilmakaapeli</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10106">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Vesijohto (tie)</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10107">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Rajapyykki (tie)</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10108">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Vesiensuojelukuvion raja</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10109">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Valtaoja, uusi</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10110">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Sarkaoja</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10111">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Vesiensuojelukohde</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10112">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ojaluiska</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10113">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pintavaluntapiste</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10114">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Liestymisvaara</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11001">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Runsaslahopuustoinen metsä</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11002">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Arvokas suoelinympäristö</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11003">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Rehevä elinympäristö</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11004">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Vähäpuustoinen kasvupaikka</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11005">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Poikkeava maastonmuoto</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11006">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Vanha tai runsaslahopuinen metsä</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11007">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Suurpetolinnun pesäpuu</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11008">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Suojeltavan lajin esiintymä</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11009">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Luonnontilaisen suon suojakaista</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11010">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Suojakaista, vesistö</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11011">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Suojakaista, suo</xs:documentation>
 					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
@@ -28439,8 +28782,15 @@
 			</xs:enumeration>
 			<xs:enumeration value="46">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Harvinainen elinympäristö (FFCS, krit. 10 c)</xs:documentation>
-					<xs:documentation xml:lang="sv">Sällsynt livsmiljö (FFCS, krit. 10 c)</xs:documentation>
+					<xs:documentation xml:lang="fi">Harvinainen elinympäristö (PEFC, krit. 10 c)</xs:documentation>
+					<xs:documentation xml:lang="sv">Sällsynt livsmiljö (PEFC, krit. 10 c)</xs:documentation>
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="47">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Harvinainen elinympäristö (FSC)</xs:documentation>
+					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
 			</xs:enumeration>
@@ -28721,6 +29071,13 @@
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Muu ilmoittanut, rajaus muuttunut</xs:documentation>
 					<xs:documentation xml:lang="sv">Annan har meddelat, avgränsningen har ändrats</xs:documentation>
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="100">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Urakoitsija ilmoittanut</xs:documentation>
+					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
 			</xs:enumeration>
@@ -32867,6 +33224,13 @@
 					<xs:documentation xml:lang="en">Other</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="21">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tiehöylä</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="TerrainClassType">
@@ -33231,7 +33595,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="9">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tienrakennus ja kunnossapito</xs:documentation>
+					<xs:documentation xml:lang="fi">Tienpito</xs:documentation>
 					<xs:documentation xml:lang="sv">Vägbyggnand och vägunderhåll</xs:documentation>
 					<xs:documentation xml:lang="en">Road construction and maintenance</xs:documentation>
 				</xs:annotation>
@@ -34203,6 +34567,48 @@
 					<xs:documentation xml:lang="en">Road kondition exploration</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="941">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Uuden tien suunnittelu</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="942">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tien peruskorjauksen suunnittelu</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="943">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Reunapalteen poisto</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="944">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Polanteen poisto</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="945">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tienpidon muut työt</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="946">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Sorastus, kunnossapito</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="1001">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Kulotus</xs:documentation>
@@ -34278,6 +34684,13 @@
 					<xs:documentation xml:lang="fi">Muu työ</xs:documentation>
 					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en">Other work</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="1012">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muu metsurityö</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="1101">
@@ -34995,6 +35408,13 @@
 					<xs:documentation xml:lang="fi">Kaivinkoneen hakkuuvarustus</xs:documentation>
 					<xs:documentation xml:lang="sv">Avverkningsutrustning för grävmaskin</xs:documentation>
 					<xs:documentation xml:lang="en">digger cutting equipments</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="19">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lana</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -36771,6 +37191,146 @@
 					<xs:documentation xml:lang="en">other deciduous tree plant 4 y, open roots</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="12500">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taimi, haapa</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12510">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taimi, haapa, 1-v</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12511">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">haapa 1-v minipaakku</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12512">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">haapa 1-v pikkupaakku</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12513">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">haapa 1-v keskipaakku</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12514">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">haapa 1-v isopaakku</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12515">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">haapa 1-v avojuurinen</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12520">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taimi, haapa, 2-v</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12521">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">haapa 2-v minipaakku</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12522">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">haapa 2-v pikkupaakku</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12523">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">haapa 2-v keskipaakku</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12524">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">haapa 2-v isopaakku</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12525">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">haapa2-v avojuurinen</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12530">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taimi, haapa, 3-v</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12531">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">haapa 4-v minipaakku</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12532">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">haapa4-v pikkupaakku</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12533">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">haapa 4-v keskipaakku</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12534">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">haapa 4-v isopaakku</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12535">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">haapa 4-v avojuurinen</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12540">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taimi, haapa, 4-v</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="20000">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Siemen</xs:documentation>
@@ -36801,12 +37361,19 @@
 			</xs:enumeration>
 			<xs:enumeration value="21112">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">siemen, mä, siemenviljelty</xs:documentation>
+					<xs:documentation xml:lang="fi">siemen, mä, siemenviljelty1</xs:documentation>
 					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="21113">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">siemen, mä, siemenviljelty2</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="21114">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">siemen, mä, metsikkökeräys</xs:documentation>
 					<xs:documentation xml:lang="sv" />
@@ -37046,9 +37613,23 @@
 			</xs:enumeration>
 			<xs:enumeration value="31106">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Metsän NP-lannos</xs:documentation>
+					<xs:documentation xml:lang="fi">Metsän NP-lannos1</xs:documentation>
 					<xs:documentation xml:lang="sv" />
-					<xs:documentation xml:lang="en">NP-fertiliser</xs:documentation>
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="31107">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Metsän NP-lannos2</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="31108">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Boorilannoite</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="31200">
