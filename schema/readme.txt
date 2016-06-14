@@ -1,5 +1,5 @@
 TIETOJA TÄSTÄ TIEDOSTOPAKETISTA
 
 - Skeemapaketti V8
-- Versio V8.31
-- Julkaistu 26.4.2016
+- Versio V8.32
+- Julkaistu 28.4.2016

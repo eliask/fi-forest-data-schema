@@ -31779,6 +31779,13 @@
 					<xs:documentation xml:lang="en">Call for offer</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Yhteydenottopyyntö</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Contact request</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="DocumentClassType">

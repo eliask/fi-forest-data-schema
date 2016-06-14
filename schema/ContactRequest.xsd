@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	***************************************************************
+	Yhteydenottopyyntö. Yhteydenottopyyntö voi koskea esimerkiksi metsäsuunnitelman ylläpidon avustamista, 
+	puukauppaa, metsähoidon toimenpiteitä tai vaikka vain yleinen kysymys metsäomaisuuden hoidosta.
+	
+	Mukana sanomassa voidaan välittää metsävaratietojen elementit ja tyypit.
+	Skeema on JHS-170 -suosituksen mukainen.
+	
+	VERSIOKOMMENTIT 0.1 
+	 Luotu
+	***************************************************************
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/contactRequest"
+	xmlns="http://standardit.tapio.fi/schemas/contactRequest"
+	xmlns:fd="http://standardit.tapio.fi/schemas/forestData"
+	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+	elementFormDefault="qualified" attributeFormDefault="qualified" version="1.3">
+
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+		schemaLocation="Common_GeometricDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+		schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation"
+		schemaLocation="ContactInformation.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData"
+		schemaLocation="ForestData.xsd"/>
+
+	<!-- Elementtimääritykset -->
+	<!-- Element definitions -->
+	<xs:element name="ContactRequest" type="ContactRequestType"/>
+
+	<!-- Tyyppimääritykset -->
+	<!-- Type definitions -->
+	<xs:complexType name="ContactRequestType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsävaratiedot metsäsuunnitelmittain.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Forest property data grouped by forest property data.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ContactInformation" type="ci:ContactInformationType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi"/>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en">Person or organization who is requesting assistance.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ContactMunicipality" type="co:MunicipalityNumberType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ContactLocationInformation" type="gdt:AlternativeGeometriesType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi"/>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en">Location related data to contact request (For example point where the forest is (if there is no forest property data at all).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RequestCode" type="RequestCodeType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi"/>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en">Short text (may be used as code). Assistance type. For example "puukauppa", "puukaupassa avustaminen" or "maastokartoitus"</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RequestInfo" type="co:String2000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="CreateDate" type="co:DateType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ExpirationDate" type="co:DateType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ForestPropertyDataSet" type="ForestPropertyDataSetType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Yhteydenottopyyntö voidaan yksilöidä tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en"/>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="source" type="xs:string">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Yhteydenottopyynnön lähdejärjestelmän tunniste.</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en"/>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="ForestPropertyDataSetType">
+		<xs:sequence>
+			<xs:element name="ForestPropertyData" type="fd:ForestPropertyDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="RequestCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
