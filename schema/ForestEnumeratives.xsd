@@ -31941,6 +31941,13 @@
 			<xs:documentation xml:lang="en" />
 		</xs:annotation>
 		<xs:restriction base="xs:string">
+			<xs:enumeration value="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei määritelty</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Not defined</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Myyjä tai myyjän edustaja</xs:documentation>
