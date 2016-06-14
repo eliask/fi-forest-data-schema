@@ -43764,4 +43764,34 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+    <xs:simpleType name="ExtraMainGroupType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Pääryhmäkoodiston laajennus</xs:documentation>
+			<xs:documentation xml:lang="sv" />
+			<xs:documentation xml:lang="en">Extension for maingroup codings</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei määritelty</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Not defined</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="9">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tie</xs:documentation>
+					<xs:documentation xml:lang="sv">Väg</xs:documentation>
+					<xs:documentation xml:lang="en">Road</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Linja (esim. sähkölinja)</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Line (eg. power line)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>

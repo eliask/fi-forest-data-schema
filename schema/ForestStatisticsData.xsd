@@ -73,7 +73,7 @@
     <xs:element name="StatisticsQuantities" type="StatisticsQuantitiesType"/>
 	<xs:element name="StatisticsQuantity" type="StatisticsQuantityType"/>
     <xs:element name="Quantity" type="QuantityType"/>
-	<xs:element name="QuantityUnit" type="QuantityUnitType"/>   
+	<xs:element name="QuantityUnit" type="co:ExtendedQuantityUnitType"/>   
     <xs:element name="TreeSpecies" type="TreeSpeciesType"/>
     <xs:element name="StemType" type="StemTypeType"/>
 
@@ -308,14 +308,6 @@
             <xs:documentation xml:lang="en"></xs:documentation>
         </xs:annotation>
 	        <xs:restriction base="co:Decimal2FractionDigitsType"/>
-    </xs:simpleType>
-	    <xs:simpleType name="QuantityUnitType">
-        <xs:annotation>
-            <xs:documentation xml:lang="fi">Tilastoitavan määrän yksikkö</xs:documentation>
-            <xs:documentation xml:lang="sv"></xs:documentation>
-            <xs:documentation xml:lang="en"></xs:documentation>
-        </xs:annotation>
-	        <xs:restriction base="co:StatisticsQuantityUnitType"/>
     </xs:simpleType>
     <xs:simpleType name="TreeSpeciesType">
         <xs:annotation>

@@ -41,7 +41,5 @@
         schemaLocation="WorkingSiteTrade_Offer_20110214.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/offerworkingsite/2011/02/14"
         schemaLocation="WorkingSiteTrade_OfferWorkingSite_20110214.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestobject"
-        schemaLocation="ObjectsRealizationData.xsd"/>
 
 </xs:schema>

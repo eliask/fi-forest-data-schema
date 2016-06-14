@@ -56,6 +56,9 @@
 	
 	3.2.2016
 	- New simpletype "IdStringNotEmptyType"
+	
+	16.5.2016
+	- New simpleType "ExtendedQuantityUnitType"
 	***************************************************************
 -->
 <xs:schema
@@ -234,6 +237,22 @@
 			<xs:documentation xml:lang="en"></xs:documentation>
 		</xs:annotation>
 		<xs:union memberTypes="SilvicultureExtraQualifierType CommonOperationExtraQualifierType"/>	
+	</xs:simpleType>
+	<xs:simpleType name="ExtendedMainGroupType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Laajennettu pääryhmäkoodisto</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Extended coding for main group type</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="MainGroupType ExtraMainGroupType"/>
+	</xs:simpleType>
+	<xs:simpleType name="ExtendedQuantityUnitType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tilastoitavan määrän yksikkö, laajennettu koodisto</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Quantity units for assortments (cubic meters etc), extended coding</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="QuantityUnitType StatisticsQuantityUnitType"/>
 	</xs:simpleType>
 	<xs:simpleType name="Decimal2And2Type">
 		<xs:annotation>
