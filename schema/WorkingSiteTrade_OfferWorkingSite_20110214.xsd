@@ -30,10 +30,7 @@
 	elementFormDefault="qualified"
 	attributeFormDefault="qualified"
 	version="1.1">
-	
 
-<!-- 	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" -->	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment/2011/02/14"
 				schemaLocation="WorkingSiteTrade_Assortment_20110214.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14"
@@ -46,10 +43,6 @@
 				schemaLocation="WorkingSiteTrade_Common_20110214.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
 			schemaLocation="Common.xsd"/>
-		<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-			schemaLocation="Common_20100831.xsd"/> -->
-<!--	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-			    schemaLocation="Common_BasicDataType_20100831.xsd"/> -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/stand/2011/02/14"
 				schemaLocation="WorkingSiteTrade_Stand_20110214.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/product"

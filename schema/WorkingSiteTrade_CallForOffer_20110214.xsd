@@ -25,25 +25,22 @@
 	-> 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer/2011/02/14" 
-xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer/2011/02/14"  
-xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" 
-xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation" 
-xmlns:ws="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14" 
-xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
-elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.5">
-<!--
-xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 
-xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" -->
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer/2011/02/14" 
+	xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer/2011/02/14"  
+	xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" 
+	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation" 
+	xmlns:ws="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14" 
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+	elementFormDefault="qualified"
+	attributeFormDefault="qualified"
+	version="1.5">
+
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14" schemaLocation="WorkingSiteTrade_WorkingSite_20110214.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation" schemaLocation="ContactInformation.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14" schemaLocation="WorkingSiteTrade_Common_20110214.xsd"/>
-	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/> -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/> 
-<!--	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/> -->
 
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
