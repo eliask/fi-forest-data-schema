@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<!-- WorkingSiteHarvestingQualityControl Schema version Schema version 0.13.0 (24.3.2016) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteHarvestingQualityControl"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
@@ -104,7 +105,7 @@
 					<xs:documentation>Puulajin koodi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StemType" type="bdt:StemTypeType" minOccurs="1">
+			<xs:element name="StemType" type="bdt:HarvestingStemTypeType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Runkolajin koodi</xs:documentation>
 				</xs:annotation>
@@ -114,7 +115,7 @@
 					<xs:documentation>Tiedoston nimi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StemCoordinates" type="gdt:PointGeometryType" minOccurs="1">
+			<xs:element name="StemCoordinates" type="gdt:PointGeometryType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Sijainti</xs:documentation>
 				</xs:annotation>
@@ -128,7 +129,7 @@
 	</xs:complexType>
 	<xs:complexType name="LogDataType">
 		<xs:sequence>
-			<xs:element name="LogKey" type="bdt:PositiveIntegerType" minOccurs="1">
+			<xs:element name="LogKey" type="bdt:String10Type" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Pölkyn avain</xs:documentation>
 				</xs:annotation>
@@ -173,7 +174,7 @@
 					<xs:documentation>Läpimittaluokka</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="LogMeasurements" type="LogMeasurementsType" minOccurs="1">
+			<xs:element name="LogMeasurements" type="LogMeasurementsType" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Pölkyn mittaustiedot</xs:documentation>
 				</xs:annotation>

@@ -10,9 +10,7 @@
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/realEstate"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/realEstate"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
-	elementFormDefault="qualified"
-	attributeFormDefault="unqualified"
-	version="1.0">
+	elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
 
 	<!-- Imports / Includes -->
 	<xs:include schemaLocation="RealEstateBase.xsd"/>
@@ -82,9 +80,9 @@
 
 	<xs:complexType name="RealEstatesWithOwnersInformationType2">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kiintestö- ja omistajainformaatio.</xs:documentation>
+			<xs:documentation xml:lang="fi">Kiinteistö- ja omistajainformaatio. Kaikki omistajalistassa olevat toimijat ovat kaikkien kiinteistölistan kiinteistöjen omistajia.</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">RealEstates and Owners Information</xs:documentation>
+			<xs:documentation xml:lang="en">RealEstates and Owners Information. Every actor in the Owners Information list is an owner of every estate in the RealEstates list.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="RealEstateOwners" minOccurs="1" maxOccurs="1"/>

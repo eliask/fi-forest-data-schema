@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<!-- Header Schema version Schema version 0.13.0 (24.3.2016) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns="http://standardit.tapio.fi/schemas/header"
-           targetNamespace="http://standardit.tapio.fi/schemas/header"
-           elementFormDefault="qualified" version="0.3">
+	xmlns="http://standardit.tapio.fi/schemas/header"
+	targetNamespace="http://standardit.tapio.fi/schemas/header"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="qualified"
+	version="0.3">
+
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+		schemaLocation="Common.xsd"/>
+
 	<xs:element name="Header" type="HeaderType"/>
 	<xs:complexType name="HeaderType">
 		<xs:sequence>
@@ -78,7 +85,14 @@
 			</xs:element>
 			<xs:element name="TransmissionTime" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Action" type="ActionType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Priority" type="PriorityType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Prioriteetti</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
+		<xs:attribute name="schemaPackageVersion" type="co:ForestDataStandardSchemaPackageVersionType" use="optional"/>
+		<xs:attribute name="schemaPackageVersionDate" type="co:DateType" use="optional"/>
 	</xs:complexType>
 	<xs:simpleType name="ActionType">
 		<xs:restriction base="xs:string">
@@ -90,6 +104,25 @@
 			<xs:enumeration value="2">
 				<xs:annotation>
 					<xs:documentation>Delete</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PriorityType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation>Matala</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation>Normaali (oletus)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation>Korkea</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>

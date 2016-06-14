@@ -6,21 +6,20 @@
 
 	***************************************************************
 -->
-<xs:schema
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData"
 	xmlns="http://standardit.tapio.fi/schemas/forestData"
-	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate" 
-	xmlns:st="http://standardit.tapio.fi/schemas/forestData/stand/2010/08/31"
+	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate"
+	xmlns:st="http://standardit.tapio.fi/schemas/forestData/Stand"
 	elementFormDefault="qualified"
-	attributeFormDefault="qualified"
+	attributeFormDefault="unqualified"
 	version="1.0">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/realEstate"
 		schemaLocation="RealEstate.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/stand/2010/08/31"
-		schemaLocation="Stand_20100831.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Stand"
+		schemaLocation="Stand.xsd"/>
 
 	<!-- Elementtimääritykset -->
 	<!-- Element definitions -->
@@ -31,11 +30,11 @@
 	<xs:complexType name="ForestPropertyDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsävaratiedot kiinteistöittäin.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Forest property data grouped by real estates.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="re:RealEstates" minOccurs="0" maxOccurs="1"/> 
+			<xs:element ref="re:RealEstates" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="st:Stands" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>

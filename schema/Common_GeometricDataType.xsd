@@ -237,5 +237,32 @@
 			<xs:group ref="SimpleAlternativeGeometriesGroup"/>
 		</xs:sequence>
 	</xs:complexType>
+	
+	<xs:complexType name="PolygonOrMultiPolygonType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Polygon tai MultiPolygon</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="gml:pointProperty" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tunnistepisteen sijainti (alueen sisäpiste).</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en">Reference point location (interior point of polygon).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element ref="gml:polygonProperty">
+					<xs:annotation>
+						<xs:documentation xml:lang="fi">Aluegeometria sisäalueineen.</xs:documentation>
+						<xs:documentation xml:lang="sv"/>
+						<xs:documentation xml:lang="en">Polygon geometry with interior polygons.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="MultiPolygonGeometry"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
 
 </xs:schema>

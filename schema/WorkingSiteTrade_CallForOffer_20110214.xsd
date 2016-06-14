@@ -4,15 +4,18 @@
 	Työmaiden tarjouspyynnön elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
 	
-	 VERSIOKOMMENTIT 1.0 >>> 1.1 
+	VERSIOKOMMENTIT 1.0 >>> 1.1 
 	 Tyypin "IncludeForestFundPaymentType" määrittely muutettu tyypistä "YesNo" tyypiksi "YesNoNotKnown" (eli koodistoon tullut arvojen "kyllä" ja "ei" lisäksi "ei tietoa"). 
 	 Tyypit "UsedPricingMethodsType", "UsedPricingMethodType", "IncludePaymentPlanType" ja "IncludeForestFundPayment" siirrety skeemaan "WorkingSiteTrade_Common_20110214.xsd". 
 	 Lisätty tyyppi "CallForOfferSilvicultureInfoType" 
-	 VERSIOKOMMENTIT 1.1 >>> 1.2 	
+
+	VERSIOKOMMENTIT 1.1 >>> 1.2 	
 	 Koodistotyyppiset määrittelyt siirretty skeemaan ForestEnumeratives_20130620. 
-	 VERSIOKOMMENTIT 1.2 >>> 1.3 	
+
+	VERSIOKOMMENTIT 1.2 >>> 1.3 	
 	 Lisätty elementit PlannedBasalArea ja PlannedStemCount. 
-	 VERSIOKOMMENTIT 1.3 >>> 1.4 
+
+	VERSIOKOMMENTIT 1.3 >>> 1.4 
 	 Elementit StandWoodTradeInfo ja PlannedBasalArea siirretty skeemaan WorkingSiteTrade_Stand_20110214.xsd (tyyppiin StandWoodTradeInfoType) 
 	 
 	VERSIOKOMMENTIT 1.4 >> 1.5
@@ -23,219 +26,18 @@
 	- ContactInformation_20110214.xsd -> ContactInformation.xsd
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
 	-> 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation
+	
+	VERSIOKOMMENTIT 1.5 >> 1.6
+	13.5.2016
+	- Tämän skeematiedoston WorkingSiteTrade_CallForOffer_20110214.xsd sisältö on siirretty skeematiedostoon WorkingSiteTrade_CallForOffer.xsd
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer/2011/02/14"
-	xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer/2011/02/14"
-	xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
-	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
-	xmlns:ws="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14"
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="qualified"
-	attributeFormDefault="qualified" version="1.5">
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer/2011/02/14" 
+	xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer/2011/02/14"  
+	elementFormDefault="qualified"
+	attributeFormDefault="qualified"
+	version="1.6">
 
-	<xs:import
-		namespace="http://standardit.tapio.fi/schemas/workingsitetrade/workingsite/2011/02/14"
-		schemaLocation="WorkingSiteTrade_WorkingSite_20110214.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation"
-		schemaLocation="ContactInformation.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
-		schemaLocation="WorkingSiteTrade_Common_20110214.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
-		schemaLocation="Common.xsd"/>
-
-	<!-- Elementtimääritykset -->
-	<!-- Element definitions -->
-	<xs:element name="CallForOffer" type="CallForOfferType"/>
-	<xs:element name="CallForOfferWoodTradeInfo" type="wtco:CallForOfferWoodTradeInfoType"/>
-	<xs:element name="PurchaseMode" type="PurchaseModeType"/>
-	<xs:element name="AdditionalCode" type="AdditionalCodeType"/>
-	<xs:element name="Publicity" type="PublicityType"/>
-	<xs:element name="CallForOfferBusinessSender" type="wtco:CallForOfferBusinessSenderType"/>
-	<xs:element name="TechnicalContactPerson" type="TechnicalContactPersonType"/>
-	<xs:element name="CallForOfferDate" type="CallForOfferDateType"/>
-	<xs:element name="OfferExpirationDate" type="OfferExpirationDateType"/>
-	<xs:element name="UsedPricingMethods" type="wtco:UsedPricingMethodsType"/>
-	<xs:element name="UsedPricingMethod" type="wtco:UsedPricingMethodType"/>
-	<xs:element name="CallForOfferText" type="wtco:CallForOfferTextType"/>
-	<xs:element name="CallForOfferSilvicultureInfo" type="CallForOfferSilvicultureInfoType"/>
-	<xs:element name="SilvicultureMode" type="SilvicultureModeType"/>
-	<xs:element name="IncludePaymentPlan" type="wtco:IncludePaymentPlanType"/>
-	<xs:element name="UsedPricingMethodType" type="UsedPricingMethodTypeType"/>
-
-	<!-- Tyyppimääritykset -->
-	<!-- Type definitions -->
-	<xs:complexType name="CallForOfferType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Tarjouspyynnön tiedot.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Call for offer data.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="co:TimeStamp">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = Timestamp</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="RelatedCallForOffers" type="RelatedCallForOffersType" minOccurs="0"
-				maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Linkitetyt tarjouspyynnöt</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="AdditionalCode" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = AdditionalModeCode</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="CallForOfferBusinessSender"/>
-			<xs:element ref="TechnicalContactPerson" minOccurs="0"/>
-			<xs:element ref="CallForOfferDate"/>
-			<xs:element ref="OfferExpirationDate"/>
-			<xs:element ref="CallForOfferText" minOccurs="0"/>
-			<xs:element ref="CallForOfferWoodTradeInfo" minOccurs="0"/>
-			<xs:element ref="CallForOfferSilvicultureInfo" minOccurs="0"/>
-			<xs:element ref="ws:CallForOfferWorkingSites">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = Stands</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="wtco:Documents" minOccurs="0"/>
-		</xs:sequence>
-		<xs:attribute name="id" type="xs:string" use="required">
-			<xs:annotation>
-				<xs:documentation xml:lang="fi">Tarjouspyyntö yksilöidään tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
-				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en">Call for offer can be identified using string id.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
-
-	<xs:complexType name="RelatedCallForOffersType">
-		<xs:sequence>
-			<xs:element name="RelatedCallForOffer" type="RelatedCallForOfferType" minOccurs="1"
-				maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Linkki yksittäiseen tarjouspyyntöön</xs:documentation>
-					<xs:documentation xml:lang="sv"> </xs:documentation>
-					<xs:documentation xml:lang="en"> </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-
-	<xs:complexType name="RelatedCallForOfferType">
-		<xs:sequence>
-			<xs:element name="RelatedCallForOfferId" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Linkityksen id</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="RelatedCallForOfferDescription" type="co:String1500Type" minOccurs="0"
-				maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Linkityksen tekstimuotoinen kuvaus</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-
-	<xs:simpleType name="PurchaseModeType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Lopullisen puukaupan kauppamuoto.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Mode for planned purchase (stumpage, roadside etc).</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="wtco:PurchaseModeType"/>
-	</xs:simpleType>
-
-	<xs:simpleType name="AdditionalCodeType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Koodi määrittelee tarkemmin kaupanteko tapaa. Käytännöt ja sisällöt tiedonsiirto-osapuolien vapaasti sovittavissa.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Additional code for eg. accommodate purchase mode. Practices and contents are freely agreed of data transfer partners.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="100"/>
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:simpleType name="PublicityType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Tarjouspyynnön julkisuus.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Publicity of call for offer.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="co:PublicityType"/>
-	</xs:simpleType>
-
-	<xs:complexType name="TechnicalContactPersonType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Teknisistä asioista vastaavan henkilön yhteystiedot.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Technical person, used for solving and informing if technical problems occurs.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="ci:ContactInformationType"/>
-		</xs:complexContent>
-	</xs:complexType>
-
-	<xs:simpleType name="CallForOfferDateType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Tarjouspyynnön jättöpvm.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Date when call for offer has been generated and sent to recipients (business point of view).</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="co:DateType"/>
-	</xs:simpleType>
-
-	<xs:simpleType name="OfferExpirationDateType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Tarjouksen viimeinen jättöpvm.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Last day for recipient to sent offer back.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="co:DateType"/>
-	</xs:simpleType>
-
-	<xs:simpleType name="SilvicultureModeType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi"/>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en"/>
-		</xs:annotation>
-		<xs:restriction base="co:SilvicultureModeType"/>
-	</xs:simpleType>
-
-	<xs:simpleType name="UsedPricingMethodTypeType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Hinnoittelumenetelmä. Viisielementtinen koodistoarvo. Varmista koodien arvot!</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en"/>
-		</xs:annotation>
-		<xs:restriction base="co:UsedPricingMethodTypeType"/>
-	</xs:simpleType>
-
-	<xs:complexType name="CallForOfferSilvicultureInfoType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Metsänhoitotyön tiedot.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Silviculture data.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="SilvicultureMode" minOccurs="0"/>
-			<xs:element ref="IncludePaymentPlan" minOccurs="0"/>
-			<xs:element ref="UsedPricingMethodType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Koodistoarvo: pinta-alahinnoittelu, tilavuushinnoittelu, kappalehinnoittelu, aikahinnoittelu, sekahinnoittelu.</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en">Enumerative.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 </xs:schema>

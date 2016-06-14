@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<!-- UserInformation Schema version Schema version 0.13.0 (24.3.2016) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/UserInformation" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/UserInformation" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
@@ -10,6 +11,11 @@
 	</xs:element>
 	<xs:complexType name="UserInformationType">
 		<xs:sequence>
+			<xs:element name="UserId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Käyttäjän yksilöivä ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="ContractorId" type="bdt:String20Type" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Yrityksen alv-tunnus</xs:documentation>
@@ -20,7 +26,7 @@
 					<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TaxNumber" type="bdt:String20Type" minOccurs="1">
+			<xs:element name="TaxNumber" type="bdt:String20Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Veronumero</xs:documentation>
 				</xs:annotation>
@@ -33,6 +39,16 @@
 			<xs:element name="Address" type="bdt:String50Type" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Osoite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PostalCode" type="bdt:String10Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Postinumero</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PostOffice" type="bdt:String50Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Postitoimipaikka</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="BirthDate" type="bdt:String10Type" minOccurs="1">
@@ -50,7 +66,7 @@
 					<xs:documentation xml:lang="fi">Toinen yhteystieto</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Email" type="bdt:String50Type" minOccurs="0">
+			<xs:element name="Email" type="bdt:String100Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">sähköposti</xs:documentation>
 				</xs:annotation>
@@ -95,19 +111,9 @@
 					<xs:documentation xml:lang="fi">Kansalaisuus</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Servicetypes" type="ServiceTypesType" minOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Palvelukokonaisuudet</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="WorkCodeGroups" type="WorkCodeGroupsType" minOccurs="1">
+			<xs:element name="WorkCodeGroups" type="WorkCodeGroupsType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Työlajiryhmät</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="WorkCodes" type="WorkCodesType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Työlajikoodit</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Location" type="gdt:PointGeometryType">

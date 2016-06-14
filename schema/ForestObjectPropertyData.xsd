@@ -26,7 +26,7 @@
 	xmlns:tli="http://standardit.tapio.fi/schemas/forestData/treelistitem" 	
 	xmlns:fo="http://standardit.tapio.fi/schemas/forestData/forestobject" 
 	elementFormDefault="qualified"
-	attributeFormDefault="qualified"
+	attributeFormDefault="unqualified"
 	version="1.0">
 	
 	<!-- Imports / Includes -->

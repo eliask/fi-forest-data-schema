@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<!-- ForwardingNotification Schema version Schema version 0.13.0 (24.3.2016) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/ForwardingNotification" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForwardingNotification" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:element name="ForwardingNotification" type="ForwardingNotificationType"/>
@@ -15,7 +16,7 @@
 					<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ResouceId" type="bdt:String20Type" minOccurs="1">
+			<xs:element name="ResourceId" type="bdt:String20Type" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Resurssin tunniste</xs:documentation>
 				</xs:annotation>
@@ -45,7 +46,7 @@
 					<xs:documentation xml:lang="fi">Varastopaikka päättynyt?</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StorageFinishedDate" type="bdt:DateType" minOccurs="0">
+			<xs:element name="StorageFinishedDate" type="bdt:TimeStampType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Varastopaikka päättynyt pvm+klo</xs:documentation>
 				</xs:annotation>
@@ -55,12 +56,12 @@
 					<xs:documentation xml:lang="fi">Lohko päättynyt?</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkingSiteFinishedDate" type="bdt:DateType" minOccurs="0">
+			<xs:element name="WorkingSiteFinishedDate" type="bdt:TimeStampType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Lohko päättynyt pvm</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="NotificationDate" type="bdt:DateType" minOccurs="1">
+			<xs:element name="NotificationDate" type="bdt:TimeStampType" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Talletus pvm</xs:documentation>
 				</xs:annotation>
@@ -104,7 +105,7 @@
 	</xs:complexType>
 	<xs:complexType name="ScaleFactorsType">
 		<xs:sequence>
-			<xs:element name="ScaleFactor" type="ScaleFactorDataType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="ScaleFactor" type="ScaleFactorDataType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="AssortmentDataType">
@@ -117,7 +118,7 @@
 					<xs:documentation xml:lang="fi">Toimituspiste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Code" type="bdt:String20Type" minOccurs="1">
+			<xs:element name="Code" type="bdt:String50Type" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Ptl</xs:documentation>
 				</xs:annotation>
@@ -152,7 +153,7 @@
 					<xs:documentation xml:lang="fi">Peitetty</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="HasAssormentChanges" type="bdt:YesNoType" minOccurs="1">
+			<xs:element name="HasAssortmentChanges" type="bdt:YesNoType" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Lajisiirtymiä</xs:documentation>
 				</xs:annotation>
@@ -223,7 +224,7 @@
 			<xs:documentation xml:lang="fi">Kuormainvaakatekijät</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ScaleAssortmentType" type="bdt:String10Type">
+			<xs:element name="ScaleAssortmentType" type="bdt:ScaleAssortmentType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Muunnostyyppi</xs:documentation>
 				</xs:annotation>
@@ -258,7 +259,7 @@
 					<xs:documentation xml:lang="fi">Mittauskuukausi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="HarvestingFinishedDate" type="bdt:DateType" minOccurs="0">
+			<xs:element name="HarvestingFinishedDate" type="bdt:TimeStampType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Hakkuu päättyi pvm</xs:documentation>
 				</xs:annotation>
@@ -288,12 +289,12 @@
 					<xs:documentation xml:lang="fi">Kosteus % mitattu käyttäjän toimesta (K/E)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ForestHaulageFinishedDate" type="bdt:DateType" minOccurs="0">
+			<xs:element name="ForestHaulageFinishedDate" type="bdt:TimeStampType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Metsäkuljetus päättyi pvm</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="CleanlinessClass" type="bdt:String5Type" minOccurs="0">
+			<xs:element name="CleanlinessClass" type="bdt:CleanlinessClassType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Puhtausluokka</xs:documentation>
 				</xs:annotation>

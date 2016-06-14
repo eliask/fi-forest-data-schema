@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<!-- WorkingSiteWorkLoad Schema version Schema version 0.13.0 (24.3.2016) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkLoad"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
@@ -23,9 +24,20 @@
 					<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StandNumber" type="bdt:String10Type">
+			<xs:element name="StandNumber" type="bdt:String10Type" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Lohkon kuvion numero</xs:documentation>
+					<xs:documentation xml:lang="fi">Lohkon kuvion numero. Metsänparannuksessa voidaan jättää pois
+						esim. lannoituksessa.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkLoadId" type="xs:unsignedLong">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työmääräilmoituksen yksilöivä id</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Accepted" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Yrittäjä on hyväksynyt työmääräilmoituksen.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ResourceId" type="bdt:String20Type" minOccurs="1">
@@ -38,50 +50,6 @@
 					<xs:documentation xml:lang="fi">Käyttäjätunnus</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkCodes" type="WorkCodesType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Työlajit</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Materials" type="MaterialsType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Materiaalit</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="StandFinished" type="bdt:YesNoType" minOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kuvio päättyy</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="InfoText" type="bdt:String1000Type" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Lisätiedot</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="MaterialsType">
-		<xs:sequence>
-			<xs:element name="Material" type="MaterialType" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Materiaali</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="WorkCodesType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Työlajit</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="WorkCode" type="WorkCodeType" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="WorkCodeType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Työlaji</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
 			<xs:element name="WorkCode" type="bdt:WorkCodeType" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Työlaji</xs:documentation>
@@ -117,7 +85,7 @@
 					<xs:documentation xml:lang="fi">Työmäärä1</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkLoad1Unit" type="bdt:String10Type" minOccurs="1">
+			<xs:element name="WorkLoad1Unit" type="bdt:WorkCodeUnitType" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Työmäärän1 yksikkö</xs:documentation>
 				</xs:annotation>
@@ -127,7 +95,7 @@
 					<xs:documentation xml:lang="fi">Työmäärä2</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkLoadUnit2" type="bdt:String10Type" minOccurs="0">
+			<xs:element name="WorkLoad2Unit" type="bdt:WorkCodeUnitType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Työmäärän2 yksikkö</xs:documentation>
 				</xs:annotation>
@@ -137,9 +105,38 @@
 					<xs:documentation xml:lang="fi">Laskutettava työmäärä</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkLoadUnitInvoiced" type="bdt:String10Type" minOccurs="0">
+			<xs:element name="WorkLoadUnitInvoiced" type="bdt:WorkCodeUnitType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Laskutettava yksikkö</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Materials" type="MaterialsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Materiaalit</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FeeBasis" type="FeeBasisType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taksaperusteet</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StandFinished" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuvio päättyy</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InfoText" type="bdt:String1000Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lisätiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MaterialsType">
+		<xs:sequence>
+			<xs:element name="Material" type="MaterialType" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Materiaali</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -154,12 +151,12 @@
 					<xs:documentation xml:lang="fi">Materiaali</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="MaterialVolume" type="bdt:PositiveIntegerType">
+			<xs:element name="MaterialVolume" type="bdt:Decimal2FractionDigitsType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Materiaalimäärä</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="MaterialUnit" type="bdt:String10Type">
+			<xs:element name="MaterialUnit" type="bdt:MaterialUnitType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Materiaalin yksikkö</xs:documentation>
 				</xs:annotation>
@@ -192,6 +189,50 @@
 			<xs:element name="UnfreezingDate" type="bdt:DateType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Otettu sulamaan</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FeeBasisType">
+		<xs:sequence>
+			<xs:element name="FeeBase" type="FeeBasisDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FeeBasisDataType">
+		<xs:sequence>
+			<xs:element name="FeeId" type="bdt:String10Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taksaperusteen id</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FeeListId" type="bdt:PositiveIntegerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taksaperustelistan id</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FeeYesNo" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taksaperuste kyllä/ei –tieto (jos peruste kyllä/ei –tyyppinen)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FeeValue" type="bdt:String10Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taksaperuste määrä (jos peruste määrä-tyyppinen)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FeeAssortment" type="bdt:String50Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taksaperusteen lisätieto</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Infotext" type="bdt:String1000Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lisätieto</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NeedToCheck" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taksaperusteilla tarkistustarve</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

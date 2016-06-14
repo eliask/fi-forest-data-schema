@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns="http://standardit.tapio.fi/schemas/forestDataValidation"
     targetNamespace="http://standardit.tapio.fi/schemas/forestDataValidation">
 
+    <!-- Imports / Includes -->
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData"
         schemaLocation="ForestData.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/2010/08/31"
-        schemaLocation="ForestData_20100831.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/2011/02/14"
-        schemaLocation="ForestData_20110214.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/2013/06/20"
-        schemaLocation="ForestData_20130620.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreMessage"
         schemaLocation="ForestCentreMessage.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreDecision"
@@ -21,25 +17,19 @@
         schemaLocation="ForestCentreReply.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestobjectpropertydata"
         schemaLocation="ForestObjectPropertyData.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/ForestStatisticsData"
-        schemaLocation="ForestStatisticsData.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/envelope"
         schemaLocation="Envelope.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestobject"
         schemaLocation="ObjectsRealizationData.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/specialFeatureData/2010/08/31"
-        schemaLocation="SpecialFeatureData_20100831.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/specialFeatureData/2011/02/14"
-        schemaLocation="SpecialFeatureData_20110214.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/specialFeatureData"
+        schemaLocation="SpecialFeatureData.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/virta/inspectiondata"
         schemaLocation="VirtaInspectionData.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer/2011/02/14"
-        schemaLocation="WorkingSiteTrade_CallForOffer_20110214.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforofferworkingsite/2011/02/14"
-        schemaLocation="WorkingSiteTrade_CallForOfferWorkingSite_20110214.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/offer/2011/02/14"
-        schemaLocation="WorkingSiteTrade_Offer_20110214.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/offerworkingsite/2011/02/14"
-        schemaLocation="WorkingSiteTrade_OfferWorkingSite_20110214.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestobject"
+        schemaLocation="ObjectsRealizationData.xsd"/>
+    <xs:import namespace="http://www.standardit.tapio.fi/schemas/forestData/workingSiteTradeEnvelope"
+        schemaLocation="WorkingSiteTrade_Envelope.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/ForestStatisticsData"
+        schemaLocation="ForestStatisticsData.xsd"/>
 
 </xs:schema>

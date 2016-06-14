@@ -179,7 +179,7 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="MainGroup" type="co:MainGroupType"/>
+	<xs:element name="MainGroup" type="co:ExtendedMainGroupType"/>
 	<xs:element name="SubGroup" type="co:SubGroupType"/>
 	<xs:element name="FertilityClass" type="co:FertilityClassType"/>
 	<xs:element name="SoilType" type="co:SoilTypeType"/>

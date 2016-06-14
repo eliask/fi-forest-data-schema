@@ -3,47 +3,17 @@
 	***************************************************************
 	Erityispiirretietojen elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	13.5.2016
+	- Käytä tämän skeematiedoston SpecialFeatureData_20100831.xsd sijaan skeematiedostoa SpecialFeatureData.xsd
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/specialFeatureData/2010/08/31"
 	xmlns="http://standardit.tapio.fi/schemas/specialFeatureData/2010/08/31"
-	xmlns:sf="http://standardit.tapio.fi/schemas/forestData/specialFeature/2010/08/31"
 	elementFormDefault="qualified"
-	attributeFormDefault="qualified"
+	attributeFormDefault="unqualified"
 	version="1.0">
 
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeature/2010/08/31"
-				schemaLocation="SpecialFeature_20100831.xsd"/>
-
-	<!-- Elementtimääritykset -->
-   	<!-- Element definitions -->
-	<xs:element name="SpecialFeatureData" type="SpecialFeatureDataType"/>
-	<xs:element name="SpecialFeatures" type="SpecialFeaturesType"/>
-	<xs:element name="SpecialFeature" type="sf:LocatedSpecialFeatureType"/>
-
-	<!-- Tyyppimääritykset -->
-	<!-- Type definitions -->
-	<xs:complexType name="SpecialFeatureDataType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Erityispiirretiedot.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Special feature data.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="SpecialFeatures"/>
-		</xs:sequence>
-	</xs:complexType>
-
-	<xs:complexType name="SpecialFeaturesType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Sijainnilliset erityispiirteet.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Located special features.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="SpecialFeature" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	
 </xs:schema>

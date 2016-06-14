@@ -29,7 +29,7 @@
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/2013/06/20"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/2013/06/20"
 	elementFormDefault="qualified"
-	attributeFormDefault="qualified"
+	attributeFormDefault="unqualified"
 	version="1.4">
 
 </xs:schema>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<!-- CompanyInformation Schema version Schema version 0.13.0 (24.3.2016) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/CompanyInformation" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/CompanyInformation" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:element name="CompanyInformation" type="CompanyInformationType">
@@ -14,7 +15,7 @@
 					<xs:documentation xml:lang="fi">Yrityksen alv-tunnus</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="OrganizationName" type="bdt:String50Type" minOccurs="1">
+			<xs:element name="OrganizationName" type="bdt:String100Type" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Yrityksen nimi</xs:documentation>
 				</xs:annotation>
@@ -26,7 +27,7 @@
 			</xs:element>
 			<xs:element name="ContactPersonInFinland" type="bdt:ContactInformationType">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Vastuuhenkilö suomessa</xs:documentation>
+					<xs:documentation xml:lang="fi">Vastuuhenkilö Suomessa</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="CompanyType" type="bdt:CompanyTypeType" minOccurs="1">
@@ -71,7 +72,7 @@
 			</xs:element>
 			<xs:element name="CollectiveAgreements" type="CollectiveAgreementsType">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tyoehtosopimukset</xs:documentation>
+					<xs:documentation xml:lang="fi">Työehtosopimukset</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ServiceTypes" type="bdt:ServiceTypesType">
@@ -131,7 +132,7 @@
 			</xs:element>
 			<xs:element name="IsActive" type="bdt:YesNoType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">onko käytössä</xs:documentation>
+					<xs:documentation xml:lang="fi">Onko käytössä</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SubContractors" type="SubContractorsType" minOccurs="0">
@@ -161,7 +162,7 @@
 	</xs:complexType>
 	<xs:complexType name="QualitySystemsType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Palvelukokonaisuudet</xs:documentation>
+			<xs:documentation xml:lang="fi">Laatujärjestelmät</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="QualitySystem" type="bdt:QualitySystemType" minOccurs="0" maxOccurs="unbounded"/>
@@ -183,7 +184,7 @@
 	</xs:complexType>
 	<xs:complexType name="CollectiveAgreementsType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Tyoehtosopimukset</xs:documentation>
+			<xs:documentation xml:lang="fi">Työehtosopimukset</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="CollectiveAgreement" type="bdt:String100Type" minOccurs="1" maxOccurs="unbounded"/>

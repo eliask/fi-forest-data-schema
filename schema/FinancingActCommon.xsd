@@ -292,9 +292,9 @@
             <xs:documentation xml:lang="fi">Kuvion paikkatiedon / geometrian pinta-ala hehtaareina. Mikäli kuviointi sisältää myös teitä ja linjoja (mm. sähkölinja) eli kuviorajojen sisällä on kyseisiä kohteita, pinta-ala sisältää myös näiden pinta-alan.</xs:documentation>
             <xs:documentation xml:lang="sv"/>
             <xs:documentation xml:lang="en"/>
-        </xs:annotation>        
+        </xs:annotation>
     </xs:element>
-    <xs:element name="MainGroup" type="co:MainGroupType">
+    <xs:element name="MainGroup" type="co:ExtendedMainGroupType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Kuvion pääryhmä.</xs:documentation>
             <xs:documentation xml:lang="sv"/>
@@ -488,7 +488,8 @@
             <xs:documentation xml:lang="en"/>
         </xs:annotation>
     </xs:element>
-    <xs:element name="FinancingActCompletionOtherSubjects" type="FinancingActCompletionOtherSubjectsType"/>
+    <xs:element name="FinancingActCompletionOtherSubjects"
+        type="FinancingActCompletionOtherSubjectsType"/>
     <xs:element name="FinancingActCompletionGeometries" type="FinancingActCompletionGeometriesType"/>
     <xs:element name="FinancingActCompletionGeometry" type="FinancingActGeometryType"/>
     <xs:element name="FinancingActApplicationStands" type="FinancingActApplicationStandsType"/>
@@ -637,7 +638,8 @@
             <xs:documentation xml:lang="en"/>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="OwnerShipTypeCode" type="co:OwnerShipTypeCodeType" minOccurs="1" maxOccurs="1">
+            <xs:element name="OwnerShipTypeCode" type="co:OwnerShipTypeCodeType" minOccurs="1"
+                maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation xml:lang="fi">Omistussuhde. Omistussuhteen ilmoittamisen pakollisuudessa pätee seuraava: Jos hakija on rahoituslain 28 §:ssä tarkoitettu tukeen oikeutettu kiinteistön yhteisomistaja, hakemuksessa on ilmoitettava yhteisomistussuhteen peruste ja omistusosuus. Säännös koskee kemera-lain 28 §:ssä säädettyjä tilanteita, joissa vain osa kiinteistön yhteisomistajista ryhtyy toimenpiteeseen ja hakee sille tukea. Tuki myönnetään silloin sitä hakeneille yhteisomistajille. Jos toimenpiteessä ja tukea hakemassa ovat mukana kaikki kiinteistön yhteisomistajat, säännöksiä ei sovelleta. Tuensaajana eivät tällöin ole yksittäiset yhteisomistajat, vaan heidän muodostamansa yhteenliittymä tai jakamaton kuolinpesä.</xs:documentation>
                     <xs:documentation xml:lang="sv"/>
@@ -650,7 +652,8 @@
 
     <xs:complexType name="ApplicationActorsType">
         <xs:sequence>
-            <xs:element name="ApplicationActor" type="ApplicationActorType" minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="ApplicationActor" type="ApplicationActorType" minOccurs="1"
+                maxOccurs="unbounded">
                 <xs:annotation>
                     <xs:documentation xml:lang="fi">Rahoitushakemuksen toimijatieto: kiinteistönomistaja, tuensaaja ja/tai muu maksunsaaja.</xs:documentation>
                     <xs:documentation xml:lang="sv"/>
@@ -662,7 +665,8 @@
 
     <xs:complexType name="CompletionDeclarationActorsType">
         <xs:sequence>
-            <xs:element name="CompletionDeclarationActor" type="PayeeType" minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="CompletionDeclarationActor" type="PayeeType" minOccurs="1"
+                maxOccurs="unbounded">
                 <xs:annotation>
                     <xs:documentation xml:lang="fi">Toteutusilmoituksen toimijatieto: kiinteistönomistaja, tuensaaja ja/tai muu maksunsaaja. HUOM! id-attribuuttiin tulee sisällyttää aina yksilöivä id, koska sitä käytetään viiteavaimena toisaalla sanomassa.</xs:documentation>
                     <xs:documentation xml:lang="sv"/>

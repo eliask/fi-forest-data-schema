@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<!-- WorkingSiteFinalAuditStumpLifting Schema version Schema version 0.13.0 (24.3.2016) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditStumpLifting"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
@@ -23,7 +24,7 @@
 					<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ResourceId" type="bdt:String20Type" minOccurs="1">
+			<xs:element name="ResourceId" type="bdt:String20Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Resurssin tunniste</xs:documentation>
 				</xs:annotation>
@@ -94,12 +95,12 @@
 		<xs:sequence>
 			<xs:element name="hasEnvironmentalObjects" type="bdt:YesNoType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Onko havaittu uusia luontokohteita</xs:documentation>
+					<xs:documentation xml:lang="fi">Onko lohkolla luontokohteita</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="hasEnvironmentalObjectsText" type="bdt:String200Type" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Onko havaittu uusia luontokohteita selite</xs:documentation>
+					<xs:documentation xml:lang="fi">Onko lohkolla luontokohteita selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="hasFoundNewEnvironmentalObjects" type="bdt:YesNoType" minOccurs="1">
@@ -122,7 +123,7 @@
 					<xs:documentation xml:lang="fi">Onko ympäristö ja muinaismuistokohteet huomioitu selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="LimitsToWaterSystem" type="bdt:YesNoType" minOccurs="1">
+			<xs:element name="LimitsToWaterSystem" type="bdt:YesNoType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Rajoittuuko vesistöön</xs:documentation>
 				</xs:annotation>
@@ -132,7 +133,7 @@
 					<xs:documentation xml:lang="fi">Rajoittuuko vesistöön selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WaterSystemProtection" type="bdt:YesNoType" minOccurs="1">
+			<xs:element name="WaterSystemProtection" type="bdt:YesNoType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Suojakaista vesistöön huomioitu koneellisessa istutuksessa</xs:documentation>
 				</xs:annotation>
@@ -142,7 +143,7 @@
 					<xs:documentation xml:lang="fi">Suojakaista vesistöön huomioitu koneellisessa istutuksessa selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkingSafetyNoticed" type="bdt:YesNoType" minOccurs="1">
+			<xs:element name="WorkingSafetyNoticed" type="bdt:YesNoType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Onko työturvallisuusasiat huomioitu</xs:documentation>
 				</xs:annotation>
@@ -152,7 +153,7 @@
 					<xs:documentation xml:lang="fi">Onko työturvallisuusasiat huomioitu selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkingInstructionsSufficient" type="bdt:YesNoType" minOccurs="1">
+			<xs:element name="WorkingInstructionsSufficient" type="bdt:YesNoType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Onko työohje ja maastomerkinnät riittävät</xs:documentation>
 				</xs:annotation>
@@ -182,7 +183,7 @@
 					<xs:documentation xml:lang="fi">Onko kantojen pilkkominen ohjeen mukaista selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StumpTidiness" type="bdt:YesNoType" minOccurs="1">
+			<xs:element name="StumpTidiness" type="bdt:YesNoType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Onko kantojen puhtaus kunnossa</xs:documentation>
 				</xs:annotation>

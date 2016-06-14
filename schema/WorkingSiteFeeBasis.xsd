@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFeeBasis"
-           xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
-           targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFeeBasis"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.3">
+<!-- WorkingSiteFeeBasis Schema version Schema version 0.13.0 (24.3.2016) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFeeBasis" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFeeBasis" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.3">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:element name="WorkingSiteFeeBasis" type="WorkingSiteFeeBasisType">
 		<xs:annotation>
-			<xs:documentation>Lohkon keskeytys</xs:documentation>
+			<xs:documentation>Lohkon taksatekijät</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="WorkingSiteFeeBasisType">
@@ -23,9 +20,10 @@
 					<xs:documentation xml:lang="fi">Lohkon tunniste, yksilöivä id</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StandNumber" type="bdt:String10Type" minOccurs="1">
+			<xs:element name="ResourceId" type="bdt:String20Type" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Lohkon kuvion numero</xs:documentation>
+					<xs:documentation xml:lang="fi">Resurssin tunniste. Resurssi, joka on viimeksi päivittänyt lohkon 
+                    taksatekijöitä.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FeeBasis" type="FeeBasisType" minOccurs="1">
@@ -77,6 +75,26 @@
 					<xs:documentation xml:lang="fi">Taksaperusteilla tarkistustarve</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="Stands" type="StandsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taksaperusteen kuviot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WorkCodes" type="WorkCodesType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Taksaperusteen työlajit</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+    <xs:complexType name="StandsType">
+        <xs:sequence>
+            <xs:element name="StandNumber" type="bdt:String10Type" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="WorkCodesType">
+        <xs:sequence>
+            <xs:element name="WorkCode" type="bdt:WorkCodeType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>

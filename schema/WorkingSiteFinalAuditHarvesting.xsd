@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<!-- WorkingSiteFinalAuditHarvesting Schema version Schema version 0.13.0 (24.3.2016) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditHarvesting"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
@@ -25,12 +26,12 @@
 			</xs:element>
 			<xs:element name="HarvesterId" type="bdt:String20Type" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Yrittäjän tunniste (alv-tunnus)</xs:documentation>
+					<xs:documentation xml:lang="fi">Hakkuukoneen tunniste (ResourceId)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ForwarderId" type="bdt:String20Type" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Resurssin tunniste</xs:documentation>
+					<xs:documentation xml:lang="fi">Metsätraktorin tunniste (ResourceId)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PurchaseContractId" type="bdt:String20Type">
@@ -109,12 +110,12 @@
 			</xs:element>
 			<xs:element name="hasEnvironmentalObjects" type="bdt:YesNoType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Onko havaittu uusia luontokohteita</xs:documentation>
+					<xs:documentation xml:lang="fi">Onko lohkolla luontokohteita</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="hasEnvironmentalObjectsText" type="bdt:String200Type" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Onko havaittu uusia luontokohteita selite</xs:documentation>
+					<xs:documentation xml:lang="fi">Onko lohkolla luontokohteita selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="hasFoundNewEnvironmentalObjects" type="bdt:YesNoType" minOccurs="1">
@@ -137,7 +138,7 @@
 					<xs:documentation xml:lang="fi">Onko ympäristö ja muinaismuistokohteet huomioitu selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="LimitsToWaterSystem" type="bdt:YesNoType" minOccurs="1">
+			<xs:element name="LimitsToWaterSystem" type="bdt:YesNoType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Rajoittuuko vesistöön</xs:documentation>
 				</xs:annotation>
@@ -147,7 +148,7 @@
 					<xs:documentation xml:lang="fi">Rajoittuuko vesistöön selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WaterSystemProtection" type="bdt:YesNoType" minOccurs="1">
+			<xs:element name="WaterSystemProtection" type="bdt:YesNoType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Suojakaista vesistöön huomioitu koneellisessa istutuksessa</xs:documentation>
 				</xs:annotation>
@@ -157,7 +158,7 @@
 					<xs:documentation xml:lang="fi">Suojakaista vesistöön huomioitu koneellisessa istutuksessa selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkingSafetyNoticed" type="bdt:YesNoType" minOccurs="1">
+			<xs:element name="WorkingSafetyNoticed" type="bdt:YesNoType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Onko työturvallisuusasiat huomioitu</xs:documentation>
 				</xs:annotation>
@@ -167,7 +168,7 @@
 					<xs:documentation xml:lang="fi">Onko työturvallisuusasiat huomioitu selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkingInstructionsSufficient" type="bdt:YesNoType" minOccurs="1">
+			<xs:element name="WorkingInstructionsSufficient" type="bdt:YesNoType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Onko työohje ja maastomerkinnät riittävät</xs:documentation>
 				</xs:annotation>
@@ -177,7 +178,7 @@
 					<xs:documentation xml:lang="fi">Onko työohje ja maastomerkinnät riittävät selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StumpTreatment" type="bdt:YesNoType" minOccurs="1">
+			<xs:element name="StumpTreatment" type="YesNoNotNeededType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Onko kantokäsittelyn peittävyys riittävä</xs:documentation>
 				</xs:annotation>
@@ -187,7 +188,7 @@
 					<xs:documentation xml:lang="fi">Onko kantokäsittelyn peittävyys riittävä selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="HighStumps" type="bdt:YesNoType" minOccurs="1">
+			<xs:element name="HighStumps" type="bdt:YesNoType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Onko korkeita kantoja</xs:documentation>
 				</xs:annotation>
@@ -197,7 +198,7 @@
 					<xs:documentation xml:lang="fi">Onko korkeita kantoja selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Storage" type="bdt:YesNoType" minOccurs="1">
+			<xs:element name="Storage" type="bdt:YesNoType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Onko varastopaikka ohjeistuksen mukainen</xs:documentation>
 				</xs:annotation>
@@ -207,7 +208,7 @@
 					<xs:documentation xml:lang="fi">Onko varastopaikka ohjeistuksen mukainen selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="RoadDamages" type="bdt:YesNoType" minOccurs="1">
+			<xs:element name="RoadDamages" type="bdt:YesNoType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Aiheutuiko tiestövaurioita</xs:documentation>
 				</xs:annotation>
@@ -217,7 +218,7 @@
 					<xs:documentation xml:lang="fi">Aiheutuiko tiestövaurioita selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PreClearing" type="bdt:YesNoType" minOccurs="1">
+			<xs:element name="PreClearing" type="YesNoNotNeededType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Ennakkoraivaus ohjeen mukainen</xs:documentation>
 				</xs:annotation>
@@ -227,7 +228,7 @@
 					<xs:documentation xml:lang="fi">Ennakkoraivaus ohjeen mukainen selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TreeDamages" type="bdt:YesNoType" minOccurs="1">
+			<xs:element name="TreeDamages" type="bdt:YesNoType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Aiheutuiko puustovaurioita</xs:documentation>
 				</xs:annotation>
@@ -237,7 +238,7 @@
 					<xs:documentation xml:lang="fi">Aiheutuiko puustovaurioita selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="VehiclePathPressures" type="bdt:YesNoType" minOccurs="1">
+			<xs:element name="VehiclePathPressures" type="bdt:YesNoType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Aiheutuiko ajourapainaumia</xs:documentation>
 				</xs:annotation>
@@ -249,4 +250,34 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:simpleType name="YesNoNotNeededType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Määrittely kyllä-, ei- ja ei tarvetta -arvoille</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Definition for yes, no and not needed value</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en">No</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kyllä</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en">Yes</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei tarvetta</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en">Not needed</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>

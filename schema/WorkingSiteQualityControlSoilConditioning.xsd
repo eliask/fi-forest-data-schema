@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<!-- WorkingSiteQualityControlSoilConditioning Schema version Schema version 0.13.0 (24.3.2016) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.3">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
@@ -45,7 +46,7 @@
 					<xs:documentation xml:lang="fi">Kuvion tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ResourceId" type="bdt:String20Type">
+			<xs:element name="ResourceId" type="bdt:String20Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Resurssin tunniste</xs:documentation>
 				</xs:annotation>
@@ -53,6 +54,11 @@
 			<xs:element name="MeasureDate" type="bdt:DateType" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Aika</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Measurable" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Onko mitattavissa</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Measurer" type="bdt:String50Type" minOccurs="1">

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns="http://standardit.tapio.fi/schemas/forestData/Acknowledge"
-           xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
-           targetNamespace="http://standardit.tapio.fi/schemas/forestData/Acknowledge"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.3">
+<!-- Acknowledge Schema version Schema version 0.13.0 (24.3.2016) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns="http://standardit.tapio.fi/schemas/forestData/Acknowledge" 
+           xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" 
+           targetNamespace="http://standardit.tapio.fi/schemas/forestData/Acknowledge" 
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:element name="Acknowledge" type="AcknowledgeType">
 		<xs:annotation>
@@ -32,6 +33,27 @@
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Alkuperäisen viestin tyyppi</xs:documentation>
 				</xs:annotation>
+			</xs:element>
+			<xs:element name="StatusMessages" type="StatusMessageLanguageType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Erikieliset virheilmoitukset</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StatusMessageLanguageType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="StatusMessage" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">OK/Virhekoodin selite</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="bdt:String1000Type">
+							<xs:attribute name="LanguageCode" type="bdt:LanguageCodeType" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>

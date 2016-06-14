@@ -3,106 +3,17 @@
 	***************************************************************
 	Sopimuksen / kaupan elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	13.5.2016
+	- Tämän skeematiedoston WorkingSiteTrade_ContractReference_20110214.xsd sisältö on siirretty skeematiedostoon WorkingSiteTrade_ContractReference.xsd
 	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/contractreference/2011/02/14"
 	xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/contractreference/2011/02/14"
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
-	xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
 	elementFormDefault="qualified"
-	attributeFormDefault="qualified"
+	attributeFormDefault="unqualified"
 	version="1.0">
 
-	<!--	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" -->
-	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/common/2011/02/14"
-				schemaLocation="WorkingSiteTrade_Common_20110214.xsd"/>
-
-	<!--  <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
-			schemaLocation="Common_20100831.xsd"/> -->
-			
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
-			schemaLocation="Common.xsd"/>
-			
-<!--	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
-			    schemaLocation="Common_BasicDataType_20100831.xsd"/> -->
-
-
-	<!-- Elementtimääritykset -->
-   	<!-- Element definitions -->
-	<xs:element name="Contract" type="ContractType"/>
-	<xs:element name="ContractId" type="ContractIdType"/>
-	<xs:element name="ContractBeginningDate" type="ContractBeginningDateType"/>
-	<xs:element name="ContractEndingDate" type="ContractEndingDateType"/>
-	
-	<!-- Tyyppimääritykset -->
-	<!-- Type definitions -->
-
-	<xs:complexType name="ContractType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kaupan / sopimuksen viitetiedot.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Contract reference data.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="co:TimeStamp"/>
-			<xs:element ref="ContractId"/>
-			<xs:element ref="ContractBeginningDate"/>
-			<xs:element ref="ContractEndingDate"/>
-			<xs:element ref="wtco:Documents" minOccurs="0"/>
-		</xs:sequence>
-		<xs:attribute name="parentId" type="xs:string" use="required">
-			<xs:annotation>
-				<xs:documentation xml:lang="fi">parentId:llä viitataan kauppaan / sopimukseen johtaneeseen tarjoukseen.</xs:documentation>
-				<xs:documentation xml:lang="sv"></xs:documentation>
-				<xs:documentation xml:lang="en">parentId is a foreign key to Offer id.</xs:documentation>		
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="parentVersionNo" type="xs:int" use="required">
-			<xs:annotation>
-				<xs:documentation xml:lang="fi">parentVersionNo:lla viitataan kauppaan / sopimukseen johtaneen tarjouksen versioon.</xs:documentation>
-				<xs:documentation xml:lang="sv"></xs:documentation>
-				<xs:documentation xml:lang="en">parentVersionNo is a foreign key to Offer versionNo.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="id" type="xs:string" use="required">
-			<xs:annotation>
-				<xs:documentation xml:lang="fi">Kauppa / sopimus yksilöidään tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä. Id:llä viitataan kaupan kohteeseen / leimikkoon.</xs:documentation>
-				<xs:documentation xml:lang="sv"></xs:documentation>
-				<xs:documentation xml:lang="en">Wood purchace can be identified using string id. Id is foreign key to working site id.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
-	
-	<xs:simpleType name="ContractIdType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kaupan / sopimuksen tunnistetieto. Käytetään kaupan / sopimuksen virallisena tunnistetietona myyjän ja ostajan välisissä keskusteluissa.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en"></xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="50"/>
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:simpleType name="ContractBeginningDateType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kaupan / sopimuksen pvm.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Date when contract has legal validity. Wood purchase case: felling right duration is calculated from this date.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="co:DateType"/>
-	</xs:simpleType>
-	
-	<xs:simpleType name="ContractEndingDateType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kaupan / sopimuksen päättymispvm.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Date when contract legal validity (Wood purchase case: felling right) ends.</xs:documentation>					
-		</xs:annotation>
-		<xs:restriction base="co:DateType"/>
-	</xs:simpleType>
-	
 </xs:schema>

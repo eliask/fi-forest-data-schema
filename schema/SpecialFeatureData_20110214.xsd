@@ -9,49 +9,17 @@
 	
 	11.12.2015
 	- Versio käyttää erityispiirretietojen määrittelyä "forestData/specialFeature"
+	
+	13.5.2016
+	- Käytä tämän skeematiedoston SpecialFeatureData_20110214.xsd sijaan skeematiedostoa SpecialFeatureData.xsd
 	***************************************************************
 -->
 <xs:schema
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/specialFeatureData/2011/02/14"
 	xmlns="http://standardit.tapio.fi/schemas/specialFeatureData/2011/02/14"
-	xmlns:sf="http://standardit.tapio.fi/schemas/forestData/specialFeature"
 	elementFormDefault="qualified"
-	attributeFormDefault="qualified"
+	attributeFormDefault="unqualified"
 	version="1.0">
 
-	<!-- Imports / Includes -->
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeature"
-		schemaLocation="SpecialFeature.xsd"/>
-
-	<!-- Elementtimääritykset -->
-   	<!-- Element definitions -->
-	<xs:element name="SpecialFeatureData" type="SpecialFeatureDataType"/>
-	<xs:element name="SpecialFeatures" type="SpecialFeaturesType"/>
-	<xs:element name="SpecialFeature" type="sf:LocatedSpecialFeature1Type"/>
-
-	<!-- Tyyppimääritykset -->
-	<!-- Type definitions -->
-	<xs:complexType name="SpecialFeatureDataType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Erityispiirretiedot.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Special feature data.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="SpecialFeatures"/>
-		</xs:sequence>
-	</xs:complexType>
-
-	<xs:complexType name="SpecialFeaturesType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Sijainnilliset erityispiirteet.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Located special features.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="SpecialFeature" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	
 </xs:schema>

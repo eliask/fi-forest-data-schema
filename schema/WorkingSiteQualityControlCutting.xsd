@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
+<!-- WorkingSiteQualityControlCutting Schema version Schema version 0.13.0 (24.3.2016) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
@@ -24,11 +25,6 @@
 			<xs:element name="StandId" type="bdt:String10Type" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Lohkon kuvion numero</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="ResourceId" type="bdt:String20Type" minOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Resurssin ID</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="QualityControlDate" type="bdt:DateType" minOccurs="1">
@@ -79,6 +75,11 @@
 					<xs:documentation xml:lang="fi">Koealan numero</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="ResourceId" type="bdt:String20Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Resurssin ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="MeasureDate" type="bdt:TimeStampType" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Mittaus pvm</xs:documentation>
@@ -111,7 +112,7 @@
 			</xs:element>
 			<xs:element name="Radius" type="bdt:Decimal2FractionDigitsType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Koealan säde</xs:documentation>
+					<xs:documentation xml:lang="fi">Koealan säde (m)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ManipulationMethod" type="bdt:WorkCodeQualifierType2" minOccurs="1">
@@ -146,7 +147,7 @@
 			</xs:element>
 			<xs:element name="MeanHeight" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Keskipituus</xs:documentation>
+					<xs:documentation xml:lang="fi">Keskipituus (cm)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="BasalAreaPine" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="1">
@@ -176,17 +177,17 @@
 			</xs:element>
 			<xs:element name="DiameterMax" type="bdt:PositiveInteger3digitsType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Läpimitta 2. suurin</xs:documentation>
+					<xs:documentation xml:lang="fi">Läpimitta 2. suurin (mm)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DiameterMin" type="bdt:PositiveInteger3digitsType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Läpimitta 2. pienin</xs:documentation>
+					<xs:documentation xml:lang="fi">Läpimitta 2. pienin (mm)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="MeanDiameter" type="bdt:PositiveInteger3digitsType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Keskiläpimitta</xs:documentation>
+					<xs:documentation xml:lang="fi">Keskiläpimitta (mm)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="StemCountTarget" type="bdt:PositiveInteger2digitsType" minOccurs="1">
@@ -194,7 +195,7 @@
 					<xs:documentation xml:lang="fi">Tavoitepuusto</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="VehiclePathDistance" type="bdt:PositiveDecimalMax4IntegralPartMax2FractionalPartType" minOccurs="1">
+			<xs:element name="VehiclePathDistance" type="bdt:PositiveDecimalMax4IntegralPartMax2FractionalPartType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Ajouraväli (m)</xs:documentation>
 				</xs:annotation>
