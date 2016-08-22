@@ -6,18 +6,18 @@
 
 	***************************************************************
 -->
-<xs:schema
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="http://standardit.tapio.fi/schemas/forestData/operation"
-    xmlns="http://standardit.tapio.fi/schemas/forestData/operation" 
-    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
-    xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2010/05/14"
-	elementFormDefault="qualified"
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/operation"
+	xmlns="http://standardit.tapio.fi/schemas/forestData/operation"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2010/05/14" elementFormDefault="qualified"
 	version="1.0">
 
 	<!-- Imports / Includes -->
-	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" schemaLocation="JHS170_20090304.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
+	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
+		schemaLocation="JHS170_20090304.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+		schemaLocation="Common.xsd"/>
 
 	<!-- Elementtimääritykset -->
 	<!-- Element definitions -->
@@ -32,7 +32,7 @@
 	<xs:element name="OperationUrgency" type="OperationUrgencyType"/>
 	<xs:element name="MinProposalYear" type="MinProposalYearType"/>
 	<xs:element name="MaxProposalYear" type="MaxProposalYearType"/>
-	<xs:element name="OriginalProposalYear" type="OriginalProposalYearType"/>	
+	<xs:element name="OriginalProposalYear" type="OriginalProposalYearType"/>
 	<xs:element name="ProposalYear" type="ProposalYearType"/>
 	<xs:element name="CompletionData" type="CompletionDataType"/>
 	<xs:element name="CompletionDate" type="CompletionDateType"/>
@@ -57,8 +57,8 @@
 	<xs:element name="AlternativeName" type="AlternativeNameType"/>
 	<xs:element name="ProposalArea" type="ProposalAreaType"/>
 	<xs:element name="ProposalAreaPercent" type="ProposalAreaPercentType"/>
-	<xs:element name="CuttingIncome" type="CuttingIncomeType"/>    
-	<xs:element name="Cost" type="CostType"/>    
+	<xs:element name="CuttingIncome" type="CuttingIncomeType"/>
+	<xs:element name="Cost" type="CostType"/>
 
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
@@ -70,7 +70,7 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="Operation" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>	
+		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="OperationDefType">
 		<xs:annotation>
@@ -82,7 +82,7 @@
 			<xs:element ref="co:ChangeState" minOccurs="0"/>
 			<xs:element ref="co:ChangeTime" minOccurs="0"/>
 			<xs:element ref="Identifiers" minOccurs="0"/>
-			<xs:element ref="OperationType"/>
+			<xs:element ref="OperationType" minOccurs="0"/>
 			<xs:element ref="ProposalData" minOccurs="0"/>
 			<xs:element ref="CompletionData" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="OperationInfo" minOccurs="0"/>
@@ -163,7 +163,7 @@
 				<xs:group ref="TimeBetweenProposalYearsGroup"/>
 				<xs:group ref="ProposalAndOriginalYearGroup"/>
 			</xs:choice>
-			<xs:group ref="ProposalAreaGroup" minOccurs="0" maxOccurs="1"/>								
+			<xs:group ref="ProposalAreaGroup" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:group name="ProposalAreaGroup">
@@ -173,10 +173,10 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 		<xs:choice>
-			<xs:element ref="ProposalArea" minOccurs="0" maxOccurs="1"/>	
-			<xs:element ref="ProposalAreaPercent" minOccurs="0" maxOccurs="1"/>			
-		</xs:choice>	
-	</xs:group>	
+			<xs:element ref="ProposalArea" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ProposalAreaPercent" minOccurs="0" maxOccurs="1"/>
+		</xs:choice>
+	</xs:group>
 	<xs:simpleType name="ProposalAreaType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpiteen ehdotettu toteutuspinta-ala.</xs:documentation>
@@ -192,7 +192,7 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 		<xs:restriction base="co:PercentWithFraction1Type"/>
-	</xs:simpleType>	
+	</xs:simpleType>
 	<xs:simpleType name="ProposalTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpide-ehdotuksen tyyppi.</xs:documentation>
@@ -328,8 +328,8 @@
 			<xs:documentation xml:lang="en">Single operation specification.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="co:ChangeState" minOccurs="0"/>    
-			<xs:element ref="co:ChangeTime" minOccurs="0"/>    
+			<xs:element ref="co:ChangeState" minOccurs="0"/>
+			<xs:element ref="co:ChangeTime" minOccurs="0"/>
 			<xs:element ref="SpecificationCode"/>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
@@ -338,7 +338,7 @@
 				<xs:documentation xml:lang="sv"/>
 				<xs:documentation xml:lang="en">Operation specification can be identified using string id.</xs:documentation>
 			</xs:annotation>
-		</xs:attribute>	
+		</xs:attribute>
 	</xs:complexType>
 	<xs:simpleType name="CuttingDirectingType">
 		<xs:annotation>
@@ -378,7 +378,9 @@
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Operation specification code</xs:documentation>
 		</xs:annotation>
-		<xs:union memberTypes="CuttingDirectingType CuttingExtraQualifierType SilvicultureExtraQualifierType CommonOperationExtraQualifierType"/>
+		<xs:union
+			memberTypes="CuttingDirectingType CuttingExtraQualifierType SilvicultureExtraQualifierType CommonOperationExtraQualifierType"
+		/>
 	</xs:simpleType>
 	<xs:complexType name="CuttingType">
 		<xs:annotation>
@@ -389,10 +391,10 @@
 		<xs:sequence>
 			<xs:element ref="CuttingVolume" minOccurs="0"/>
 			<xs:element ref="Assortments" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="CuttingIncome" minOccurs="0" maxOccurs="1"/>            
+			<xs:element ref="CuttingIncome" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:simpleType name="CuttingVolumeType"> 
+	<xs:simpleType name="CuttingVolumeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Hakkuun kertymä (arvio). Käytettävä yksikkö on m3/ha.</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
@@ -400,14 +402,14 @@
 		</xs:annotation>
 		<xs:restriction base="co:Decimal3And2PositiveType"/>
 	</xs:simpleType>
-	<xs:simpleType name="CuttingIncomeType">	
+	<xs:simpleType name="CuttingIncomeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kokonaistulo. Käytettävä yksikkö on €.</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Cutting income. Unit is €.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="co:Decimal7And2PositiveType"/>	  
-	</xs:simpleType>   
+		<xs:restriction base="co:Decimal7And2PositiveType"/>
+	</xs:simpleType>
 	<xs:complexType name="AssortmentsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Hakkuun puutavaralajit.</xs:documentation>
@@ -440,7 +442,7 @@
 				<xs:documentation xml:lang="sv"/>
 				<xs:documentation xml:lang="en">Assortment can be identified using string id.</xs:documentation>
 			</xs:annotation>
-		</xs:attribute>	
+		</xs:attribute>
 	</xs:complexType>
 	<xs:simpleType name="TreeSpeciesType">
 		<xs:annotation>
@@ -448,7 +450,7 @@
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Tree species of assortment</xs:documentation>
 		</xs:annotation>
-		<xs:union memberTypes="co:TreeSpeciesType co:EmptyStringType co:ExtraTreeSpeciesType"/>        
+		<xs:union memberTypes="co:TreeSpeciesType co:EmptyStringType co:ExtraTreeSpeciesType"/>
 	</xs:simpleType>
 	<xs:simpleType name="StemTypeType">
 		<xs:annotation>
@@ -499,8 +501,8 @@
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Income of silvicultural operation. Unit is €.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="co:Decimal7And2PositiveType"/> 
-	</xs:simpleType>   
+		<xs:restriction base="co:Decimal7And2PositiveType"/>
+	</xs:simpleType>
 	<xs:complexType name="PlannedOperationChainsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Suunnitteluvaihtoehdot. Vaihtoehtoiset toimenpideketjut.</xs:documentation>
@@ -509,7 +511,7 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="PlannedOperationChain" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>	
+		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PlannedOperationChainType">
 		<xs:annotation>

@@ -329,7 +329,8 @@
 			<xs:element ref="ts:TreeStandData" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="op:Operations" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="st:SpecialFeatures" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ControlBasicData" type="ControlBasicDataType" minOccurs="0"
+			<xs:element name="DamageData" type="DamageDataType"/>
+			<xs:element name="ControlBasicData" type="ControlBasicDataType" minOccurs="1"
 				maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Tarkastuksen perustiedot</xs:documentation>
@@ -338,7 +339,7 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ControlObjectBasicData" type="ControlObjectBasicDataType"
-				minOccurs="0" maxOccurs="1">
+				minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Tarkastettavan kohteen perustiedot</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -346,14 +347,14 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ControlOverallEvaluationData" type="ControlOverallEvaluationDataType"
-				minOccurs="0" maxOccurs="1">
+				minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Kokonaisarvostelu</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ControlStandBasicData" type="ControlStandBasicDataType" minOccurs="0"
+			<xs:element name="ControlStandBasicData" type="ControlStandBasicDataType" minOccurs="1"
 				maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Tarkastuskuvion perustieto</xs:documentation>
@@ -377,16 +378,8 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ControlDataYoungForestManagement" type="YoungForestManagementDataType"
-				minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Nuoren metsänhoito (NMH)</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="ControlDataHarvestingSignData" type="HarvestingSignDataType"
-				minOccurs="0" maxOccurs="1">
+				minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Korjuujälki</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -409,14 +402,6 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SamplePlotTreeSummary" type="SamplePlotTreeSummaryType" minOccurs="0"
-				maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Koealan summapuusto</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="ControlDataWaterSystemProtection" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Vesiensuojelun tiedot</xs:documentation>
@@ -426,7 +411,7 @@
 			</xs:element>
 			<xs:element name="ControlDataSpecialFeatures" type="ControlDataSpecialFeaturesType"
 				minOccurs="0"/>
-			<xs:element name="ControlEvaluations" type="ControlEvaluationsType" minOccurs="0"/>
+			<xs:element name="ControlEvaluations" type="ControlEvaluationsType" minOccurs="1"/>
 			<xs:element name="ControlDataForestRoadConstruction"
 				type="ControlDataForestRoadConstructionType" minOccurs="0"/>
 			<xs:element name="ControlDataSwampForestManagement"
@@ -645,7 +630,7 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="InspectionDate" type="co:DateType" minOccurs="0" maxOccurs="1">
+			<xs:element name="InspectionDate" type="co:DateType" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Tarkastuksen pvm LT:pakollinen tieto.</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -659,7 +644,7 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ExtraInfo" type="co:String500Type">
+			<xs:element name="ExtraInfo" type="co:String500Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Tekstikenttä tarkastuksen lisätiedoille</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -692,14 +677,21 @@
 
 	<xs:complexType name="ControlObjectBasicDataType">
 		<xs:sequence>
+			<xs:element name="ObjectReference" type="co:ReferenceType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">MKI-kuvion viite tai Kemera-kohteen viite</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="TargetNumber" type="stb:StandNumberType">
 				<xs:annotation>
-					<xs:documentation>Kuvion numero mastovirrassa pohjatietona tai kemeravirrasta syöttö. Jos on syötetty knro 0,1-0,9 ei kuviota huomioida ilmoituksen/hankkeen pinta-alassa. Kuvion numero ja osioiden numerot muodostavat avaintiedon. </xs:documentation>
+					<xs:documentation>MKI-kuvion, Kemeran toteutusilmoituskuvion tai rahoitushakemuskuvion numero</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TargetAnnouncedAmount" type="Decimal5_1Type">
 				<xs:annotation>
-					<xs:documentation>Ilmoitettu määrä ha/km. Mastovirrassa pohjatietona tai kemeravirrasta syöttö. LT kipala kentän arvon on oltava pienempi tai yhtäsuuri kuin valmiiksi tallennetun kohteen ohpala kenttien arvojen summan (eli kohteen ohpala kenttiin arvoja on syötettävä niin paljon, että niiden summa on vähintään kipala kentän suuruinen)</xs:documentation>
+					<xs:documentation>MKI-kuvion, Kemeran toteutusilmoituskuvion tai rahoitushakemuskuvion pinta-ala</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="HabitatAdvertisement" type="TargetSelectionType">
@@ -898,7 +890,7 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StubStemCount" type="co:PositiveInteger6digitsType">
+			<xs:element name="StumpStemCount" type="co:PositiveInteger6digitsType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Hakatun harvennushakkuun kantojan määrä. Kpl/ha Laskentasääntö: 10 000 m2*Puuluokkaan 8 kuuluvien puiden lkm/Koealojen pinta-alojen summa m2 (jos hta on 2 tai 3, niin s/k. kpl/ha kenttään Virtaan siirretään tallentimelta tämän kentän arvo)</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -920,7 +912,7 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StubMeanDiameter"
+			<xs:element name="StumpMeanDiameter"
 				type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Kantojen keskiläpimitta cm. Suurin mahdollinen arvo on on 99,9. Laskentasääntö: Koealakohtaisten dk arvojen keskiarvo.</xs:documentation>
@@ -928,7 +920,7 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Age" type="co:AgeType">
+			<xs:element name="MeanAge" type="co:AgeType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Metsikön ikä vuosissa</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -958,7 +950,7 @@
 		<xs:restriction base="xs:integer"/>
 	</xs:simpleType> -->
 
-	<xs:complexType name="SamplePlotTreeSummaryType">
+	<!-- <xs:complexType name="SamplePlotTreeSummaryType">
 		<xs:sequence>
 			<xs:element name="SamplePlotMeanAge" type="co:AgeType">
 				<xs:annotation>
@@ -1021,7 +1013,7 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
+	</xs:complexType> -->
 
 	<xs:simpleType name="Decimal3_1Type">
 		<xs:annotation>
@@ -1103,6 +1095,20 @@
 			<xs:element name="SamplePlotTrackDistance" type="xs:integer">
 				<xs:annotation>
 					<xs:documentation>Koealalla mitattu uraväli, m</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlotDitchDepth" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealalla mitattu ojan syvyys</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlotDitchWidth" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koelalla mitattu ojan leveys</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1259,7 +1265,7 @@
 
 	<xs:complexType name="ControlStandBasicDataType">
 		<xs:sequence>
-			<xs:element name="PartsDetectedArea" type="co:AreaType">
+			<xs:element name="ControlStandArea" type="co:AreaType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Osan havaittu määrä, hehtaaria</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -1280,7 +1286,7 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ExtraInfo">
+			<xs:element name="ExtraInfo" minOccurs="0" type="co:String500Type">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Lisätiedot</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -1289,32 +1295,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-
-	<!-- <xs:complexType name="ControlStandEvaluationDataType">
-		<xs:sequence>
-			<xs:element name="SoilImprovementEvaluation" type="xs:integer">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Maanpinnan käsittelyn arviointi (koodisto)</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="ClearingEstimation" type="xs:integer">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Raivauksen arviointi (koodisto)</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="RootRotControlEvaluation" type="xs:integer">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Juurikäävän torjunnan arviointi (koodisto)</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType> -->
 
 	<xs:complexType name="YoungForestManagementDataType">
 		<xs:sequence>
@@ -1358,13 +1338,6 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="InsuranceOrOtherCompensation" type="co:Decimal7And2PositiveType">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Vakuutuksen tai muun lainsäädännön nojalla maksettavat korvaukset, euroa</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="PartEastingCoordinate" type="xs:string">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Osan itäkoordinaatit</xs:documentation>
@@ -1379,9 +1352,37 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="InsuranceOrOtherCompensation" type="co:Decimal7And2PositiveType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Vakuutuksen tai muun lainsäädännön nojalla maksettavat korvaukset, euroa</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="TotalCompensation" type="co:Decimal7And2PositiveType">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Korvattava yhteensä, euroa</xs:documentation>
+					<xs:documentation xml:lang="fi">Kasvu- ja laatutappiokorvaus + arviointikorvaus (+ viljelykorvaus)</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Compensation" type="co:Decimal7And2PositiveType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kasvu- ja laatutappiokorvaus</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AlreadyPaidCompensation" type="co:Decimal7And2PositiveType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Aiemmin maksettu kasvu- ja laatutappiokorvaus</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TotalCompensations" type="co:Decimal7And2PositiveType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">TotalCompensation - AlreadyPaidCompensation</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
@@ -1403,13 +1404,6 @@
 			<xs:element name="MoosePercentage" type="co:PercentType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Rhy edustajan käsitys hirvieläinten osuudesta vahinkoon</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="NotDamagedCount" type="co:StemCountType">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei riistavaurioita kpl/ha</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
@@ -1442,6 +1436,20 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="DamagedSeedlingCount" type="co:StemCountType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Riistavahingon vuoksi laskennallisesti kokonaan tuhoutuneiden puiden runkoluku varttuneemmissa metsissä kpl/ha</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NotDamagedSeedlingCount" type="co:StemCountType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei riistavaurioita kpl/ha</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="LargePeelDamage" type="co:StemCountType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Suuri kuorivaurio kpl/ha</xs:documentation>
@@ -1456,34 +1464,6 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DamagedSeedlingCount" type="co:StemCountType">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Riistavahingon vuoksi laskennallisesti kokonaan tuhoutuneiden puiden runkoluku varttuneemmissa metsissä kpl/ha</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Compensation" type="co:Decimal7And2PositiveType">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Korvaus, euroa</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="AlreadyPaidCompensation" type="co:Decimal7And2PositiveType">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Aiempi korvaus, euroa</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="TotalCompensations" type="co:Decimal7And2PositiveType">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">"Korvaus" (Compensation) + "Aiempi korvaus" (AlreadyPaidCompensation) = Korvaus yhteensä, euroa</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="NeedForTreatment" type="co:VirtaYesNoType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Taimikonhoitotyön tarve</xs:documentation>
@@ -1491,23 +1471,9 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Suggestion" type="TwoDigitPositiveIntegerType">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Toimenpide-ehdotus</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="RepairPlantingCosts" type="co:Decimal7And2PositiveType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Täydennysviljely- tai uudelleenmetsityskustannukset, euroa/ha</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="DamageClass" type="xs:integer">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Riistavaurioluokka (koodisto)</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
@@ -1557,9 +1523,20 @@
 
 	<xs:complexType name="ControlDataSwampForestManagementType">
 		<xs:sequence>
-			<xs:element name="DitchDepth" type="xs:string"/>
-			<xs:element name="DitchWidth" type="xs:string"/>
+			<xs:element name="DitchMeanDepth" type="xs:string"/>
+			<xs:element name="DitchMeanWidth" type="xs:string"/>
 		</xs:sequence>
 	</xs:complexType>
 
+	<xs:complexType name="DamageDataType">
+		<xs:sequence>
+			<xs:element name="DamageSource" type="FourDigitPositiveIntegerType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tuhon aiheuttaja (koodisto)</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>
