@@ -5,25 +5,24 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	***************************************************************
 -->
-<xs:schema
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-	targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasepayment" 
-	xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasepayment" 
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" 
-	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation" 
-	elementFormDefault="qualified"
-	attributeFormDefault="qualified"
-	version="1.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasepayment"
+	xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasepayment"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
+	elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
 
 	<!-- Imports / Includes -->
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation" schemaLocation="ContactInformation.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
-			    
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation"
+		schemaLocation="ContactInformation.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+		schemaLocation="Common.xsd"/>
+
 	<!-- Elementtimääritykset -->
-   	<!-- Element definitions -->
-   	<xs:element name="Payment" type="PaymentDataType"/>
-   	<xs:element name="SequenceNumber" type="SequenceNumberType"/>
-   	<xs:element name="PaymentType" type="PaymentTypeType"/>
+	<!-- Element definitions -->
+	<xs:element name="Payment" type="PaymentDataType"/>
+	<xs:element name="SequenceNumber" type="SequenceNumberType"/>
+	<xs:element name="PaymentType" type="PaymentTypeType"/>
 	<xs:element name="Value" type="ValueType"/>
 	<xs:element name="AbsoluteQuantity" type="AbsoluteQuantityType"/>
 	<xs:element name="Percent" type="PercentType"/>
@@ -36,14 +35,14 @@
 	<xs:element name="PaymentPermissionDate" type="PaymentPermissionDateType"/>
 	<xs:element name="PaymentDate" type="PaymentDateType"/>
 	<xs:element name="Payee" type="PayeeType"/>
-	
+
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
 	<xs:complexType name="PaymentDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Maksuerän rakenteen määrittely.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Structure for payment.</xs:documentation>			
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Structure for payment.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="co:TimeStamp"/>
@@ -72,24 +71,31 @@
 		<xs:attribute name="parentId" type="xs:string" use="required">
 			<xs:annotation>
 				<xs:documentation xml:lang="fi">parentId:llä viitataan kauppaan. Maksuerän yksilöivä avain on parentId + maksueränro.</xs:documentation>
-				<xs:documentation xml:lang="sv"></xs:documentation>
+				<xs:documentation xml:lang="sv"/>
 				<xs:documentation xml:lang="en">parentId is a foreign key to wood purchace id. Payment is identified by parentid + sequence number</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+		<xs:attribute name="id" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Viittaus maksuerään.</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en"/>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
-	
+
 	<xs:simpleType name="SequenceNumberType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Maksuerän numero. Yksilöi parentId:n kanssa maksuerät.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Running number for payment (under certain purchase). With parentId identifies payment.</xs:documentation>					
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Running number for payment (under certain purchase). With parentId identifies payment.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="co:PositiveIntegerType"/>
 	</xs:simpleType>
 	<xs:simpleType name="PaymentTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Maksuerätyypit.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Payment types.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="co:PaymentTypeType"/>
@@ -97,23 +103,23 @@
 	<xs:simpleType name="ValueType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Summa ilman ALV:tä ja vähennyksiä</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Total sum in funds without VAT.</xs:documentation>					
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Total sum in funds without VAT.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="co:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
 	<xs:simpleType name="AbsoluteQuantityType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Absoluuttinen rahamäärä.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Absolute money quantity.</xs:documentation>				
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Absolute money quantity.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="co:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
 	<xs:simpleType name="PercentType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Prosenttiosuus.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Percentage.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="co:PercentWithFraction2Type"/>
@@ -127,7 +133,7 @@
 	<xs:complexType name="VATType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Maksettava ALV.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Total sum of value added tax.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
@@ -137,7 +143,7 @@
 	<xs:complexType name="AdvanceTaxType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Ennakkona pidätettävä määrä.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Total sum of tax withheld in advance.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
@@ -147,7 +153,7 @@
 	<xs:complexType name="ForestFundPaymentType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsäsäätiömaksun osuus.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Total sum of forest fund payment-share.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
@@ -157,7 +163,7 @@
 	<xs:simpleType name="TotalValueType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Maksettava summa. Normaalisti TotalAmount = Amount + VAT - AdvanceTax - ForestFundPayment.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Total sum which is payed. Normally TotalAmount = Amount + VAT - AdvanceTax - ForestFundPayment</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="co:Decimal2FractionDigitsType"/>
@@ -165,7 +171,7 @@
 	<xs:simpleType name="CurrencyType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Maksuerällä käytetty valuutta.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Currency for payment.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="co:CurrencyType"/>
@@ -173,31 +179,31 @@
 	<xs:simpleType name="DueDateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Eräpvm.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Day when payment will be paid to payee.</xs:documentation>					
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Day when payment will be paid to payee.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="co:DateType"/>
 	</xs:simpleType>
 	<xs:simpleType name="PaymentPermissionDateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Maksulupapvm.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Day when payment is given permission to pay.</xs:documentation>					
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Day when payment is given permission to pay.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="co:DateType"/>
 	</xs:simpleType>
 	<xs:simpleType name="PaymentDateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Maksettu pvm / maksupvm.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Day when payment is paid to payee.</xs:documentation>					
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Day when payment is paid to payee.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="co:DateType"/>
 	</xs:simpleType>
 	<xs:complexType name="PayeeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Maksunsaajan nimi- ja yhteystiedot.</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Payee contact information.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
