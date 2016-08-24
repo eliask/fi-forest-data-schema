@@ -82,7 +82,7 @@
 			<xs:element ref="co:ChangeState" minOccurs="0"/>
 			<xs:element ref="co:ChangeTime" minOccurs="0"/>
 			<xs:element ref="Identifiers" minOccurs="0"/>
-			<xs:element ref="OperationType" minOccurs="0"/>
+			<xs:element ref="OperationType" minOccurs="1"/>
 			<xs:element ref="ProposalData" minOccurs="0"/>
 			<xs:element ref="CompletionData" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="OperationInfo" minOccurs="0"/>

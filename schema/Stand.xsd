@@ -67,7 +67,7 @@
 			<xs:element ref="ts:TreeStandData" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="op:Operations" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="op:PlannedOperationChains" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="SpecialFeatures" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="SpecialFeatures" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
 			<xs:annotation>

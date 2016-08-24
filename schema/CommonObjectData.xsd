@@ -330,7 +330,7 @@
 			<xs:element ref="op:Operations" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="st:SpecialFeatures" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="DamageData" type="DamageDataType"/>
-			<xs:element name="ControlBasicData" type="ControlBasicDataType" minOccurs="1"
+			<xs:element name="ControlBasicData" type="ControlBasicDataType" minOccurs="0"
 				maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Tarkastuksen perustiedot</xs:documentation>
@@ -339,7 +339,7 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ControlObjectBasicData" type="ControlObjectBasicDataType"
-				minOccurs="1" maxOccurs="1">
+				minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Tarkastettavan kohteen perustiedot</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -347,14 +347,14 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ControlOverallEvaluationData" type="ControlOverallEvaluationDataType"
-				minOccurs="1" maxOccurs="1">
+				minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Kokonaisarvostelu</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ControlStandBasicData" type="ControlStandBasicDataType" minOccurs="1"
+			<xs:element name="ControlStandBasicData" type="ControlStandBasicDataType" minOccurs="0"
 				maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Tarkastuskuvion perustieto</xs:documentation>
@@ -379,7 +379,7 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ControlDataHarvestingSignData" type="HarvestingSignDataType"
-				minOccurs="1" maxOccurs="1">
+				minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Korjuujälki</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -411,7 +411,7 @@
 			</xs:element>
 			<xs:element name="ControlDataSpecialFeatures" type="ControlDataSpecialFeaturesType"
 				minOccurs="0"/>
-			<xs:element name="ControlEvaluations" type="ControlEvaluationsType" minOccurs="1"/>
+			<xs:element name="ControlEvaluations" type="ControlEvaluationsType" minOccurs="0"/>
 			<xs:element name="ControlDataForestRoadConstruction"
 				type="ControlDataForestRoadConstructionType" minOccurs="0"/>
 			<xs:element name="ControlDataSwampForestManagement"
@@ -630,7 +630,7 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="InspectionDate" type="co:DateType" minOccurs="1" maxOccurs="1">
+			<xs:element name="InspectionDate" type="co:DateType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Tarkastuksen pvm LT:pakollinen tieto.</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -644,7 +644,7 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ExtraInfo" type="co:String500Type" minOccurs="0">
+			<xs:element name="ExtraInfo" type="co:String500Type" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Tekstikenttä tarkastuksen lisätiedoille</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -1279,14 +1279,7 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DamageSource" type="FourDigitPositiveIntegerType">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tuhon aiheuttaja (koodisto)</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="ExtraInfo" minOccurs="0" type="co:String500Type">
+			<xs:element name="ExtraInfo" minOccurs="1" type="co:String500Type">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Lisätiedot</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
