@@ -291,7 +291,7 @@
 			<xs:documentation xml:lang="en">Geometry object definition</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="ObjectGeometry" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ObjectGeometry" minOccurs="1" maxOccurs="1"/>
 			<xs:group ref="ObjectDataGroup" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 		<xs:attribute name="id" type="co:IdStringNotEmptyType">
@@ -329,7 +329,7 @@
 			<xs:element ref="ts:TreeStandData" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="op:Operations" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="st:SpecialFeatures" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="DamageData" type="DamageDataType"/>
+			<xs:element name="DamageData" type="DamageDataType" minOccurs="0"/>
 			<xs:element name="ControlBasicData" type="ControlBasicDataType" minOccurs="0"
 				maxOccurs="1">
 				<xs:annotation>

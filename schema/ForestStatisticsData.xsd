@@ -57,9 +57,21 @@
     <xs:element name="CompanyID" type="CompanyIDType"/>
     <xs:element name="PurchaseModeCode" type="wtco:PurchaseModeType"/>
     <xs:element name="AssortmentCompactClasses" type="as:AssortmentCompactClassesType"/>
-    <xs:element name="StatisticsAssortmentCompactClasses" type="AssortmentCompactClassesType"/>
+    <xs:element name="StatisticsAssortmentCompactClasses" type="AssortmentCompactClassesType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Puutavaralajien tiedot (nimi viittaa virheellisesti puutavaralajiluokkaan).</xs:documentation>
+            <xs:documentation xml:lang="sv"></xs:documentation>
+            <xs:documentation xml:lang="en"></xs:documentation>
+        </xs:annotation>
+    </xs:element>
 	<xs:element name="AssortmentInfo" type="AssortmentInfoType"/>
-	<xs:element name="AssortmentCompactClass" type="AssortmentCompactClassType"/>	
+	<xs:element name="AssortmentCompactClass" type="AssortmentCompactClassType">
+	    <xs:annotation>
+	        <xs:documentation xml:lang="fi">Puutavaralaji suppein tiedoin (nimi viittaa virheellisesti puutavaralajiluokkaan).</xs:documentation>
+	        <xs:documentation xml:lang="sv"></xs:documentation>
+	        <xs:documentation xml:lang="en"></xs:documentation>
+	    </xs:annotation>	    
+	</xs:element>	
 	<xs:element name="LoggingsRow" type="LoggingsRowType"/>
     <xs:element name="LoggingsRows" type="LoggingsRowsType"/>
     <xs:element name="OperationRows" type="OperationRowsType"/>
@@ -179,7 +191,7 @@
     </xs:complexType>
     <xs:complexType name="AssortmentCompactClassesType">
         <xs:annotation>
-            <xs:documentation xml:lang="fi">Puutavaralajiluokat suppein tiedoin.</xs:documentation>
+            <xs:documentation xml:lang="fi">Puutavaralajit suppein tiedoin (nimi viittaa virheellisesti puutavaralajiluokkaan).</xs:documentation>
             <xs:documentation xml:lang="sv"></xs:documentation>
             <xs:documentation xml:lang="en"></xs:documentation>
         </xs:annotation>
@@ -189,7 +201,7 @@
     </xs:complexType>
     <xs:complexType name="AssortmentCompactClassType">
         <xs:annotation>
-            <xs:documentation xml:lang="fi">Puutavaralajiluokan tiedot suppein tiedoin.</xs:documentation>
+            <xs:documentation xml:lang="fi">Puutavaralaji suppein tiedoin (nimi viittaa virheellisesti puutavaralajiluokkaan).</xs:documentation>
             <xs:documentation xml:lang="sv"></xs:documentation>
             <xs:documentation xml:lang="en"></xs:documentation>
         </xs:annotation>

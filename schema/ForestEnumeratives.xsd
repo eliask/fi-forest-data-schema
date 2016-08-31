@@ -44388,4 +44388,55 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="AssortmentMainGroupType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Puutavaralajin pääryhmä-koodisto</xs:documentation>
+			<xs:documentation xml:lang="sv" />
+			<xs:documentation xml:lang="en" />
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pyöreä puu (raaka-aine)</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Round wood (raw material)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Energiapuu</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en">Energy wood</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Sivutuote</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Side product</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Materiaali</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Material</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Palvelu (työlajit, neuvonta...)</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Services (work types, consulting...)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="6">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muu</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Other</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
