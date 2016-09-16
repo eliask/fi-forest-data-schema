@@ -338,14 +338,14 @@
     </xs:element>
     <xs:element name="StemCount" type="co:StemCountType">
         <xs:annotation>
-            <xs:documentation xml:lang="fi">Jäävän puuston runkoluku, kpl/ha</xs:documentation>
+            <xs:documentation xml:lang="fi">Puuston runkoluku, kpl/ha</xs:documentation>
             <xs:documentation xml:lang="en"/>
             <xs:documentation xml:lang="sv"/>
         </xs:annotation>
     </xs:element>
     <xs:element name="MeanDiameter" type="co:DiameterType">
         <xs:annotation>
-            <xs:documentation xml:lang="fi">Keskiläpimitta, cm</xs:documentation>
+            <xs:documentation xml:lang="fi">Keskiläpimitta, cm (pohjapinta-alalla painotettu keskiläpimitta)</xs:documentation>
             <xs:documentation xml:lang="en"/>
             <xs:documentation xml:lang="sv"/>
         </xs:annotation>
@@ -822,12 +822,48 @@
             <xs:element ref="SubGroup" minOccurs="0" maxOccurs="1"/>
             <xs:element ref="FertilityClass" minOccurs="0" maxOccurs="1"/>
             <xs:element ref="SoilType" minOccurs="0" maxOccurs="1"/>
-            <xs:element ref="MainTreeSpecies" minOccurs="0" maxOccurs="1"/>
-            <xs:element ref="StemCount" minOccurs="0" maxOccurs="1"/>
-            <xs:element ref="HeightClass" minOccurs="0" maxOccurs="1"/>
-            <xs:element ref="MeanHeight" minOccurs="0" maxOccurs="1"/>
-            <xs:element ref="DiameterClass" minOccurs="0" maxOccurs="1"/>
-            <xs:element ref="MeanDiameter" minOccurs="0" maxOccurs="1"/>
+            <xs:element ref="MainTreeSpecies" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Jäävän puuston pääpuulaji</xs:documentation>
+                    <xs:documentation xml:lang="en"/>
+                    <xs:documentation xml:lang="sv"/>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="StemCount" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Jäävän puuston runkoluku, kpl/ha</xs:documentation>
+                    <xs:documentation xml:lang="en"/>
+                    <xs:documentation xml:lang="sv"/>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="HeightClass" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Jäävän puuston pituusluokka</xs:documentation>
+                    <xs:documentation xml:lang="sv"/>
+                    <xs:documentation xml:lang="en"/>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="MeanHeight" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Jäävän puuston keskipituus, m</xs:documentation>
+                    <xs:documentation xml:lang="en"/>
+                    <xs:documentation xml:lang="sv"/>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="DiameterClass" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Jäävän puuston läpimittaluokka (pohjapinta-alalla painotettu keskiläpimitta)</xs:documentation>
+                    <xs:documentation xml:lang="sv"/>
+                    <xs:documentation xml:lang="en"/>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="MeanDiameter" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Jäävän puuston keskiläpimitta, cm (pohjapinta-alalla painotettu keskiläpimitta)</xs:documentation>
+                    <xs:documentation xml:lang="en"/>
+                    <xs:documentation xml:lang="sv"/>
+                </xs:annotation>
+            </xs:element>
             <xs:element ref="RemovalClass" minOccurs="0" maxOccurs="1"/>
             <xs:element ref="CuttingStemCount" minOccurs="0" maxOccurs="1"/>
             <xs:element ref="SmallWoodRemovalClass" minOccurs="0" maxOccurs="1"/>

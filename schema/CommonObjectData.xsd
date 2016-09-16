@@ -16,6 +16,7 @@
 	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
 	xmlns:ts="http://standardit.tapio.fi/schemas/forestData/treeStand"
 	xmlns:op="http://standardit.tapio.fi/schemas/forestData/operation"
+	xmlns:fac="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
 	elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
 
 	<!-- Imports / Includes -->
@@ -35,6 +36,8 @@
 		schemaLocation="TreeStand.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operation"
 		schemaLocation="Operation.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
+		schemaLocation="FinancingActCommon.xsd"/>
 
 	<!-- Element definitions -->
 	<xs:element name="CommonObjectData" type="CommonObjectDataType">
@@ -66,28 +69,14 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="OtherObjects" type="OtherObjectsType">
+	<xs:element name="Objects" type="ObjectsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi"/>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="OtherObject" type="OtherObjectType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi"/>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en"/>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="GeometryObjects" type="GeometryObjectsType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi"/>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en"/>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="GeometryObject" type="GeometryObjectType">
+	<xs:element name="Object" type="ObjectType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi"/>
 			<xs:documentation xml:lang="sv"/>
@@ -218,8 +207,7 @@
 			<xs:element ref="AdditionalDetails" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="Sender" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="UseCase" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="OtherObjects" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="GeometryObjects" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Objects" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
 			<xs:annotation>
@@ -230,68 +218,25 @@
 		</xs:attribute>
 	</xs:complexType>
 
-	<xs:complexType name="OtherObjectsType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Muut kohteet -määrittely</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Other objects definition</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="OtherObject" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-
-	<xs:complexType name="OtherObjectType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Muun kohteen määrittely.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Other object definition</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:group ref="ObjectDataGroup" minOccurs="0" maxOccurs="1"/>
-		</xs:sequence>
-		<xs:attribute name="id" type="co:IdStringNotEmptyType">
-			<xs:annotation>
-				<xs:documentation xml:lang="fi">Kohde voidaan yksilöidä tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
-				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en">Object can be identified using string id.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="type" type="ObjectTypeType">
-			<xs:annotation>
-				<xs:documentation xml:lang="fi">Kohteen tyyppi</xs:documentation>
-				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en"/>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="typeSpecifier" type="ObjectTypeSpecifierType">
-			<xs:annotation>
-				<xs:documentation xml:lang="fi">Kohteen tyypin tarkenne</xs:documentation>
-				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en"/>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
-
-	<xs:complexType name="GeometryObjectsType">
+	<xs:complexType name="ObjectsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Paikannetut kohteet -määrittely</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Geometry objects definition</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="GeometryObject" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element ref="Object" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="GeometryObjectType">
+	<xs:complexType name="ObjectType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Paikannetun kohteen määrittely.</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Geometry object definition</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="ObjectGeometry" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="ObjectGeometry" minOccurs="0" maxOccurs="1"/>
 			<xs:group ref="ObjectDataGroup" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 		<xs:attribute name="id" type="co:IdStringNotEmptyType">
@@ -416,6 +361,13 @@
 				type="ControlDataForestRoadConstructionType" minOccurs="0"/>
 			<xs:element name="ControlDataSwampForestManagement"
 				type="ControlDataSwampForestManagementType" minOccurs="0"/>
+			<xs:element minOccurs="0" name="SelfMonitoringBasicData"
+				type="SelfMonitoringBasicDataType"/>
+			<xs:element minOccurs="0" name="SelfMonitoringObjectData"
+				type="SelfMonitoringObjectDataType"/>
+			<xs:element minOccurs="0" name="SelfMonitoringEvaluations"
+				type="SelfMonitoringEvaluationsType"/>
+			<xs:element minOccurs="0" name="Documents" type="fac:DocumentsType"/>
 		</xs:sequence>
 	</xs:group>
 
@@ -438,6 +390,13 @@
 			<xs:element ref="AreaDecrease" minOccurs="0" maxOccurs="1"/>
 			<xs:group ref="gdt:AlternativeGeometriesGroup" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
+		<xs:attribute name="collectingMethod" type="co:CollectingMethodType">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Sisältää tiedon geometrian keruumenetelmästä</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en">Includes information about acquisition method of geometry</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 
 	<xs:complexType name="ParentObjectsType">
@@ -633,13 +592,6 @@
 			<xs:element name="InspectionDate" type="co:DateType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Tarkastuksen pvm LT:pakollinen tieto.</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="InspectorName" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tarkastajan nimi asteesta tallennettuna Virtaan ja Virrasta siirrettynä maastotallentimelle.  Nimi voidaan tallentaa myös maastotallentimella.</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
@@ -890,13 +842,6 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StumpStemCount" type="co:PositiveInteger6digitsType">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Hakatun harvennushakkuun kantojan määrä. Kpl/ha Laskentasääntö: 10 000 m2*Puuluokkaan 8 kuuluvien puiden lkm/Koealojen pinta-alojen summa m2 (jos hta on 2 tai 3, niin s/k. kpl/ha kenttään Virtaan siirretään tallentimelta tämän kentän arvo)</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="BasalArea" type="co:BasalAreaType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">pohjapinta-ala (mahtuu peräti 6 merkkiä, mutta maastotallentimelle tila 3 viimeiselle numerolle) Laskentasääntö: 10 000 m2*muiden kuin puuluokaltaan arvot 0, 7 tai 8 omaavien puiden pohjapinta-alojen m2 summa/Koealojen pinta-alojen summa m2. Yksittäisen puun pohjapinta-ala lasketaan kaavalla  πr2 jossa r=lpm/2. Pyöristetään kokonaisluvuksi. Osatasolle lasketaan koealojen keskiarvona. Voidaan syöttää myös numeroarvona relaskooppia käytettäessä.</xs:documentation>
@@ -908,14 +853,6 @@
 				type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">pohjapinta-alalla painotettu keskiläpimitta cm. Suurin mahdollinen arvo on 99,9. Laskentasääntö: muiden kuin puuluokaltaan arvot 0, 7 tai 8 omaavien puiden läpimittojen neliöiden summa jaettuna niiden kuutioiden summalla.</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="StumpMeanDiameter"
-				type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kantojen keskiläpimitta cm. Suurin mahdollinen arvo on on 99,9. Laskentasääntö: Koealakohtaisten dk arvojen keskiarvo.</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
@@ -1077,6 +1014,13 @@
 			<xs:element name="SamplePlotSize" type="SamplePlotSizeType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Koealan koko m2</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="SamplePlotSizeTreeReduction" type="SamplePlotSizeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Poistumakoealan säde (oletus on että koealan keskipiste on puustokoealan keskipiste)</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
@@ -1531,5 +1475,82 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SelfMonitoringBasicDataType">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="ProjectNo" type="ProjectNoType"/>
+			<xs:element minOccurs="0" name="SelfMonitoringType" type="co:SelfMonitoringTypeType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ProjectNoType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Projekti-/hankenumero</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="co:ReferenceType"/>
+	</xs:simpleType>
+	<xs:complexType name="SelfMonitoringObjectDataType">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="SelfMonitoringStandArea" type="co:AreaType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Omavalvontakuvion pinta-ala</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="GoalTreeSpecies" type="co:TreeSpeciesType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kohteen tavoitepuulaji</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="GoalStemCount" type="co:StemCountType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kohteen tavoiterunkoluku</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SelfMonitoringEvaluationsType">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="SelfMonitoringEvaluation"
+				type="SelfMonitoringEvaluationType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SelfMonitoringEvaluationType">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="EvaluationCode" type="co:EvaluationCodeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Omavalvonnan arviointi</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="EvaluationText" type="co:String1000Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Arvosteluteksti, esim. sanallinen perustelu poikkeamalle työn laadussa (mm. puun määrässä)</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="assessorActorId" type="co:IdStringType">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Omavalvonnan arvioija (viiteid Actors-listan Actoriin)</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en"/>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="assessObjectActorId" type="co:IdStringType">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Omavalvonnan arvioinnin kohde (viiteid Actors-listan Actoriin)</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en"/>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 </xs:schema>
