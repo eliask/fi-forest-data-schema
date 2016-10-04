@@ -117,7 +117,13 @@
 	<xs:element name="ProcessingAreas" type="ProcessingAreasType"/>
 	<xs:element name="ProcessingArea" type="ProcessingAreaType"/>
 	<xs:element name="ProcessingAreaNumber" type="ProcessingAreaNumberType"/>
-	<xs:element name="ProcessingAreaReference" type="co:ReferenceType"/>
+	<xs:element name="ProcessingAreaReference" type="co:ReferenceType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Ilmoituksen lähettäjän antama käsittelyaluekohtainen, valtakunnallisesti yksilöivä viite. Käsittelyalueviitteen muodostamissääntö: lähettäjän organisaatiotunnus, vuosi, lähettäjän antama käsittelyalueen yksilöivä tunnus. Lähettävän organisaation tunnukset: Metsähallitus=M-H, Metsämannut=M-M, Metsänhoitoyhdistys=MHY, Stora Enso=S-E, Tornator=TOR, UPM-Kymmene=UPM, MetsäGroup=M-G, Metsään.fi = MFI, L&amp;T Biowatti Oy = BWO, Muu organisaatio=MUU. Esim. MHY2003999999999999999999999. Jos siirtotiedostossa käytetään MUU-organisaatiotunnusta, on siitä oltava yhteydessä tiedonsiirtopalvelun ylläpitäjään.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="DeclarationStands" type="DeclarationStandsType"/>
 	<xs:element name="DeclarationStand" type="DeclarationStandType"/>
 	<xs:element name="StandNumber" type="stb:StandNumberType"/>

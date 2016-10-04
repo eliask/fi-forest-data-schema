@@ -307,14 +307,6 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ControlStandTreeStandSummary" type="ControlStandTreeStandSummaryType"
-				minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tarkastuskuvion summapuusto</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="ControlDataRegeneration" type="RegenerationDataType" minOccurs="0"
 				maxOccurs="1">
 				<xs:annotation>
@@ -323,8 +315,8 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ControlDataHarvestingSignData" type="HarvestingSignDataType"
-				minOccurs="0" maxOccurs="1">
+			<xs:element name="HarvestingSignData" type="HarvestingSignDataType" minOccurs="0"
+				maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Korjuujälki</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -365,6 +357,14 @@
 				type="SelfMonitoringBasicDataType"/>
 			<xs:element minOccurs="0" name="SelfMonitoringObjectData"
 				type="SelfMonitoringObjectDataType"/>
+			<xs:element minOccurs="0" name="SelfMonitoringObjectProtectionOperationsData"
+				type="SelfMonitoringObjectProtectionOperationsDataType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Omavalvontakohteen ympäristön ja vesiensuojelun  toimenpidetiedot</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="SelfMonitoringEvaluations"
 				type="SelfMonitoringEvaluationsType"/>
 			<xs:element minOccurs="0" name="Documents" type="fac:DocumentsType"/>
@@ -805,84 +805,6 @@
 		<xs:restriction base="xs:integer"> </xs:restriction>
 	</xs:simpleType> -->
 
-	<xs:complexType name="ControlStandTreeStandSummaryType">
-		<xs:sequence>
-			<xs:element name="StemCount" type="co:StemCountType">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Runkoluku kpl/ha. Laskentasääntö: 10 000 m2*muiden kuin puuluokaltaan arvot 0, 7, 8 tai 9 omaavien puiden lkm tietojen summa/Koealojen pinta-alojen summa m2 (huomioidaan siis myös puutason lkm tiedot, joissa plk on tyhjä) Hirvivahinkolaskennoissa TIH arvo.</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="PineDecimal" type="xs:integer">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Männyn osuus kymmenyksinä</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="SpruceDecimal" type="xs:integer">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kuusen osuus kymmenyksinä</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="BirchDecimal" type="xs:integer">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Koivujen osuus kymmenyksinä</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="SeedStemCount" type="co:PositiveInteger6digitsType">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Hakatun uudistushakkuun siemenpuiden määrä kpl/ha. Laskentasääntö: 10 000 m2*Puuluokkaan 9 kuuluvien puiden lkm/Koealojen pinta-alojen summa m2 (jos hta on muu kuin 2 tai 3, niin s/k. kpl/ha kenttään Virtaan siirretään tallentimelta tämän kentän arvo).</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="BasalArea" type="co:BasalAreaType">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">pohjapinta-ala (mahtuu peräti 6 merkkiä, mutta maastotallentimelle tila 3 viimeiselle numerolle) Laskentasääntö: 10 000 m2*muiden kuin puuluokaltaan arvot 0, 7 tai 8 omaavien puiden pohjapinta-alojen m2 summa/Koealojen pinta-alojen summa m2. Yksittäisen puun pohjapinta-ala lasketaan kaavalla  πr2 jossa r=lpm/2. Pyöristetään kokonaisluvuksi. Osatasolle lasketaan koealojen keskiarvona. Voidaan syöttää myös numeroarvona relaskooppia käytettäessä.</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="MeanDiameter"
-				type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">pohjapinta-alalla painotettu keskiläpimitta cm. Suurin mahdollinen arvo on 99,9. Laskentasääntö: muiden kuin puuluokaltaan arvot 0, 7 tai 8 omaavien puiden läpimittojen neliöiden summa jaettuna niiden kuutioiden summalla.</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="MeanAge" type="co:AgeType">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Metsikön ikä vuosissa</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="DominantHeight"
-				type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Valtapituus metriä, osan koealojen valtapituuksien keskiarvo. Voidaan tallentaa myös suoraan osatasolle.</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="AverageHeight"
-				type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Keskipituus metriä, osan koealojen keskipituuksien keskiarvo. Voidaan tallentaa myös suoraan osatasolle.</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-
 	<!-- <xs:simpleType name="StubStemCountType">
 		<xs:restriction base="xs:integer"/>
 	</xs:simpleType> -->
@@ -1055,7 +977,130 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="TotalAmountOfCultivableSpots"
+				type="co:PositiveInteger6digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Viljelykelpoisten muokkausjälkien määrä yhteensä, kpl. Ei muokkausjälkiä = 0 kpl</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="AmountOfSpotsScalpingMounding"
+				type="co:PositiveInteger6digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Laikkumättäitä, kpl</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="AmountOfSpotsDitchMounding"
+				type="co:PositiveInteger6digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ojamättäitä, kpl</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="AmountOfSpotsTurnOverMounding"
+				type="co:PositiveInteger6digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kääntömättäitä, kpl</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="AmountOfSpots" type="co:PositiveInteger6digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Laikkuja, kpl</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="SoilPreparationClosestPlaceLength"
+				type="co:PositiveInteger6digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lähin muokkausjälki, pituus, cm</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="SoilPreparationClosestPlaceWidth"
+				type="co:PositiveInteger6digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lähin muokkausjälki, leveys, cm</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="SoilPreparationClosestPlaceHeight"
+				type="co:PositiveInteger6digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lähin muokkausjälki, korkeus, cm</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="SamplePlotCompactSoilType" type="co:CompactSoilTypeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koelan suppea maalajitieto</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="RestrictionBasedOnStoniness" type="co:YesNoType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kivisyys rajoittanut toimenpiteen tekemistä</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="RestrictionBasedOnLoggingResidues" type="co:YesNoType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Hakkuutähteet rajoittaneet toimenpiteen tekemistä</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="ClosestSeedlingPlantingDepth"
+				type="co:PositiveInteger3digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lähin taimi, istutussyvyys, cm</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="ClosestSeedlingDistanceFromSpot"
+				type="co:PositiveInteger6digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lähin taimi, taimen etäisyys (muokkausjäljen reunasta), cm</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="ClosestSeedlingPlantingPointCompressed"
+				type="co:YesNoType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lähin taimi, istutuskohta tiivistetty</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="TreeDensityClassBeforeOperation"
+				type="co:TreeDensityClassType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Puuston tiheysluokka ennen toimenpidettä</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
+		<xs:attribute name="timeStamp" type="co:TimeStampType">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Koealan mittausajankohta (pvm + kloaika)</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en"/>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 
 	<xs:simpleType name="SamplePlotSizeType">
@@ -1478,8 +1523,27 @@
 	</xs:complexType>
 	<xs:complexType name="SelfMonitoringBasicDataType">
 		<xs:sequence>
-			<xs:element minOccurs="0" name="ProjectNo" type="ProjectNoType"/>
-			<xs:element minOccurs="0" name="SelfMonitoringType" type="co:SelfMonitoringTypeType"/>
+			<xs:element minOccurs="0" name="ProjectNo" type="ProjectNoType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Hankenumero</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="SelfMonitoringType" type="co:SelfMonitoringTypeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Omavalvonnan tyyppi</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="SelfMonitoringDate" type="co:DateType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Omavalvontapäivämäärä</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="ProjectNoType">
@@ -1509,6 +1573,59 @@
 			<xs:element minOccurs="0" name="GoalStemCount" type="co:StemCountType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Kohteen tavoiterunkoluku</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="GoalAmountOfSoilPreparationSpot"
+				type="co:PositiveInteger5digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muokkausjälkien tiheys- / määrätavoite, kpl / ha</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="RealAmountOfSoilPreparationSpot"
+				type="co:PositiveInteger5digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muokkausjälkien toteutunut määrä, kpl / ha</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="EstimatedWorkingTimeConsumption"
+				type="co:PositiveInteger5digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Arvioitu työajanmenekki, h</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="TimeIntervalForMeasuringSamplePlot"
+				type="co:PositiveInteger5digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealojen mittausaikaväli, h</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Notices" type="co:String1000Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Omavalvonnan kohteeseen liittyvät huomiot</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="WorkSafetyRisks" type="WorkSafetyRisksType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työturvallisuusriskien lista</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="SoilPreparationSpotsAreEnough" type="co:YesNoType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muokkausjälkiä on riittävästi</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
@@ -1552,5 +1669,74 @@
 				<xs:documentation xml:lang="en"/>
 			</xs:annotation>
 		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="WorkSafetyRisksType">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="WorkSafetyRiskDescription" type="co:String1000Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Työturvallisuusriskin kuvaus</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SelfMonitoringObjectProtectionOperationsDataType">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="BorderingWithWaterAreaOrStream" type="co:YesNoType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kohde rajoittuu vesistöön tai puroon</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="LengthOfDitchDiggedDuringSoilPreparation"
+				type="co:PositiveInteger6digitsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Maanmuokkauksen yhteydessä kaivetun ojan määrä / pituus, m</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="ObjectProtectionOperations"
+				type="ObjectProtectionOperationsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Omavalvontakohteen ympäristön ja vesiensuojelun toimenpiteet</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ObjectProtectionOperationsType">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="ObjectProtectionOperation"
+				type="ObjectProtectionOperationType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Omavalvonnan ympäristön ja vesiensuojelun toimenpidetiedot</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ObjectProtectionOperationType">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="OperationCode"
+				type="co:ObjectProtectionOperationCodeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Omavalvonnan ympäristön ja vesiensuojelun toimenpiteen koodi</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="OperationDescription" type="co:String1000Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Omavalvonnan ympäristön ja vesiensuojelun toimenpiteen selite</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 	******************************************************************
 	Metsävaratietojen koodistotyyppisten (enumerative) tietokenttien
@@ -26327,6 +26327,13 @@
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Suunniteltu (työlaji suunniteltu toteutettavaksi)</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="MainTypeType">
@@ -44391,8 +44398,6 @@
 	<xs:simpleType name="AssortmentMainGroupType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajin pääryhmä-koodisto</xs:documentation>
-			<xs:documentation xml:lang="sv" />
-			<xs:documentation xml:lang="en" />
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="1">
@@ -44405,7 +44410,7 @@
 			<xs:enumeration value="2">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Energiapuu</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en">Energy wood</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -44442,7 +44447,6 @@
 	<xs:simpleType name="CollectingMethodType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Geometrian keruumenetelmä</xs:documentation>
-			<xs:documentation xml:lang="sv" />
 			<xs:documentation xml:lang="en">Acquisition method of geometry information</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
@@ -44472,14 +44476,14 @@
 			<xs:enumeration value="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Omavalvonta</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en">Self-monitoring</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="2">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Omavalvonnan kontrolli</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en">Control of self-monitoring</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -44495,29 +44499,290 @@
 			<xs:enumeration value="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Erinomainen</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en">Excellent</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="2">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Hyvä</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en">Good</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="3">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Välttävä</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en">Passable</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="4">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Heikko</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en">Poor</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SeedlingBeginningCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Taimen syntytapa-koodisto</xs:documentation>
+			<xs:documentation xml:lang="sv" />
+			<xs:documentation xml:lang="en">Coding for origin of the seedling</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Luontainen</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Natural</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kylvö</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Planted seeds</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Istutus</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Planted seedlings</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AmountUnitType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Määrätiedon yksikkö-koodisto</xs:documentation>
+			<xs:documentation xml:lang="sv" />
+			<xs:documentation xml:lang="en">Coding for amount units</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kpl/ha</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Pcs/ha</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kpl/kohde</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Pcs/destination</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MachineCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Koodisto käytetyn koneen / laitteen tiedoille</xs:documentation>
+			<xs:documentation xml:lang="sv" />
+			<xs:documentation xml:lang="en">Coding for used machine / device</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pyörivä kaivinkone</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Rotating excavator</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Traktorikaivuri</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Tractor excavator</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muu</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Other</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MachineAccessoryCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Käytetty väline / lisälaite- koodisto</xs:documentation>
+			<xs:documentation xml:lang="sv" />
+			<xs:documentation xml:lang="en">Coding for used accessory device</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Mätästyslevy</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Laikku-/kääntömätästyskauha</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ojakauha</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kannonnostolaite</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tasakärkinen kauha</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="6">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muu</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PreventionSubstanceType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Käytetyn juurikäävän torjuntatuotteen vaikuttava aine- koodisto</xs:documentation>
+			<xs:documentation xml:lang="sv" />
+			<xs:documentation xml:lang="en" />
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Harmaaorvakka</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Urea</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CompactSoilTypeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Suppea maalajikoodisto</xs:documentation>
+			<xs:documentation xml:lang="sv" />
+			<xs:documentation xml:lang="en" />
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Karkea</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Hieno</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Turve</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TreeDensityClassType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Puuston tiheysluokka- koodisto</xs:documentation>
+			<xs:documentation xml:lang="sv" />
+			<xs:documentation xml:lang="en">Coding for tree density classes</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Harva</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Sparse</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Normaali</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Normal</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tiheä</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Dense</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ObjectProtectionOperationCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Ympäristön ja vesiensuojelun toimenpiteen koodisto</xs:documentation>
+			<xs:documentation xml:lang="sv" />
+			<xs:documentation xml:lang="en" />
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Suojakaista</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kaivukatko</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lietekuoppa</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Laskeutusallas</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Pintavalutuskenttä</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
