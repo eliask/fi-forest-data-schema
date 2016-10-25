@@ -1,5 +1,5 @@
 TIETOJA TÄSTÄ TIEDOSTOPAKETISTA
 
 - Skeemapaketti V9
-- Versio V9.17
-- Julkaistu 4.10.2016
+- Versio V9.18
+- Julkaistu 25.10.2016

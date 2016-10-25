@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<!-- WorkingSiteOperational Schema version Schema version 0.13.0 (24.3.2016) -->
+<!-- WorkingSiteOperational Schema version Schema version 0.18.0-SNAPSHOT (x.x.2016) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperational" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperational" elementFormDefault="qualified" attributeFormDefault="qualified">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
@@ -256,7 +256,7 @@
 					<xs:documentation xml:lang="fi">Turvemaalohko kesä</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ForestCertification" type="bdt:CertificationSystemType" minOccurs="1">
+			<xs:element name="ForestCertification" type="bdt:CertificationSystemType" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Sertifiointi</xs:documentation>
 				</xs:annotation>
@@ -468,7 +468,7 @@
 					<xs:documentation xml:lang="fi">Kantojennosto (K/E)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DevelopmentClass" type="bdt:DevelopmentClassType" minOccurs="0">
+			<xs:element name="DevelopmentClass" type="bdt:WideDevelopmentClassType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Kehitysluokka</xs:documentation>
 				</xs:annotation>
@@ -715,9 +715,9 @@
 					<xs:documentation xml:lang="fi">Varastopaikan osoite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StorageClass" type="bdt:StorageDryingClassType" minOccurs="0">
+			<xs:element name="StorageDryingClass" type="bdt:StorageDryingClassType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Varastopaikkaluokka</xs:documentation>
+					<xs:documentation xml:lang="fi">Varastopaikan kuivumisluokka</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -985,7 +985,17 @@
 			</xs:element>
 			<xs:element name="SendWorkingAloneNotification" type="bdt:YesNoType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Lähetetäänkö yhteyshenkilölle yksintyöskentelyilmoitus</xs:documentation>
+					<xs:documentation xml:lang="fi">Lähetetäänkö yhteyshenkilölle yksintyöskentelyilmoitus.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SendNotifications" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lähetetäänkö yhteyshenkilölle aloitus-, lopetus- ja ennakkoilmoituksia.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NotificationContactPerson" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Aloitus-, lopetus- ja ennakkoilmoitus: viestin sisällössä yhteyshenkilönä.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

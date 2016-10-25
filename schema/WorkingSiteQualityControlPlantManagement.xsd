@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<!-- WorkingSiteQualityControlPlantManagement Schema version Schema version 0.13.0 (24.3.2016) -->
+<!-- WorkingSiteQualityControlPlantManagement Schema version Schema version 0.18.0-SNAPSHOT (x.x.2016) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlPlantManagement" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlPlantManagement" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.3">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
@@ -22,9 +22,120 @@
 					<xs:documentation xml:lang="fi">Valokuvien lukumäärä</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="SamplePlotSummaries" type="SamplePlotSummariesType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealojen summatiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="SamplePlots" type="SamplePlotsType" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Koealatiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SamplePlotSummariesType">
+		<xs:sequence>
+			<xs:element name="SamplePlotSummary" type="SamplePlotSummaryType" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealojen mittaajatyyppikohtaiset summatiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SamplePlotSummaryType">
+		<xs:sequence>
+			<xs:element name="StandNumber" type="bdt:String10Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuvion tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlotMeasurementSummary" type="SamplePlotMeasurementSummaryType" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealojen mittaajatyyppikohtaiset summatiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SamplePlotMeasurementSummaryType">
+		<xs:sequence>
+			<xs:element name="MeasurerType" type="bdt:MeasurerTypeType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Mittaajatyyppi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReductionCountSummary" type="bdt:PositiveInteger5digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Poistuman runkoluku keskiarvo/ha</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReductionAvgDiameterSummary" type="bdt:Decimal2FractionDigitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Poistuman kannon keski lpm keskiarvo (mm)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StandAvgDiameterSummary"
+						type="bdt:PositiveInteger3digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">puuston keskiläpimitta (mm)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StandAvgHeightSummary" type="bdt:Decimal1FractionDigitType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">puuston keskipituus (cm)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StandAvgAgeSummary" type="bdt:PositiveInteger3digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">puuston keski-ikä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StandAvgStemCountSummary" type="bdt:PositiveInteger5digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Puuston keskitiheys (runkoluku)/ha</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TreeSummaries" type="SamplePlotTreesSummaryType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Puulajikohtaiset mittaustiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SamplePlotTreesSummaryType">
+		<xs:sequence>
+			<xs:element name="TreeSummary" type="TreeSummaryType" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Puulajikohtaiset mittaustiedot (1..n)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TreeSummaryType">
+		<xs:sequence>
+			<xs:element name="TreeSpecies" type="bdt:TreeSpeciesType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Puulaji </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgeSummary" type="bdt:PositiveInteger3digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ikä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StemCountSummary" type="bdt:PositiveInteger5digitsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Runkoluku/ha</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MeanHeightSummary" type="bdt:Decimal1FractionDigitType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Keskipituus (cm)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MeanDiameterSummary" type="bdt:PositiveInteger3digitsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Keskiläpimitta (mm)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

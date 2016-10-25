@@ -130,7 +130,8 @@
 	</xs:complexType>
 	<xs:complexType name="SeedlingDataType">
 		<xs:sequence>
-			<xs:element minOccurs="0" name="SeedlingStratum" type="SeedlingStratumType">
+			<xs:element minOccurs="1" name="SeedlingStratum" type="SeedlingStratumType"
+				maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Taimiosite</xs:documentation>
 					<xs:documentation xml:lang="sv"/>

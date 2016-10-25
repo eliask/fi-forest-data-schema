@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<!-- WorkingSiteQualityControlSilviculture Schema version Schema version 0.13.0 (24.3.2016) -->
+<!-- WorkingSiteQualityControlSilviculture Schema version Schema version 0.18.0-SNAPSHOT (x.x.2016) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSilviculture" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSilviculture" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
@@ -22,9 +22,51 @@
 					<xs:documentation xml:lang="fi">Valokuvien lukumäärä</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="SamplePlotSummaries" type="SamplePlotSummariesType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealojen summatiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="SamplePlots" type="SamplePlotsType" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Koealatiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SamplePlotSummariesType">
+		<xs:sequence>
+			<xs:element name="SamplePlotSummary" type="SamplePlotSummaryType" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealojen mittaajatyyppikohtaiset summatiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SamplePlotSummaryType">
+		<xs:sequence>
+			<xs:element name="StandNumber" type="bdt:String10Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuvion tunniste</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlotMeasurementSummary" type="SamplePlotMeasurementSummaryType" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealojen mittaajatyyppikohtaiset summatiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SamplePlotMeasurementSummaryType">
+		<xs:sequence>
+			<xs:element name="MeasurerType" type="bdt:MeasurerTypeType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Mittaajatyyppi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlantCountSummary" type="bdt:PositiveInteger4digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Hehtaarikohtainen taimien lukumäärä</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

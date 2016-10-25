@@ -707,7 +707,8 @@
 	</xs:complexType>
 	<xs:complexType name="CompletionActorsType">
 		<xs:sequence>
-			<xs:element minOccurs="0" name="CompletionActor" type="CompletionActorType">
+			<xs:element minOccurs="1" name="CompletionActor" type="CompletionActorType"
+				maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Toimenpiteen toteuttaja</xs:documentation>
 					<xs:documentation xml:lang="sv"/>

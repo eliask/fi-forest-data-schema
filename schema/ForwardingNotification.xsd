@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<!-- ForwardingNotification Schema version Schema version 0.13.0 (24.3.2016) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/ForwardingNotification" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForwardingNotification" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+<!-- ForwardingNotification Schema version Schema version 0.18.0-SNAPSHOT (x.x.2016) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://standardit.tapio.fi/schemas/forestData/ForwardingNotification"
+           xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
+           xmlns:wct="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
+           targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForwardingNotification"
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+               schemaLocation="Common_BasicDataType.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
+               schemaLocation="WoodForceCommonTypes.xsd"/>
 	<xs:element name="ForwardingNotification" type="ForwardingNotificationType"/>
 	<xs:complexType name="ForwardingNotificationType">
 		<xs:sequence>
@@ -207,9 +215,9 @@
 			<xs:documentation xml:lang="fi">Vakioviestit</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="CommonMessageId" type="bdt:String20Type" minOccurs="0">
+			<xs:element name="CommonMessageId" type="wct:CommonMessageType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Vakioviesti</xs:documentation>
+					<xs:documentation xml:lang="fi">Vakioviestin koodi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="CommonMessageFreeText" type="bdt:String200Type" minOccurs="0">
@@ -234,9 +242,9 @@
 					<xs:documentation xml:lang="fi">Kuormaluku</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Area" type="bdt:String10Type">
+			<xs:element name="Area" type="wct:AreaCodeType">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Alue</xs:documentation>
+					<xs:documentation xml:lang="fi">Aluekoodi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Code" type="bdt:String50Type">
@@ -249,12 +257,12 @@
 					<xs:documentation xml:lang="fi">Puutavaralajin nimi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TreeSpecies" type="bdt:String5Type" minOccurs="0">
+			<xs:element name="TreeSpecies" type="wct:StanfordTreeSpeciesType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Puulaji</xs:documentation>
+					<xs:documentation xml:lang="fi">Stanford-puulajikoodi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Month" type="bdt:String5Type" minOccurs="0">
+			<xs:element name="Month" type="wct:MonthType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Mittauskuukausi</xs:documentation>
 				</xs:annotation>
@@ -274,9 +282,9 @@
 					<xs:documentation xml:lang="fi">Lumijää</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WeightClass" type="bdt:String5Type" minOccurs="0">
+			<xs:element name="WeightClass" type="bdt:PositiveInteger1digitsType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Painoluokka</xs:documentation>
+					<xs:documentation xml:lang="fi">Painoluokka (puun kosteusprosentti)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Humidity" type="bdt:Decimal1FractionDigitType" minOccurs="0">

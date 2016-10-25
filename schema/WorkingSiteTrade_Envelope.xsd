@@ -29,39 +29,21 @@
     elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
 
     <xs:import namespace="http://standardit.tapio.fi/schemas/header" schemaLocation="header.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer"
-        schemaLocation="WorkingSiteTrade_CallForOffer.xsd"/>
-    <xs:import
-        namespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforofferworkingsite"
-        schemaLocation="WorkingSiteTrade_CallForOfferWorkingSite.xsd"/>
-    <xs:import namespace="http://www.standardit.tapio.fi/schemas/forestData/envelopeBase"
-        schemaLocation="EnvelopeBase.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/businessacceptance"
-        schemaLocation="BusinessAcceptance.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasepayment"
-        schemaLocation="WorkingSiteTrade_WoodPurchasePayment.xsd"/>
-    <xs:import
-        namespace="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasemeasurementcertificate"
-        schemaLocation="WorkingSiteTrade_WoodPurchaseMeasurementCertificate.xsd"/>
-    <xs:import
-        namespace="http://standardit.tapio.fi/schemas/forestData/forestusedeclarationreference"
-        schemaLocation="ForestUseDeclarationReference.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/contractreference"
-        schemaLocation="WorkingSiteTrade_ContractReference.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/offer"
-        schemaLocation="WorkingSiteTrade_Offer.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/offerworkingsite"
-        schemaLocation="WorkingSiteTrade_OfferWorkingSite.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operationStatusUpdate"
-        schemaLocation="OperationStatusUpdate.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/contactRequest"
-        schemaLocation="ContactRequest.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
-        schemaLocation="MapSymbol.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/commonObjectData"
-        schemaLocation="CommonObjectData.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Acknowledge"
-        schemaLocation="Acknowledge.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer" schemaLocation="WorkingSiteTrade_CallForOffer.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforofferworkingsite" schemaLocation="WorkingSiteTrade_CallForOfferWorkingSite.xsd"/>
+    <xs:import namespace="http://www.standardit.tapio.fi/schemas/forestData/envelopeBase" schemaLocation="EnvelopeBase.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/businessacceptance" schemaLocation="BusinessAcceptance.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasepayment" schemaLocation="WorkingSiteTrade_WoodPurchasePayment.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasemeasurementcertificate" schemaLocation="WorkingSiteTrade_WoodPurchaseMeasurementCertificate.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestusedeclarationreference" schemaLocation="ForestUseDeclarationReference.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/contractreference" schemaLocation="WorkingSiteTrade_ContractReference.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/offer" schemaLocation="WorkingSiteTrade_Offer.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/offerworkingsite" schemaLocation="WorkingSiteTrade_OfferWorkingSite.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operationStatusUpdate" schemaLocation="OperationStatusUpdate.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/contactRequest" schemaLocation="ContactRequest.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/MapSymbol" schemaLocation="MapSymbol.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/commonObjectData" schemaLocation="CommonObjectData.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Acknowledge" schemaLocation="Acknowledge.xsd"/>
 
     <xs:element name="WorkingSiteTradeEnvelope" type="WorkingSiteTradeEnvelopeType"/>
 
@@ -93,5 +75,4 @@
             <xs:element ref="ack:Acknowledge"/>
         </xs:choice>
     </xs:complexType>
-
 </xs:schema>

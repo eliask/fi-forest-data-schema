@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<!-- Resource Schema version Schema version 0.13.0 (24.3.2016) -->
+<!-- Resource Schema version Schema version 0.18.0-SNAPSHOT (x.x.2016) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/Resource"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            xmlns:gml="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+           xmlns:wct="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/Resource"
            elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.3">
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+               schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+               schemaLocation="Common_GeometricDataType.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
+               schemaLocation="WoodForceCommonTypes.xsd"/>
 	<xs:element name="Resource" type="ResourceType">
 		<xs:annotation>
 			<xs:documentation>Resurssin tiedot</xs:documentation>
@@ -61,7 +66,7 @@
 					<xs:documentation>Tyolajin koodit</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Manufacturer" type="bdt:String50Type" minOccurs="0">
+			<xs:element name="Manufacturer" type="bdt:MachineManufacturerType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Valmistaja</xs:documentation>
 				</xs:annotation>
@@ -146,9 +151,9 @@
 					<xs:documentation>Palvelu poiskaytostä loppupvm</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="LoadRating" type="bdt:BearingCapacityClassType" minOccurs="0">
+			<xs:element name="LoadRating" type="wct:LoadRatingType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Kantavuusluokka</xs:documentation>
+					<xs:documentation>Resurssin kantavuusluokka</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Location" type="gml:PointGeometryType" minOccurs="0">
@@ -178,7 +183,7 @@
 			</xs:element>
 			<xs:element name="SubContractorResource" type="bdt:YesNoType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>K, jos osayrittäjän kone</xs:documentation>
+					<xs:documentation>1, jos osayrittäjän kone, 0 jos ei ole.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SubContractorId" type="bdt:String20Type" minOccurs="0">
@@ -254,9 +259,9 @@
 					<xs:documentation xml:lang="fi">Tuottavuus</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ProductivityUnit" type="bdt:String10Type" minOccurs="1">
+			<xs:element name="ProductivityUnit" type="bdt:WorkCodeUnitType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tuottavuuden yksikko esim. m3/vrk useita tuottavuus lukuja esim. kaivinkone, henkilö, moto</xs:documentation>
+					<xs:documentation xml:lang="fi">Tuottavuuden yksikko esim. m3. Tuottavuus on ilmoitettu yksikköä per tunti.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

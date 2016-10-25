@@ -254,6 +254,14 @@
 		</xs:annotation>
 		<xs:union memberTypes="QuantityUnitType StatisticsQuantityUnitType"/>
 	</xs:simpleType>
+	<xs:simpleType name="WideDevelopmentClassType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Laaja kehitysluokkakoodisto</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:union memberTypes="DevelopmentClassType DevelopmentClassExtensionsType"/>
+	</xs:simpleType>
 	<xs:simpleType name="Decimal2And2Type">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Desimaaliluku kahdella desimaalilla arvovälillä -99.99 ja 99.99</xs:documentation>

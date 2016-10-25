@@ -1,5 +1,5 @@
 <!-- edited with XMLSpy v2010 rel. 2 (x64) (http://www.altova.com) by Fifth Element (Fifth Element Oy) -->
-<!-- Envelope Schema version Schema version 0.13.0 (24.3.2016) -->
+<!-- Envelope Schema version Schema version 0.18.0-SNAPSHOT (x.x.2016) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/envelope"
            xmlns:header="http://standardit.tapio.fi/schemas/header"
@@ -35,6 +35,7 @@
            xmlns:workingSiteForwardedProduction="http://standardit.tapio.fi/schemas/forestData/WorkingSiteForwardedProduction"
            xmlns:workingSiteHarvestedProduction="http://standardit.tapio.fi/schemas/forestData/WorkingSiteHarvestedProduction"
            xmlns:workingSiteQualityControlCutting="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting"
+           xmlns:workingSiteQualityControlFertilization="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlFertilization"
            xmlns:workingSiteForwardingQualityControl="http://standardit.tapio.fi/schemas/forestData/WorkingSiteForwardingQualityControl"
            xmlns:workingSiteHarvestingQualityControl="http://standardit.tapio.fi/schemas/forestData/WorkingSiteHarvestingQualityControl"
            xmlns:workingSiteHarvestingQualityControlManual="http://standardit.tapio.fi/schemas/forestData/WorkingSiteHarvestingQualityControlManual"
@@ -76,7 +77,8 @@
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteHarvestingQualityControlManual" schemaLocation="WorkingSiteHarvestingQualityControlManual.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteHarvestingQualityControl" schemaLocation="WorkingSiteHarvestingQualityControl.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteForwardingQualityControl" schemaLocation="WorkingSiteForwardingQualityControl.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting" schemaLocation="WorkingSiteQualityControlCutting.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting" schemaLocation="WorkingSiteQualityControlCutting.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlFertilization" schemaLocation="WorkingSiteQualityControlFertilization.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteHarvestedProduction" schemaLocation="WorkingSiteHarvestedProduction.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteForwardedProduction" schemaLocation="WorkingSiteForwardedProduction.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForwardingEstimate" schemaLocation="ForwardingEstimate.xsd"/>
@@ -98,7 +100,7 @@
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditFertilization" schemaLocation="WorkingSiteFinalAuditFertilization.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditRoadMaking" schemaLocation="WorkingSiteFinalAuditRoadMaking.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperationalUpdate" schemaLocation="WorkingSiteOperationalUpdate.xsd"/>
-    <!--  <xs:import namespace="urn:skogforsk:stanford2010" schemaLocation="http://www.skogforsk.se/stanford2010/schema/ProductInstruction_V3p0.xsd"/> -->
+    <!-- <xs:import namespace="urn:skogforsk:stanford2010" schemaLocation="http://www.skogforsk.se/stanford2010/schema/ProductInstruction_V3p0.xsd"/> -->
    <xs:element name="Envelope" type="EnvelopeType"/>
 	<xs:complexType name="EnvelopeType">
 		<xs:sequence>
@@ -111,53 +113,336 @@
 			<xs:documentation xml:lang="fi">Tähän kaikkien käytettävien viestityyppien tyyppimäärittelyt</xs:documentation>
 		</xs:annotation>
 		<xs:choice>
-			<xs:element name="Contract" type="contract:ContractType"/>
-			<xs:element name="CompanyInformation" type="companyInformation:CompanyInformationType"/>
-			<xs:element name="OrderConfirmation" type="orderConfirmation:OrderConfirmationType"/>
-			<xs:element name="WorkingSiteOperational" type="workingSiteOperational:WorkingSiteOperationalType"/>
-			<xs:element name="Resource" type="resource:ResourceType"/>
-			<xs:element name="SilvicultureOrder" type="silvicultureOrder:SilvicultureOrderType"/>
-			<xs:element name="WeekCalendar" type="weekCalendar:WeekCalendarType"/>
-			<xs:element name="Acknowledge" type="acknowledge:AcknowledgeType"/>
-            <xs:element name="MapSymbol" type="mapSymbol:MapSymbolType"/>
-            <xs:element name="Image" type="image:ImageType"/>
-            <xs:element name="ForwardingEstimate" type="forwardingEstimate:ForwardingEstimateType"/>
-            <xs:element name="ForwardingNotification" type="forwardingNotification:ForwardingNotificationType"/>
-            <xs:element name="UserInformation" type="userInformation:UserInformationType"/>
-            <xs:element name="HarvestingOrder" type="harvestingOrder:HarvestingOrderType"/>
-            <xs:element name="QualityAttachment" type="qualityAttachment:QualityAttachmentType"/>
-            <xs:element name="ResourceSchedule" type="resourceSchedule:ResourceScheduleType"/>
-            <xs:element name="WorkingSiteQualityControlSilviculture" type="workingSiteQualityControlSilviculture:WorkingSiteQualityControlSilvicultureType"/>
-            <xs:element name="WorkingSiteQualityControlPlantManagement" type="workingSiteQualityControlPlantManagement:WorkingSiteQualityControlPlantManagementType"/>
-            <xs:element name="WorkingSiteWorkLoad" type="workingSiteWorkLoad:WorkingSiteWorkLoadType"/>
-            <xs:element name="WorkingSiteWorkTime" type="workingSiteWorkTime:WorkingSiteWorkTimeType"/>
-            <xs:element name="WorkingSiteFeeBasis" type="workingSiteFeeBasis:WorkingSiteFeeBasisType"/>
-            <xs:element name="WorkingSiteInterruption" type="workingSiteInterruption:WorkingSiteInterruptionType"/>
-            <xs:element name="WorkingSiteEndNotification" type="workingSiteEndNotification:WorkingSiteEndNotificationType"/>
-            <xs:element name="WorkingSiteAccounting" type="workingSiteAccounting:WorkingSiteAccountingType"/>
-            <xs:element name="WorkingSiteQualityNotification" type="workingSiteQualityNotification:WorkingSiteQualityNotificationType"/>
-            <xs:element name="WorkingSiteFinalAuditStumpLifting" type="workingSiteFinalAuditStumpLifting:WorkingSiteFinalAuditStumpLiftingType"/>
-            <xs:element name="WorkingSiteFinalAuditStumpForwarding" type="workingSiteFinalAuditStumpForwarding:WorkingSiteFinalAuditStumpForwardingType"/>
-            <xs:element name="WorkingSiteFinalAuditHarvesting" type="workingSiteFinalAuditHarvesting:WorkingSiteFinalAuditHarvestingType"/>
-            <xs:element name="WorkingSiteFinalAuditBioMassForwarding" type="workingSiteFinalAuditBioMassForwarding:WorkingSiteFinalAuditBioMassForwardingType"/>
-            <xs:element name="WorkingSiteHarvestingQualityControlManual" type="workingSiteHarvestingQualityControlManual:WorkingSiteHarvestingQualityControlManualType"/>
-            <xs:element name="WorkingSiteHarvestingQualityControl" type="workingSiteHarvestingQualityControl:WorkingSiteHarvestingQualityControlType"/>
-            <xs:element name="WorkingSiteForwardingQualityControl" type="workingSiteForwardingQualityControl:WorkingSiteForwardingQualityControlType"/>
-            <xs:element name="WorkingSiteQualityControlCutting" type="workingSiteQualityControlCutting:WorkingSiteQualityControlCuttingType"/>
-            <xs:element name="WorkingSiteHarvestedProduction" type="workingSiteHarvestedProduction:WorkingSiteHarvestedProductionType"/>
-            <xs:element name="WorkingSiteForwardedProduction" type="workingSiteForwardedProduction:WorkingSiteForwardedProductionType"/>
-            <xs:element name="WorkingSiteFinalAuditSoilConditioning" type="workingSiteFinalAuditSoilConditioning:WorkingSiteFinalAuditSoilConditioningType"/>
-            <xs:element name="WorkingSiteFinalAuditSilviculture" type="workingSiteFinalAuditSilviculture:WorkingSiteFinalAuditSilvicultureType"/>
-            <xs:element name="WorkingSiteFinalAuditPlantManagement" type="workingSiteFinalAuditPlantManagement:WorkingSiteFinalAuditPlantManagementType"/>
-            <xs:element name="WorkingSiteQualityControlSoilConditioning" type="workingSiteQualityControlSoilConditioning:WorkingSiteQualityControlSoilConditioningType"/>
-            <xs:element name="WorkingSiteTravelNotification" type="workingSiteTravelNotification:WorkingSiteTravelNotificationType"/>
-            <xs:element name="WorkingSiteStatus" type="workingSiteStatus:WorkingSiteStatusType"/>
-            <xs:element name="RoadOrDitchObjectUpdate" type="roadOrDitchObjectUpdate:RoadOrDitchObjectUpdateType"/>
-            <xs:element name="WorkingSiteFinalAuditDraining" type="workingSiteFinalAuditDraining:WorkingSiteFinalAuditDrainingType"/>
-            <xs:element name="WorkingSiteFinalAuditFertilization" type="workingSiteFinalAuditFertilization:WorkingSiteFinalAuditFertilizationType"/>
-            <xs:element name="WorkingSiteFinalAuditRoadMaking" type="workingSiteFinalAuditRoadMaking:WorkingSiteFinalAuditRoadMakingType"/>
-            <xs:element name="WorkingSiteOperationalUpdate" type="workingSiteOperationalUpdate:WorkingSiteOperationalUpdateType"/>
-		    <!--  <xs:element ref="productInstruction:ProductInstruction"/> -->
+			<xs:element name="Contract" type="contract:ContractType">
+			    <xs:annotation>
+			        <xs:documentation xml:lang="fi">Sopimustiedot, header-osiossa tähän viitataan MessageType = 'Contract'</xs:documentation>
+			        <xs:documentation xml:lang="sv"></xs:documentation>
+			        <xs:documentation xml:lang="en">Contract information, reference in header-part is MessageType = 'Contract'</xs:documentation>
+			    </xs:annotation>
+			</xs:element>
+			<xs:element name="CompanyInformation" type="companyInformation:CompanyInformationType">
+			    <xs:annotation>
+			        <xs:documentation xml:lang="fi">Yrityksen perustiedot, header-osiossa tähän viitataan MessageType = 'CompanyInformation'</xs:documentation>
+			        <xs:documentation xml:lang="sv"></xs:documentation>
+			        <xs:documentation xml:lang="en">Company basic information, reference in header-part is MessageType = 'CompanyInformation'</xs:documentation>
+			    </xs:annotation>
+			</xs:element>
+			<xs:element name="OrderConfirmation" type="orderConfirmation:OrderConfirmationType">
+			    <xs:annotation>
+			        <xs:documentation xml:lang="fi">Tilauksen vahvistus, header-osiossa tähän viitataan MessageType = 'OrderConfirmation'</xs:documentation>
+			        <xs:documentation xml:lang="sv"></xs:documentation>
+			        <xs:documentation xml:lang="en">Order confirmation, reference in header-part is MessageType = 'OrderConfirmation'</xs:documentation>
+			    </xs:annotation>
+			</xs:element>
+			<xs:element name="WorkingSiteOperational" type="workingSiteOperational:WorkingSiteOperationalType">
+			    <xs:annotation>
+			        <xs:documentation xml:lang="fi">Lohkon tiedot, header-osiossa tähän viitataan MessageType = 'WorkingSiteOperational'</xs:documentation>
+			        <xs:documentation xml:lang="sv"></xs:documentation>
+			        <xs:documentation xml:lang="en">Working site information, reference in header-part is MessageType = 'WorkingSiteOperational'</xs:documentation>
+			    </xs:annotation>
+			</xs:element>
+			<xs:element name="Resource" type="resource:ResourceType">
+			    <xs:annotation>
+			        <xs:documentation xml:lang="fi">Resurssi, header-osiossa tähän viitataan MessageType = 'Resource'</xs:documentation>
+			        <xs:documentation xml:lang="sv"></xs:documentation>
+			        <xs:documentation xml:lang="en">Resource, reference in header-part is MessageType = 'OrderConfirmation'</xs:documentation>
+			    </xs:annotation>
+			</xs:element>
+			<xs:element name="SilvicultureOrder" type="silvicultureOrder:SilvicultureOrderType">
+			    <xs:annotation>
+			        <xs:documentation xml:lang="fi">Metsänhoitotyön tilaus, header-osiossa tähän viitataan MessageType = 'SilvicultureOrder'</xs:documentation>
+			        <xs:documentation xml:lang="sv"></xs:documentation>
+			        <xs:documentation xml:lang="en">Ordering of silvicultural operation, reference in header-part is MessageType = 'SilvicultureOrder'</xs:documentation>
+			    </xs:annotation>
+			</xs:element>
+			<xs:element name="WeekCalendar" type="weekCalendar:WeekCalendarType">
+			    <xs:annotation>
+			        <xs:documentation xml:lang="fi">Viikkokalenteri, header-osiossa tähän viitataan MessageType = 'WeekCalendar'</xs:documentation>
+			        <xs:documentation xml:lang="sv"></xs:documentation>
+			        <xs:documentation xml:lang="en">Week calendar, reference in header-part is MessageType = 'WeekCalendar'</xs:documentation>
+			    </xs:annotation>
+			</xs:element>
+			<xs:element name="Acknowledge" type="acknowledge:AcknowledgeType">
+			    <xs:annotation>
+			        <xs:documentation xml:lang="fi">Kuittaussanoma, header-osiossa tähän viitataan MessageType = 'Acknowlegde'</xs:documentation>
+			        <xs:documentation xml:lang="sv"></xs:documentation>
+			        <xs:documentation xml:lang="en">Acknowledge message, reference in header-part is MessageType = 'Acknowledge'</xs:documentation>
+			    </xs:annotation>
+			</xs:element>
+            <xs:element name="MapSymbol" type="mapSymbol:MapSymbolType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Lohkon karttamerkit, header-osiossa tähän viitataan MessageType = 'MapSymbol'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Parcel map symbols, reference in header-part is MessageType = 'MapSymbol'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Image" type="image:ImageType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Valokuvat, header-osiossa tähän viitataan MessageType = 'Image'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Photographs, reference in header-part is MessageType = 'Image'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ForwardingEstimate" type="forwardingEstimate:ForwardingEstimateType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Mekuennuste, header-osiossa tähän viitataan MessageType = 'ForwardingEstimate'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Forwarding estimate, reference in header-part is MessageType = 'ForwardingEstimate'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ForwardingNotification" type="forwardingNotification:ForwardingNotificationType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Mekuilmoitus, header-osiossa tähän viitataan MessageType = 'ForwardingNotification'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Forwarding notification, reference in header-part is MessageType = 'ForwardingNotification'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="UserInformation" type="userInformation:UserInformationType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Käyttäjän tiedot, header-osiossa tähän viitataan MessageType = 'UserInformation'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">User information, reference in header-part is MessageType = 'UserInformation'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="HarvestingOrder" type="harvestingOrder:HarvestingOrderType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Korjuun tilaus, header-osiossa tähän viitataan MessageType = 'HarvestingOrder'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Harvesting order, reference in header-part is MessageType = 'HarvestingOrder'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="QualityAttachment" type="qualityAttachment:QualityAttachmentType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Laatuliite, header-osiossa tähän viitataan MessageType = 'QualityAttachment'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Quality attachment, reference in header-part is MessageType = 'QualityAttachment'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ResourceSchedule" type="resourceSchedule:ResourceScheduleType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Resurssin työsuunnitelma, header-osiossa tähän viitataan MessageType = 'ResourceSchedule'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Resource's schedule, reference in header-part is MessageType = 'ResourceSchedule'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteQualityControlSilviculture" type="workingSiteQualityControlSilviculture:WorkingSiteQualityControlSilvicultureType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Metsänviljelyn koeala, header-osiossa tähän viitataan MessageType = 'WorkingSiteQualityControlSilviculture'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Silviculture quality control, reference in header-part is MessageType = 'WorkingSiteQualityControlSilviculture'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteQualityControlPlantManagement" type="workingSiteQualityControlPlantManagement:WorkingSiteQualityControlPlantManagementType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Taimikonhoidon koealatiedot, header-osiossa tähän viitataan MessageType = 'WorkingSiteQualityControlPlantManagement'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Plant management quality control, reference in header-part is MessageType = 'WorkingSiteQualityControlPlantManagement'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteWorkLoad" type="workingSiteWorkLoad:WorkingSiteWorkLoadType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Työmääräilmoitus, header-osiossa tähän viitataan MessageType = 'WorkingSiteWorkLoad'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Workload information, reference in header-part is MessageType = 'WorkingSiteWorkLoad'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteWorkTime" type="workingSiteWorkTime:WorkingSiteWorkTimeType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Työaikailmoitus, header-osiossa tähän viitataan MessageType = 'WorkingSiteWorkTime'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Worktime information, reference in header-part is MessageType = 'WorkingSiteWorkTime'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteFeeBasis" type="workingSiteFeeBasis:WorkingSiteFeeBasisType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Taksaperusteet, header-osiossa tähän viitataan MessageType = 'WorkingSiteFeeBasis'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Working site fee basis, reference in header-part is MessageType = 'WorkingSiteFeeBasis'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteInterruption" type="workingSiteInterruption:WorkingSiteInterruptionType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Lohkon keskeytys, header-osiossa tähän viitataan MessageType = 'WorkingSiteInterruption'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Working site interruption, reference in header-part is MessageType = 'WorkingSiteInterruption'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteEndNotification" type="workingSiteEndNotification:WorkingSiteEndNotificationType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Lohko päätetty keskeytettynä tai valmiina, header-osiossa tähän viitataan MessageType = 'WorkingSiteEndNotification'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Working site ended either interrupted or ready, reference in header-part is MessageType = 'WorkingSiteEndNotification'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteAccounting" type="workingSiteAccounting:WorkingSiteAccountingType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Lohkon tilitystiedot, header-osiossa tähän viitataan MessageType = 'WorkingSiteAccounting'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Working site accounting information, reference in header-part is MessageType = 'WorkingSiteAccounting'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteQualityNotification" type="workingSiteQualityNotification:WorkingSiteQualityNotificationType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Tehtaiden laatupalaute, header-osiossa tähän viitataan MessageType = 'WorkingSiteQualityNotification'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Factory quality feedback, reference in header-part is MessageType = 'WorkingSiteQualityNotification'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteFinalAuditStumpLifting" type="workingSiteFinalAuditStumpLifting:WorkingSiteFinalAuditStumpLiftingType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Kantojen noston loppuarviointi/laadunseuranta, header-osiossa tähän viitataan MessageType = 'WorkingSiteFinalAuditStumpLifting'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Stump lifting final audit/quality monitoring, reference in header-part is MessageType = 'WorkingSiteFinalAuditStumpLifting'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteFinalAuditStumpForwarding" type="workingSiteFinalAuditStumpForwarding:WorkingSiteFinalAuditStumpForwardingType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Kantojen ajon loppuarviointi/laadunseuranta, header-osiossa tähän viitataan MessageType = 'WorkingSiteFinalAuditStumpForwarding'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Stump forwarding final audit/quality monitoring, reference in header-part is MessageType = 'WorkingSiteFinalAuditStumpForwarding'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteFinalAuditHarvesting" type="workingSiteFinalAuditHarvesting:WorkingSiteFinalAuditHarvestingType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Puunkorjuun loppuarvointi/laadunseuranta, header-osiossa tähän viitataan MessageType = 'WorkingSiteFinalAuditHarvesting'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Harvesting final audit/quality monitoring, reference in header-part is MessageType = 'WorkingSiteFinalAuditHarvesting'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteFinalAuditBioMassForwarding" type="workingSiteFinalAuditBioMassForwarding:WorkingSiteFinalAuditBioMassForwardingType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Metsäenergian kuljetuksen loppuarviointi/laadunseuranta, header-osiossa tähän viitataan MessageType = 'WorkingSiteFinalAuditBioMassForwarding'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Forest biomass forwarding final audit/quality monitoring, reference in header-part is MessageType = 'WorkingSiteFinalAuditBioMassForwarding'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteHarvestingQualityControlManual" type="workingSiteHarvestingQualityControlManual:WorkingSiteHarvestingQualityControlManualType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Käsin syötetty motokontrolli, header-osiossa tähän viitataan MessageType = 'WorkingSiteHarvestingQualityControlManual'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Manually supplied harvester control measurement, reference in header-part is MessageType = 'WorkingSiteHarvestingQualityControlManual'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteHarvestingQualityControl" type="workingSiteHarvestingQualityControl:WorkingSiteHarvestingQualityControlType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi"></xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteForwardingQualityControl" type="workingSiteForwardingQualityControl:WorkingSiteForwardingQualityControlType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Metsätraktorin punnitustarkkuus, header-osiossa tähän viitataan MessageType = 'WorkingSiteForwardingQualityControl'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Forwarder weighing accuracy, reference in header-part is MessageType = 'WorkingSiteForwardingQualityControl'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteQualityControlCutting" type="workingSiteQualityControlCutting:WorkingSiteQualityControlCuttingType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Jäävän puuston koealamittaus, header-osiossa tähän viitataan MessageType = 'WorkingSiteQualityControlCutting'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Cutting quality control measurement, reference in header-part is MessageType = 'WorkingSiteQualityControlCutting'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteQualityControlFertilization" type="workingSiteQualityControlFertilization:WorkingSiteQualityControlFertilizationType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi"></xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteHarvestedProduction" type="workingSiteHarvestedProduction:WorkingSiteHarvestedProductionType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Hakkuukoneen tuotostiedot, header-osiossa tähän viitataan MessageType = 'WorkingSiteHarvestedProduction'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Harvester production information, reference in header-part is MessageType = 'WorkingSiteHarvestedProduction'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteForwardedProduction" type="workingSiteForwardedProduction:WorkingSiteForwardedProductionType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Metsätraktorin tuotostiedot, header-osiossa tähän viitataan MessageType = 'WorkingSiteForwardedProduction'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Forwarder production information, reference in header-part is MessageType = 'WorkingSiteForwardedProduction'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteFinalAuditSoilConditioning" type="workingSiteFinalAuditSoilConditioning:WorkingSiteFinalAuditSoilConditioningType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Maanmuokkauksen loppuarviointi/laadunseuranta, header-osiossa tähän viitataan MessageType = 'WorkingSiteFinalAuditSoilConditioning'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Soil conditioning final audit/quality monitoring, reference in header-part is MessageType = 'WorkingSiteFinalAuditSoilConditioning'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteFinalAuditSilviculture" type="workingSiteFinalAuditSilviculture:WorkingSiteFinalAuditSilvicultureType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Taimikonhoidon loppuarviointi/laadunseuranta, header-osiossa tähän viitataan MessageType = 'WorkingSiteFinalAuditSilviculture'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Silviculture operations final audit/quality monitoring, reference in header-part is MessageType = 'WorkingSiteFinalAuditSilviculture'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteFinalAuditPlantManagement" type="workingSiteFinalAuditPlantManagement:WorkingSiteFinalAuditPlantManagementType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Taimikonhoidon loppuarviointi/laadunseuranta, header-osiossa tähän viitataan MessageType = 'WorkingSiteFinalAuditPlantManagement'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Plant management final audit/quality monitoring, reference in header-part is MessageType = 'WorkingSiteFinalAuditPlantManagement'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteQualityControlSoilConditioning" type="workingSiteQualityControlSoilConditioning:WorkingSiteQualityControlSoilConditioningType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi"></xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en"></xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteTravelNotification" type="workingSiteTravelNotification:WorkingSiteTravelNotificationType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Kilometri-ilmoitus, header-osiossa tähän viitataan MessageType = 'WorkingSiteTravelNotification'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Travel notification, reference in header-part is MessageType = 'WorkingSiteTravelNotification'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteStatus" type="workingSiteStatus:WorkingSiteStatusType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Lohkon tila, header-osiossa tähän viitataan MessageType = 'WorkingSiteStatus'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Working site status, reference in header-part is MessageType = 'WorkingSiteStatus'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="RoadOrDitchObjectUpdate" type="roadOrDitchObjectUpdate:RoadOrDitchObjectUpdateType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Tie/ojituskohteen päivitys, header-osiossa tähän viitataan MessageType = 'RoadOrDitchObjectUpdate'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Road/ditch object update, reference in header-part is MessageType = 'RoadOrDitchObjectUpdate'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteFinalAuditDraining" type="workingSiteFinalAuditDraining:WorkingSiteFinalAuditDrainingType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Kunnostusojituslohkon loppuarviointi/laadunseuranta, header-osiossa tähän viitataan MessageType = 'WorkingSiteFinalAuditDraining'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Overhaul ditching working site final audit/quality monitoring, reference in header-part is MessageType = 'WorkingSiteFinalAuditDraining'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteFinalAuditFertilization" type="workingSiteFinalAuditFertilization:WorkingSiteFinalAuditFertilizationType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Lannoituksen loppuarviointi/laadunseuranta, header-osiossa tähän viitataan MessageType = 'WorkingSiteFinalAuditFertilization'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Fertilization final audit/quality monitoring, reference in header-part is MessageType = 'WorkingSiteFinalAuditFertilization'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteFinalAuditRoadMaking" type="workingSiteFinalAuditRoadMaking:WorkingSiteFinalAuditRoadMakingType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Tienrakennuksen loppuarviointi/laadunseuranta, header-osiossa tähän viitataan MessageType = 'WorkingSiteFinalAuditRoadMaking'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Road construction final audit/quality monitoring, reference in header-part is MessageType = 'WorkingSiteFinalAuditRoadMaking'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkingSiteOperationalUpdate" type="workingSiteOperationalUpdate:WorkingSiteOperationalUpdateType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Lohkon tiedot, päivitys WF-> MJ, header-osiossa tähän viitataan MessageType = 'WorkingSiteOperationalUpdate'</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
+                    <xs:documentation xml:lang="en">Working site information, update WF-> MJ, reference in header-part is MessageType = 'WorkingSiteOperationalUpdate'</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <!-- <xs:element ref="productInstruction:ProductInstruction"/> -->
         </xs:choice>
 	</xs:complexType>
 </xs:schema>
