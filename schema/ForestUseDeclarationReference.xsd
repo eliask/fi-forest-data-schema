@@ -119,7 +119,7 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:maxLength value="500"/>
+			<xs:maxLength value="5000"/>
 		</xs:restriction>
 	</xs:simpleType>
 

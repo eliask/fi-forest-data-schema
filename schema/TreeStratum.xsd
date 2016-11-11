@@ -94,7 +94,7 @@
 			<xs:element ref="co:ChangeTime" minOccurs="0"/>
 			<xs:element ref="StratumNumber"/>
 			<xs:element ref="TreeSpecies"/>
-			<xs:element name="TreeClass" type="co:TreeClassType"/>
+			<xs:element name="TreeClass" type="co:TreeClassType" minOccurs="0"/>
 			<xs:element ref="Storey"/>
 			<xs:element ref="Age"/>
 			<!-- Käyttösuositus: Joko Ppa tai Runkoluku pitää löytyä sanomasta -->

@@ -31916,6 +31916,18 @@
 					<xs:documentation xml:lang="en">Place of delivery</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="forestDepotAccessibility">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Varastopaikan kaukokuljetuskelpoisuus</xs:documentation>
+					<xs:documentation xml:lang="en">Forest depot accessibility</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="harvestingAccessibility">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Korjuukelpoisuus</xs:documentation>
+					<xs:documentation xml:lang="en">Harvesting accessibility</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="AssortmentClassCodeType">
@@ -32550,6 +32562,13 @@
 			<xs:documentation xml:lang="en" />
 		</xs:annotation>
 		<xs:restriction base="xs:string">
+			<xs:enumeration value="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koko maa</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en">Whole country</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Kunta, KELA-koodi.</xs:documentation>
@@ -32568,13 +32587,6 @@
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Metsäkeskus.</xs:documentation>
 					<xs:documentation xml:lang="sv">Skogscentral</xs:documentation>
-					<xs:documentation xml:lang="en" />
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Metsälautakunta.</xs:documentation>
-					<xs:documentation xml:lang="sv">Distriktsskogsnämnd</xs:documentation>
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
 			</xs:enumeration>
@@ -40197,32 +40209,9 @@
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
 			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="StatisticsClassifierType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Tilaston lähtötietojen luokittelija-/osituskoodi</xs:documentation>
-			<xs:documentation xml:lang="sv" />
-			<xs:documentation xml:lang="en" />
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
+			<xs:enumeration value="32">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">... muu tilastollinen ositusperuste 1</xs:documentation>
-					<xs:documentation xml:lang="sv" />
-					<xs:documentation xml:lang="en" />
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">... muu tilastollinen ositusperuste 2</xs:documentation>
-					<xs:documentation xml:lang="sv" />
-					<xs:documentation xml:lang="en" />
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">... muu tilastollinen ositusperuste 3</xs:documentation>
+					<xs:documentation xml:lang="fi">Euroa (euro)</xs:documentation>
 					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
@@ -40273,14 +40262,14 @@
 			</xs:enumeration>
 			<xs:enumeration value="6">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Muu maanmuokkaus / vain suoritteet, ei kustannuksia</xs:documentation>
+					<xs:documentation xml:lang="fi">Muu maanmuokkaus</xs:documentation>
 					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="7">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kulotus / vain suoritteet, ei kustannuksia</xs:documentation>
+					<xs:documentation xml:lang="fi">Kulotus</xs:documentation>
 					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
@@ -40294,7 +40283,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="9">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kylvö, koneellinen (sisältää maanmuokkauksen)</xs:documentation>
+					<xs:documentation xml:lang="fi">Kylvö, koneellinen</xs:documentation>
 					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
@@ -40315,7 +40304,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="12">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Istutus, koneellinen (sisältää maanmuokkauksen)</xs:documentation>
+					<xs:documentation xml:lang="fi">Istutus, koneellinen</xs:documentation>
 					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
@@ -40355,20 +40344,6 @@
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="18">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Pellon metsitys sisältyy istutukseen</xs:documentation>
-					<xs:documentation xml:lang="sv" />
-					<xs:documentation xml:lang="en" />
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="19">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Täydennysviljely sisältyy istutukseen</xs:documentation>
-					<xs:documentation xml:lang="sv" />
-					<xs:documentation xml:lang="en" />
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="20">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Taimikon varhaisperkaus, raivaussahalla</xs:documentation>
@@ -40399,7 +40374,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="24">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Nuoren metsän kunnostus, ratkaistava Kemera-tuen jälkeen</xs:documentation>
+					<xs:documentation xml:lang="fi">Nuoren metsän kunnostus</xs:documentation>
 					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
@@ -40420,21 +40395,49 @@
 			</xs:enumeration>
 			<xs:enumeration value="27">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Metsäteiden rakentaminen (tiedot vuoden aikana päättyneistä hankkeista)</xs:documentation>
+					<xs:documentation xml:lang="fi">Metsäteiden rakentaminen</xs:documentation>
 					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="28">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Metsäteiden perusparannus (tiedot vuoden aikana päättyneistä hankkeista)</xs:documentation>
+					<xs:documentation xml:lang="fi">Metsäteiden perusparannus</xs:documentation>
 					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="30">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Juurikäävän torjunta kantokäsittelyllä (Kemera- tiedoista, yksityiset ja teollisuus? Metsähallitus toimittaa)</xs:documentation>
+					<xs:documentation xml:lang="fi">Juurikäävän torjunta kantokäsittelyllä</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="31">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kunnostusojitus</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="32">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kunnostusojituksen suunnittelu</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="33">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Metsäteiden rakentamisen suunnittelu</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="34">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Metsäteiden perusparannuksen suunnittelu</xs:documentation>
 					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
@@ -44619,20 +44622,6 @@
 					<xs:documentation xml:lang="en">Side product</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="4">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Materiaali</xs:documentation>
-					<xs:documentation xml:lang="sv" />
-					<xs:documentation xml:lang="en">Material</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="5">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Palvelu (työlajit, neuvonta...)</xs:documentation>
-					<xs:documentation xml:lang="sv" />
-					<xs:documentation xml:lang="en">Services (work types, consulting...)</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="6">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Muu</xs:documentation>
@@ -44948,6 +44937,133 @@
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Vanha metsä</xs:documentation>
 					<xs:documentation xml:lang="sv">Gammal skog</xs:documentation>
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HarvestingAccessibilityType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Korjuukelpoisuuden määrittely-koodisto</xs:documentation>
+			<xs:documentation xml:lang="en">Harvesting accessibility coding</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei määritelty</xs:documentation>
+					<xs:documentation xml:lang="en">Not defined</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kelirikko</xs:documentation>
+					<xs:documentation xml:lang="en">Frost heave</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Normaali kesä</xs:documentation>
+					<xs:documentation xml:lang="en">Normal summer</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuiva kesä</xs:documentation>
+					<xs:documentation xml:lang="en">Dry summer</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Talvi</xs:documentation>
+					<xs:documentation xml:lang="en">Winter</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kesä, turvemaa</xs:documentation>
+					<xs:documentation xml:lang="en">Summer, peatland</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ForestDepotAccessibilityType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Varastopaikan kaukokuljetuskelpoisuus-koodisto</xs:documentation>
+			<xs:documentation xml:lang="en">Coding for forest depot accessibility definition</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei määritelty</xs:documentation>
+					<xs:documentation xml:lang="en">Not defined</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kelirikko</xs:documentation>
+					<xs:documentation xml:lang="en">Frost heave</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Normaali kesä</xs:documentation>
+					<xs:documentation xml:lang="en">Normal summer</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuiva kesä</xs:documentation>
+					<xs:documentation xml:lang="en">Dry summer</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Talvi</xs:documentation>
+					<xs:documentation xml:lang="en">Winter</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Talvi-/ jäätie</xs:documentation>
+					<xs:documentation xml:lang="en">Winter or ice road</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ReportedStatisticsOperationTypeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Ilmoitetun metsänhoitotyön tyyppi</xs:documentation>
+			<xs:documentation xml:lang="sv"> </xs:documentation>
+			<xs:documentation xml:lang="en"> </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tiedonluovuttajan toteuttamat metsänhoitotyöt</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tiedonluovuttajan valvomat metsänhoitotyöt</xs:documentation>
+					<xs:documentation xml:lang="sv" />
+					<xs:documentation xml:lang="en" />
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StatisticsPurchaseModeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tilastoinnin täydentävät puukauppamuodon koodit</xs:documentation>
+			<xs:documentation xml:lang="sv"> </xs:documentation>
+			<xs:documentation xml:lang="en"> </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ei kauppaa (omat metsät)</xs:documentation>
+					<xs:documentation xml:lang="sv" />
 					<xs:documentation xml:lang="en" />
 				</xs:annotation>
 			</xs:enumeration>

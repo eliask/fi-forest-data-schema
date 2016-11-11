@@ -53,10 +53,10 @@
             <xs:element ref="BasalArea"/>
             <xs:element ref="StemCount"/>
             <xs:element ref="MeanDiameter"/>
-            <xs:element name="MeanStumpDiameter" type="co:DiameterType"/>
-            <xs:element ref="MeanHeight"/>
+            <xs:element name="MeanStumpDiameter" type="co:DiameterType" minOccurs="0"/>
+            <xs:element ref="MeanHeight" minOccurs="0"/>
             <xs:element name="DominantHeight"
-                type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType"/>
+                type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="0"/>
             <xs:element ref="Volume"/>
             <xs:element ref="SawLogVolume" minOccurs="0"/>
             <xs:element ref="PulpWoodVolume" minOccurs="0"/>

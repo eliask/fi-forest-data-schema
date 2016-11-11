@@ -72,7 +72,7 @@
 			<xs:documentation xml:lang="en">Wood trade stout timber quality classifier for a compartment (litres)</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="LoggingAccessibility" type="LoggingAccessibilityType"/>
+	<xs:element name="LoggingAccessibility" type="co:HarvestingAccessibilityType"/>
 	<xs:element name="ForestHaulageAccessibility" type="ForestHaulageAccessibilityType"/>
 
 	<!-- Tyyppimääritykset -->
@@ -105,6 +105,13 @@
 				<xs:documentation xml:lang="fi">Kuvio voidaan yksilöidä tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
 				<xs:documentation xml:lang="sv"/>
 				<xs:documentation xml:lang="en">Stand can be identified using string id.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="realEstateid" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Viiteavain kiinteistöön</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en">Foreign key to real estate</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -400,5 +407,4 @@
 		</xs:annotation>
 		<xs:restriction base="stb:AccessibilityType"/>
 	</xs:simpleType>
-
 </xs:schema>

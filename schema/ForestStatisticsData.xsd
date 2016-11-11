@@ -22,18 +22,15 @@
 	Tässä skeemassa viitataan näiltä osin siis WorkingSiteTrade_WoodPurchaseStatistics_20120508.xsd skeemaan,
 	*************************************************************************************************
 -->
-<xs:schema
-    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-    targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/ForestStatisticsData" 
-    xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/ForestStatisticsData" 
-    xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment" 
-    xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common" 
-    xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" 
-    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/ForestStatisticsData"
+    xmlns="http://standardit.tapio.fi/schemas/workingsitetrade/ForestStatisticsData"
+    xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment"
+    xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common"
+    xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
+    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
     xmlns:rws="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasestatistics"
-    elementFormDefault="qualified"
-    attributeFormDefault="qualified"
-    version="1.0">
+    elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
 
     <!-- Imports / Includes -->
     <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment"
@@ -42,59 +39,58 @@
         schemaLocation="WorkingSiteTrade_Common.xsd"/>
     <xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
         schemaLocation="JHS170_20090304.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
-	    schemaLocation="Common.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasestatistics"
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+        schemaLocation="Common.xsd"/>
+    <xs:import
+        namespace="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasestatistics"
         schemaLocation="WorkingSiteTrade_WoodPurchaseStatistics.xsd"/>
 
     <!-- Elementtimääritykset -->
-   	<!-- Element definitions -->
+    <!-- Element definitions -->
     <xs:element name="ForestStatisticsData" type="ForestStatisticsDataType"/>
     <xs:element name="AreaType" type="AreaTypeType"/>
     <xs:element name="AreaCode" type="AreaCodeType"/>
     <xs:element name="StartDate" type="StartDateType"/>
     <xs:element name="EndDate" type="EndDateType"/>
     <xs:element name="CompanyID" type="CompanyIDType"/>
-    <xs:element name="PurchaseModeCode" type="wtco:PurchaseModeType"/>
+    <xs:element name="PurchaseModeCode" type="co:StatisticsPurchaseModeCodeType"/>
     <xs:element name="AssortmentCompactClasses" type="as:AssortmentCompactClassesType"/>
     <xs:element name="StatisticsAssortmentCompactClasses" type="AssortmentCompactClassesType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Puutavaralajien tiedot (nimi viittaa virheellisesti puutavaralajiluokkaan).</xs:documentation>
-            <xs:documentation xml:lang="sv"></xs:documentation>
-            <xs:documentation xml:lang="en"></xs:documentation>
+            <xs:documentation xml:lang="sv"/>
+            <xs:documentation xml:lang="en"/>
         </xs:annotation>
     </xs:element>
-	<xs:element name="AssortmentInfo" type="AssortmentInfoType"/>
-	<xs:element name="AssortmentCompactClass" type="AssortmentCompactClassType">
-	    <xs:annotation>
-	        <xs:documentation xml:lang="fi">Puutavaralaji suppein tiedoin (nimi viittaa virheellisesti puutavaralajiluokkaan).</xs:documentation>
-	        <xs:documentation xml:lang="sv"></xs:documentation>
-	        <xs:documentation xml:lang="en"></xs:documentation>
-	    </xs:annotation>	    
-	</xs:element>	
-	<xs:element name="LoggingsRow" type="LoggingsRowType"/>
+    <xs:element name="AssortmentInfo" type="AssortmentInfoType"/>
+    <xs:element name="AssortmentCompactClass" type="AssortmentCompactClassType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Puutavaralaji suppein tiedoin (nimi viittaa virheellisesti puutavaralajiluokkaan).</xs:documentation>
+            <xs:documentation xml:lang="sv"/>
+            <xs:documentation xml:lang="en"/>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="LoggingsRow" type="LoggingsRowType"/>
     <xs:element name="LoggingsRows" type="LoggingsRowsType"/>
     <xs:element name="OperationRows" type="OperationRowsType"/>
     <xs:element name="OperationRow" type="OperationRowType"/>
-	<xs:element name="OperationType" type="OperationTypeType"/>
     <xs:element name="StatisticsOperation" type="StatisticsOperationType"/>
-	<xs:element name="ForestOwnerGroup" type="ForestOwnerGroupType"/>
-	<xs:element name="StatisticsClassifier" type="StatisticsClassifierType"/>
-	<xs:element name="StatisticsClassifiers" type="StatisticsClassifiersType"/>
-	<xs:element name="OperationSpecification" type="OperationSpecificationType"/>
+    <xs:element name="ForestOwnerGroup" type="ForestOwnerGroupType"/>
+    <xs:element name="StatisticsClassifier"/>
     <xs:element name="StatisticsQuantities" type="StatisticsQuantitiesType"/>
-	<xs:element name="StatisticsQuantity" type="StatisticsQuantityType"/>
+    <xs:element name="StatisticsQuantity" type="StatisticsQuantityType"/>
     <xs:element name="Quantity" type="QuantityType"/>
-	<xs:element name="QuantityUnit" type="co:ExtendedQuantityUnitType"/>   
+    <xs:element name="QuantityUnit" type="co:ExtendedQuantityUnitType"/>
     <xs:element name="TreeSpecies" type="TreeSpeciesType"/>
     <xs:element name="StemType" type="StemTypeType"/>
+    <xs:element name="ReportedStatisticsOperationType" type="co:ReportedStatisticsOperationTypeType"/>
 
-	<!-- Tyyppimääritykset -->
-	<!-- Type definitions -->
+    <!-- Tyyppimääritykset -->
+    <!-- Type definitions -->
     <xs:complexType name="ForestStatisticsDataType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Alueittaisen puukauppatilaston rakenteen määrittely.</xs:documentation>
-            <xs:documentation xml:lang="sv"></xs:documentation>
+            <xs:documentation xml:lang="sv"/>
             <xs:documentation xml:lang="en">Structure for areal roundwood sales statistics.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
@@ -127,14 +123,14 @@
     <!-- metsänparannustyöt -->
     <xs:complexType name="OperationRowsType">
         <xs:annotation>
-            <xs:documentation xml:lang="fi"></xs:documentation>
+            <xs:documentation xml:lang="fi"/>
             <xs:documentation xml:lang="sv"/>
             <xs:documentation xml:lang="en"/>
         </xs:annotation>
         <xs:sequence>
             <xs:element ref="OperationRow" minOccurs="1" maxOccurs="unbounded">
                 <xs:annotation>
-                    <xs:documentation xml:lang="fi"></xs:documentation>
+                    <xs:documentation xml:lang="fi"/>
                     <xs:documentation xml:lang="sv"/>
                     <xs:documentation xml:lang="en"/>
                 </xs:annotation>
@@ -143,19 +139,22 @@
     </xs:complexType>
     <xs:complexType name="OperationRowType">
         <xs:annotation>
-            <xs:documentation xml:lang="fi"></xs:documentation>
-            <xs:documentation xml:lang="sv"></xs:documentation>
-            <xs:documentation xml:lang="en"></xs:documentation>
+            <xs:documentation xml:lang="fi"/>
+            <xs:documentation xml:lang="sv"/>
+            <xs:documentation xml:lang="en"/>
         </xs:annotation>
         <xs:sequence>
             <xs:element ref="AreaType" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="AreaCode" minOccurs="1" maxOccurs="1"/>
-            <xs:element ref="OperationType" minOccurs="0" maxOccurs="1"/> <!-- Metsävarasanoman työlajit, tarvitaan laajennus ainakin tien rakennukseen liittyvissä työlajeissa. Ks. alustava koodisto. -->
-            <xs:element ref="OperationSpecification" minOccurs="0" maxOccurs="1"/> <!-- Työlajin tarkenne, tältä osin pohjana voi olla metsäväarasanoman tarkenteet. Mahdollisesti tarve supistaa metsävarakoodistoa. Ks. alustava koodisto. -->
-            <xs:element ref="StatisticsOperation" minOccurs="1" maxOccurs="1"/> <!-- Tilastoitavan työlajin koodi. Erillinen Excel-listaus työlajeista. Ks. alustava koodisto. -->
-            <xs:element ref="ForestOwnerGroup" minOccurs="1" maxOccurs="1"/>			<!-- Tilaston lähtötietojen luokittelu metsänomistajaryhmän mukaan. Ks. alustava koodisto. -->
-            <xs:element ref="StatisticsClassifiers" minOccurs="1" maxOccurs="1"/> <!-- RAPORTOITAVA TIETO VOIDAAN LUOKITELLA / OSITTAA LUOKITTELIJAN AVULLA -->
-            <xs:element ref="StatisticsQuantities" minOccurs="1" maxOccurs="1"/> <!-- Tilastoitavat määrätiedot, yksittäiseen työlajiin voidaan littää samaan alueyksikköön liittyen useampi määrätieto -->
+            <!-- Metsävarasanoman työlajit, tarvitaan laajennus ainakin tien rakennukseen liittyvissä työlajeissa. Ks. alustava koodisto. -->
+            <!-- Työlajin tarkenne, tältä osin pohjana voi olla metsäväarasanoman tarkenteet. Mahdollisesti tarve supistaa metsävarakoodistoa. Ks. alustava koodisto. -->
+            <xs:element ref="StatisticsOperation" minOccurs="1" maxOccurs="1"/>
+            <!-- Tilastoitavan työlajin koodi. Erillinen Excel-listaus työlajeista. Ks. alustava koodisto. -->
+            <xs:element ref="ForestOwnerGroup" minOccurs="1" maxOccurs="1"/>
+            <!-- Tilaston lähtötietojen luokittelu metsänomistajaryhmän mukaan. Ks. alustava koodisto. -->
+            <xs:element ref="ReportedStatisticsOperationType" minOccurs="1" maxOccurs="1"/>
+            <xs:element ref="StatisticsQuantities" minOccurs="1" maxOccurs="1"/>
+            <!-- Tilastoitavat määrätiedot, yksittäiseen työlajiin voidaan littää samaan alueyksikköön liittyen useampi määrätieto -->
         </xs:sequence>
     </xs:complexType>
     <!--HakkuuTilastot -->
@@ -178,22 +177,24 @@
     <xs:complexType name="LoggingsRowType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Alueittaisen puukauppatilaston rakenteen määrittely.</xs:documentation>
-            <xs:documentation xml:lang="sv"></xs:documentation>
+            <xs:documentation xml:lang="sv"/>
             <xs:documentation xml:lang="en">Structure for areal roundwood sales statistics.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element ref="AreaType" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="AreaCode" minOccurs="1" maxOccurs="1"/>
-            <xs:element ref="PurchaseModeCode"  minOccurs="1" maxOccurs="1"/>
-            <xs:element ref="ForestOwnerGroup" minOccurs="1" maxOccurs="1" />			<!-- Tilaston lähtötietojen luokittelu metsänomistajaryhmän mukaan. Ks. alustava koodisto. -->
-            <xs:element ref="StatisticsAssortmentCompactClasses" minOccurs="1" maxOccurs="1"/> <!-- RAPORTOITAVA TIETO VOIDAAN LUOKITELLA / OSITTAA LUOKITTELIJAN AVULLA -->
+            <xs:element ref="PurchaseModeCode" minOccurs="1" maxOccurs="1"/>
+            <xs:element ref="ForestOwnerGroup" minOccurs="1" maxOccurs="1"/>
+            <!-- Tilaston lähtötietojen luokittelu metsänomistajaryhmän mukaan. Ks. alustava koodisto. -->
+            <xs:element ref="StatisticsAssortmentCompactClasses" minOccurs="1" maxOccurs="1"/>
+            <!-- RAPORTOITAVA TIETO VOIDAAN LUOKITELLA / OSITTAA LUOKITTELIJAN AVULLA -->
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="AssortmentCompactClassesType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Puutavaralajit suppein tiedoin (nimi viittaa virheellisesti puutavaralajiluokkaan).</xs:documentation>
-            <xs:documentation xml:lang="sv"></xs:documentation>
-            <xs:documentation xml:lang="en"></xs:documentation>
+            <xs:documentation xml:lang="sv"/>
+            <xs:documentation xml:lang="en"/>
         </xs:annotation>
         <xs:sequence>
             <xs:element ref="AssortmentCompactClass" minOccurs="1" maxOccurs="unbounded"/>
@@ -202,8 +203,8 @@
     <xs:complexType name="AssortmentCompactClassType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Puutavaralaji suppein tiedoin (nimi viittaa virheellisesti puutavaralajiluokkaan).</xs:documentation>
-            <xs:documentation xml:lang="sv"></xs:documentation>
-            <xs:documentation xml:lang="en"></xs:documentation>
+            <xs:documentation xml:lang="sv"/>
+            <xs:documentation xml:lang="en"/>
         </xs:annotation>
         <xs:sequence>
             <xs:element ref="TreeSpecies"/>
@@ -212,81 +213,41 @@
             <xs:element ref="QuantityUnit"/>
             <xs:element ref="AssortmentInfo"/>
         </xs:sequence>
-    </xs:complexType>    
+    </xs:complexType>
     <!-- yleiset tyyppimääritykset -->
     <xs:simpleType name="AreaTypeType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Kunnittainen vai suuralueittainen tieto.</xs:documentation>
-            <xs:documentation xml:lang="sv"></xs:documentation>
-            <xs:documentation xml:lang="en"></xs:documentation>
+            <xs:documentation xml:lang="sv"/>
+            <xs:documentation xml:lang="en"/>
         </xs:annotation>
-        <xs:restriction base = "co:AreaTypeType"/>
+        <xs:restriction base="co:AreaTypeType"/>
     </xs:simpleType>
     <xs:simpleType name="AreaCodeType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Kunnan KELA-koodi, alueen numero, tms.</xs:documentation>
-            <xs:documentation xml:lang="sv"></xs:documentation>
-            <xs:documentation xml:lang="en"></xs:documentation>
+            <xs:documentation xml:lang="sv"/>
+            <xs:documentation xml:lang="en"/>
         </xs:annotation>
         <xs:restriction base="xs:string"/>
     </xs:simpleType>
-	<xs:simpleType name="OperationTypeType">
-        <xs:annotation>
-            <xs:documentation xml:lang="fi"></xs:documentation>
-            <xs:documentation xml:lang="sv"></xs:documentation>
-            <xs:documentation xml:lang="en"></xs:documentation>
-        </xs:annotation>
-        <xs:restriction base = "co:OperationTypeType"/>
-    </xs:simpleType>
     <xs:simpleType name="StatisticsOperationType">
         <xs:annotation>
-            <xs:documentation xml:lang="fi"></xs:documentation>
-            <xs:documentation xml:lang="sv"></xs:documentation>
-            <xs:documentation xml:lang="en"></xs:documentation>
+            <xs:documentation xml:lang="fi"/>
+            <xs:documentation xml:lang="sv"/>
+            <xs:documentation xml:lang="en"/>
         </xs:annotation>
         <xs:restriction base="co:StatisticsOperationType"/>
     </xs:simpleType>
     <xs:simpleType name="ForestOwnerGroupType">
         <xs:annotation>
-            <xs:documentation xml:lang="fi"></xs:documentation>
-            <xs:documentation xml:lang="sv"></xs:documentation>
-            <xs:documentation xml:lang="en"></xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="co:ForestOwnerGroupType"/>
-    </xs:simpleType>
-    <xs:simpleType name="OperationSpecificationType">
-        <xs:annotation>
-            <xs:documentation xml:lang="fi"></xs:documentation>
-            <xs:documentation xml:lang="sv"></xs:documentation>
-            <xs:documentation xml:lang="en"></xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="co:OperationSpecificationType"/>
-    </xs:simpleType>
-	    <xs:complexType name="StatisticsClassifiersType">
-        <xs:annotation>
-            <xs:documentation xml:lang="fi"></xs:documentation>
+            <xs:documentation xml:lang="fi"/>
             <xs:documentation xml:lang="sv"/>
             <xs:documentation xml:lang="en"/>
         </xs:annotation>
-        <xs:sequence>
-            <xs:element ref="StatisticsClassifier" minOccurs="1" maxOccurs="unbounded">
-                <xs:annotation>
-                    <xs:documentation xml:lang="fi"></xs:documentation>
-                    <xs:documentation xml:lang="sv"/>
-                    <xs:documentation xml:lang="en"/>
-                </xs:annotation>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="StatisticsClassifierType">
-        <xs:annotation>
-            <xs:documentation xml:lang="fi"></xs:documentation>
-            <xs:documentation xml:lang="sv"></xs:documentation>
-            <xs:documentation xml:lang="en"></xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="co:StatisticsClassifierType"/>
+        <xs:restriction base="co:ForestOwnerGroupType"/>
     </xs:simpleType>
-	<xs:complexType name="StatisticsQuantitiesType">
+    <xs:complexType name="StatisticsQuantitiesType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Tilastoitavat määrätiedot, yksittäiseen työlajiin voidaan littää samaan alueyksikköön liittyen useampi määrätieto</xs:documentation>
             <xs:documentation xml:lang="sv"/>
@@ -301,30 +262,30 @@
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-    </xs:complexType>	
-	    <xs:complexType name="StatisticsQuantityType">
+    </xs:complexType>
+    <xs:complexType name="StatisticsQuantityType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Tilastoitava määrätieto</xs:documentation>
-            <xs:documentation xml:lang="sv"></xs:documentation>
-            <xs:documentation xml:lang="en"></xs:documentation>
+            <xs:documentation xml:lang="sv"/>
+            <xs:documentation xml:lang="en"/>
         </xs:annotation>
         <xs:sequence>
             <xs:element ref="Quantity"/>
-            <xs:element ref="QuantityUnit"/>			
+            <xs:element ref="QuantityUnit"/>
         </xs:sequence>
     </xs:complexType>
-	    <xs:simpleType name="QuantityType">
+    <xs:simpleType name="QuantityType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Tilastoitava määrä</xs:documentation>
-            <xs:documentation xml:lang="sv"></xs:documentation>
-            <xs:documentation xml:lang="en"></xs:documentation>
+            <xs:documentation xml:lang="sv"/>
+            <xs:documentation xml:lang="en"/>
         </xs:annotation>
-	        <xs:restriction base="co:Decimal2FractionDigitsType"/>
+        <xs:restriction base="co:Decimal2FractionDigitsType"/>
     </xs:simpleType>
     <xs:simpleType name="TreeSpeciesType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Puutavaralajin puulajikoodi.</xs:documentation>
-            <xs:documentation xml:lang="sv"></xs:documentation>
+            <xs:documentation xml:lang="sv"/>
             <xs:documentation xml:lang="en">Tree species of assortment.</xs:documentation>
         </xs:annotation>
         <xs:union memberTypes="co:TreeSpeciesType co:EmptyStringType co:ExtraTreeSpeciesType"/>
@@ -332,7 +293,7 @@
     <xs:simpleType name="StemTypeType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Puutavaralajin runkolaji, esim. tukki, kuitu, runko, kanto, energiapuu, pikkutukki, parru</xs:documentation>
-            <xs:documentation xml:lang="sv"></xs:documentation>
+            <xs:documentation xml:lang="sv"/>
             <xs:documentation xml:lang="en">Stem type of assortment.</xs:documentation>
         </xs:annotation>
         <xs:union memberTypes="co:StemTypeType co:ExtraStemTypeType"/>
@@ -340,12 +301,12 @@
     <xs:simpleType name="AssortmentInfoType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Puutavaralajin lisätietoteksti.</xs:documentation>
-            <xs:documentation xml:lang="sv"></xs:documentation>
+            <xs:documentation xml:lang="sv"/>
             <xs:documentation xml:lang="en">Some additional information.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:maxLength value="80"/>
         </xs:restriction>
     </xs:simpleType>
-    
+
 </xs:schema>

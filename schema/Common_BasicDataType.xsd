@@ -229,7 +229,7 @@
 			<xs:documentation xml:lang="en">OperationType</xs:documentation>
 		</xs:annotation>
 		<xs:union memberTypes="SilvicultureTypeType" />
-	</xs:simpleType>	
+	</xs:simpleType>
 	<xs:simpleType name="OperationSpecificationType">	
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Työlajin tarkenne</xs:documentation> <!--Metsävarasanoman (MV1.5) suppea OperationSpecification-koodisto -->
@@ -799,5 +799,14 @@
             <xs:maxLength value="20"/>
         </xs:restriction>
     </xs:simpleType>
+	
+	<xs:simpleType name="StatisticsPurchaseModeCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tilastoinnin puukauppamuodon koodit</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">OperationType</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="PurchaseModeType StatisticsPurchaseModeType"/>
+	</xs:simpleType>
 
 </xs:schema>

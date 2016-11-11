@@ -84,7 +84,7 @@ xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/
 			</xs:element>
 			<xs:element ref="WoodLotInformationValue">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = Value</xs:documentation>
+					<xs:documentation xml:lang="fi">Puutavaralajin erätunnuksen arvo. Kun puutavaralajin erätunnuksen tyyppi on harvestingAccessibility arvo on jokin koodiston HarvestingAccessibilityType arvoista. Kun tyyppi on forestDepotAccessibility arvo on jokin koodiston ForestDepotAccessibilityType arvoista.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
