@@ -18,18 +18,12 @@
 	attributeFormDefault="unqualified" version="1.0">
 
 	<!-- Imports / Includes -->
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase"
-		schemaLocation="StandBase.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeature"
-		schemaLocation="SpecialFeature.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStand"
-		schemaLocation="TreeStand.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operation"
-		schemaLocation="Operation.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
-		schemaLocation="Common_GeometricDataType.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
-		schemaLocation="Common.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase" schemaLocation="StandBase.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/specialFeature" schemaLocation="SpecialFeature.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStand" schemaLocation="TreeStand.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operation" schemaLocation="Operation.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
 	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="../gml/3.1.1/base/gml.xsd"/>
 
 	<!-- Elementtimääritykset -->
@@ -73,7 +67,9 @@
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="LoggingAccessibility" type="co:HarvestingAccessibilityType"/>
-	<xs:element name="ForestHaulageAccessibility" type="ForestHaulageAccessibilityType"/>
+	<xs:element name="ForestHaulageAccessibility" type="co:HarvestingAccessibilityType"/>
+	<xs:element name="PlannedBasalArea" type="co:BasalAreaType"/>
+	<xs:element name="PlannedStemCount" type="co:StemCountType"/>
 
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
@@ -87,6 +83,7 @@
 			<xs:element ref="Stand" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="StandType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Yksittäisen kuvion tiedot.</xs:documentation>
@@ -115,6 +112,7 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
+	
 	<xs:complexType name="StandBasicDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvion perustiedot.</xs:documentation>
@@ -169,6 +167,7 @@
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="IdentifiersType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvion tunnisteet.</xs:documentation>
@@ -179,6 +178,7 @@
 			<xs:extension base="stb:IdentifiersType"/>
 		</xs:complexContent>
 	</xs:complexType>
+	
 	<xs:simpleType name="StandNumberType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvionumero.</xs:documentation>
@@ -187,6 +187,7 @@
 		</xs:annotation>
 		<xs:restriction base="stb:StandNumberType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="StandNumberExtensionType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvion alanumero (lisämerkki).</xs:documentation>
@@ -195,6 +196,7 @@
 		</xs:annotation>
 		<xs:restriction base="stb:StandNumberExtensionType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="MainGroupType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Pääryhmä.</xs:documentation>
@@ -203,6 +205,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:MainGroupType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="SubGroupType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Alaryhmä.</xs:documentation>
@@ -211,6 +214,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:SubGroupType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="FertilityClassType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kasvupaikkaluokka.</xs:documentation>
@@ -219,6 +223,7 @@
 		</xs:annotation>
 		<xs:restriction base="stb:FertilityClassType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="SoilTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Maalaji.</xs:documentation>
@@ -227,6 +232,7 @@
 		</xs:annotation>
 		<xs:restriction base="stb:SoilTypeType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="DrainageStateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuivatustilanne.</xs:documentation>
@@ -235,6 +241,7 @@
 		</xs:annotation>
 		<xs:restriction base="stb:DrainageStateType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="DitchingYearType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Ojitusvuosi.</xs:documentation>
@@ -243,6 +250,7 @@
 		</xs:annotation>
 		<xs:restriction base="stb:DitchingYearType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="DevelopmentClassType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kehitysluokka.</xs:documentation>
@@ -251,6 +259,7 @@
 		</xs:annotation>
 		<xs:restriction base="stb:DevelopmentClassType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="StandQualityType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsikön laatu.</xs:documentation>
@@ -259,6 +268,7 @@
 		</xs:annotation>
 		<xs:restriction base="stb:StandQualityType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="MainTreeSpeciesType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Pääpuulaji.</xs:documentation>
@@ -267,6 +277,7 @@
 		</xs:annotation>
 		<xs:restriction base="stb:MainTreeSpeciesType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="AccessibilityType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Saavutettavuus</xs:documentation>
@@ -275,6 +286,7 @@
 		</xs:annotation>
 		<xs:restriction base="stb:AccessibilityType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="CuttingRestrictionType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Hakkuurajoitus.</xs:documentation>
@@ -283,6 +295,7 @@
 		</xs:annotation>
 		<xs:restriction base="stb:CuttingRestrictionType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="StandBasicDataDateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Perustietojen inventointi- / muutosajankohta.</xs:documentation>
@@ -291,6 +304,7 @@
 		</xs:annotation>
 		<xs:restriction base="stb:StandBasicDataDateType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="StandInfoType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvion vapaamuotoinen teksti.</xs:documentation>
@@ -299,6 +313,7 @@
 		</xs:annotation>
 		<xs:restriction base="stb:StandInfoType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="AreaType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvion kokonaispinta-ala hehtaareina.</xs:documentation>
@@ -307,6 +322,7 @@
 		</xs:annotation>
 		<xs:restriction base="stb:AreaType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="AreaDecreaseType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvion vähennysala hehtaareina. Kuvion metsäpinta-alaa vähentävä ala. Sisältää esim. tiet ja linjaviivat.</xs:documentation>
@@ -315,6 +331,7 @@
 		</xs:annotation>
 		<xs:restriction base="stb:AreaDecreaseType"/>
 	</xs:simpleType>
+	
 	<xs:complexType name="SpecialFeaturesType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvion erityispiirteet (mm. monimuotoisuustiedot)</xs:documentation>
@@ -325,6 +342,7 @@
 			<xs:element ref="SpecialFeature" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="StandWoodTradeInfoType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvioon liittyvät puukauppasidonnaiset tiedot.</xs:documentation>
@@ -338,11 +356,11 @@
 			<xs:element ref="StoutTimberClassifier" minOccurs="0"/>
 			<xs:element ref="LoggingAccessibility" minOccurs="0"/>
 			<xs:element ref="ForestHaulageAccessibility" minOccurs="0"/>
-			<xs:element name="PlannedBasalArea" type="co:BasalAreaType" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="PlannedStemCount" type="co:StemCountType" minOccurs="0" maxOccurs="1"
-			/>
+			<xs:element ref="PlannedBasalArea" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="PlannedStemCount" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:simpleType name="SellerResponsible">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Määrittely "myyjä on vastuussa"- arvolle</xs:documentation>
@@ -351,6 +369,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:SellerResponsible"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="YesNoSellerResponsibleType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Määrittely kyllä-, ei- ja "myyjä on vastuussa"- arvoille</xs:documentation>
@@ -359,6 +378,7 @@
 		</xs:annotation>
 		<xs:union memberTypes="co:YesNoType SellerResponsible"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="CuttingAreaPreclearingNeedType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tieto kuvion ennakkoraivaustarpeesta.</xs:documentation>
@@ -367,6 +387,7 @@
 		</xs:annotation>
 		<xs:restriction base="YesNoSellerResponsibleType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="BearingCapacityClassType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Turvemaiden kantavuusluokitus harvennuksilla.</xs:documentation>
@@ -375,6 +396,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:BearingCapacityClassType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="ForestHaulageDistanceType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsäkuljetusmatka metreinä.</xs:documentation>
@@ -383,6 +405,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:PositiveIntegerType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="StoutTimberClassifierType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvion puuston järeys.</xs:documentation>
@@ -391,6 +414,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:Decimal2FractionDigitsType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="LoggingAccessibilityType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Korjuukelpoisuus. Saavutettavuus puunkorjuun näkökulmasta</xs:documentation>
@@ -399,6 +423,7 @@
 		</xs:annotation>
 		<xs:restriction base="stb:AccessibilityType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="ForestHaulageAccessibilityType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsäkuljetuskelpoisuus. Saavutettavuus metsäkuljetuksen näkökulmasta</xs:documentation>
@@ -407,4 +432,5 @@
 		</xs:annotation>
 		<xs:restriction base="stb:AccessibilityType"/>
 	</xs:simpleType>
+	
 </xs:schema>

@@ -28,12 +28,9 @@
 	version="1.3">
 
 	<!-- Imports / Includes -->
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
-		schemaLocation="Common.xsd"/>
-	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
-		schemaLocation="JHS170_20090304.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Stand"
-		schemaLocation="Stand.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
+	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" schemaLocation="JHS170_20090304.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Stand" schemaLocation="Stand.xsd"/>
 
 	<!-- KIINTEISTÖ, REAL ESTATE -->
 	<!-- Elementtimääritykset -->
@@ -231,12 +228,12 @@
 
 	<xs:simpleType name="RealEstateNameType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kiinteistön nimi maksimissaan 30 merkkiä.</xs:documentation>
+			<xs:documentation xml:lang="fi">Kiinteistön nimi maksimissaan 100 merkkiä.</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Name of real estates.</xs:documentation>
+			<xs:documentation xml:lang="en">Name of real estate, max. 100 characters.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="jhs:NimiTekstiTyyppi">
-			<xs:maxLength value="30"/>
+			<xs:maxLength value="100"/>
 		</xs:restriction>
 	</xs:simpleType>
 

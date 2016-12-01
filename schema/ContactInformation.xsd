@@ -58,6 +58,8 @@
 	<xs:element name="ContactInformation" type="ContactInformationType"/>
 	<xs:element name="BusinessId" type="jhs:YritysTunnusTyyppi"/>
 	<xs:element name="PersonId" type="jhs:HenkiloTunnusTyyppi"/>
+	<xs:element name="StateCode" type="StateCodeType"/>
+	<xs:element name="StateText" type="co:String100Type"/>
 
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
@@ -226,7 +228,7 @@
 			<xs:documentation xml:lang="en">Post office.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="jhs:PostitoimipaikkaNimiTyyppi">
-			<xs:maxLength value="25"/>
+			<xs:maxLength value="100"/>
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -246,6 +248,8 @@
 			<xs:element ref="Address"/>
 			<xs:element ref="PostalCode"/>
 			<xs:element ref="PostOffice"/>
+			<xs:element ref="StateCode" minOccurs="0"/>
+			<xs:element ref="StateText" minOccurs="0"/>
 			<xs:element ref="CountryCode" minOccurs="0"/>
 			<xs:element ref="CountryText" minOccurs="0"/>
 		</xs:sequence>
@@ -296,6 +300,12 @@
 		</xs:annotation>
 		<xs:restriction base="jhs:SahkopostiosoiteTekstiTyyppi">
 			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="StateCodeType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="30"/>
 		</xs:restriction>
 	</xs:simpleType>
 
