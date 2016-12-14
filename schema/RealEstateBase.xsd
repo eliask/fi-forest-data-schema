@@ -228,12 +228,12 @@
 
 	<xs:simpleType name="RealEstateNameType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kiinteistön nimi maksimissaan 100 merkkiä.</xs:documentation>
+			<xs:documentation xml:lang="fi">Kiinteistön nimi maksimissaan 120 merkkiä.</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Name of real estate, max. 100 characters.</xs:documentation>
+			<xs:documentation xml:lang="en">Name of real estate, max. 120 characters.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="jhs:NimiTekstiTyyppi">
-			<xs:maxLength value="100"/>
+			<xs:maxLength value="120"/>
 		</xs:restriction>
 	</xs:simpleType>
 

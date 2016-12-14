@@ -90,7 +90,7 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Operation type: accurate type of cutting or silvicultural operation.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="co:OperationTypeType"/>
+    	<xs:union memberTypes = "co:CuttingTypeType co:SilvicultureTypeType"/>
     </xs:simpleType>
     <xs:simpleType name="ActingDateType">
         <xs:annotation>
