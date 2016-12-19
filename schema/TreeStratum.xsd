@@ -69,6 +69,7 @@
 	<xs:element name="CumulativePoint" type="cdd:CumulativePointType"/>
 	<xs:element name="Diameter" type="cdd:DiameterType"/>
 	<xs:element name="CumulativeMass" type="cdd:CumulativeMassType"/>
+	<xs:element name="TreeClass" type="co:TreeClassType"/>
 
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
@@ -94,7 +95,7 @@
 			<xs:element ref="co:ChangeTime" minOccurs="0"/>
 			<xs:element ref="StratumNumber"/>
 			<xs:element ref="TreeSpecies"/>
-			<xs:element name="TreeClass" type="co:TreeClassType" minOccurs="0"/>
+			<!-- <xs:element ref="TreeClass" minOccurs="0"/> -->
 			<xs:element ref="Storey"/>
 			<xs:element ref="Age"/>
 			<!-- Käyttösuositus: Joko Ppa tai Runkoluku pitää löytyä sanomasta -->

@@ -9,12 +9,10 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://standardit.tapio.fi/schemas/forestData/treeStandSummary"
     xmlns="http://standardit.tapio.fi/schemas/forestData/treeStandSummary"
-    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="qualified"
-    version="1.0">
+    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="qualified" version="1.0">
 
     <!-- Imports / Includes -->
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
-        schemaLocation="Common.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
 
     <!-- Elementtimääritykset -->
     <!-- Element definitions -->
@@ -37,6 +35,8 @@
     <xs:element name="ValueGrowthPercent" type="co:Decimal2FractionDigitsType"/>
     <xs:element name="DevelopmentClass" type="co:DevelopmentClassType"/>
     <xs:element name="MainTreeSpecies" type="co:TreeSpeciesType"/>
+    <xs:element name="DominantHeight" type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType"/>
+    <xs:element name="MeanStumpDiameter" type="co:DiameterType"/>
 
     <!-- Tyyppimääritykset -->
     <!-- Type definitions -->
@@ -53,10 +53,9 @@
             <xs:element ref="BasalArea"/>
             <xs:element ref="StemCount"/>
             <xs:element ref="MeanDiameter"/>
-            <xs:element name="MeanStumpDiameter" type="co:DiameterType" minOccurs="0"/>
+            <!-- <xs:element ref="MeanStumpDiameter" minOccurs="0"/> -->
             <xs:element ref="MeanHeight" minOccurs="0"/>
-            <xs:element name="DominantHeight"
-                type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="0"/>
+            <!-- <xs:element ref="DominantHeight" minOccurs="0"/> -->
             <xs:element ref="Volume"/>
             <xs:element ref="SawLogVolume" minOccurs="0"/>
             <xs:element ref="PulpWoodVolume" minOccurs="0"/>

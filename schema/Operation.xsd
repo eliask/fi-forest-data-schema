@@ -10,14 +10,11 @@
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/operation"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/operation"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
-	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2010/05/14" elementFormDefault="qualified"
-	version="1.0">
+	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2010/05/14" elementFormDefault="qualified" version="1.0">
 
 	<!-- Imports / Includes -->
-	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
-		schemaLocation="JHS170_20090304.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
-		schemaLocation="Common.xsd"/>
+	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" schemaLocation="JHS170_20090304.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
 
 	<!-- Elementtimääritykset -->
 	<!-- Element definitions -->
@@ -59,6 +56,26 @@
 	<xs:element name="ProposalAreaPercent" type="ProposalAreaPercentType"/>
 	<xs:element name="CuttingIncome" type="CuttingIncomeType"/>
 	<xs:element name="Cost" type="CostType"/>
+	<xs:element name="UsedMachine" type="UsedMachineType"/>
+	<xs:element name="RegenerationData" type="RegenerationDataType"/>
+	<xs:element name="PreventionFungusOfTheGenusData" type="PreventionFungusOfTheGenusDataType"/>
+	<xs:element name="CompletionActors" type="CompletionActorsType"/>
+	<xs:element name="MachineCode" type="co:MachineCodeType"/>
+	<xs:element name="MachineDescription" type="co:String500Type"/>
+	<xs:element name="MachineAccessoryCode" type="co:MachineAccessoryCodeType"/>
+	<xs:element name="MachineAccessoryDescription" type="co:String500Type"/>
+	<xs:element name="SeedlingLotIdentifier" type="co:String100Type"/>
+	<xs:element name="SeedlingConditionAndQuality" type="SeedlingConditionAndQualityType"/>
+	<xs:element name="SeedlingConditionAndQualityDescription" type="co:String1000Type"/>
+	<xs:element name="AmountSeedlingsToPlant" type="co:PositiveInteger5digitsType"/>
+	<xs:element name="DateSeedlingsExitFromTreeNursery" type="co:DateType"/>
+	<xs:element name="DateSeedlingsToWorkingSite" type="co:DateType"/>
+	<xs:element name="DateSeedlingsPlanted" type="co:DateType"/>
+	<xs:element name="PreventionCompleted" type="co:YesNoType"/>
+	<xs:element name="PreventionSubstance" type="co:PreventionSubstanceType"/>
+	<xs:element name="PreventionSubstanceProductName" type="co:String200Type"/>
+	<xs:element name="CompletionActor" type="CompletionActorType"/>
+	<xs:element name="ActorId" type="co:IdStringType"/>
 
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
@@ -72,6 +89,7 @@
 			<xs:element ref="Operation" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="OperationDefType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Yksittäisen toimenpiteen tiedot.</xs:documentation>
@@ -108,6 +126,7 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
+	
 	<xs:complexType name="IdentifiersType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpiteen tunnisteet.</xs:documentation>
@@ -118,6 +137,7 @@
 			<xs:element ref="Identifier" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:simpleType name="MainTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpiteen päälaji: hakkuu tai metsänhoito.</xs:documentation>
@@ -126,6 +146,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:MainTypeType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="OperationTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpiteen laji: hakkuu- tai työlaji.</xs:documentation>
@@ -134,6 +155,7 @@
 		</xs:annotation>
 		<xs:union memberTypes="CuttingTypeType SilvicultureTypeType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="CuttingTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpiteen hakkuu hakkuutapa.</xs:documentation>
@@ -142,6 +164,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:CuttingTypeType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="SilvicultureTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpiteen metsänhoito työlajit.</xs:documentation>
@@ -150,6 +173,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:SilvicultureTypeType"/>
 	</xs:simpleType>
+	
 	<xs:complexType name="ProposalDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Ehdotuksen / suunnitelman tiedot.</xs:documentation>
@@ -166,6 +190,7 @@
 			<xs:group ref="ProposalAreaGroup" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:group name="ProposalAreaGroup">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi"/>
@@ -177,6 +202,7 @@
 			<xs:element ref="ProposalAreaPercent" minOccurs="0" maxOccurs="1"/>
 		</xs:choice>
 	</xs:group>
+	
 	<xs:simpleType name="ProposalAreaType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpiteen ehdotettu toteutuspinta-ala.</xs:documentation>
@@ -185,6 +211,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:Decimal4And2PositiveType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="ProposalAreaPercentType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpiteen ehdotettu toteutuspinta-ala prosenttina kuvion pinta-alasta.</xs:documentation>
@@ -193,6 +220,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:PercentWithFraction1Type"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="ProposalTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpide-ehdotuksen tyyppi.</xs:documentation>
@@ -201,6 +229,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:ProposalTypeType"/>
 	</xs:simpleType>
+	
 	<xs:group name="PlanningYearAndOperationUrgencyGroup">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Suunnitteluvuosi ja siihen viittaava kiireellisyysluokitus</xs:documentation>
@@ -212,6 +241,7 @@
 			<xs:element ref="OperationUrgency"/>
 		</xs:sequence>
 	</xs:group>
+	
 	<xs:simpleType name="PlanningYearType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Vuosi, josta toimenpiteen kiireellisyys määrittyy, esim. toimenpiteen suunnitteluvuosi (vuosi, jolloin toimenpide on suunniteltu).</xs:documentation>
@@ -220,6 +250,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:YearType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="OperationUrgencyType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpiteen kiireellisyys.</xs:documentation>
@@ -228,6 +259,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:OperationUrgencyType"/>
 	</xs:simpleType>
+	
 	<xs:group name="TimeBetweenProposalYearsGroup">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Vuosiväli, jolle toimenpidettä ehdotetaan.</xs:documentation>
@@ -239,6 +271,7 @@
 			<xs:element ref="MaxProposalYear"/>
 		</xs:sequence>
 	</xs:group>
+	
 	<xs:group name="ProposalAndOriginalYearGroup">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Vuosi ja alkuperäinen vuosi.</xs:documentation>
@@ -250,6 +283,7 @@
 			<xs:element ref="OriginalProposalYear" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:group>
+	
 	<xs:simpleType name="MinProposalYearType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpiteen ehdotusvuoden minimiarvo (aikaisintaan).</xs:documentation>
@@ -258,6 +292,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:YearType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="MaxProposalYearType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpiteen ehdotusvuoden maksimiarvo (viimeistään).</xs:documentation>
@@ -266,6 +301,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:YearType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="OriginalProposalYearType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpiteen alkuperäinen ehdotusvuosi.</xs:documentation>
@@ -274,6 +310,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:YearType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="ProposalYearType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpiteen ehdotusvuosi.</xs:documentation>
@@ -301,42 +338,42 @@
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">If this section is exists, operation is complete, if not exists operation is planned.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
+		<!-- <xs:sequence> -->
 			<xs:choice>
 				<xs:element ref="CompletionDate" minOccurs="1"/>
 				<xs:element ref="CompletionYear" minOccurs="1"/>
 			</xs:choice>
-			<xs:element minOccurs="0" name="UsedMachine" type="UsedMachineType">
+			<!-- <xs:element ref="UsedMachine" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Käytetyn koneen / laitteen tiedot</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en">Information about the used machine / device</xs:documentation>
 				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="RegenerationData" type="RegenerationDataType">
+			</xs:element> -->
+			<!-- <xs:element ref="RegenerationData" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Uudistamistiedot</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="PreventionFungusOfTheGenusData"
-				type="PreventionFungusOfTheGenusDataType">
+			</xs:element> -->
+			<!-- <xs:element ref="PreventionFungusOfTheGenusData" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Juurikäävän torjuntatiedot</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="CompletionActors" type="CompletionActorsType">
+			</xs:element> -->
+			<!-- <xs:element ref="CompletionActors" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Toimenpiteen toteuttajat</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+			</xs:element> -->
+		<!-- </xs:sequence> -->
 	</xs:complexType>
+	
 	<xs:simpleType name="CompletionDateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpiteen toteutusajankohta.</xs:documentation>
@@ -345,6 +382,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:DateType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="OperationInfoType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpiteeseen liittyvä huomautusteksti maksimissaan 2000 merkkiä.</xs:documentation>
@@ -355,6 +393,7 @@
 			<xs:maxLength value="2000"/>
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:complexType name="SpecificationsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpiteen tarkenteet: lisämääreet ja hakkuun ohjaus.</xs:documentation>
@@ -365,6 +404,7 @@
 			<xs:element ref="Specification" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SpecificationType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Yksittäinen tarkenne (lisämääre tai hakkuun ohjaus).</xs:documentation>
@@ -384,6 +424,7 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
+	
 	<xs:simpleType name="CuttingDirectingType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Hakkuun ohjaustiedot.</xs:documentation>
@@ -392,6 +433,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:CuttingDirectingType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="CuttingExtraQualifierType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Hakkuun lisämääreet.</xs:documentation>
@@ -400,6 +442,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:CuttingExtraQualifierType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="SilvicultureExtraQualifierType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsänhoitotyön lisämääre</xs:documentation>
@@ -408,6 +451,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:SilvicultureExtraQualifierType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="CommonOperationExtraQualifierType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Yleiset toimenpiteen lisämääreet.</xs:documentation>
@@ -416,16 +460,16 @@
 		</xs:annotation>
 		<xs:restriction base="co:CommonOperationExtraQualifierType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="SpecificationCodeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Hakkuu- tai metsänhoito toimenpiteen tarkennekoodi.</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Operation specification code</xs:documentation>
 		</xs:annotation>
-		<xs:union
-			memberTypes="CuttingDirectingType CuttingExtraQualifierType SilvicultureExtraQualifierType CommonOperationExtraQualifierType"
-		/>
+		<xs:union memberTypes="CuttingDirectingType CuttingExtraQualifierType SilvicultureExtraQualifierType CommonOperationExtraQualifierType"/>
 	</xs:simpleType>
+	
 	<xs:complexType name="CuttingType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Hakkuun tarkemmat tiedot.</xs:documentation>
@@ -438,6 +482,7 @@
 			<xs:element ref="CuttingIncome" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:simpleType name="CuttingVolumeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Hakkuun kertymä (arvio). Käytettävä yksikkö on m3/ha.</xs:documentation>
@@ -446,6 +491,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:Decimal3And2PositiveType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="CuttingIncomeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kokonaistulo. Käytettävä yksikkö on €.</xs:documentation>
@@ -454,6 +500,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:Decimal7And2PositiveType"/>
 	</xs:simpleType>
+	
 	<xs:complexType name="AssortmentsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Hakkuun puutavaralajit.</xs:documentation>
@@ -464,6 +511,7 @@
 			<xs:element ref="Assortment" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="AssortmentType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Yksittäinen hakkuun puutavaralaji. Puutavaralaji koostuu puulajista ja runkolajista eli mäntytukin sijaan onkin mänty + tukki.</xs:documentation>
@@ -488,6 +536,7 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
+	
 	<xs:simpleType name="TreeSpeciesType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajin puulaji.</xs:documentation>
@@ -496,6 +545,7 @@
 		</xs:annotation>
 		<xs:union memberTypes="co:TreeSpeciesType co:EmptyStringType co:ExtraTreeSpeciesType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="StemTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajin runkolaji, esim. tukki, kuitu, runko, kanto, energiapuu, pikkutukki, parru</xs:documentation>
@@ -504,6 +554,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:StemTypeType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="AssortmentPercentType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajin osuus hakkuukertymästä prosentteina.</xs:documentation>
@@ -512,6 +563,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:PercentWithFraction1Type"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="AssortmentVolumeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajin tilavuus, m3/ha.</xs:documentation>
@@ -520,6 +572,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:VolumeType"/>
 	</xs:simpleType>
+	
 	<xs:complexType name="SilvicultureType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsänhoitotyön tarkemmat tiedot.</xs:documentation>
@@ -531,6 +584,7 @@
 			<xs:element ref="Cost" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:simpleType name="CuttingRelatedType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsänhoitotyön liittyy hakkuuseen.</xs:documentation>
@@ -539,6 +593,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:YesNoType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="CostType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpiteen kokonaiskustannus. Käytettävä yksikkö on €.</xs:documentation>
@@ -547,6 +602,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:Decimal7And2PositiveType"/>
 	</xs:simpleType>
+	
 	<xs:complexType name="PlannedOperationChainsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Suunnitteluvaihtoehdot. Vaihtoehtoiset toimenpideketjut.</xs:documentation>
@@ -557,6 +613,7 @@
 			<xs:element ref="PlannedOperationChain" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="PlannedOperationChainType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Suunnitteluvaihtoehdon tiedot. Vaihtoehtoinen toimenpideketju.</xs:documentation>
@@ -578,6 +635,7 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
+	
 	<xs:simpleType name="AlternativeIdentifierType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Suunnitteluvaihtoehdon (toimenpideketjun) tunniste.</xs:documentation>
@@ -586,6 +644,7 @@
 		</xs:annotation>
 		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="AlternativeNameType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Suunnitteluvaihtoehdon (toimenpideketjun) nimi.</xs:documentation>
@@ -597,28 +656,28 @@
 
 	<xs:complexType name="UsedMachineType">
 		<xs:sequence>
-			<xs:element minOccurs="0" name="MachineCode" type="co:MachineCodeType">
+			<xs:element ref="MachineCode" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Käytetty kone / laite</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en">Used machine / device</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="MachineDescription" type="co:String500Type">
+			<xs:element ref="MachineDescription" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Käytetyn koneen / laitteen kuvaus. Erityisesti muu -koodin tapauksessa.</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="MachineAccessoryCode" type="co:MachineAccessoryCodeType">
+			<xs:element ref="MachineAccessoryCode" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Käytetty väline / lisälaite</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="MachineAccessoryDescription" type="co:String500Type">
+			<xs:element ref="MachineAccessoryDescription" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Käytetyn välineen / lisälaitteen kuvaus. Erityisesti muu -koodin tapauksessa.</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -627,48 +686,46 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="RegenerationDataType">
 		<xs:sequence>
-			<xs:element minOccurs="0" name="SeedlingLotIdentifier" type="co:String100Type">
+			<xs:element ref="SeedlingLotIdentifier" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Taimierän tunnistetiedot</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="SeedlingConditionAndQuality"
-				type="SeedlingConditionAndQualityType"/>
-			<xs:element minOccurs="0" name="SeedlingConditionAndQualityDescription"
-				type="co:String1000Type">
+			<xs:element ref="SeedlingConditionAndQuality" minOccurs="0"/>
+			<xs:element ref="SeedlingConditionAndQualityDescription" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Taimien kunto ja laatu, selite</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="AmountSeedlingsToPlant"
-				type="co:PositiveInteger5digitsType">
+			<xs:element ref="AmountSeedlingsToPlant" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Taimia istutettiin, kpl</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="DateSeedlingsExitFromTreeNursery" type="co:DateType">
+			<xs:element ref="DateSeedlingsExitFromTreeNursery" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Pvm, taimet lähteneet taimitarhalta</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="DateSeedlingsToWorkingSite" type="co:DateType">
+			<xs:element ref="DateSeedlingsToWorkingSite" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Pvm, taimet tuotu uudistusalalle</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="DateSeedlingsPlanted" type="co:DateType">
+			<xs:element ref="DateSeedlingsPlanted" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Pvm, taimet istutettu</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -677,26 +734,28 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:simpleType name="SeedlingConditionAndQualityType">
 		<xs:restriction base="co:EvaluationCodeType"/>
 	</xs:simpleType>
+	
 	<xs:complexType name="PreventionFungusOfTheGenusDataType">
 		<xs:sequence>
-			<xs:element minOccurs="0" name="PreventionCompleted" type="co:YesNoType">
+			<xs:element ref="PreventionCompleted" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Juurikäävän torjunta suoritettu</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="PreventionSubstance" type="co:PreventionSubstanceType">
+			<xs:element ref="PreventionSubstance" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Käytetyn juurikäävän torjuntatuotteen vaikuttava aine</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="PreventionSubstanceProductName" type="co:String200Type">
+			<xs:element ref="PreventionSubstanceProductName" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Käytetyn juurikäävän torjunta-aineen tuotenimi</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -705,10 +764,10 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="CompletionActorsType">
 		<xs:sequence>
-			<xs:element minOccurs="1" name="CompletionActor" type="CompletionActorType"
-				maxOccurs="unbounded">
+			<xs:element ref="CompletionActor" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Toimenpiteen toteuttaja</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -717,9 +776,10 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="CompletionActorType">
 		<xs:sequence>
-			<xs:element minOccurs="0" name="ActorId" type="co:IdStringType">
+			<xs:element ref="ActorId" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Viittaus Actors-listaan</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
