@@ -11,16 +11,20 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="qualified"
 	attributeFormDefault="qualified" version="1.0">
 	<!-- 
-xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 
-xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" 
-xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" -->
+	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" 
+	xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20"
+	-->
+
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
 		schemaLocation="Common.xsd"/>
-	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
+	<!-- 
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/> -->
-	<!-- Elementtimääritykset -->
-	<!-- Element definitions -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" schemaLocation="ForestEnumeratives_20130620.xsd"/>
+	-->
+
+	<!-- Elementtimääritykset / Element definitions -->
 	<xs:element name="WoodLotInformationType" type="WoodLotInformationTypeType"/>
 	<xs:element name="WoodLotInformationValue" type="WoodLotInformationValueType"/>
 	<xs:element name="Woodlot" type="WoodLotType"/>
@@ -47,8 +51,13 @@ xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/
 	<xs:element name="AssortmentsCompact" type="AssortmentsCompactType"/>
 	<xs:element name="AssortmentCompactClass" type="AssortmentCompactClassType"/>
 	<xs:element name="AssortmentCompactClasses" type="AssortmentCompactClassesType"/>
-	<!-- Tyyppimääritykset -->
-	<!-- Type definitions -->
+	<xs:element name="WoodLotInformationTypeDescription" type="co:String500Type"/>
+	<xs:element name="AssortmentMainGroup" type="co:AssortmentMainGroupType"/>
+	<xs:element name="AssortmentCode" type="co:String50Type"/>
+	<xs:element name="AssortmentName" type="co:String200Type"/>
+	<xs:element name="GradeCode" type="co:GradeCodeType"/>
+
+	<!-- Tyyppimääritykset / Type definitions -->
 	<xs:simpleType name="WoodLotInformationTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puutavaralajin erätunnuksen tyypit.</xs:documentation>
@@ -74,8 +83,7 @@ xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/
 					<xs:documentation xml:lang="fi">VANHA NIMI = Type</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="WoodLotInformationTypeDescription"
-				type="co:String500Type">
+			<xs:element ref="WoodLotInformationTypeDescription" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Puutavaralajin erätunnuksen tyypin kuvaus (tyypeille type01, type02,...)</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -135,7 +143,7 @@ xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/
 	</xs:simpleType>
 	<xs:group name="AssortmentIdentifierGroup">
 		<xs:sequence>
-			<xs:element minOccurs="0" name="AssortmentMainGroup" type="co:AssortmentMainGroupType"/>
+			<xs:element ref="AssortmentMainGroup" minOccurs="0"/>
 			<xs:element ref="TreeSpecies">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">VANHA NIMI = Tree.</xs:documentation>
@@ -146,14 +154,14 @@ xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/
 					<xs:documentation xml:lang="fi">VANHA NIMI = TypeOfStem.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="AssortmentCode" type="co:String50Type">
+			<xs:element ref="AssortmentCode" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Toimijakohtainen puutavaralajin koodi</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en">Actor-specific coding for assortment</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="AssortmentName" type="co:String200Type">
+			<xs:element ref="AssortmentName" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Puutavaralajin (tuote) nimi (toimijakohtainen)</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -276,6 +284,13 @@ xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/
 			<xs:group ref="QuantityGroup"/>
 			<xs:group ref="PricesAndCurrencyGroup" minOccurs="0"/>
 			<xs:group ref="DimensionRequirementsGroup" minOccurs="0"/>
+			<xs:element ref="GradeCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Puutavaralajin laatuluokka -tieto</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
 			<xs:element ref="WoodLots" minOccurs="0"/>
 			<xs:element ref="MeasurementMethod" minOccurs="0"/>
 			<xs:element ref="AssortmentInfo" minOccurs="0">

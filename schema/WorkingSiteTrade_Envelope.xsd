@@ -45,13 +45,16 @@
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/commonObjectData" schemaLocation="CommonObjectData.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Acknowledge" schemaLocation="Acknowledge.xsd"/>
 
+    <!-- Elementtimääritykset / Element definitions -->
     <xs:element name="WorkingSiteTradeEnvelope" type="WorkingSiteTradeEnvelopeType"/>
+    <xs:element name="Message" type="WorkingSiteTradeMessageType"/>
 
+    <!-- Tyyppimääritykset / Type definitions -->
     <xs:complexType name="WorkingSiteTradeEnvelopeType">
         <xs:complexContent>
             <xs:extension base="eb:EnvelopeBaseType">
                 <xs:sequence>
-                    <xs:element name="Message" type="WorkingSiteTradeMessageType"/>
+                    <xs:element ref="Message"/>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -71,7 +74,7 @@
             <xs:element ref="osu:Operations"/>
             <xs:element ref="cr:ContactRequest"/>
             <xs:element ref="ms:MapSymbol"/>
-            <xs:element ref="cod:CommonObjectData"/>
+            <!-- <xs:element ref="cod:CommonObjectData"/> -->
             <xs:element ref="ack:Acknowledge"/>
         </xs:choice>
     </xs:complexType>
