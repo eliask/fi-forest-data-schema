@@ -41043,6 +41043,13 @@
       <xs:documentation xml:lang="en" />
     </xs:annotation>
     <xs:restriction base="xs:string">
+      <xs:enumeration value="HVI">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Hirvivahinkoilmoitus</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Moose damage declaration</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="MKI">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Metsänkäyttöilmoitus</xs:documentation>
