@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<!-- Resource Schema version Schema version 0.18.0-SNAPSHOT (x.x.2016) -->
+<!-- Resource Schema version 0.23.0 (18.1.2017) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/Resource"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
@@ -21,9 +21,10 @@
 	</xs:element>
 	<xs:complexType name="ResourceType">
 		<xs:sequence>
-			<xs:element name="ContractorId" type="bdt:String20Type" minOccurs="1">
+			<xs:element name="Contractors" type="wct:ContractorsType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Yrityksen alv-tunnus (urakoitsija)</xs:documentation>
+					<xs:documentation>Yritykset (urakoitsijat), joiden lohkoja resurssi tekee eli pääyritykset.
+                    </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="StanfordResourceId" type="bdt:String100Type" minOccurs="0">
@@ -186,9 +187,9 @@
 					<xs:documentation>1, jos osayrittäjän kone, 0 jos ei ole.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SubContractorId" type="bdt:String20Type" minOccurs="0">
+			<xs:element name="OwnerContractorId" type="bdt:String20Type" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Osayrittäjän alv tunnus</xs:documentation>
+					<xs:documentation>Resurssin omistavan yrityksen ALV-tunnus (osayrittäjä)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SubContractorVerified" type="bdt:YesNoType" minOccurs="0">
@@ -222,7 +223,7 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
+    </xs:complexType>
 	<xs:complexType name="ServiceTypesType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Palvelukokonaisuudet</xs:documentation>

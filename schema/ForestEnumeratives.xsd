@@ -44546,6 +44546,13 @@
           <xs:documentation xml:lang="en">Schema package V9</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="V10">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V10</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V10</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="DiameterClassType">
@@ -45179,6 +45186,362 @@
           <xs:documentation xml:lang="fi">Muu 5</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AssortmentStatusType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi">PTL/ProductUserId:n status</xs:documentation>
+      <xs:documentation xml:lang="sv"> </xs:documentation>
+      <xs:documentation xml:lang="en"> </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ei muutoksia</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Lisätty, uusi PTL</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Lisätty poistetun tilalle eli vaihdettu.</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Poistettu/Korvattu</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UserRoleType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi">Käyttäjäroolit</xs:documentation>
+      <xs:documentation xml:lang="sv"> </xs:documentation>
+      <xs:documentation xml:lang="en">User roles</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Järjestelmän pääkäyttäjä</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">System administrator</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Yrittäjän pääkäyttäjä</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Contractor administrator</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Yrittäjän suunnittelija</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Contractor planner</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="4">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Yrittäjän mobiilikäyttäjä</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Contractor mobile user</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="5">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Urakanantajan pääkäyttäjä</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Service Buyer administrator</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="7">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Urakanantajan suunnittelija</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Service Buyer planner</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="8">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Urakanantajan mobiilikäyttäjä</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Service Buyer mobile user</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="9">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Urakanantajan laadunseuraja</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Service Buyer quality controller</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="10">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ulkopuolinen laaduntarkkailija</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">3rd party quality control user</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ForestDataStandardSchemaPackageSubversionType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi">Metsätietostandardin skeemapaketin aliversio</xs:documentation>
+      <xs:documentation xml:lang="sv"> </xs:documentation>
+      <xs:documentation xml:lang="en">Forest data standard schema package subversion</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="V1.00">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V1.00</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V1.00</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V2.00">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V2.00</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V2.00</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V3.00">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V3.00</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V3.00</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V4.00">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V4.00</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V4.00</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V5.00">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V5.00</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V5.00</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V6.00">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V6.00</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V6.00</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V7.00">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V7.00</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V7.00</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V8.00">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V8.00</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V8.00</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V8.29">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V8.29</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V8.29</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V8.30">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V8.30</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V8.30</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V8.31">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V8.31</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V8.31</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V8.32">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V8.32</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V8.32</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V8.33">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V8.33</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V8.33</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V8.34">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V8.34</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V8.34</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V9.00">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V9.00</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V9.00</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V9.09">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V9.09</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V9.09</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V9.10">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V9.10</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V9.10</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V9.11">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V9.11</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V9.11</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V9.12">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V9.12</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V9.12</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V9.13">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V9.13</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V9.13</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V9.14">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V9.14</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V9.14</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V9.15">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V9.15</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V9.15</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V9.16">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V9.16</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V9.16</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V9.17">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V9.17</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V9.17</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V9.18">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V9.18</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V9.18</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V9.19">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V9.19</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V9.19</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V9.20">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V9.20</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V9.20</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V9.21">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V9.21</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V9.21</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V9.22">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V9.22</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V9.22</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V9.23">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V9.23</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V9.23</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V9.24">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V9.24</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V9.24</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V10.00">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V10.00</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V10.00</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V10.01">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V10.01</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V10.01</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V10.02">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V10.02</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V10.02</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>

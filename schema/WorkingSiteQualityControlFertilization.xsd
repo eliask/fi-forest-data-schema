@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- WorkingSiteQualityControlFertilization Schema version Schema version 0.18.0-SNAPSHOT (x.x.2016) -->
+<!-- WorkingSiteQualityControlFertilization Schema version 0.23.0 (18.1.2017) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlFertilization"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"

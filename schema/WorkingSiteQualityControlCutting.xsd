@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<!-- WorkingSiteQualityControlCutting Schema version Schema version 0.18.0-SNAPSHOT (x.x.2016) -->
+<!-- WorkingSiteQualityControlCutting Schema version 0.23.0 (18.1.2017) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
@@ -120,12 +120,12 @@
 					<xs:documentation xml:lang="fi">Koealan säde (m)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ManipulationMethod" type="bdt:WorkCodeQualifierType2" minOccurs="1">
+			<xs:element name="ManipulationMethod" type="bdt:WorkCodeQualifierType2" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Käsittelytapa</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ForestType" type="bdt:FertilityClassType" minOccurs="1">
+			<xs:element name="ForestType" type="bdt:FertilityClassType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Metsätyyppi</xs:documentation>
 				</xs:annotation>
@@ -205,7 +205,7 @@
 					<xs:documentation xml:lang="fi">Ajouraväli (m)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="VehiclePathWidth" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="1">
+			<xs:element name="VehiclePathWidth" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Ajouraleveys (m)</xs:documentation>
 				</xs:annotation>

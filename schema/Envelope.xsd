@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2010 rel. 2 (x64) (http://www.altova.com) by Fifth Element (Fifth Element Oy) -->
-<!-- Envelope Schema version Schema version 0.18.0-SNAPSHOT (x.x.2016) -->
+<!-- Envelope Schema version 0.23.0 (18.1.2017) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/envelope"
            xmlns:header="http://standardit.tapio.fi/schemas/header"
@@ -14,7 +15,6 @@
            xmlns:mapSymbol="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
            xmlns:workingSiteStatus="http://standardit.tapio.fi/schemas/forestData/WorkingSiteStatus"
            xmlns:workingSiteTravelNotification="http://standardit.tapio.fi/schemas/forestData/WorkingSiteTravelNotification"
-           xmlns:workingSiteInterruption="http://standardit.tapio.fi/schemas/forestData/WorkingSiteInterruption"
            xmlns:workingSiteEndNotification="http://standardit.tapio.fi/schemas/forestData/WorkingSiteEndNotification"
            xmlns:workingSiteFeeBasis="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFeeBasis"
            xmlns:image="http://standardit.tapio.fi/schemas/forestData/Image"
@@ -32,6 +32,7 @@
            xmlns:userInformation="http://standardit.tapio.fi/schemas/forestData/UserInformation"
            xmlns:forwardingEstimate="http://standardit.tapio.fi/schemas/forestData/ForwardingEstimate"
            xmlns:forwardingNotification="http://standardit.tapio.fi/schemas/forestData/ForwardingNotification"
+           xmlns:stanfordFile="http://standardit.tapio.fi/schemas/forestData/StanfordFile"
            xmlns:workingSiteForwardedProduction="http://standardit.tapio.fi/schemas/forestData/WorkingSiteForwardedProduction"
            xmlns:workingSiteHarvestedProduction="http://standardit.tapio.fi/schemas/forestData/WorkingSiteHarvestedProduction"
            xmlns:workingSiteQualityControlCutting="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting"
@@ -52,6 +53,7 @@
            xmlns:workingSiteOperationalUpdate="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperationalUpdate"
            xmlns:productInstruction="urn:skogforsk:stanford2010"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/envelope" elementFormDefault="qualified" version="0.3">
+    
 	<xs:import namespace="http://standardit.tapio.fi/schemas/header" schemaLocation="Header.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Contract" schemaLocation="Contract.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/CompanyInformation" schemaLocation="CompanyInformation.xsd"/>
@@ -66,7 +68,6 @@
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkTime" schemaLocation="WorkingSiteWorkTime.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Image" schemaLocation="Image.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFeeBasis" schemaLocation="WorkingSiteFeeBasis.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteInterruption" schemaLocation="WorkingSiteInterruption.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteEndNotification" schemaLocation="WorkingSiteEndNotification.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteAccounting" schemaLocation="WorkingSiteAccounting.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityNotification" schemaLocation="WorkingSiteQualityNotification.xsd"/>
@@ -83,6 +84,7 @@
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteForwardedProduction" schemaLocation="WorkingSiteForwardedProduction.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForwardingEstimate" schemaLocation="ForwardingEstimate.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForwardingNotification" schemaLocation="ForwardingNotification.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/StanfordFile" schemaLocation="StanfordFile.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/UserInformation" schemaLocation="UserInformation.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/HarvestingOrder" schemaLocation="HarvestingOrder.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSoilConditioning" schemaLocation="WorkingSiteFinalAuditSoilConditioning.xsd"/>
@@ -101,7 +103,9 @@
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditRoadMaking" schemaLocation="WorkingSiteFinalAuditRoadMaking.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperationalUpdate" schemaLocation="WorkingSiteOperationalUpdate.xsd"/>
     <!-- <xs:import namespace="urn:skogforsk:stanford2010" schemaLocation="http://www.skogforsk.se/stanford2010/schema/ProductInstruction_V3p0.xsd"/> -->
-   <xs:element name="Envelope" type="EnvelopeType"/>
+    
+    
+    <xs:element name="Envelope" type="EnvelopeType"/>
 	<xs:complexType name="EnvelopeType">
 		<xs:sequence>
 			<xs:element name="Header" type="header:HeaderType"/>
@@ -197,6 +201,7 @@
                     <xs:documentation xml:lang="en">Forwarding notification, reference in header-part is MessageType = 'ForwardingNotification'</xs:documentation>
                 </xs:annotation>
             </xs:element>
+            <xs:element name="StanfordFile" type="stanfordFile:StanfordFileType"/>
             <xs:element name="UserInformation" type="userInformation:UserInformationType">
                 <xs:annotation>
                     <xs:documentation xml:lang="fi">Käyttäjän tiedot, header-osiossa tähän viitataan MessageType = 'UserInformation'</xs:documentation>
@@ -258,13 +263,6 @@
                     <xs:documentation xml:lang="fi">Taksaperusteet, header-osiossa tähän viitataan MessageType = 'WorkingSiteFeeBasis'</xs:documentation>
                     <xs:documentation xml:lang="sv"></xs:documentation>
                     <xs:documentation xml:lang="en">Working site fee basis, reference in header-part is MessageType = 'WorkingSiteFeeBasis'</xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="WorkingSiteInterruption" type="workingSiteInterruption:WorkingSiteInterruptionType">
-                <xs:annotation>
-                    <xs:documentation xml:lang="fi">Lohkon keskeytys, header-osiossa tähän viitataan MessageType = 'WorkingSiteInterruption'</xs:documentation>
-                    <xs:documentation xml:lang="sv"></xs:documentation>
-                    <xs:documentation xml:lang="en">Working site interruption, reference in header-part is MessageType = 'WorkingSiteInterruption'</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="WorkingSiteEndNotification" type="workingSiteEndNotification:WorkingSiteEndNotificationType">
@@ -442,7 +440,7 @@
                     <xs:documentation xml:lang="en">Working site information, update WF-> MJ, reference in header-part is MessageType = 'WorkingSiteOperationalUpdate'</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <!-- <xs:element ref="productInstruction:ProductInstruction"/> -->
+		    <!-- <xs:element ref="productInstruction:ProductInstruction"/> -->
         </xs:choice>
 	</xs:complexType>
 </xs:schema>

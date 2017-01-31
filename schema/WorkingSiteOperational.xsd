@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<!-- WorkingSiteOperational Schema version Schema version 0.18.0-SNAPSHOT (x.x.2016) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperational" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperational" elementFormDefault="qualified" attributeFormDefault="qualified">
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
+<!-- WorkingSiteOperational Schema version 0.23.0 (18.1.2017) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperational"
+           xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
+           xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+           xmlns:wct="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
+           targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperational"
+           elementFormDefault="qualified" attributeFormDefault="qualified">
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+               schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
+               schemaLocation="WoodForceCommonTypes.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+               schemaLocation="Common_GeometricDataType.xsd"/>
 	<xs:element name="WorkingSiteOperational" type="WorkingSiteOperationalType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Lohkon tiedot</xs:documentation>
@@ -356,10 +366,81 @@
 					<xs:documentation xml:lang="fi">Jakaumataulukot</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="DiameterSections" type="DiameterSectionsType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Rungonosamuuttujat, läpimittaositteet</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="FeeBasisType">
+	<xs:complexType name="DiameterSectionsType">
 		<xs:sequence>
+			<xs:element name="DiameterSection" type="SectionType" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Läpimittaositteet</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SectionType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Osite</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Organisation1" type="bdt:String20Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Urakanantajan organisaatiotieto</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+			<xs:element name="Organisation2" type="bdt:String20Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Urakanantajan organisaatiotieto</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Organisation3" type="bdt:String20Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Urakanantajan organisaatiotieto</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Organisation4" type="bdt:String20Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Urakanantajan organisaatiotieto</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="TreeSpecies" type="wct:StanfordTreeSpeciesType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Stanford-puulaji</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Description" type="bdt:String100Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Ositteen kuvaus, 531t1</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Code" type="bdt:String20Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Ositteen koodi, 531t2</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="MinDiameter" type="bdt:PositiveIntegerType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Ositteen mininiläpimitta (mm), 531t3</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+			<xs:element name="MinLength" type="bdt:PositiveIntegerType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Ositteen minimipituus (cm), 531t4</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="UserCode" type="bdt:YesNoType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Käytetäänkö puukaupassa, 531t5</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+		</xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="FeeBasisType">
+        <xs:sequence>
 			<xs:element name="FeeBasis" type="FeeBasisDataType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -1053,15 +1134,21 @@
 	</xs:complexType>
 	<xs:complexType name="ProductUserIdsType">
 		<xs:sequence>
-			<xs:element name="ProductUserId" type="bdt:String50Type" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="ProductUserId" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">PIN-tiedoston nimi</xs:documentation>
 				</xs:annotation>
-			</xs:element>
-			<xs:element name="DeliveryUserId" type="bdt:String50Type" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Mekun tavaralajin nimi</xs:documentation>
-				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="bdt:String50Type">
+							<xs:attribute name="DeliveryUserId" type="bdt:String50Type">
+								<xs:annotation>
+									<xs:documentation>=Assortment.Code, jolle moton määrät mäpätään mekuilmoituksella.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>

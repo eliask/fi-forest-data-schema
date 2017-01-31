@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<!-- WorkingSiteEndNotification Schema version Schema version 0.13.0 (24.3.2016) -->
+<!-- WorkingSiteEndNotification Schema version 0.23.0 (18.1.2017) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteEndNotification" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteEndNotification" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.3">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
@@ -48,7 +48,7 @@
 			</xs:element>
 			<xs:element name="UnfulfilledArea" type="gdt:PolygonOrMultiPolygonType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Toteuttamattomat alueet. Lähetetään vain, jos lohko on päätetty 
+					<xs:documentation xml:lang="fi">Toteuttamattomat alueet. Lähetetään vain, jos lohko on päätetty
                         keskeytettynä.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -125,12 +125,12 @@
 			</xs:element>
 			<xs:element name="Volume" type="bdt:Decimal6TotalDigitsType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tilauksen m3</xs:documentation>
+					<xs:documentation xml:lang="fi">Lohkon m3</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="VolumeLeft" type="bdt:Decimal6TotalDigitsType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Toteuttamaton alue</xs:documentation>
+					<xs:documentation xml:lang="fi">Korjaamaton m3</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -152,10 +152,10 @@
 			</xs:element>
 			<xs:element name="AmountLeft" type="bdt:Decimal3FractionDigitsType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ilmoitettu määrä</xs:documentation>
+					<xs:documentation xml:lang="fi">Jäljelle jäänyt määrä</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Unit" type="bdt:String10Type" minOccurs="1">
+			<xs:element name="Unit" type="bdt:WorkCodeUnitType" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Yksikkö</xs:documentation>
 				</xs:annotation>

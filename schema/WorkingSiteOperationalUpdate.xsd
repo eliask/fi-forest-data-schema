@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<!-- WorkingSiteOperationalUpdate Schema version Schema version 0.13.0 (24.3.2016) -->
+<!-- WorkingSiteOperationalUpdate Schema version 0.23.0 (18.1.2017) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperationalUpdate"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
@@ -48,14 +48,22 @@
 			</xs:element>
 			<xs:element name="ProductUserIds" type="ProductUserIdsType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Varastopaikat</xs:documentation>
+					<xs:documentation xml:lang="fi">ProductInstructionin ProductUserId</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ProductUserIdsType">
 		<xs:sequence>
-			<xs:element name="ProductUserId" type="bdt:String100Type" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ProductUserId" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="bdt:String100Type">
+							<xs:attribute name="Status" type="bdt:AssortmentStatusType" use="optional"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="AssortmentsType">

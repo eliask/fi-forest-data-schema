@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<!-- UserInformation Schema version Schema version 0.13.0 (24.3.2016) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/UserInformation" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/UserInformation" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
+<!-- UserInformation Schema version 0.23.0 (18.1.2017) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://standardit.tapio.fi/schemas/forestData/UserInformation"
+           xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
+           xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+           xmlns:wct="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
+           targetNamespace="http://standardit.tapio.fi/schemas/forestData/UserInformation"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+               schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+               schemaLocation="Common_GeometricDataType.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
+               schemaLocation="WoodForceCommonTypes.xsd"/>
+
 	<xs:element name="UserInformation" type="UserInformationType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Käyttäjä</xs:documentation>
@@ -16,12 +26,18 @@
 					<xs:documentation xml:lang="fi">Käyttäjän yksilöivä ID</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ContractorId" type="bdt:String20Type" minOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Yrityksen alv-tunnus</xs:documentation>
+            <xs:element name="Contractors" type="wct:ContractorsType" minOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Yritykset (urakoitsijat), joiden lohkoilla käyttäjä tekee töitä eli pääyritykset.
+                    </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
+			<xs:element name="OwnerContractorId" type="bdt:String20Type" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Henkilön työnantajan ALV-tunnus (osayrittäjä)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		  	<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
 				</xs:annotation>
@@ -31,7 +47,7 @@
 					<xs:documentation xml:lang="fi">Veronumero</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Name" type="bdt:String50Type">
+			<xs:element name="Name" type="bdt:String100Type">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Nimi</xs:documentation>
 				</xs:annotation>
@@ -51,9 +67,9 @@
 					<xs:documentation xml:lang="fi">Postitoimipaikka</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="BirthDate" type="bdt:String10Type" minOccurs="1">
+			<xs:element name="BirthDate" type="bdt:DateType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Syntymäaika (yyyymmdd)</xs:documentation>
+					<xs:documentation xml:lang="fi">Syntymäaika</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Telephone" type="bdt:String20Type" minOccurs="1">
@@ -61,11 +77,16 @@
 					<xs:documentation xml:lang="fi">Puhelin</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ICE" type="bdt:String20Type" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Toinen yhteystieto</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+            <xs:element name="ICEName" type="bdt:String100Type" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Hätäyhteyshenkilön nimi</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ICETelephone" type="bdt:String20Type" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Hätäyhteyshenkilön puhelinnumero</xs:documentation>
+                </xs:annotation>
+            </xs:element>
 			<xs:element name="Email" type="bdt:String100Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">sähköposti</xs:documentation>
@@ -86,7 +107,7 @@
 					<xs:documentation xml:lang="fi">Vapaamuotoinen nimi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Educations" type="EducationsType" minOccurs="1">
+			<xs:element name="Trainings" type="TrainingsType" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Koulutustiedot</xs:documentation>
 				</xs:annotation>
@@ -106,9 +127,14 @@
 					<xs:documentation xml:lang="fi">Kielet</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Nationality" type="bdt:String50Type" minOccurs="1">
+			<xs:element name="NationalityCode" type="bdt:String5Type" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kansalaisuus</xs:documentation>
+					<xs:documentation xml:lang="fi">Kansalaisuus, 3-merkkinen koodi (WF-Koodistosta)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NationalityFreeText" type="bdt:String50Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kansalaisuus (muu + mikä)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="WorkCodeGroups" type="WorkCodeGroupsType" minOccurs="0">
@@ -135,12 +161,12 @@
 	</xs:complexType>
 	<xs:complexType name="UserRolesType">
 		<xs:sequence>
-			<xs:element name="UserRole" type="bdt:String20Type" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="UserRole" type="bdt:UserRoleType" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="EducationsType">
+	<xs:complexType name="TrainingsType">
 		<xs:sequence>
-			<xs:element name="Education" type="EducationDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Training" type="TrainingDataType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="MachinesType">
@@ -192,18 +218,25 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="EducationDataType">
+	<xs:complexType name="TrainingDataType">
 		<xs:sequence>
-			<xs:element name="Education" type="bdt:String50Type" minOccurs="1">
+			<xs:element name="TrainingId" type="bdt:PositiveInteger4digitsType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Tutkinto</xs:documentation>
+					<xs:documentation xml:lang="fi">Koulutuksen tunnus. Yleinen koulutus tai
+						urakanantajakohtainen koulutus.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="EducationDate" type="bdt:DateType">
+			<xs:element name="TrainingFreeText" type="bdt:String50Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koulutus, vapaa teksti</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TrainingDate" type="bdt:DateType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Suoritus pvm</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+
 </xs:schema>

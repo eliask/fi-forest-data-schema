@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- WoodForceCommonTypes Schema version Schema version 0.18.0-SNAPSHOT (x.x.2016) -->
+<!-- WoodForceCommonTypes Schema version 0.23.0 (18.1.2017) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
+           xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
            elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+               schemaLocation="Common_BasicDataType.xsd"/>
+
+    <xs:complexType name="ContractorsType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Yritykset</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="ContractorId" type="bdt:String20Type" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>Yrityksen alv-tunnus (urakoitsija)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
     <xs:simpleType name="MonthType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Kuukausi</xs:documentation>

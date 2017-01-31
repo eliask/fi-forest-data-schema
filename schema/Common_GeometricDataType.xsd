@@ -186,9 +186,10 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Multipolygon geometry.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="gml:MultiPolygon"/>
-		</xs:sequence>
+		<xs:choice>
+            <xs:element ref="gml:MultiPolygon"/>
+            <xs:element ref="gml:MultiSurface"/>
+        </xs:choice>
 	</xs:complexType>
 
 	<xs:complexType name="PointGeometryType">
