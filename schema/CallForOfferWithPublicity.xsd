@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Muutokset skeemapakettiin V10.03:
+  -Skeematiedosto lisätty pakettiin
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://kuutio.fi/schemas/callForOfferWithPublicity"
+	xmlns="http://kuutio.fi/schemas/callForOfferWithPublicity"
+  xmlns:o="http://kuutio.fi/schemas/organizations"
+  xmlns:cfo="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer"
+  xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+  elementFormDefault="qualified">
+
+  <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer"
+		schemaLocation="WorkingSiteTrade_CallForOffer.xsd"/>
+  
+  <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+		schemaLocation="common.xsd"/>
+
+  <xs:import namespace="http://kuutio.fi/schemas/organizations"
+		schemaLocation="Organizations.xsd"/>
+
+  <!-- Elementtimääritykset -->
+	<!-- Element definitions -->
+	<xs:element name="CallForOfferWithPublicity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="cfo:CallForOffer" minOccurs="1" maxOccurs="unbounded" />
+        <xs:element name="Publicity" type="co:PublicityType" minOccurs="1" maxOccurs="1" />
+        <xs:element name="PublicityOrganizations" type="o:OrganizationsType" minOccurs="0" maxOccurs="1" />
+      </xs:sequence>
+    </xs:complexType>    
+  </xs:element>
+</xs:schema>

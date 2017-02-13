@@ -11,8 +11,8 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="qualified"
 	attributeFormDefault="qualified" version="1.0">
 	<!-- 
-	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" 
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" 
+	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"
 	xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20"
 	-->
 

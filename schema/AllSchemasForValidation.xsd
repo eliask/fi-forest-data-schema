@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Muutokset skeemapakettiin V10.03:
+    -Lisätty importit skeematiedostoille BusinessAcceptances.xsd, CallForOffers.xsd, CallForOfferPublicity.xsd, ContactRequests.xsd ja Offers.xsd
+-->
 <xs:schema
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns="http://standardit.tapio.fi/schemas/forestDataValidation"
@@ -31,5 +35,15 @@
         schemaLocation="WorkingSiteTrade_Envelope.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/ForestStatisticsData"
         schemaLocation="ForestStatisticsData.xsd"/>
-
+    <xs:import namespace="http://kuutio.fi/schemas/businessAcceptances"
+        schemaLocation="BusinessAcceptances.xsd"/>
+    <xs:import namespace="http://kuutio.fi/schemas/callForOffers"
+        schemaLocation="CallForOffers.xsd"/>
+    <xs:import namespace="http://kuutio.fi/schemas/callForOfferWithPublicity"
+        schemaLocation="CallForOfferWithPublicity.xsd"/>
+    <xs:import namespace="http://kuutio.fi/schemas/contactRequests"
+        schemaLocation="ContactRequests.xsd"/>
+    <xs:import namespace="http://kuutio.fi/schemas/offers"
+        schemaLocation="Offers.xsd"/>
+    
 </xs:schema>

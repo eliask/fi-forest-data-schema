@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Muutokset skeemapakettiin V10.03:
+  -Skeematiedosto lisätty pakettiin
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://kuutio.fi/schemas/contactRequests"
+	xmlns="http://kuutio.fi/schemas/contactRequests"
+  xmlns:cr="http://standardit.tapio.fi/schemas/contactRequest"
+  elementFormDefault="qualified" attributeFormDefault="qualified">
+
+  <xs:import namespace="http://standardit.tapio.fi/schemas/contactRequest"
+		schemaLocation="ContactRequest.xsd"/>
+
+	<!-- Elementtimääritykset -->
+	<!-- Element definitions -->
+	<xs:element name="ContactRequests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="cr:ContactRequest" minOccurs="1" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>    
+  </xs:element>
+</xs:schema>

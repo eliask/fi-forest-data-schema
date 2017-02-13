@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Muutokset skeemapakettiin V10.03:
+  -Skeematiedosto lisätty pakettiin
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://kuutio.fi/schemas/offers"
+	xmlns="http://kuutio.fi/schemas/offers"
+  xmlns:o="http://standardit.tapio.fi/schemas/workingsitetrade/offer"
+  elementFormDefault="qualified">
+
+  <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/offer"
+		schemaLocation="WorkingSiteTrade_Offer.xsd"/>
+
+	<!-- Elementtimääritykset -->
+	<!-- Element definitions -->
+	<xs:element name="Offers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="o:Offer" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>    
+  </xs:element>
+</xs:schema>
