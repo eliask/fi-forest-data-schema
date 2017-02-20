@@ -4,6 +4,10 @@
 	Työmaan puutavaralajien elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
 	***************************************************************
+	
+	Muutokset skeemapakettiin V10.04:
+	-Muutettu elementin AssortmentName tyyppimäärittelyksi co:AssortmentNameType
+	-Muutettu elementin AssortmentCode tyyppimäärittelyksi co:AssortmentCodeType
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment"
@@ -53,8 +57,8 @@
 	<xs:element name="AssortmentCompactClasses" type="AssortmentCompactClassesType"/>
 	<xs:element name="WoodLotInformationTypeDescription" type="co:String500Type"/>
 	<xs:element name="AssortmentMainGroup" type="co:AssortmentMainGroupType"/>
-	<xs:element name="AssortmentCode" type="co:String50Type"/>
-	<xs:element name="AssortmentName" type="co:String200Type"/>
+	<xs:element name="AssortmentCode" type="co:AssortmentCodeType"/>
+	<xs:element name="AssortmentName" type="co:AssortmentNameType"/>
 	<xs:element name="GradeCode" type="co:GradeCodeType"/>
 
 	<!-- Tyyppimääritykset / Type definitions -->

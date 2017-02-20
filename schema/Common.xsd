@@ -48,6 +48,10 @@
 	
 	VERSIOKOMMENTIT 1.9 >>> 2.0
 	MessageType: Päivitetty viestien lyhenteet nykyistä vastaaviksi
+	
+	Muutokset skeemapakettiin V10.04:
+	-Lisätty uusi tyyppimäärittely AssortmentNameType, perustyypiltään String200Type. Toimijakohtaisen puutavaralajin nimen määrittely.
+    -Lisätty uusi tyyppimäärittely AssortmentCodeType, perustyypiltään String50Type. Toimijakohtaisen puutavaralajikoodin määrittely.
 	*******************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -411,5 +415,22 @@
 		</xs:restriction>
 	</xs:simpleType>
 	
+	<xs:simpleType name="AssortmentCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Toimijakohtaisen puutavaralajikoodin määrittely</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Actor-specific assortment code definition</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="String50Type" />
+	</xs:simpleType>
+	
+	<xs:simpleType name="AssortmentNameType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Toimijakohtaisen puutavaralajin (tuote) nimen määrittely</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Actor-specific assortment (product) name definition</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="String200Type" />
+	</xs:simpleType>
 
 </xs:schema>

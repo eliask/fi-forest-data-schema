@@ -3,8 +3,11 @@
 	***************************************************************
 	Kuvion toimenpiteiden  elementit ja tyypit. 
 	Skeema on JHS-170 -suosituksen mukainen.
-
 	***************************************************************
+	
+	Muutokset skeemapakettiin V10.04:
+	-Lisätty uusi vapaaehtoinen elementti AssortmentName, tyypiltään co:AssortmentNameType
+    -Lisätty uusi vapaaehtoinen elementti AssortmentCode, tyypiltään co:AssortmentCodeType
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/operation"
@@ -16,8 +19,7 @@
 	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" schemaLocation="JHS170_20090304.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
 
-	<!-- Elementtimääritykset -->
-	<!-- Element definitions -->
+    <!-- Elementtimääritykset / Element definitions -->
 	<xs:element name="Operations" type="OperationsType"/>
 	<xs:element name="Operation" type="OperationDefType"/>
 	<xs:element name="Identifiers" type="IdentifiersType"/>
@@ -76,6 +78,8 @@
 	<xs:element name="PreventionSubstanceProductName" type="co:String200Type"/>
 	<xs:element name="CompletionActor" type="CompletionActorType"/>
 	<xs:element name="ActorId" type="co:IdStringType"/>
+	<xs:element name="AssortmentCode" type="co:AssortmentCodeType"/>
+	<xs:element name="AssortmentName" type="co:AssortmentNameType"/>
 
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
@@ -523,6 +527,8 @@
 			<xs:element ref="co:ChangeTime" minOccurs="0"/>
 			<xs:element ref="TreeSpecies"/>
 			<xs:element ref="StemType"/>
+			<xs:element ref="AssortmentCode" minOccurs="0"/>
+			<xs:element ref="AssortmentName" minOccurs="0"/>
 			<xs:choice>
 				<xs:element ref="AssortmentPercent"/>
 				<xs:element ref="AssortmentVolume"/>
@@ -788,4 +794,5 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 </xs:schema>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-	******************************************************************
+	*****************************************************************
 	Metsävaratietojen koodistotyyppisten (enumerative) tietokenttien
 	koodistot. Huom: tämän skeeman on tarkoitus sisältää vain
 	tyyppimäärittelyitä, ei elementtimäärittelyitä.
 	Skeema on JHS-170 -suosituksen mukainen.
-	*****************************************************************************************
+	*****************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="1.9">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V10.04">
   <xs:simpleType name="OriginalFeatureCodeType">
     <xs:annotation>
       <xs:documentation xml:lang="fi">Erityispiirteen koodi (mm. monimuotoisuuskoodi).</xs:documentation>
@@ -24405,6 +24405,633 @@
           <xs:documentation xml:lang="fi">Viljelyröykkiöt</xs:documentation>
           <xs:documentation xml:lang="sv">Odlingsrösen</xs:documentation>
           <xs:documentation xml:lang="en">Plantation pile</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FeatureTypeType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi">Erityispiirteen tyyppi.</xs:documentation>
+      <xs:documentation xml:lang="sv">Typ av särdrag</xs:documentation>
+      <xs:documentation xml:lang="en">Type of feature.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="10">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Suojelualue</xs:documentation>
+          <xs:documentation xml:lang="sv">Skyddsområde</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="20">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kaava-alue</xs:documentation>
+          <xs:documentation xml:lang="sv">Planeområde</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="30">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsälain tärkeä elinympäristö</xs:documentation>
+          <xs:documentation xml:lang="sv">Särskilt viktig livsmiljö enligt skogslagen</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="40">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Luontokohde</xs:documentation>
+          <xs:documentation xml:lang="sv">Naturobjekt</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="50">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Arvokas elinympäristö, esim. avainbiotooppi</xs:documentation>
+          <xs:documentation xml:lang="sv">Värdefull livsmiljö, ex. Nyckelbiotop</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="70">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kulttuuri- tai muinaismuistokohde</xs:documentation>
+          <xs:documentation xml:lang="sv">Kulturminnesobjekt eller fornminnesobjekt</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="80">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Luonnonsuojelulain luontotyyppi</xs:documentation>
+          <xs:documentation xml:lang="sv">Naturtyp enligt naturskyddslagen</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="100">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Muu kohde</xs:documentation>
+          <xs:documentation xml:lang="sv">Annat objekt</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FeatureAdditionalCodeType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi">Erityispiirteen lisämääre.</xs:documentation>
+      <xs:documentation xml:lang="sv">Specifikation till särdrag</xs:documentation>
+      <xs:documentation xml:lang="en">Additional code of feature.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Maa- ja metsätalousalue</xs:documentation>
+          <xs:documentation xml:lang="sv">Jord- och skogsbruksområde</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Suojelualue</xs:documentation>
+          <xs:documentation xml:lang="sv">Skyddsområde</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Virkistysalue</xs:documentation>
+          <xs:documentation xml:lang="sv">Rekreationsområde</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="4">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Rakentamiseen varattu alue</xs:documentation>
+          <xs:documentation xml:lang="sv">Område reserverat för byggnader</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="5">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Maisematyölupa vaaditaan</xs:documentation>
+          <xs:documentation xml:lang="sv">Tillstånd för miljöåtgärder krävs</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="6">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Suojelumääräys</xs:documentation>
+          <xs:documentation xml:lang="sv">Skyddsbestämmelse</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="7">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Muu kaavamääräys</xs:documentation>
+          <xs:documentation xml:lang="sv">Annan planebestämmelse</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="10">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Harjujensuojelu</xs:documentation>
+          <xs:documentation xml:lang="sv">Åsskydd</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="11">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kallioalueidensuojelu</xs:documentation>
+          <xs:documentation xml:lang="sv">Skydd av bergsområde</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="12">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kansallis- ja luonnonpuistojen kehittäminen</xs:documentation>
+          <xs:documentation xml:lang="sv">Utveckling av national- eller naturpark</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="13">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Koskiensuojelu</xs:documentation>
+          <xs:documentation xml:lang="sv">Forsskydd</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="14">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Lehtojensuojelu</xs:documentation>
+          <xs:documentation xml:lang="sv">Lundskydd</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="15">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Lintuvesiensuojelu</xs:documentation>
+          <xs:documentation xml:lang="sv">Skydd av fågelvatten</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="16">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Perinnebiotooppiensuojelu</xs:documentation>
+          <xs:documentation xml:lang="sv">Skydd av kulturmiljöer</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="17">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Pienvesiensuojelu</xs:documentation>
+          <xs:documentation xml:lang="sv">Skydd av mindre vattendrag</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="18">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Rantojensuojelu</xs:documentation>
+          <xs:documentation xml:lang="sv">Strandskydd</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="19">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Soidensuojelu</xs:documentation>
+          <xs:documentation xml:lang="sv">Myrskydd</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="20">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Uhanalaisten lajien suojelu</xs:documentation>
+          <xs:documentation xml:lang="sv">Skydd av hotade arter</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="21">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Vanhojen metsien suojelu</xs:documentation>
+          <xs:documentation xml:lang="sv">Skydd av gammal skog</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="22">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Natura 2000</xs:documentation>
+          <xs:documentation xml:lang="sv">Natura 2000</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="23">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Erämaa-alueet</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="24">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Erityiset suojelualueet</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="25">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Luontotyyppipäätökset</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="26">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsähallituksen suojelualueet</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="27">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Mikkelinsaarten saariryhmän suojelu</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="29">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Yksityinen suojelu</xs:documentation>
+          <xs:documentation xml:lang="sv">Privat fredning</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="30">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Turvekerros 0 - 30 cm</xs:documentation>
+          <xs:documentation xml:lang="sv">Torvlager 0 - 30 cm</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="31">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Turvekerros 30 - 80 cm</xs:documentation>
+          <xs:documentation xml:lang="sv">Torvlager 30 - 80 cm</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="32">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Turvekerros 80 - 110 cm</xs:documentation>
+          <xs:documentation xml:lang="sv">Torvlager 80 - 110 cm</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="33">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Turvekerros 110 - cm</xs:documentation>
+          <xs:documentation xml:lang="sv">Torvlager 110 - cm</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="40">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Muu arvokas elinympäristö</xs:documentation>
+          <xs:documentation xml:lang="sv">Övrig värdefull livsmiljö</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="41">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Hoidettu</xs:documentation>
+          <xs:documentation xml:lang="sv">Skött</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="42">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Luonnontilainen</xs:documentation>
+          <xs:documentation xml:lang="sv">I naturtillstånd</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="43">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsälain tärkeä elinympäristö</xs:documentation>
+          <xs:documentation xml:lang="sv">Viktig livsmiljö enligt skogslagen</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="44">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Luonnonsuojelulain luontotyyppi</xs:documentation>
+          <xs:documentation xml:lang="sv">Naturtyp enligt naturskyddslagen</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="45">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Mahdollinen metsälain tärkeä elinympäristö</xs:documentation>
+          <xs:documentation xml:lang="sv">Möjlig viktig livsmiljö enligt skogslagen</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="46">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Harvinainen elinympäristö (PEFC, krit. 10 c)</xs:documentation>
+          <xs:documentation xml:lang="sv">Sällsynt livsmiljö (PEFC, krit. 10 c)</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="47">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Harvinainen elinympäristö (FSC)</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="50">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Säilytetään</xs:documentation>
+          <xs:documentation xml:lang="sv">Sparas</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="51">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Avataan</xs:documentation>
+          <xs:documentation xml:lang="sv">Öppnas</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="52">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Peitetään</xs:documentation>
+          <xs:documentation xml:lang="sv">Täcks</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="60">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Lievä</xs:documentation>
+          <xs:documentation xml:lang="sv">Lindrig</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="61">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Keskinkertainen</xs:documentation>
+          <xs:documentation xml:lang="sv">Medelstark</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="62">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Voimakas</xs:documentation>
+          <xs:documentation xml:lang="sv">Kraftig</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="65">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Keskimääräistä enemmän</xs:documentation>
+          <xs:documentation xml:lang="sv">Mera än i medeltal</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="66">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Erittäin paljon</xs:documentation>
+          <xs:documentation xml:lang="sv">Speciellt mycket</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="68">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Lisääntymispaikka</xs:documentation>
+          <xs:documentation xml:lang="sv">Förökningsplats</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="69">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Levähdyspaikka</xs:documentation>
+          <xs:documentation xml:lang="sv">Rastplats</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="70">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Elinympäristö</xs:documentation>
+          <xs:documentation xml:lang="sv">Livsmiljö</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="71">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kesälaidun</xs:documentation>
+          <xs:documentation xml:lang="sv">Sommarbete</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="72">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kulkureitti</xs:documentation>
+          <xs:documentation xml:lang="sv">Vandringsstråk</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="73">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Muuttoreitti</xs:documentation>
+          <xs:documentation xml:lang="sv">Flyttstråk</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="74">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Pesä/pesimäalue</xs:documentation>
+          <xs:documentation xml:lang="sv">Bo/häckningsområde</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="75">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Pesäluolasto</xs:documentation>
+          <xs:documentation xml:lang="sv">Grytområde</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="76">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ruokailupaikka/ravintoalue</xs:documentation>
+          <xs:documentation xml:lang="sv">Betesområde</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="77">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ruokintapaikka</xs:documentation>
+          <xs:documentation xml:lang="sv">Utfodringsplats</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="78">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Soidinpaikka</xs:documentation>
+          <xs:documentation xml:lang="sv">Spelplats</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="79">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Talvehtimisalue</xs:documentation>
+          <xs:documentation xml:lang="sv">Övervintringsområde</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="80">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ei tarvetta</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="81">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ei vielä arvioitavissa</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="82">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Epäonnistunut luontainen uudistaminen</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="83">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Onnistunut luontainen uudistaminen</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="84">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Pilalla</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="85">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Puulaji oikea</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="86">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Toteutettu (toimenpide)</xs:documentation>
+          <xs:documentation xml:lang="sv">Utförd (åtgärd)</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="87">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Havaittu maastossa, ei ilmoitusta</xs:documentation>
+          <xs:documentation xml:lang="sv">Observerat i terrängen, inte anmält</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="88">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Maastossa löydetty</xs:documentation>
+          <xs:documentation xml:lang="sv">Observerat i terrängen</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="89">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Maastossa löydetty, rajaus muuttunut</xs:documentation>
+          <xs:documentation xml:lang="sv">Observerat i terrängen, avgränsningen har ändrats</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="90">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Mk ilmoittanut</xs:documentation>
+          <xs:documentation xml:lang="sv">Sc har meddelat</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="91">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Mhy ilmoittanut</xs:documentation>
+          <xs:documentation xml:lang="sv">Svf har meddelat</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="92">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Mo ilmoittanut</xs:documentation>
+          <xs:documentation xml:lang="sv">Skogsägaren har meddelat</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="93">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Puunostaja ilmoittanut</xs:documentation>
+          <xs:documentation xml:lang="sv">Virkesköparen har meddelat</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="94">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Muu ilmoittanut</xs:documentation>
+          <xs:documentation xml:lang="sv">Annan har meddelat</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="95">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Mk ilmoittanut, rajaus muuttunut</xs:documentation>
+          <xs:documentation xml:lang="sv">Sc har meddelat, avgränsningen har ändrats</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="96">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Mhy ilmoittanut, rajaus muuttunut</xs:documentation>
+          <xs:documentation xml:lang="sv">Svf har meddelat, avgränsningen har ändrats</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="97">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Mo ilmoittanut, rajaus muuttunut</xs:documentation>
+          <xs:documentation xml:lang="sv">Skogsägaren har meddelat, avgränsningen har ändrats</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="98">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Puunostaja ilmoittanut, rajaus muuttunut</xs:documentation>
+          <xs:documentation xml:lang="sv">Virkesköparen har meddelat, avgränsningen har ändrats</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="99">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Muu ilmoittanut, rajaus muuttunut</xs:documentation>
+          <xs:documentation xml:lang="sv">Annan har meddelat, avgränsningen har ändrats</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="100">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Urakoitsija ilmoittanut</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
