@@ -11,6 +11,9 @@
 	yhdeksi namespaceksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common" 
 
    	Tässä skeemassa otettu käyttöön uusi common nimiavaruus 
+   	
+   	Muutokset skeemapakettiin V10.05:
+   	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -20,7 +23,7 @@
 	xmlns:cdd="http://standardit.tapio.fi/schemas/forestData/commondistributiondata"	
 	elementFormDefault="qualified"
 	attributeFormDefault="qualified"
-	version="1.1">
+	version="V10.05">
 <!--	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31"-->	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>	
 	<!--<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" schemaLocation="Common_20100831.xsd"/>	-->

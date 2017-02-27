@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- UserInformation Schema version 0.23.0 (18.1.2017) -->
+<!--
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+-->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/UserInformation"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
            xmlns:wct="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/UserInformation"
-           elementFormDefault="qualified" attributeFormDefault="unqualified">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
                schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"

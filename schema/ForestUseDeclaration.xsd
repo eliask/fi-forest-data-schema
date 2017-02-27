@@ -25,6 +25,9 @@
 	DeclarationStandTextInformation, FertilityClass, MainGroup, MainTreeSpecies, MeanAge, MeanDiameter,
 	SoilType, SubGroup
 	Nimi muutettu MainTreeSpecies -> DeclarationMainTreeSpecies
+	
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 	****************************************************************************
 -->
 
@@ -37,7 +40,7 @@
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	xmlns:spf="http://standardit.tapio.fi/schemas/forestData/specialFeature"
 	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate"
-	xmlns:gml="http://www.opengis.net/gml" elementFormDefault="qualified" version="1.1">
+	xmlns:gml="http://www.opengis.net/gml" elementFormDefault="qualified" version="V10.05">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"

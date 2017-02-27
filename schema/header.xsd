@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<!-- Header Schema version 0.23.0 (18.1.2017) -->
+<!-- 
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+-->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns="http://standardit.tapio.fi/schemas/header"
 	targetNamespace="http://standardit.tapio.fi/schemas/header"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="qualified"
-	version="0.3">
+	version="V10.05">
 	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
 	

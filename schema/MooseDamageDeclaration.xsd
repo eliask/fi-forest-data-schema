@@ -3,6 +3,9 @@
 	*****************************************************************************
 	Hirvivahinkoilmoituksen elementit ja tyypit. 
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 	****************************************************************************
 -->
 
@@ -15,7 +18,7 @@
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	xmlns:gml="http://www.opengis.net/gml"
 	xmlns:fcc="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
-	elementFormDefault="qualified" version="1.1">
+	elementFormDefault="qualified" version="V10.05">
 
 
 	<!-- Imports / Includes -->

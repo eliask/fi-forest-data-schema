@@ -4,6 +4,8 @@
 	Puustotiedon ajankohdan runkolukusarjan elementit ja tyypit. 
 	Skeema on JHS-170 -suosituksen mukainen.
 
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 	***************************************************************
 -->
 <xs:schema
@@ -12,7 +14,7 @@
 	xmlns="http://standardit.tapio.fi/schemas/forestData/stemDistribution"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" 
 	elementFormDefault="qualified"
-	version="1.0">
+	version="V10.05">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"

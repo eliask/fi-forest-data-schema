@@ -32,6 +32,9 @@
 	- FinancingActApplicationType -tyypille lisätty lapsielementti MunicipalityNumber
 	 
 	***************************************************************
+	
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 -->
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -39,7 +42,7 @@
     xmlns="http://standardit.tapio.fi/schemas/forestData/FinancingActApplication"
     xmlns:fac="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
     xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="qualified"
-    version="1.1">
+    version="V10.05">
 
     <!-- Imports / Includes -->
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"

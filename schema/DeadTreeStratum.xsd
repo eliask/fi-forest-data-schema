@@ -3,8 +3,10 @@
     ***************************************************************
     Puustotietojen ajankohdan kuolleen puuston elementit ja tyypit. 
     Skeema on JHS-170 -suosituksen mukainen.
-	
     ***************************************************************
+    
+    Muutokset skeemapakettiin V10.05:
+    -Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 -->
 <xs:schema
     xmlns:xs="http://www.w3.org/2001/XMLSchema" 
@@ -12,7 +14,7 @@
     xmlns="http://standardit.tapio.fi/schemas/forestData/deadTreeStrata" 
     xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" 
     elementFormDefault="qualified"
-    version="1.0">
+    version="V10.05">
 
     <!-- Imports / Includes -->
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>

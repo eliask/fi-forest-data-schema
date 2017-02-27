@@ -7,6 +7,9 @@
 	
 	18.9.2015
 	- ForestryCentreDecisionType -tyypille lisätty lapsielementti fac:FinancingActNumber
+	
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 	****************************************************************************
 -->
 
@@ -17,7 +20,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:fac="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
 	elementFormDefault="qualified"
-	version="1.0">
+	version="V10.05">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"

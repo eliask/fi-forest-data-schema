@@ -3,6 +3,9 @@
 	***************************************************************
 	Tarjouspyynnön kohteen / työmaan elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -13,7 +16,7 @@
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	xmlns:wsst="http://standardit.tapio.fi/schemas/workingsitetrade/stand"
 	xmlns:pr="http://standardit.tapio.fi/schemas/workingsitetrade/product"
-	elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+	elementFormDefault="qualified" attributeFormDefault="qualified" version="V10.05">
 
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/stand" schemaLocation="WorkingSiteTrade_Stand.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation" schemaLocation="ContactInformation.xsd"/>

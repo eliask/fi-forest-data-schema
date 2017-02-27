@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
+<!--  
   Muutokset skeemapakettiin V10.03:
   -Skeematiedosto lisätty pakettiin
+  
+  Muutokset skeemapakettiin V10.05:
+  -Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 -->
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://kuutio.fi/schemas/callForOffers"
 	xmlns="http://kuutio.fi/schemas/callForOffers"
   xmlns:cfo="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer"
-  elementFormDefault="qualified">
+  elementFormDefault="qualified"
+  version="V10.05">
 
   <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer"
 		schemaLocation="WorkingSiteTrade_CallForOffer.xsd"/>

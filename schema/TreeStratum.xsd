@@ -4,6 +4,8 @@
 	Puustotiedon ajankohdan puusto-ositteiden elementit ja tyypit. 
 	Skeema on JHS-170 -suosituksen mukainen.
 
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -12,7 +14,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:cdd="http://standardit.tapio.fi/schemas/forestData/commondistributiondata"
 	xmlns:tli="http://standardit.tapio.fi/schemas/forestData/treelistitem"
-	elementFormDefault="qualified" version="1.0">
+	elementFormDefault="qualified" version="V10.05">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"

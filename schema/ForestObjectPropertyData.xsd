@@ -12,7 +12,10 @@
 	- ContactInformation_20110214.xsd -> ContactInformation.xsd
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation/2011/02/14"
 	-> 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/contactInformation
-    Tässä skeemassa otettu käyttöön uudet common ja contactInformation nimiavaruudet 
+    Tässä skeemassa otettu käyttöön uudet common ja contactInformation nimiavaruudet
+    
+    Muutokset skeemapakettiin V10.05:
+    -Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 	***************************************************************
 -->
 <xs:schema
@@ -27,7 +30,7 @@
 	xmlns:fo="http://standardit.tapio.fi/schemas/forestData/forestobject" 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified"
-	version="1.0">
+	version="V10.05">
 	
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>

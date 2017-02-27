@@ -3,6 +3,9 @@
 	******************************************************************
 	Yhteiset tyypit, joita käytetään useissa eri skeemoissa.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 	*******************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -14,7 +17,7 @@
 	xmlns:sf="http://standardit.tapio.fi/schemas/forestData/specialFeature"
 	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate"
 	xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment"
-	elementFormDefault="qualified" version="1.0">
+	elementFormDefault="qualified" version="V10.05">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://www.w3.org/2005/05/xmlmime"

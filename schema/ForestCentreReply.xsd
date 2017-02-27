@@ -11,6 +11,9 @@
 	
 	21.10.2015
 	- ForestryCentreReply element and  ForestryCentreReplyType type renamed ForestCentre
+	
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 	****************************************************************************
 -->
 
@@ -21,7 +24,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	elementFormDefault="qualified"
-	version="1.0">
+	version="V10.05">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"

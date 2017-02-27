@@ -25,13 +25,16 @@
 	18.9.2015
 	- FinancingActCompletionDeclarationType -tyypille lisätty lapsielementti "fac:Documents"
 	***************************************************************
+	
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://standardit.tapio.fi/schemas/forestData/FinancingActCompletionDeclaration"
     xmlns="http://standardit.tapio.fi/schemas/forestData/FinancingActCompletionDeclaration"
     xmlns:fac="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
     xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="qualified"
-    version="1.1">
+    version="V10.05">
 
     <!-- Imports / Includes -->
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"

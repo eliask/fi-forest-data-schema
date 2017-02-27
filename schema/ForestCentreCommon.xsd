@@ -6,7 +6,8 @@
 	Ensimmäinen versio 1.0
 	18.9.2015
 	
-
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 	***************************************************************
 -->
 
@@ -16,7 +17,7 @@
 	xmlns="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	elementFormDefault="qualified"
-	version="1.0">
+	version="V10.05">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"

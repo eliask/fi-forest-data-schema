@@ -8,6 +8,9 @@
 	15.8.2014 
 	- Skeemat Common.xsd,Common_BasicDataType.xsd,ForestEnumeratives.xsd on 
 	yhdeksi nimiavaruudeksi: xmlns="http://standardit.tapio.fi/schemas/forestData/common"
+	
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -15,7 +18,7 @@
 	xmlns="http://standardit.tapio.fi/schemas/virta/sampleplot" 
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:tr="http://standardit.tapio.fi/schemas/virta/tree" 
-	elementFormDefault="qualified" attributeFormDefault="qualified" version="1.1">
+	elementFormDefault="qualified" attributeFormDefault="qualified" version="V10.05">
 
 		<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>	
 	<!-- <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31" schemaLocation="Common_BasicDataType_20100831.xsd"/> -->

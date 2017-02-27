@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Fifth Element Oy (Fifth Element Oy) -->
-<!-- WorkingSiteWorkTime Schema version 0.23.0 (18.1.2017) -->
+<!-- 
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+-->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkTime"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkTime"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.3">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:element name="WorkingSiteWorkTime" type="WorkingSiteWorkTimeType">
 		<xs:annotation>

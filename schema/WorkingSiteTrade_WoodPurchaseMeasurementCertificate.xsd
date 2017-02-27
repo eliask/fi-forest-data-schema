@@ -3,6 +3,9 @@
 	***************************************************************
 	Puukaupan mittaustodistuksen elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
@@ -13,7 +16,7 @@ xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common" 
 xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment" 
 
-elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+elementFormDefault="qualified" attributeFormDefault="qualified" version="V10.05">
 
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment" schemaLocation="WorkingSiteTrade_Assortment.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/common" schemaLocation="WorkingSiteTrade_Common.xsd"/>

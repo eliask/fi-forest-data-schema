@@ -59,7 +59,11 @@
 	
 	16.5.2016
 	- New simpleType "ExtendedQuantityUnitType"
+	
 	***************************************************************
+	
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 -->
 <xs:schema
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -68,7 +72,7 @@
 	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
 	elementFormDefault="unqualified"
 	attributeFormDefault="unqualified"
-	version="1.8">
+	version="V10.05">
 
 	<!-- Imports / Includes -->
 	<xs:include schemaLocation="ForestEnumeratives.xsd"/>

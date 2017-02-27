@@ -3,6 +3,9 @@
 	***************************************************************
 	Puukaupan tilastojen elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
@@ -12,7 +15,7 @@ xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment"
 xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common" 
 xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" 
 xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
-elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+elementFormDefault="qualified" attributeFormDefault="qualified" version="V10.05">
 
 <!-- xmlns:fe="http://standardit.tapio.fi/schemas/forestData/forestEnumeratives/2013/06/20" -->
 

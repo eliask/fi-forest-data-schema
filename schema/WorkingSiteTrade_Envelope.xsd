@@ -4,6 +4,9 @@
     ***************************************************************
     ???
     Skeema on JHS-170 -suosituksen mukainen.
+    
+    Muutokset skeemapakettiin V10.05:
+    -Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
     ***************************************************************
 -->
 
@@ -26,7 +29,7 @@
     xmlns:ms="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
     xmlns:cod="http://standardit.tapio.fi/schemas/forestData/commonObjectData"
     xmlns:ack="http://standardit.tapio.fi/schemas/forestData/Acknowledge"
-    elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+    elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
 
     <xs:import namespace="http://standardit.tapio.fi/schemas/header" schemaLocation="header.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer" schemaLocation="WorkingSiteTrade_CallForOffer.xsd"/>

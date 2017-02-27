@@ -11,6 +11,9 @@
 	
 	VERSIOKOMMENTIT 1.1 >>> 1.2
 	10.4.2015 Otettu käyttön lokaalit gml skeemat
+	
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 	***************************************************************
 -->
 <xs:schema
@@ -25,7 +28,7 @@
 	xmlns:gml="http://www.opengis.net/gml"
 	elementFormDefault="qualified"
 	attributeFormDefault="qualified"
-	version="1.2">
+	version="V10.05">
 	
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>

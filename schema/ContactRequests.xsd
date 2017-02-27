@@ -2,13 +2,16 @@
 <!--
   Muutokset skeemapakettiin V10.03:
   -Skeematiedosto lisätty pakettiin
+  
+  Muutokset skeemapakettiin V10.05:
+  -Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 -->
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://kuutio.fi/schemas/contactRequests"
 	xmlns="http://kuutio.fi/schemas/contactRequests"
   xmlns:cr="http://standardit.tapio.fi/schemas/contactRequest"
-  elementFormDefault="qualified" attributeFormDefault="qualified">
+  elementFormDefault="qualified" attributeFormDefault="qualified" version="V10.05">
 
   <xs:import namespace="http://standardit.tapio.fi/schemas/contactRequest"
 		schemaLocation="ContactRequest.xsd"/>

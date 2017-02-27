@@ -6,6 +6,9 @@
 	Ensimmäinen versio 1.0
 	
 	1.12.2104 Nimi muutettu kaikkialle: ForestryCentreMessage -> ForestCentreMessage
+	
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 	***************************************************************
 -->
 
@@ -20,7 +23,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	xmlns:mdd="http://standardit.tapio.fi/schemas/forestData/MooseDamageDeclaration"
-	elementFormDefault="qualified" version="1.0">
+	elementFormDefault="qualified" version="V10.05">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestUseDeclaration"

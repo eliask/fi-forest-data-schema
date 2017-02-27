@@ -3,6 +3,9 @@
 	***************************************************************
 	Sopimuksen / kaupan elementit ja tyypit.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -12,7 +15,7 @@
 	xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified"
-	version="1.0">
+	version="V10.05">
 
 	<!--	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common/basicDataTypes/2010/08/31"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common/2010/08/31" -->

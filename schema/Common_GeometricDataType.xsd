@@ -53,7 +53,11 @@
 	
 	21.9.2015
 	- Lisätty group-määrittely: PointAndLineGeometriesGroup
+	
 *******************************************************************
+
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 -->
 <xs:schema
 	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
@@ -62,7 +66,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:gml="http://www.opengis.net/gml"
 	elementFormDefault="unqualified"
-	version="1.6">
+	version="V10.05">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"

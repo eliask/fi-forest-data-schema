@@ -3,6 +3,9 @@
 	***************************************************************
 	Toimenpiteen toteumatiedot.
 	Skeema on JHS-170 -suosituksen mukainen.
+	
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 	***************************************************************
 -->
 <xs:schema
@@ -12,7 +15,7 @@
 	xmlns:ts="http://standardit.tapio.fi/schemas/forestData/treeStand"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified"
-	version="1.0">
+	version="V10.05">
 	
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStand" schemaLocation="TreeStand.xsd"/>

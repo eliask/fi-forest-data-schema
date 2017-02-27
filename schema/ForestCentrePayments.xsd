@@ -9,6 +9,9 @@
 
 	18.9.2015
 	- ForestCentrePaymentsType -tyypille lisätty lapsielementti "fac:Documents"
+	
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
 	****************************************************************************
 -->
 
@@ -18,7 +21,7 @@
 	xmlns="http://standardit.tapio.fi/schemas/forestData/ForestryCentrePayments"
 	xmlns:fac="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
-	elementFormDefault="qualified" version="1.0">
+	elementFormDefault="qualified" version="V10.05">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
