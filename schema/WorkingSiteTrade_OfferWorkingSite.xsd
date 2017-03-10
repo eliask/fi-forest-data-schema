@@ -6,6 +6,10 @@
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V10.06:
+	-Lisätty uusi tyyppimäärittely "RealEstatesType"
+	-Lisätty uusi vapaaehtoinen elementti "RealEstates", tyypiltään "RealEstatesType". Mahdollistaa kiinteistölistan välittämisen. Sijoitettu choice-elementin sisään yksittäisen kiinteistön välitysmahdollisuuden (RealEstate-elementti) kanssa.
 	***************************************************************
 -->
 
@@ -20,7 +24,7 @@
 	xmlns:cows="http://standardit.tapio.fi/schemas/workingsitetrade/callforofferworkingsite"
 	xmlns:wsst="http://standardit.tapio.fi/schemas/workingsitetrade/stand"
 	xmlns:pr="http://standardit.tapio.fi/schemas/workingsitetrade/product"
-	elementFormDefault="qualified" attributeFormDefault="qualified" version="V10.05">
+	elementFormDefault="qualified" attributeFormDefault="qualified" version="V10.06">
 
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment"
 		schemaLocation="WorkingSiteTrade_Assortment.xsd"/>
@@ -40,8 +44,7 @@
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/product"
 		schemaLocation="WorkingSiteTrade_Product.xsd"/>
 
-	<!-- Elementtimääritykset -->
-	<!-- Element definitions -->
+	<!-- Elementtimääritykset / Element definitions -->
 	<xs:element name="OWorkingSite" type="WorkingSiteType"/>
 	<xs:element name="IncludedInOffer" type="IncludedInOfferType"/>
 	<xs:element name="PurchaserRepresentativePerson" type="PurchaserRepresentativePersonType"/>
@@ -67,9 +70,9 @@
 	<xs:element name="Products" type="pr:ProductsType"/>
 	<xs:element name="Text" type="xs:string"/>
 	<xs:element name="Documents" type="wtco:DocumentsType"/>
+	<xs:element name="RealEstates" type="RealEstatesType"/>
 
-	<!-- Tyyppimääritykset -->
-	<!-- Type definitions -->
+	<!-- Tyyppimääritykset / Type definitions -->
 	<xs:complexType name="WorkingSiteType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Yksittäisen työkohteen tarjouksen tiedot.</xs:documentation>
@@ -88,7 +91,14 @@
 			<xs:element ref="SellerRepresentativePerson" minOccurs="0"/>
 			<xs:element ref="Sellers" minOccurs="0"/>
 			<xs:element ref="VATInfo" minOccurs="0"/>
-			<xs:element ref="RealEstate" minOccurs="0"/>
+			<xs:choice>
+				<xs:element ref="RealEstate" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="fi">VANHA NIMI = RealProperty</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="RealEstates" minOccurs="0"/>
+			</xs:choice>
 			<xs:element ref="RoadUsingRight" minOccurs="0"/>
 			<xs:element ref="CallForOfferWorkingSiteWoodTradeInfo" minOccurs="0"/>
 			<xs:element ref="wsst:Stands" minOccurs="0"/>
@@ -247,4 +257,16 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
+	<xs:complexType name="RealEstatesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kiinteistöjen tiedot.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Real estates data.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="RealEstate" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
 </xs:schema>

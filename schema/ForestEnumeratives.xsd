@@ -7,7 +7,7 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	*****************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V10.05">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V10.06">
   <xs:include schemaLocation="ForestFeatureEnumeratives.xsd" />
   <xs:simpleType name="TurningPointClassType">
     <xs:annotation>
@@ -20435,6 +20435,36 @@
           <xs:documentation xml:lang="fi">Skeemapaketti V10.05</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en">Schema package V10.05</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V10.06">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V10.06</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V10.06</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PreferredContactingMethodType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi">Yhteydenottotapatoive-koodisto</xs:documentation>
+      <xs:documentation xml:lang="sv"> </xs:documentation>
+      <xs:documentation xml:lang="en">Coding for preferred contacting method</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Sähköposti</xs:documentation>
+          <xs:documentation xml:lang="sv">E-post</xs:documentation>
+          <xs:documentation xml:lang="en">E-mail</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Puhelin</xs:documentation>
+          <xs:documentation xml:lang="sv">Telefon</xs:documentation>
+          <xs:documentation xml:lang="en">Telephone</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>

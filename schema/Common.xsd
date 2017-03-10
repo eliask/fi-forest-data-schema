@@ -49,26 +49,28 @@
 	VERSIOKOMMENTIT 1.9 >>> 2.0
 	MessageType: Päivitetty viestien lyhenteet nykyistä vastaaviksi
 	
-	*******************************************************************
-	
 	Muutokset skeemapakettiin V10.04:
 	-Lisätty uusi tyyppimäärittely AssortmentNameType, perustyypiltään String200Type. Toimijakohtaisen puutavaralajin nimen määrittely.
 	-Lisätty uusi tyyppimäärittely AssortmentCodeType, perustyypiltään String50Type. Toimijakohtaisen puutavaralajikoodin määrittely.
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V10.06:
+	-Elementti DocumentFileName muutettu vapaaehtoisesta pakolliseksi. Elementin dokumentaatio päivitetty.
+	-Elementti FileType muutettu vapaaehtoisesta pakolliseksi. Elementin dokumentaatio päivitetty.
+	*******************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/common"
-	xmlns:xmime="http://www.w3.org/2005/05/xmlmime" elementFormDefault="unqualified" version="V10.05">
+	xmlns:xmime="http://www.w3.org/2005/05/xmlmime" elementFormDefault="unqualified" version="V10.06">
 
 	<!-- Imports / Includes -->
 	<xs:include schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:import namespace="http://www.w3.org/2005/05/xmlmime" schemaLocation="../w3c/2005/xmlmime.xsd"/>
 
-	<!-- Elementtimääritykset -->
-	<!-- Element definitions -->
+	<!-- Elementtimääritykset / Element definitions -->
 	<xs:element name="ChangeState" type="ChangeStateType"/>
 	<xs:element name="ChangeTime" type="ChangeTimeType"/>
 	<xs:element name="TimeStamp" type="TimeStampType"/>
@@ -104,8 +106,7 @@
 	<xs:element name="DocumentFileName" type="DocumentFileNameType"/>
 	<xs:element name="FileType" type="FileTypeType"/>
 
-	<!-- Tyyppimäärittelyt -->
-	<!-- Type definitions -->
+	<!-- Tyyppimäärittelyt / Type definitions -->
 	<xs:simpleType name="ChangeTimeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tiedon muutosaika. Muutosajalla voidaan verrata tiedon muutosta suhteessa alkuperäiseen tietolähteeseen (onko tieto muuttunut alkuperäisessä tietolähteessä).</xs:documentation>
@@ -375,8 +376,20 @@
 		<xs:sequence>
 			<xs:element ref="DocumentClass" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="DocumentDescription" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="DocumentFileName" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="FileType" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="DocumentFileName" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Dokumenttitiedoston nimi ilman tiedostopäätettä, esim. "tiedosto.txt" --> nimi on "tiedosto"</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="FileType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Dokumenttitiedoston tyyppi = tiedostopääte, esim. "tiedosto.txt" --> tyyppi on "txt"</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en"></xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element ref="FileBinary" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
@@ -398,6 +411,7 @@
 			<xs:maxLength value="250"/>
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name="DocumentFileNameType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Dokumenttitiedoston nimi.</xs:documentation>
@@ -408,6 +422,7 @@
 			<xs:maxLength value="250"/>
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name="FileTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Dokumenttitiedoston tyyppi.</xs:documentation>
