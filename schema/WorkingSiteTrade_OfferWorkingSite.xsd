@@ -94,7 +94,7 @@
 			<xs:choice>
 				<xs:element ref="RealEstate" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation xml:lang="fi">VANHA NIMI = RealProperty</xs:documentation>
+						<xs:documentation xml:lang="fi"></xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element ref="RealEstates" minOccurs="0"/>

@@ -46,7 +46,7 @@
 			<xs:element ref="co:TimeStamp"/>
 			<xs:element ref="BusinessMessageTimeStamp">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = BusinessMessageTimestamp</xs:documentation>
+					<xs:documentation xml:lang="fi"></xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="BusinessAcceptanceActor"/>

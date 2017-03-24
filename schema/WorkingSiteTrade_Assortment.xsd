@@ -96,7 +96,7 @@
 		<xs:sequence>
 			<xs:element ref="WoodLotInformationType">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = Type</xs:documentation>
+					<xs:documentation xml:lang="fi"></xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="WoodLotInformationTypeDescription" minOccurs="0">
@@ -168,12 +168,12 @@
 			<xs:element ref="AssortmentMainGroup" minOccurs="0"/>
 			<xs:element ref="TreeSpecies">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = Tree.</xs:documentation>
+					<xs:documentation xml:lang="fi"></xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="StemType">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = TypeOfStem.</xs:documentation>
+					<xs:documentation xml:lang="fi"></xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="AssortmentCode" minOccurs="0">
@@ -331,7 +331,7 @@
 			<xs:element ref="MeasurementMethod" minOccurs="0"/>
 			<xs:element ref="AssortmentInfo" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = Text</xs:documentation>
+					<xs:documentation xml:lang="fi"></xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -388,7 +388,6 @@
 		<xs:sequence>
 			<xs:element ref="AssortmentClassCode">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = ClassCode</xs:documentation>
 					<xs:documentation xml:lang="fi">Puutavaralajiluokan tunnus, esim. hakkuutapa, hintaluokka, toimituskelpoisuus tai em. yhdistelmä.</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en">Assortment class code, usually "first thinning", "thinning", "regeneretion felling".</xs:documentation>
@@ -413,7 +412,6 @@
 		<xs:sequence>
 			<xs:element ref="AssortmentClassCode">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = ClassCode</xs:documentation>
 					<xs:documentation xml:lang="fi">Puutavaralajiluokan tunnus, esim. hakkuutapa, hintaluokka, toimituskelpoisuus tai em. yhdistelmä.</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en">Assortment class code, usually "first thinning", "thinning", "regeneretion felling".</xs:documentation>
@@ -463,7 +461,7 @@
 			<xs:group ref="PricesAndCurrencyGroup" minOccurs="0"/>
 			<xs:element ref="AssortmentInfo" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = Text</xs:documentation>
+					<xs:documentation xml:lang="fi"></xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

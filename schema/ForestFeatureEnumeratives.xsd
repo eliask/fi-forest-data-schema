@@ -7,7 +7,7 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	*****************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V10.06">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V10.07">
   <xs:simpleType name="OriginalFeatureCodeType">
     <xs:annotation>
       <xs:documentation xml:lang="fi">Erityispiirteen koodi (mm. monimuotoisuuskoodi).</xs:documentation>
@@ -22371,8 +22371,8 @@
       <xs:enumeration value="10039">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kohtaamispaikka/Ohituspaikka</xs:documentation>
-          <xs:documentation xml:lang="sv">Mötesplats</xs:documentation>
-          <xs:documentation xml:lang="en">passing place</xs:documentation>
+          <xs:documentation xml:lang="sv">Mötesplats/Omkörningsplats</xs:documentation>
+          <xs:documentation xml:lang="en">Passing place</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10040">
@@ -22490,478 +22490,490 @@
       <xs:enumeration value="10056">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ajoluiska, Ojan ylitys</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Körramp, dikesövergång</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10057">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ylityspaikka</xs:documentation>
+          <xs:documentation xml:lang="sv">Övergångsställe</xs:documentation>
+          <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10058">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Huomautus</xs:documentation>
+          <xs:documentation xml:lang="sv">Anmärkning</xs:documentation>
+          <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10059">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Korkeuseste</xs:documentation>
+          <xs:documentation xml:lang="sv">Höjdhinder</xs:documentation>
+          <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10060">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Pintavalutus-kenttä</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Översilningsområde</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10061">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Toteutunut reitti</xs:documentation>
+          <xs:documentation xml:lang="sv">Verkställd rutt</xs:documentation>
+          <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10062">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kaivukatko</xs:documentation>
+          <xs:documentation xml:lang="sv">Grävavbrott</xs:documentation>
+          <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10063">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Pelastautumispaikka</xs:documentation>
+          <xs:documentation xml:lang="sv">Räddningsplats</xs:documentation>
+          <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10064">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Liikkuminen kielletty</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Tillträde förbjudet</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10065">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Liikkuminen rajoitettu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Tillträde begränsat</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10066">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Pehmeikkö</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Svag mark</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10067">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Jyrkänne</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Stup</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10068">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Säästöpuuryhmä</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Naturvårdsträdsgrupp</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10069">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kaasulinja</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Gaslinje</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10070">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Toteuma-alue</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Verkställandeområde</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10071">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Toteuma-alue (Kemera)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Verkställandeområde (Kemera)</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10072">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Metsäsuunnitelmakuvion raja</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Skogsbruksplansfigurens gräns</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10073">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ojalinjahakkuu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Avverkning för dikeslinje</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10074">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ojalinjan puidenkaato moottorisahalla</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Fällning av träd för dikeslinje med motorsåg</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10075">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ojalinjan raivaus</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Röjning av dikeslinje</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10076">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tuulen aiheuttama tuho</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Vindskada</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10077">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ulkoilureitti</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Friluftsled</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10078">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kiinteistö</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Fastighet</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10079">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Uppoamisvaara</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Sjunkfara</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10080">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Pienaukkohakkuu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Luckhuggning</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10081">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Korkeusrajoite</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Höjdbegränsning</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10082">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muokkaussuunta</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Beredningsriktning</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10083">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Runkotie, uusi</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Huvudväg, ny</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10084">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Runkotie, perusparannus</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Huvudväg, grundlig förbättring</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10085">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Aluetie, uusi</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Områdesväg, ny</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10086">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Aluetie, perusparannus</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Områdesväg, grundlig förbättring</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10087">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Varsitie, uusi</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Basväg, ny</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10088">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Varsitie, perusparannus</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Basväg, grundlig förbättring</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10089">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Laskuoja, uusi</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Avloppsdike, ny</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10090">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Laskuoja, perkaus</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Avloppsdike, rensning</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10091">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Laskeutusallas (tie)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Sedimenteringsbassäng (väg)</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10092">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lietekuoppa (tie)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Slamgrop (väg)</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10093">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ympyräkääntöpaikka</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Rund vändplan</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10094">
         <xs:annotation>
           <xs:documentation xml:lang="fi">L-haarakääntöpaikka</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Vändplats i form av L ?</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10095">
         <xs:annotation>
           <xs:documentation xml:lang="fi">I-haarakääntöpaikka</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Vändplats i form av I ?</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10096">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Metsäliittymä rummulla</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Skogsanslutning med trumma</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10097">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Varastopaikka (työn toteutus)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Avlägg (verkställande av arbete)</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10098">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Maanottopaikka</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Marktäkt</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10099">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Soranottopaikka</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Grustäkt</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10100">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Uuden tien suunnittelu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planering av ny väg</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10101">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tien peruskorjauksen suunnittelu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planering av grundlig förbättring av väg</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10102">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Reunapalteen poisto</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Jämna ut vägkanten ?</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10103">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Polanteen poisto</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Avlägsnande av packad snö</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10104">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tienpidon muut työt</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övriga arbeten för väghållning</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10105">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ilmakaapeli</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Luftkabel</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10106">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Vesijohto (tie)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Vattenledning (väg)</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10107">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Rajapyykki (tie)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Råsten (väg)</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10108">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Vesiensuojelukuvion raja</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Vattenvårdsfigurens gräns</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10109">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Valtaoja, uusi</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Huvuddike (nytt)</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10110">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Sarkaoja</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Tegdike</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10111">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Vesiensuojelukohde</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Vattenvårdsobjekt</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10112">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ojaluiska</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Dikesslänt</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10113">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Pintavaluntapiste</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Ytavrinningspunkt</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10114">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Liestymisvaara</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Förslamningsfara</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11001">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Runsaslahopuustoinen metsä</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Skog med rikligt av död ved</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11002">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Arvokas suoelinympäristö</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Värdefull torvmarksmiljö</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11003">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Rehevä elinympäristö</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frodig livsmiljö</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11004">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Vähäpuustoinen kasvupaikka</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Ståndort med glest bestånd</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11005">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Poikkeava maastonmuoto</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Avvikande terrängform</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11006">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Vanha tai runsaslahopuinen metsä</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Gammal skog eller skog med rikligt av död ved</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11007">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Suurpetolinnun pesäpuu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Boträd för stor rovfågel</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11008">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Suojeltavan lajin esiintymä</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Förekomst av skyddad art</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11009">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Luonnontilaisen suon suojakaista</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Skyddszon för torvmark i naturtillstånd</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11010">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Suojakaista, vesistö</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Skyddszon, vattendrag</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11011">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Suojakaista, suo</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Skyddszon, torvmark</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>

@@ -80,7 +80,7 @@
 			<xs:choice>
 				<xs:element ref="WorkingSiteKey" minOccurs="1" maxOccurs="unbounded">
 					<xs:annotation>
-						<xs:documentation xml:lang="fi">Tätä vaihtoehtoa käytetään, kun työmaan / kohteen tiedot välitetään eri sanomassa / tiedostossa. Id viittaa tällöin erillisen sanoman työmaa- / kohde-id:een. VANHA NIMI = StandId</xs:documentation>
+						<xs:documentation xml:lang="fi">Tätä vaihtoehtoa käytetään, kun työmaan / kohteen tiedot välitetään eri sanomassa / tiedostossa. Id viittaa tällöin erillisen sanoman työmaa- / kohde-id:een.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element ref="CallForOfferWorkingSiteDetails" minOccurs="1" maxOccurs="unbounded">
@@ -102,7 +102,7 @@
 			<xs:choice>
 				<xs:element ref="WorkingSiteKey" minOccurs="1" maxOccurs="unbounded">
 					<xs:annotation>
-						<xs:documentation xml:lang="fi">VANHA NIMI = StandId</xs:documentation>
+						<xs:documentation xml:lang="fi"></xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element ref="OfferWorkingSiteDetails" minOccurs="1" maxOccurs="unbounded"/>

@@ -2,6 +2,9 @@
 <!--
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+
+    Muutokset skeemapakettiin V10.07:
+    -Lisätty uusi elementti "DestinationStorage" (toimituspiste) ScaleFactorDataType:en. Elementti tyypiltään bdt:String20Type.
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/ForwardingNotification"
@@ -13,7 +16,10 @@
                schemaLocation="Common_BasicDataType.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
                schemaLocation="WoodForceCommonTypes.xsd"/>
+	
 	<xs:element name="ForwardingNotification" type="ForwardingNotificationType"/>
+	<xs:element name="DestinationStorage" type="bdt:String20Type"/>
+	
 	<xs:complexType name="ForwardingNotificationType">
 		<xs:sequence>
 			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
@@ -98,6 +104,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="AssortmentsType">
 		<xs:sequence>
 			<xs:element name="Assortment" type="AssortmentDataType" minOccurs="1" maxOccurs="unbounded"/>
@@ -118,12 +125,13 @@
 			<xs:element name="ScaleFactor" type="ScaleFactorDataType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="AssortmentDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Mekuilmoituksen PTL:t</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="DestinationStorage" type="bdt:String20Type" minOccurs="1">
+			<xs:element ref="DestinationStorage" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Toimituspiste</xs:documentation>
 				</xs:annotation>
@@ -180,6 +188,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="AssortmentChangeDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Mekuilmoituksen lajisiirtymät</xs:documentation>
@@ -212,6 +221,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="CommonMessageDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Vakioviestit</xs:documentation>
@@ -229,6 +239,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="ScaleFactorDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuormainvaakatekijät</xs:documentation>
@@ -254,6 +265,11 @@
 					<xs:documentation xml:lang="fi">PTL</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+            <xs:element ref="DestinationStorage">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Toimituspiste</xs:documentation>
+				</xs:annotation>
+            </xs:element>
 			<xs:element name="CodeName" type="bdt:String50Type">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Puutavaralajin nimi</xs:documentation>

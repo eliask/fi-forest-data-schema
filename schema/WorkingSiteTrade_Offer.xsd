@@ -61,7 +61,7 @@
 			<xs:element ref="CallForOfferText" minOccurs="0"/>
 			<xs:element ref="ws:OfferWorkingSites">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = Stands</xs:documentation>
+					<xs:documentation xml:lang="fi"></xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="wtco:Documents" minOccurs="0"/>

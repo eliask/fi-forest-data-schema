@@ -7,7 +7,7 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	*****************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V10.06">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V10.07">
   <xs:include schemaLocation="ForestFeatureEnumeratives.xsd" />
   <xs:simpleType name="TurningPointClassType">
     <xs:annotation>
@@ -7080,6 +7080,13 @@
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="8">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Mittausraportti</xs:documentation>
+          <xs:documentation xml:lang="sv">Mätningsrapport</xs:documentation>
+          <xs:documentation xml:lang="en">Measurement report</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="CallForOfferBusinessSenderRoleType">
@@ -8601,9 +8608,9 @@
       </xs:enumeration>
       <xs:enumeration value="105">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Avohakkuu</xs:documentation>
-          <xs:documentation xml:lang="sv">Kalavverkning</xs:documentation>
-          <xs:documentation xml:lang="en">clearcutting</xs:documentation>
+          <xs:documentation xml:lang="fi">Päätehakkuu</xs:documentation>
+          <xs:documentation xml:lang="sv">Slutavverkning</xs:documentation>
+          <xs:documentation xml:lang="en">Final felling</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="106">
@@ -8870,6 +8877,13 @@
           <xs:documentation xml:lang="fi">Muu maanpinnan käsittely</xs:documentation>
           <xs:documentation xml:lang="sv">Annan markberedning</xs:documentation>
           <xs:documentation xml:lang="en">other soil preparation</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="315">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Katkoäestys</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="401">
@@ -9568,6 +9582,13 @@
       <xs:enumeration value="1012">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muu metsurityö</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1013">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Konetuntityö</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
@@ -11044,1786 +11065,1786 @@
       <xs:enumeration value="10000">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11000">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, havupuu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, barrträd</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11100">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, mänty</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, tall</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11110">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, mänty, 1-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, tall, 1 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11111">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Männyn taimi 1 v, minipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Tallplanta 1 år, miniklump</xs:documentation>
           <xs:documentation xml:lang="en">Pine plant 1 y, minimum clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11112">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Männyn taimi 1 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Tallplanta 1 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">pine plant 1 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11113">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Männyn taimi 1 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Tallplanta 1 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">pine plant 1 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11114">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Männyn taimi 1 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Tallplanta 1 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">pine plant 1 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11115">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Männyn taimi 1 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Tallplanta 1 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">pine plant 1 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11120">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, mänty, 2-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, tall, 2 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11122">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Männyn taimi 2 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Tallplanta 2 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">pine plant 2 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11123">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Männyn taimi 2 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Tallplanta 2 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">pine plant 2 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11124">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Männyn taimi 2 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Tallplanta 2 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">pine plant 2 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11125">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Männyn taimi 2 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Tallplanta 2 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">pine plant 2 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11130">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, mänty, 3-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, tall, 3 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11132">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Männyn taimi 3 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Tallplanta 3 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">pine plant 3 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11133">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Männyn taimi 3 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Tallplanta 3 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">pine plant 3 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11134">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Männyn taimi 3 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Tallplanta 3 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">pine plant 3 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11135">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Männyn taimi 3 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Tallplanta 3 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">pine plant 3 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11200">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, kuusi</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, gran</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11210">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, kuusi, 1-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, gran, 1 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11211">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusen taimi 1 v, minipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Granplanta 1 år, miniklump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11212">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusen taimi 1 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Granplanta 1 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">spruce plant 1 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11213">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusen taimi 1 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Granplanta 1 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">spruce plant 1 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11214">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusen taimi 1 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Granplanta 1 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">spruce plant 1 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11215">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusen taimi 1 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Granplanta 1 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">spruce plant 1 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11220">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, kuusi 2-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, gran, 2 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11222">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusen taimi 2 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Granplanta 2 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">spruce plant 2 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11223">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusen taimi 2 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Granplanta 2 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">spruce plant 2 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11224">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusen taimi 2 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Granplanta 2 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">spruce plant 2 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11225">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusen taimi 2 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Granplanta 2 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">spruce plant 2 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11230">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, kuusi, 3-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, gran, 3 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11232">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusen taimi 3 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Granplanta 3 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">spruce plant 3 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11233">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusen taimi 3 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Granplanta 3 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">spruce plant 3 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11234">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusen taimi 3 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Granplanta 3 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">spruce plant 3 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11235">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusen taimi 3 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Granplanta 3 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">spruce plant 3 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11300">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, Lehtikuusi</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, lärkträd</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11310">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, lehtikuusi, 1-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, lärkträd, 1 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11311">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtikuusen taimi 1 v, minipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lärkträdsplanta 1 år, miniklump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11312">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtikuusen taimi 1 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lärkträdsplanta 1 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">larch plant 1 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11313">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtikuusen taimi 1 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lärkträdsplanta 1 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">larch plant 1 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11314">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtikuusen taimi 1 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lärkträdsplanta 1 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">larch plant 1 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11315">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtikuusen taimi 1 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lärkträdsplanta 1 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">larch plant 1 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11320">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, Lehtikuusi, 2-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, lärkträd, 2 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11322">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtikuusen taimi 2 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lärkträdsplanta 2 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">larch plant 2 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11323">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtikuusen taimi 2 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lärkträdsplanta 2 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">larch plant 2 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11324">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtikuusen taimi 2 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lärkträdsplanta 2 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">larch plant 2 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11325">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtikuusen taimi 2 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lärkträdsplanta 2 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">larch plant 2 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11330">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, Lehtikuusi, 3-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, lärkträd, 3 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11332">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtikuusen taimi 3 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lärkträdsplanta 3 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">larch plant 3 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11333">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtikuusen taimi 3 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lärkträdsplanta 3 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">larch plant 3 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11334">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtikuusen taimi 3 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lärkträdsplanta 3 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">larch plant 3 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11335">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtikuusen taimi 3 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lärkträdsplanta 3 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">larch plant 3 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11340">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, Lehtikuusi, 4-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, lärkträd, 4 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11342">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtikuusen taimi 4 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lärkträdsplanta 4 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11343">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtikuusen taimi 4 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lärkträdsplanta 4 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11344">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtikuusen taimi 4 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lärkträdsplanta 4 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11345">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtikuusen taimi 4 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lärkträdsplanta 4 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11400">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, muu havupuu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, övrigt barrträd</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11410">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, muu havupuu, 1-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, övrigt barrträd, 1 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11411">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun havupuun taimi 1 v, minipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt barrträds planta 1 år, miniklump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11412">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun havupuun taimi 1 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt barrträds planta 1 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">Other coniferous tree plant 1 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11413">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun havupuun taimi 1 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt barrträds planta 1 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">Other coniferous tree plant 1 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11414">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun havupuun taimi 1 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt barrträds planta 1 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">Other coniferous tree plant 1 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11415">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun havupuun taimi 1 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt barrträds planta 1 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">Other coniferous tree plant 1 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11420">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, muu havupuu, 2-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, övrigt barrträd, 2 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11422">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun havupuun taimi 2 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt barrträds planta 2 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">Other coniferous tree 2 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11423">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun havupuun taimi 2 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt barrträds planta 2 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">Other coniferous tree 2 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11424">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun havupuun taimi 2 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt barrträds planta 2 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">Other coniferous tree 2 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11425">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun havupuun taimi 2 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt barrträds planta 2 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">Other coniferous tree 2 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11430">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, muu havupuu, 3-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, övrigt barrträd, 3 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11432">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun havupuun taimi 3 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt barrträds planta 3 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">Other coniferous tree 3 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11433">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun havupuun taimi 3 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt barrträds planta 3 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">Other coniferous tree 3 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11434">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun havupuun taimi 3 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt barrträds planta 3 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">Other coniferous tree 3 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11435">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun havupuun taimi 3 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt barrträds planta 3 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">Other coniferous tree 3 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11440">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, muu havupuu, 4-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, övrigt barrträd, 4 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11442">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun havupuun taimi 4 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt barrträds planta 4 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11443">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun havupuun taimi 4 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt barrträds planta 4 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11444">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun havupuun taimi 4 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt barrträds planta 4 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11445">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun havupuun taimi 4 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt barrträds planta 4 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12000">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, lehtipuut</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, lövträd</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12100">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, koivu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, björk</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12110">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, koivu, 1-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, björk, 1 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12111">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivun taimi 1 v, minipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Björkplanta 1 år, miniklump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12112">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivun taimi 1 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Björkplanta 1 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">birch plant 1 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12113">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivun taimi 1 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Björkplanta 1 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">birch plant 1 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12114">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivun taimi 1 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Björkplanta 1 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">birch plant 1 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12115">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivun taimi 1 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Björkplanta 1 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">birch plant 1 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12120">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, Koivu, 2-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, björk, 2 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12122">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivun taimi 2 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Björkplanta 2 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">birch plant 2 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12123">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivun taimi 2 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Björkplanta 2 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">birch plant 2 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12124">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivun taimi 2 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Björkplanta 2 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">birch plant 2 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12125">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivun taimi 2 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Björkplanta 2 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">birch plant 2 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12130">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, Koivu, 3-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, björk, 3 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12132">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivun taimi 3 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Björkplanta 3 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">birch plant 3 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12133">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivun taimi 3 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Björkplanta 3 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">birch plant 3 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12134">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivun taimi 3 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Björkplanta 3 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">birch plant 3 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12135">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivun taimi 3 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Björkplanta 3 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">birch plant 3 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12140">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, Koivu, 4-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, björk, 4 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12142">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivun taimi 4 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Björkplanta 4 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">birch plant 4 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12143">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivun taimi 4 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Björkplanta 4 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">birch plant 4 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12144">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivun taimi 4 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Björkplanta 4 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">birch plant 4 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12145">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivun taimi 4 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Björkplanta 4 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">birch plant 4 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12200">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, tervaleppä</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, klibbal</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12210">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, tervaleppä, 1-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, klibbal, 1 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12211">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tervalepän taimi 1 v, minipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Klibbalsplanta 1 år, miniklump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12212">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tervalepän taimi 1 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Klibbalsplanta 1 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">black alder plant 1 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12213">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tervalepän taimi 1 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Klibbalsplanta 1 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">black alder 1 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12214">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tervalepän taimi 1 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Klibbalsplanta 1 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">black alder 1 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12215">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tervalepän taimi 1 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Klibbalsplanta 1 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">black alder 1 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12220">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, tervaleppä, 2-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, klibbal, 2 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12222">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tervalepän taimi 2 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Klibbalsplanta 2 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">black alder 2 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12223">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tervalepän taimi 2 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Klibbalsplanta 2 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">black alder 2 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12224">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tervalepän taimi 2 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Klibbalsplanta 2 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">black alder 2 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12225">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tervalepän taimi 2 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Klibbalsplanta 2 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">black alder 2 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12230">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, tervaleppä, 3-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, klibbal, 3 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12232">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tervalepän taimi 3 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Klibbalsplanta 3 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">black alder 3 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12233">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tervalepän taimi 3 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Klibbalsplanta 3 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">black alder 3 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12234">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tervalepän taimi 3 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Klibbalsplanta 3 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">black alder 3 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12235">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tervalepän taimi 3 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Klibbalsplanta 3 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">black alder 3 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12240">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, tervaleppä, 4-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, klibbal, 4 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12242">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tervalepän taimi 4 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Klibbalsplanta 4 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">black alder 4 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12243">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tervalepän taimi 4 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Klibbalsplanta 4 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">black alder 4 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12244">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tervalepän taimi 4 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Klibbalsplanta 4 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">black alder 4 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12245">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tervalepän taimi 4 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Klibbalsplanta 4 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">black alder 4 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12300">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, muu lehtipuu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, övrigt lövträd</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12310">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, muu lehtipuu, 1-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, övrigt lövträd, 1 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12311">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun lehtipuun taimi 1 v, minipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt lövträds planta 1 år, miniklump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12312">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun lehtipuun taimi 1 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt lövträds planta 1 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">other deciduous tree plant 1 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12313">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun lehtipuun taimi 1 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt lövträds planta 1 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">other deciduous tree plant 1 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12314">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun lehtipuun taimi 1 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt lövträds planta 1 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">other deciduous tree plant 1 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12315">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun lehtipuun taimi 1 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt lövträds planta 1 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">other deciduous tree plant 1 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12320">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, muu lehtipuu, 2-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, övrigt lövträd, 2 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12322">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun lehtipuun taimi 2 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt lövträds planta 2 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">other deciduous tree plant 2 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12323">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun lehtipuun taimi 2 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt lövträds planta 2 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">other deciduous tree plant 2 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12324">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun lehtipuun taimi 2 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt lövträds planta 2 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">other deciduous tree plant 2 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12325">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun lehtipuun taimi 2 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt lövträds planta 2 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">other deciduous tree plant 2 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12330">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, muu lehtipuu, 3-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, övrigt lövträd, 3 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12332">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun lehtipuun taimi 3 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt lövträds planta 3 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">other deciduous tree plant 3 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12333">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun lehtipuun taimi 3 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt lövträds planta 3 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">other deciduous tree plant 3 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12334">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun lehtipuun taimi 3 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt lövträds planta 3 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">other deciduous tree plant 3 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12335">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun lehtipuun taimi 3 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt lövträds planta 3 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">other deciduous tree plant 3 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12340">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, muu lehtipuu, 4-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, övrigt lövträd, 4 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12342">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun lehtipuun taimi 4 v, pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt lövträds planta 4 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en">other deciduous tree plant 4 y, small clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12343">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun lehtipuun taimi 4 v, keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt lövträds planta 4 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en">other deciduous tree plant 4 y, medium clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12344">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun lehtipuun taimi 4 v, isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt lövträds planta 4 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en">other deciduous tree plant 4 y, large clod</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12345">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muun lehtipuun taimi 4 v, avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Övrigt lövträds planta 4 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en">other deciduous tree plant 4 y, open roots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12400">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, visakoivu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, masurbjörk</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12410">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, visakoivu, 1-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, masurbjörk, 1 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12411">
         <xs:annotation>
           <xs:documentation xml:lang="fi">visakoivu 1-v minipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Masurbjörk 1 år, miniklump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12412">
         <xs:annotation>
           <xs:documentation xml:lang="fi">visakoivu 1-v pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Masurbjörk 1 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12413">
         <xs:annotation>
           <xs:documentation xml:lang="fi">visakoivu 1-v keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Masurbjörk 1 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12414">
         <xs:annotation>
           <xs:documentation xml:lang="fi">visakoivu 1-v isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Masurbjörk 1 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12415">
         <xs:annotation>
           <xs:documentation xml:lang="fi">visakoivu 1-v avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Masurbjörk 1 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12420">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, visakoivu, 2-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, masurbjörk, 2 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12421">
         <xs:annotation>
           <xs:documentation xml:lang="fi">visakoivu 2-v minipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Masurbjörk 2 år, miniklump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12422">
         <xs:annotation>
           <xs:documentation xml:lang="fi">visakoivu 2-v pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Masurbjörk 2 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12423">
         <xs:annotation>
           <xs:documentation xml:lang="fi">visakoivu 2-v keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Masurbjörk 2 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12424">
         <xs:annotation>
           <xs:documentation xml:lang="fi">visakoivu 2-v isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Masurbjörk 2 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12425">
         <xs:annotation>
           <xs:documentation xml:lang="fi">visakoivu 2-v avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Masurbjörk 2 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12430">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, visakoivu, 3-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, masurbjörk, 3 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12431">
         <xs:annotation>
           <xs:documentation xml:lang="fi">visakoivu 3-v minipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Masurbjörk 3 år, miniklump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12432">
         <xs:annotation>
           <xs:documentation xml:lang="fi">visakoivu 3-v pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Masurbjörk 3 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12433">
         <xs:annotation>
           <xs:documentation xml:lang="fi">visakoivu 3-v keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Masurbjörk 3 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12434">
         <xs:annotation>
           <xs:documentation xml:lang="fi">visakoivu 3-v isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Masurbjörk 3 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12435">
         <xs:annotation>
           <xs:documentation xml:lang="fi">visakoivu 3-v avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Masurbjörk 3 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12440">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, visakoivu, 4-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, masurbjörk, 4 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12441">
         <xs:annotation>
           <xs:documentation xml:lang="fi">visakoivu 4-v minipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Masurbjörk 4 år, miniklump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12442">
         <xs:annotation>
           <xs:documentation xml:lang="fi">visakoivu 4-v pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Masurbjörk 4 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12443">
         <xs:annotation>
           <xs:documentation xml:lang="fi">visakoivu 4-v keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Masurbjörk 4 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12444">
         <xs:annotation>
           <xs:documentation xml:lang="fi">visakoivu 4-v isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Masurbjörk 4 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12445">
         <xs:annotation>
           <xs:documentation xml:lang="fi">visakoivu 4-v avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Masurbjörk 4 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12500">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, haapa</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, asp</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12510">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, haapa, 1-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, asp, 1 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12511">
         <xs:annotation>
           <xs:documentation xml:lang="fi">haapa 1-v minipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Asp 1 år, miniklump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12512">
         <xs:annotation>
           <xs:documentation xml:lang="fi">haapa 1-v pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Asp 1 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12513">
         <xs:annotation>
           <xs:documentation xml:lang="fi">haapa 1-v keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Asp 1 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12514">
         <xs:annotation>
           <xs:documentation xml:lang="fi">haapa 1-v isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Asp 1 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12515">
         <xs:annotation>
           <xs:documentation xml:lang="fi">haapa 1-v avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Asp 1 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12520">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, haapa, 2-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, asp, 2 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12521">
         <xs:annotation>
           <xs:documentation xml:lang="fi">haapa 2-v minipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Asp 2 år, miniklump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12522">
         <xs:annotation>
           <xs:documentation xml:lang="fi">haapa 2-v pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Asp 2 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12523">
         <xs:annotation>
           <xs:documentation xml:lang="fi">haapa 2-v keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Asp 2 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12524">
         <xs:annotation>
           <xs:documentation xml:lang="fi">haapa 2-v isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Asp 2 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12525">
         <xs:annotation>
           <xs:documentation xml:lang="fi">haapa 2-v avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Asp 2 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12530">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, haapa, 3-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, asp, 3 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12531">
         <xs:annotation>
           <xs:documentation xml:lang="fi">haapa 3-v minipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Asp 3 år, miniklump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12532">
         <xs:annotation>
           <xs:documentation xml:lang="fi">haapa 3-v pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Asp 3 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12533">
         <xs:annotation>
           <xs:documentation xml:lang="fi">haapa 3-v keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Asp 3 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12534">
         <xs:annotation>
           <xs:documentation xml:lang="fi">haapa 3-v isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Asp 3 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12535">
         <xs:annotation>
           <xs:documentation xml:lang="fi">haapa 3-v avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Asp 3 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12540">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimi, haapa, 4-v</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Planta, asp, 4 år</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12541">
         <xs:annotation>
           <xs:documentation xml:lang="fi">haapa 4-v minipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Asp 4 år, miniklump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12542">
         <xs:annotation>
           <xs:documentation xml:lang="fi">haapa 4-v pikkupaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Asp 4 år, liten klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12543">
         <xs:annotation>
           <xs:documentation xml:lang="fi">haapa 4-v keskipaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Asp 4 år, medelstor klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12544">
         <xs:annotation>
           <xs:documentation xml:lang="fi">haapa 4-v isopaakku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Asp 4 år, stor klump</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12545">
         <xs:annotation>
           <xs:documentation xml:lang="fi">haapa 4-v avojuurinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Asp 4 år, barrotad</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="20000">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21000">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, havupuut</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, barrträd</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21100">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, mänty</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, tall</xs:documentation>
           <xs:documentation xml:lang="en">Pine seed</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21111">
         <xs:annotation>
           <xs:documentation xml:lang="fi">siemen, mä</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, ta</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21112">
         <xs:annotation>
           <xs:documentation xml:lang="fi">siemen, mä, siemenviljelty1</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, ta, fröplantage1</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21113">
         <xs:annotation>
           <xs:documentation xml:lang="fi">siemen, mä, siemenviljelty2</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, ta, fröplantage2</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21114">
         <xs:annotation>
           <xs:documentation xml:lang="fi">siemen, mä, metsikkökeräys</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, ta, beståndsfrö</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21200">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, kuusi</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, gran</xs:documentation>
           <xs:documentation xml:lang="en">Spruce seed</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21211">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, ku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, gr</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21212">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, ku, siemenviljelty</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, gr, fröplantage</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21213">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, ku, metsikkökeräys</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, gr, beståndsfrö</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21300">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, lehtikuusi</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, lärkträd</xs:documentation>
           <xs:documentation xml:lang="en">Larch seed</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21311">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, leku</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, lätr</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21312">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, leku, siemenviljelty</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, lätr, fröplantage</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21313">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, leku, metsikkökeräys</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, lätr, beståndsfrö</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21400">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, muu havupuu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, övrigt barrträd</xs:documentation>
           <xs:documentation xml:lang="en">Other coniferous tree seed</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21411">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, muu havup</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, övrigt barrt</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21412">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, muu havup, siemenviljelty</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, övrigt barrt, fröplantage</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21413">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, muu havup, metsikkökeräys</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, övrigt barrt, beståndsfrö</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="22000">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, lehtipuut</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, lövträd</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="22100">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, koivu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, björk</xs:documentation>
           <xs:documentation xml:lang="en">Birch seed</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="22111">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, ko</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, bj</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="22112">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, ko, siemenviljelty</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, bj, fröplantage</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="22113">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, ko, metsikkökeräys</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, bj, beståndsfrö</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="22200">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, tervaleppä</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, klibbal</xs:documentation>
           <xs:documentation xml:lang="en">Black alder seed</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="22211">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, tlep</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, klal</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="22212">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, tlep, siemenviljelty</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, klal, fröplantage</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="22213">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, tlep, metsikkökeräys</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, klal, beståndsfrö</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="22300">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, muu lehtipuu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, övrigt lövträd</xs:documentation>
           <xs:documentation xml:lang="en">Other deciduous tree seed</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="22311">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, muu lehtip</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, övrigt lövt</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="22312">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, muu lehtip, siemenviljelty</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, övrigt lövt, fröplantage</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="22313">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemen, muu lehtip, metsikkökeräys</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Frö, övrigt lövt, beståndsfrö</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="30000">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lannoite</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Gödsel</xs:documentation>
           <xs:documentation xml:lang="en">Fertiliser</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="31000">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Keinolannoite</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Konstgödsel</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="31100">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kivennäismaat</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Mineralmark</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="31101">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Salpietari</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Salpeter</xs:documentation>
           <xs:documentation xml:lang="en">Saltpetre</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="31102">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kemifix (pitkävaikutteinen typpi)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Kemifix</xs:documentation>
           <xs:documentation xml:lang="en">Kemifix</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="31103">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Metsän kalihiven-lannos</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Kalium-mineralgödsel för skog</xs:documentation>
           <xs:documentation xml:lang="en">Forest potassium-mineral fertiliser</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="31104">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Metsän PK-lannos</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">PK-gödsel för skog</xs:documentation>
           <xs:documentation xml:lang="en">Forest PK-fertiliser</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="31105">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kunnostuslannos 1 ja 2</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Iståndsättningsgödsel 1 och 2</xs:documentation>
           <xs:documentation xml:lang="en">Overhaul fertilising</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="31106">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Metsän NP-lannos1</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">NP-gödsel1 för skog</xs:documentation>
           <xs:documentation xml:lang="en">NP-fertiliser</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="31107">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Metsän NP-lannos2</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">NP-gödsel2 för skog</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="31108">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Boorilannoite</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Borgödsel</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="31200">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Turvemaat</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Torvmark</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="31201">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Suometsien Y-lannos, NPK</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Torvmarksskogs Y-gödsel, NPK</xs:documentation>
           <xs:documentation xml:lang="en">Peatland NPK-fertiliser</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="32000">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tuhkalannoite</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Askgödsel</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="32100">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kivennäismaat</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Mineraljord</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="32101">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tuhkalannoite 1</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Askgödsel 1</xs:documentation>
           <xs:documentation xml:lang="en">ash fertiliser 1</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="32200">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Turvemaat</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Torvmark</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="32201">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tuhkalannoite 2</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Askgödsel 2</xs:documentation>
           <xs:documentation xml:lang="en">ash fertiliser 2</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="33000">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muu lannoite</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Annan gödsel</xs:documentation>
+          <xs:documentation xml:lang="en">Other fertiliser</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="33100">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kivennäismaat</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Mineraljord</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="33101">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Urea</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Urea</xs:documentation>
           <xs:documentation xml:lang="en">Urea</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="33200">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Turvemaat</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Torvmark</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="33201">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lannoite 1</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Gödsel 1</xs:documentation>
           <xs:documentation xml:lang="en">fertiliser 1</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="40000">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tienarakennus- ja ojitustarvike</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Material för vägbygge och dikning</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="41000">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Maa-ainekset</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Jordart</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="41111">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Sora</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">gravel</xs:documentation>
+          <xs:documentation xml:lang="sv">Grus</xs:documentation>
+          <xs:documentation xml:lang="en">Gravel</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="41112">
@@ -12836,98 +12857,98 @@
       <xs:enumeration value="41113">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tuhka</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">ash</xs:documentation>
+          <xs:documentation xml:lang="sv">Aska</xs:documentation>
+          <xs:documentation xml:lang="en">Ash</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="41114">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Moreeni</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">moraine</xs:documentation>
+          <xs:documentation xml:lang="sv">Morän</xs:documentation>
+          <xs:documentation xml:lang="en">Moraine</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="41115">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Louhe</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">blasted stone</xs:documentation>
+          <xs:documentation xml:lang="sv">Sprängsten</xs:documentation>
+          <xs:documentation xml:lang="en">Blasted stone</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="41116">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Murske</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">crushed stone</xs:documentation>
+          <xs:documentation xml:lang="sv">Kross</xs:documentation>
+          <xs:documentation xml:lang="en">Crushed stone</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="42000">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Rummut ja putket</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">crushed stones</xs:documentation>
+          <xs:documentation xml:lang="sv">Trummor och rör</xs:documentation>
+          <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="42111">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tierumpu, muovi</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">culvert, plastic</xs:documentation>
+          <xs:documentation xml:lang="sv">Vägtrumma, plast</xs:documentation>
+          <xs:documentation xml:lang="en">Culvert, plastic</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="42112">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tierumpu, teräs</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">culvert, steel</xs:documentation>
+          <xs:documentation xml:lang="sv">Vägtrumma, stål</xs:documentation>
+          <xs:documentation xml:lang="en">Culvert, steel</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="42113">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tierumpu, betoni</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">culvert, concrete</xs:documentation>
+          <xs:documentation xml:lang="sv">Vägtrumma, betong</xs:documentation>
+          <xs:documentation xml:lang="en">Culvert, concrete</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="42114">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tierumpu, erittelemätön materiaali</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">culvert, unclassified material</xs:documentation>
+          <xs:documentation xml:lang="sv">Vägtrumma, icke specificerat material</xs:documentation>
+          <xs:documentation xml:lang="en">Culvert, unclassified material</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="42115">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Putki</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Rör</xs:documentation>
           <xs:documentation xml:lang="en">Pipe</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="42116">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ylivuotoputki</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Spillrör</xs:documentation>
           <xs:documentation xml:lang="en">Overflow pipe</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="42117">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Supistaja</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Reducerare ?</xs:documentation>
           <xs:documentation xml:lang="en">Reducer</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="43000">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Suodatinmateriaalit</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Filtermaterial</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="43111">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Risumatto</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Rismatta</xs:documentation>
           <xs:documentation xml:lang="en">twig mat</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -12941,7 +12962,7 @@
       <xs:enumeration value="43113">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Telalava</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Kavelbädd</xs:documentation>
           <xs:documentation xml:lang="en">roller stage</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -12962,70 +12983,70 @@
       <xs:enumeration value="50000">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kasvinsuojeluaineet</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Växtskyddsmedel</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="51111">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Urea</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Urea</xs:documentation>
+          <xs:documentation xml:lang="en">Urea</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="51112">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Harmaaorvakka</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Pergamentsvamp</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="60000">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Työsuojelutarvikkeet</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Arbetsskyddsutrustning</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="61111">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Työsuojelutarvike erittelemätön</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Arbetsskyddsutrustning icke specificerat</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="70000">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Poltto- ja voiteluaineet</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Bränslen och smörjmedel</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="71111">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Poltto- ja voiteluaine erittelemätön</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Bränslen och smörjmedel icke specificerat</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="80000">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Peitteet</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Täcken</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="81111">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Peitepaperi 4m</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Täckpapper 4m</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="81112">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Peitepaperi 6m</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Täckpapper 6m</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
@@ -20444,6 +20465,13 @@
           <xs:documentation xml:lang="en">Schema package V10.06</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="V10.07">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V10.07</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V10.07</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="PreferredContactingMethodType">
@@ -20465,6 +20493,59 @@
           <xs:documentation xml:lang="fi">Puhelin</xs:documentation>
           <xs:documentation xml:lang="sv">Telefon</xs:documentation>
           <xs:documentation xml:lang="en">Telephone</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ActionType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi"> </xs:documentation>
+      <xs:documentation xml:lang="sv"> </xs:documentation>
+      <xs:documentation xml:lang="en"> </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Lisää/Päivitä</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Insert/Update</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Poista</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Delete</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PriorityType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi"> </xs:documentation>
+      <xs:documentation xml:lang="sv"> </xs:documentation>
+      <xs:documentation xml:lang="en"> </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Matala</xs:documentation>
+          <xs:documentation xml:lang="sv">Låg</xs:documentation>
+          <xs:documentation xml:lang="en">Low</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Normaali (oletus)</xs:documentation>
+          <xs:documentation xml:lang="sv">Normal (standard)</xs:documentation>
+          <xs:documentation xml:lang="en">Normal (default)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Korkea</xs:documentation>
+          <xs:documentation xml:lang="sv">Hög</xs:documentation>
+          <xs:documentation xml:lang="en">High</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>

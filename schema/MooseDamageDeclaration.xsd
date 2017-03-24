@@ -197,9 +197,21 @@
 		</xs:annotation>
 	</xs:element>
 
-	<xs:element name="LocationEstates" type="LocationEstatesType"/>
+	<xs:element name="LocationEstates" type="LocationEstatesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Viittaukset sijaintikiinteistöihin.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
 
-	<xs:element name="LocationEstate" type="fcc:LocationEstateType"/>
+	<xs:element name="LocationEstate" type="fcc:LocationEstateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Id-viittaus RealEstate.id -attribuuttiin.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
 
 
 	<!-- Tyyppimääritykset / Type definitions -->

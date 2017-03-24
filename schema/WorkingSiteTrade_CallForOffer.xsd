@@ -56,7 +56,7 @@
 		<xs:sequence>
 			<xs:element ref="co:TimeStamp">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = Timestamp</xs:documentation>
+					<xs:documentation xml:lang="fi"></xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="RelatedCallForOffers" type="RelatedCallForOffersType" minOccurs="0"
@@ -67,7 +67,7 @@
 			</xs:element>
 			<xs:element ref="AdditionalCode" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = AdditionalModeCode</xs:documentation>
+					<xs:documentation xml:lang="fi"></xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="CallForOfferBusinessSender"/>
@@ -86,7 +86,7 @@
 			<xs:element ref="CallForOfferSilvicultureInfo" minOccurs="0"/>
 			<xs:element ref="ws:CallForOfferWorkingSites">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = Stands</xs:documentation>
+					<xs:documentation xml:lang="fi"></xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="wtco:Documents" minOccurs="0"/>

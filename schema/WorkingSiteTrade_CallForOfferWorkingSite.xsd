@@ -60,37 +60,37 @@
 		<xs:sequence>
 			<xs:element ref="co:TimeStamp">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = Timestamp</xs:documentation>
+					<xs:documentation xml:lang="fi"></xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="WorkingSiteName">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = Stand1Name</xs:documentation>
+					<xs:documentation xml:lang="fi"></xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="IncludeInOffer">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = MustBeIncludedInOffer</xs:documentation>
+					<xs:documentation xml:lang="fi"></xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="SellerRepresentativePerson"/>
 			<xs:element ref="Sellers">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = RealPropertyOwner ja yksikkörakenne</xs:documentation>
+					<xs:documentation xml:lang="fi"></xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="VATInfo"/>
 			<xs:choice>
 				<xs:element ref="RealEstate">
 					<xs:annotation>
-						<xs:documentation xml:lang="fi">VANHA NIMI = RealProperty</xs:documentation>
+						<xs:documentation xml:lang="fi"></xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element ref="RealEstates"/>
 			</xs:choice>
 			<xs:element ref="WorkingSiteText" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = StandText</xs:documentation>
+					<xs:documentation xml:lang="fi"></xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="RoadUsingRight" minOccurs="0"/>
@@ -111,7 +111,6 @@
 			</xs:element>
 			<xs:element ref="WorkingSiteGeometries" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = StandGeometries.</xs:documentation>
 					<xs:documentation xml:lang="fi">Leimikon sijantialueen paikkatieto. Hakkuuseen ja lähikuljetukseen vaikuttavat kohteet. Pistemäisiä, viivamaisia ja aluemaisia kohteita.</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en">Points, lines and polygons that have some mening for felling and forwarding. Eg. diversity objects.</xs:documentation>

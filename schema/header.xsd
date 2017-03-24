@@ -2,6 +2,10 @@
 <!-- 
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V10.07:
+	-Koodisto "ActionType" poistettu skeematiedostosta ja lisätty koodistoon. Elementti Action muutettu käyttämään samaa ActionType-tyyppimäärittelyä kuin ennenkin, mutta co: namespacesta.
+	-Koodisto "PriorityType" poistettu skeematiedostosta ja lisätty koodistoon. Elementti Priority muutettu käyttämään samaa PriorityType-tyyppimäärittelyä kuin ennenkin, mutta co: namespacesta.
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns="http://standardit.tapio.fi/schemas/header"
@@ -85,8 +89,8 @@
 				</xs:simpleType>
 			</xs:element>
 			<xs:element name="TransmissionTime" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="Action" type="ActionType" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="Priority" type="PriorityType" minOccurs="0">
+			<xs:element name="Action" type="co:ActionType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Priority" type="co:PriorityType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Prioriteetti</xs:documentation>
 				</xs:annotation>
@@ -96,37 +100,4 @@
 		<xs:attribute name="schemaPackageSubversion" type="co:ForestDataStandardSchemaPackageSubversionType" use="optional"/>
         <xs:attribute name="schemaPackageVersionDate" type="co:DateType" use="optional"/>
     </xs:complexType>
-    <xs:simpleType name="ActionType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation>Insert/Update</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation>Delete</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="PriorityType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation>Matala</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation>Normaali (oletus)</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3">
-				<xs:annotation>
-					<xs:documentation>Korkea</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
 </xs:schema>

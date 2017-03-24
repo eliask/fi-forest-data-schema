@@ -53,7 +53,7 @@
 			<xs:element ref="PaymentType"/>
 			<xs:element ref="Value">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = Amount</xs:documentation>
+					<xs:documentation xml:lang="fi"></xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="VAT"/>
@@ -61,7 +61,7 @@
 			<xs:element ref="ForestFundPayment"/>
 			<xs:element ref="TotalValue">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">VANHA NIMI = TotalAmount</xs:documentation>
+					<xs:documentation xml:lang="fi"></xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="Currency"/>

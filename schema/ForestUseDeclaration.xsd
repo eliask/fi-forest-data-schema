@@ -234,8 +234,20 @@
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="DeclarationStandTextInformation" type="co:String2000Type"/>
-	<xs:element name="LocationEstate" type="fcc:LocationEstateType"/>
-	<xs:element name="LocationEstates" type="LocationEstatesType"/>
+	<xs:element name="LocationEstate" type="fcc:LocationEstateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Id-viittaus RealEstate.id -attribuuttiin.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="LocationEstates" type="LocationEstatesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Viittaukset sijaintikiinteitöihin.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="Documents" type="DocumentsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Ei käytössä toistaiseksi. Tietoja ei tallenneta Metsäkeskusjärjestelmään eikä niitä huomioida ilmoituksen käsittelyn yhteydessä.</xs:documentation>
