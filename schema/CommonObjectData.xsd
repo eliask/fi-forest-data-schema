@@ -7,6 +7,12 @@
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V10.08:
+	-Elementin Object lapsielementti SelfMonitoringBasicData otettu käyttöön poistamalla se kommenttitageista
+	-Elementin Object lapsielementti RealEstates otettu käyttöön poistamalla se kommenttitageista
+	-Elementin Object lapsielementti Actors otettu käyttöön poistamalla se kommenttitageista
+	
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/commonObjectData"
@@ -31,7 +37,7 @@
 	xmlns:workingSiteFinalAuditSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSoilConditioning"
 	xmlns:workingSiteQualityControlSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
 	xmlns:MapSymbol="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
-	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
+	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.08">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase"
@@ -311,8 +317,8 @@
 	<xs:group name="ObjectDataGroup">
 		<xs:sequence>
 			<xs:element ref="ParentObjects" minOccurs="0" maxOccurs="1"/>
-			<!-- <xs:element ref="Actors" minOccurs="0" maxOccurs="1"/> -->
-			<!-- <xs:element name="RealEstates" type="RealEstatesType" minOccurs="0"/> -->
+			<xs:element ref="Actors" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="RealEstates" type="RealEstatesType" minOccurs="0"/>
 			<!-- <xs:element ref="SoilData" minOccurs="0" maxOccurs="1"/> -->
 			<!-- <xs:element ref="TreeStandBasedData" minOccurs="0" maxOccurs="1"/> -->
 			<!-- <xs:element ref="RestrictionData" minOccurs="0" maxOccurs="1"/> -->
@@ -388,7 +394,7 @@
 			<!-- <xs:element name="ControlEvaluations" type="ControlEvaluationsType" minOccurs="0"/> -->
 			<!-- <xs:element name="ControlDataForestRoadConstruction" type="ControlDataForestRoadConstructionType" minOccurs="0"/> -->
 			<!-- <xs:element name="ControlDataSwampForestManagement" type="ControlDataSwampForestManagementType" minOccurs="0"/> -->
-			<!-- <xs:element minOccurs="0" name="SelfMonitoringBasicData" type="SelfMonitoringBasicDataType"/> -->
+			<xs:element minOccurs="0" name="SelfMonitoringBasicData" type="SelfMonitoringBasicDataType"/>
 			<!-- <xs:element minOccurs="0" name="SelfMonitoringObjectData" type="SelfMonitoringObjectDataType"/> -->
 			<!-- <xs:element minOccurs="0" name="SelfMonitoringObjectProtectionOperationsData" type="SelfMonitoringObjectProtectionOperationsDataType">
 				<xs:annotation>
@@ -665,7 +671,7 @@
 			<xs:element name="TargetSelection" type="TargetSelectionType" minOccurs="1"
 				maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kohdevalinta: 0=ei tarkastusta 1=otanta, 2=riskianalyysi 3=harkinta 4=manuaalinen otanta 9=poistettu tarkastuksesta. Kohdevalinta on pakollinen tieto. Maastotallentimella voi päivittää vain kohdevalinnan 0 kohdevalinnaksi 2, 3, tai 4. Virran antamaa kohdevalintaa 1 ei voi muuttaa tai kopioida toiselle tietueelle maastotallentimella. Virrassa olevaa kohdevalintaa 1 ei päivitetä maastotallentimelta tulevalla tiedolla.</xs:documentation>
+					<xs:documentation xml:lang="fi">Kohdevalinta: 0=ei tarkastusta 1=otanta, 2=riskianalyysi 3=harkinta 4=manuaalinen otanta 9=poistettu tarkastuksesta. 10 = satunnaisotanta, 11 = suunnattu otanta (koodit 10 ja 11 MKI + LULA). Kohdevalinta on pakollinen tieto. Maastotallentimella voi päivittää vain kohdevalinnan 0 kohdevalinnaksi 2, 3, tai 4. Virran antamaa kohdevalintaa 1 ei voi muuttaa tai kopioida toiselle tietueelle maastotallentimella. Virrassa olevaa kohdevalintaa 1 ei päivitetä maastotallentimelta tulevalla tiedolla.</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>

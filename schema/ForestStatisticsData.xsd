@@ -23,6 +23,14 @@
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V10.08:
+	-Päivitetty elementin LoggingsRow dokumentaatio
+	-Päivitetty elementin LoggingsRows dokumentaatio
+	-Päivitetty elementin OperationRow dokumentaatio
+	-Päivitetty elementin OperationRows dokumentaatio
+	-Päivitetty complexTypen LoggingsRowType dokumentaatio
+	
 	*************************************************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -33,7 +41,7 @@
     xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
     xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
     xmlns:rws="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasestatistics"
-    elementFormDefault="qualified" attributeFormDefault="qualified" version="V10.05">
+    elementFormDefault="qualified" attributeFormDefault="qualified" version="V10.08">
 
     <!-- Imports / Includes -->
     <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment"
@@ -101,8 +109,20 @@
             <xs:element ref="StartDate" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="EndDate" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="rws:RoundWoodSalesRows" minOccurs="0" maxOccurs="1"/>
-            <xs:element ref="OperationRows" minOccurs="0" maxOccurs="1"/>
-            <xs:element ref="LoggingsRows" minOccurs="0" maxOccurs="1"/>
+            <xs:element ref="OperationRows" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Metsänhoito- ja metsänparannustöiden tilastot</xs:documentation>
+                    <xs:documentation xml:lang="sv"/>
+                    <xs:documentation xml:lang="en"/>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="LoggingsRows" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Puunkorjuutilastot</xs:documentation>
+                    <xs:documentation xml:lang="sv"/>
+                    <xs:documentation xml:lang="en"/>
+                </xs:annotation>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
     <xs:simpleType name="CompanyIDType">
@@ -133,7 +153,7 @@
         <xs:sequence>
             <xs:element ref="OperationRow" minOccurs="1" maxOccurs="unbounded">
                 <xs:annotation>
-                    <xs:documentation xml:lang="fi"/>
+                    <xs:documentation xml:lang="fi">Metsänhoito- ja metsänparannustöiden tilasto</xs:documentation>
                     <xs:documentation xml:lang="sv"/>
                     <xs:documentation xml:lang="en"/>
                 </xs:annotation>
@@ -170,7 +190,7 @@
         <xs:sequence>
             <xs:element ref="LoggingsRow" minOccurs="1" maxOccurs="unbounded">
                 <xs:annotation>
-                    <xs:documentation xml:lang="fi">Puukauppatilastot.</xs:documentation>
+                    <xs:documentation xml:lang="fi">Puunkorjuutilasto</xs:documentation>
                     <xs:documentation xml:lang="sv"/>
                     <xs:documentation xml:lang="en"/>
                 </xs:annotation>
@@ -179,9 +199,9 @@
     </xs:complexType>
     <xs:complexType name="LoggingsRowType">
         <xs:annotation>
-            <xs:documentation xml:lang="fi">Alueittaisen puukauppatilaston rakenteen määrittely.</xs:documentation>
+            <xs:documentation xml:lang="fi">Alueittaisen puunkorjuutilaston rakenteen määrittely.</xs:documentation>
             <xs:documentation xml:lang="sv"/>
-            <xs:documentation xml:lang="en">Structure for areal roundwood sales statistics.</xs:documentation>
+            <xs:documentation xml:lang="en">Structure for areal roundwood harvesting statistics.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element ref="AreaType" minOccurs="1" maxOccurs="1"/>

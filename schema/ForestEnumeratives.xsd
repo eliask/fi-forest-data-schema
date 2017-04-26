@@ -7,7 +7,7 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	*****************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V10.07">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V10.08">
   <xs:include schemaLocation="ForestFeatureEnumeratives.xsd" />
   <xs:simpleType name="TurningPointClassType">
     <xs:annotation>
@@ -137,6 +137,13 @@
           <xs:documentation xml:lang="fi">Muu mittaustapa</xs:documentation>
           <xs:documentation xml:lang="sv">Annan mätningsmetod</xs:documentation>
           <xs:documentation xml:lang="en">other measurement method</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="10">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Yhdistelmämittaus</xs:documentation>
+          <xs:documentation xml:lang="sv">Kombination mätning</xs:documentation>
+          <xs:documentation xml:lang="en">Combination measurement</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -1401,6 +1408,27 @@
           <xs:documentation xml:lang="en">Rotten</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="101">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kokopuu (oksa- ja neulasmassa mukana)</xs:documentation>
+          <xs:documentation xml:lang="sv">Helträd (inkluderat kvistar och barr/löv)</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="102">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ranka (karsittua, ei oksa ja neulasmassaa mukana)</xs:documentation>
+          <xs:documentation xml:lang="sv">Slana (kvistad, utan kvistar och barr/löv)</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="105">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Latvusmassa</xs:documentation>
+          <xs:documentation xml:lang="sv">Grot</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="HarvestingStemTypeType">
@@ -1503,20 +1531,6 @@
       <xs:documentation xml:lang="en">Extra stem types for assortment.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:enumeration value="101">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Kokopuu (oksa- ja neulasmassa mukana)</xs:documentation>
-          <xs:documentation xml:lang="sv">Helträd (inkluderat kvistar och barr/löv)</xs:documentation>
-          <xs:documentation xml:lang="en" />
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="102">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Ranka (karsittua, ei oksa ja neulasmassaa mukana)</xs:documentation>
-          <xs:documentation xml:lang="sv">Slana (kvistad, utan kvistar och barr/löv)</xs:documentation>
-          <xs:documentation xml:lang="en" />
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value="103">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Hake (haketettua materiaalia)</xs:documentation>
@@ -1528,13 +1542,6 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Murske (murskattua materiaalia)</xs:documentation>
           <xs:documentation xml:lang="sv">Kross (krossat material)</xs:documentation>
-          <xs:documentation xml:lang="en" />
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="105">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Latvusmassa</xs:documentation>
-          <xs:documentation xml:lang="sv">Grot</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
@@ -20470,6 +20477,13 @@
           <xs:documentation xml:lang="fi">Skeemapaketti V10.07</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en">Schema package V10.07</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V10.08">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V10.08</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V10.08</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
