@@ -7,7 +7,7 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	*****************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V10.08">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V10.09">
   <xs:simpleType name="OriginalFeatureCodeType">
     <xs:annotation>
       <xs:documentation xml:lang="fi">Erityispiirteen koodi (mm. monimuotoisuuskoodi).</xs:documentation>
@@ -22729,14 +22729,6 @@
           <xs:documentation xml:lang="fi">Yövilkanruoste</xs:documentation>
           <xs:documentation xml:lang="sv">Yövilkanruoste</xs:documentation>
           <xs:documentation xml:lang="en" />
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="30006">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Aarniluppo</xs:documentation>
-          <xs:documentation xml:lang="sv">Violettgrå tagellav</xs:documentation>
-          <xs:documentation xml:lang="en" />
-          <xs:documentation xml:lang="la">Bryoria nadvornikiana</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>

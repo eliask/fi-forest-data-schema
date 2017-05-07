@@ -2,8 +2,20 @@
 <!--
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V10.09:
+	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "ScalpedMoundsCount"
+	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "DitchMoundsCount"
+	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "TurnoverMoundsCount"
+	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "ScalpsCount"
+	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "NearestCultivatedSpotLength"
+	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "NearestCultivatedSpotWidth"
+	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "NearestCultivatedSpotHeight"
+	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "SoilType"
+	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "RockySoil"
+	-Kuvio-/lohkotietoihin lisätty uusi vapaaehtoinen elementti "DitchesInAdditionToCultivation"
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.09">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
 	<xs:element name="WorkingSiteQualityControlSoilConditioning" type="WorkingSiteQualityControlSoilConditioningType"/>
@@ -65,6 +77,11 @@
 			<xs:element name="PlantSiteCountSummary" type="bdt:PositiveInteger4digitsType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Hehtaarikohtainen istutuspaikkojen lukumäärä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DitchesInAdditionToCultivation" type="bdt:PositiveInteger4digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Muokkauksen lisäksi kaivettu ojaa, metriä</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -138,6 +155,51 @@
 			<xs:element name="PlantingSiteCount" type="bdt:PositiveInteger2digitsType" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Istutuspaikkojen lkm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ScalpedMoundsCount" type="bdt:PositiveInteger2digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Laikkumättäiden lkm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DitchMoundsCount" type="bdt:PositiveInteger2digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Ojamättäiden lkm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TurnoverMoundsCount" type="bdt:PositiveInteger2digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kääntömättäiden lkm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ScalpsCount" type="bdt:PositiveInteger2digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Laikkujen lkm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NearestCultivatedSpotLength" type="bdt:PositiveInteger3digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lähin muokkausjälki, pituus, cm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NearestCultivatedSpotWidth" type="bdt:PositiveInteger3digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lähin muokkausjälki, leveys, cm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NearestCultivatedSpotHeight" type="bdt:PositiveInteger2digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lähin muokkausjälki, korkeus, cm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SoilType" type="bdt:CompactSoilTypeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Maalaji</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RockySoil" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Maapohja kivinen</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

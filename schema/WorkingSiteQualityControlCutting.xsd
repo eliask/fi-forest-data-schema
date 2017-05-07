@@ -2,13 +2,19 @@
 <!-- 
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V10.09:
+	-Muutettu elementti DiameterMin pakollisesta vapaaehtoiseksi
+	-Muutettu elementti DiameterMax pakollisesta vapaaehtoiseksi
+	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "StemDamages"
+	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "RootDamages"
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.09">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
 	<xs:element name="WorkingSiteQualityControlCutting" type="WorkingSiteQualityControlCuttingType"/>
@@ -182,12 +188,12 @@
 					<xs:documentation xml:lang="fi">Jakso</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DiameterMax" type="bdt:PositiveInteger3digitsType" minOccurs="1">
+			<xs:element name="DiameterMax" type="bdt:PositiveInteger3digitsType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Läpimitta 2. suurin (mm)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DiameterMin" type="bdt:PositiveInteger3digitsType" minOccurs="1">
+			<xs:element name="DiameterMin" type="bdt:PositiveInteger3digitsType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Läpimitta 2. pienin (mm)</xs:documentation>
 				</xs:annotation>
@@ -230,6 +236,16 @@
 			<xs:element name="OtherTreeSpecies" type="OtherTreeSpeciesType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Puulajikohtaiset mittaustiedot (0..n)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StemDamages" type="bdt:PositiveInteger3digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Runkovauriot, kpl</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RootDamages" type="bdt:PositiveInteger3digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Juurivauriot, kpl</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

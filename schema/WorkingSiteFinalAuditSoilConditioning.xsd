@@ -2,8 +2,24 @@
 <!--
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V10.09:
+	-Lisätty uusi vapaaehtoinen elementti "StumpsLifted"
+	-Lisätty uusi vapaaehtoinen elementti "StumpsLiftedText"
+	-Lisätty uusi vapaaehtoinen elementti "DitchingBreaks"
+	-Lisätty uusi vapaaehtoinen elementti "DitchingBreaksText"
+	-Lisätty uusi vapaaehtoinen elementti "SettlingPits"
+	-Lisätty uusi vapaaehtoinen elementti "SettlingPitsText"
+	-Lisätty uusi vapaaehtoinen elementti "SettlingBasins"
+	-Lisätty uusi vapaaehtoinen elementti "SettlingBasinsText"
+	-Lisätty uusi vapaaehtoinen elementti "SurfaceDrainingAreas"
+	-Lisätty uusi vapaaehtoinen elementti "SurfaceDrainingAreasText"
+	-Lisätty uusi vapaaehtoinen elementti "OtherConservationMethods"
+	-Lisätty uusi vapaaehtoinen elementti "OtherConservationMethodsText"
+	-Lisätty uusi vapaaehtoinen elementti "NotificationsAndImprovements"
+	-Lisätty uusi vapaaehtoinen elementti "NotificationsAndImprovementsText"
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSoilConditioning" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSoilConditioning" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSoilConditioning" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSoilConditioning" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.09">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:element name="WorkingSiteFinalAuditSoilConditioning" type="WorkingSiteFinalAuditSoilConditioningType">
 		<xs:annotation>
@@ -234,6 +250,76 @@
 			<xs:element name="WorkingInstructionsSufficientText" type="bdt:String200Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Onko työohje ja maastomerkinnät riittävät selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StumpsLifted" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kannonnosto tehty</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StumpsLiftedText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kannonnosto tehty selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DitchingBreaks" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kohteella kaivukatkoja (ympäristön ja vesiensuojelun toimenpide)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DitchingBreaksText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kohteella kaivukatkoja (ympäristön ja vesiensuojelun toimenpide) selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SettlingPits" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kohteella lietekuoppia (ympäristön ja vesiensuojelun toimenpide)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SettlingPitsText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kohteella lietekuoppia (ympäristön ja vesiensuojelun toimenpide) selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SettlingBasins" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kohteella laskeutusaltaita (ympäristön ja vesiensuojelun toimenpide)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SettlingBasinsText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kohteella laskeutusaltaita (ympäristön ja vesiensuojelun toimenpide) selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SurfaceDrainingAreas" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kohteella pintavalutuskenttiä (ympäristön ja vesiensuojelun toimenpide)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SurfaceDrainingAreasText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kohteella pintavalutuskenttiä (ympäristön ja vesiensuojelun toimenpide) selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OtherConservationMethods" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kohteella muita ympäristön ja vesiensuojelun toimenpiteitä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OtherConservationMethodsText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kohteella muita ympäristön ja vesiensuojelun toimenpiteitä selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NotificationsAndImprovements" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Huomioita ja korjausehdotuksia</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NotificationsAndImprovementsText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Huomioita ja korjausehdotuksia selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

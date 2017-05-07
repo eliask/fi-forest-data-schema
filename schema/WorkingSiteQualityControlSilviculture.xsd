@@ -2,8 +2,16 @@
 <!-- 
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V10.09:
+	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "PlantedSeedlingCountInCultivatedSpots"
+	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "PlantedSeedlingCountInNotCultivatedSpots"
+	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "NearestSeedlingPlantingDepth"
+	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "NearestSeedlingDistance"
+	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "NearestSeedlingSoilCompressed"
+	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "RockySoil"
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSilviculture" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSilviculture" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSilviculture" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSilviculture" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.09">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
 	<xs:element name="WorkingSiteQualityControlSilviculture" type="WorkingSiteQualityControlSilvicultureType"/>
@@ -158,6 +166,36 @@
 			<xs:element name="PlantCount" type="bdt:PositiveInteger3digitsType" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Taimien lkm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlantedSeedlingCountInCultivatedSpots" type="bdt:PositiveInteger3digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Istutettujen taimien lkm muokkausjäljessä, kpl</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlantedSeedlingCountInNotCultivatedSpots" type="bdt:PositiveInteger3digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Istutettujen taimien lkm muualla kuin muokkausjäljessä, kpl</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NearestSeedlingPlantingDepth" type="bdt:PositiveInteger2digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lähimmän taimen istutussyvyys, cm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NearestSeedlingDistance" type="bdt:PositiveInteger3digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lähimmän taimen etäisyys, cm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NearestSeedlingSoilCompressed" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Lähin taimi, tiivistäminen tehty (kyllä / ei)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RockySoil" type="bdt:YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Maapohja kivinen (kyllä / ei)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
