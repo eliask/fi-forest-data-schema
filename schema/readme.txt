@@ -1,6 +1,6 @@
 TIETOJA TÄSTÄ TIEDOSTOPAKETISTA
 
 - Skeemapaketti V10
-- Versio V10.09
+- Versio V10.10
 - Pakettiin sisällytetty StanForD-skeemapaketin version: 3.0
-- Julkaistu 7.5.2017
+- Julkaistu 8.5.2017

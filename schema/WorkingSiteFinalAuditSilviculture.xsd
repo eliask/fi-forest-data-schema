@@ -6,8 +6,12 @@
 	Muutokset skeemapakettiin V10.09:
 	-Lisätty uusi vapaaehtoinen elementti "HarvestingResidueCollected"
 	-Lisätty uusi vapaaehtoinen elementti "HarvestingResidueCollectedText"
+	
+	Muutokset skeemapakettiin V10.10:
+	-Nimeämiskäytännön yhtenäisenä pitämiseksi elementti "HarvestingResidueCollected" uudelleennimetty -> "BioMassCollectionDone"
+	-Nimeämiskäytännön yhtenäisenä pitämiseksi elementti "HarvestingResidueCollectedText" uudelleennimetty -> "BioMassCollectionDoneTexts"
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSilviculture" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSilviculture" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.09">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSilviculture" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSilviculture" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.10">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:element name="WorkingSiteFinalAuditSilviculture" type="WorkingSiteFinalAuditSilvicultureType">
 		<xs:annotation>
@@ -260,12 +264,12 @@
 					<xs:documentation xml:lang="fi">Onko työohje ja maastomerkinnät riittävät selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="HarvestingResidueCollected" type="bdt:YesNoType" minOccurs="0">
+			<xs:element name="BioMassCollectionDone" type="bdt:YesNoType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Onko hakkuutähde ja latvusmassa kerätty</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="HarvestingResidueCollectedText" type="bdt:String200Type" minOccurs="0">
+			<xs:element name="BioMassCollectionDoneText" type="bdt:String200Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Onko hakkuutähde ja latvusmassa kerätty selite</xs:documentation>
 				</xs:annotation>
