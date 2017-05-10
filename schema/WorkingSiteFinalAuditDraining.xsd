@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 	Muutokset skeemapakettiin V10.05:
-	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	- Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V10.11:
+	- Tyyppimäärittelyssä AuditsType elementtien paikan muutos seuraavasti: CleaningBreaksDoneText -lementin jälkeen elementit DitchCleaningBreakLocation ja DitchCleaningBreakLocationText.
+	- Uudet elementit Tyyppimäärittelyssä AuditsType: SomeDitchesNotDiggedAsMentionedInOrder ja SomeDitchesNotDiggedAsMentionedInOrderText
+	- Uudet elementit Tyyppimäärittelyssä AuditsType: LimitsToWaterSystem, LimitsToWaterSystemText, WaterEconomySystemNoticed ja WaterEconomySystemNoticedText
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditDraining"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditDraining"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.11">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:element name="WorkingSiteFinalAuditDraining" type="WorkingSiteFinalAuditDrainingType">
 		<xs:annotation>
@@ -145,6 +150,16 @@
 					<xs:documentation xml:lang="fi">Onko perkauskatkoja  toteutettu selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="DitchCleaningBreakLocation" type="bdt:WorkingQualityType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">kaivu/perkauskatkojen sijainti</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DitchCleaningBreakLocationText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">kaivu/perkauskatkojen sijainti selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="SurfaceRunoffFieldGroundIsUnbroken" type="bdt:YesNoNotKnownType" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Onko pintavalutuskenttien maanpinta rikkomaton</xs:documentation>
@@ -165,6 +180,16 @@
 					<xs:documentation xml:lang="fi">Ojien syvyys, leveys ja kuivatusvaikutus selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="SomeDitchesNotDiggedAsMentionedInOrder" type="bdt:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Jäikö hankkeesta/työtilauksesta jotain kaivamatta?</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SomeDitchesNotDiggedAsMentionedInOrderText" type="bdt:String200Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Jäikö hankkeesta/työtilaukseta jotain kaivamatta? Mitä ja miksi?</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="ExcavationSoilLocation" type="bdt:WorkingQualityType" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Kaivumaiden sijoittelu</xs:documentation>
@@ -183,16 +208,6 @@
 			<xs:element name="ExcavatorMovingAndTreeDamagesText" type="bdt:String200Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Kaivinkoneella liikkuminen työmaalla / puustovauriot selite</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="DitchCleaningBreakLocation" type="bdt:WorkingQualityType" minOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">kaivu/perkauskatkojen sijainti</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="DitchCleaningBreakLocationText" type="bdt:String200Type" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">kaivu/perkauskatkojen sijainti selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="hasEnvironmentalObjects" type="bdt:YesNoType" minOccurs="1">
@@ -223,26 +238,6 @@
 			<xs:element name="EnvironmentalObjectNoticedText" type="bdt:String200Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Onko ympäristö- ja muinaismuistokohteet huomioitu ohjeistuksen mukaisesti selite</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="LimitsToWaterSystem" type="bdt:YesNoType" minOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Rajoittuuko vesistöön</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="LimitsToWaterSystemText" type="bdt:String200Type" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Rajoittuuko vesistöön selite</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="WaterEconomySystemNoticed" type="bdt:YesNoType" minOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Vesitalouden järjestelyt huomioitu</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="WaterEconomySystemNoticedText" type="bdt:String200Type" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Vesitalouden järjestelyt huomioitu selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="WaterSystemProtection" type="bdt:YesNoType" minOccurs="1">
