@@ -11,6 +11,10 @@
 	-Elementin Object lapsielementti SelfMonitoringBasicData otettu käyttöön poistamalla se kommenttitageista
 	-Elementin Object lapsielementti RealEstates otettu käyttöön poistamalla se kommenttitageista
 	-Elementin Object lapsielementti Actors otettu käyttöön poistamalla se kommenttitageista
+	
+	Muutokset skeemapakettiin V10.12:
+	-Elementin Object lapsielementti WorkingSiteFinalAuditDraining poistettu käytöstä sijoittamalla se kommenttitageihin
+	-Elementin Object lapsielementti WorkingSiteFinalAuditRoadMaking poistettu käytöstä sijoittamalla se kommenttitageihin
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -36,7 +40,7 @@
 	xmlns:workingSiteFinalAuditSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSoilConditioning"
 	xmlns:workingSiteQualityControlSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
 	xmlns:MapSymbol="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
-	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.08">
+	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.12">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase"
@@ -404,8 +408,8 @@
 			</xs:element> -->
 			<!-- <xs:element minOccurs="0" name="SelfMonitoringEvaluations" type="SelfMonitoringEvaluationsType"/> -->
 			<!-- <xs:element minOccurs="0" name="Documents" type="fac:DocumentsType"/> -->
-			<xs:element ref="workingSiteFinalAuditDraining:WorkingSiteFinalAuditDraining"
-				minOccurs="0"/>
+			<!-- <xs:element ref="workingSiteFinalAuditDraining:WorkingSiteFinalAuditDraining"
+				minOccurs="0"/> -->
 			<xs:element ref="workingSiteFinalAuditHarvesting:WorkingSiteFinalAuditHarvesting"
 				minOccurs="0"/>
 			<xs:element ref="workingSiteQualityControlCutting:WorkingSiteQualityControlCutting"
@@ -428,8 +432,8 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="workingSiteFinalAuditRoadMaking:WorkingSiteFinalAuditRoadMaking"
-				minOccurs="0"/>
+			<!-- <xs:element ref="workingSiteFinalAuditRoadMaking:WorkingSiteFinalAuditRoadMaking"
+				minOccurs="0"/> -->
 			<xs:element ref="workingSiteFinalAuditSilviculture:WorkingSiteFinalAuditSilviculture"
 				minOccurs="0"/>
 			<xs:element

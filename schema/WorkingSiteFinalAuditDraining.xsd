@@ -6,7 +6,7 @@
 	Muutokset skeemapakettiin V10.11:
 	- Tyyppimäärittelyssä AuditsType elementtien paikan muutos seuraavasti: CleaningBreaksDoneText -lementin jälkeen elementit DitchCleaningBreakLocation ja DitchCleaningBreakLocationText.
 	- Uudet elementit Tyyppimäärittelyssä AuditsType: SomeDitchesNotDiggedAsMentionedInOrder ja SomeDitchesNotDiggedAsMentionedInOrderText
-	- Uudet elementit Tyyppimäärittelyssä AuditsType: LimitsToWaterSystem, LimitsToWaterSystemText, WaterEconomySystemNoticed ja WaterEconomySystemNoticedText
+	- Poistettu elementit Tyyppimäärittelyssä AuditsType: LimitsToWaterSystem, LimitsToWaterSystemText, WaterEconomySystemNoticed ja WaterEconomySystemNoticedText
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditDraining"
