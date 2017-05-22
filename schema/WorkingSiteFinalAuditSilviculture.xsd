@@ -10,94 +10,348 @@
 	Muutokset skeemapakettiin V10.10:
 	-Nimeämiskäytännön yhtenäisenä pitämiseksi elementti "HarvestingResidueCollected" uudelleennimetty -> "BioMassCollectionDone"
 	-Nimeämiskäytännön yhtenäisenä pitämiseksi elementti "HarvestingResidueCollectedText" uudelleennimetty -> "BioMassCollectionDoneTexts"
+	
+	Muutokset skeemapakettiin V10.13:
+	-Lisätty uusi tyyppimäärittely WorkingSiteFinalAuditSilvicultureBaseType
+	-Elementti ServiceBuyerId muutettu käyttämään viittausta (ref)
+	-Elementti ResourceId muutettu käyttämään viittausta (ref)
+	-Elementti WorkingSiteId muutettu käyttämään viittausta (ref)
+	-Elementti ContractorId muutettu käyttämään viittausta (ref)
+	-Elementti OrderId muutettu käyttämään viittausta (ref)
+	-Elementti WorkCodeGroup muutettu käyttämään viittausta (ref)
+	-Elementti WorkCode muutettu käyttämään viittausta (ref)
+	-Elementti WorkCodeQualifier muutettu käyttämään viittausta (ref)
+	-Elementti Area muutettu käyttämään viittausta (ref)
+	-Elementti WorkingTime muutettu käyttämään viittausta (ref)
+	-Elementti Audit muutettu käyttämään viittausta (ref)
+	-Elementti SamplePlotCount muutettu käyttämään viittausta (ref)
+	-Elementti SamplePlotCountRequired muutettu käyttämään viittausta (ref)
+	-Elementti InfoText muutettu käyttämään viittausta (ref)
+	-Elementti Images muutettu käyttämään viittausta (ref)
+	-Elementti Audits muutettu käyttämään viittausta (ref)
+	-Lisätty uusi tyyppimäärittely SelfMonitoringWorkingSiteFinalAuditSilvicultureType, sisältää omavalvontatiedot
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSilviculture" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSilviculture" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.10">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSilviculture"
+	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSilviculture"
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified"
+	version="V10.13">
+	
+	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	
+	<!-- Elementtimääritykset / Element definitions -->
 	<xs:element name="WorkingSiteFinalAuditSilviculture" type="WorkingSiteFinalAuditSilvicultureType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Taimikonhoidon loppuarviointi/laadunseuranta</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="WorkingSiteFinalAuditSilvicultureType">
+	<xs:element name="ServiceBuyerId" type="bdt:String20Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ResourceId" type="bdt:String20Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Resurssin tunniste</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="WorkingSiteId" type="bdt:String20Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ContractorId" type="bdt:String20Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Yrittäjän tunniste (alv-tunnus)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="OrderId" type="bdt:String50Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsänhoitotilauksen sopimusnumero</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="WorkCodeGroup" type="bdt:WorkCodeGroupType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Työlajiryhmän koodi</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="WorkCode" type="bdt:WorkCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Työlajin koodi</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="WorkCodeQualifier" type="bdt:WorkCodeQualifierType1">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Työlajin lisämääre</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Area" type="bdt:Decimal2FractionDigitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Pinta-ala ha</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="WorkingTime" type="bdt:DateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Työskentelyn ajankohta (YYYY-MM-DD)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Audit" type="AuditionType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Arvioinnin tiedot</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SamplePlotCount" type="bdt:PositiveInteger3digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Koealojen lkm (toteutunut)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SamplePlotCountRequired" type="bdt:PositiveInteger3digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Koealojen lkm (toteutunut)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="InfoText" type="bdt:String1000Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Lisätiedot</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Images" type="bdt:PositiveInteger2digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Valokuvien lkm</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Audits" type="AuditsType"/>
+	
+	<!-- Tyyppimääritykset / Type definitions -->
+	<xs:complexType name="WorkingSiteFinalAuditSilvicultureBaseType">
 		<xs:sequence>
-			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
+			<xs:element ref="ServiceBuyerId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ResourceId" type="bdt:String20Type" minOccurs="0">
+			<xs:element ref="ResourceId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Resurssin tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkingSiteId" type="bdt:String20Type" minOccurs="1">
+			<xs:element ref="WorkingSiteId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ContractorId" type="bdt:String20Type" minOccurs="1">
+			<xs:element ref="ContractorId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Yrittäjän tunniste (alv-tunnus)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="OrderId" type="bdt:String50Type" minOccurs="0">
+			<xs:element ref="OrderId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Metsänhoitotilauksen sopimusnumero</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkCodeGroup" type="bdt:WorkCodeGroupType" minOccurs="1">
+			<xs:element ref="WorkCodeGroup" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Työlajiryhmän koodi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkCode" type="bdt:WorkCodeType" minOccurs="1">
+			<xs:element ref="WorkCode" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Työlajin koodi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkCodeQualifier" type="bdt:WorkCodeQualifierType1" minOccurs="0">
+			<xs:element ref="WorkCodeQualifier" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Työlajin lisämääre</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Area" type="bdt:Decimal2FractionDigitsType" minOccurs="1">
+			<xs:element ref="Area" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Pinta-ala ha</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkingTime" type="bdt:DateType" minOccurs="1">
+			<xs:element ref="WorkingTime" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Työskentelyn ajankohta (YYYY-MM-DD)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Audit" type="AuditionType" minOccurs="1">
+			<xs:element ref="Audit" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Arvioinnin tiedot</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SamplePlotCount" type="bdt:PositiveInteger3digitsType" minOccurs="1">
+			<xs:element ref="SamplePlotCount" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Koealojen lkm (toteutunut)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SamplePlotCountRequired" type="bdt:PositiveInteger3digitsType">
+			<xs:element ref="SamplePlotCountRequired" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Koealojen lkm (toteutunut)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="InfoText" type="bdt:String1000Type" minOccurs="0">
+			<xs:element ref="InfoText" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Lisätiedot</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Images" type="bdt:PositiveInteger2digitsType" minOccurs="1">
+			<xs:element ref="Images" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Valokuvien lkm</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Audits" type="AuditsType" minOccurs="1"/>
+			<xs:element ref="Audits" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
+	
+	<xs:complexType name="WorkingSiteFinalAuditSilvicultureType">
+		<xs:complexContent>
+			<xs:restriction base="WorkingSiteFinalAuditSilvicultureBaseType">
+				<xs:sequence>
+					<xs:element ref="ServiceBuyerId" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ResourceId" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Resurssin tunniste</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="WorkingSiteId" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ContractorId" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Yrittäjän tunniste (alv-tunnus)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="OrderId" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Metsänhoitotilauksen sopimusnumero</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="WorkCodeGroup" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Työlajiryhmän koodi</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="WorkCode" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Työlajin koodi</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="WorkCodeQualifier" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Työlajin lisämääre</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Area" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Pinta-ala ha</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="WorkingTime" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Työskentelyn ajankohta (YYYY-MM-DD)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Audit" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Arvioinnin tiedot</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SamplePlotCount" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Koealojen lkm (toteutunut)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SamplePlotCountRequired" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Koealojen lkm (toteutunut)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="InfoText" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Lisätiedot</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Images" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Valokuvien lkm</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Audits" minOccurs="1"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="SelfMonitoringWorkingSiteFinalAuditSilvicultureType">
+		<xs:complexContent>
+			<xs:restriction base="WorkingSiteFinalAuditSilvicultureBaseType">
+				<xs:sequence>
+					<xs:element ref="WorkCodeGroup" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Työlajiryhmän koodi</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="WorkCode" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Työlajin koodi</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="WorkCodeQualifier" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Työlajin lisämääre</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Area" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Pinta-ala ha</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="WorkingTime" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Työskentelyn ajankohta (YYYY-MM-DD)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Audit" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Arvioinnin tiedot</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SamplePlotCount" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Koealojen lkm (toteutunut)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SamplePlotCountRequired" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Koealojen lkm (toteutunut)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="InfoText" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Lisätiedot</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Images" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Valokuvien lkm</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Audits" minOccurs="1"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	
 	<xs:complexType name="AuditionType">
 		<xs:sequence>
 			<xs:element name="FinalAuditType" type="bdt:FinalAuditTypeType" minOccurs="0">
@@ -127,6 +381,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="AuditsType">
 		<xs:sequence>
 			<xs:element name="SilvicultureMethodCorrect" type="bdt:YesNoType" minOccurs="1">

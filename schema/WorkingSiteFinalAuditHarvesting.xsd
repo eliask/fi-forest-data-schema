@@ -1,74 +1,237 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
 	Muutokset skeemapakettiin V10.05:
-	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	- Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V10.13:
+	- Uusi kantatyyppimäärittely WorkingSiteFinalAuditBaseHarvestingType.
+	- Kantatyyppimäärittelyyn pohjautuvat tyyppimäärittelyt WorkingSiteFinalAuditHarvestingType (toiminnanohjaus) ja SelfmonitoringFinalAuditHarvestingType (omavalvonta).
+	- Tyyppimäärittely WorkingSiteFinalAuditHarvestingType vastaa alkuperäistä määrittelyä validoituvuudeltaan.
+	- Uudet elementtimäärittelyt ServiceBuyerId, WorkingSiteId, HarvesterId, ForwarderId, PurchaseContractId, WorkCodeGroup, WorkCode, Audit, InfoText, Images ja Audits, joita käytetään referensseinä tyyppimäärittelyissä WorkingSiteFinalAuditBaseHarvestingType, WorkingSiteFinalAuditHarvestingType ja SelfmonitoringFinalAuditHarvestingType.
+	-Tyyppimäärittely YesNoNotNeededType (koodisto) siirretty koodistoon, muutettu elementtien tyyppimäärittelyt käyttämään co: nimiavaruutta
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditHarvesting"
-           xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
-           targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditHarvesting"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditHarvesting"
+	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditHarvesting"
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified"
+	version="V10.13">
+	
+	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+
+	<!-- Elementtimääritykset / Element definitions -->
 	<xs:element name="WorkingSiteFinalAuditHarvesting" type="WorkingSiteFinalAuditHarvestingType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Korjuun loppuarviointi/laadunseuranta</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="WorkingSiteFinalAuditHarvestingType">
+	<xs:element name="ServiceBuyerId" type="bdt:String20Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="WorkingSiteId" type="bdt:String20Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="HarvesterId" type="bdt:String20Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Hakkuukoneen tunniste (ResourceId)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ForwarderId" type="bdt:String20Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsätraktorin tunniste (ResourceId)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="PurchaseContractId" type="bdt:String20Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsänhoitotilauksen sopimusnumero</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="WorkCodeGroup" type="bdt:WorkCodeGroupType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Työlajiryhmän koodi</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="WorkCode" type="bdt:WorkCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Työlajin koodi</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Audit" type="AuditionType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Arvioinnin tiedot</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="InfoText" type="bdt:String1000Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Lisätiedot</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Images" type="bdt:PositiveInteger2digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Valokuvien lkm</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Audits" type="AuditsType"/>
+
+	<!-- Tyyppimääritykset / Type definitions -->
+	<xs:complexType name="WorkingSiteFinalAuditBaseHarvestingType">
 		<xs:sequence>
-			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
+			<xs:element ref="ServiceBuyerId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkingSiteId" type="bdt:String20Type" minOccurs="1">
+			<xs:element ref="WorkingSiteId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="HarvesterId" type="bdt:String20Type" minOccurs="0">
+			<xs:element ref="HarvesterId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Hakkuukoneen tunniste (ResourceId)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ForwarderId" type="bdt:String20Type" minOccurs="0">
+			<xs:element ref="ForwarderId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Metsätraktorin tunniste (ResourceId)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PurchaseContractId" type="bdt:String20Type">
+			<xs:element ref="PurchaseContractId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Metsänhoitotilauksen sopimusnumero</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkCodeGroup" type="bdt:WorkCodeGroupType" minOccurs="1">
+			<xs:element ref="WorkCodeGroup" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Työlajiryhmän koodi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkCode" type="bdt:WorkCodeType" minOccurs="1">
+			<xs:element ref="WorkCode"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Työlajin koodi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Audit" type="AuditionType" minOccurs="1">
+			<xs:element ref="Audit" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Arvioinnin tiedot</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="InfoText" type="bdt:String1000Type" minOccurs="0">
+			<xs:element ref="InfoText" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Lisätiedot</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Images" type="bdt:PositiveInteger2digitsType" minOccurs="1">
+			<xs:element ref="Images" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Valokuvien lkm</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Audits" type="AuditsType" minOccurs="1"/>
+			<xs:element ref="Audits" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
+	
+	<xs:complexType name="WorkingSiteFinalAuditHarvestingType">
+		<xs:complexContent>
+			<xs:restriction base="WorkingSiteFinalAuditBaseHarvestingType">
+				<xs:sequence>
+					<xs:element ref="ServiceBuyerId" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="WorkingSiteId" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="HarvesterId" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Hakkuukoneen tunniste (ResourceId)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ForwarderId" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Metsätraktorin tunniste (ResourceId)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="PurchaseContractId" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Metsänhoitotilauksen sopimusnumero</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="WorkCodeGroup" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Työlajiryhmän koodi</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="WorkCode" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Työlajin koodi</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Audit" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Arvioinnin tiedot</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="InfoText" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Lisätiedot</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Images" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Valokuvien lkm</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Audits" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="SelfMonitoringFinalAuditHarvestingType">
+		<xs:complexContent>
+			<xs:restriction base="WorkingSiteFinalAuditBaseHarvestingType">
+				<xs:sequence>
+					<xs:element ref="WorkCodeGroup" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Työlajiryhmän koodi</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="WorkCode" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Työlajin koodi</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Audit" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Arvioinnin tiedot</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="InfoText" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Lisätiedot</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Images" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Valokuvien lkm</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Audits" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	
 	<xs:complexType name="AuditionType">
 		<xs:sequence>
 			<xs:element name="FinalAuditType" type="bdt:FinalAuditTypeType" minOccurs="0">
@@ -98,6 +261,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="AuditsType">
 		<xs:sequence>
 			<xs:element name="SaveTreesLeft" type="bdt:YesNoType" minOccurs="1">
@@ -180,7 +344,7 @@
 					<xs:documentation xml:lang="fi">Onko työohje ja maastomerkinnät riittävät selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StumpTreatment" type="YesNoNotNeededType" minOccurs="0">
+			<xs:element name="StumpTreatment" type="bdt:YesNoNotNeededType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Onko kantokäsittelyn peittävyys riittävä</xs:documentation>
 				</xs:annotation>
@@ -220,7 +384,7 @@
 					<xs:documentation xml:lang="fi">Aiheutuiko tiestövaurioita selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PreClearing" type="YesNoNotNeededType" minOccurs="0">
+			<xs:element name="PreClearing" type="bdt:YesNoNotNeededType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Ennakkoraivaus ohjeen mukainen</xs:documentation>
 				</xs:annotation>
@@ -252,34 +416,4 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:simpleType name="YesNoNotNeededType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Määrittely kyllä-, ei- ja ei tarvetta -arvoille</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Definition for yes, no and not needed value</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en">No</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Kyllä</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en">Yes</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="2">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ei tarvetta</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en">Not needed</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
 </xs:schema>

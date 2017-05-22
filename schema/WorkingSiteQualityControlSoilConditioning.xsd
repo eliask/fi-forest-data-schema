@@ -14,36 +14,124 @@
 	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "SoilType"
 	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "RockySoil"
 	-Kuvio-/lohkotietoihin lisätty uusi vapaaehtoinen elementti "DitchesInAdditionToCultivation"
+	
+	Muutokset skeemapakettiin V10.13:
+	-
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.09">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
+	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
+	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified"
+	version="V10.13">
+	
+	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
+	
+	<!-- Elementtimääritykset / Element definitions -->
 	<xs:element name="WorkingSiteQualityControlSoilConditioning" type="WorkingSiteQualityControlSoilConditioningType"/>
-	<xs:complexType name="WorkingSiteQualityControlSoilConditioningType">
+	<xs:element name="ServiceBuyerId" type="bdt:String20Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="WorkingSiteId" type="bdt:String20Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Images" type="bdt:PositiveInteger2digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Valokuvien lkm</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SamplePlotSummaries" type="SamplePlotSummariesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Koealojen summatiedot</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SamplePlots" type="SamplePlotsType"/>
+	
+	<!-- Tyyppimääritykset / Type definitions -->
+	<xs:complexType name="WorkingSiteQualityControlSoilConditioningBaseType">
 		<xs:sequence>
-			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
+			<xs:element ref="ServiceBuyerId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkingSiteId" type="bdt:String20Type" minOccurs="1">
+			<xs:element ref="WorkingSiteId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Images" type="bdt:PositiveInteger2digitsType" minOccurs="0">
+			<xs:element ref="Images" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Valokuvien lkm</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SamplePlotSummaries" type="SamplePlotSummariesType" minOccurs="1">
+			<xs:element ref="SamplePlotSummaries" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Koealojen summatiedot</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SamplePlots" type="SamplePlotsType" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="SamplePlots" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
+	
+	<xs:complexType name="WorkingSiteQualityControlSoilConditioningType">
+		<xs:complexContent>
+			<xs:restriction base="WorkingSiteQualityControlSoilConditioningBaseType">
+				<xs:sequence>
+					<xs:element ref="ServiceBuyerId" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="WorkingSiteId" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Images" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Valokuvien lkm</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SamplePlotSummaries" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Koealojen summatiedot</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SamplePlots" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="SelfMonitoringWorkingSiteQualityControlSoilConditioningType">
+		<xs:complexContent>
+			<xs:restriction base="WorkingSiteQualityControlSoilConditioningBaseType">
+				<xs:sequence>
+					<xs:element ref="Images" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Valokuvien lkm</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SamplePlotSummaries" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Koealojen summatiedot</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SamplePlots" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotSummariesType">
 		<xs:sequence>
 			<xs:element name="SamplePlotSummary" type="SamplePlotSummaryType" minOccurs="1" maxOccurs="unbounded">
@@ -53,6 +141,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotSummaryType">
 		<xs:sequence>
 			<xs:element name="StandNumber" type="bdt:String10Type" minOccurs="1">
@@ -67,6 +156,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotMeasurementSummaryType">
 		<xs:sequence>
 			<xs:element name="MeasurerType" type="bdt:MeasurerTypeType" minOccurs="1">
@@ -86,6 +176,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotsType">
 		<xs:sequence>
 			<xs:element name="SamplePlot" type="SamplePlotType" minOccurs="1" maxOccurs="unbounded">
@@ -95,6 +186,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotType">
 		<xs:sequence>
 			<xs:element name="SamplePlotNumber" type="bdt:PositiveInteger3digitsType" minOccurs="1">

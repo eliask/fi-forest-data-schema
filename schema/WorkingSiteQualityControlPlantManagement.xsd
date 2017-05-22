@@ -2,40 +2,146 @@
 <!-- 
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V10.13:
+	-Lisätty uusi tyyppimäärittely WorkingSiteQualityControlPlantManagementBaseType
+	-Elementti ServiceBuyerId muutettu käyttämään viittausta (ref)
+	-Elementti WorkingSiteId muutettu käyttämään viittausta (ref)
+	-Elementti Images muutettu käyttämään viittausta (ref)
+	-Elementti SamplePlotSummaries muutettu käyttämään viittausta (ref)
+	-Elementti SamplePlots muutettu käyttämään viittausta (ref)
+	-Lisätty uusi tyyppimäärittely SelfMonitoringWorkingSiteQualityControlPlantManagementType, sisältää omavalvontatiedot
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlPlantManagement" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlPlantManagement" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlPlantManagement"
+	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
+	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlPlantManagement"
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified"
+	version="V10.13">
+	
+	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
+	
+	<!-- Elementtimääritykset / Element definitions -->
 	<xs:element name="WorkingSiteQualityControlPlantManagement" type="WorkingSiteQualityControlPlantManagementType"/>
-	<xs:complexType name="WorkingSiteQualityControlPlantManagementType">
+	<xs:element name="ServiceBuyerId" type="bdt:String20Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="WorkingSiteId" type="bdt:String20Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Images" type="bdt:PositiveInteger2digitsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Valokuvien lukumäärä</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SamplePlotSummaries" type="SamplePlotSummariesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Koealojen summatiedot</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SamplePlots" type="SamplePlotsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Koealatiedot</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	
+	<!-- Tyyppimääritykset / Type definitions -->
+	<xs:complexType name="WorkingSiteQualityControlPlantManagementBaseType">
 		<xs:sequence>
-			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
+			<xs:element ref="ServiceBuyerId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkingSiteId" type="bdt:String20Type" minOccurs="1">
+			<xs:element ref="WorkingSiteId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Images" type="bdt:PositiveInteger2digitsType" minOccurs="1">
+			<xs:element ref="Images" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Valokuvien lukumäärä</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SamplePlotSummaries" type="SamplePlotSummariesType" minOccurs="1">
+			<xs:element ref="SamplePlotSummaries" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Koealojen summatiedot</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SamplePlots" type="SamplePlotsType" minOccurs="1">
+			<xs:element ref="SamplePlots" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Koealatiedot</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
+	<xs:complexType name="WorkingSiteQualityControlPlantManagementType">
+		<xs:complexContent>
+			<xs:restriction base="WorkingSiteQualityControlPlantManagementBaseType">
+				<xs:sequence>
+					<xs:element ref="ServiceBuyerId" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="WorkingSiteId" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Images" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Valokuvien lukumäärä</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SamplePlotSummaries" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Koealojen summatiedot</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SamplePlots" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Koealatiedot</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="SelfMonitoringWorkingSiteQualityControlPlantManagementType">
+		<xs:complexContent>
+			<xs:restriction base="WorkingSiteQualityControlPlantManagementBaseType">
+				<xs:sequence>
+					<xs:element ref="Images" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Valokuvien lukumäärä</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SamplePlotSummaries" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Koealojen summatiedot</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SamplePlots" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Koealatiedot</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotSummariesType">
 		<xs:sequence>
 			<xs:element name="SamplePlotSummary" type="SamplePlotSummaryType" minOccurs="1" maxOccurs="unbounded">

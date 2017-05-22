@@ -15,6 +15,16 @@
 	Muutokset skeemapakettiin V10.12:
 	-Elementin Object lapsielementti WorkingSiteFinalAuditDraining poistettu käytöstä sijoittamalla se kommenttitageihin
 	-Elementin Object lapsielementti WorkingSiteFinalAuditRoadMaking poistettu käytöstä sijoittamalla se kommenttitageihin
+	
+	Muutokset skeemapakettiin V10.13:
+	-Elementti WorkingSiteFinalAuditHarvesting muutettu käyttämään viittausta (ref). Elementti tyypiltään SelfMonitoringFinalAuditHarvestingType. Vastaava elementtimäärittely lisätty skeematiedostoon.
+	-Elementti WorkingSiteQualityControlCutting muutettu käyttämään viittausta (ref). Elementti tyypiltään SelfMonitoringWorkingSiteQualityControlCuttingType. Vastaava elementtimäärittely lisätty skeematiedostoon.
+	-Elementti WorkingSiteFinalAuditPlantManagement muutettu käyttämään viittausta (ref). Elementti tyypiltään SelfMonitoringWorkingSiteFinalAuditPlantManagementType. Vastaava elementtimäärittely lisätty skeematiedostoon.
+	-Elementti WorkingSiteQualityControlPlantManagement muutettu käyttämään viittausta (ref). Elementti tyypiltään SelfMonitoringWorkingSiteQualityControlPlantManagementType. Vastaava elementtimäärittely lisätty skeematiedostoon.
+	-Elementti WorkingSiteFinalAuditSilviculture muutettu käyttämään viittausta (ref). Elementti tyypiltään SelfMonitoringWorkingSiteFinalAuditSilvicultureType. Vastaava elementtimäärittely lisätty skeematiedostoon.
+	-Elementti WorkingSiteQualityControlSilviculture muutettu käyttämään viittausta (ref). Elementti tyypiltään SelfMonitoringWorkingSiteQualityControlSilvicultureType. Vastaava elementtimäärittely lisätty skeematiedostoon.
+	-Elementti WorkingSiteFinalAuditSoilConditioning muutettu käyttämään viittausta (ref). Elementti tyypiltään SelfMonitoringWorkingSiteFinalAuditSoilCoditioningType. Vastaava elementtimäärittely lisätty skeematiedostoon.
+	-Elementti WorkingSiteQualityControlSoilConditioning muutettu käyttämään viittausta (ref). Elementti tyypiltään SelfMonitoringWorkingSiteQualityControlSoilCoditioningType. Vastaava elementtimäärittely lisätty skeematiedostoon.
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -40,7 +50,7 @@
 	xmlns:workingSiteFinalAuditSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSoilConditioning"
 	xmlns:workingSiteQualityControlSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
 	xmlns:MapSymbol="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
-	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.12">
+	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.13">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase"
@@ -250,8 +260,72 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="WorkingSiteFinalAuditHarvesting"
+		type="workingSiteFinalAuditHarvesting:SelfMonitoringFinalAuditHarvestingType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="WorkingSiteQualityControlCutting"
+		type="workingSiteQualityControlCutting:SelfMonitoringWorkingSiteQualityControlCuttingType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="WorkingSiteFinalAuditPlantManagement"
+		type="workingSiteFinalAuditPlantManagement:SelfMonitoringWorkingSiteFinalAuditPlantManagementType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="WorkingSiteQualityControlPlantManagement"
+		type="workingSiteQualityControlPlantManagement:SelfMonitoringWorkingSiteQualityControlPlantManagementType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="WorkingSiteFinalAuditSilviculture"
+		type="workingSiteFinalAuditSilviculture:SelfMonitoringWorkingSiteFinalAuditSilvicultureType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="WorkingSiteQualityControlSilviculture"
+		type="workingSiteQualityControlSilviculture:SelfMonitoringWorkingSiteQualityControlSilvicultureType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="WorkingSiteFinalAuditSoilConditioning"
+		type="workingSiteFinalAuditSoilConditioning:SelfMonitoringWorkingSiteFinalAuditSoilConditioningType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="WorkingSiteQualityControlSoilConditioning"
+		type="workingSiteQualityControlSoilConditioning:SelfMonitoringWorkingSiteQualityControlSoilConditioningType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
 
-	<!-- Type definitions -->
+	<!-- Tyyppimääritykset / Type definitions -->
 	<xs:complexType name="CommonObjectDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsävaratietojen päivitystietojen (toteuma- ja muut tiedot) määrittely.</xs:documentation>
@@ -397,7 +471,8 @@
 			<!-- <xs:element name="ControlEvaluations" type="ControlEvaluationsType" minOccurs="0"/> -->
 			<!-- <xs:element name="ControlDataForestRoadConstruction" type="ControlDataForestRoadConstructionType" minOccurs="0"/> -->
 			<!-- <xs:element name="ControlDataSwampForestManagement" type="ControlDataSwampForestManagementType" minOccurs="0"/> -->
-			<xs:element minOccurs="0" name="SelfMonitoringBasicData" type="SelfMonitoringBasicDataType"/>
+			<xs:element minOccurs="0" name="SelfMonitoringBasicData"
+				type="SelfMonitoringBasicDataType"/>
 			<!-- <xs:element minOccurs="0" name="SelfMonitoringObjectData" type="SelfMonitoringObjectDataType"/> -->
 			<!-- <xs:element minOccurs="0" name="SelfMonitoringObjectProtectionOperationsData" type="SelfMonitoringObjectProtectionOperationsDataType">
 				<xs:annotation>
@@ -410,22 +485,16 @@
 			<!-- <xs:element minOccurs="0" name="Documents" type="fac:DocumentsType"/> -->
 			<!-- <xs:element ref="workingSiteFinalAuditDraining:WorkingSiteFinalAuditDraining"
 				minOccurs="0"/> -->
-			<xs:element ref="workingSiteFinalAuditHarvesting:WorkingSiteFinalAuditHarvesting"
-				minOccurs="0"/>
-			<xs:element ref="workingSiteQualityControlCutting:WorkingSiteQualityControlCutting"
-				minOccurs="0">
+			<xs:element ref="WorkingSiteFinalAuditHarvesting" minOccurs="0"/>
+			<xs:element ref="WorkingSiteQualityControlCutting" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Korjuun omavalvonnan koealatiedot</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element
-				ref="workingSiteFinalAuditPlantManagement:WorkingSiteFinalAuditPlantManagement"
-				minOccurs="0"/>
-			<xs:element
-				ref="workingSiteQualityControlPlantManagement:WorkingSiteQualityControlPlantManagement"
-				minOccurs="0">
+			<xs:element ref="WorkingSiteFinalAuditPlantManagement" minOccurs="0"/>
+			<xs:element ref="WorkingSiteQualityControlPlantManagement" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Taimikonhoidon omavalvonnan koealatiedot</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -434,23 +503,16 @@
 			</xs:element>
 			<!-- <xs:element ref="workingSiteFinalAuditRoadMaking:WorkingSiteFinalAuditRoadMaking"
 				minOccurs="0"/> -->
-			<xs:element ref="workingSiteFinalAuditSilviculture:WorkingSiteFinalAuditSilviculture"
-				minOccurs="0"/>
-			<xs:element
-				ref="workingSiteQualityControlSilviculture:WorkingSiteQualityControlSilviculture"
-				minOccurs="0">
+			<xs:element ref="WorkingSiteFinalAuditSilviculture" minOccurs="0"/>
+			<xs:element ref="WorkingSiteQualityControlSilviculture" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Istutuksen omavalvonnan koealatiedot</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element
-				ref="workingSiteFinalAuditSoilConditioning:WorkingSiteFinalAuditSoilConditioning"
-				minOccurs="0"/>
-			<xs:element
-				ref="workingSiteQualityControlSoilConditioning:WorkingSiteQualityControlSoilConditioning"
-				minOccurs="0">
+			<xs:element ref="WorkingSiteFinalAuditSoilConditioning" minOccurs="0"/>
+			<xs:element ref="WorkingSiteQualityControlSoilConditioning" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Maanmuokkauksen omavalvonnan koealatiedot</xs:documentation>
 					<xs:documentation xml:lang="sv"/>

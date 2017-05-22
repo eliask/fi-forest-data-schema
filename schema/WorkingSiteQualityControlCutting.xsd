@@ -8,60 +8,148 @@
 	-Muutettu elementti DiameterMax pakollisesta vapaaehtoiseksi
 	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "StemDamages"
 	-Koealatietoihin lisätty uusi vapaaehtoinen elementti "RootDamages"
+	
+	Muutokset skeemapakettiin V10.13:
+	-Lisätty uusi kantatyyppimäärittely WorkingSiteQualityControlBaseCuttingType
+	-Elementti ServiceBuyerId muutettu käyttämään viittausta (ref)
+	-Elementti WorkingSiteId muutettu käyttämään viittausta (ref)
+	-Elementti ResourceId muutettu käyttämään viittausta (ref)
+	-Elementti QualityControlDate muutettu käyttämään viittausta (ref)
+	-Elementti SamplePlotsSummaries muutettu käyttämään viittausta (ref)
+	-Elementti SamplePlots muutettu käyttämään viittausta (ref)
+	-Lisätty uusi tyyppimäärittely SelfMonitoringWorkingSiteQualityControlCuttingType, sisältää omavalvontatiedot
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.09">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.13">
+	
+	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
+	
+	<!-- Elementtimääritykset / Element definitions -->
 	<xs:element name="WorkingSiteQualityControlCutting" type="WorkingSiteQualityControlCuttingType"/>
-	<xs:complexType name="WorkingSiteQualityControlCuttingType">
+	<xs:element name="ServiceBuyerId" type="bdt:String20Type"/>
+	<xs:element name="WorkingSiteId" type="bdt:String20Type"/>
+	<xs:element name="ResourceId" type="bdt:String20Type"/>
+	<xs:element name="QualityControlDate" type="bdt:DateType"/>
+	<xs:element name="SamplePlotsSummaries" type="SamplePlotSummariesType"/>
+	<xs:element name="SamplePlots" type="SamplePlotsType"/>
+	
+	<!-- Tyyppimääritykset / Type definitions -->
+	<xs:complexType name="WorkingSiteQualityControlBaseCuttingType">
 		<xs:sequence>
-			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
+			<xs:element ref = "ServiceBuyerId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkingSiteId" type="bdt:String20Type" minOccurs="1">
+			<xs:element ref = "WorkingSiteId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ResourceId" type="bdt:String20Type" minOccurs="0">
+			<xs:element ref = "ResourceId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Resurssin ID</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="QualityControlDate" type="bdt:DateType" minOccurs="1">
+			<xs:element ref = "QualityControlDate" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Kontrolli pvm</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SamplePlotsSummaries" type="SamplePlotSummariesType" minOccurs="1">
+			<xs:element ref = "SamplePlotsSummaries" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Koealojen tiedot</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SamplePlots" type="SamplePlotsType" minOccurs="1">
+			<xs:element ref = "SamplePlots" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Koealojen tiedot</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+
+	<xs:complexType name="WorkingSiteQualityControlCuttingType">
+		<xs:complexContent>
+			<xs:restriction base="WorkingSiteQualityControlBaseCuttingType">
+				<xs:sequence>
+					<xs:element ref="ServiceBuyerId" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="WorkingSiteId" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ResourceId" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Resurssin ID</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="QualityControlDate" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Kontrolli pvm</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SamplePlotsSummaries" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Koealojen tiedot</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SamplePlots" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Koealojen tiedot</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="SelfMonitoringWorkingSiteQualityControlCuttingType">
+		<xs:complexContent>
+			<xs:restriction base="WorkingSiteQualityControlBaseCuttingType">
+				<xs:sequence>
+					<xs:element ref="QualityControlDate" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Kontrolli pvm</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SamplePlotsSummaries" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Koealojen tiedot</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SamplePlots" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Koealojen tiedot</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotsType">
 		<xs:sequence>
 			<xs:element name="SamplePlot" type="SamplePlotType" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="OtherTreeSpeciesType">
 		<xs:sequence>
 			<xs:element name="OtherTreeSpecies" type="OtherTreeSpeciesDataType" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="OtherTreeSpeciesDataType">
 		<xs:sequence>
 			<xs:element name="TreeSpecies" type="bdt:TreeSpeciesType" minOccurs="1">
@@ -81,6 +169,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotType">
 		<xs:sequence>
 			<xs:element name="StandId" type="bdt:String10Type" minOccurs="1">
@@ -250,6 +339,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotSummariesType">
 		<xs:sequence>
 			<xs:element name="SamplePlotSummary" type="SamplePlotSummaryType" minOccurs="1" maxOccurs="unbounded">
@@ -259,6 +349,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotSummaryType">
 		<xs:sequence>
 			<xs:element name="StandId" type="bdt:String10Type" minOccurs="1">
@@ -273,6 +364,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotMeasurementSummaryType">
 		<xs:sequence>
 			<xs:element name="MeasurerType" type="bdt:MeasurerTypeType" minOccurs="1">
@@ -317,6 +409,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="TreeSummariesType">
 		<xs:sequence>
 			<xs:element name="TreeSummary" type="TreeSummaryType" minOccurs="1" maxOccurs="unbounded">
@@ -326,6 +419,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="TreeSummaryType">
 		<xs:sequence>
 			<xs:element name="Storey" type="bdt:StoreyType" minOccurs="1">
