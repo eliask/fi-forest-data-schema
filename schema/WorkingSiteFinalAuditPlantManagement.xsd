@@ -22,6 +22,9 @@
 	-Elementti Images muutettu käyttämään viittausta (ref)
 	-Elementti Audits muutettu käyttämään viittausta (ref)
 	-Lisätty uusi tyyppimäärittely SelfMonitoringWorkingSiteFinalAuditPlantManagementType, sisältää omavalvontatiedot
+	
+	Muutokset skeemapakettiin V10.14:
+	-Korjattu omavalvontatyyppimäärittelyn (SelfMonitoringWorkingSiteFinalAuditPlantManagementType) elementtien pakollisuudet
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditPlantManagement"
@@ -29,7 +32,7 @@
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditPlantManagement"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified"
-	version="V10.13">
+	version="V10.14">
 	
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
@@ -288,57 +291,57 @@
 		<xs:complexContent>
 			<xs:restriction base="WorkingSiteFinalAuditPlantManagementBaseType">
 				<xs:sequence>
-					<xs:element ref="WorkCodeGroup" minOccurs="1">
+					<xs:element ref="WorkCodeGroup" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation xml:lang="fi">Työlajiryhmän koodi</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="WorkCode" minOccurs="1">
+					<xs:element ref="WorkCode" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation xml:lang="fi">Työlajin koodi</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="WorkCodeQualifier" minOccurs="0">
+					<xs:element ref="WorkCodeQualifier" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation xml:lang="fi">Työlajin lisämääre</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="Area" minOccurs="1">
+					<xs:element ref="Area" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation xml:lang="fi">Pinta-ala ha</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="WorkingTime" minOccurs="1">
+					<xs:element ref="WorkingTime" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation xml:lang="fi">Työskentelyn ajankohta (YYYY-MM-DD)</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="Audit" minOccurs="1">
+					<xs:element ref="Audit" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation xml:lang="fi">Arvioinnin tiedot</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="SamplePlotCount" minOccurs="1">
+					<xs:element ref="SamplePlotCount" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation xml:lang="fi">Koealojen lkm (toteutunut)</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="SamplePlotCountRequired" minOccurs="1">
+					<xs:element ref="SamplePlotCountRequired" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation xml:lang="fi">Koealojen lkm (Metsäjärjestelmästä vaaditti)</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="InfoText" minOccurs="0">
+					<xs:element ref="InfoText" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation xml:lang="fi">Lisätiedot</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="Images" minOccurs="1">
+					<xs:element ref="Images" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation xml:lang="fi">Valokuvien lkm</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="Audits" minOccurs="1"/>
+					<xs:element ref="Audits" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:restriction>
 		</xs:complexContent>

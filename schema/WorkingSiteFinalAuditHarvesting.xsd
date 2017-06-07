@@ -8,7 +8,7 @@
 	- Kantatyyppimäärittelyyn pohjautuvat tyyppimäärittelyt WorkingSiteFinalAuditHarvestingType (toiminnanohjaus) ja SelfmonitoringFinalAuditHarvestingType (omavalvonta).
 	- Tyyppimäärittely WorkingSiteFinalAuditHarvestingType vastaa alkuperäistä määrittelyä validoituvuudeltaan.
 	- Uudet elementtimäärittelyt ServiceBuyerId, WorkingSiteId, HarvesterId, ForwarderId, PurchaseContractId, WorkCodeGroup, WorkCode, Audit, InfoText, Images ja Audits, joita käytetään referensseinä tyyppimäärittelyissä WorkingSiteFinalAuditBaseHarvestingType, WorkingSiteFinalAuditHarvestingType ja SelfmonitoringFinalAuditHarvestingType.
-	-Tyyppimäärittely YesNoNotNeededType (koodisto) siirretty koodistoon, muutettu elementtien tyyppimäärittelyt käyttämään co: nimiavaruutta
+	- Tyyppimäärittely YesNoNotNeededType (koodisto) siirretty koodistoon, muutettu elementtien tyyppimäärittelyt käyttämään co: nimiavaruutta
 -->
 <xs:schema
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"

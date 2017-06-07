@@ -11,6 +11,9 @@
 	-Elementti SamplePlotSummaries muutettu käyttämään viittausta (ref)
 	-Elementti SamplePlots muutettu käyttämään viittausta (ref)
 	-Lisätty uusi tyyppimäärittely SelfMonitoringWorkingSiteQualityControlPlantManagementType, sisältää omavalvontatiedot
+	
+	Muutokset skeemapakettiin V10.14:
+	-Korjattu omavalvontatyyppimäärittelyn (SelfMonitoringWorkingSiteQualityControlPlantManagementType) elementtien pakollisuudet
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlPlantManagement"
@@ -122,17 +125,17 @@
 		<xs:complexContent>
 			<xs:restriction base="WorkingSiteQualityControlPlantManagementBaseType">
 				<xs:sequence>
-					<xs:element ref="Images" minOccurs="1">
+					<xs:element ref="Images" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation xml:lang="fi">Valokuvien lukumäärä</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="SamplePlotSummaries" minOccurs="1">
+					<xs:element ref="SamplePlotSummaries" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation xml:lang="fi">Koealojen summatiedot</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="SamplePlots" minOccurs="1">
+					<xs:element ref="SamplePlots" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation xml:lang="fi">Koealatiedot</xs:documentation>
 						</xs:annotation>

@@ -18,13 +18,16 @@
 	-Elementti SamplePlotsSummaries muutettu käyttämään viittausta (ref)
 	-Elementti SamplePlots muutettu käyttämään viittausta (ref)
 	-Lisätty uusi tyyppimäärittely SelfMonitoringWorkingSiteQualityControlCuttingType, sisältää omavalvontatiedot
+	
+	Muutokset skeemapakettiin V10.14:
+	-Korjattu omavalvontatyyppimäärittelyn (SelfMonitoringWorkingSiteQualityControlCuttingType) elementtien pakollisuudet
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.13">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.14">
 	
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
@@ -118,17 +121,17 @@
 		<xs:complexContent>
 			<xs:restriction base="WorkingSiteQualityControlBaseCuttingType">
 				<xs:sequence>
-					<xs:element ref="QualityControlDate" minOccurs="1">
+					<xs:element ref="QualityControlDate" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation xml:lang="fi">Kontrolli pvm</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="SamplePlotsSummaries" minOccurs="1">
+					<xs:element ref="SamplePlotsSummaries" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation xml:lang="fi">Koealojen tiedot</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="SamplePlots" minOccurs="1">
+					<xs:element ref="SamplePlots" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation xml:lang="fi">Koealojen tiedot</xs:documentation>
 						</xs:annotation>

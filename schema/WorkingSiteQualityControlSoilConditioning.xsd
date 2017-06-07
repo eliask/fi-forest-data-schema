@@ -16,7 +16,16 @@
 	-Kuvio-/lohkotietoihin lisätty uusi vapaaehtoinen elementti "DitchesInAdditionToCultivation"
 	
 	Muutokset skeemapakettiin V10.13:
-	-
+	-Lisätty uusi tyyppimäärittely WorkingSiteQualityControlSoilConditioningBaseType
+	-Elementti ServiceBuyerId muutettu käyttämään viittausta (ref)
+	-Elementti WorkingSiteId muutettu käyttämään viittausta (ref)
+	-Elementti Images muutettu käyttämään viittausta (ref)
+	-Elementti SamplePlotSummaries muutettu käyttämään viittausta (ref)
+	-Elementti SamplePlots muutettu käyttämään viittausta (ref)
+	-Lisätty uusi tyyppimäärittely SelfMonitoringWorkingSiteQualityControlSoilConditioningType, sisältää omavalvontatiedot
+	
+	Muutokset skeemapakettiin V10.14:
+	-Korjattu omavalvontatyyppimäärittelyn (SelfMonitoringWorkingSiteQualityControlSoilConditioningType) elementtien pakollisuudet
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
@@ -25,7 +34,7 @@
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified"
-	version="V10.13">
+	version="V10.14">
 	
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
@@ -116,17 +125,17 @@
 		<xs:complexContent>
 			<xs:restriction base="WorkingSiteQualityControlSoilConditioningBaseType">
 				<xs:sequence>
-					<xs:element ref="Images" minOccurs="0">
+					<xs:element ref="Images" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation xml:lang="fi">Valokuvien lkm</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="SamplePlotSummaries" minOccurs="1">
+					<xs:element ref="SamplePlotSummaries" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation xml:lang="fi">Koealojen summatiedot</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="SamplePlots" minOccurs="1" maxOccurs="1"/>
+					<xs:element ref="SamplePlots" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:restriction>
 		</xs:complexContent>
