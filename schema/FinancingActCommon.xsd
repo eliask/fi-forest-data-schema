@@ -32,10 +32,13 @@
 	
 	13.11.2015
 	- CostTypeNumberType määrittely siirretty ForestEnumerations.xsd:hen
-	***************************************************************
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.01:
+	-Siirretty tyyppimäärittely AttorneyType tiedostosta FinancingActCommon.xsd tiedostoon ForestCentreCommon.xsd. Tässä skeematiedostossa käytetään tästä lähtien AttorneyType:ä fcc-nimiavaruudesta.
+	***************************************************************
 -->
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -48,7 +51,7 @@
     xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate"
     xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
     xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:gml="http://www.opengis.net/gml"
-    elementFormDefault="qualified" version="V10.05">
+    elementFormDefault="qualified" version="V11.01">
 
     <!-- Imports / Includes -->
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
@@ -383,7 +386,7 @@
             <xs:documentation xml:lang="en"/>
         </xs:annotation>
     </xs:element>
-    <xs:element name="Attorney" type="AttorneyType">
+    <xs:element name="Attorney" type="fcc:AttorneyType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Asiamies ja yhteyshenkilö</xs:documentation>
             <xs:documentation xml:lang="sv"/>
@@ -1008,23 +1011,6 @@
         <xs:sequence>
             <xs:element ref="co:Document" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
-    </xs:complexType>
-
-    <xs:complexType name="AttorneyType">
-        <xs:annotation>
-            <xs:documentation xml:lang="fi">Asiamiehen / yhteyshenkilön tietojen määrittely</xs:documentation>
-            <xs:documentation xml:lang="sv"/>
-            <xs:documentation xml:lang="en">Definition for information of attorney / contact person</xs:documentation>
-        </xs:annotation>
-        <xs:complexContent>
-            <xs:extension base="ci:ContactInformationType">
-                <xs:sequence>
-                    <xs:element ref="PowerOfAttorney" minOccurs="1" maxOccurs="1"/>
-                    <xs:element ref="RightToSpecifyBankAccountsOfPaymentTransactions" minOccurs="1"
-                        maxOccurs="1"/>
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
     </xs:complexType>
 
     <xs:complexType name="WorkingRepresentativesType">

@@ -6,6 +6,9 @@
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.01:
+	-Lisätty uusi vapaaehtoinen elementti Attorney. Elementti on tyypiltään AttorneyType, käytetään viittauksella (ref) FinancingActCommon.xsd skeematiedostoon. Lisätty myös vaadittava nimiavaruusmäärittely.
 	****************************************************************************
 -->
 
@@ -18,7 +21,8 @@
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	xmlns:gml="http://www.opengis.net/gml"
 	xmlns:fcc="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
-	elementFormDefault="qualified" version="V10.05">
+	xmlns:fac="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
+	elementFormDefault="qualified" version="V11.01">
 
 
 	<!-- Imports / Includes -->
@@ -33,6 +37,8 @@
 	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="../gml/3.1.1/base/gml.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
 		schemaLocation="ForestCentreCommon.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
+		schemaLocation="FinancingActCommon.xsd"/>
 
 
 	<!-- Elementtimääritykset / Element definitions -->
@@ -221,6 +227,7 @@
 			<xs:element ref="MooseDamageDate" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="AdditionalDetails" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="CompensationApplicant" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fac:Attorney" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="MooseDamageDeclarationRealEstates" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="CompensationByInsurance" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="CompensationByLegislation" minOccurs="1" maxOccurs="1"/>

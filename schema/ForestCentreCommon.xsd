@@ -8,6 +8,9 @@
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.01:
+	-Siirretty tyyppimäärittely AttorneyType tiedostosta FinancingActCommon.xsd tiedostoon ForestCentreCommon.xsd. Siirrytty käyttämään elementtejä PowerOfAttorney ja RightToSpecifyBankAccountsOfPaymentTransactions viittauksella (ref). Viittaus skeematiedostoon FinancingActCommon.xsd.
 	***************************************************************
 -->
 
@@ -16,18 +19,19 @@
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+	xmlns:fac="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
 	elementFormDefault="qualified"
-	version="V10.05">
+	version="V11.01">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
 		schemaLocation="Common.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
+		schemaLocation="FinancingActCommon.xsd"/>
 
-	<!-- Elementtimääritykset -->
-	<!-- Element definitions -->
+	<!-- Elementtimääritykset / Element definitions -->
 
-	<!-- Tyyppimääritykset -->
-	<!-- Type definitions -->
+	<!-- Tyyppimääritykset / Type definitions -->
 	<xs:simpleType name="LocationEstateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Sijaintikiinteistön id. Id-viittaus RealEstate.id -attribuuttiin. Puuttuva id ei sallittu.</xs:documentation>
@@ -45,5 +49,22 @@
 		</xs:annotation>
 		<xs:restriction base="co:YesNoType"/>
 	</xs:simpleType>
+	
+	<xs:complexType name="AttorneyType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Asiamiehen / yhteyshenkilön tietojen määrittely</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Definition for information of attorney / contact person</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="co:ContactInformationType">
+				<xs:sequence>
+					<xs:element ref="fac:PowerOfAttorney" minOccurs="1" maxOccurs="1"/>
+					<xs:element ref="fac:RightToSpecifyBankAccountsOfPaymentTransactions" minOccurs="1"
+						maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
 </xs:schema>

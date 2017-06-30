@@ -30,6 +30,19 @@
 	-Täydennetty omavalvontarakenteen elementtien dokumentaatioita
 	-Aiemmin piilotettuna ollut elementti StandBasicData on otettu uudelleen käyttöön poistamalla kommenttitagit elementin ympäriltä
 	-Aiemmin piilotettuna ollut elementti Operations on otettu uudelleen käyttöön poistamalla kommenttitagit elementin ympäriltä
+	
+	Muutokset skeemapakettiin V11.01:
+	-Elementin UseCase tyyppimäärittelyksi muutettu koodisto UseCaseType. Myös elementin dokumentaatio päivitetty.
+	-Muutettu elementti StandBasicData käyttämään tyyppimäärittelyä BaseCompactStandBasicDataType
+	-Muutettu elementti ParentObjectType käyttämään koodistoa ObjectTypeType
+	-Muutettu attribuutti objectType käyttämään koodistoa ObjectTypeType
+	-Päivitetty attribuuttien actorType ja actorTypeSpecifier dokumentaatiot
+	-Muutettu attribuutti actorType käyttämään koodistoa ActorTypeType
+	-Elementti ParentObjects uudelleennimetty -> ChildObjects, myös tyyppimäärittely muutettu ParentObjectsType -> ChildObjectsType
+	-Elementti ParentObject uudelleennimetty -> ChildObject, myös tyyppimäärittely muutettu ParentObjectType -> ChildObjectType
+	-Elementti ParentObjectType uudelleennimetty -> ChildObjectType
+	-Elementti ParentObjectTypeSpecifier uudellennimetty -> ChildObjectTypeSpecifier
+	-Elementti ParentObjectId uudelleennimetty -> ChildObjectId
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -55,7 +68,7 @@
 	xmlns:workingSiteFinalAuditSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSoilConditioning"
 	xmlns:workingSiteQualityControlSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
 	xmlns:MapSymbol="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
-	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.14">
+	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.01">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase"
@@ -131,10 +144,9 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="UseCase" type="xs:string">
-		<!-- MÄÄRITÄ KOODISTO -->
+	<xs:element name="UseCase" type="co:UseCaseType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">KOODISTO</xs:documentation>
+			<xs:documentation xml:lang="fi">Omavalvonnan käyttötapaus</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
@@ -174,35 +186,35 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="ParentObjects" type="ParentObjectsType">
+	<xs:element name="ChildObjects" type="ChildObjectsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Viittaukset muihin kohteisiin</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="ParentObject" type="ParentObjectType">
+	<xs:element name="ChildObject" type="ChildObjectType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Viittaus muuhun kohteeseen</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="ParentObjectType" type="ObjectTypeType">
+	<xs:element name="ChildObjectType" type="co:ObjectTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Viitatun kohteen tyyppi</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="ParentObjectTypeSpecifier" type="ObjectTypeSpecifierType">
+	<xs:element name="ChildObjectTypeSpecifier" type="ObjectTypeSpecifierType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Viitatun kohteen tyypin tarkenne, kun kyse muusta kohteesta.</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="ParentObjectId" type="co:IdStringNotEmptyType">
+	<xs:element name="ChildObjectId" type="co:IdStringNotEmptyType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Viitatun kohteen id</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
@@ -230,7 +242,7 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="StandBasicData" type="st:CompactStandBasicDataType">
+	<xs:element name="StandBasicData" type="st:BaseCompactStandBasicDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi"/>
 			<xs:documentation xml:lang="sv"/>
@@ -380,7 +392,7 @@
 				<xs:documentation xml:lang="en">Object can be identified using string id.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="objectType" type="ObjectTypeType">
+		<xs:attribute name="objectType" type="co:ObjectTypeType">
 			<xs:annotation>
 				<xs:documentation xml:lang="fi">Kohteen tyyppi</xs:documentation>
 				<xs:documentation xml:lang="sv"/>
@@ -398,7 +410,7 @@
 
 	<xs:group name="ObjectDataGroup">
 		<xs:sequence>
-			<xs:element ref="ParentObjects" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ChildObjects" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="Actors" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="RealEstates" type="RealEstatesType" minOccurs="0"/>
 			<!-- <xs:element ref="SoilData" minOccurs="0" maxOccurs="1"/> -->
@@ -587,39 +599,29 @@
 		</xs:attribute>
 	</xs:complexType>
 
-	<xs:complexType name="ParentObjectsType">
+	<xs:complexType name="ChildObjectsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Viittaukset muihin kohteisiin</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Reference to other objects</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="ParentObject" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element ref="ChildObject" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="ParentObjectType">
+	<xs:complexType name="ChildObjectType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi"/>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="ParentObjectType" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="ParentObjectTypeSpecifier" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="ParentObjectId" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="ChildObjectType" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="ChildObjectTypeSpecifier" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ChildObjectId" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
-
-	<xs:simpleType name="ObjectTypeType">
-		<!-- ONKO TÄMÄ KOODISTO? -->
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">KOODISTO</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en"/>
-		</xs:annotation>
-		<xs:restriction base="xs:string"/>
-	</xs:simpleType>
 
 	<xs:simpleType name="ObjectTypeSpecifierType">
 		<xs:annotation>
@@ -654,16 +656,16 @@
 					<xs:element ref="BankAccount" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 				-->
-				<xs:attribute name="actorType" type="ActorTypeType">
+				<xs:attribute name="actorType" type="co:ActorTypeType">
 					<xs:annotation>
-						<xs:documentation xml:lang="fi">Kohteen tyyppi</xs:documentation>
+						<xs:documentation xml:lang="fi">Toimijan tyyppi</xs:documentation>
 						<xs:documentation xml:lang="sv"/>
 						<xs:documentation xml:lang="en"/>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="actorTypeSpecifier" type="ActorTypeSpecifierType">
 					<xs:annotation>
-						<xs:documentation xml:lang="fi">Kohteen tyypin tarkenne</xs:documentation>
+						<xs:documentation xml:lang="fi">Toimijan tyypin tarkenne</xs:documentation>
 						<xs:documentation xml:lang="sv"/>
 						<xs:documentation xml:lang="en"/>
 					</xs:annotation>

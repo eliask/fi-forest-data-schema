@@ -6,6 +6,9 @@
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.01:
+	-Lisätty uusi tyyppimäärittely BaseCompactStandBasicDataType joka on sisällöltään CompactStandBasicDataType ilman pakollisuuksia
 	***************************************************************
 -->
 <xs:schema
@@ -16,7 +19,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified"
-	version="V10.05">
+	version="V11.01">
 	
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase" schemaLocation="StandBase.xsd"/>
@@ -169,6 +172,7 @@
 			<xs:documentation xml:lang="en">Area which decrease total area of stand, ha. E.g. power lines, roads... Area - AreaDecrease = effective forest land area for forestry purposes.</xs:documentation>	
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="CompleteState" type="co:CompleteStateType"/>
 	
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
@@ -198,6 +202,29 @@
 		</xs:sequence>
 	</xs:complexType>
 	
+	<xs:complexType name="BaseCompactStandBasicDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kuvion perustiedot (supistettu versio StandBasicDataType:stä, ilman pakollisuuksia).</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Stand basic data (compact version of StandBasicDataType).</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="co:ChangeState" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="co:ChangeTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="CompleteState" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Identifiers" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="StandNumber" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="StandNumberExtension" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="DitchingYear" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ThinningYear" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Accessibility" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="StandBasicDataDate" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="StandInfo" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="co:DataSource" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="GrowthPlaceDataSource" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
 	<xs:complexType name="CompactStandBasicDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvion perustiedot (supistettu versio StandBasicDataType:stä).</xs:documentation>
@@ -207,7 +234,7 @@
 		<xs:sequence>
 			<xs:element ref="co:ChangeState" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="co:ChangeTime" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="CompleteState" type="co:CompleteStateType" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="CompleteState" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="Identifiers" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="StandNumber" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="StandNumberExtension" minOccurs="0" maxOccurs="1"/>

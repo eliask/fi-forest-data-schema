@@ -9,6 +9,10 @@
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.01:
+	-Elementti CommonObjectData otettu käyttöön poistamalla se kommenttitageista. Samalla siirretty choice-blokin viimeiseksi elementiksi.
+	-Elementin CommonObjectData dokumentaatio päivitetty vastaamaan käyttötarkoitustaan eli omavalvontaa
 	***************************************************************
 -->
 
@@ -23,7 +27,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	xmlns:mdd="http://standardit.tapio.fi/schemas/forestData/MooseDamageDeclaration"
-	elementFormDefault="qualified" version="V10.05">
+	elementFormDefault="qualified" version="V11.01">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestUseDeclaration"
@@ -44,8 +48,7 @@
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/MooseDamageDeclaration"
 		schemaLocation="MooseDamageDeclaration.xsd"/>
 
-	<!-- Elementtimääritykset -->
-	<!-- Element definitions -->
+	<!-- Elementtimääritykset / Element definitions -->
 	<xs:element name="ForestCentreMessage" type="ForestCentreMessageType"/>
 	<xs:element name="TimeStamp" type="co:TimeStampType">
 		<xs:annotation>
@@ -86,9 +89,9 @@
 	</xs:element>
 	<xs:element name="CommonObjectData" type="cod:CommonObjectDataType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Metsävaratietojen päivitys toteuma- tai muilla tiedoilla, kun Message = MVPAIV</xs:documentation>
+			<xs:documentation xml:lang="fi">Omavalvonnan tiedot, kun Message = OVT</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Forest realization data, when Message = MVPAIV</xs:documentation>
+			<xs:documentation xml:lang="en">Self-monitoring information, when Message = OVT</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="MooseDamageDeclaration" type="mdd:MooseDamageDeclarationType">
@@ -99,8 +102,7 @@
 		</xs:annotation>
 	</xs:element>
 
-	<!-- Tyyppimääritykset -->
-	<!-- Type definitions -->
+	<!-- Tyyppimääritykset / Type definitions -->
 	<xs:complexType name="ForestCentreMessageType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsäkeskusviesti</xs:documentation>
@@ -115,8 +117,8 @@
 				<xs:element ref="ForestUseDeclaration" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="FinancingActApplication" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="FinancingActCompletionDeclaration" minOccurs="1" maxOccurs="1"/>
-				<!-- <xs:element ref="CommonObjectData" minOccurs="1" maxOccurs="1"/> -->
 				<xs:element ref="MooseDamageDeclaration" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="CommonObjectData" minOccurs="1" maxOccurs="1"/>
 			</xs:choice>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
