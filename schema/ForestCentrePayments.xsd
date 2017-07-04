@@ -8,10 +8,13 @@
 	9.2.2015
 
 	18.9.2015
-	- ForestCentrePaymentsType -tyypille lisätty lapsielementti "fac:Documents"
+	- ForestCentrePaymentsType -tyypille lisätty lapsielementti "fcc:Documents"
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.02:
+	-Muutettu nimiavaruusmäärittely fac: (FinancingActCommon) -> fcc: (ForestCentreCommon)
 	****************************************************************************
 -->
 
@@ -19,15 +22,15 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForestryCentrePayments"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/ForestryCentrePayments"
-	xmlns:fac="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
+	xmlns:fcc="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
-	elementFormDefault="qualified" version="V10.05">
+	elementFormDefault="qualified" version="V11.02">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
 		schemaLocation="Common.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
-		schemaLocation="FinancingActCommon.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
+		schemaLocation="ForestCentreCommon.xsd"/>
 
 	<!-- Elementtimääritykset -->
 	<!-- Element definitions -->
@@ -50,14 +53,14 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="ForestCentreMessageReference" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="fac:FinancingActApplicationReference" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="fac:FinancingActNumber" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="fac:ArrivalDate" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="fac:SubsidyAppliers" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="fac:SubsidyAmount" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="fac:PaymentsReference" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="fac:PaymentsDate" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="fac:Documents" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="fcc:FinancingActApplicationReference" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fcc:FinancingActNumber" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fcc:ArrivalDate" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fcc:SubsidyAppliers" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fcc:SubsidyAmount" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fcc:PaymentsReference" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fcc:PaymentsDate" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fcc:Documents" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
 			<xs:annotation>

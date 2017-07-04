@@ -6,10 +6,13 @@
 	Ensimmäinen versio 1.0
 	
 	18.9.2015
-	- ForestryCentreDecisionType -tyypille lisätty lapsielementti fac:FinancingActNumber
+	- ForestryCentreDecisionType -tyypille lisätty lapsielementti fcc:FinancingActNumber
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.02:
+	-Muutettu nimiavaruusmäärittely fac: (FinancingActCommon) -> fcc: (ForestCentreCommon)
 	****************************************************************************
 -->
 
@@ -18,15 +21,15 @@
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreDecision"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/ForestCentreDecision"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
-	xmlns:fac="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
+	xmlns:fcc="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
 	elementFormDefault="qualified"
-	version="V10.05">
+	version="V11.02">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
 		schemaLocation="Common.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
-        schemaLocation="FinancingActCommon.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
+        schemaLocation="ForestCentreCommon.xsd"/>
 		
 	<!-- Elementtimääritykset -->
 	<!-- Element definitions -->
@@ -64,10 +67,10 @@
 			<xs:documentation xml:lang="en">Forest centre Kemera desicion</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-            <xs:element ref="fac:FinancingActNumber" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="fac:FinancingActApplicationReference" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="fac:CompletionDeclarationReference" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="fac:CustomerReference" minOccurs="0" maxOccurs="1"/>
+            <xs:element ref="fcc:FinancingActNumber" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fcc:FinancingActApplicationReference" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="fcc:CompletionDeclarationReference" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="fcc:CustomerReference" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="DesicionType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Rahoituspäätös, Lisärahoituspäätös</xs:documentation>

@@ -13,6 +13,10 @@
 	Muutokset skeemapakettiin V11.01:
 	-Elementti CommonObjectData otettu käyttöön poistamalla se kommenttitageista. Samalla siirretty choice-blokin viimeiseksi elementiksi.
 	-Elementin CommonObjectData dokumentaatio päivitetty vastaamaan käyttötarkoitustaan eli omavalvontaa
+	
+	Muutokset skeemapakettiin V11.02:
+	-Skeematiedostosta siivottu käyttämättömät määrittelyt
+	-Elementti CommonObjectData uudelleennimetty -> ForestCentreCommonObjectData. Samalla elementti muutettu käyttämään tyyppimäärittelyä ForestCentreCommonObjectDataType.
 	***************************************************************
 -->
 
@@ -20,20 +24,17 @@
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreMessage"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/ForestCentreMessage"
 	xmlns:fud="http://standardit.tapio.fi/schemas/forestData/ForestUseDeclaration"
-	xmlns:fac="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
 	xmlns:faa="http://standardit.tapio.fi/schemas/forestData/FinancingActApplication"
 	xmlns:facd="http://standardit.tapio.fi/schemas/forestData/FinancingActCompletionDeclaration"
 	xmlns:cod="http://standardit.tapio.fi/schemas/forestData/commonObjectData"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	xmlns:mdd="http://standardit.tapio.fi/schemas/forestData/MooseDamageDeclaration"
-	elementFormDefault="qualified" version="V11.01">
+	elementFormDefault="qualified" version="V11.02">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestUseDeclaration"
 		schemaLocation="ForestUseDeclaration.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
-		schemaLocation="FinancingActCommon.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/FinancingActApplication"
 		schemaLocation="FinancingActApplication.xsd"/>
 	<xs:import
@@ -87,7 +88,7 @@
 			<xs:documentation xml:lang="en">Financing act completion declaration data, when Message = KMRTI</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="CommonObjectData" type="cod:CommonObjectDataType">
+	<xs:element name="ForestCentreCommonObjectData" type="cod:ForestCentreCommonObjectDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Omavalvonnan tiedot, kun Message = OVT</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
@@ -118,7 +119,7 @@
 				<xs:element ref="FinancingActApplication" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="FinancingActCompletionDeclaration" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="MooseDamageDeclaration" minOccurs="1" maxOccurs="1"/>
-				<xs:element ref="CommonObjectData" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="ForestCentreCommonObjectData" minOccurs="1" maxOccurs="1"/>
 			</xs:choice>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">

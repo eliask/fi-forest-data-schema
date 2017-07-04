@@ -4,8 +4,7 @@
 	Kemera toteutusilmoitusviesti
 	Skeema on JHS-170 -suosituksen mukainen.
 	
-	
-	24.8.2015 
+	24.8.2015
 	 - SubstituteMessage, kyllä/ei -tyyppiseksi,
      - FinancialDecisionDeveliryByElectronicMeans ->ElectronicNotification
 	 
@@ -24,21 +23,26 @@
 
 	18.9.2015
 	- FinancingActCompletionDeclarationType -tyypille lisätty lapsielementti "fac:Documents"
-	***************************************************************
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.02:
+	-Skeematiedostosta poistettu ja korvattu viitteet poistettuun skeematiedostoon FinancingActCommon.xsd, jonka sisältö siirretty skeematiedostoon ForestCentreCommon.xsd.
+	***************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://standardit.tapio.fi/schemas/forestData/FinancingActCompletionDeclaration"
     xmlns="http://standardit.tapio.fi/schemas/forestData/FinancingActCompletionDeclaration"
-    xmlns:fac="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
-    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="qualified"
-    version="V10.05">
+    xmlns:fac="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
+    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+    elementFormDefault="qualified"
+    version="V11.02">
 
     <!-- Imports / Includes -->
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
-        schemaLocation="FinancingActCommon.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
+        schemaLocation="ForestCentreCommon.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
         schemaLocation="Common.xsd"/>
 

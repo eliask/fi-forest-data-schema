@@ -43,6 +43,13 @@
 	-Elementti ParentObjectType uudelleennimetty -> ChildObjectType
 	-Elementti ParentObjectTypeSpecifier uudellennimetty -> ChildObjectTypeSpecifier
 	-Elementti ParentObjectId uudelleennimetty -> ChildObjectId
+	
+	Muutokset skeemapakettiin V11.02:
+	-Skeematiedostosta poistettu ja korvattu viitteet poistettuun skeematiedostoon FinancingActCommon.xsd, jonka sisältö siirretty skeematiedostoon ForestCentreCommon.xsd.
+	-Lisätty määrittely uudelle elementille CommonObjectDataReference (omavalvonnan viite)
+	-Lisätty uusi tyyppimäärittely ForestCentreCommonObjectDataType, jonka pohjatoteutuksena on CommonObjectDataType. Lisäksi tyyppimäärittelyyn lisätty viittauksella (ref) uusi pakollinen elementti CommonObjectDataReference
+	-Päivitetty tyyppimäärittelyn CommonObjectDataType dokumentaatio
+	-Elementti Objects muutettu vapaaehtoisesta pakolliseksi tyyppimäärittelyissä CommonObjectDataType
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -50,13 +57,13 @@
 	xmlns="http://standardit.tapio.fi/schemas/forestData/commonObjectData"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
+	xmlns:fcc="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
 	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate"
 	xmlns:stb="http://standardit.tapio.fi/schemas/forestData/standbase"
 	xmlns:st="http://standardit.tapio.fi/schemas/forestData/Stand"
 	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
 	xmlns:ts="http://standardit.tapio.fi/schemas/forestData/treeStand"
 	xmlns:op="http://standardit.tapio.fi/schemas/forestData/operation"
-	xmlns:fac="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
 	xmlns:workingSiteFinalAuditDraining="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditDraining"
 	xmlns:workingSiteFinalAuditHarvesting="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditHarvesting"
 	xmlns:workingSiteQualityControlCutting="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting"
@@ -68,7 +75,7 @@
 	xmlns:workingSiteFinalAuditSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSoilConditioning"
 	xmlns:workingSiteQualityControlSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
 	xmlns:MapSymbol="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
-	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.01">
+	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.02">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase"
@@ -77,6 +84,8 @@
 		schemaLocation="Common.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 		schemaLocation="ContactInformation.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
+		schemaLocation="ForestCentreCommon.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/realEstate"
 		schemaLocation="RealEstate.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Stand"
@@ -87,8 +96,6 @@
 		schemaLocation="TreeStand.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operation"
 		schemaLocation="Operation.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/FinancingActCommon"
-		schemaLocation="FinancingActCommon.xsd"/>
 	<xs:import
 		namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditDraining"
 		schemaLocation="WorkingSiteFinalAuditDraining.xsd"/>
@@ -341,11 +348,18 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="CommonObjectDataReference" type="co:ReferenceType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Viite</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
 
 	<!-- Tyyppimääritykset / Type definitions -->
 	<xs:complexType name="CommonObjectDataType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Metsävaratietojen päivitystietojen (toteuma- ja muut tiedot) määrittely.</xs:documentation>
+			<xs:documentation xml:lang="fi">Yleisten kohdetietojen määrittely.</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
@@ -353,7 +367,7 @@
 			<xs:element ref="AdditionalDetails" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="Sender" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="UseCase" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="Objects" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Objects" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
 			<xs:annotation>
@@ -362,6 +376,21 @@
 				<xs:documentation xml:lang="en"/>
 			</xs:annotation>
 		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="ForestCentreCommonObjectDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsäkeskuksen omavalvontatietojen määrittely.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="CommonObjectDataType">
+				<xs:sequence>
+					<xs:element ref="CommonObjectDataReference" minOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="ObjectsType">
@@ -499,7 +528,7 @@
 				</xs:annotation>
 			</xs:element> -->
 			<!-- <xs:element minOccurs="0" name="SelfMonitoringEvaluations" type="SelfMonitoringEvaluationsType"/> -->
-			<!-- <xs:element minOccurs="0" name="Documents" type="fac:DocumentsType"/> -->
+			<!-- <xs:element minOccurs="0" name="Documents" type="fcc:DocumentsType"/> -->
 			<!-- <xs:element ref="workingSiteFinalAuditDraining:WorkingSiteFinalAuditDraining"
 				minOccurs="0"/> -->
 			<xs:element ref="WorkingSiteFinalAuditHarvesting" minOccurs="0">
