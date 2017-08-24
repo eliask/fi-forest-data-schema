@@ -2,13 +2,28 @@
 <!-- 
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.03:
+	-Lisätty uusi pakollinen elementti SamplePlotCount, tyypiltään bdt:PositiveInteger3digitsType
+	-Lisätty uusi pakollinen elementti SamplePlotCountRequired, tyypiltään bdt:PositiveInteger3digitsType
+	-Korjattu elementin nimi TreeOrGroundDameges -> TreeOrGroundDamages
+	-Korjattu elementin nimi TreeOrGroundDamegesText -> TreeOrGroundDamagesText
+	-Muutettu elementin AirdromeAsInstructed minOccurs 1 -> 0
+	-Skeematiedostosta poistettu elementti DetectedDeviation
+	-Skeematiedostosta poistettu elementti DetectedDeviationText
+	-Skeematiedostosta poistettu elementti RemedialAction
+	-Skeematiedostosta poistettu elementti RemedialActionText
+	-Skeematiedostosta poistettu elementti LimitsToWaterSystem
+	-Skeematiedostosta poistettu elementti LimitsToWaterSystemText
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditFertilization"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditFertilization"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.03">
+	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	
 	<xs:element name="WorkingSiteFinalAuditFertilization" type="WorkingSiteFinalAuditFertilizationType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Lannoituksen loppuarviointi/laadunseuranta</xs:documentation>
@@ -59,6 +74,16 @@
 			<xs:element name="Audit" type="AuditionType" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Arvioinnin tiedot</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlotCount" type="bdt:PositiveInteger3digitsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealojen lkm (toteutunut)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlotCountRequired" type="bdt:PositiveInteger3digitsType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealojen lkm (vaadittu)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="InfoText" type="bdt:String1000Type" minOccurs="0">
@@ -135,12 +160,12 @@
 					<xs:documentation xml:lang="fi">Lannoitustyön kokonaisarvio selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TreeOrGroundDameges" type="bdt:YesNoType" minOccurs="1">
+			<xs:element name="TreeOrGroundDamages" type="bdt:YesNoType" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Puusto-ja/tai maastovaurioita</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TreeOrGroundDamegesText" type="bdt:String200Type" minOccurs="0">
+			<xs:element name="TreeOrGroundDamagesText" type="bdt:String200Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Puusto-ja/tai maastovaurioita selite</xs:documentation>
 				</xs:annotation>
@@ -165,7 +190,7 @@
 					<xs:documentation xml:lang="fi">Lannoitteiden varastointi tehty ohjeen mukaisesti</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="AirdromeAsInstructed" type="bdt:YesNoType" minOccurs="1">
+			<xs:element name="AirdromeAsInstructed" type="bdt:YesNoType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Lentopaikka (nousu/lasku) ohjeistuksen mukainen</xs:documentation>
 				</xs:annotation>
@@ -173,26 +198,6 @@
 			<xs:element name="AirdromeAsInstructedText" type="bdt:String200Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Lentopaikka (nousu/lasku) ohjeistuksen mukainen selite</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="DetectedDeviation" type="bdt:YesNoType" minOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Havaittu poikkeama</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="DetectedDeviationText" type="bdt:String200Type" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Havaittu poikkeama selite</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="RemedialAction" type="bdt:YesNoType" minOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Korjaava toimenpide</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="RemedialActionText" type="bdt:String200Type" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Korjaava toimenpide selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="hasEnvironmentalObjects" type="bdt:YesNoType" minOccurs="1">
@@ -223,16 +228,6 @@
 			<xs:element name="EnvironmentalObjectNoticedText" type="bdt:String200Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Onko ympäristö- ja muinaismuistokohteet huomioitu ohjeistuksen mukaisesti selite</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="LimitsToWaterSystem" type="bdt:YesNoType" minOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Rajoittuuko vesistöön</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="LimitsToWaterSystemText" type="bdt:String200Type" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Rajoittuuko vesistöön selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="WaterEconomySystemNoticed" type="bdt:YesNoType" minOccurs="1">

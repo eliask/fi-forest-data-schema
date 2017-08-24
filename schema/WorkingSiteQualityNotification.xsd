@@ -2,13 +2,20 @@
 <!--
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.03:
+	-Päivitetty elementin DisQualificationSign dokumentaatio
+	-Päivitetty elementin CuttingAccuracySign dokumentaatio
 -->
+
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityNotification"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityNotification"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.03">
+	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	
 	<xs:element name="WorkingSiteQualityNotification" type="WorkingSiteQualityNotificationType">
 		<xs:annotation>
 			<xs:documentation>Tehtaiden laatupalaute</xs:documentation>
@@ -83,7 +90,7 @@
 			</xs:element>
 			<xs:element name="DisQualificationSign" type="bdt:String5Type" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Hylkypalaute (+/-)</xs:documentation>
+					<xs:documentation>Hylkypalaute (+/-/0). '+' tarkoittaa positiivista ja '-' negatiivista palautetta. '0' tarkoittaa neutraalia palautetta. Tämä ei tarkoita etumerkkiä.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="CuttingAccuracySign" type="bdt:String5Type" minOccurs="1">

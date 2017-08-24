@@ -9,6 +9,10 @@
     Muutokset skeemapakettiin V10.05:
     -"ProductInstruction" stanford skeematiedoston import on muutettu käyttämään versiota 3.0
     -Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+    
+    Muutokset skeemapakettiin V11.03:
+    -Skeematiedostoon lisätty namespace ja import uudelle skeematiedostolle ExternalFile.xsd
+    -Lisätty PayloadType complexTypeen uusi elementti ExternalFile
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/envelope"
@@ -61,7 +65,8 @@
            xmlns:workingSiteTravelNotification="http://standardit.tapio.fi/schemas/forestData/WorkingSiteTravelNotification"
            xmlns:workingSiteWorkLoad="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkLoad"
            xmlns:workingSiteWorkTime="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkTime"
-           targetNamespace="http://standardit.tapio.fi/schemas/forestData/envelope" elementFormDefault="qualified" version="V10.05">
+           xmlns:externalFile="http://standardit.tapio.fi/schemas/forestData/ExternalFile"
+           targetNamespace="http://standardit.tapio.fi/schemas/forestData/envelope" elementFormDefault="qualified" version="V11.03">
     
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Acknowledge" schemaLocation="Acknowledge.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/CompanyInformation" schemaLocation="CompanyInformation.xsd"/>
@@ -112,6 +117,7 @@
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteTravelNotification" schemaLocation="WorkingSiteTravelNotification.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkLoad" schemaLocation="WorkingSiteWorkLoad.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkTime" schemaLocation="WorkingSiteWorkTime.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ExternalFile" schemaLocation="ExternalFile.xsd"/>
     
     
     <xs:element name="Envelope" type="EnvelopeType"/>
@@ -146,6 +152,13 @@
 			        <xs:documentation xml:lang="sv"></xs:documentation>
 			        <xs:documentation xml:lang="en">Contract information, reference in header-part is MessageType = 'Contract'</xs:documentation>
 			    </xs:annotation>
+			</xs:element>
+			<xs:element name="ExternalFile" type="externalFile:ExternalFileType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tiedoston lähetys</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en">File sending</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 		    <xs:element name="ForwardingEstimate" type="forwardingEstimate:ForwardingEstimateType">
 		        <xs:annotation>

@@ -2,6 +2,12 @@
 <!-- 
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.03:
+	-Päivitetty elementin RoadDitchObjects dokumentaatio
+	-Muutettu elementin Diameter tyyppimäärittely bdt:Decimal2FractionDigitsType -> bdt:PositiveInteger4digitsType, samalla päivitetty elementin dokumentaatio
+	-Muutettu elementin Length tyyppimäärittely bdt:Decimal2FractionDigitsType -> bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType, samalla päivitetty elementin dokumentaatio
+	-Muutettu elementin GrainSize tyyppimäärittely bdt:Decimal2FractionDigitsType -> bdt:PositiveInteger3digitsType, samalla päivitetty elementin dokumentaatio
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperational"
@@ -9,13 +15,15 @@
            xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
            xmlns:wct="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperational"
-           elementFormDefault="qualified" attributeFormDefault="qualified" version="V10.05">
+           elementFormDefault="qualified" attributeFormDefault="qualified" version="V11.03">
+	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
                schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
                schemaLocation="WoodForceCommonTypes.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
                schemaLocation="Common_GeometricDataType.xsd"/>
+	
 	<xs:element name="WorkingSiteOperational" type="WorkingSiteOperationalType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Lohkon tiedot</xs:documentation>
@@ -927,7 +935,7 @@
 			</xs:element>
 			<xs:element name="RoadDitchObjects" type="RoadDitchObjectsType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Käsittelynvoimakkuus</xs:documentation>
+					<xs:documentation xml:lang="fi">Työlajin kohteet. Ei käytössä WoodForcessa.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -967,19 +975,19 @@
 					<xs:documentation xml:lang="fi">Materiaalin toimittaja</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Diameter" type="bdt:Decimal2FractionDigitsType" minOccurs="0">
+			<xs:element name="Diameter" type="bdt:PositiveInteger4digitsType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Läpimitta, cm</xs:documentation>
+					<xs:documentation xml:lang="fi">Materiaalin läpimitta: Yksikkö mm, minimi on 100 mm, maksimi on 3000 mm.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Length" type="bdt:Decimal2FractionDigitsType" minOccurs="0">
+			<xs:element name="Length" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Pituus, m</xs:documentation>
+					<xs:documentation xml:lang="fi">Materiaalin pituus: yksikkö metri, minimi on 1.0 m, maksimi 12.0 m</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="GrainSize" type="bdt:Decimal2FractionDigitsType" minOccurs="0">
+			<xs:element name="GrainSize" type="bdt:PositiveInteger3digitsType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Raekoko, mm</xs:documentation>
+					<xs:documentation xml:lang="fi">Raekoon maksimikoko, mm. Minimi on 1 mm, maksimi on 100 mm.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DeliveryNumber" type="bdt:String20Type" minOccurs="0">

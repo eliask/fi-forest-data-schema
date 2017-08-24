@@ -2,13 +2,23 @@
 <!--
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.03:
+	-Lisätty uusi vapaaehtoinen elementti TransportDistance, tyypiltään bdt:PositiveDecimalMax4IntegralPartMax2FractionalPartType
+	-Lisätty uusi vapaaehtoinen elementti TransportDistanceUnit, tyypiltään bdt:DistanceUnitType
+	-Lisätty uusi vapaaehtoinen elementti MaterialId, tyypiltään bdt:String20Type
+	-Lisätty uusi vapaaehtoinen elementti Diameter, tyypiltään bdt:PositiveInteger4digitsType
+	-Lisätty uusi vapaaehtoinen elementti Length, tyypiltään bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType
+	-Lisätty uusi vapaaehtoinen elementti GrainSize, tyypiltään bdt:PositiveInteger3digitsType
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkLoad"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkLoad"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.03">
+	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	
 	<xs:element name="WorkingSiteWorkLoad" type="WorkingSiteWorkLoadType">
 		<xs:annotation>
 			<xs:documentation>Työmääräilmoitus</xs:documentation>
@@ -92,6 +102,16 @@
 					<xs:documentation xml:lang="fi">Työmäärän1 yksikkö</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="TransportDistance" type="bdt:PositiveDecimalMax4IntegralPartMax2FractionalPartType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuljetusmatka</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TransportDistanceUnit" type="bdt:DistanceUnitType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kuljetusmatkan yksikkö</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="WorkLoad2" type="bdt:Decimal2FractionDigitsType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Työmäärä2</xs:documentation>
@@ -163,6 +183,12 @@
 			<xs:documentation xml:lang="fi">Mariaali</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element name="MaterialId" type="bdt:String20Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Materiaalirivin yksilöivä id lohkolla. Lähetetään, jos käyttäjä on
+						muokannut lohkolla tullutta materiaalia.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="MaterialCode" type="bdt:MaterialCodeType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Materiaali</xs:documentation>
@@ -206,6 +232,21 @@
 			<xs:element name="UnfreezingDate" type="bdt:DateType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Otettu sulamaan</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Diameter" type="bdt:PositiveInteger4digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Materiaalin läpimitta: Yksikkö mm, minimi on 100 mm, maksimi on 3000 mm.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Length" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Materiaalin pituus: yksikkö metri, minimi on 1.0 m, maksimi 12.0 m</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GrainSize" type="bdt:PositiveInteger3digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Raekoon maksimikoko, mm. Minimi on 1 mm, maksimi on 100 mm.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

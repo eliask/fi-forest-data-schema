@@ -2,13 +2,19 @@
 <!-- 
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.03:
+	-Skeematiedostosta poistettu elementti CuttingThickForest
+	-Skeematiedostosta poistettu elementti CuttingThickForestText
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditRoadMaking"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditRoadMaking"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.03">
+	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	
 	<xs:element name="WorkingSiteFinalAuditRoadMaking" type="WorkingSiteFinalAuditRoadMakingType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tienrakennuksen loppuarviointi/laadunseuranta</xs:documentation>
@@ -208,16 +214,6 @@
 			<xs:element name="FeedbackForPlannerText" type="bdt:String200Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Palaute suunnittelijalle selite</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="CuttingThickForest" type="bdt:WorkingQualityType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Vesakon leikkuu</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="CuttingThickForestText" type="bdt:String200Type" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Vesakon leikkuu selite</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

@@ -14,6 +14,10 @@
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.03:
+	-Muutettu elementti ForestCentreMessageReference pakollisesta vapaaehtoiseksi
+	-Muutettu elementti Reference pakollisesta vapaaehtoiseksi
 	****************************************************************************
 -->
 
@@ -24,7 +28,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	elementFormDefault="qualified"
-	version="V10.05">
+	version="V11.03">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -138,7 +142,7 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="ReferenceType" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="Reference" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="Reference" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="ErrorCode" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="ErrorMessage" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
@@ -172,7 +176,7 @@
 			<xs:element ref="Acceptance" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="ReplyCode"/>
 			<xs:element ref="MessageType" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="ForestCentreMessageReference" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="ForestCentreMessageReference" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="ArrivalDate" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="RegistrationId" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="ErrorMessages" minOccurs="0" maxOccurs="1"/>

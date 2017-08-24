@@ -7,7 +7,7 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	*****************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V11.02">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V11.03">
   <xs:include schemaLocation="ForestFeatureEnumeratives.xsd" />
   <xs:simpleType name="TurningPointClassType">
     <xs:annotation>
@@ -418,14 +418,14 @@
       <xs:enumeration value="23">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Silttipitoinen maalaji</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Silthaltig jordart</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="24">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Savimaa</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lerjord</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
@@ -495,28 +495,28 @@
       <xs:enumeration value="64">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Eroosioherkkä saraturve (von Post luokka yli 5)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Erosionskänslig starrtorv (von Post klass över 5)</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="65">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Eroosioherkkä rahkaturve (von Post luokka yli 5)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Erosionskänslig vitmosstorv (von Post klass över 5)</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="66">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Maatumaton saraturve (von Post luokka enintään 5)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Ohumifierad starrtorv (von Post klass högst 5)</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="67">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Maatumaton rahkaturve (von Post luokka enintään 5)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Ohumifierad vitmosstorv (von Post klass högst 5)</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
@@ -605,28 +605,28 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Nuori kasvatusmetsikkö</xs:documentation>
           <xs:documentation xml:lang="sv">Klenare gallringsbestånd</xs:documentation>
-          <xs:documentation xml:lang="en">young growing forest</xs:documentation>
+          <xs:documentation xml:lang="en">Young growing forest</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="03">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Varttunut kasvatusmetsikkö</xs:documentation>
           <xs:documentation xml:lang="sv">Grövre gallringsbestånd</xs:documentation>
-          <xs:documentation xml:lang="en">grown up growing forest</xs:documentation>
+          <xs:documentation xml:lang="en">Grown up growing forest</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="04">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Uudistuskypsä metsikkö</xs:documentation>
           <xs:documentation xml:lang="sv">Förnyelsemogen skog</xs:documentation>
-          <xs:documentation xml:lang="en">mature forest</xs:documentation>
+          <xs:documentation xml:lang="en">Mature forest</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="05">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Suojuspuumetsikkö</xs:documentation>
           <xs:documentation xml:lang="sv">Bestånd i skärmställning</xs:documentation>
-          <xs:documentation xml:lang="en">shelterwood forest</xs:documentation>
+          <xs:documentation xml:lang="en">Shelterwood forest</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="A0">
@@ -640,35 +640,35 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Eri-ikäisrakenteinen metsikkö</xs:documentation>
           <xs:documentation xml:lang="sv">Olikåldrigt bestånd</xs:documentation>
-          <xs:documentation xml:lang="en">uneven-aged forest</xs:documentation>
+          <xs:documentation xml:lang="en">Uneven-aged forest</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="S0">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemenpuumetsikkö</xs:documentation>
           <xs:documentation xml:lang="sv">Bestånd i fröträdsställning</xs:documentation>
-          <xs:documentation xml:lang="en">seed-tree stand</xs:documentation>
+          <xs:documentation xml:lang="en">Seed-tree stand</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="T1">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimikko alle 1,3 m</xs:documentation>
           <xs:documentation xml:lang="sv">Yngre plantbestånd</xs:documentation>
-          <xs:documentation xml:lang="en">recently planted forest under 1,3 m</xs:documentation>
+          <xs:documentation xml:lang="en">Recently planted forest under 1,3 m</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="T2">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimikko yli 1,3 m</xs:documentation>
           <xs:documentation xml:lang="sv">Äldre plantbestånd</xs:documentation>
-          <xs:documentation xml:lang="en">recently planted forest over 1,3 m</xs:documentation>
+          <xs:documentation xml:lang="en">Recently planted forest over 1,3 m</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="Y1">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ylispuustoinen taimikko</xs:documentation>
           <xs:documentation xml:lang="sv">Plantbestånd med överståndare</xs:documentation>
-          <xs:documentation xml:lang="en">recently planted fores with hold-over trees</xs:documentation>
+          <xs:documentation xml:lang="en">Recently planted fores with hold-over trees</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -877,210 +877,240 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Mänty</xs:documentation>
           <xs:documentation xml:lang="sv">Tall</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Pine</xs:documentation>
+          <xs:documentation xml:lang="la">Pinus sylvestris</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusi</xs:documentation>
           <xs:documentation xml:lang="sv">Gran</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Spruce</xs:documentation>
+          <xs:documentation xml:lang="la">Picea abies</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Rauduskoivu</xs:documentation>
           <xs:documentation xml:lang="sv">Vårtbjörk</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Silver birch</xs:documentation>
+          <xs:documentation xml:lang="la">Betula pendula</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="4">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Hieskoivu</xs:documentation>
           <xs:documentation xml:lang="sv">Glasbjörk</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Downy birch</xs:documentation>
+          <xs:documentation xml:lang="la">Betula pubescens</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="5">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Haapa</xs:documentation>
           <xs:documentation xml:lang="sv">Asp</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Asp</xs:documentation>
+          <xs:documentation xml:lang="la">Populus tremula</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="6">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Harmaaleppä</xs:documentation>
           <xs:documentation xml:lang="sv">Gråal</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Grey alder</xs:documentation>
+          <xs:documentation xml:lang="la">Alnus incana</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="7">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tervaleppä</xs:documentation>
           <xs:documentation xml:lang="sv">Klibbal</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Black alder</xs:documentation>
+          <xs:documentation xml:lang="la">Alnus glutinosa</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="8">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muu havupuu</xs:documentation>
           <xs:documentation xml:lang="sv">Annat barrträdslag</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Other coniferous tree</xs:documentation>
+          <xs:documentation xml:lang="la" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="9">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muu lehtipuu</xs:documentation>
           <xs:documentation xml:lang="sv">Annat lövträdslag</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Other deciduous tree</xs:documentation>
+          <xs:documentation xml:lang="la" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Douglaskuusi</xs:documentation>
           <xs:documentation xml:lang="sv">Douglasgran</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Oregon pine</xs:documentation>
+          <xs:documentation xml:lang="la">Pseudotsuga menziesii</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kataja</xs:documentation>
           <xs:documentation xml:lang="sv">En</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Common juniper</xs:documentation>
+          <xs:documentation xml:lang="la">Juniperus communis</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kontortamänty</xs:documentation>
           <xs:documentation xml:lang="sv">Contortatall</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Contorta pine</xs:documentation>
+          <xs:documentation xml:lang="la">Pinus contorta</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="13">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kynäjalava</xs:documentation>
           <xs:documentation xml:lang="sv">Vresalm</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">European white elm</xs:documentation>
+          <xs:documentation xml:lang="la">Ulmus laevis</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="14">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtikuusi</xs:documentation>
           <xs:documentation xml:lang="sv">Lärkträd</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Larch</xs:documentation>
+          <xs:documentation xml:lang="la">Larix sibirica/Larix decidua</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="15">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Metsälehmus</xs:documentation>
           <xs:documentation xml:lang="sv">Skogslind</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Small-leaved lime</xs:documentation>
+          <xs:documentation xml:lang="la">Tilia cordata</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="16">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Mustakuusi</xs:documentation>
           <xs:documentation xml:lang="sv">Svartgran</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Black spruce</xs:documentation>
+          <xs:documentation xml:lang="la">Picea mariana</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="17">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Paju</xs:documentation>
           <xs:documentation xml:lang="sv">Vide</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Willow</xs:documentation>
+          <xs:documentation xml:lang="la">Salix sp.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="18">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Pihlaja</xs:documentation>
           <xs:documentation xml:lang="sv">Rönn</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Rowan</xs:documentation>
+          <xs:documentation xml:lang="la">Sorbus aucuparia</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="19">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Pihta</xs:documentation>
           <xs:documentation xml:lang="sv">Pichtagran</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Fir</xs:documentation>
+          <xs:documentation xml:lang="la">Abies sibirica</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="20">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Raita</xs:documentation>
           <xs:documentation xml:lang="sv">Sälg</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Goat willow</xs:documentation>
+          <xs:documentation xml:lang="la">Salix caprea</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Saarni</xs:documentation>
           <xs:documentation xml:lang="sv">Ask</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Ash</xs:documentation>
+          <xs:documentation xml:lang="la">Fraxinus excelsior</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="22">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Sembramänty</xs:documentation>
           <xs:documentation xml:lang="sv">Cembratall</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Swiss pine</xs:documentation>
+          <xs:documentation xml:lang="la">Pinus cembra</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="23">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Serbiankuusi</xs:documentation>
           <xs:documentation xml:lang="sv">Omorikagran</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Serbian spruce</xs:documentation>
+          <xs:documentation xml:lang="la">Picea omorika</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="24">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tammi</xs:documentation>
           <xs:documentation xml:lang="sv">Ek</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Oak</xs:documentation>
+          <xs:documentation xml:lang="la">Quercus robur</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="25">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tuomi</xs:documentation>
           <xs:documentation xml:lang="sv">Hägg</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Bird cherry</xs:documentation>
+          <xs:documentation xml:lang="la">Prunus padus</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="26">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Vaahtera</xs:documentation>
           <xs:documentation xml:lang="sv">Lönn</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Maple</xs:documentation>
+          <xs:documentation xml:lang="la">Acer platanoides</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="27">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Visakoivu</xs:documentation>
           <xs:documentation xml:lang="sv">Masurbjörk</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Curly birch</xs:documentation>
+          <xs:documentation xml:lang="la">Betula pendula var. carelica</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="28">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Vuorijalava</xs:documentation>
           <xs:documentation xml:lang="sv">Skogsalm</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Scots elm</xs:documentation>
+          <xs:documentation xml:lang="la">Ulmus glabra</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="29">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtipuu</xs:documentation>
           <xs:documentation xml:lang="sv">Lövträd</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Deciduous tree</xs:documentation>
+          <xs:documentation xml:lang="la" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="30">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Havupuu</xs:documentation>
           <xs:documentation xml:lang="sv">Barrträd</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Coniferous tree</xs:documentation>
+          <xs:documentation xml:lang="la" />
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -1408,6 +1438,13 @@
           <xs:documentation xml:lang="en">Rotten</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="16">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ylilaho (energiapuu)</xs:documentation>
+          <xs:documentation xml:lang="sv">Överrötskadad (energived)</xs:documentation>
+          <xs:documentation xml:lang="en">Overly rotten (energy wood)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="101">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kokopuu (oksa- ja neulasmassa mukana)</xs:documentation>
@@ -1441,7 +1478,7 @@
       <xs:enumeration value="11">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Mäntytukki</xs:documentation>
-          <xs:documentation xml:lang="sv">Tallstock</xs:documentation>
+          <xs:documentation xml:lang="sv">Talltimmer</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
@@ -1455,14 +1492,14 @@
       <xs:enumeration value="13">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Mäntyenergia</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Tallenergived</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusitukki</xs:documentation>
-          <xs:documentation xml:lang="sv">Granstock</xs:documentation>
+          <xs:documentation xml:lang="sv">Grantimmer</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
@@ -1476,14 +1513,14 @@
       <xs:enumeration value="23">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusienergia</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Granenergived</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="31">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivutukki</xs:documentation>
-          <xs:documentation xml:lang="sv">Björkstock</xs:documentation>
+          <xs:documentation xml:lang="sv">Björktimmer</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
@@ -1497,14 +1534,14 @@
       <xs:enumeration value="33">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivuenergia</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Björkenergived</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="41">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtitukki</xs:documentation>
-          <xs:documentation xml:lang="sv">Lövträdsstock</xs:documentation>
+          <xs:documentation xml:lang="sv">Lövtimmer</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
@@ -1518,7 +1555,7 @@
       <xs:enumeration value="43">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtienergia</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lövenergived</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
@@ -7754,6 +7791,13 @@
       <xs:documentation xml:lang="en">Definition for the reference type of the error message of the forest use declaration</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
+      <xs:enumeration value="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Muu</xs:documentation>
+          <xs:documentation xml:lang="sv">Annan</xs:documentation>
+          <xs:documentation xml:lang="en">Other</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Metsänkäyttöilmoitusviite</xs:documentation>
@@ -7777,14 +7821,14 @@
       </xs:enumeration>
       <xs:enumeration value="4">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Kemera-hakemuksen viite</xs:documentation>
+          <xs:documentation xml:lang="fi">Kemera-rahoitushakemusviite</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en">Financing act application reference</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="5">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Kemera-toteutusilmoituksen viite</xs:documentation>
+          <xs:documentation xml:lang="fi">Kemera-toteutusilmoitusviite</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en">Financing act completion declaration reference</xs:documentation>
         </xs:annotation>
@@ -7979,7 +8023,7 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Henkilö</xs:documentation>
           <xs:documentation xml:lang="sv">Person</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Person</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -8030,28 +8074,28 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Helikopteri</xs:documentation>
           <xs:documentation xml:lang="sv">Helikopter</xs:documentation>
-          <xs:documentation xml:lang="en">helicopter</xs:documentation>
+          <xs:documentation xml:lang="en">Helicopter</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="7">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Traktori</xs:documentation>
           <xs:documentation xml:lang="sv">Traktor</xs:documentation>
-          <xs:documentation xml:lang="en">tractor</xs:documentation>
+          <xs:documentation xml:lang="en">Tractor</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="8">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Yhdistelmäkone</xs:documentation>
           <xs:documentation xml:lang="sv">Drivare</xs:documentation>
-          <xs:documentation xml:lang="en">Combo macine</xs:documentation>
+          <xs:documentation xml:lang="en">Combo machine</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="9">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siirtoauto</xs:documentation>
           <xs:documentation xml:lang="sv">Lavett</xs:documentation>
-          <xs:documentation xml:lang="en">transport wehicle</xs:documentation>
+          <xs:documentation xml:lang="en">Transport vehicle</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10">
@@ -8065,7 +8109,7 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Laikkuri</xs:documentation>
           <xs:documentation xml:lang="sv">Högläggare</xs:documentation>
-          <xs:documentation xml:lang="en">Mounder</xs:documentation>
+          <xs:documentation xml:lang="en">Scalper</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12">
@@ -8093,14 +8137,14 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Moottorikelkka</xs:documentation>
           <xs:documentation xml:lang="sv">Snöskoter</xs:documentation>
-          <xs:documentation xml:lang="en">snowscooter</xs:documentation>
+          <xs:documentation xml:lang="en">Snowmobile</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="16">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Sora-auto</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Grusbil</xs:documentation>
+          <xs:documentation xml:lang="en">Gravel truck</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="20">
@@ -8113,7 +8157,7 @@
       <xs:enumeration value="21">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tiehöylä</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Väghyvel</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
@@ -8589,112 +8633,112 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ylispuiden poisto</xs:documentation>
           <xs:documentation xml:lang="sv">Avverkning av överståndare</xs:documentation>
-          <xs:documentation xml:lang="en">cutting of hold-overs</xs:documentation>
+          <xs:documentation xml:lang="en">Cutting of hold-overs</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="102">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ensiharvennus</xs:documentation>
           <xs:documentation xml:lang="sv">Första gallring</xs:documentation>
-          <xs:documentation xml:lang="en">first thinning</xs:documentation>
+          <xs:documentation xml:lang="en">First thinning</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="103">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Harvennus</xs:documentation>
           <xs:documentation xml:lang="sv">Gallring</xs:documentation>
-          <xs:documentation xml:lang="en">thinning</xs:documentation>
+          <xs:documentation xml:lang="en">Thinning</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="104">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kaistalehakkuu</xs:documentation>
           <xs:documentation xml:lang="sv">Teghuggning</xs:documentation>
-          <xs:documentation xml:lang="en">strip cutting</xs:documentation>
+          <xs:documentation xml:lang="en">Strip cutting</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="105">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Päätehakkuu</xs:documentation>
-          <xs:documentation xml:lang="sv">Slutavverkning</xs:documentation>
-          <xs:documentation xml:lang="en">Final felling</xs:documentation>
+          <xs:documentation xml:lang="fi">Avohakkuu</xs:documentation>
+          <xs:documentation xml:lang="sv">Kalavverkning</xs:documentation>
+          <xs:documentation xml:lang="en">Clearcutting</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="106">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Verhopuuhakkuu</xs:documentation>
           <xs:documentation xml:lang="sv">Avverkning i lågskärm</xs:documentation>
-          <xs:documentation xml:lang="en">shade tree cutting</xs:documentation>
+          <xs:documentation xml:lang="en">Shade tree cutting</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="107">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Suojuspuuhakkuu</xs:documentation>
           <xs:documentation xml:lang="sv">Avverkning i skärmställning</xs:documentation>
-          <xs:documentation xml:lang="en">shelter tree cutting</xs:documentation>
+          <xs:documentation xml:lang="en">Shelter tree cutting</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="108">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Siemenpuuhakkuu</xs:documentation>
           <xs:documentation xml:lang="sv">Avverkning i fröträdsställning</xs:documentation>
-          <xs:documentation xml:lang="en">seed-tree cutting</xs:documentation>
+          <xs:documentation xml:lang="en">Seed-tree cutting</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="109">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Erikoishakkuu</xs:documentation>
           <xs:documentation xml:lang="sv">Specialavverkning</xs:documentation>
-          <xs:documentation xml:lang="en">special cutting</xs:documentation>
+          <xs:documentation xml:lang="en">Special cutting</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="110">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Varaus</xs:documentation>
           <xs:documentation xml:lang="sv">Reservation</xs:documentation>
-          <xs:documentation xml:lang="en">reservation</xs:documentation>
+          <xs:documentation xml:lang="en">Reservation</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="111">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Yläharvennus</xs:documentation>
           <xs:documentation xml:lang="sv">Höggallring</xs:documentation>
-          <xs:documentation xml:lang="en">upper thinning</xs:documentation>
+          <xs:documentation xml:lang="en">Upper thinning</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="112">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Väljennyshakkuu</xs:documentation>
           <xs:documentation xml:lang="sv">Ljushuggning</xs:documentation>
-          <xs:documentation xml:lang="en">opening up</xs:documentation>
+          <xs:documentation xml:lang="en">Opening up</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="113">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kunnostushakkuu</xs:documentation>
           <xs:documentation xml:lang="sv">Iståndsättande avverkning</xs:documentation>
-          <xs:documentation xml:lang="en">rapairs cutting</xs:documentation>
+          <xs:documentation xml:lang="en">Repairs cutting</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="114">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Poimintahakkuu</xs:documentation>
           <xs:documentation xml:lang="sv">Plockhuggning</xs:documentation>
-          <xs:documentation xml:lang="en">picking cutting</xs:documentation>
+          <xs:documentation xml:lang="en">Picking cutting</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="115">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Pienaukkohakkuu</xs:documentation>
           <xs:documentation xml:lang="sv">Luckhuggning</xs:documentation>
-          <xs:documentation xml:lang="en">small gap cutting</xs:documentation>
+          <xs:documentation xml:lang="en">Small gap cutting</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="116">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Maankäyttömuodon muutokseen johtava erityishakkuu</xs:documentation>
           <xs:documentation xml:lang="sv">Specialavverkning på grund av ändrad markanvädning</xs:documentation>
-          <xs:documentation xml:lang="en">land use chance special cutting</xs:documentation>
+          <xs:documentation xml:lang="en">Land use chance special cutting</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="117">
@@ -8722,14 +8766,14 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kasvatushakkuu metsätuhoalueella</xs:documentation>
           <xs:documentation xml:lang="sv">Beståndsvårdande avverkning på skogsskadeområde</xs:documentation>
-          <xs:documentation xml:lang="en">thining in forest fall area</xs:documentation>
+          <xs:documentation xml:lang="en">Thinning in forest damage area</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="121">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Energiapuuharvennus</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">energy wood thinning</xs:documentation>
+          <xs:documentation xml:lang="en">Energy wood thinning</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="124">
@@ -8743,147 +8787,147 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Metsäkuljetus , puunkorjuu</xs:documentation>
           <xs:documentation xml:lang="sv">Terrängtransport, virkesdrivning</xs:documentation>
-          <xs:documentation xml:lang="en">forest haulage</xs:documentation>
+          <xs:documentation xml:lang="en">Forest haulage</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="126">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Jatkettu lähikuljetus</xs:documentation>
           <xs:documentation xml:lang="sv">Förlängd terrängtransport</xs:documentation>
-          <xs:documentation xml:lang="en">prolonged forest haulage</xs:documentation>
+          <xs:documentation xml:lang="en">Prolonged forest haulage</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="201">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kannon nosto</xs:documentation>
           <xs:documentation xml:lang="sv">Stubbrytning</xs:documentation>
-          <xs:documentation xml:lang="en">stump picking</xs:documentation>
+          <xs:documentation xml:lang="en">Stump picking</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="202">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Metsähaketus (Lohkolla, palstalla, kuviolla tapahtuva haketus )</xs:documentation>
           <xs:documentation xml:lang="sv">Flisning i skogen (på figuren)</xs:documentation>
-          <xs:documentation xml:lang="en">chipping in forest (chipping in stand or workingsite)</xs:documentation>
+          <xs:documentation xml:lang="en">Chipping in forest (chipping at stand or working site)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="203">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kantojen metsäkuljetus</xs:documentation>
           <xs:documentation xml:lang="sv">Terrängtransport av stubbar</xs:documentation>
-          <xs:documentation xml:lang="en">stumps forest haulage</xs:documentation>
+          <xs:documentation xml:lang="en">Stumps forest haulage</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="204">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Hakkuutähteiden metsäkuljetus</xs:documentation>
           <xs:documentation xml:lang="sv">Terrängtransport av grot</xs:documentation>
-          <xs:documentation xml:lang="en">forest haulage of cutting residues</xs:documentation>
+          <xs:documentation xml:lang="en">Forest haulage of cutting residues</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="205">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Pinojen peittäminen</xs:documentation>
           <xs:documentation xml:lang="sv">Täcka virkestravar</xs:documentation>
-          <xs:documentation xml:lang="en">stacks covering</xs:documentation>
+          <xs:documentation xml:lang="en">Stacks covering</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="301">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Laikutus (manuaalityönä)</xs:documentation>
           <xs:documentation xml:lang="sv">Fläckupptagning (manuellt)</xs:documentation>
-          <xs:documentation xml:lang="en">scalping</xs:documentation>
+          <xs:documentation xml:lang="en">Scalping (manually)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="302">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kaivurilaikutus</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">digger scalping</xs:documentation>
+          <xs:documentation xml:lang="en">Digger scalping</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="303">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Laikkurilaikutus</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">scalpler scalping</xs:documentation>
+          <xs:documentation xml:lang="en">Scalper scalping</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="304">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Mätästys</xs:documentation>
           <xs:documentation xml:lang="sv">Högläggning</xs:documentation>
-          <xs:documentation xml:lang="en">mounding</xs:documentation>
+          <xs:documentation xml:lang="en">Mounding</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="305">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kääntömätästys</xs:documentation>
           <xs:documentation xml:lang="sv">Invers markberedning</xs:documentation>
-          <xs:documentation xml:lang="en">turn-over mounding</xs:documentation>
+          <xs:documentation xml:lang="en">Turn-over mounding</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="306">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Naveromätästys</xs:documentation>
           <xs:documentation xml:lang="sv">Högläggning med fåror</xs:documentation>
-          <xs:documentation xml:lang="en">rill mounding</xs:documentation>
+          <xs:documentation xml:lang="en">Rill mounding</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="307">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Laikkumätästys</xs:documentation>
           <xs:documentation xml:lang="sv">Fläckhögläggning</xs:documentation>
-          <xs:documentation xml:lang="en">scalping mounding</xs:documentation>
+          <xs:documentation xml:lang="en">Scalping mounding</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="308">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Laikkurimätästys</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">scalper mounding</xs:documentation>
+          <xs:documentation xml:lang="en">Scalper mounding</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="309">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ojitusmätästys</xs:documentation>
           <xs:documentation xml:lang="sv">Dikningshögläggning</xs:documentation>
-          <xs:documentation xml:lang="en">ditching mounding</xs:documentation>
+          <xs:documentation xml:lang="en">Ditching mounding</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="310">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Äestys</xs:documentation>
           <xs:documentation xml:lang="sv">Harvning</xs:documentation>
-          <xs:documentation xml:lang="en">harrowing</xs:documentation>
+          <xs:documentation xml:lang="en">Harrowing</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="311">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ristiinäestys</xs:documentation>
           <xs:documentation xml:lang="sv">Korsgående harvning</xs:documentation>
-          <xs:documentation xml:lang="en">cros harrowing</xs:documentation>
+          <xs:documentation xml:lang="en">Cross harrowing</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="312">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Säätöauraus</xs:documentation>
           <xs:documentation xml:lang="sv">Anpassad plogning</xs:documentation>
-          <xs:documentation xml:lang="en">adjustment ploughing</xs:documentation>
+          <xs:documentation xml:lang="en">Adjustment ploughing</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="313">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Pellon muokkaus</xs:documentation>
           <xs:documentation xml:lang="sv">Åkerbearbetning</xs:documentation>
-          <xs:documentation xml:lang="en">field ploughing</xs:documentation>
+          <xs:documentation xml:lang="en">Field ploughing</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="314">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muu maanpinnan käsittely</xs:documentation>
           <xs:documentation xml:lang="sv">Annan markberedning</xs:documentation>
-          <xs:documentation xml:lang="en">other soil preparation</xs:documentation>
+          <xs:documentation xml:lang="en">Other soil preparation</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="315">
@@ -8897,119 +8941,119 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kylvö</xs:documentation>
           <xs:documentation xml:lang="sv">Sådd</xs:documentation>
-          <xs:documentation xml:lang="en">plantig of seeds</xs:documentation>
+          <xs:documentation xml:lang="en">Planting of seeds</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="402">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Täydennyskylvö</xs:documentation>
           <xs:documentation xml:lang="sv">Hjälpsådd</xs:documentation>
-          <xs:documentation xml:lang="en">supplementary plantig of seeds</xs:documentation>
+          <xs:documentation xml:lang="en">Supplementary planting of seeds</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="403">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Istutus</xs:documentation>
           <xs:documentation xml:lang="sv">Plantering</xs:documentation>
-          <xs:documentation xml:lang="en">plantig of seedlings</xs:documentation>
+          <xs:documentation xml:lang="en">Planting of seedlings</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="404">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Täydennysistutus</xs:documentation>
           <xs:documentation xml:lang="sv">Hjälpplantering</xs:documentation>
-          <xs:documentation xml:lang="en">supplementary plantig of seedlings</xs:documentation>
+          <xs:documentation xml:lang="en">Supplementary planting of seedlings</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="405">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koneistutus</xs:documentation>
           <xs:documentation xml:lang="sv">Maskinell plantering</xs:documentation>
-          <xs:documentation xml:lang="en">mechanical plantig of seedlings</xs:documentation>
+          <xs:documentation xml:lang="en">Mechanical planting of seedlings</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="406">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimien kuljetus</xs:documentation>
           <xs:documentation xml:lang="sv">Planttransport</xs:documentation>
-          <xs:documentation xml:lang="en">transportation of seedlings</xs:documentation>
+          <xs:documentation xml:lang="en">Transportation of seedlings</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="407">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimien maastokuljetus</xs:documentation>
           <xs:documentation xml:lang="sv">Terrängtransport av plantor</xs:documentation>
-          <xs:documentation xml:lang="en">forest transportation of seedlings</xs:documentation>
+          <xs:documentation xml:lang="en">Forest transportation of seedlings</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="408">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimihuolto</xs:documentation>
           <xs:documentation xml:lang="sv">Plantvård</xs:documentation>
-          <xs:documentation xml:lang="en">seedling service</xs:documentation>
+          <xs:documentation xml:lang="en">Seedling service</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="501">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Uudisalan raivaus</xs:documentation>
           <xs:documentation xml:lang="sv">Hyggesrensning</xs:documentation>
-          <xs:documentation xml:lang="en">clearing after clearcuting</xs:documentation>
+          <xs:documentation xml:lang="en">Clearing after clearcutting</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="502">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Haavan vesottumisen ennakkotorjunta</xs:documentation>
           <xs:documentation xml:lang="sv">Preventiv bekämpning av aspens rotskott</xs:documentation>
-          <xs:documentation xml:lang="en">aspen sprout prevention</xs:documentation>
+          <xs:documentation xml:lang="en">Aspen sprout prevention</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="503">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ennakkoraivaus</xs:documentation>
           <xs:documentation xml:lang="sv">Förröjning</xs:documentation>
-          <xs:documentation xml:lang="en">preclearin</xs:documentation>
+          <xs:documentation xml:lang="en">Preclearing</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="504">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Näkemäraivaus</xs:documentation>
           <xs:documentation xml:lang="sv">Siktröjning</xs:documentation>
-          <xs:documentation xml:lang="en">sight clearing</xs:documentation>
+          <xs:documentation xml:lang="en">Sight clearing</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="601">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Heinäntorjunta</xs:documentation>
           <xs:documentation xml:lang="sv">Gräsbekämpning</xs:documentation>
-          <xs:documentation xml:lang="en">hay prevention</xs:documentation>
+          <xs:documentation xml:lang="en">Hay prevention</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="602">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Reikäperkaus</xs:documentation>
           <xs:documentation xml:lang="sv">Brunnsröjning</xs:documentation>
-          <xs:documentation xml:lang="en">hole weeding</xs:documentation>
+          <xs:documentation xml:lang="en">Hole weeding</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="603">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Varhaisperkaus</xs:documentation>
           <xs:documentation xml:lang="sv">Gräs- och slyröjning</xs:documentation>
-          <xs:documentation xml:lang="en">early weeding</xs:documentation>
+          <xs:documentation xml:lang="en">Early weeding</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="604">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kylvötuppaiden harvennus</xs:documentation>
           <xs:documentation xml:lang="sv">Utglesning av såddruggar</xs:documentation>
-          <xs:documentation xml:lang="en">tussock thinning</xs:documentation>
+          <xs:documentation xml:lang="en">Tussock thinning</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="605">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimikonharvennus</xs:documentation>
           <xs:documentation xml:lang="sv">Röjning</xs:documentation>
-          <xs:documentation xml:lang="en">thinning of recently planted forest</xs:documentation>
+          <xs:documentation xml:lang="en">Thinning of recently planted forest</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="606">
@@ -9023,210 +9067,210 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Nuoren metsän hoito</xs:documentation>
           <xs:documentation xml:lang="sv">Vård av ungskog</xs:documentation>
-          <xs:documentation xml:lang="en">tending of young forest</xs:documentation>
+          <xs:documentation xml:lang="en">Tending of young forest</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="608">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimikon varhaishoito</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Tidig vård av plantbestånd</xs:documentation>
+          <xs:documentation xml:lang="en">Early tending of recently planted forest</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="701">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lannoitus</xs:documentation>
           <xs:documentation xml:lang="sv">Gödsling</xs:documentation>
-          <xs:documentation xml:lang="en">fertilising</xs:documentation>
+          <xs:documentation xml:lang="en">Fertilising</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="702">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Terveyslannoitus</xs:documentation>
           <xs:documentation xml:lang="sv">Vitaliseringsgödsling</xs:documentation>
-          <xs:documentation xml:lang="en">health fertilising</xs:documentation>
+          <xs:documentation xml:lang="en">Health fertilising</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="801">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Valtaoja, uusi</xs:documentation>
           <xs:documentation xml:lang="sv">Utfallsdike, nytt</xs:documentation>
-          <xs:documentation xml:lang="en">main ditch</xs:documentation>
+          <xs:documentation xml:lang="en">Main ditch</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="802">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Valtaoja, perkaus</xs:documentation>
           <xs:documentation xml:lang="sv">Utfallsdike, rensas</xs:documentation>
-          <xs:documentation xml:lang="en">main ditch, repairs</xs:documentation>
+          <xs:documentation xml:lang="en">Main ditch, repairs</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="803">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kokoojaoja, uusi</xs:documentation>
           <xs:documentation xml:lang="sv">Dragdigke, nytt</xs:documentation>
-          <xs:documentation xml:lang="en">collecting ditch, new</xs:documentation>
+          <xs:documentation xml:lang="en">Collecting ditch, new</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="804">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kokoojaoja, perkaus</xs:documentation>
           <xs:documentation xml:lang="sv">Dragdike, rensas</xs:documentation>
-          <xs:documentation xml:lang="en">collecting ditch, repairs</xs:documentation>
+          <xs:documentation xml:lang="en">Collecting ditch, repairs</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="807">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Sarkaoja, uusi</xs:documentation>
           <xs:documentation xml:lang="sv">Tegdike, nytt</xs:documentation>
-          <xs:documentation xml:lang="en">draining ditch, new</xs:documentation>
+          <xs:documentation xml:lang="en">Draining ditch, new</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="808">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Sarkaoja, perkaus</xs:documentation>
           <xs:documentation xml:lang="sv">Tegdike, rensas</xs:documentation>
-          <xs:documentation xml:lang="en">draining ditch, repairs</xs:documentation>
+          <xs:documentation xml:lang="en">Draining ditch, repairs</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="809">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Haarukkaoja, uusi</xs:documentation>
           <xs:documentation xml:lang="sv">Gaffeldike, nytt</xs:documentation>
-          <xs:documentation xml:lang="en">fork ditch, new</xs:documentation>
+          <xs:documentation xml:lang="en">Fork ditch, new</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="810">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Haarukkaoja, perkaus</xs:documentation>
           <xs:documentation xml:lang="sv">Gaffeldike, rensas</xs:documentation>
-          <xs:documentation xml:lang="en">fork ditch, repairs</xs:documentation>
+          <xs:documentation xml:lang="en">Fork ditch, repairs</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="811">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Purouoman kaivaminen</xs:documentation>
           <xs:documentation xml:lang="sv">Grävning i bäckfåra</xs:documentation>
-          <xs:documentation xml:lang="en">stream bed digging</xs:documentation>
+          <xs:documentation xml:lang="en">Stream bed digging</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="812">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Purouoman täyttö</xs:documentation>
           <xs:documentation xml:lang="sv">Utfyllnad av bäckfåra</xs:documentation>
-          <xs:documentation xml:lang="en">stream bed filling</xs:documentation>
+          <xs:documentation xml:lang="en">Stream bed filling</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="813">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ojien tukkiminen/patoaminen</xs:documentation>
           <xs:documentation xml:lang="sv">Uppdämning av diken</xs:documentation>
-          <xs:documentation xml:lang="en">ditch damming</xs:documentation>
+          <xs:documentation xml:lang="en">Ditch damming</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="814">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ojien täyttö</xs:documentation>
           <xs:documentation xml:lang="sv">Utfyllnad av diken</xs:documentation>
-          <xs:documentation xml:lang="en">ditch filling</xs:documentation>
+          <xs:documentation xml:lang="en">Ditch filling</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="815">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ojien täyttö, täydennys</xs:documentation>
           <xs:documentation xml:lang="sv">Utfyllnad av diken, komplettering</xs:documentation>
-          <xs:documentation xml:lang="en">ditch filling, suplementary</xs:documentation>
+          <xs:documentation xml:lang="en">Ditch filling, supplementary</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="816">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Pato</xs:documentation>
           <xs:documentation xml:lang="sv">Damm</xs:documentation>
-          <xs:documentation xml:lang="en">dam</xs:documentation>
+          <xs:documentation xml:lang="en">Dam</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="817">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Pohjapato</xs:documentation>
           <xs:documentation xml:lang="sv">Bottendamm</xs:documentation>
-          <xs:documentation xml:lang="en">bottom dam</xs:documentation>
+          <xs:documentation xml:lang="en">Bottom dam</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="818">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ojaluiska (ojan ylitys)</xs:documentation>
           <xs:documentation xml:lang="sv">Dikesslänt (för överfart)</xs:documentation>
-          <xs:documentation xml:lang="en">ditch ramp, (ditch crossing)</xs:documentation>
+          <xs:documentation xml:lang="en">Ditch ramp (ditch crossing)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="819">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Laskeutusallas</xs:documentation>
           <xs:documentation xml:lang="sv">Sedimenteringsbassäng</xs:documentation>
-          <xs:documentation xml:lang="en">settling basin</xs:documentation>
+          <xs:documentation xml:lang="en">Settling basin</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="820">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Laskeutusaltaan tyhjennys</xs:documentation>
           <xs:documentation xml:lang="sv">Tömning av sedimenteringsbassäng</xs:documentation>
-          <xs:documentation xml:lang="en">settling basin emptying</xs:documentation>
+          <xs:documentation xml:lang="en">Settling basin emptying</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="821">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lietekuoppa</xs:documentation>
           <xs:documentation xml:lang="sv">Slamgrop</xs:documentation>
-          <xs:documentation xml:lang="en">settling pit</xs:documentation>
+          <xs:documentation xml:lang="en">Settling pit</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="822">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Putkipato</xs:documentation>
           <xs:documentation xml:lang="sv">Rördamm</xs:documentation>
-          <xs:documentation xml:lang="en">pipe dam</xs:documentation>
+          <xs:documentation xml:lang="en">Pipe dam</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="901">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Metsätie, uusi</xs:documentation>
           <xs:documentation xml:lang="sv">Skogsväg, ny</xs:documentation>
-          <xs:documentation xml:lang="en">forest road, new</xs:documentation>
+          <xs:documentation xml:lang="en">Forest road, new</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="902">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Metsätie, perusparannus</xs:documentation>
           <xs:documentation xml:lang="sv">Skogsväg, grundförbättring</xs:documentation>
-          <xs:documentation xml:lang="en">forest road, renovation</xs:documentation>
+          <xs:documentation xml:lang="en">Forest road, renovation</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="903">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Metsätie, kunnossapito</xs:documentation>
           <xs:documentation xml:lang="sv">Skogsväg, underhåll</xs:documentation>
-          <xs:documentation xml:lang="en">forest road, repairs</xs:documentation>
+          <xs:documentation xml:lang="en">Forest road, repairs</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="904">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Piennartie, uusi</xs:documentation>
           <xs:documentation xml:lang="sv">Väg på dikesren, ny</xs:documentation>
-          <xs:documentation xml:lang="en">bank road, new</xs:documentation>
+          <xs:documentation xml:lang="en">Bank road, new</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="905">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Piennartie, perusparannus</xs:documentation>
           <xs:documentation xml:lang="sv">Väg på dikesren, grundförbättring</xs:documentation>
-          <xs:documentation xml:lang="en">bank road, renovation</xs:documentation>
+          <xs:documentation xml:lang="en">Bank road, renovation</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="906">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Piennartie, kunnossapito</xs:documentation>
           <xs:documentation xml:lang="sv">Väg på dikesren, underhåll</xs:documentation>
-          <xs:documentation xml:lang="en">bank road, repairs</xs:documentation>
+          <xs:documentation xml:lang="en">Bank road, repairs</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="907">
@@ -9240,182 +9284,182 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Jäätien teko</xs:documentation>
           <xs:documentation xml:lang="sv">Byggande av isväg</xs:documentation>
-          <xs:documentation xml:lang="en">ice road making</xs:documentation>
+          <xs:documentation xml:lang="en">Ice road making</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="909">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Pohjan vahvistus (esim. suodatinkankaan asennus)</xs:documentation>
           <xs:documentation xml:lang="sv">Förstärkning av grunden (t.ex. med fiberduk)</xs:documentation>
-          <xs:documentation xml:lang="en">bottom strengthening (e.g. installation of filtration cloth)</xs:documentation>
+          <xs:documentation xml:lang="en">Bottom strengthening (e.g. installation of filtration cloth)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="910">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Sorastus</xs:documentation>
           <xs:documentation xml:lang="sv">Grusning</xs:documentation>
-          <xs:documentation xml:lang="en">gravel spreading</xs:documentation>
+          <xs:documentation xml:lang="en">Gravel spreading</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="911">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Höyläys</xs:documentation>
           <xs:documentation xml:lang="sv">Hyvling</xs:documentation>
-          <xs:documentation xml:lang="en">planning</xs:documentation>
+          <xs:documentation xml:lang="en">Planning</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="912">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lanaus</xs:documentation>
           <xs:documentation xml:lang="sv">Sladdning</xs:documentation>
-          <xs:documentation xml:lang="en">levelling down high spots</xs:documentation>
+          <xs:documentation xml:lang="en">Levelling down high spots</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="913">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kivien poisto</xs:documentation>
           <xs:documentation xml:lang="sv">Avlägsnande av stenar</xs:documentation>
-          <xs:documentation xml:lang="en">removal of stones</xs:documentation>
+          <xs:documentation xml:lang="en">Removal of stones</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="914">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Pintamaan poisto</xs:documentation>
           <xs:documentation xml:lang="sv">Avlägsnande av ytjord</xs:documentation>
-          <xs:documentation xml:lang="en">top soil removal</xs:documentation>
+          <xs:documentation xml:lang="en">Top soil removal</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="915">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Rungon tiivistys</xs:documentation>
           <xs:documentation xml:lang="sv">Packning av vägkroppen</xs:documentation>
-          <xs:documentation xml:lang="en">road body compaction</xs:documentation>
+          <xs:documentation xml:lang="en">Road body compaction</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="916">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Pengerrys</xs:documentation>
           <xs:documentation xml:lang="sv">Terrassering</xs:documentation>
-          <xs:documentation xml:lang="en">bank</xs:documentation>
+          <xs:documentation xml:lang="en">Bank</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="917">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Leikkaus</xs:documentation>
           <xs:documentation xml:lang="sv">Skärning</xs:documentation>
-          <xs:documentation xml:lang="en">road cut</xs:documentation>
+          <xs:documentation xml:lang="en">Road cut</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="918">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kantavuuden parantaminen</xs:documentation>
           <xs:documentation xml:lang="sv">Förbättrande av bärighet</xs:documentation>
-          <xs:documentation xml:lang="en">improving bearing capasity</xs:documentation>
+          <xs:documentation xml:lang="en">Improving bearing capasity</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="919">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Räjäytys</xs:documentation>
           <xs:documentation xml:lang="sv">Sprängning</xs:documentation>
-          <xs:documentation xml:lang="en">explosion</xs:documentation>
+          <xs:documentation xml:lang="en">Explosion</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="920">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Rumpu, uusi</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">culvert, new</xs:documentation>
+          <xs:documentation xml:lang="sv">Trumma, ny</xs:documentation>
+          <xs:documentation xml:lang="en">Culvert, new</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="921">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Rummun vaihto</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">culvert chance</xs:documentation>
+          <xs:documentation xml:lang="sv">Byte av trumma</xs:documentation>
+          <xs:documentation xml:lang="en">Culvert chance</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="922">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Rummun sulatus</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">melting of culvert</xs:documentation>
+          <xs:documentation xml:lang="en">Melting of culvert</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="923">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Silta</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">bridge</xs:documentation>
+          <xs:documentation xml:lang="sv">Bro</xs:documentation>
+          <xs:documentation xml:lang="en">Bridge</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="924">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kaiteen rakentaminen</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">building of railing</xs:documentation>
+          <xs:documentation xml:lang="en">Building of railing</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="925">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tien sivuoja, uusi</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">road side ditc new</xs:documentation>
+          <xs:documentation xml:lang="en">Road side ditc new</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="926">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tien sivuoja, perkaus</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">road side ditc repairs</xs:documentation>
+          <xs:documentation xml:lang="en">Road side ditc repairs</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="927">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Laskuoja, uusi</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">outlet ditch, new</xs:documentation>
+          <xs:documentation xml:lang="en">Outlet ditch, new</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="928">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Laskuoja, perkaus</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">outlet ditch, repairs</xs:documentation>
+          <xs:documentation xml:lang="en">Outlet ditch, repairs</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="929">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Metsäliittymä</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">junction</xs:documentation>
+          <xs:documentation xml:lang="en">Junction</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="930">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Metsäliittymä rummulla</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">junction with culvert</xs:documentation>
+          <xs:documentation xml:lang="en">Junction with culvert</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="931">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kohtaamispaikka</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">encounting place</xs:documentation>
+          <xs:documentation xml:lang="en">Encounting place</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="932">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Varastopaikan rakentaminen</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">forest depot construction</xs:documentation>
+          <xs:documentation xml:lang="en">Forest depot construction</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="933">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ympyräkääntöpaikan rakentaminen</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">circle turning bay construction</xs:documentation>
+          <xs:documentation xml:lang="en">Circle turning bay construction</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="934">
@@ -9436,49 +9480,49 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tienvarsivesakonraivaus</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">clearing of coppice in road sides</xs:documentation>
+          <xs:documentation xml:lang="en">Clearing of coppice in road sides</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="937">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Aurausviitoitus</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">snow-clearing signs</xs:documentation>
+          <xs:documentation xml:lang="en">Snow-clearing signs</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="938">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Auraus (lumityöt)</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">snow-clearing</xs:documentation>
+          <xs:documentation xml:lang="en">Snow-clearing</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="939">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lumipalteiden kaato</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">felling of snow-edgings</xs:documentation>
+          <xs:documentation xml:lang="en">Felling of snow-edgings</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="940">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tien kuntokartoitus</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">Road kondition exploration</xs:documentation>
+          <xs:documentation xml:lang="en">Road condition mapping</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="941">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Uuden tien suunnittelu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Planering av ny väg</xs:documentation>
+          <xs:documentation xml:lang="en">Planning of a new road</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="942">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tien peruskorjauksen suunnittelu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Planering av grundlig förbättring av väg</xs:documentation>
+          <xs:documentation xml:lang="en">Planning of road renovation</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="943">
@@ -9498,8 +9542,8 @@
       <xs:enumeration value="945">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tienpidon muut työt</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Övrigt väghållningsarbete</xs:documentation>
+          <xs:documentation xml:lang="en">Other road maintenance works</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="946">
@@ -9513,84 +9557,84 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kulotus</xs:documentation>
           <xs:documentation xml:lang="sv">Hyggesbränning</xs:documentation>
-          <xs:documentation xml:lang="en">burn-clearing</xs:documentation>
+          <xs:documentation xml:lang="en">Burn-clearing</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1002">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Poltto (mm. säästöpuuryhmien poltto)</xs:documentation>
           <xs:documentation xml:lang="sv">Bränning (bl.a. svedning av grupper med naturvårdsträd)</xs:documentation>
-          <xs:documentation xml:lang="en">burning</xs:documentation>
+          <xs:documentation xml:lang="en">Burning</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1003">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ennallistaminen</xs:documentation>
           <xs:documentation xml:lang="sv">Iståndsättning</xs:documentation>
-          <xs:documentation xml:lang="en">restoration</xs:documentation>
+          <xs:documentation xml:lang="en">Restoration</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1004">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Pystykarsinta</xs:documentation>
           <xs:documentation xml:lang="sv">Stamkvistning</xs:documentation>
-          <xs:documentation xml:lang="en">branching</xs:documentation>
+          <xs:documentation xml:lang="en">Branching</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1005">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Käsittely hirvikarkotteella</xs:documentation>
           <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">moose repellent</xs:documentation>
+          <xs:documentation xml:lang="en">Moose repellent</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1006">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Juurikäävän torjunta</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Bekämpning av rotticka</xs:documentation>
           <xs:documentation xml:lang="en">Protection against heterobasidion</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1007">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Raivaussahatyö</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">brush cutter</xs:documentation>
+          <xs:documentation xml:lang="sv">Röjsågsarbete</xs:documentation>
+          <xs:documentation xml:lang="en">Brush cutter</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1008">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Niitto ja haravointi</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">move and rake</xs:documentation>
+          <xs:documentation xml:lang="sv">Slåtter och räfsning</xs:documentation>
+          <xs:documentation xml:lang="en">Move and rake</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1009">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Rajalinjan avaus</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">border line opening</xs:documentation>
+          <xs:documentation xml:lang="sv">Öppning av rålinje</xs:documentation>
+          <xs:documentation xml:lang="en">Border line opening</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1010">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muu moottorisahatyö</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Annat motorsågsarbete</xs:documentation>
           <xs:documentation xml:lang="en">Other chainsaw work</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1011">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muu työ</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Annat arbete</xs:documentation>
           <xs:documentation xml:lang="en">Other work</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1012">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muu metsurityö</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Annat skogsarbete</xs:documentation>
+          <xs:documentation xml:lang="en">Other logger work</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1013">
@@ -9603,56 +9647,56 @@
       <xs:enumeration value="1101">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lohkon maastosuunnittelu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">Terrain palning of working site section</xs:documentation>
+          <xs:documentation xml:lang="sv">Terrängplanering av skifte</xs:documentation>
+          <xs:documentation xml:lang="en">Field planning of working site section</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1102">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Työnjohto</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">supervisory staff</xs:documentation>
+          <xs:documentation xml:lang="sv">Arbetsledning</xs:documentation>
+          <xs:documentation xml:lang="en">Supervisory staff</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1201">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Taimikon tarkastus</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Kontroll av plantskog</xs:documentation>
           <xs:documentation xml:lang="en">Control of recently planted forest</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1202">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Korjuun laadunseuranta</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Uppföljning av drivningskvaliteten</xs:documentation>
           <xs:documentation xml:lang="en">Logging quality control</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1203">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Hakkuukoneen mittalaitteen tarkastusmittaus</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Kontroll av skördares mätningsapparatur</xs:documentation>
           <xs:documentation xml:lang="en">Control of harvesters measurement equipment</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1204">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Metsänhoidon laadunseuranta</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Uppföljning av skogsvårdskvaliteten</xs:documentation>
           <xs:documentation xml:lang="en">Silviculture quality control</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1301">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Urakanantajakohtainen koodi 1</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Entreprenadgivarspecifik kod 1</xs:documentation>
           <xs:documentation xml:lang="en">Mandators own code 1</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1302">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Urakanantajakohtainen koodi 2</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Entreprenadgivarspecifik kod 2</xs:documentation>
           <xs:documentation xml:lang="en">Mandators own code 2</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -9668,36 +9712,36 @@
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koneellinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">mechanical</xs:documentation>
+          <xs:documentation xml:lang="sv">Maskinell</xs:documentation>
+          <xs:documentation xml:lang="en">Mechanical</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Manuaalinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">manual</xs:documentation>
+          <xs:documentation xml:lang="sv">Manuell</xs:documentation>
+          <xs:documentation xml:lang="en">Manual</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kemiallinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">chemical</xs:documentation>
+          <xs:documentation xml:lang="sv">Kemisk</xs:documentation>
+          <xs:documentation xml:lang="en">Chemical</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="4">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Mekaanis-kemiallinen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">mechanical and chemical</xs:documentation>
+          <xs:documentation xml:lang="sv">Mekanisk-kemisk</xs:documentation>
+          <xs:documentation xml:lang="en">Mechanical and chemical</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="5">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Luontainen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">natural</xs:documentation>
+          <xs:documentation xml:lang="sv">Naturlig</xs:documentation>
+          <xs:documentation xml:lang="en">Natural</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -9712,134 +9756,134 @@
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Alaharvennus</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">under thinning</xs:documentation>
+          <xs:documentation xml:lang="sv">Låggallring</xs:documentation>
+          <xs:documentation xml:lang="en">Under thinning</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Yläharvennus</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">upper thinning</xs:documentation>
+          <xs:documentation xml:lang="sv">Höggallring</xs:documentation>
+          <xs:documentation xml:lang="en">Upper thinning</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Laatuharvennus</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">quality thinning</xs:documentation>
+          <xs:documentation xml:lang="sv">Kvalitetsgallring</xs:documentation>
+          <xs:documentation xml:lang="en">Quality thinning</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="4">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Poimintahakkuu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">picking cutting</xs:documentation>
+          <xs:documentation xml:lang="sv">Plockhuggning</xs:documentation>
+          <xs:documentation xml:lang="en">Picking cutting</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="5">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Välialueen käsittely</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">gap area treatment</xs:documentation>
+          <xs:documentation xml:lang="sv">Behandling av skiljeyta</xs:documentation>
+          <xs:documentation xml:lang="en">Gap area treatment</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="6">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Reuna-alueen käsittely</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">edge area treatment</xs:documentation>
+          <xs:documentation xml:lang="sv">Behandling av kantzon</xs:documentation>
+          <xs:documentation xml:lang="en">Edge area treatment</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="7">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Pienaukkohakkuu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">small gap cutting</xs:documentation>
+          <xs:documentation xml:lang="sv">Luckhuggning</xs:documentation>
+          <xs:documentation xml:lang="en">Small gap cutting</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="8">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Säästöpuuhakkuu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">saving tree cutting</xs:documentation>
+          <xs:documentation xml:lang="sv">Naturvårdsträdsavverkning</xs:documentation>
+          <xs:documentation xml:lang="en">Saving tree cutting</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="9">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Talvitiehakkuu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">winter road cutting</xs:documentation>
+          <xs:documentation xml:lang="sv">Vintervägsavverkning</xs:documentation>
+          <xs:documentation xml:lang="en">Winter road cutting</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Rajalinjan aukaisu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">border line opening</xs:documentation>
+          <xs:documentation xml:lang="sv">Öppning av rålinje</xs:documentation>
+          <xs:documentation xml:lang="en">Border line opening</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ojalinjan aukaisu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">ditchning line opening</xs:documentation>
+          <xs:documentation xml:lang="sv">Öppning av dikeslinje</xs:documentation>
+          <xs:documentation xml:lang="en">Ditching line opening</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tielinjan hakkuu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">road line cutting</xs:documentation>
+          <xs:documentation xml:lang="sv">Avverkning av vägsträckning</xs:documentation>
+          <xs:documentation xml:lang="en">Road line cutting</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="13">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tuulenkaato hakkuu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">cutting in wind falled stand?</xs:documentation>
+          <xs:documentation xml:lang="sv">Avverkning av vindfällen</xs:documentation>
+          <xs:documentation xml:lang="en">Cutting on a wind-damaged stand</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="14">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Luonnonhoito</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">nature caring</xs:documentation>
+          <xs:documentation xml:lang="sv">Naturvård</xs:documentation>
+          <xs:documentation xml:lang="en">Nature caring</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="15">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Maisemanhoito</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">landscape caring</xs:documentation>
+          <xs:documentation xml:lang="sv">Landskapsvård</xs:documentation>
+          <xs:documentation xml:lang="en">Landscape caring</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="16">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Vesitalouden hoito</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Vattenvård</xs:documentation>
           <xs:documentation xml:lang="en">Water caring</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="17">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Riistanhoito</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">gamekeeping</xs:documentation>
+          <xs:documentation xml:lang="sv">Viltvård</xs:documentation>
+          <xs:documentation xml:lang="en">Gamekeeping</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="18">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Täydennys</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">refill</xs:documentation>
+          <xs:documentation xml:lang="sv">Komplettering</xs:documentation>
+          <xs:documentation xml:lang="en">Refill</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="19">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Täydennys</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Komplettering</xs:documentation>
+          <xs:documentation xml:lang="en">Refill</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -9854,28 +9898,28 @@
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Voimakas</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">Strog</xs:documentation>
+          <xs:documentation xml:lang="sv">Kraftig</xs:documentation>
+          <xs:documentation xml:lang="en">Strong</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Normaali</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Normal</xs:documentation>
           <xs:documentation xml:lang="en">Normal</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lievä</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lätt</xs:documentation>
           <xs:documentation xml:lang="en">Light</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="4">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ei käsittelyä</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Inga åtgärder</xs:documentation>
           <xs:documentation xml:lang="en">No treatment</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -9891,21 +9935,21 @@
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Joukkokäsittely</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Massbehandling</xs:documentation>
           <xs:documentation xml:lang="en">Mass processing</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kokorunkokorjuu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Helträdsdrivning</xs:documentation>
           <xs:documentation xml:lang="en">Whole trunk logging</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Integroitu korjuu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Integrerad drivning</xs:documentation>
           <xs:documentation xml:lang="en">Integrated logging</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -9921,57 +9965,57 @@
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Juurikäävän torjunta</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">root fungus prevention</xs:documentation>
+          <xs:documentation xml:lang="sv">Bekämpning av rotticka</xs:documentation>
+          <xs:documentation xml:lang="en">Root fungus prevention</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Jäävän puuston mittaus</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">remaining storey? measuring</xs:documentation>
+          <xs:documentation xml:lang="sv">Mätning av kvarvarande bestånd</xs:documentation>
+          <xs:documentation xml:lang="en">Measuring of remaining growing stock</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Latvusmassan kasoille hakkuu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">Crown mass cutting making stacks?</xs:documentation>
+          <xs:documentation xml:lang="sv">Avverkning av grot på hög</xs:documentation>
+          <xs:documentation xml:lang="en">Cutting by stacking crown mass</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="4">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Pinojen peittäminen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">covering stacks</xs:documentation>
+          <xs:documentation xml:lang="sv">Täckning av travar</xs:documentation>
+          <xs:documentation xml:lang="en">Covering stacks</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="5">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Konekylvö</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">mechanical seed planting</xs:documentation>
+          <xs:documentation xml:lang="sv">Maskinell sådd</xs:documentation>
+          <xs:documentation xml:lang="en">Mechanical seed planting</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="6">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Uudistusalan raivaus</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Röjning av förnyelseyta</xs:documentation>
+          <xs:documentation xml:lang="en">Clearing of regeneration stand</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="7">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ennakkoraivaus</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Förröjning</xs:documentation>
+          <xs:documentation xml:lang="en">Preclearing</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="8">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Välppäys</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Gallring/harpning</xs:documentation>
+          <xs:documentation xml:lang="en">Screening</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -9986,36 +10030,36 @@
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Heikko</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Svag</xs:documentation>
+          <xs:documentation xml:lang="en">Poor</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tyydyttävä</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Nöjaktig</xs:documentation>
+          <xs:documentation xml:lang="en">Satisfactory</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Hyvä</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Bra</xs:documentation>
+          <xs:documentation xml:lang="en">Good</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="4">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Erinomainen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Utmärkt</xs:documentation>
+          <xs:documentation xml:lang="en">Excellent</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="5">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ei toteutettu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Ej verkställt</xs:documentation>
+          <xs:documentation xml:lang="en">Not carried out</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -10083,22 +10127,22 @@
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuiva (0-34.9%)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Torr</xs:documentation>
+          <xs:documentation xml:lang="en">Dry</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kostea (35.0-44.9%)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Fuktig</xs:documentation>
+          <xs:documentation xml:lang="en">Moist</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tuore (45.0-99.9%)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Färsk</xs:documentation>
+          <xs:documentation xml:lang="en">Fresh</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -10195,77 +10239,77 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kannonnostolaite</xs:documentation>
           <xs:documentation xml:lang="sv">Stubbrytningsaggregat</xs:documentation>
-          <xs:documentation xml:lang="en">Stump picking equipment</xs:documentation>
+          <xs:documentation xml:lang="en">Stump lifting equipment</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Istutuslaite</xs:documentation>
           <xs:documentation xml:lang="sv">Planteringsaggregat</xs:documentation>
-          <xs:documentation xml:lang="en">seedling plantig equipment</xs:documentation>
+          <xs:documentation xml:lang="en">Seedling planting equipment</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kylvölaite</xs:documentation>
           <xs:documentation xml:lang="sv">Såddaggregat</xs:documentation>
-          <xs:documentation xml:lang="en">seed plantig equipment</xs:documentation>
+          <xs:documentation xml:lang="en">Seed planting equipment</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="4">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Äes</xs:documentation>
           <xs:documentation xml:lang="sv">Harv</xs:documentation>
-          <xs:documentation xml:lang="en">harrow</xs:documentation>
+          <xs:documentation xml:lang="en">Harrow</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="5">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Jatkuvatoiminen mätästyslaite</xs:documentation>
           <xs:documentation xml:lang="sv">Högläggare</xs:documentation>
-          <xs:documentation xml:lang="en">continuously functing mounding eguipment</xs:documentation>
+          <xs:documentation xml:lang="en">Continuously functioning mounding equipment</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="6">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Apulannan levitin</xs:documentation>
           <xs:documentation xml:lang="sv">Gödselspridare</xs:documentation>
-          <xs:documentation xml:lang="en">fertiliser spreader</xs:documentation>
+          <xs:documentation xml:lang="en">Fertiliser spreader</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="7">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tuhkan levitin</xs:documentation>
           <xs:documentation xml:lang="sv">Askspridare</xs:documentation>
-          <xs:documentation xml:lang="en">ash spreader</xs:documentation>
+          <xs:documentation xml:lang="en">Ash spreader</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="8">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Torjunta-aine levitin</xs:documentation>
           <xs:documentation xml:lang="sv">Bekämpningsmedelsspridare</xs:documentation>
-          <xs:documentation xml:lang="en">herbicide spreader</xs:documentation>
+          <xs:documentation xml:lang="en">Herbicide spreader</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="9">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Raivauspää</xs:documentation>
           <xs:documentation xml:lang="sv">Röjningsaggregat</xs:documentation>
-          <xs:documentation xml:lang="en">clearing head</xs:documentation>
+          <xs:documentation xml:lang="en">Clearing head</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Joukkokäsittely hakkuupää</xs:documentation>
           <xs:documentation xml:lang="sv">Avverkningsaggregat med flerträdshantering</xs:documentation>
-          <xs:documentation xml:lang="en">Mass procesing</xs:documentation>
+          <xs:documentation xml:lang="en">Mass processing</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kantokäsittelylaite</xs:documentation>
           <xs:documentation xml:lang="sv">Stubbehandlingsaggregat</xs:documentation>
-          <xs:documentation xml:lang="en">stump procesing equipment</xs:documentation>
+          <xs:documentation xml:lang="en">Stump processing equipment</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12">
@@ -10279,21 +10323,21 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Raivauslaite</xs:documentation>
           <xs:documentation xml:lang="sv">Röjningsaggregat</xs:documentation>
-          <xs:documentation xml:lang="en">clearing equipment</xs:documentation>
+          <xs:documentation xml:lang="en">Clearing equipment</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="14">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Mekaaninen kitkemislaite</xs:documentation>
           <xs:documentation xml:lang="sv">Slyryckare</xs:documentation>
-          <xs:documentation xml:lang="en">mechanical uprooting equipment</xs:documentation>
+          <xs:documentation xml:lang="en">Mechanical uprooting equipment</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="15">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Yhdistelmäkone</xs:documentation>
           <xs:documentation xml:lang="sv">Drivare</xs:documentation>
-          <xs:documentation xml:lang="en">Combo macine</xs:documentation>
+          <xs:documentation xml:lang="en">Combo machine</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="16">
@@ -10314,14 +10358,14 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kaivinkoneen hakkuuvarustus</xs:documentation>
           <xs:documentation xml:lang="sv">Avverkningsutrustning för grävmaskin</xs:documentation>
-          <xs:documentation xml:lang="en">digger cutting equipments</xs:documentation>
+          <xs:documentation xml:lang="en">Excavator cutting equipment</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="19">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lana</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Sladd</xs:documentation>
+          <xs:documentation xml:lang="en">Leveller</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -10336,28 +10380,28 @@
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuljettaja</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Förare</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Yrittäjä</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Företagare</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Urakanantaja</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Entreprenadgivare</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="4">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ulkopuolinen palvelun tarjoaja</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Utomstående serviceleverantör</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
@@ -10649,64 +10693,64 @@
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Auto</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">car</xs:documentation>
+          <xs:documentation xml:lang="sv">Bil</xs:documentation>
+          <xs:documentation xml:lang="en">Car</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Moottorivene</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Motorbåt</xs:documentation>
           <xs:documentation xml:lang="en">Motor boat</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Moottorikelkka</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">snow scooter</xs:documentation>
+          <xs:documentation xml:lang="sv">Snöskoter</xs:documentation>
+          <xs:documentation xml:lang="en">Snowmobile</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="4">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Mönkijä</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Fyrhjuling</xs:documentation>
           <xs:documentation xml:lang="en">ATV</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="5">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Moottoripyörä</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">motorbike</xs:documentation>
+          <xs:documentation xml:lang="sv">Motorcykel</xs:documentation>
+          <xs:documentation xml:lang="en">Motorbike</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="6">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Mopo</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">moped</xs:documentation>
+          <xs:documentation xml:lang="sv">Moped</xs:documentation>
+          <xs:documentation xml:lang="en">Moped</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="7">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Jalan</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">walking</xs:documentation>
+          <xs:documentation xml:lang="sv">Till fots</xs:documentation>
+          <xs:documentation xml:lang="en">Walking</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="8">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Soutaen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">rowing</xs:documentation>
+          <xs:documentation xml:lang="sv">Roende</xs:documentation>
+          <xs:documentation xml:lang="en">Rowing</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="9">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Hiihtäen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">skiing</xs:documentation>
+          <xs:documentation xml:lang="sv">På skidor</xs:documentation>
+          <xs:documentation xml:lang="en">Skiing</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -13440,6 +13484,13 @@
           <xs:documentation xml:lang="en">m</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="10">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">m2</xs:documentation>
+          <xs:documentation xml:lang="sv">m2</xs:documentation>
+          <xs:documentation xml:lang="en">m2</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="FeeBasisValueType">
@@ -13489,21 +13540,21 @@
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Aloittamatta</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Icke påbörjat</xs:documentation>
           <xs:documentation xml:lang="en">Not started</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kesken</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Pågående</xs:documentation>
           <xs:documentation xml:lang="en">In progress</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Valmis</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Klart</xs:documentation>
           <xs:documentation xml:lang="en">Finished</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -15950,6 +16001,13 @@
       <xs:documentation xml:lang="en" />
     </xs:annotation>
     <xs:restriction base="xs:string">
+      <xs:enumeration value="T">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Tuntematon / tunnistamaton</xs:documentation>
+          <xs:documentation xml:lang="sv">Okänd / oidentifierad</xs:documentation>
+          <xs:documentation xml:lang="en">Unknown / unidentified</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="HVI">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Hirvivahinkoilmoitus</xs:documentation>
@@ -19141,28 +19199,28 @@
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ainespuu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Gagnvirke</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Energiaranka</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Energived</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Latvusmassa</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Grot</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="4">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kannot</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Stubbar</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
@@ -19208,147 +19266,147 @@
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Mäntykuitu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Tallmassaved</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusikuitu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Granmassaved</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Sellukuitu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Cellulosafiber</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="4">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Havukuitu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Barrmassaved</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="5">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivukuitu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Björkmassaved</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="6">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Haapakuitu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Aspmassaved</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="7">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtikuitu</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lövmassaved</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="8">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Mäntytukki</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Talltimmer</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="9">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Mäntypikkutukki</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Tallklentimmer</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusitukki</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Grantimmer</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusipikkutukki</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Granklentimmer</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusisorvitukki</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Svarvgranstock</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="13">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivutukki</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Björktimmer</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="14">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lehtitukki</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Lövtimmer</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="15">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Mäntypylväs</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Tallstolpe</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="16">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kuusipylväs</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Granstolpe</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="17">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Karsittu energiaranka</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Kvistad energived</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="18">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Karsimaton energiaranka</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Okvistad energived</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="19">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kannot</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Stubbar</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Metsäenergiahake</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Skogsenergiflis</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="29">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Latvusmassa</xs:documentation>
-          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="sv">Grot</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
@@ -20571,6 +20629,13 @@
           <xs:documentation xml:lang="en">Schema package V11.02</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="V11.03">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V11.03</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V11.03</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="PreferredContactingMethodType">
@@ -20765,6 +20830,22 @@
           <xs:documentation xml:lang="fi">Omavalvonnan toteuttaja</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DistanceUnitType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi">Etäisyyden yksikkö</xs:documentation>
+      <xs:documentation xml:lang="sv">Distans enhet</xs:documentation>
+      <xs:documentation xml:lang="en">Distance unit</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="km">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kilometri</xs:documentation>
+          <xs:documentation xml:lang="sv">Kilometer</xs:documentation>
+          <xs:documentation xml:lang="en">Kilometre</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>

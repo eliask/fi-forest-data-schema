@@ -2,18 +2,23 @@
 <!--
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.03:
+	-Päivitetty juurielementti RoadOrDitchObjectUpdate:n dokumentaatio
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/RoadOrDitchObjectUpdate"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/RoadOrDitchObjectUpdate"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.03">
+	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
+	
 	<xs:element name="RoadOrDitchObjectUpdate" type="RoadOrDitchObjectUpdateType">
 		<xs:annotation>
-			<xs:documentation>Tie/Ojituskohteen päivitys</xs:documentation>
+			<xs:documentation>Tie/Ojituskohteen päivitys. Ei käytössä WoodForcessa.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="RoadOrDitchObjectUpdateType">
