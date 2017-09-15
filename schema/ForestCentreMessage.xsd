@@ -17,6 +17,9 @@
 	Muutokset skeemapakettiin V11.02:
 	-Skeematiedostosta siivottu käyttämättömät määrittelyt
 	-Elementti CommonObjectData uudelleennimetty -> ForestCentreCommonObjectData. Samalla elementti muutettu käyttämään tyyppimäärittelyä ForestCentreCommonObjectDataType.
+	
+	Muutokset skeemapakettiin V11.04:
+	-Elementti ForestCentreCommonObjectData piilotettu näkyvistä sijoittamalla se kommenttitageihin
 	***************************************************************
 -->
 
@@ -30,7 +33,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	xmlns:mdd="http://standardit.tapio.fi/schemas/forestData/MooseDamageDeclaration"
-	elementFormDefault="qualified" version="V11.02">
+	elementFormDefault="qualified" version="V11.04">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestUseDeclaration"
@@ -119,7 +122,7 @@
 				<xs:element ref="FinancingActApplication" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="FinancingActCompletionDeclaration" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="MooseDamageDeclaration" minOccurs="1" maxOccurs="1"/>
-				<xs:element ref="ForestCentreCommonObjectData" minOccurs="1" maxOccurs="1"/>
+				<!-- <xs:element ref="ForestCentreCommonObjectData" minOccurs="1" maxOccurs="1"/> -->
 			</xs:choice>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">

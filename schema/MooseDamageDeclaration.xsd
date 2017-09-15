@@ -12,6 +12,11 @@
 	
 	Muutokset skeemapakettiin V11.02:
 	-Skeematiedostosta poistettu ja korvattu viitteet poistettuun skeematiedostoon FinancingActCommon.xsd, jonka sisältö siirretty skeematiedostoon ForestCentreCommon.xsd.
+	
+	Muutokset skeemapakettiin V11.04:
+	-Lisätty uusi pakollinen elementti Sender
+	-Lisätty uusi vapaaehtoinen elementti Documents
+	-Lisätty uusi pakollinen elementti DeclarationPolygonReference
 	****************************************************************************
 -->
 
@@ -26,7 +31,7 @@
 	xmlns:gml="http://www.opengis.net/gml"
 	xmlns:fcc="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
 	elementFormDefault="qualified"
-	version="V11.02">
+	version="V11.04">
 
 
 	<!-- Imports / Includes -->
@@ -220,7 +225,23 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-
+	
+	<xs:element name="Sender" type="ci:ContactInformationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Ilmoituksen lähettäjä / laatija.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
+	
+	<xs:element name="DeclarationPolygonReference">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Hirvivahinkoalueen viite</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Moose damage declaration polygon reference</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	
 
 	<!-- Tyyppimääritykset / Type definitions -->
 	<xs:complexType name="MooseDamageDeclarationType">
@@ -229,11 +250,19 @@
 			<xs:element ref="MooseDamageDate" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="AdditionalDetails" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="CompensationApplicant" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="Sender" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="fcc:Attorney" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="MooseDamageDeclarationRealEstates" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="CompensationByInsurance" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="CompensationByLegislation" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="PreviousMooseDamages" minOccurs="0"/>
+			<xs:element ref="fcc:Documents" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Dokumentit</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="id" type="co:IdStringType">
 			<xs:annotation>
@@ -276,6 +305,7 @@
 
 	<xs:complexType name="DeclarationPolygonType">
 		<xs:sequence>
+			<xs:element ref="DeclarationPolygonReference" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="gml:polygonProperty"/>
 			<xs:element ref="LocationEstates"/>
 		</xs:sequence>

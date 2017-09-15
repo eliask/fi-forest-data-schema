@@ -9,6 +9,9 @@
 	
 	Muutokset skeemapakettiin V11.01:
 	-Lisätty uusi tyyppimäärittely BaseCompactStandBasicDataType joka on sisällöltään CompactStandBasicDataType ilman pakollisuuksia
+	
+	Muutokset skeemapakettiin V11.04:
+	-Tyyppimäärittelyn IdentifiersType sisällä ollut complexType-määrittely on korvattu sequencella, jonka sisältönä on viittaus elementtiin Identifier
 	***************************************************************
 -->
 <xs:schema
@@ -19,7 +22,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified"
-	version="V11.01">
+	version="V11.04">
 	
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase" schemaLocation="StandBase.xsd"/>
@@ -28,6 +31,7 @@
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
 	<xs:element name="Identifiers" type="IdentifiersType"/>
+	<xs:element name="Identifier" type="co:IdentifierType"/>
 	<xs:element name="StandNumber" type="stb:StandNumberType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvionumero.</xs:documentation>
@@ -174,6 +178,7 @@
 	</xs:element>
 	<xs:element name="CompleteState" type="co:CompleteStateType"/>
 	
+	
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
 	<xs:complexType name="StandBasicDataType">
@@ -254,9 +259,9 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Identifiers of stand.</xs:documentation>
 		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="stb:IdentifiersType"/>
-		</xs:complexContent>
+		<xs:sequence>
+			<xs:element ref="Identifier" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
 	</xs:complexType>
 	<xs:group name="SoilDataGroup">
 		<xs:annotation>
