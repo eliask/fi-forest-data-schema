@@ -54,11 +54,15 @@
 	21.9.2015
 	- Lisätty group-määrittely: PointAndLineGeometriesGroup
 	
-*******************************************************************
-
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.05:
+	-Tyyppimäärittelystä MultiPolygonGeometryType poistettu elementti MultiSurface, xs:choice-rakenne muutettu sequenceksi
+	-Lisätty uusi tyyppimäärittely ExtendedMultiPolygonGeometryType joka sisältää vanhan MultiPolygonGeometryType-määrittelyn sisällön (MultiPolygon ja MultiSurface). Tämä määrittely sijoitettu kommenttitageihin.
+*******************************************************************
 -->
+
 <xs:schema
 	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
 	xmlns="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" 
@@ -66,7 +70,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:gml="http://www.opengis.net/gml"
 	elementFormDefault="unqualified"
-	version="V10.05">
+	version="V11.05">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -190,11 +194,22 @@
 			<xs:documentation xml:lang="sv"></xs:documentation>
 			<xs:documentation xml:lang="en">Multipolygon geometry.</xs:documentation>
 		</xs:annotation>
-		<xs:choice>
+		<xs:sequence>
             <xs:element ref="gml:MultiPolygon"/>
-            <xs:element ref="gml:MultiSurface"/>
-        </xs:choice>
+        </xs:sequence>
 	</xs:complexType>
+	
+	<!-- <xs:complexType name="ExtendedMultiPolygonGeometryType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Monialueen geometria.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Multipolygon geometry.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element ref="gml:MultiPolygon"/>
+			<xs:element ref="gml:MultiSurface"/>
+		</xs:choice>
+	</xs:complexType> -->
 
 	<xs:complexType name="PointGeometryType">
 		<xs:annotation>

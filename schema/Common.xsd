@@ -59,16 +59,19 @@
 	Muutokset skeemapakettiin V10.06:
 	-Elementti DocumentFileName muutettu vapaaehtoisesta pakolliseksi. Elementin dokumentaatio päivitetty.
 	-Elementti FileType muutettu vapaaehtoisesta pakolliseksi. Elementin dokumentaatio päivitetty.
+	
+	Muutokset skeemapakettiin V11.05:
+	-Skeematiedostosta Common.xsd on siirretty dokumenttimäärittelyt tiedostoon Common_DocumentType.xsd.
+	-Skeematiedostosta on poistettu include-määritys "Common_BasicDataType.xsd".
 	*******************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/common"
-	xmlns:xmime="http://www.w3.org/2005/05/xmlmime" elementFormDefault="unqualified" version="V10.06">
+	elementFormDefault="unqualified" version="V11.05">
 
 	<!-- Imports / Includes -->
-	<xs:include schemaLocation="Common_BasicDataType.xsd"/>
-	<xs:import namespace="http://www.w3.org/2005/05/xmlmime" schemaLocation="../w3c/2005/xmlmime.xsd"/>
+	<xs:include schemaLocation="Common_DocumentType.xsd"/>
 
 	<!-- Elementtimääritykset / Element definitions -->
 	<xs:element name="ChangeState" type="ChangeStateType"/>
@@ -99,12 +102,6 @@
 	<xs:element name="IdentifierType" type="IdentifierTypeType"/>
 	<xs:element name="IdentifierValue" type="IdentifierValueType"/>
 	<xs:element name="Reference" type="ReferenceType"/>
-	<xs:element name="Document" type="DocumentType"/>
-	<xs:element name="DocumentClass" type="DocumentClassType"/>
-	<xs:element name="DocumentDescription" type="DocumentDescriptionType"/>
-	<xs:element name="FileBinary" type="xmime:base64Binary"/>
-	<xs:element name="DocumentFileName" type="DocumentFileNameType"/>
-	<xs:element name="FileType" type="FileTypeType"/>
 
 	<!-- Tyyppimäärittelyt / Type definitions -->
 	<xs:simpleType name="ChangeTimeType">
@@ -364,73 +361,6 @@
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="14"/>
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:complexType name="DocumentType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Dokumentin tiedot.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Document data.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="DocumentClass" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="DocumentDescription" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="DocumentFileName" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Dokumenttitiedoston nimi ilman tiedostopäätettä, esim. "tiedosto.txt" --> nimi on "tiedosto"</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="FileType" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Dokumenttitiedoston tyyppi = tiedostopääte, esim. "tiedosto.txt" --> tyyppi on "txt"</xs:documentation>
-					<xs:documentation xml:lang="sv"></xs:documentation>
-					<xs:documentation xml:lang="en"></xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="FileBinary" minOccurs="1" maxOccurs="1"/>
-		</xs:sequence>
-		<xs:attribute name="id" type="xs:string">
-			<xs:annotation>
-				<xs:documentation xml:lang="fi">Dokumentti yksilöidään tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
-				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en">Document can be identified using string id.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
-
-	<xs:simpleType name="DocumentDescriptionType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Dokumentin sisällön kuvaus.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Document description.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="250"/>
-		</xs:restriction>
-	</xs:simpleType>
-	
-	<xs:simpleType name="DocumentFileNameType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Dokumenttitiedoston nimi.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Document file name.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="250"/>
-		</xs:restriction>
-	</xs:simpleType>
-	
-	<xs:simpleType name="FileTypeType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Dokumenttitiedoston tyyppi.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Document file type.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="250"/>
 		</xs:restriction>
 	</xs:simpleType>
 	

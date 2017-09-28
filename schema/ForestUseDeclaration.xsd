@@ -28,6 +28,9 @@
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.05:
+	-Elementin Documents tyyppimäärittely muutettu DocumentsType -> fcc:DocumentsType. Lisäksi tyyppimäärittely DocumentsType poistettu skeematiedostosta.
 	****************************************************************************
 -->
 
@@ -40,7 +43,7 @@
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	xmlns:spf="http://standardit.tapio.fi/schemas/forestData/specialFeature"
 	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate"
-	xmlns:gml="http://www.opengis.net/gml" elementFormDefault="qualified" version="V10.05">
+	xmlns:gml="http://www.opengis.net/gml" elementFormDefault="qualified" version="V11.05">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -248,13 +251,6 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="Documents" type="DocumentsType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Ei käytössä toistaiseksi. Tietoja ei tallenneta Metsäkeskusjärjestelmään eikä niitä huomioida ilmoituksen käsittelyn yhteydessä.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en"/>
-		</xs:annotation>
-	</xs:element>
 	<xs:element name="SpecialFeature" type="spf:LocatedSpecialFeature3Type">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tietoja ei tallenneta Metsäkeskusjärjestelmään. Tiedot voidaan kuitenkin sisällyttää sanomaan jo nyt, mutta niitä ei huomioida ilmoituksen käsittelyn yhteydessä.</xs:documentation>
@@ -281,7 +277,13 @@
 			<xs:element ref="CuttingsRightsOwnerRepresentative" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="Sender" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="DeclarationRealEstates" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="Documents" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="fcc:Documents" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Dokumentit</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
 			<xs:element ref="SpecialFeatures" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 		<xs:attribute name="id" type="co:IdStringType">
@@ -461,17 +463,6 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="LocationEstate" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-
-	<xs:complexType name="DocumentsType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Dokumentit</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Documents</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="co:Document" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 

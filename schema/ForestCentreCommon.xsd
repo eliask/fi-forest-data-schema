@@ -14,6 +14,9 @@
 	
 	Muutokset skeemapakettiin V11.02:
 	-Skeematiedoston FinancingActCommon.xsd sisältö siirretty tähän skeematiedostoon.
+	
+	Muutokset skeemapakettiin V11.05:
+	-Lisätty uusi elementtimäärittely Document, tyypiltään co:Document4MBType. Viittaus complexType DocumentsType:ssä muutettu käyttämään tätä uutta elementtimäärittelyä. Lisäksi elementin maxOccurs muutettu "n" -> 10
 	***************************************************************
 -->
 
@@ -29,7 +32,7 @@
 	xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
 	xmlns:gml="http://www.opengis.net/gml"
 	elementFormDefault="qualified"
-	version="V11.02">
+	version="V11.05">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -494,7 +497,14 @@
     <xs:element name="PayeesAndRealEstates" type="PayeesAndRealEstatesType"/>
     <xs:element name="PayeeAndRealEstate" type="PayeeAndRealEstateType"/>
     <xs:element name="ParticipationPercentage" type="co:PercentType"/>
-
+    <xs:element name="Document" type="co:Document4MBType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Dokumentti</xs:documentation>
+            <xs:documentation xml:lang="sv"/>
+            <xs:documentation xml:lang="en"/>
+        </xs:annotation>
+    </xs:element>
+    
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
 	<xs:simpleType name="LocationEstateType">
@@ -1006,7 +1016,7 @@
             <xs:documentation xml:lang="en">Documents</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element ref="co:Document" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element ref="Document" minOccurs="1" maxOccurs="10"/>
         </xs:sequence>
     </xs:complexType>
 

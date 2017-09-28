@@ -17,6 +17,10 @@
 	-Lisätty uusi pakollinen elementti Sender
 	-Lisätty uusi vapaaehtoinen elementti Documents
 	-Lisätty uusi pakollinen elementti DeclarationPolygonReference
+	
+	Muutokset skeemapakettiin V11.05:
+	-Elementille DeclarationPolygonReference lisätty tyyppimäärittely co:ReferenceType
+	-Elementin DeclarationPolygonReference (hirvivahinkoalueen viite) dokumentaatio päivitetty
 	****************************************************************************
 -->
 
@@ -31,7 +35,7 @@
 	xmlns:gml="http://www.opengis.net/gml"
 	xmlns:fcc="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
 	elementFormDefault="qualified"
-	version="V11.04">
+	version="V11.05">
 
 
 	<!-- Imports / Includes -->
@@ -234,9 +238,9 @@
 		</xs:annotation>
 	</xs:element>
 	
-	<xs:element name="DeclarationPolygonReference">
+	<xs:element name="DeclarationPolygonReference" type="co:ReferenceType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Hirvivahinkoalueen viite</xs:documentation>
+			<xs:documentation xml:lang="fi">Hirvivahinkoalueen viite. Ilmoituksen lähettäjän antama aluekohtainen, valtakunnallisesti yksilöivä viite. Alueviitteen muodostamissääntö: lähettäjän organisaatiotunnus, vuosi, lähettäjän antama kuvion yksilöivä tunnus. Lähettävän organisaation tunnukset: Metsähallitus=M-H, Metsämannut=M-M, Metsänhoitoyhdistys=MHY, Stora Enso=S-E, Tornator=TOR, UPM-Kymmene=UPM, MetsäGroup=M-G, Metsään.fi = MFI, L&amp;T Biowatti Oy = BWO, Muu organisaatio=MUU. Esim. MHY2003999999999999999999999. Jos siirtotiedostossa käytetään MUU-organisaatiotunnusta, on siitä oltava yhteydessä tiedonsiirtopalvelun ylläpitäjään.</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Moose damage declaration polygon reference</xs:documentation>
 		</xs:annotation>

@@ -13,6 +13,9 @@
 	
 	Muutokset skeemapakettiin V11.02:
 	-Muutettu nimiavaruusmäärittely fac: (FinancingActCommon) -> fcc: (ForestCentreCommon)
+	
+	Muutokset skeemapakettiin V11.05:
+	-Elementin DecisionDocument tyyppimäärittely muutettu co:DocumentType -> co:Document4MBType
 	****************************************************************************
 -->
 
@@ -23,7 +26,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:fcc="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
 	elementFormDefault="qualified"
-	version="V11.02">
+	version="V11.05">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -43,7 +46,7 @@
 	</xs:element>
 	<xs:element name="DesicionType" type="DesicionTypeType"/>
 	<xs:element name="DesicionDate" type="co:DateType"/>
-	<xs:element name="DecisionDocument" type="co:DocumentType">
+	<xs:element name="DecisionDocument" type="co:Document4MBType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Päätösdokumentti</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
