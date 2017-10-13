@@ -6,6 +6,9 @@
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.06:
+	-Elementin Stand lapseksi lisätty uusi vapaaehtoinen elementti StandLocatedOnIsland, tyypiltään co:YesNoType
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -18,7 +21,7 @@
 	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:gml="http://www.opengis.net/gml" elementFormDefault="qualified"
-	attributeFormDefault="unqualified" version="V10.05">
+	attributeFormDefault="unqualified" version="V11.06">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase" schemaLocation="StandBase.xsd"/>
@@ -73,6 +76,13 @@
 	<xs:element name="ForestHaulageAccessibility" type="co:HarvestingAccessibilityType"/>
 	<xs:element name="PlannedBasalArea" type="co:BasalAreaType"/>
 	<xs:element name="PlannedStemCount" type="co:StemCountType"/>
+	<xs:element name="StandLocatedOnIsland" type="co:YesNoType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Sijaitseeko puukaupan kuvio saarella</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Wood trade compartment location</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
@@ -99,6 +109,7 @@
 			<xs:element ref="op:Operations" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="SpecialFeatures" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="StandWoodTradeInfo" minOccurs="0"/>
+			<xs:element ref="StandLocatedOnIsland" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
 			<xs:annotation>

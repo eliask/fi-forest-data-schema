@@ -7,7 +7,7 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	*****************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V11.05">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V11.06">
   <xs:include schemaLocation="ForestFeatureEnumeratives.xsd" />
   <xs:simpleType name="TurningPointClassType">
     <xs:annotation>
@@ -1805,6 +1805,20 @@
           <xs:documentation xml:lang="fi">Tulkittu</xs:documentation>
           <xs:documentation xml:lang="sv">Tolkad</xs:documentation>
           <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="5">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Laserkeilaus</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Laser scanning</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="6">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Luke-monilähdeinventointi</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">National resources institute multi-source inventory</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -9105,6 +9119,27 @@
           <xs:documentation xml:lang="en">Health fertilising</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="703">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Lannoitus lentolevityksenä</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Fertilisation, aerial distribution</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="704">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Lannoitus maalevityksenä</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Fertilisation, ground distribution</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="800">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kunnostusojitus</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Overhaul ditching</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="801">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Valtaoja, uusi</xs:documentation>
@@ -9895,9 +9930,9 @@
       </xs:enumeration>
       <xs:enumeration value="19">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Täydennys</xs:documentation>
-          <xs:documentation xml:lang="sv">Komplettering</xs:documentation>
-          <xs:documentation xml:lang="en">Refill</xs:documentation>
+          <xs:documentation xml:lang="fi">Tielinjan aukaisu</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -9965,6 +10000,13 @@
           <xs:documentation xml:lang="fi">Integroitu korjuu</xs:documentation>
           <xs:documentation xml:lang="sv">Integrerad drivning</xs:documentation>
           <xs:documentation xml:lang="en">Integrated logging</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="4">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Karsimaton energiaranka</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -12740,162 +12782,85 @@
       <xs:enumeration value="30000">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lannoite</xs:documentation>
-          <xs:documentation xml:lang="sv">Gödsel</xs:documentation>
-          <xs:documentation xml:lang="en">Fertiliser</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="31000">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Keinolannoite</xs:documentation>
-          <xs:documentation xml:lang="sv">Konstgödsel</xs:documentation>
+          <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="31100">
+      <xs:enumeration value="30001">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Kivennäismaat</xs:documentation>
-          <xs:documentation xml:lang="sv">Mineralmark</xs:documentation>
+          <xs:documentation xml:lang="fi">Typpi (N)</xs:documentation>
+          <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="31101">
+      <xs:enumeration value="30002">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Salpietari</xs:documentation>
-          <xs:documentation xml:lang="sv">Salpeter</xs:documentation>
-          <xs:documentation xml:lang="en">Saltpetre</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="31102">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Kemifix (pitkävaikutteinen typpi)</xs:documentation>
-          <xs:documentation xml:lang="sv">Kemifix</xs:documentation>
-          <xs:documentation xml:lang="en">Kemifix</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="31103">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Metsän kalihiven-lannos</xs:documentation>
-          <xs:documentation xml:lang="sv">Kalium-mineralgödsel för skog</xs:documentation>
-          <xs:documentation xml:lang="en">Forest potassium-mineral fertiliser</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="31104">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Metsän PK-lannos</xs:documentation>
-          <xs:documentation xml:lang="sv">PK-gödsel för skog</xs:documentation>
-          <xs:documentation xml:lang="en">Forest PK-fertiliser</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="31105">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Kunnostuslannos 1 ja 2</xs:documentation>
-          <xs:documentation xml:lang="sv">Iståndsättningsgödsel 1 och 2</xs:documentation>
-          <xs:documentation xml:lang="en">Overhaul fertilising</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="31106">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Metsän NP-lannos1</xs:documentation>
-          <xs:documentation xml:lang="sv">NP-gödsel1 för skog</xs:documentation>
-          <xs:documentation xml:lang="en">NP-fertiliser</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="31107">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Metsän NP-lannos2</xs:documentation>
-          <xs:documentation xml:lang="sv">NP-gödsel2 för skog</xs:documentation>
+          <xs:documentation xml:lang="fi">Typpi-Fosfori (NP)</xs:documentation>
+          <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="31108">
+      <xs:enumeration value="30003">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Boorilannoite</xs:documentation>
-          <xs:documentation xml:lang="sv">Borgödsel</xs:documentation>
+          <xs:documentation xml:lang="fi">Typpi-Fosfori-Boori (NPB)</xs:documentation>
+          <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="31200">
+      <xs:enumeration value="30004">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Turvemaat</xs:documentation>
-          <xs:documentation xml:lang="sv">Torvmark</xs:documentation>
+          <xs:documentation xml:lang="fi">Fosfori-Kalium (PK)</xs:documentation>
+          <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="31201">
+      <xs:enumeration value="30005">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Suometsien Y-lannos, NPK</xs:documentation>
-          <xs:documentation xml:lang="sv">Torvmarksskogs Y-gödsel, NPK</xs:documentation>
-          <xs:documentation xml:lang="en">Peatland NPK-fertiliser</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="32000">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Tuhkalannoite</xs:documentation>
-          <xs:documentation xml:lang="sv">Askgödsel</xs:documentation>
+          <xs:documentation xml:lang="fi">Fosfori-Kalium-Boori (PKB)</xs:documentation>
+          <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="32100">
+      <xs:enumeration value="30006">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Kivennäismaat</xs:documentation>
-          <xs:documentation xml:lang="sv">Mineraljord</xs:documentation>
+          <xs:documentation xml:lang="fi">Kalium (K)</xs:documentation>
+          <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="32101">
+      <xs:enumeration value="30007">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Tuhkalannoite 1</xs:documentation>
-          <xs:documentation xml:lang="sv">Askgödsel 1</xs:documentation>
-          <xs:documentation xml:lang="en">ash fertiliser 1</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="32200">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Turvemaat</xs:documentation>
-          <xs:documentation xml:lang="sv">Torvmark</xs:documentation>
+          <xs:documentation xml:lang="fi">Kalium-Boori (KB)</xs:documentation>
+          <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="32201">
+      <xs:enumeration value="30008">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Tuhkalannoite 2</xs:documentation>
-          <xs:documentation xml:lang="sv">Askgödsel 2</xs:documentation>
-          <xs:documentation xml:lang="en">ash fertiliser 2</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="33000">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Muu lannoite</xs:documentation>
-          <xs:documentation xml:lang="sv">Annan gödsel</xs:documentation>
-          <xs:documentation xml:lang="en">Other fertiliser</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="33100">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Kivennäismaat</xs:documentation>
-          <xs:documentation xml:lang="sv">Mineraljord</xs:documentation>
+          <xs:documentation xml:lang="fi">Boori (B)</xs:documentation>
+          <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="33101">
+      <xs:enumeration value="30009">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Urea</xs:documentation>
-          <xs:documentation xml:lang="sv">Urea</xs:documentation>
-          <xs:documentation xml:lang="en">Urea</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="33200">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Turvemaat</xs:documentation>
-          <xs:documentation xml:lang="sv">Torvmark</xs:documentation>
+          <xs:documentation xml:lang="fi">Tuhka </xs:documentation>
+          <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="33201">
+      <xs:enumeration value="30010">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Lannoite 1</xs:documentation>
-          <xs:documentation xml:lang="sv">Gödsel 1</xs:documentation>
-          <xs:documentation xml:lang="en">fertiliser 1</xs:documentation>
+          <xs:documentation xml:lang="fi">Rakeistettu Tuhka-Boori </xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="30011">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Rakeistettu Tuhka</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="40000">
@@ -20664,6 +20629,13 @@
           <xs:documentation xml:lang="en">Schema package V11.05</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="V11.06">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V11.06</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V11.06</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="PreferredContactingMethodType">
@@ -20874,6 +20846,73 @@
           <xs:documentation xml:lang="fi">Kilometri</xs:documentation>
           <xs:documentation xml:lang="sv">Kilometer</xs:documentation>
           <xs:documentation xml:lang="en">Kilometre</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SceneryWorkPermissionNeededType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi">Maisematyöluvan tarve</xs:documentation>
+      <xs:documentation xml:lang="sv"> </xs:documentation>
+      <xs:documentation xml:lang="en">Scenery work permission need</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kyllä</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Yes</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ei</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">No</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Lupa haettu</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Applied for permission</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UsingRightResponsibleType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi">Käyttöoikeukorvauksesta vastaava taho</xs:documentation>
+      <xs:documentation xml:lang="sv"> </xs:documentation>
+      <xs:documentation xml:lang="en">Using right compensation responsibility</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ei määritelty</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Not defined</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Myyjä tai myyjän edustaja</xs:documentation>
+          <xs:documentation xml:lang="sv">Säljare eller säljarens ombud</xs:documentation>
+          <xs:documentation xml:lang="en">Seller or sellers representative</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ostaja</xs:documentation>
+          <xs:documentation xml:lang="sv">Köpare</xs:documentation>
+          <xs:documentation xml:lang="en">Buyer</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Muu</xs:documentation>
+          <xs:documentation xml:lang="sv">Annan</xs:documentation>
+          <xs:documentation xml:lang="en">Other</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>

@@ -6,6 +6,16 @@
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.06:
+	-Lisätty uusi tyyppimäärittely SceneryWorkPermissionType jonka tietosisältönä maisematyöluvan tiedot
+	-Lisätty uusi vapaaehtoinen elementti SceneryWorkPermission, tyypiltään SceneryWorkPermissionType
+	-Lisätty uusi elementti SceneryWorkPermissionNeeded, tyypiltään SceneryWorkPermissionNeededType. Tämä elementti on pakollinen, mikäli elementti SceneryWorkPermission esiintyy sanomassa.
+	-Lisätty uusi vapaaehtoinen elementti SceneryWorkPermissionAcceptance, tyypiltään co:DateType
+	-Lisätty uusi vapaaehtoinen elementti CuttingPlanner, tyypiltään wtco:CuttingPlannerType
+	-Lisätty uusi complexType-määrittely InformedActorsType. Lista.
+	-Lisätty uusi vapaaehtoinen elementti InformedActors (korjuun aloituksesta informoitavat toimijat), tyypiltään InformedActorsType
+	-Lisätty uusi elementti InformedActor, tyypiltään ci:ContactInformationType
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -16,7 +26,7 @@
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	xmlns:wsst="http://standardit.tapio.fi/schemas/workingsitetrade/stand"
 	xmlns:pr="http://standardit.tapio.fi/schemas/workingsitetrade/product"
-	elementFormDefault="qualified" attributeFormDefault="qualified" version="V10.05">
+	elementFormDefault="qualified" attributeFormDefault="qualified" version="V11.06">
 
 	<xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/stand" schemaLocation="WorkingSiteTrade_Stand.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation" schemaLocation="ContactInformation.xsd"/>
@@ -48,6 +58,48 @@
 	<xs:element name="SilviculturalOperation" type="SilviculturalOperationType"/>
 	<xs:element name="Products" type="pr:ProductsType"/>
 	<xs:element name="RealEstates" type="RealEstatesType"/>
+	<xs:element name="SceneryWorkPermission" type="SceneryWorkPermissionType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Maisematyöluvan tiedot</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Scenery work permission info</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SceneryWorkPermissionNeeded" type="co:SceneryWorkPermissionNeededType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Maisematyöluvan tarve</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Scenery work permission need</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SceneryWorkPermissionAcceptance" type="co:DateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Maisematyöluvan hyväksymisajankohta</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Scenery work permission acceptance date</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="CuttingPlanner" type="wtco:CuttingPlannerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Korjuusuunnittelijan tiedot</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="InformedActors" type="InformedActorsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Korjuun aloittamisesta informoitavat toimijat</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="InformedActor" type="ci:ContactInformationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Korjuun aloittamisesta informoitava toimija</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
 
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
@@ -94,6 +146,9 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="RoadUsingRight" minOccurs="0"/>
+			<xs:element ref="SceneryWorkPermission" minOccurs="0"/>
+			<xs:element ref="CuttingPlanner" minOccurs="0"/>
+			<xs:element ref="InformedActors" minOccurs="0"/>
 			<xs:element ref="CallForOfferWorkingSiteWoodTradeInfo" minOccurs="0"/>
 			<xs:element ref="wsst:Stands" minOccurs="0">
 				<xs:annotation>
@@ -199,6 +254,29 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="RealEstate" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="SceneryWorkPermissionType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Maisematyöluvan tiedot</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Scenery work permission info</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="SceneryWorkPermissionNeeded" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="SceneryWorkPermissionAcceptance" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="InformedActorsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="InformedActor" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

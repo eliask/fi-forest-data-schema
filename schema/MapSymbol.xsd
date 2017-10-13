@@ -5,13 +5,16 @@
 	
 	Muutokset skeemapakettiin V11.03:
 	-Lisätty uusi vapaaehtoinen elementti MapSymbolName (karttamerkin nimi)
+	
+	Muutokset skeemapakettiin V11.06:
+	-Elementin Geometry tyyppimäärittely muutettu gdt:AlternativeGeometriesType -> gdt:AlternativeGeometries2Type
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.03">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.06">
 	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
@@ -80,7 +83,7 @@
 					<xs:documentation>Lisätiedot</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Geometry" type="gdt:AlternativeGeometriesType" minOccurs="1">
+			<xs:element name="Geometry" type="gdt:AlternativeGeometries2Type" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Karttamerkin geometria</xs:documentation>
 				</xs:annotation>

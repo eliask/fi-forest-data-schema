@@ -7,7 +7,7 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	*****************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V11.05">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V11.06">
   <xs:simpleType name="OriginalFeatureCodeType">
     <xs:annotation>
       <xs:documentation xml:lang="fi">Erityispiirteen koodi (mm. monimuotoisuuskoodi).</xs:documentation>
@@ -23566,6 +23566,20 @@
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="10119">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Lannoitusreitti</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Fertilisation route</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="10120">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Riistatiheikkö</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="11001">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Runsaslahopuustoinen metsä</xs:documentation>
@@ -27019,6 +27033,76 @@
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
           <xs:documentation xml:lang="la">Atheloderma Mirabile</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="40001">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Tien perusparannus</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="40101">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Uudisoja raivattava</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="40102">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Uudisoja hakattava</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="40103">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Uudisoja raivattava ja hakattava</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="40104">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Uudisoja kaivettava</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="40201">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kunnostusoja raivattava</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="40202">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kunnostusoja hakattava</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="40203">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kunnostusoja raivattava ja hakattava</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="40204">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kunnostusoja kaivettava</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="40301">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ojan ennallistaminen täyttämällä</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>

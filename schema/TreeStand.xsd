@@ -6,6 +6,9 @@
 
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.06:
+	-Elementille TreeStandDataDate lisätty uusi vapaaehtoinen atribuutti inventoryMethod (inventointimenetelmä)
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -17,7 +20,7 @@
 	xmlns:dts="http://standardit.tapio.fi/schemas/forestData/deadTreeStrata"
 	xmlns:tss="http://standardit.tapio.fi/schemas/forestData/treeStandSummary"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
-	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" elementFormDefault="qualified" version="V10.05">
+	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" elementFormDefault="qualified" version="V11.06">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStratum" schemaLocation="TreeStratum.xsd"/>
@@ -113,6 +116,13 @@
 				<xs:documentation xml:lang="fi">Ajankohdan pvm. Inventointi-, laskenta- tai ennustepvm.</xs:documentation>
 				<xs:documentation xml:lang="sv"/>
 				<xs:documentation xml:lang="en">Date of moment.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="inventoryMethod" type="co:InventoryMethodType" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Ajankohdan puuston inventointimenetelmä</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en">Moments forest inventory method</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>

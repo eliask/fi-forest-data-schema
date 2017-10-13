@@ -6,6 +6,20 @@
 
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.06:
+	-Skeematiedostoon lisätty import määritykset nimiavaruudelle wso: (WorkingSiteOperational.xsd)
+	-Lisätty complexTypeen BasicFeature2Type uusi vapaaehtoinen elementti ObservationDate, tyypiltään co:DateType
+	-Lisätty complexTypeen BasicFeature2Type uusi vapaaehtoinen elementti Storage, tyypiltään wso:StorageType
+	-Lisätty uusi complexType-määrittely UsingRightType, tietosisältönä käyttöoikeuksien tietoja
+	-Lisätty uusi vapaaehtoinen elementti UsingRight, tyypiltään UsingRightType
+	-Elementille UsingRight lisätty lapsielementti UsingRightExists, tyypiltään co:YesNoNotKnownType
+	-Elementille UsingRight lisätty lapsielementti UsingRightExaminedDate, tyypiltään co:DateType
+	-Elementille UsingRight lisätty lapsilementti UsingRightCompensation, tyypiltään co:YesNoNotKnowType
+	-Elementille UsingRight lisätty vapaaehtoinen lapsielementti UsingRightCompensationAmount, tyypiltään co:Decimal7And2PositiveType
+	-Elementille UsingRight lisätty lapsielementti UsingRightCompensationResponsible, tyypiltään co:UsingRightResponsibleType
+	-Elementille UsingRight lisätty lapsielementti UsingRightDescription, tyypiltään co:String1500Type
+	-Tyyppimäärittelyn LocatedSpecialFeature2Type käyttämä data group muutettu gdt:AlternativeGeometriesGroup -> gdt:AlternativeGeometries2Group
 	***************************************************************
 -->
 <xs:schema
@@ -15,8 +29,9 @@
 	xmlns:sf="http://standardit.tapio.fi/schemas/forestData/specialFeatureBase"
 	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+	xmlns:wso="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperational"
     elementFormDefault="qualified"
-    version="V10.05">
+    version="V11.06">
     
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -25,6 +40,7 @@
 		schemaLocation="SpecialFeatureBase.xsd"/>
  	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
 		schemaLocation="Common_GeometricDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperational" schemaLocation="WorkingSiteOperational.xsd"/>
     
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
@@ -36,6 +52,69 @@
     <xs:element name="Validity" type="ValidityType"/>
     <xs:element name="FeatureInfo" type="FeatureInfoType"/>
     <xs:element name="FeatureAdditionalInfo" type="FeatureAdditionalInfoType"/>
+	<xs:element name="ObservationDate" type="co:DateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Havaintopäivämäärä</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Observation date</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Storage" type="wso:StorageType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Varastopaikan tiedot</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Storage information</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="UsingRight" type="UsingRightType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Käyttöoikeus</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Using right</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="UsingRightExists" type="co:YesNoNotKnownType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Käyttöoikeuden olemassaolo</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Using right existence</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="UsingRightExaminedDate" type="co:DateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Käyttöoikeus selvitetty, päivämäärä</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Using right examination date</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="UsingRightCompensation" type="co:YesNoNotKnownType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Käyttöoikeuskorvaus</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Using right compensation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="UsingRightCompensationAmount" type="co:Decimal7And2PositiveType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Käyttöoikeuskorvauksen määrä</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Using right compensation amount</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="UsingRightCompensationResponsible" type="co:UsingRightResponsibleType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Käyttöoikeuskorvauksesta vastaava taho</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Using right compensation responsibility</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="UsingRightDescription" type="co:String1500Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Käyttöoikeuden kuvaus</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Using right description</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 
     <!-- Tyyppimääritykset -->
     <!-- Type definitions -->
@@ -95,6 +174,9 @@
             <xs:element ref="Validity" minOccurs="0"/>
             <xs:element ref="FeatureInfo" minOccurs="0"/>
             <xs:element ref="FeatureAdditionalInfo" minOccurs="0"/>
+        	<xs:element ref="ObservationDate" minOccurs="0"/>
+        	<xs:element ref="Storage" minOccurs="0"/>
+        	<xs:element ref="UsingRight" minOccurs="0"/>
         </xs:sequence>	
         <xs:attribute name="id" type="xs:string">
             <xs:annotation>
@@ -114,7 +196,7 @@
    	<xs:complexType name="LocatedSpecialFeature2Type">
 		<xs:complexContent>
 			<xs:extension base="BasicFeature2Type">
-				<xs:group ref="gdt:AlternativeGeometriesGroup"></xs:group>
+				<xs:group ref="gdt:AlternativeGeometries2Group"></xs:group>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -233,6 +315,22 @@
 			<xs:documentation xml:lang="en">Additional information text for feature. E.g. located object, this can be separately shown text on map.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="sf:FeatureAdditionalInfoType"/>
-	</xs:simpleType>
+   	</xs:simpleType>
+	
+	<xs:complexType name="UsingRightType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Käyttöoikeuksien tiedot</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Using rights information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="UsingRightExists"/>
+			<xs:element ref="UsingRightExaminedDate"/>
+			<xs:element ref="UsingRightCompensation"/>
+			<xs:element ref="UsingRightCompensationAmount" minOccurs="0"/>
+			<xs:element ref="UsingRightCompensationResponsible"/>
+			<xs:element ref="UsingRightDescription" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
 	
 </xs:schema>

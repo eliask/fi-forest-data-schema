@@ -2,8 +2,11 @@
 <!--
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.06:
+	-Elementin Geometry tyyppimäärittely muutettu gdt:PolygonOrMultiPolygonType -> gdt:PolygonOrMultiPolygon2Type
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/Contract" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/Contract" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/Contract" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/Contract" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.06">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
 	<xs:element name="Contract" type="ContractType">
@@ -106,7 +109,7 @@
 					<xs:documentation xml:lang="fi">Tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Geometry" type="gdt:PolygonOrMultiPolygonType">
+			<xs:element name="Geometry" type="gdt:PolygonOrMultiPolygon2Type">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi"> Geometria</xs:documentation>
 				</xs:annotation>

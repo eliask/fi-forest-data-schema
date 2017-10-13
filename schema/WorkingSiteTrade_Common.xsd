@@ -6,6 +6,9 @@
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V11.06:
+	-Lisätty uusi complexType-määrittely CuttingPlannerType (korjuusuunnittelijan tiedot), extensionBase=ci:ContactInformationType
 	*******************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -17,7 +20,7 @@
 	xmlns:sf="http://standardit.tapio.fi/schemas/forestData/specialFeature"
 	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate"
 	xmlns:as="http://standardit.tapio.fi/schemas/workingsitetrade/assortment"
-	elementFormDefault="qualified" version="V10.05">
+	elementFormDefault="qualified" version="V11.06">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://www.w3.org/2005/05/xmlmime"
@@ -67,6 +70,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:PurchaseModeType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="MessageTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Sanoman tyyppi.</xs:documentation>
@@ -75,6 +79,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:MessageTypeType"/>
 	</xs:simpleType>
+	
 	<xs:complexType name="DocumentsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Dokumentit.</xs:documentation>
@@ -85,6 +90,7 @@
 			<xs:element ref="Document" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:simpleType name="DocumentClassType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Dokumenttiluokka / -tyyppi.</xs:documentation>
@@ -93,6 +99,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:DocumentClassType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="DocumentDescriptionType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Dokumentin sisällön kuvaus.</xs:documentation>
@@ -103,6 +110,7 @@
 			<xs:maxLength value="250"/>
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name="CallForOfferBusinessSenderRoleType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tarjouspyynnön lähettäjän rooli.</xs:documentation>
@@ -111,6 +119,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:CallForOfferBusinessSenderRoleType"/>
 	</xs:simpleType>
+	
 	<xs:complexType name="CallForOfferBusinessSenderType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tarjouspyynnön jättäjän yhteystiedot.</xs:documentation>
@@ -129,6 +138,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	
 	<xs:simpleType name="CallForOfferTextType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tarjouspyynnön teksti.</xs:documentation>
@@ -139,6 +149,7 @@
 			<xs:maxLength value="1500"/>
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name="IncludePaymentPlanType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toive puukaupan maksusuunnitelman sisällyttämisestä tarjoukseen.</xs:documentation>
@@ -147,6 +158,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:YesNoType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="IncludeForestFundPaymentType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puukauppaan sisältyy metsäsäätiöavustus.</xs:documentation>
@@ -155,6 +167,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:YesNoNotKnownType"/>
 	</xs:simpleType>
+	
 	<xs:complexType name="UsedPricingMethodsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toiveet käytettävästä hinnoittelumenetelmästä.</xs:documentation>
@@ -165,6 +178,7 @@
 			<xs:element ref="UsedPricingMethod" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:simpleType name="UsedPricingMethodType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toive käytettävästä hinnoittelumenetelmästä.</xs:documentation>
@@ -173,6 +187,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:UsedPricingMethodType"/>
 	</xs:simpleType>
+	
 	<xs:complexType name="CallForOfferWoodTradeInfoType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puukaupan tarjouspyynnön tiedot.</xs:documentation>
@@ -186,6 +201,7 @@
 			<xs:element ref="UsedPricingMethods" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="WorkingSiteGeometriesType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Leimikon sijantialueen paikkatieto. Hakkuuseen ja lähikuljetukseen vaikuttavat kohteet. Pistemäisiä, viivamaisia ja aluemaisia kohteita.</xs:documentation>
@@ -196,6 +212,7 @@
 			<xs:element ref="WorkingSiteGeometry" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<!-- <xs:simpleType name="ForestUseDeclarationResponsibleType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsänkäyttöilmoituksen tekijä.</xs:documentation>
@@ -203,7 +220,8 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 		<xs:restriction base="co:ForestUseDeclarationResponsibleType"/>
-	</xs:simpleType> -->
+		</xs:simpleType> -->
+	
 	<xs:simpleType name="FellingRightValidityDateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Pvm, johon asti hakkuuoikeus voimassa.</xs:documentation>
@@ -212,6 +230,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:DateType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="SupplyPointType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Varastopaikka olemassa / selvitetty</xs:documentation>
@@ -220,6 +239,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:YesNoNotKnownType"/>
 	</xs:simpleType>
+	
 	<xs:complexType name="CuttingType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Leimikon myytäväksi tarjottava hakkuu.</xs:documentation>
@@ -234,6 +254,7 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
+	
 	<xs:complexType name="CuttingsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Leimikon myytäväksi tarjottavat hakkuut.</xs:documentation>
@@ -244,6 +265,7 @@
 			<xs:element ref="Cutting" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="CallForOfferWorkingSiteWoodTradeInfoType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Yksittäisen leimikon tiedot.</xs:documentation>
@@ -266,6 +288,7 @@
 			<xs:element ref="Documents" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:simpleType name="RoadUsingRightType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Tieoikeus olemassa / selvitetty</xs:documentation>
@@ -274,6 +297,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:YesNoNotKnownType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="CertificationSystemType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Sertifiointijärjestelmät.</xs:documentation>
@@ -282,6 +306,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:CertificationSystemType"/>
 	</xs:simpleType>
+	
 	<xs:complexType name="CertificationSystemsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Voimassa olevat sertifiointijärjestelmät.</xs:documentation>
@@ -292,6 +317,7 @@
 			<xs:element ref="CertificationSystem" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="RealEstateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Työmaan sijaintikiinteistön tiedot.</xs:documentation>
@@ -306,6 +332,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	
 	<xs:simpleType name="VATRegistrationDateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Arvonlisäverovelvollisuuden rekisteröimispäivämäärä.</xs:documentation>
@@ -314,6 +341,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:DateType"/>
 	</xs:simpleType>
+	
 	<xs:simpleType name="VATStatusType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Arvonlisäverovelvollisuus.</xs:documentation>
@@ -322,6 +350,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:VATStatusType"/>
 	</xs:simpleType>
+	
 	<xs:complexType name="VATInfoType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Arvonlisäverotustiedot.</xs:documentation>
@@ -333,6 +362,7 @@
 			<xs:element ref="VATRegistrationDate" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:simpleType name="SellerGroupType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Myyjäryhmäkoodi.</xs:documentation>
@@ -341,6 +371,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:SellerGroupType"/>
 	</xs:simpleType>
+	
 	<xs:complexType name="SellerType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Työmaan myyjän (kiinteistön omistajan/haltijan) tiedot.</xs:documentation>
@@ -351,6 +382,7 @@
 			<xs:extension base="ci:ContactInformationType"/>
 		</xs:complexContent>
 	</xs:complexType>
+	
 	<xs:complexType name="SellersType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Työmaan myyjät (kiinteistön omistajat/haltijat).</xs:documentation>
@@ -375,6 +407,7 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
+	
 	<xs:complexType name="SellerRepresentativePersonType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Myyjän edustaja leimikkoon liittyvissä käytännön kysymyksissä.</xs:documentation>
@@ -385,6 +418,18 @@
 			<xs:extension base="ci:ContactInformationType"/>
 		</xs:complexContent>
 	</xs:complexType>
+	
+	<xs:complexType name="CuttingPlannerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Korjuusuunnittelijan tiedot</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Cutting planner information</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ci:ContactInformationType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	
 	<xs:simpleType name="WorkingSiteNameType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Työmaan yksilöivä tai tunnistamista helpottava nimi.</xs:documentation>
@@ -395,4 +440,5 @@
 			<xs:maxLength value="50"/>
 		</xs:restriction>
 	</xs:simpleType>
+	
 </xs:schema>
