@@ -12,8 +12,11 @@
 	-Päivitetty elementin InverseVAT dokumentaatio
 	-Muutettu elementin BankAccount minOccurs 1 -> 0
 	-Muutettu elementin BankCode minOccurs 1 -> 0
+	
+	Muutokset skeemapakettiin V11.07:
+	-Elementti InverseVAT poistettu skeematiedostosta
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/CompanyInformation" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/CompanyInformation" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.03">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/CompanyInformation" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/CompanyInformation" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.07">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:element name="CompanyInformation" type="CompanyInformationType">
 		<xs:annotation>
@@ -115,11 +118,6 @@
 			<xs:element name="VATStatus" type="bdt:YesNoType" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">AlvVelvollinen</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="InverseVAT" type="bdt:YesNoType" minOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Käänteinen Alv sallittu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PreDebtCollectionRegister" type="bdt:YesNoType" minOccurs="1">

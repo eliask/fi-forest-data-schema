@@ -5,6 +5,9 @@
 
     Muutokset skeemapakettiin V10.07:
     -Lisätty uusi elementti "DestinationStorage" (toimituspiste) ScaleFactorDataType:en. Elementti tyypiltään bdt:String20Type.
+    
+    Muutokset skeemapakettiin V11.07:
+    -Elementin TreeSpecies tyyppimäärittely muutettu wct:StanfordTreeSpeciesType -> wct:ScaleFactorTreeSpeciesType
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/ForwardingNotification"
@@ -275,9 +278,9 @@
 					<xs:documentation xml:lang="fi">Puutavaralajin nimi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TreeSpecies" type="wct:StanfordTreeSpeciesType" minOccurs="0">
+			<xs:element name="TreeSpecies" type="wct:ScaleFactorTreeSpeciesType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Stanford-puulajikoodi</xs:documentation>
+					<xs:documentation xml:lang="fi">Kuormainvaaka-puulajikoodi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Month" type="wct:MonthType" minOccurs="0">

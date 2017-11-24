@@ -7,7 +7,7 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	*****************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V11.06">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V11.07">
   <xs:include schemaLocation="ForestFeatureEnumeratives.xsd" />
   <xs:simpleType name="TurningPointClassType">
     <xs:annotation>
@@ -12782,85 +12782,113 @@
       <xs:enumeration value="30000">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Lannoite</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Gödsel</xs:documentation>
+          <xs:documentation xml:lang="en">Fertiliser</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="30001">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Typpi (N)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Nitrogen (N)</xs:documentation>
+          <xs:documentation xml:lang="en">Nitrogen (N)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="30002">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Typpi-Fosfori (NP)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Nitrogen-Fosfor (NP)</xs:documentation>
+          <xs:documentation xml:lang="en">Nitrogen-Phosphorus (NP)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="30003">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Typpi-Fosfori-Boori (NPB)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="fi">Typpi-Boori (NB)</xs:documentation>
+          <xs:documentation xml:lang="sv">Nitrogen-Bor (NB)</xs:documentation>
+          <xs:documentation xml:lang="en">Nitrogen-Boron (NB)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="30004">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Fosfori-Kalium (PK)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="fi">Typpi-Fosfori-Boori (NPB)</xs:documentation>
+          <xs:documentation xml:lang="sv">Nitrogen-Fosfor-Bor (NPB)</xs:documentation>
+          <xs:documentation xml:lang="en">Nitrogen-Phosphorus-Boron (NPB)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="30005">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Fosfori-Kalium-Boori (PKB)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="fi">Typpi-Fosfori-Boori-Kalsium (NPBCa)</xs:documentation>
+          <xs:documentation xml:lang="sv">Nitrogen-Fosfor-Bor-Kalcium (NPBCa)</xs:documentation>
+          <xs:documentation xml:lang="en">Nitrogen-Phosphorus-Boron-Calcium (NPBCa)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="30006">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Kalium (K)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="fi">Fosfori-Kalium (PK)</xs:documentation>
+          <xs:documentation xml:lang="sv">Fosfor-Kalium (PK)</xs:documentation>
+          <xs:documentation xml:lang="en">Phosphorus-Potassium (PK)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="30007">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Kalium-Boori (KB)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="fi">Fosfori-Kalium-Boori (PKB)</xs:documentation>
+          <xs:documentation xml:lang="sv">Fosfor-Kalium-Bor (PKB)</xs:documentation>
+          <xs:documentation xml:lang="en">Phosphorus-Potassium-Boron (PKB)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="30008">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Boori (B)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="fi">Fosfori-Kalium-Boori-Kalsium (PKBCa)</xs:documentation>
+          <xs:documentation xml:lang="sv">Fosfor-Kalium-Bor-Kalcium (PKBCa)</xs:documentation>
+          <xs:documentation xml:lang="en">Phosphorus-Potassium-Boron-Calcium (PKBCa)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="30009">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Tuhka </xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="fi">Kalium (K)</xs:documentation>
+          <xs:documentation xml:lang="sv">Kalium (K)</xs:documentation>
+          <xs:documentation xml:lang="en">Potassium (K)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="30010">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Rakeistettu Tuhka-Boori </xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="fi">Kalium-Boori (KB)</xs:documentation>
+          <xs:documentation xml:lang="sv">Kalium-Bor (KB)</xs:documentation>
+          <xs:documentation xml:lang="en">Potassium-Boron (KB)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="30011">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Rakeistettu Tuhka</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="fi">Boori (B)</xs:documentation>
+          <xs:documentation xml:lang="sv">Bor (B)</xs:documentation>
+          <xs:documentation xml:lang="en">Boron (B)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="30012">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Tuhka</xs:documentation>
+          <xs:documentation xml:lang="sv">Aska</xs:documentation>
+          <xs:documentation xml:lang="en">Ash</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="30013">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Tuhka-Boori rakeistettu</xs:documentation>
+          <xs:documentation xml:lang="sv">Aska-Bor granulerad</xs:documentation>
+          <xs:documentation xml:lang="en">Ash-Boron granulated</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="30014">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Tuhka rakeistettu</xs:documentation>
+          <xs:documentation xml:lang="sv">Aska granulerad</xs:documentation>
+          <xs:documentation xml:lang="en">Ash granulated</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="30090">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Muu</xs:documentation>
+          <xs:documentation xml:lang="sv">Annan</xs:documentation>
+          <xs:documentation xml:lang="en">Other</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="40000">
@@ -20634,6 +20662,13 @@
           <xs:documentation xml:lang="fi">Skeemapaketti V11.06</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en">Schema package V11.06</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V11.07">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V11.07</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V11.07</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>

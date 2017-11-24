@@ -8,16 +8,22 @@
 	
 	Muutokset skeemapakettiin V11.06:
 	-Elementin Geometry tyyppimäärittely muutettu gdt:AlternativeGeometriesType -> gdt:AlternativeGeometries2Type
+
+    Muutokset skeemapakettiin V11.07:
+    -Lisätty nimiavaruusmäärittely wct: (WoodForceCommonTypes)
+    -Lisätty uudet vapaaehtoiset elementit DitchType, Length, Depth, Width, Volume, MaterialCode, MaterialInfoText, DitchOrRoadPlanName, AmountOfRottenTreesInSpareGroupOfTrees, AmountOfRottenSnagsInSpareGroupOfTrees ja AmountOfLivingTreesInSpareGroupOfTrees
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+           xmlns:wct="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.06">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.07">
 	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes" schemaLocation="WoodForceCommonTypes.xsd"/>
 	
 	<xs:element name="MapSymbol" type="MapSymbolType">
 		<xs:annotation>
@@ -96,6 +102,61 @@
 			<xs:element name="ResourceId" type="bdt:String20Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Resurssin tunniste lisätyille karttamerkeille</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DitchType" type="wct:DitchTypeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Ojan tyyppi (valtaoja, sarkaoja, laskuoja)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Length" type="bdt:PositiveInteger5digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Karttamerkin pituus maastossa, metriä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Depth" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Karttamerkin syvyys maastossa, metriä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Width" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Karttamerkin leveys maastossa, metriä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Volume" type="bdt:PositiveInteger3digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Karttamerkin tilavuus maastossa, kuutiometriä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaterialCode" type="bdt:MaterialCodeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Materiaalin koodi </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaterialInfoText" type="bdt:String1000Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Materiaalin lisätiedot </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DitchOrRoadPlanName" type="bdt:String100Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Hankkeen nimi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AmountOfRottenTreesInSpareGroupOfTrees" type="bdt:PositiveInteger2digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Lahopuiden kappalemäärä säästöpuuryhmässä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AmountOfRottenSnagsInSpareGroupOfTrees" type="bdt:PositiveInteger2digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Pökkelöiden kappalemäärä säästöpuuryhmässä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AmountOfLivingTreesInSpareGroupOfTrees" type="bdt:PositiveInteger2digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Elävien puiden kappalemäärä säästöpuuryhmässä</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

@@ -9,6 +9,9 @@
 	- Tyyppimäärittely WorkingSiteFinalAuditHarvestingType vastaa alkuperäistä määrittelyä validoituvuudeltaan.
 	- Uudet elementtimäärittelyt ServiceBuyerId, WorkingSiteId, HarvesterId, ForwarderId, PurchaseContractId, WorkCodeGroup, WorkCode, Audit, InfoText, Images ja Audits, joita käytetään referensseinä tyyppimäärittelyissä WorkingSiteFinalAuditBaseHarvestingType, WorkingSiteFinalAuditHarvestingType ja SelfmonitoringFinalAuditHarvestingType.
 	- Tyyppimäärittely YesNoNotNeededType (koodisto) siirretty koodistoon, muutettu elementtien tyyppimäärittelyt käyttämään co: nimiavaruutta
+
+    Muutokset skeemapakettiin V11.07:
+    -Lisätty uudet vapaaehtoiset elementit AmountOfRottenTreesInSpareGroupOfTrees, AmountOfRottenSnagsInSpareGroupOfTrees, AmountOfLivingTreesInSpareGroupOfTrees ja AmountOfScatteredDecayingFallenTreesAndNobleDeciduousTrees
 -->
 <xs:schema
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -17,7 +20,7 @@
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditHarvesting"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified"
-	version="V10.13">
+	version="V11.07">
 	
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
@@ -412,6 +415,26 @@
 			<xs:element name="VehiclePathPressuresText" type="bdt:String200Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Aiheutuiko ajourapainaumia selite</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AmountOfRottenTreesInSpareGroupOfTrees" type="bdt:PositiveInteger3digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Lahopuiden kappalemäärä yhteensä säästöpuuryhmissä lohkolla</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AmountOfRottenSnagsInSpareGroupOfTrees" type="bdt:PositiveInteger3digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Pökkelöiden kappalemäärä yhteensä säästöpuuryhmissä lohkolla</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AmountOfLivingTreesInSpareGroupOfTrees" type="bdt:PositiveInteger3digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Elävien puiden kappalemäärä yhteensä säästöpuuryhmissä lohkolla</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AmountOfScatteredDecayingFallenTreesAndNobleDeciduousTrees" type="bdt:PositiveInteger4digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Yksittäiset maapuut, elävät jalot lehtipuut (esim. lehmus, vaahtera, tammi), raidat ja tervalepät.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

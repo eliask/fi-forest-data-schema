@@ -21,13 +21,30 @@
 	
 	Muutokset skeemapakettiin V10.14:
 	-Korjattu omavalvontatyyppimäärittelyn (SelfMonitoringWorkingSiteQualityControlCuttingType) elementtien pakollisuudet
+	
+	Muutokset skeemapakettiin V11.07:
+	-Muutettu elementti StemCountOtherTreeSpecies pakollisesta vapaaehtoiseksi
+	-Lisätty uusi vapaaehtoinen elementti MeanHeightOtherTreeSpecies
+	-Muutettu elementti BasalAreaOtherTreeSpecies pakollisesta vapaaehtoiseksi
+	-Lisätty uusi vapaaehtoinen elementti MeanDiameterOtherTreeSpecies
+	-Muutettu elementti StemCountPine pakollisesta vapaaehtoiseksi
+	-Muutettu elementti StemCountSpruce pakollisesta vapaaehtoiseksi
+	-Muutettu elementti StemCountHardWood pakollisesta vapaaehtoiseksi
+	-Muutettu elementti StemCountSilverBirch pakollisesta vapaaehtoiseksi
+	-Lisätty uudet vapaaehtoiset elementit MeanHeightPine, MeanHeightSpruce, MeanHeighHardWood, MeanHeightSilverBirch ja DominantHeight
+	-Muutettu elementti BasalAreaPine pakollisesta vapaaehtoiseksi
+	-Muutettu elementti BasalAreaSpruce pakollisesta vapaaehtoiseksi
+	-Muutettu elementti BasalAreaHardWood pakollisesta vapaaehtoiseksi
+	-Muutettu elementti BasalAreaSilverBirch pakollisesta vapaaehtoiseksi
+	-Lisätty uudet vapaaehtoiset elementit MeanDiameterPine, MeanDiameterSpruce, MeanDiameterHardWood ja MeanDiameterSilverBirch
+	-Lisätty uusi vapaaehtoinen elementti StandAvgDominantHeight
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.14">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.07">
 	
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
@@ -160,14 +177,24 @@
 					<xs:documentation xml:lang="fi">Muu puulaji (pl. mä, ku, rko, hko)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StemCountOtherTreeSpecies" type="bdt:PositiveInteger2digitsType" minOccurs="1">
+			<xs:element name="StemCountOtherTreeSpecies" type="bdt:PositiveInteger2digitsType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Runkoluku muu puulaji</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="BasalAreaOtherTreeSpecies" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="1">
+			<xs:element name="MeanHeightOtherTreeSpecies" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Keskipituus muu puulaji (m)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BasalAreaOtherTreeSpecies" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Pohjapinta-ala muu puulaji</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MeanDiameterOtherTreeSpecies" type="bdt:PositiveInteger3digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Keskiläpimitta muu puulaji (mm)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -230,24 +257,44 @@
 					<xs:documentation xml:lang="fi">Metsätyyppi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StemCountPine" type="bdt:PositiveInteger2digitsType" minOccurs="1">
+			<xs:element name="StemCountPine" type="bdt:PositiveInteger2digitsType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Runkoluku mänty</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StemCountSpruce" type="bdt:PositiveInteger2digitsType" minOccurs="1">
+			<xs:element name="StemCountSpruce" type="bdt:PositiveInteger2digitsType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Runkoluku kuusi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StemCountHardWood" type="bdt:PositiveInteger2digitsType" minOccurs="1">
+			<xs:element name="StemCountHardWood" type="bdt:PositiveInteger2digitsType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Runkoluku hieskoivu + muu lehtipuu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StemCountSilverBirch" type="bdt:PositiveInteger2digitsType" minOccurs="1">
+			<xs:element name="StemCountSilverBirch" type="bdt:PositiveInteger2digitsType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Runkoluku rauduskoivu</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MeanHeightPine" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Keskipituus mänty (m)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MeanHeightSpruce" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Keskipituus kuusi (m)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MeanHeightHardWood" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Keskipituus hieskoivu + muu lehtipuu (m)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MeanHeightSilverBirch" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Keskipituus rauduskoivu (m)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="MeanHeight" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="1">
@@ -255,22 +302,27 @@
 					<xs:documentation xml:lang="fi">Keskipituus (m)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="BasalAreaPine" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="1">
+			<xs:element name="DominantHeight" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Valtapituus (m)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BasalAreaPine" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Pohjapinta-ala mänty</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="BasalAreaSpruce" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="1">
+			<xs:element name="BasalAreaSpruce" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Pohjapinta-ala kuusi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="BasalAreaHardWood" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="1">
+			<xs:element name="BasalAreaHardWood" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Pohjapinta-ala hieskoivu + muu lehtipuu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="BasalAreaSilverBirch" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="1">
+			<xs:element name="BasalAreaSilverBirch" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Pohjapinta-ala rauduskoivu</xs:documentation>
 				</xs:annotation>
@@ -288,6 +340,26 @@
 			<xs:element name="DiameterMin" type="bdt:PositiveInteger3digitsType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Läpimitta 2. pienin (mm)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MeanDiameterPine" type="bdt:PositiveInteger3digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Keskiläpimitta mänty (mm)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MeanDiameterSpruce" type="bdt:PositiveInteger3digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Keskiläpimitta kuusi (mm)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MeanDiameterHardWood" type="bdt:PositiveInteger3digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Keskiläpimitta hieskoivu + muu lehtipuu (mm)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MeanDiameterSilverBirch" type="bdt:PositiveInteger3digitsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Keskiläpimitta rauduskoivu (mm)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="MeanDiameter" type="bdt:PositiveInteger3digitsType" minOccurs="1">
@@ -383,6 +455,11 @@
 			<xs:element name="StandAvgHeightSummary" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Keskipituus (m)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StandAvgDominantHeight" type="bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Valtapituuden keskiarvo (m)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="StandAvgAgeSummary" type="bdt:PositiveInteger3digitsType" minOccurs="0">
