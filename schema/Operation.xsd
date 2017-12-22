@@ -10,13 +10,17 @@
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+
+    Muutokset skeemapakettiin V11.08:
+    -Lisätty uusi vapaaehtoinen elementti DifficultyClass, tyypiltään DifficultyClassType. Tietosisältö toimenpiteen vaikeusluokka
+    -Lisätty uusi vapaaehtoinen elementti OperationStatus, tietosisältönä toimenpiteen tila
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/operation"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/operation"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
-	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2010/05/14" elementFormDefault="qualified" version="V10.05">
+	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2010/05/14" elementFormDefault="qualified" version="V11.08">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" schemaLocation="JHS170_20090304.xsd"/>
@@ -83,6 +87,8 @@
 	<xs:element name="ActorId" type="co:IdStringType"/>
 	<xs:element name="AssortmentCode" type="co:AssortmentCodeType"/>
 	<xs:element name="AssortmentName" type="co:AssortmentNameType"/>
+	<xs:element name="OperationStatus" type="co:ControlDataOperationStatusType"/>
+    <xs:element name="DifficultyClass" type="co:DifficultyClassType"/>
 
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
@@ -110,6 +116,7 @@
 			<xs:element ref="OperationType" minOccurs="1"/>
 			<xs:element ref="ProposalData" minOccurs="0"/>
 			<xs:element ref="CompletionData" minOccurs="0" maxOccurs="1"/>
+            <xs:element ref="DifficultyClass" minOccurs="0"/>
 			<xs:element ref="OperationInfo" minOccurs="0"/>
 			<xs:element ref="co:DataSource" minOccurs="0"/>
 			<xs:element ref="Specifications" minOccurs="0" maxOccurs="1"/>
@@ -345,7 +352,8 @@
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">If this section is exists, operation is complete, if not exists operation is planned.</xs:documentation>
 		</xs:annotation>
-		<!-- <xs:sequence> -->
+		<xs:sequence>
+				<xs:element ref="OperationStatus" minOccurs="0"/>
 			<xs:choice>
 				<xs:element ref="CompletionDate" minOccurs="1"/>
 				<xs:element ref="CompletionYear" minOccurs="1"/>
@@ -378,7 +386,7 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element> -->
-		<!-- </xs:sequence> -->
+		</xs:sequence>
 	</xs:complexType>
 	
 	<xs:simpleType name="CompletionDateType">

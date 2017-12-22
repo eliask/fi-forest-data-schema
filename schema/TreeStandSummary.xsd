@@ -6,12 +6,18 @@
 
     Muutokset skeemapakettiin V10.05:
     -Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+
+    Muutokset skeemapakettiin V11.08:
+    -Muutettu elementti MeanDiameter pakollisesta vapaaehtoiseksi
+    -Elementti MeanStumpDiameter otettu käyttöön poistamalla se kommenttitageista
+    -Muutettu elementti MeanHeight vapaaehtoisesta pakolliseksi 
+    -Elementti DominantHeight otettu käyttöön poistamalla se kommenttitageista
     ***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://standardit.tapio.fi/schemas/forestData/treeStandSummary"
     xmlns="http://standardit.tapio.fi/schemas/forestData/treeStandSummary"
-    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="qualified" version="V10.05">
+    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="qualified" version="V11.08">
 
     <!-- Imports / Includes -->
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
@@ -39,6 +45,7 @@
     <xs:element name="MainTreeSpecies" type="co:TreeSpeciesType"/>
     <xs:element name="DominantHeight" type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType"/>
     <xs:element name="MeanStumpDiameter" type="co:DiameterType"/>
+    
 
     <!-- Tyyppimääritykset -->
     <!-- Type definitions -->
@@ -54,10 +61,10 @@
             <xs:element ref="MeanAge"/>
             <xs:element ref="BasalArea"/>
             <xs:element ref="StemCount"/>
-            <xs:element ref="MeanDiameter"/>
-            <!-- <xs:element ref="MeanStumpDiameter" minOccurs="0"/> -->
-            <xs:element ref="MeanHeight" minOccurs="0"/>
-            <!-- <xs:element ref="DominantHeight" minOccurs="0"/> -->
+            <xs:element ref="MeanDiameter" minOccurs="0"/>
+            <xs:element ref="MeanStumpDiameter" minOccurs="0"/>
+            <xs:element ref="MeanHeight"/>
+            <xs:element ref="DominantHeight" minOccurs="0"/>
             <xs:element ref="Volume"/>
             <xs:element ref="SawLogVolume" minOccurs="0"/>
             <xs:element ref="PulpWoodVolume" minOccurs="0"/>

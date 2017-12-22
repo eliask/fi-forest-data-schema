@@ -91,13 +91,13 @@
 			<xs:documentation xml:lang="en">Financing act completion declaration data, when Message = KMRTI</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="ForestCentreCommonObjectData" type="cod:ForestCentreCommonObjectDataType">
+	<!-- <xs:element name="ForestCentreCommonObjectData" type="cod:ForestCentreCommonObjectDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Omavalvonnan tiedot, kun Message = OVT</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Self-monitoring information, when Message = OVT</xs:documentation>
 		</xs:annotation>
-	</xs:element>
+	</xs:element> -->
 	<xs:element name="MooseDamageDeclaration" type="mdd:MooseDamageDeclarationType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Hirvivahinkoilmoituksen tiedot, kun Message = HVI</xs:documentation>

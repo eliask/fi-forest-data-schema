@@ -6,6 +6,9 @@
 
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+
+    Muutokset skeemapakettiin V11.08:
+    -Lisätty uusi vapaaehtoinen elementti Trees, tyypiltään StemDistributionType
 	***************************************************************
 -->
 <xs:schema
@@ -14,7 +17,7 @@
 	xmlns="http://standardit.tapio.fi/schemas/forestData/stemDistribution"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" 
 	elementFormDefault="qualified"
-	version="V10.05">
+	version="V11.08">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -43,6 +46,7 @@
 	<xs:element name="SawLogPercent" type="SawLogPercentType"/>
 	<xs:element name="SawLogVolume" type="SawLogVolumeType"/>
 	<xs:element name="PulpWoodVolume" type="PulpWoodVolumeType"/>
+	<xs:element name="Trees" type="StemDistributionType"/>
 
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->

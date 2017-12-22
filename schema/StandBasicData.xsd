@@ -12,6 +12,10 @@
 	
 	Muutokset skeemapakettiin V11.04:
 	-Tyyppimäärittelyn IdentifiersType sisällä ollut complexType-määrittely on korvattu sequencella, jonka sisältönä on viittaus elementtiin Identifier
+
+    Muutokset skeemapakettiin V11.08:
+    -Lisätty uusi datagroup BaseSoilDataGroup, sisältönä SoilDataGroup mutta ilman pakollisuuksia
+    -Lisätty uusi tyyppimäärittely BaseSoilDataType, joka viittaa BaseSoilDataGroupiin
 	***************************************************************
 -->
 <xs:schema
@@ -22,7 +26,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified"
-	version="V11.04">
+	version="V11.08">
 	
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase" schemaLocation="StandBase.xsd"/>
@@ -263,6 +267,20 @@
 			<xs:element ref="Identifier" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:group name="BaseSoilDataGroup">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="MainGroup" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="SubGroup" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="FertilityClass" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="SoilType" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="DrainageState" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>	
+	</xs:group>
 	<xs:group name="SoilDataGroup">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi"></xs:documentation>
@@ -343,6 +361,17 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:group ref="SilvicultureRestrictionGroup"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="BaseSoilDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Maaperätiedot</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Soil data</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:group ref="BaseSoilDataGroup" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	

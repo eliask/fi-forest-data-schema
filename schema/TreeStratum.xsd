@@ -6,6 +6,9 @@
 
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+
+    Muutokset skeemapakettiin V11.08:
+    -Elementti TreeClass otettu käyttöön poistamalla se kommenttitageista
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -97,7 +100,7 @@
 			<xs:element ref="co:ChangeTime" minOccurs="0"/>
 			<xs:element ref="StratumNumber"/>
 			<xs:element ref="TreeSpecies"/>
-			<!-- <xs:element ref="TreeClass" minOccurs="0"/> -->
+			<xs:element ref="TreeClass" minOccurs="0"/>
 			<xs:element ref="Storey"/>
 			<xs:element ref="Age"/>
 			<!-- Käyttösuositus: Joko Ppa tai Runkoluku pitää löytyä sanomasta -->

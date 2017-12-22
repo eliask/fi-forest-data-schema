@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	***************************************************************
+	Metsäkeskus tarkastustiedot-viesti
+	Skeema on JHS-170 -suosituksen mukainen.
+	
+	Muutokset skeemapakettiin V11.08:
+	-Skeemapakettiin lisätty uusi tiedosto ForestCentreControlData.xsd. Sisältää rakenteet tarkastustietojen lähettämiseksi Metsäkeskuksesta ulospäin.
+	***************************************************************
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreControlData"
+	xmlns="http://standardit.tapio.fi/schemas/forestData/ForestCentreControlData"
+	xmlns:cod="http://standardit.tapio.fi/schemas/forestData/commonObjectData"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
+	elementFormDefault="qualified" version="V11.08">
+
+	<!-- Imports / Includes -->
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/commonObjectData"
+		schemaLocation="CommonObjectData.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+		schemaLocation="Common.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation"
+		schemaLocation="ContactInformation.xsd"/>
+
+	<!-- Elementtimääritykset / Element definitions -->
+	<xs:element name="ForestCentreData" type="ForestCentreControlDataType"/>
+	<xs:element name="TimeStamp" type="co:TimeStampType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Viestin lähetysajankohta, aikaleima</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Message" type="co:ControlDataMessageType"/>
+	<xs:element name="ControlObjectData" type="ControlObjectDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tarkastuksen tiedot, kun Message = ???</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Control information, when Message = ???</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<!-- Tyyppimääritykset / Type definitions -->
+	<xs:complexType name="ForestCentreControlDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsäkeskuksen tarkastustiedot</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Forest Centre control data</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="TimeStamp"/>
+			<xs:element ref="Message" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="ControlObjectData" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Viestin id</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en">Message id</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="schemaPackageVersion"
+			type="co:ForestDataStandardSchemaPackageVersionType">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Viesti perustuu skeemapakettiin ...</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en">Message based on schema package ...</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="ControlObjectsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Paikannetut kohteet -määrittely</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Geometry objects definition</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Object" type="cod:ForestCentreControlObjectType" minOccurs="1"
+				maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ControlObjectDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsäkeskuksen tarkastustietojen rakenteiden määrittely.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="cod:AdditionalDetails" minOccurs="0"/>
+			<xs:element name="Objects" type="ControlObjectsType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="co:IdStringType">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi"/>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en"/>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+</xs:schema>

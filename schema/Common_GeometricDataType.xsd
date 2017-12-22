@@ -66,6 +66,9 @@
 	-Tyyppimäärittely ExtendedMultiPolygonGeometryType otettu käyttöön poistamalla se kommenttitageista
 	-Lisätty uusi complexType-määrittely AlternativeGeometries2Type (viittaa ryhmään AlternativeGeometries2Group)
 	-Lisätty uusi tyyppimäärittely PolygonOrMultiPolygon2Type joka on muuten vastaava kuin PolygonOrMultiPolygonType, mutta MultiPolygonGeometry-elementti käyttää tyyppimäärittelyä ExtendedMultiPolygonGeometryType
+	
+	Muutokset skeemapakettiin V11.08:
+	-Lisätty uusi data group PointLineAndPolygonGeometriesGroup
 *******************************************************************
 -->
 
@@ -76,7 +79,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:gml="http://www.opengis.net/gml"
 	elementFormDefault="qualified"
-	version="V11.06">
+	version="V11.08">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -125,6 +128,34 @@
 						<xs:documentation xml:lang="fi">Viivan sijainti.</xs:documentation>
 						<xs:documentation xml:lang="sv"></xs:documentation>
 						<xs:documentation xml:lang="en">Line location.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+
+	<xs:group name="PointLineAndPolygonGeometriesGroup">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element ref="gml:pointProperty">
+					<xs:annotation>
+						<xs:documentation xml:lang="fi">Pisteen sijainti.</xs:documentation>
+						<xs:documentation xml:lang="sv"></xs:documentation>
+						<xs:documentation xml:lang="en">Point location.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="gml:lineStringProperty">
+					<xs:annotation>
+						<xs:documentation xml:lang="fi">Viivan sijainti.</xs:documentation>
+						<xs:documentation xml:lang="sv"></xs:documentation>
+						<xs:documentation xml:lang="en">Line location.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="gml:polygonProperty">
+					<xs:annotation>
+						<xs:documentation xml:lang="fi">Aluegeometria sisäalueineen.</xs:documentation>
+						<xs:documentation xml:lang="sv"></xs:documentation>
+						<xs:documentation xml:lang="en">Polygon geometry with interior polygons.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
