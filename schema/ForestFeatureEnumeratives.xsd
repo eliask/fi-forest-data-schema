@@ -7,7 +7,7 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	*****************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V11.08">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V11.09">
   <xs:simpleType name="OriginalFeatureCodeType">
     <xs:annotation>
       <xs:documentation xml:lang="fi">Erityispiirteen koodi (mm. monimuotoisuuskoodi).</xs:documentation>
@@ -148,6 +148,13 @@
           <xs:documentation xml:lang="en">Peak forest area</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="21">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Maakuntakaavan suojelualuevaraus</xs:documentation>
+          <xs:documentation xml:lang="sv">Landskapplanen för skyddsområde</xs:documentation>
+          <xs:documentation xml:lang="en">Regional plan for protection area</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="25">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Detaljikaava</xs:documentation>
@@ -230,6 +237,13 @@
           <xs:documentation xml:lang="fi">Riistanhoitoalue</xs:documentation>
           <xs:documentation xml:lang="sv">Viltvårdsområde</xs:documentation>
           <xs:documentation xml:lang="en">gamekeeping area</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="71">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Linnustollisesti arvokas kohde (FSC)</xs:documentation>
+          <xs:documentation xml:lang="sv">Värdefull objekt för fåglar (FSC)</xs:documentation>
+          <xs:documentation xml:lang="en">Bird conservation target (FSC)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="80">
@@ -323,11 +337,32 @@
           <xs:documentation xml:lang="en">Natura 2000</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="104">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Muu FSC-suojelukohde</xs:documentation>
+          <xs:documentation xml:lang="sv">Annat FSC-skyddsobjekt</xs:documentation>
+          <xs:documentation xml:lang="en">Other FSC conservation target</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="110">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Perintömetsä</xs:documentation>
           <xs:documentation xml:lang="sv">Hemskog</xs:documentation>
           <xs:documentation xml:lang="en">inheritance forest</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="120">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kitumaa</xs:documentation>
+          <xs:documentation xml:lang="sv">Tvinmark</xs:documentation>
+          <xs:documentation xml:lang="en">Low-productive forest land</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="121">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Joutomaa</xs:documentation>
+          <xs:documentation xml:lang="sv">Impediment</xs:documentation>
+          <xs:documentation xml:lang="en">Wasteland</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="128">
@@ -694,6 +729,13 @@
           <xs:documentation xml:lang="en">dry meadow</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="421">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Katajaketo</xs:documentation>
+          <xs:documentation xml:lang="sv">Enbär lea</xs:documentation>
+          <xs:documentation xml:lang="en">Juniper lea</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="430">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kulttuuriympäristö</xs:documentation>
@@ -713,6 +755,13 @@
           <xs:documentation xml:lang="fi">Niitty/Lehdesniitty</xs:documentation>
           <xs:documentation xml:lang="sv">Äng/Löväng</xs:documentation>
           <xs:documentation xml:lang="en">meadow/wooded meadow</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="451">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Merenrantaniitty</xs:documentation>
+          <xs:documentation xml:lang="sv">Sjösidan äng</xs:documentation>
+          <xs:documentation xml:lang="en">Seaside meadow</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="460">
@@ -1163,6 +1212,20 @@
           <xs:documentation xml:lang="en">alluvial forest, deciduous swamp wood</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="626">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Flada</xs:documentation>
+          <xs:documentation xml:lang="sv">Flada</xs:documentation>
+          <xs:documentation xml:lang="en">Flad</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="627">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kluuvi</xs:documentation>
+          <xs:documentation xml:lang="sv">Glo</xs:documentation>
+          <xs:documentation xml:lang="en">Salt marsh</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="629">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Merenranta-alue</xs:documentation>
@@ -1249,16 +1312,16 @@
       </xs:enumeration>
       <xs:enumeration value="704">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Kurjenpolvi-imarretyyppi</xs:documentation>
-          <xs:documentation xml:lang="sv">Storknäbb-ekbräkentyp</xs:documentation>
-          <xs:documentation xml:lang="en">geranium-polypodium type</xs:documentation>
+          <xs:documentation xml:lang="fi">Metsäkurjenpolvi-metsäimarretyyppi</xs:documentation>
+          <xs:documentation xml:lang="sv">Skogsnäva-ekbräkentyp</xs:documentation>
+          <xs:documentation xml:lang="en">wood cranesbill-polypodium type</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="705">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Kurjenpolvi-käenkaali-oravanmarjatyyppi</xs:documentation>
-          <xs:documentation xml:lang="sv">Storknäbb-harsyra-ekorrbärstyp</xs:documentation>
-          <xs:documentation xml:lang="en">geranium-woodsorrel-maylily type</xs:documentation>
+          <xs:documentation xml:lang="fi">Metsäkurjenpolvi-käenkaali-oravanmarjatyyppi</xs:documentation>
+          <xs:documentation xml:lang="sv">Skogsnäva-harsyra-ekorrbärstyp</xs:documentation>
+          <xs:documentation xml:lang="en">wood cranesbill-woodsorrel-maylily type</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="706">
@@ -1455,6 +1518,62 @@
           <xs:documentation xml:lang="fi">Kanervatyyppi</xs:documentation>
           <xs:documentation xml:lang="sv">Ljungtyp</xs:documentation>
           <xs:documentation xml:lang="en">Calluna site type</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="741">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Myyränporrastyyppi</xs:documentation>
+          <xs:documentation xml:lang="sv">Ryssbräkentyp</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="742">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kiurunkannus-vuohenputkityyppi</xs:documentation>
+          <xs:documentation xml:lang="sv">Nunneört-kirskåltyp</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="743">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Vuohenputkityyppi</xs:documentation>
+          <xs:documentation xml:lang="sv">Kirskåltyp</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="744">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Hammasjuuri-linnunhernetyyppi</xs:documentation>
+          <xs:documentation xml:lang="sv">Tandrot-vårärttyp</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="745">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Karvasputki-metsäapilatyyppi</xs:documentation>
+          <xs:documentation xml:lang="sv">Spenört-skogsklövertyp</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="746">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Maarianverijuuri-mäkimeiramityyppi</xs:documentation>
+          <xs:documentation xml:lang="sv">Småborre-kungsmyntatyp</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="747">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Puolukka-ahomansikkatyyppi</xs:documentation>
+          <xs:documentation xml:lang="sv">Lingon-smultrontyp</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="748">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsäkurjenpolvi-puolukkatyyppi</xs:documentation>
+          <xs:documentation xml:lang="sv">Skogsnäva-lingontyp</xs:documentation>
+          <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="750">
@@ -23580,6 +23699,20 @@
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="10121">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Putkipato</xs:documentation>
+          <xs:documentation xml:lang="sv">Rördamm</xs:documentation>
+          <xs:documentation xml:lang="en">Pipe dam</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="10122">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Perkauskatko</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="11001">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Runsaslahopuustoinen metsä</xs:documentation>
@@ -23655,6 +23788,83 @@
           <xs:documentation xml:lang="fi">Suojakaista, suo</xs:documentation>
           <xs:documentation xml:lang="sv">Skyddszon, torvmark</xs:documentation>
           <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="11012">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Luonnontilainen vesistön reunametsä</xs:documentation>
+          <xs:documentation xml:lang="sv">Naturlig kantskog av vattendrag</xs:documentation>
+          <xs:documentation xml:lang="en">Natural forest at the edge of waters</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="11013">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Vanha- ja lahopuustoinen kalliometsä</xs:documentation>
+          <xs:documentation xml:lang="sv">Bergskog med gammal och död ved</xs:documentation>
+          <xs:documentation xml:lang="en">Cliff forest with old and dead wood</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="11014">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Lahopuuston lisääminen</xs:documentation>
+          <xs:documentation xml:lang="sv">Ökning av död ved</xs:documentation>
+          <xs:documentation xml:lang="en">Increase of dead wood</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="11015">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Uudistaminen pienimuotoisesti</xs:documentation>
+          <xs:documentation xml:lang="sv">Skogsföryngring i liten skala</xs:documentation>
+          <xs:documentation xml:lang="en">Small-scale forest regeneration</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="11016">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Pysyvästi peitteinen kasvatus</xs:documentation>
+          <xs:documentation xml:lang="sv">Hyggesfritt skogsbruk</xs:documentation>
+          <xs:documentation xml:lang="en">Continuous cover forestry</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="11017">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Lehtipuuvaltainen metsä</xs:documentation>
+          <xs:documentation xml:lang="sv">Lövträ dominerade skog</xs:documentation>
+          <xs:documentation xml:lang="en">Deciduous-dominant forest</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="11018">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kulotuskohde</xs:documentation>
+          <xs:documentation xml:lang="sv">Bränningobjekt</xs:documentation>
+          <xs:documentation xml:lang="en">Burning target</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="11019">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Maisemanhoidollinen kasvatus</xs:documentation>
+          <xs:documentation xml:lang="sv">Skogsbruk med landskapsplanering</xs:documentation>
+          <xs:documentation xml:lang="en">Forestry with landscape planning</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="11020">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Virkistyskäyttöalue</xs:documentation>
+          <xs:documentation xml:lang="sv">Rekreationsområde</xs:documentation>
+          <xs:documentation xml:lang="en">Recreation area</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="11021">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Muu erityishakkuu</xs:documentation>
+          <xs:documentation xml:lang="sv">Annan specialavverkning</xs:documentation>
+          <xs:documentation xml:lang="en">Other special felling</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="11022">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Muu erityiskohde</xs:documentation>
+          <xs:documentation xml:lang="sv">Annan specialområde</xs:documentation>
+          <xs:documentation xml:lang="en">Other special target</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12001">
@@ -27242,6 +27452,13 @@
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="8">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsityskielto FSC:n nojalla</xs:documentation>
+          <xs:documentation xml:lang="sv">Beskogning förbjudet under FSC</xs:documentation>
+          <xs:documentation xml:lang="en">Forestation prohibited under FSC</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="10">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Harjujensuojelu</xs:documentation>
@@ -27454,9 +27671,23 @@
       </xs:enumeration>
       <xs:enumeration value="47">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Harvinainen elinympäristö (FSC)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="fi">FSC-suojelukohde</xs:documentation>
+          <xs:documentation xml:lang="sv">FSC-skyddsobjekt</xs:documentation>
+          <xs:documentation xml:lang="en">FSC protection target</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="48">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">FSC-erityishakkuukohde</xs:documentation>
+          <xs:documentation xml:lang="sv">Speciell avverkningsobjekt (FSC)</xs:documentation>
+          <xs:documentation xml:lang="en">Special felling target (FSC)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="49">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">FSC-HCV -alue</xs:documentation>
+          <xs:documentation xml:lang="sv">FSC-HCV -område</xs:documentation>
+          <xs:documentation xml:lang="en">FSC-HCV area</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="50">
@@ -27758,6 +27989,41 @@
           <xs:documentation xml:lang="fi">Urakoitsija ilmoittanut</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="101">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">IBA-alue</xs:documentation>
+          <xs:documentation xml:lang="sv">IBA-område</xs:documentation>
+          <xs:documentation xml:lang="en">IBA area</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="102">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">FINIBA-alue</xs:documentation>
+          <xs:documentation xml:lang="sv">FINIBA-området</xs:documentation>
+          <xs:documentation xml:lang="en">FINIBA area</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="103">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metson soidinalue</xs:documentation>
+          <xs:documentation xml:lang="sv">Tjäders spelområde</xs:documentation>
+          <xs:documentation xml:lang="en">Capercailie mating area</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="104">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Sääksen asuttu pesä</xs:documentation>
+          <xs:documentation xml:lang="sv">Fiskgjusens bebodda näst</xs:documentation>
+          <xs:documentation xml:lang="en">Ospreys inhabited nest</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="105">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Lehtipuuvaltainen metsä, jossa hakkuurajoitus</xs:documentation>
+          <xs:documentation xml:lang="sv">Lövträ dominerade skog, där avverkning restriktions</xs:documentation>
+          <xs:documentation xml:lang="en">Decidous-dominant forest with felling restriction</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>

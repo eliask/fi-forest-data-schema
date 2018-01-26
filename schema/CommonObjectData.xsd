@@ -56,6 +56,9 @@
 	
 	Muutokset skeemapakettiin V11.08:
 	-Skeematiedostoon toteutettu suurehkoja muutoksia metsäkeskuksen tarkastustietojen rakenteiden lisäyksen yhteydessä
+
+    Muutokset skeemapakettiin V11.09:
+    -Muutettu elementin UseCase tyyppimäärittely UseCaseType -> co:SelfMonitoringUseCaseType
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -81,7 +84,7 @@
 	xmlns:workingSiteFinalAuditSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSoilConditioning"
 	xmlns:workingSiteQualityControlSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
 	xmlns:MapSymbol="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
-	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.07">
+	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.09">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase"
@@ -157,7 +160,7 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="UseCase" type="co:UseCaseType">
+	<xs:element name="UseCase" type="co:SelfMonitoringUseCaseType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Omavalvonnan käyttötapaus</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
@@ -1389,7 +1392,7 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="UseCase" type="co:UseCaseType" minOccurs="0"/>
+			<xs:element ref="UseCase" minOccurs="0"/>
 			<xs:element name="ControlNo" type="co:String100Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Tarkastusnumero</xs:documentation>

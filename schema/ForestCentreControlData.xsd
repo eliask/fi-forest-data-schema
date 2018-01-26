@@ -6,6 +6,10 @@
 	
 	Muutokset skeemapakettiin V11.08:
 	-Skeemapakettiin lisätty uusi tiedosto ForestCentreControlData.xsd. Sisältää rakenteet tarkastustietojen lähettämiseksi Metsäkeskuksesta ulospäin.
+
+    Muutokset skeemapakettiin V11.09:
+    -Lisätty uusi elementti MetaDataText
+    -Muutettu complexType ForestCentreControlDataType:n attribuutin "id" tyyppimäärittely xs:string -> co:IdStringType
 	***************************************************************
 -->
 
@@ -15,7 +19,7 @@
 	xmlns:cod="http://standardit.tapio.fi/schemas/forestData/commonObjectData"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
-	elementFormDefault="qualified" version="V11.08">
+	elementFormDefault="qualified" version="V11.09">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/commonObjectData"
@@ -42,6 +46,13 @@
 			<xs:documentation xml:lang="en">Control information, when Message = ???</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="MetadataText" type="co:String1000Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tarkastustietosanoman metatiedot</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
 
 	<!-- Tyyppimääritykset / Type definitions -->
 	<xs:complexType name="ForestCentreControlDataType">
@@ -53,9 +64,10 @@
 		<xs:sequence>
 			<xs:element ref="TimeStamp"/>
 			<xs:element ref="Message" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="MetadataText" minOccurs="0"/>
 			<xs:element ref="ControlObjectData" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
-		<xs:attribute name="id" type="xs:string">
+		<xs:attribute name="id" type="co:IdStringType">
 			<xs:annotation>
 				<xs:documentation xml:lang="fi">Viestin id</xs:documentation>
 				<xs:documentation xml:lang="sv"/>

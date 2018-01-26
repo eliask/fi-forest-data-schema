@@ -17,6 +17,15 @@
 	
 	Muutokset skeemapakettiin V11.05:
 	-Lisätty uusi elementtimäärittely Document, tyypiltään co:Document4MBType. Viittaus complexType DocumentsType:ssä muutettu käyttämään tätä uutta elementtimäärittelyä. Lisäksi elementin maxOccurs muutettu "n" -> 10
+
+    Muutokset skeemapakettiin V11.09:
+    -Lisätty uusi elementti ForestCentreMessageReferenceType
+    -Lisätty uusi elementti CompletionDeclarationNumber
+    -Lisätty uusi elementti RealEstates, tyypiltään PaymentsRealEstatesType
+    -Lisätty uusi elementti RealEstate, tyypiltään PaymentsRealEstateType
+    -Lisätty uusi tyyppimäärittely SubsidyApplierBaseContactAndEstateInfoType
+    -Lisätty uusi tyyppimäärittely PaymentsRealEstatesType
+    -Lisätty uusi tyyppimäärittely PaymentsRealEstateType
 	***************************************************************
 -->
 
@@ -32,7 +41,7 @@
 	xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
 	xmlns:gml="http://www.opengis.net/gml"
 	elementFormDefault="qualified"
-	version="V11.05">
+	version="V11.09">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -504,6 +513,10 @@
             <xs:documentation xml:lang="en"/>
         </xs:annotation>
     </xs:element>
+    <xs:element name="ForestCentreMessageReferenceType" type="co:ForestCentreMessageReferenceType"/>
+    <xs:element name="CompletionDeclarationNumber" type="co:String100Type"/>
+    <xs:element name="RealEstates" type="PaymentsRealEstatesType"/>
+    <xs:element name="RealEstate" type="PaymentsRealEstateType"/>
     
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
@@ -1128,6 +1141,34 @@
                     <xs:documentation xml:lang="sv"/>
                 </xs:annotation>
             </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="SubsidyApplierBaseContactAndEstateInfoType">
+        <xs:sequence>
+            <xs:choice>
+                <xs:sequence>
+                    <xs:element ref="ci:BusinessId" minOccurs="1"/>
+                    <xs:element ref="ci:FirstName" minOccurs="1"/>
+                    <xs:element ref="ci:LastName" minOccurs="1"/>
+                    <xs:element ref="ci:PersonOrganizationName" minOccurs="0"/>
+                </xs:sequence>
+                <xs:element ref="ci:OrganizationName" minOccurs="1"/>
+            </xs:choice>
+            <xs:element ref="RealEstates" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="PaymentsRealEstatesType">
+        <xs:sequence>
+            <xs:element ref="RealEstate" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="PaymentsRealEstateType">
+        <xs:sequence>
+            <xs:element ref="re:RegisterUnitId" minOccurs="1"/>
+            <xs:element ref="SubsidyAmount" minOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
 

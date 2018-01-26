@@ -7,7 +7,7 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	*****************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V11.08">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V11.09">
   <xs:include schemaLocation="ForestFeatureEnumeratives.xsd" />
   <xs:simpleType name="TurningPointClassType">
     <xs:annotation>
@@ -13574,67 +13574,382 @@
       <xs:documentation xml:lang="en">Forest Damage Qualifier</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
+      <xs:enumeration value="1500">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Hallatuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Frostskada</xs:documentation>
+          <xs:documentation xml:lang="en">frost damage</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1501">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Lumituho</xs:documentation>
+          <xs:documentation xml:lang="sv">Snöskada</xs:documentation>
+          <xs:documentation xml:lang="en">snow damage</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1502">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kuivuuden aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skada förorsakad av torka</xs:documentation>
+          <xs:documentation xml:lang="en">dryness damage</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1503">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsäpalo</xs:documentation>
+          <xs:documentation xml:lang="sv">Skogsbrand</xs:documentation>
+          <xs:documentation xml:lang="en">forest fire</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="1504">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Myrskytuho</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Stormskada</xs:documentation>
+          <xs:documentation xml:lang="en">storm damage</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1506">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Routatuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Tjälskador</xs:documentation>
+          <xs:documentation xml:lang="en">ground frost damage</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1508">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Tulvavesituho</xs:documentation>
+          <xs:documentation xml:lang="sv">Översvämningsskada</xs:documentation>
+          <xs:documentation xml:lang="en">flood damage</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1530">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ravinnetalouden häiriö</xs:documentation>
+          <xs:documentation xml:lang="sv">Näringsobalans</xs:documentation>
+          <xs:documentation xml:lang="en">nutrient balance disturbance</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1531">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Boorinpuutos</xs:documentation>
+          <xs:documentation xml:lang="sv">Borbrist</xs:documentation>
+          <xs:documentation xml:lang="en">boron deficit</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1532">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Fosforinpuutos</xs:documentation>
+          <xs:documentation xml:lang="sv">Fosforbrist</xs:documentation>
+          <xs:documentation xml:lang="en">phosphorus deficit</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1533">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kalinpuutos</xs:documentation>
+          <xs:documentation xml:lang="sv">Kaliumbrist</xs:documentation>
+          <xs:documentation xml:lang="en">potassium deficit</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1534">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kalsiuminpuutos</xs:documentation>
+          <xs:documentation xml:lang="sv">Kalciumbrist</xs:documentation>
+          <xs:documentation xml:lang="en">calcium deficit</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1535">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Magnesiuminpuutos</xs:documentation>
+          <xs:documentation xml:lang="sv">Magnesiumbrist</xs:documentation>
+          <xs:documentation xml:lang="en">magnesium deficit</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1549">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Muu luonnontuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Annan naturskada</xs:documentation>
+          <xs:documentation xml:lang="en">other natural damage</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1550">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Sienituho</xs:documentation>
+          <xs:documentation xml:lang="sv">Svampskada</xs:documentation>
+          <xs:documentation xml:lang="en">fungus damage</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1551">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Karistesienten aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador förorsakade av skyttesvamp</xs:documentation>
+          <xs:documentation xml:lang="en">blight fungus damage</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1552">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kuusensuopursuruosteen aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador förorsakade av granens getporsrost</xs:documentation>
+          <xs:documentation xml:lang="en">damage by spruce needle rust</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1555">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Männynlumihomeen aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skada förorsakad av snöskytte</xs:documentation>
+          <xs:documentation xml:lang="en">Pine white snow blight damage</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1556">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Männynversoruosteen aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skada förorsakad av knäckesjuka</xs:documentation>
+          <xs:documentation xml:lang="en">Pine shoot rust damage</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1557">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Männynversosurman aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skada förorsakad av knopp- och grentorka</xs:documentation>
+          <xs:documentation xml:lang="en">Pine brunchorstia disease</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1558">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Männyn tyvitervastaudin aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador förorsakade av rotröta hos tall</xs:documentation>
+          <xs:documentation xml:lang="en">Pine annosus root-rot</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1600">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Hyönteistuho</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Insektskada</xs:documentation>
+          <xs:documentation xml:lang="en">damage by insects</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1601">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Hevosmuurahaisten aiheuttama tuho</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Skador förorsakade av hästmyror</xs:documentation>
+          <xs:documentation xml:lang="en">damage by black carpenter ant</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1602">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kirjanpainajan aiheuttama tuho</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Skador förorsakade av granbarkborre</xs:documentation>
+          <xs:documentation xml:lang="en">damage by engraver beetle</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1603">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Koivun mantokuoriaisen aiheuttama tuho</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Skador förorsakade av björksplintborre</xs:documentation>
+          <xs:documentation xml:lang="en">damage by birch sapwood borer</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1604">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Koivun ruskotäpläkärpäsen aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador förorsakade av björkbastfluga</xs:documentation>
+          <xs:documentation xml:lang="en">damage by birch cambium fly</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1605">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Lehtikärsäkkään aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador förorsakade av lövvivlar</xs:documentation>
+          <xs:documentation xml:lang="en">damage by green Weevil</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1606">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Monikirjaajien aiheuttama tuho</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Skador förorsakade av bastborrar</xs:documentation>
+          <xs:documentation xml:lang="en">damage by small spruce bark beetle</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1607">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Mäntymittarin aiheuttama tuho</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Skador förorsakade av tallmätare</xs:documentation>
+          <xs:documentation xml:lang="en">damage by pine looper moth</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1608">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Mäntypistiäisten aiheuttama tuho</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Skador förorsakade av tallstekel</xs:documentation>
+          <xs:documentation xml:lang="en">damage by european pine sawfly</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1609">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Pihkakääriäisten aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador förorsakade av hartsgallvecklare</xs:documentation>
+          <xs:documentation xml:lang="en">damage by Pine Resin-gall Moth</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1610">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Punalatikan aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador förorsakade av tallbarkstinkfly</xs:documentation>
+          <xs:documentation xml:lang="en">damage by pine bark bug</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1611">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Tukkimiehentäin aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador förorsakade av snytbagge</xs:documentation>
+          <xs:documentation xml:lang="en">damage by large pine weevil</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1612">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ukkonilurin aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador förorsakade av jättebastborre</xs:documentation>
+          <xs:documentation xml:lang="en">damage by Great Spruce Bark Beetle)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1613">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ytimennävertäjien aiheuttama tuho</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="sv">Skador förorsakade av märgborrar</xs:documentation>
+          <xs:documentation xml:lang="en">damage by pine shoot beetle</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1650">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Hirvituho</xs:documentation>
+          <xs:documentation xml:lang="sv">Älgskador</xs:documentation>
+          <xs:documentation xml:lang="en">moose damage</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1652">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kauriin aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador förorsakade av rådjur</xs:documentation>
+          <xs:documentation xml:lang="en">damage by roes</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1653">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kotieläimen aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador förorsakade av husdjur</xs:documentation>
+          <xs:documentation xml:lang="en">damage by domestic animal</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1654">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Lintujen aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador förorsakade av fåglar</xs:documentation>
+          <xs:documentation xml:lang="en">damage by birds</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1655">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Majavatuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skada förorsakad av bäver</xs:documentation>
+          <xs:documentation xml:lang="en">beaver damage</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1656">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Myyrätuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Sorkskador</xs:documentation>
+          <xs:documentation xml:lang="en">vole damage</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1657">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Oravan aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador förorsakade av ekorre</xs:documentation>
+          <xs:documentation xml:lang="en">damage by squirrel</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1658">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Peurojen aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador förorsakade av hjort</xs:documentation>
+          <xs:documentation xml:lang="en">damage by deeres</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1659">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Porojen aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador förorsakade av ren</xs:documentation>
+          <xs:documentation xml:lang="en">damage by reindeers</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1699">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Muu eläimen aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Andra av djur förorsakade skador</xs:documentation>
+          <xs:documentation xml:lang="en">other damage by animal</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1750">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Heinän aiheuttama taimikkotuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador på plantbeståndet förorsakade av gräsuppslag</xs:documentation>
+          <xs:documentation xml:lang="en">Damage by hay in recently planted forest</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1751">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kemiallisen torjunnan aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador förorsakade av kemisk bekämpning</xs:documentation>
+          <xs:documentation xml:lang="en">damage by cemical pestiside or herbicide</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1752">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Korjuuvaurio</xs:documentation>
+          <xs:documentation xml:lang="sv">Drivningsskador</xs:documentation>
+          <xs:documentation xml:lang="en">logging damage</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1753">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Piiskaantumisen aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador förorsakade av piskning</xs:documentation>
+          <xs:documentation xml:lang="en">whipping damage</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1754">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Turkistarhauksen aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador förorsakade av pälsfarmning</xs:documentation>
+          <xs:documentation xml:lang="en">damage by fur production</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1755">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Vesakon aiheuttama taimikkotuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador förorsakade av sly</xs:documentation>
+          <xs:documentation xml:lang="en">damage by coppice</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1756">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ylitiheyden aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Skador förorsakade av övertäthet</xs:documentation>
+          <xs:documentation xml:lang="en">damage by overstocking</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1798">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Muu ihmisen aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Andra av människan förorsakade skador</xs:documentation>
+          <xs:documentation xml:lang="en">other damage by human being</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1799">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Muu kasvien aiheuttama tuho</xs:documentation>
+          <xs:documentation xml:lang="sv">Andra av växtligheten förorsakade skador</xs:documentation>
+          <xs:documentation xml:lang="en">other damage by plants</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -20895,6 +21210,13 @@
           <xs:documentation xml:lang="en">Schema package V11.08</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="V11.09">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V11.09</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V11.09</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="PreferredContactingMethodType">
@@ -20999,71 +21321,6 @@
           <xs:documentation xml:lang="fi">Ei tarvetta</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en">Not needed</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="UseCaseType">
-    <xs:annotation>
-      <xs:documentation xml:lang="fi">Metsäkeskussanoman omavalvonnan käyttötapauskoodisto</xs:documentation>
-      <xs:documentation xml:lang="sv"> </xs:documentation>
-      <xs:documentation xml:lang="en"> </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="103">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">MKI - korjuujäljen tarkastus</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="107">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">KEMERA - taimikon varhaishoito</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="108">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">KEMERA - nuoren metsän hoito</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="201">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Omavalvonta - maanmuokkaus</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="202">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Omavalvonta - Istutus</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="203">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Omavalvonta - Taimikon varhaishoito</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="204">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Omavalvonta - Nuoren metsän hoito</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="205">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Omavalvonta - Korjuujälki</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -21319,6 +21576,20 @@
       <xs:enumeration value="4">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kemera - lopullinen päätös</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="5">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kemera - hankkeen raukeaminen</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="6">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">MKI - poikkeamislupa määräajasta</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
@@ -21621,6 +21892,298 @@
           <xs:documentation xml:lang="fi">Tarkastustiedot</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en">Control data</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MKM">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsäkeskuksen maksatussanoma</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Forestry centre payment message</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MKPS">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsäkeskuksen päätössanoma</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ActionTypeType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi">Toimenpidetyyppi</xs:documentation>
+      <xs:documentation xml:lang="sv"> </xs:documentation>
+      <xs:documentation xml:lang="en"> </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Hakemus</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kuuleminen</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Päätös</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="4">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Maksatus</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="5">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Asiakirjan lähettäminen (merkkijono)</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DecisionGeometryObjectType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi">Päätökseen liittyvän geometrian tyyppi</xs:documentation>
+      <xs:documentation xml:lang="sv"> </xs:documentation>
+      <xs:documentation xml:lang="en"> </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kuvio</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Muu</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ForestCentreWorkCodeGroupType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi">Työlajiryhmäkoodisto</xs:documentation>
+      <xs:documentation xml:lang="sv"> </xs:documentation>
+      <xs:documentation xml:lang="en"> </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="16">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Hirvivahinkokorvaukset</xs:documentation>
+          <xs:documentation xml:lang="sv">Hjortdjursskadeprojekt</xs:documentation>
+          <xs:documentation xml:lang="en">Moose damage compensations</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="30">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Nuoren metsän hoito</xs:documentation>
+          <xs:documentation xml:lang="sv">Vård av ungskog</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="50">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Terveyslannoitus</xs:documentation>
+          <xs:documentation xml:lang="sv">Vitaliseringsgödsling</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="60">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Suometsänhoito</xs:documentation>
+          <xs:documentation xml:lang="sv">Vård av torvmarksskog</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="70">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsätien tekeminen</xs:documentation>
+          <xs:documentation xml:lang="sv">Byggande av skogsväg</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="80">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Juurikääpä</xs:documentation>
+          <xs:documentation xml:lang="sv">Bekämpning av rotticka</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="90">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Luonnonhoito</xs:documentation>
+          <xs:documentation xml:lang="sv">Naturvård</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="91">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ympäristötuki</xs:documentation>
+          <xs:documentation xml:lang="sv">Miljöstöd</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ForestCentreWorkCodeType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi">Työlajikoodi</xs:documentation>
+      <xs:documentation xml:lang="sv"> </xs:documentation>
+      <xs:documentation xml:lang="en"> </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="16">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Hirvivahinkokorvaukset</xs:documentation>
+          <xs:documentation xml:lang="sv">Hjortdjursskadeprojekt</xs:documentation>
+          <xs:documentation xml:lang="en">Moose damage compensations</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="30">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Nuoren metsän hoito</xs:documentation>
+          <xs:documentation xml:lang="sv">Vård av ungskog</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="35">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Taimikon varhaishoito</xs:documentation>
+          <xs:documentation xml:lang="sv">Tidig vård av plantbestånd</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="50">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Terveyslannoitus</xs:documentation>
+          <xs:documentation xml:lang="sv">Vitaliseringsgödsling</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="60">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Suometsänhoito</xs:documentation>
+          <xs:documentation xml:lang="sv">Vård av torvmarksskog</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="70">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsätien tekeminen</xs:documentation>
+          <xs:documentation xml:lang="sv">Byggandet av skogsväg</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="80">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Juurikäävän torjunta</xs:documentation>
+          <xs:documentation xml:lang="sv">Bekämpning av rotticka</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="90">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Luonnonhoito</xs:documentation>
+          <xs:documentation xml:lang="sv">Naturvård</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="91">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ympäristötuki</xs:documentation>
+          <xs:documentation xml:lang="sv">Miljöstöd</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ControlUseCaseType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi">Tarkastustietojen käyttötapauskoodisto</xs:documentation>
+      <xs:documentation xml:lang="sv"> </xs:documentation>
+      <xs:documentation xml:lang="en"> </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="103">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">MKI - korjuujäljen tarkastus</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="107">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">KEMERA - taimikon varhaishoito</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="108">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">KEMERA - nuoren metsän hoito</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SelfMonitoringUseCaseType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi">Omavalvonnan käyttötapauskoodisto</xs:documentation>
+      <xs:documentation xml:lang="sv"> </xs:documentation>
+      <xs:documentation xml:lang="en"> </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="201">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Omavalvonta - maanmuokkaus</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="202">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Omavalvonta - istutus</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="203">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Omavalvonta - taimikon varhaishoito</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="204">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Omavalvonta - nuoren metsän hoito</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="205">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Omavalvonta - korjuujälki</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
