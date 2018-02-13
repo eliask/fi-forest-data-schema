@@ -7,7 +7,7 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	*****************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V11.11">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V12.00">
   <xs:include schemaLocation="ForestFeatureEnumeratives.xsd" />
   <xs:simpleType name="TurningPointClassType">
     <xs:annotation>
@@ -7866,13 +7866,6 @@
           <xs:documentation xml:lang="fi">Hirvivahinkoalueviite</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en">Moose damage area reference</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="9">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Kyselyviite</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -21224,25 +21217,11 @@
           <xs:documentation xml:lang="en">Schema package V11.10</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="V11.11">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Skeemapaketti V11.11</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">Schema package V11.11</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value="V12.00">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Skeemapaketti V12.00</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en">Schema package V12.00</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="V12.01">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Skeemapaketti V12.01</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">Schema package V12.01</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>

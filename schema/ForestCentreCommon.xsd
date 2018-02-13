@@ -34,11 +34,6 @@
     -Elementti MetadataText siirretty skeematiedostoon
     -Elementti ForestCentreMessageReference siirretty skeematiedostoon
     -Lisätty uusi tyyppimäärittely ForestCentreDataType, sisältää metsäkeskuksesta ulospäin kirjoitettavien sanomien yleisten osien määrittelyt
-    
-    Muutokset skeemapakettii V11.11:
-    -Elementti PaymentsDate uudelleennimetty muotoon PaymentDate
-    -Elementti PaymentsReference uudelleennimetty muotoon PaymentReference
-    -Lisätty uusi vapaaehtoinen elementti RequestReference tyypiltään ForestCentreMessageReferenceType 9 (kyselyviite)
 	***************************************************************
 -->
 
@@ -54,7 +49,7 @@
 	xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
 	xmlns:gml="http://www.opengis.net/gml"
 	elementFormDefault="qualified"
-	version="V11.11">
+	version="V11.10">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -187,7 +182,7 @@
             <xs:documentation xml:lang="en"/>
         </xs:annotation>
     </xs:element>
-    <xs:element name="PaymentDate" type="co:DateType">
+    <xs:element name="PaymentsDate" type="co:DateType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Maksupäivä</xs:documentation>
             <xs:documentation xml:lang="sv"/>
@@ -450,7 +445,7 @@
             <xs:documentation xml:lang="en"/>
         </xs:annotation>
     </xs:element>
-    <xs:element name="PaymentReference" type="PaymentsReferenceType">
+    <xs:element name="PaymentsReference" type="PaymentsReferenceType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Maksuviite</xs:documentation>
             <xs:documentation xml:lang="sv"/>
@@ -561,13 +556,6 @@
             <xs:documentation xml:lang="fi">Metsäkeskusviestin viite</xs:documentation>
             <xs:documentation xml:lang="sv"/>
             <xs:documentation xml:lang="en">Reference of Forest Centre Message</xs:documentation>
-        </xs:annotation>
-    </xs:element>
-    <xs:element name="RequestReference" type="co:ReferenceType">
-        <xs:annotation>
-            <xs:documentation xml:lang="fi">Metsäkeskusviestin kyselyviite</xs:documentation>
-            <xs:documentation xml:lang="sv"/>
-            <xs:documentation xml:lang="en">Request reference of Forest Centre Message</xs:documentation>
         </xs:annotation>
     </xs:element>
     
@@ -1162,7 +1150,7 @@
             <xs:element ref="CostType" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="CompletedWorkAmount" minOccurs="0" maxOccurs="1"/>
             <xs:element ref="UnitPrice" minOccurs="0" maxOccurs="1"/>
-            <xs:element ref="PaymentReference" minOccurs="0" maxOccurs="1"/>
+            <xs:element ref="PaymentsReference" minOccurs="0" maxOccurs="1"/>
             <xs:element ref="SubsidyAmount" minOccurs="1" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
@@ -1206,7 +1194,6 @@
         <xs:sequence>
             <xs:element ref="TimeStamp"/>
             <xs:element ref="Message" minOccurs="1" maxOccurs="1"/>
-            <xs:element ref="RequestReference" minOccurs="0"/>
             <xs:element ref="MetadataText" minOccurs="0"/>
             <!-- <xs:element ref="ControlObjectData" minOccurs="1" maxOccurs="1"/> -->
         </xs:sequence>
