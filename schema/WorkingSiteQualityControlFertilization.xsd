@@ -13,6 +13,9 @@
 	-Lisätty uusi pakollinen elementti HopperLocationFromGPS, tyypiltään bdt:YesNoType
 	-Lisätty elementille InfoText minOccurs = 0, lisäksi dokumentaatio päivitetty
 	-Lisätty uusi complexType-määrittely SamplePlotSummariesType
+	
+	Muutokset skeemapakettiin V12.01:
+	-Elementin InfoText minOccurs muutettu 1 -> 0
 -->
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -21,7 +24,7 @@
            xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
            xmlns:wct="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlFertilization"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.03">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V12.01">
 	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
                schemaLocation="Common_BasicDataType.xsd"/>
@@ -185,7 +188,7 @@
 					<xs:documentation xml:lang="fi">Onko suppilon sijainti gps:ltä</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="InfoText" type="bdt:String100Type">
+			<xs:element name="InfoText" type="bdt:String100Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Lisätieto</xs:documentation>
 				</xs:annotation>

@@ -68,6 +68,13 @@
     -Korjailtu skeeman sisältämien elementtien ja tyyppimäärittelyjen nimissä esiintyneitä kirjoitusvirheitä
     -Lisätty uusi vapaaehtoinen elementti PreclearingEvaluation
     -Skeematiedostosta poistettu viittaus elementtiin OperationTreeReduction
+    
+    Muutokset skeemapakettiin V12.01:
+    -Tyyppimäärittelyyn SelfMonitoringBasicDataType lisätty uudet vapaaehtoiset elementit FinancingActNumber ja CustomerReference
+    -Poistettu seuraavat elementit näkyvistä sijoittamalla ne kommenttitageihin: SelfMonitoringObjectData, SelfMonitoringObjectProtectionOperationsData, Documents, WorkingSiteFinalAuditDraining, 
+    WorkingSiteFinalAuditHarvesting, WorkingSiteFinalAuditRoadMaking, WorkingSiteFinalAuditSilviculture, WorkingSiteFinalAuditSoilConditioning ja MapSymbol. Lisätty seuraava elementti näkyville poistamalla se 
+    kommenttitageista: WorkingSiteQualityControlPlantManagement
+    -Lisätty uusi vapaaehtoinen elementti Image
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -93,59 +100,31 @@
 	xmlns:workingSiteFinalAuditSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSoilConditioning"
 	xmlns:workingSiteQualityControlSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
 	xmlns:MapSymbol="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
-	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.10">
+	xmlns:Image="http://standardit.tapio.fi/schemas/forestData/Image"
+	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V12.01">
 
 	<!-- Imports / Includes -->
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase"
-		schemaLocation="StandBase.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
-		schemaLocation="Common.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation"
-		schemaLocation="ContactInformation.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
-		schemaLocation="ForestCentreCommon.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/realEstate"
-		schemaLocation="RealEstate.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Stand"
-		schemaLocation="Stand.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
-		schemaLocation="Common_GeometricDataType.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStand"
-		schemaLocation="TreeStand.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operation"
-		schemaLocation="Operation.xsd"/>
-	<xs:import
-		namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditDraining"
-		schemaLocation="WorkingSiteFinalAuditDraining.xsd"/>
-	<xs:import
-		namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditHarvesting"
-		schemaLocation="WorkingSiteFinalAuditHarvesting.xsd"/>
-	<xs:import
-		namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting"
-		schemaLocation="WorkingSiteQualityControlCutting.xsd"/>
-	<xs:import
-		namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditPlantManagement"
-		schemaLocation="WorkingSiteFinalAuditPlantManagement.xsd"/>
-	<xs:import
-		namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlPlantManagement"
-		schemaLocation="WorkingSiteQualityControlPlantManagement.xsd"/>
-	<xs:import
-		namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditRoadMaking"
-		schemaLocation="WorkingSiteFinalAuditRoadMaking.xsd"/>
-	<xs:import
-		namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSilviculture"
-		schemaLocation="WorkingSiteFinalAuditSilviculture.xsd"/>
-	<xs:import
-		namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSilviculture"
-		schemaLocation="WorkingSiteQualityControlSilviculture.xsd"/>
-	<xs:import
-		namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSoilConditioning"
-		schemaLocation="WorkingSiteFinalAuditSoilConditioning.xsd"/>
-	<xs:import
-		namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
-		schemaLocation="WorkingSiteQualityControlSoilConditioning.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
-		schemaLocation="MapSymbol.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase" schemaLocation="StandBase.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation" schemaLocation="ContactInformation.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon" schemaLocation="ForestCentreCommon.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/realEstate" schemaLocation="RealEstate.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Stand" schemaLocation="Stand.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStand" schemaLocation="TreeStand.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/operation" schemaLocation="Operation.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditDraining" schemaLocation="WorkingSiteFinalAuditDraining.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditHarvesting" schemaLocation="WorkingSiteFinalAuditHarvesting.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting" schemaLocation="WorkingSiteQualityControlCutting.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditPlantManagement" schemaLocation="WorkingSiteFinalAuditPlantManagement.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlPlantManagement" schemaLocation="WorkingSiteQualityControlPlantManagement.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditRoadMaking" schemaLocation="WorkingSiteFinalAuditRoadMaking.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSilviculture" schemaLocation="WorkingSiteFinalAuditSilviculture.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSilviculture" schemaLocation="WorkingSiteQualityControlSilviculture.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSoilConditioning" schemaLocation="WorkingSiteFinalAuditSoilConditioning.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning" schemaLocation="WorkingSiteQualityControlSoilConditioning.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/MapSymbol" schemaLocation="MapSymbol.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Image" schemaLocation="Image.xsd"/>
 
 	<!-- Element definitions -->
 	<xs:element name="CommonObjectData" type="CommonObjectDataType">
@@ -583,29 +562,25 @@
 			<!-- <xs:element name="ControlEvaluations" type="ControlEvaluationsType" minOccurs="0"/> -->
 			<!-- <xs:element name="ControlDataForestRoadConstruction" type="ControlDataForestRoadConstructionType" minOccurs="0"/> -->
 			<!-- <xs:element name="ControlDataSwampForestManagement" type="ControlDataSwampForestManagementType" minOccurs="0"/> -->
-			<xs:element minOccurs="0" name="SelfMonitoringBasicData"
-				type="SelfMonitoringBasicDataType"/>
-			<xs:element minOccurs="0" name="SelfMonitoringObjectData"
-				type="SelfMonitoringObjectDataType"/>
-			<xs:element minOccurs="0" name="SelfMonitoringObjectProtectionOperationsData"
-				type="SelfMonitoringObjectProtectionOperationsDataType">
+			<xs:element minOccurs="0" name="SelfMonitoringBasicData" type="SelfMonitoringBasicDataType"/>
+			<!-- <xs:element minOccurs="0" name="SelfMonitoringObjectData" type="SelfMonitoringObjectDataType"/> -->
+			<!-- <xs:element minOccurs="0" name="SelfMonitoringObjectProtectionOperationsData" type="SelfMonitoringObjectProtectionOperationsDataType">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Omavalvontakohteen ympäristön ja vesiensuojelun toimenpidetiedot</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
-			</xs:element>
+			</xs:element> -->
 			<!-- <xs:element minOccurs="0" name="SelfMonitoringEvaluations" type="SelfMonitoringEvaluationsType"/> -->
-			<xs:element minOccurs="0" name="Documents" type="fcc:DocumentsType"/>
-			<xs:element ref="workingSiteFinalAuditDraining:WorkingSiteFinalAuditDraining"
-				minOccurs="0"/>
-			<xs:element ref="WorkingSiteFinalAuditHarvesting" minOccurs="0">
+			<!-- <xs:element name="Documents" type="fcc:DocumentsType" minOccurs="0"/> -->
+			<!-- <xs:element ref="workingSiteFinalAuditDraining:WorkingSiteFinalAuditDraining" minOccurs="0"/> -->
+			<!-- <xs:element ref="WorkingSiteFinalAuditHarvesting" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Korjuun omavalvonnan loppuarviointi/laadunseuranta</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
-			</xs:element>
+			</xs:element> -->
 			<!-- <xs:element ref="WorkingSiteQualityControlCutting" minOccurs="0">
 				<xs:annotation>
 				<xs:documentation xml:lang="fi">Korjuun omavalvonnan koealatiedot</xs:documentation>
@@ -620,22 +595,21 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<!-- <xs:element ref="WorkingSiteQualityControlPlantManagement" minOccurs="0">
+			<xs:element ref="WorkingSiteQualityControlPlantManagement" minOccurs="0">
 				<xs:annotation>
 				<xs:documentation xml:lang="fi">Taimikonhoidon omavalvonnan koealatiedot</xs:documentation>
 				<xs:documentation xml:lang="sv"/>
 				<xs:documentation xml:lang="en"/>
 				</xs:annotation>
-				</xs:element> -->
-			<xs:element ref="workingSiteFinalAuditRoadMaking:WorkingSiteFinalAuditRoadMaking"
-				minOccurs="0"/>
-			<xs:element ref="WorkingSiteFinalAuditSilviculture" minOccurs="0">
+				</xs:element>
+			<!-- <xs:element ref="workingSiteFinalAuditRoadMaking:WorkingSiteFinalAuditRoadMaking" minOccurs="0"/> -->
+			<!-- <xs:element ref="WorkingSiteFinalAuditSilviculture" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Istutuksen omavalvonnan loppuarviointi/laadunseuranta</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
-			</xs:element>
+			</xs:element> -->
 			<!-- <xs:element ref="WorkingSiteQualityControlSilviculture" minOccurs="0">
 				<xs:annotation>
 				<xs:documentation xml:lang="fi">Istutuksen omavalvonnan koealatiedot</xs:documentation>
@@ -643,13 +617,13 @@
 				<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 				</xs:element> -->
-			<xs:element ref="WorkingSiteFinalAuditSoilConditioning" minOccurs="0">
+			<!-- <xs:element ref="WorkingSiteFinalAuditSoilConditioning" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Maanmuokkauksen omavalvonnan loppuarviointi/laadunseuranta</xs:documentation>
 					<xs:documentation/>
 					<xs:documentation/>
 				</xs:annotation>
-			</xs:element>
+			</xs:element> -->
 			<!-- <xs:element ref="WorkingSiteQualityControlSoilConditioning" minOccurs="0">
 				<xs:annotation>
 				<xs:documentation xml:lang="fi">Maanmuokkauksen omavalvonnan koealatiedot</xs:documentation>
@@ -657,7 +631,8 @@
 				<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 				</xs:element> -->
-			<xs:element ref="MapSymbol:MapSymbol" minOccurs="0"/>
+			<!-- <xs:element ref="MapSymbol:MapSymbol" minOccurs="0"/> -->
+			<xs:element ref="Image:Image" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute name="id" type="co:IdStringNotEmptyType">
 			<xs:annotation>
@@ -2406,29 +2381,32 @@
 
 	<xs:complexType name="SelfMonitoringBasicDataType">
 		<xs:sequence>
-			<xs:element minOccurs="0" name="ProjectNo" type="ProjectNoType">
+			<xs:element name="ProjectNo" type="ProjectNoType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Hankenumero</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="SelfMonitoringType" type="co:SelfMonitoringTypeType">
+			<xs:element name="SelfMonitoringType" type="co:SelfMonitoringTypeType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Omavalvonnan tyyppi</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="SelfMonitoringDate" type="co:DateType">
+			<xs:element name="SelfMonitoringDate" type="co:DateType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Omavalvontapäivämäärä</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
+			<xs:element ref="fcc:FinancingActNumber" minOccurs="0"/>
+			<xs:element ref="fcc:CustomerReference" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:simpleType name="ProjectNoType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Projekti-/hankenumero</xs:documentation>
@@ -2437,6 +2415,7 @@
 		</xs:annotation>
 		<xs:restriction base="co:ReferenceType"/>
 	</xs:simpleType>
+	
 	<xs:complexType name="SelfMonitoringObjectDataType">
 		<xs:sequence>
 			<xs:element minOccurs="0" name="SelfMonitoringStandArea" type="co:AreaType">
@@ -2515,12 +2494,14 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SelfMonitoringEvaluationsType">
 		<xs:sequence>
 			<xs:element minOccurs="1" name="SelfMonitoringEvaluation"
 				type="SelfMonitoringEvaluationType" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SelfMonitoringEvaluationType">
 		<xs:sequence>
 			<xs:element minOccurs="0" name="EvaluationCode" type="co:EvaluationCodeType">
@@ -2553,6 +2534,7 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
+	
 	<xs:complexType name="WorkSafetyRisksType">
 		<xs:sequence>
 			<xs:element minOccurs="1" name="WorkSafetyRiskDescription" type="co:String1000Type"
@@ -2565,6 +2547,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SelfMonitoringObjectProtectionOperationsDataType">
 		<xs:sequence>
 			<xs:element minOccurs="0" name="BorderingWithWaterAreaOrStream" type="co:YesNoType">

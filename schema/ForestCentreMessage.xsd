@@ -20,6 +20,9 @@
 	
 	Muutokset skeemapakettiin V11.04:
 	-Elementti ForestCentreCommonObjectData piilotettu näkyvistä sijoittamalla se kommenttitageihin
+	
+	Muutokset skeemapakettiin V12.01:
+	-Elementti ForestCentreCommonObjectData uudelleennimetty SelfMonitoringData:ksi. Samalla elementti otettu käyttöön poistamalla se kommenttitageista.
 	***************************************************************
 -->
 
@@ -33,7 +36,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	xmlns:mdd="http://standardit.tapio.fi/schemas/forestData/MooseDamageDeclaration"
-	elementFormDefault="qualified" version="V11.04">
+	elementFormDefault="qualified" version="V12.01">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestUseDeclaration"
@@ -91,13 +94,13 @@
 			<xs:documentation xml:lang="en">Financing act completion declaration data, when Message = KMRTI</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<!-- <xs:element name="ForestCentreCommonObjectData" type="cod:ForestCentreCommonObjectDataType">
+	<xs:element name="SelfMonitoringData" type="SelfMonitoringDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Omavalvonnan tiedot, kun Message = OVT</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Self-monitoring information, when Message = OVT</xs:documentation>
 		</xs:annotation>
-	</xs:element> -->
+	</xs:element>
 	<xs:element name="MooseDamageDeclaration" type="mdd:MooseDamageDeclarationType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Hirvivahinkoilmoituksen tiedot, kun Message = HVI</xs:documentation>
@@ -122,7 +125,7 @@
 				<xs:element ref="FinancingActApplication" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="FinancingActCompletionDeclaration" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="MooseDamageDeclaration" minOccurs="1" maxOccurs="1"/>
-				<!-- <xs:element ref="ForestCentreCommonObjectData" minOccurs="1" maxOccurs="1"/> -->
+				<xs:element ref="SelfMonitoringData" minOccurs="1" maxOccurs="1"/>
 			</xs:choice>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
@@ -140,6 +143,40 @@
 				<xs:documentation xml:lang="en">Message based on schema package ...</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+	</xs:complexType>
+	
+	<xs:complexType name="SelfMonitoringDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsäkeskuksen omavalvonnan rakenteiden määrittely.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="cod:CommonObjectDataReference" minOccurs="1"/>
+			<xs:element ref="cod:AdditionalDetails" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="cod:Sender" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="cod:UseCase" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Objects" type="ObjectsType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi"/>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en"/>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	
+	<xs:complexType name="ObjectsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Paikannetut kohteet -määrittely</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Geometry objects definition</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Object" type="cod:ForestCentreSelfMonitoringObjectType" minOccurs="1"
+				maxOccurs="unbounded"/>
+		</xs:sequence>
 	</xs:complexType>
 
 </xs:schema>

@@ -8,6 +8,9 @@
 	-Muutettu elementin Diameter tyyppimäärittely bdt:Decimal2FractionDigitsType -> bdt:PositiveInteger4digitsType, samalla päivitetty elementin dokumentaatio
 	-Muutettu elementin Length tyyppimäärittely bdt:Decimal2FractionDigitsType -> bdt:PositiveDecimalMax2IntegralPartMax1FractionalPartType, samalla päivitetty elementin dokumentaatio
 	-Muutettu elementin GrainSize tyyppimäärittely bdt:Decimal2FractionDigitsType -> bdt:PositiveInteger3digitsType, samalla päivitetty elementin dokumentaatio
+	
+	Muutokset skeemapakettiin V12.01:
+	-Muutettu elementin Geometry tyyppimäärittely gdt:PolygonOrMultiPolygonType -> gdt:PolygonOrMultiPolygon2Type
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperational"
@@ -15,7 +18,7 @@
            xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
            xmlns:wct="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperational"
-           elementFormDefault="qualified" attributeFormDefault="qualified" version="V11.03">
+           elementFormDefault="qualified" attributeFormDefault="qualified" version="V12.01">
 	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
                schemaLocation="Common_BasicDataType.xsd"/>
@@ -514,7 +517,7 @@
 					<xs:documentation xml:lang="fi">Kuvion numero</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Geometry" type="gdt:PolygonOrMultiPolygonType" minOccurs="1">
+			<xs:element name="Geometry" type="gdt:PolygonOrMultiPolygon2Type" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">kuvion rajat</xs:documentation>
 				</xs:annotation>
