@@ -22,6 +22,9 @@
 	
 	Muutokset skeemapakettiin V11.09:
 	-Skeeman rakennetta jatkojalostettu uusimpaan esimerkkisanomaan pohjautuen
+
+    Muutokset skeemapakettiin V11.10:
+    -Skeeman rakennetta muutettu siten, että yleisten osien rakenne siirretty skeematiedostoon ForestCentreCommon.xsd ja tähän skeemaan jätetty päätössanomalle spesifit osat
 	****************************************************************************
 -->
 
@@ -35,7 +38,7 @@
 	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
 	xmlns:gml="http://www.opengis.net/gml"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
-	elementFormDefault="qualified" version="V11.09">
+	elementFormDefault="qualified" version="V11.10">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -54,23 +57,14 @@
 
 	<!-- Elementtimääritykset -->
 	<!-- Element definitions -->
-	<xs:element name="ForestCentreData" type="ForestCentreControlDataType"/>
-	<xs:element name="TimeStamp" type="co:TimeStampType">
+	<xs:element name="ForestCentreData" type="ForestCentreDecisionDataType"/>
+	<xs:element name="ForestCentreDecision" type="ForestCentreDecisionType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Viestin lähetysajankohta, aikaleima</xs:documentation>
+			<xs:documentation xml:lang="fi">Metsäkeskuksen päätössanoma, kun Message = MKPS</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="Message" type="co:ControlDataMessageType"/>
-	<xs:element name="MetadataText" type="co:String1000Type">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Tarkastustietosanoman metatiedot</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en"/>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="ForestCentreDecision" type="ForestCentreDecisionType"/>
 	<xs:element name="CaseNumber" type="fcc:FinancingActNumberType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Asianumero. Käytetään myös termiä (hankkeen) Riihi-numero. Tapauskohtaisesti tarkoittaa Riihinumeroa, MKI-nro... Kemera-hakemuksessa vastaava tieto FinancingActNumber.</xs:documentation>
@@ -106,34 +100,6 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="CustomerReference" type="co:ReferenceType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Asiakkaan hankenumero / asiakasviite</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en"/>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="FinancingActApplicationReference" type="co:ReferenceType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kemera-hakemuksen viite, käytetään Kemeraan liittyvissä päätöksissä.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en"/>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="CompletionDeclarationReference" type="co:ReferenceType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kemera-toteutusilmoituksen viite, käytetään Kemeraan liittyvissä päätöksissä.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en"/>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="ForestUseDeclarationReference" type="co:ReferenceType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">MKI-viite, käytetään metsänkäyttöilmoitukseen liittyvissä päätöksissä (Päätös poikkeuksen myöntämiseksi määräajasta).</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en"/>
-		</xs:annotation>
-	</xs:element>
 	<xs:element name="Acceptance" type="co:AcceptanceType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Päätös: Hyväksytty / Hylätty / Osittain hyväksytty</xs:documentation>
@@ -155,7 +121,7 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="ActionType" type="co:ActionTypeType">
+	<xs:element name="ActionType" type="xs:string">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Toimenpidetyyppi: hakemus | kuuleminen | päätös | maksatus | asiakirjan lähettäminen</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
@@ -176,7 +142,7 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="OriginalSender" type="DecisionContactInformationType">
+	<xs:element name="OriginalSender" type="ci:ContactInformationType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Alkuperäinen lähettäjä/laatija</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
@@ -190,14 +156,14 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="DecisionReceiver" type="DecisionContactInformationType">
+	<xs:element name="DecisionReceiver" type="ci:ContactInformationType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Päätöksen vastaanottaja(t)</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="Attorney" type="DecisionContactInformationType">
+	<xs:element name="Attorney" type="ci:ContactInformationType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Asiamies</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
@@ -569,33 +535,14 @@
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
 
-	<xs:complexType name="ForestCentreControlDataType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Metsäkeskuksen tarkastustiedot</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Forest Centre control data</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="TimeStamp"/>
-			<xs:element ref="Message" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="MetadataText" minOccurs="0"/>
-			<xs:element ref="ForestCentreDecision" minOccurs="1" maxOccurs="1"/>
-		</xs:sequence>
-		<xs:attribute name="id" type="co:IdStringType">
-			<xs:annotation>
-				<xs:documentation xml:lang="fi">Viestin id</xs:documentation>
-				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en">Message id</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="schemaPackageVersion"
-			type="co:ForestDataStandardSchemaPackageVersionType">
-			<xs:annotation>
-				<xs:documentation xml:lang="fi">Viesti perustuu skeemapakettiin ...</xs:documentation>
-				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en">Message based on schema package ...</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
+	<xs:complexType name="ForestCentreDecisionDataType">
+		<xs:complexContent>
+			<xs:extension base="fcc:ForestCentreDataType">
+				<xs:sequence>
+					<xs:element ref="ForestCentreDecision" minOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="ForestCentreDecisionType">
@@ -610,10 +557,10 @@
 			<xs:element ref="DecisionNumber"/>
 			<xs:element ref="DecisionType"/>
 			<xs:element ref="DecisionDate"/>
-			<xs:element ref="CustomerReference" minOccurs="0"/>
-			<xs:element ref="FinancingActApplicationReference" minOccurs="0"/>
-			<xs:element ref="CompletionDeclarationReference" minOccurs="0"/>
-			<xs:element ref="ForestUseDeclarationReference" minOccurs="0"/>
+			<xs:element ref="fcc:CustomerReference" minOccurs="0"/>
+			<xs:element ref="fcc:FinancingActApplicationReference" minOccurs="0"/>
+			<xs:element ref="fcc:CompletionDeclarationReference" minOccurs="0"/>
+			<xs:element ref="fcc:ForestUseDeclarationReference" minOccurs="0"/>
 			<xs:element ref="Acceptance"/>
 			<xs:element ref="CaseActions"/>
 			<xs:element ref="OriginalSender"/>

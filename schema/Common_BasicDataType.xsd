@@ -60,10 +60,12 @@
 	16.5.2016
 	- New simpleType "ExtendedQuantityUnitType"
 	
-	***************************************************************
-	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+
+    Muutokset skeemapakettiin V11.10:
+    -Lisätty uusi tyyppimäärittely UseCaseType joka on yhdistelmä koodistoista ControlUseCaseType ja SelfMonitoringUseCaseType
+	***************************************************************
 -->
 <xs:schema
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -72,7 +74,7 @@
 	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
 	elementFormDefault="unqualified"
 	attributeFormDefault="unqualified"
-	version="V10.05">
+	version="V11.10">
 
 	<!-- Imports / Includes -->
 	<xs:include schemaLocation="ForestEnumeratives.xsd"/>
@@ -841,6 +843,15 @@
 			<xs:documentation xml:lang="en">OperationType</xs:documentation>
 		</xs:annotation>
 		<xs:union memberTypes="PurchaseModeType StatisticsPurchaseModeType"/>
+	</xs:simpleType>
+	
+	<xs:simpleType name="UseCaseType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsäkeskuksen tarkastustieto- ja omavalvontasanomien käyttötapausten yhdistelmäkoodisto</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="ControlUseCaseType SelfMonitoringUseCaseType"/>
 	</xs:simpleType>
 
 </xs:schema>

@@ -59,6 +59,15 @@
 
     Muutokset skeemapakettiin V11.09:
     -Muutettu elementin UseCase tyyppimäärittely UseCaseType -> co:SelfMonitoringUseCaseType
+
+    Muutokset skeemapakettiin V11.10:
+    -Muutettu elementin UseCase tyyppimäärittely co:SelfMonitoringUseCaseType -> co:UseCaseType
+    -Muutettu elementin TreeStandData tyyppimäärittely TreeStandDataType -> ControlDataTreeStandDataType
+    -Tyyppimäärittelyssä TreeStandDataDateType muutettu elementin määrittely tyyppimäärittelyn sisään viittauksen sijaan
+    -Uudelleenjärjestelty skeematiedoston sisältämien elementtejä sequencejen sisällä
+    -Korjailtu skeeman sisältämien elementtien ja tyyppimäärittelyjen nimissä esiintyneitä kirjoitusvirheitä
+    -Lisätty uusi vapaaehtoinen elementti PreclearingEvaluation
+    -Skeematiedostosta poistettu viittaus elementtiin OperationTreeReduction
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -84,7 +93,7 @@
 	xmlns:workingSiteFinalAuditSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSoilConditioning"
 	xmlns:workingSiteQualityControlSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
 	xmlns:MapSymbol="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
-	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.09">
+	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.10">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase"
@@ -160,9 +169,9 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="UseCase" type="co:SelfMonitoringUseCaseType">
+	<xs:element name="UseCase" type="co:UseCaseType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Omavalvonnan käyttötapaus</xs:documentation>
+			<xs:documentation xml:lang="fi">Käyttötapauskoodisto</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
@@ -399,16 +408,9 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="TreeStandData" type="ControlDataTreeStandDataType">
+	<xs:element name="TreeStandData" type="TreeStandDataType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en"/>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="TreeStandDataDate" type="ControlDataTreeStandDataDateType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="fi"/>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
@@ -427,7 +429,7 @@
 	<xs:element name="VehiclePathMeanWidth" type="Decimal5_1Type"/>
 	<xs:element name="VehiclePathSubsidenceLength" type="Decimal3_1Type"/>
 	<xs:element name="VehiclePathSubsidencePercentage" type="Decimal3_1Type"/>
-	
+
 
 	<!-- Tyyppimääritykset / Type definitions -->
 	<xs:complexType name="CommonObjectDataType">
@@ -701,8 +703,10 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ControlForestUseDeclaration" type="ControlForestUseDeclarationType" minOccurs="0"/>
-			<xs:element name="ControlObjectBasicData" type="ControlObjectBasicDataType" minOccurs="0" maxOccurs="1">
+			<xs:element name="ControlForestUseDeclaration" type="ControlForestUseDeclarationType"
+				minOccurs="0"/>
+			<xs:element name="ControlObjectBasicData" type="ControlObjectBasicDataType"
+				minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Tarkastettavan kohteen perustiedot</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -717,11 +721,6 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="StandBasicData" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="SoilData" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="TreeStandBasedData" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="TreeStandData" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="op:Operations" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="SamplePlotBasicData" type="SamplePlotBasicDataType" minOccurs="0"
 				maxOccurs="1">
 				<xs:annotation>
@@ -730,21 +729,28 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
+			<xs:element ref="StandBasicData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="SoilData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="TreeStandBasedData" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TreeStandData" type="TreeStandDataType" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="op:Operations" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Damages" type="DamageDataType" minOccurs="0"/>
 			<xs:element name="ControlDataSpecialFeatures" type="ControlDataSpecialFeaturesType"
 				minOccurs="0"/>
-			<xs:element name="HarvestingSignData" type="HarvestingSignDataType" minOccurs="0" maxOccurs="1">
+			<xs:element name="HarvestingSignData" type="HarvestingSignDataType" minOccurs="0"
+				maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Korjuujälki</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ObjectOverallEvaluationData" type="ControlOverallEvaluationDataType" minOccurs="0" maxOccurs="1">
+			<xs:element name="ObjectOverallEvaluationData" type="ControlOverallEvaluationDataType"
+				minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-				<xs:documentation xml:lang="fi">Kokonaisarvostelu</xs:documentation>
-				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en"/>
+					<xs:documentation xml:lang="fi">Kokonaisarvostelu</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
 			<!-- <xs:element name="ControlDataRegeneration" type="RegenerationDataType" minOccurs="0" maxOccurs="1">
@@ -1460,7 +1466,8 @@
 
 	<xs:complexType name="ControlObjectBasicDataType">
 		<xs:sequence>
-			<xs:element name="ObjectReferenceType" type="co:ForestCentreMessageReferenceType" minOccurs="0"/>
+			<xs:element name="ObjectReferenceType" type="co:ForestCentreMessageReferenceType"
+				minOccurs="0"/>
 			<xs:element name="ObjectReference" type="co:ReferenceType" minOccurs="0"/>
 			<xs:element name="ControlledOperationType" type="co:CostTypeNumberType" minOccurs="0"/>
 			<xs:element name="ControlledOperationDescription" type="co:String100Type" minOccurs="0"/>
@@ -2065,8 +2072,11 @@
 
 	<xs:complexType name="ControlOverallEvaluationDataType">
 		<xs:sequence>
-			<xs:element name="RestrictionBasedOnStoniness" type="co:RestrictionBasedOnStoninessType" minOccurs="0"/>
-			<xs:element name="DeclarationDeliveringEvaluation" type="co:EvaluationCodeType" minOccurs="0">
+			<xs:element name="RestrictionBasedOnStoniness" type="co:RestrictionBasedOnStoninessType"
+				minOccurs="0"/>
+			<xs:element name="PreclearingEvaluation" type="co:PreclearingEvaluationType" minOccurs="0"/>
+			<xs:element name="DeclarationDeliveringEvaluation" type="co:EvaluationCodeType"
+				minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Ilmoituksen jättämisen arviointi</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -2087,14 +2097,16 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TreeDamageOutsideStandEvaluation" type="co:EvaluationCodeType" minOccurs="0">
+			<xs:element name="TreeDamageOutsideStandEvaluation" type="co:EvaluationCodeType"
+				minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Kuvion ulkopuolisten puustovaurioiden arvostelu</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TerrainDamageOutsideStandEvaluation" type="co:EvaluationCodeType" minOccurs="0">
+			<xs:element name="TerrainDamageOutsideStandEvaluation" type="co:EvaluationCodeType"
+				minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Kuvion ulkopuoliset maastovauriot (koodisto)</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -2354,7 +2366,7 @@
 			<xs:element name="EvaluationDescription" type="co:String1000Type" minOccurs="0"/>
 			<xs:element name="MainReason" type="co:YesNoType" minOccurs="0"/>
 			<xs:element name="ReasonCode" type="xs:integer" minOccurs="0"/>
-			<xs:element name="ReasonDesccription" type="co:String1000Type" minOccurs="0"/>
+			<xs:element name="ReasonDescription" type="co:String1000Type" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -2380,19 +2392,18 @@
 
 	<xs:complexType name="DamageDataType">
 		<xs:sequence>
-			<xs:element name="Damage" type="DamageType" maxOccurs="unbounded">
-			</xs:element>
+			<xs:element name="Damage" type="DamageType" maxOccurs="unbounded"> </xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	
+
 	<xs:complexType name="DamageType">
 		<xs:sequence>
 			<xs:element name="MainDamage" type="co:YesNoType" minOccurs="0"/>
 			<xs:element name="DamageSourceCode" type="xs:string" minOccurs="0"/>
-			<xs:element name="DmageSourceDescription" type="co:String100Type" minOccurs="0"/>
+			<xs:element name="DamageSourceDescription" type="co:String100Type" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
-	
+
 	<xs:complexType name="SelfMonitoringBasicDataType">
 		<xs:sequence>
 			<xs:element minOccurs="0" name="ProjectNo" type="ProjectNoType">
@@ -2641,25 +2652,24 @@
 			<xs:element ref="Comments" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
-	
-	<xs:complexType name="ControlDataTreeStandDataType">
+
+	<xs:complexType name="TreeStandDataType">
 		<xs:sequence>
-			<xs:element ref="TreeStandDataDate"/>
+			<xs:element name="TreeStandDataDate" type="ts:TreeStandDataDate2Type" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	
+
 	<xs:complexType name="ControlDataTreeStandDataDateType">
 		<xs:complexContent>
 			<xs:extension base="ts:TreeStandDataDateType">
 				<xs:sequence>
-					<xs:element ref="ts:OperationTreeReduction" minOccurs="0"/>
 					<!-- <xs:element ref="ts:SeedlingData" minOccurs="0"/>
 					<xs:element ref="ts:SpareTreeGroups" minOccurs="0"/> -->
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="ControlForestUseDeclarationType">
 		<xs:sequence>
 			<xs:element name="CuttingRealizationPractice" type="co:CuttingTypeType" minOccurs="0">
@@ -2669,7 +2679,8 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="HarvestingSignControlClassifier" type="co:EvaluationCodeType" minOccurs="0">
+			<xs:element name="HarvestingSignControlClassifier" type="co:EvaluationCodeType"
+				minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Korjuujälkitarkastuksen luokitus</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
@@ -2678,5 +2689,5 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	
+
 </xs:schema>

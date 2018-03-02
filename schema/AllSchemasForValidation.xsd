@@ -5,12 +5,15 @@
     
     Muutokset skeemapakettiin V10.05:
     -Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+
+    Muutokset skeemapakettiin V11.10:
+    -Skeeman ForestCentrePayments.xsd namespace muutettu ForestryCentrePayments -> ForestCentrePayments
 -->
 <xs:schema
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns="http://standardit.tapio.fi/schemas/forestDataValidation"
     targetNamespace="http://standardit.tapio.fi/schemas/forestDataValidation"
-    version="V10.05">
+    version="V11.10">
 
     <!-- Imports / Includes -->
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData"
@@ -19,7 +22,7 @@
         schemaLocation="ForestCentreMessage.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreDecision"
         schemaLocation="ForestCentreDecision.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestryCentrePayments"
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestCentrePayments"
         schemaLocation="ForestCentrePayments.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreReply"
         schemaLocation="ForestCentreReply.xsd"/>

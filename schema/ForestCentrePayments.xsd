@@ -18,170 +18,128 @@
 	
 	Muutokset skeemapakettiin V11.09:
 	-Sisältö muutettu vastaamaan uusia Metsäkeskuksen maksatussanoman määrittelyjä
+
+    Muutokset skeemapakettiin V11.10:
+    -Skeeman rakennetta muutettu siten, että yleisten osien rakenne siirretty skeematiedostoon ForestCentreCommon.xsd ja tähän skeemaan jätetty maksatussanomalle spesifit osat
+    
+    Muutokset skeemapakettii V11.11:
+    -Elementti PaymentsDate uudelleennimetty muotoon PaymentDate
+    -Elementti PaymentsReference uudelleennimetty muotoon PaymentReference
+    -Lisätty uusi vapaaehtoinen elementti RequestReference tyypiltään ForestCentreMessageReferenceType 9 (kyselyviite)
 	****************************************************************************
 -->
 
-<xs:schema
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForestryCentrePayments"
-	xmlns="http://standardit.tapio.fi/schemas/forestData/ForestryCentrePayments"
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForestCentrePayments"
+	xmlns="http://standardit.tapio.fi/schemas/forestData/ForestCentrePayments"
 	xmlns:fcc="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
-	xmlns:cod="http://standardit.tapio.fi/schemas/forestData/commonObjectData"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
-	elementFormDefault="qualified" version="V11.09">
+	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate"
+	elementFormDefault="qualified" version="V11.11">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
 		schemaLocation="Common.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
 		schemaLocation="ForestCentreCommon.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/commonObjectData"
-		schemaLocation="CommonObjectData.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 		schemaLocation="ContactInformation.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/realEstate"
+		schemaLocation="RealEstateBase.xsd"/>
 
 	<!-- Elementtimääritykset -->
 	<!-- Element definitions -->
-	<xs:element name="ForestCentreData" type="ForestCentreControlDataType"/>
-	<xs:element name="TimeStamp" type="co:TimeStampType">
+	<xs:element name="ForestCentreData" type="ForestCentrePaymentsDataType"/>
+	<xs:element name="ForestCentrePayments" type="ForestCentrePaymentsType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Viestin lähetysajankohta, aikaleima</xs:documentation>
+			<xs:documentation xml:lang="fi">Metsäkeskuksen maksatussanoma, kun Message = MKM</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="Message" type="co:ControlDataMessageType"/>
-	<!-- <xs:element name="ControlObjectData" type="ControlObjectDataType">
+	<xs:element name="Payees" type="PayeesType">
 		<xs:annotation>
-		<xs:documentation xml:lang="fi">Tarkastuksen tiedot, kun Message = ???</xs:documentation>
-		<xs:documentation xml:lang="sv"/>
-		<xs:documentation xml:lang="en">Control information, when Message = ???</xs:documentation>
-		</xs:annotation>
-		</xs:element> -->
-	<xs:element name="MetadataText" type="co:String1000Type">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Tarkastustietosanoman metatiedot</xs:documentation>
+			<xs:documentation xml:lang="fi">Maksunsaajat</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="ForestCentrePayments" type="ForestCentreControlPaymentsType"/>
-	<xs:element name="Payees" type="PayeesType"/>
-	<xs:element name="Payee" type="PayeeType"/>
-	<xs:element name="Payments" type="PaymentsType"/>
-	<xs:element name="Payment" type="ForestCentrePaymentsType"/>
-	<!-- <xs:element name="ForestCentrePayments" type="ForestCentrePaymentsType"/> -->
-	<xs:element name="ForestCentreMessageReference" type="co:ReferenceType">
+	<xs:element name="Payee" type="PayeeType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Metsäkeskusviestin viite</xs:documentation>
+			<xs:documentation xml:lang="fi">Maksunsaaja</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Reference of Forest Centre Message</xs:documentation>
+			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SubsidyAppliers" type="SubsidyAppliersType"/>
+	<xs:element name="Payments" type="PaymentsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Maksuerät</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Payment" type="ForestCentrePaymentDetailsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Maksuerä</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SubsidyAppliers" type="SubsidyAppliersType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tuensaajat</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="RealEstates" type="PaymentsRealEstatesType"/>
+	<xs:element name="RealEstate" type="PaymentsRealEstateType"/>
 
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
-	
-	<xs:complexType name="ForestCentreControlDataType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Metsäkeskuksen tarkastustiedot</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Forest Centre control data</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="TimeStamp"/>
-			<xs:element ref="Message" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="MetadataText" minOccurs="0"/>
-			<!-- <xs:element ref="ControlObjectData" minOccurs="1" maxOccurs="1"/> -->
-			<xs:element ref="ForestCentrePayments" minOccurs="1" maxOccurs="1"/>
-		</xs:sequence>
-		<xs:attribute name="id" type="co:IdStringType">
-			<xs:annotation>
-				<xs:documentation xml:lang="fi">Viestin id</xs:documentation>
-				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en">Message id</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="schemaPackageVersion"
-			type="co:ForestDataStandardSchemaPackageVersionType">
-			<xs:annotation>
-				<xs:documentation xml:lang="fi">Viesti perustuu skeemapakettiin ...</xs:documentation>
-				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en">Message based on schema package ...</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
+
+	<xs:complexType name="ForestCentrePaymentsDataType">
+		<xs:complexContent>
+			<xs:extension base="fcc:ForestCentreDataType">
+				<xs:sequence>
+					<xs:element ref="ForestCentrePayments" minOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="PayeesType">
 		<xs:sequence>
 			<xs:element ref="Payee" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	
+
 	<xs:complexType name="PayeeType">
-		<xs:sequence>
-			<xs:choice>
+		<xs:complexContent>
+			<xs:extension base="ci:ContactInformationType">
 				<xs:sequence>
-					<xs:element ref="ci:BusinessId" minOccurs="1"/>
-					<xs:element ref="ci:FirstName" minOccurs="1"/>
-					<xs:element ref="ci:LastName" minOccurs="1"/>
-					<xs:element ref="ci:PersonOrganizationName" minOccurs="0"/>
+					<xs:element ref="Payments" minOccurs="1"/>
+					<xs:element ref="fcc:Documents" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
-				<xs:element ref="ci:OrganizationName" minOccurs="1"/>
-			</xs:choice>
-			<xs:element ref="Payments" minOccurs="1"/>
-			<xs:element ref="fcc:Documents" minOccurs="0" maxOccurs="1"/>
-		</xs:sequence>
-		<xs:attribute name="id" type="co:IdStringType" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="PaymentsType">
 		<xs:sequence>
 			<xs:element ref="Payment" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	
-	<xs:complexType name="ForestCentreControlPaymentsType">
+
+	<xs:complexType name="ForestCentrePaymentsType">
 		<xs:sequence>
 			<xs:element ref="Payees" minOccurs="1"/>
 		</xs:sequence>
 		<xs:attribute name="id" type="co:IdStringType" use="required"/>
 	</xs:complexType>
-	
-	<!-- <xs:complexType name="ControlObjectsType">
-		<xs:annotation>
-		<xs:documentation xml:lang="fi">Paikannetut kohteet -määrittely</xs:documentation>
-		<xs:documentation xml:lang="sv"/>
-		<xs:documentation xml:lang="en">Geometry objects definition</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-		<xs:element name="Object" type="cod:ForestCentreControlObjectType" minOccurs="1"
-		maxOccurs="unbounded"/>
-		</xs:sequence>
-		</xs:complexType>
-		
-		<xs:complexType name="ControlObjectDataType">
-		<xs:annotation>
-		<xs:documentation xml:lang="fi">Metsäkeskuksen tarkastustietojen rakenteiden määrittely.</xs:documentation>
-		<xs:documentation xml:lang="sv"/>
-		<xs:documentation xml:lang="en"/>
-		</xs:annotation>
-		<xs:sequence>
-		<xs:element ref="cod:AdditionalDetails" minOccurs="0"/>
-		<xs:element name="Objects" type="ControlObjectsType" minOccurs="1" maxOccurs="1"/>
-		</xs:sequence>
-		<xs:attribute name="id" type="co:IdStringType">
-		<xs:annotation>
-		<xs:documentation xml:lang="fi"/>
-		<xs:documentation xml:lang="sv"/>
-		<xs:documentation xml:lang="en"/>
-		</xs:annotation>
-		</xs:attribute>
-		</xs:complexType> -->
-	
-	<xs:complexType name="ForestCentrePaymentsType">
+
+	<xs:complexType name="ForestCentrePaymentDetailsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsäkeskuksen maksatussanoma</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
@@ -189,14 +147,14 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="fcc:ForestCentreMessageReferenceType" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="ForestCentreMessageReference" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fcc:ForestCentreMessageReference" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="fcc:CompletionDeclarationReference" minOccurs="0"/>
 			<xs:element ref="fcc:CompletionDeclarationNumber" minOccurs="0"/>
 			<xs:element ref="fcc:CustomerReference" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="fcc:ArrivalDate" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="fcc:SubsidyAmount" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="fcc:PaymentsReference" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="fcc:PaymentsDate" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fcc:PaymentReference" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fcc:PaymentDate" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="SubsidyAppliers" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
@@ -207,11 +165,44 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	
+
 	<xs:complexType name="SubsidyAppliersType">
 		<xs:sequence>
-			<xs:element name="SubsidyApplier" type="fcc:SubsidyApplierBaseContactAndEstateInfoType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="SubsidyApplier" type="SubsidyApplierBaseContactAndEstateInfoType"
+				minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Tuensaaja</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SubsidyApplierBaseContactAndEstateInfoType">
+		<xs:complexContent>
+			<xs:extension base="ci:ContactInformationType">
+				<xs:sequence>
+					<xs:element ref="RealEstates" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="PaymentsRealEstatesType">
+		<xs:sequence>
+			<xs:element ref="RealEstate" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="PaymentsRealEstateType">
+		<xs:complexContent>
+			<xs:extension base="re:BaseRealEstateType2">
+				<xs:sequence>
+					<xs:element ref="fcc:SubsidyAmount" minOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 </xs:schema>

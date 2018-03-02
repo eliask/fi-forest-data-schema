@@ -26,6 +26,19 @@
     -Lisätty uusi tyyppimäärittely SubsidyApplierBaseContactAndEstateInfoType
     -Lisätty uusi tyyppimäärittely PaymentsRealEstatesType
     -Lisätty uusi tyyppimäärittely PaymentsRealEstateType
+
+    Muutokset skeemapakettiin V11.10:
+    -Elementti ForestUseDeclarationReference siirretty skeematiedostoon
+    -Elementti TimeStamp siirretty skeematiedostoon
+    -Elementti Message siirretty skeematiedostoon
+    -Elementti MetadataText siirretty skeematiedostoon
+    -Elementti ForestCentreMessageReference siirretty skeematiedostoon
+    -Lisätty uusi tyyppimäärittely ForestCentreDataType, sisältää metsäkeskuksesta ulospäin kirjoitettavien sanomien yleisten osien määrittelyt
+    
+    Muutokset skeemapakettii V11.11:
+    -Elementti PaymentsDate uudelleennimetty muotoon PaymentDate
+    -Elementti PaymentsReference uudelleennimetty muotoon PaymentReference
+    -Lisätty uusi vapaaehtoinen elementti RequestReference tyypiltään ForestCentreMessageReferenceType 9 (kyselyviite)
 	***************************************************************
 -->
 
@@ -36,12 +49,12 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	xmlns:stb="http://standardit.tapio.fi/schemas/forestData/standbase"
-	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate"
 	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
+	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate"
 	xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
 	xmlns:gml="http://www.opengis.net/gml"
 	elementFormDefault="qualified"
-	version="V11.09">
+	version="V11.11">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -50,8 +63,8 @@
 		schemaLocation="ContactInformation.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase"
 		schemaLocation="StandBase.xsd"/>
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/realEstate"
-		schemaLocation="RealEstateBase.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/realEstate"
+        schemaLocation="RealEstateBase.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
 		schemaLocation="Common_GeometricDataType.xsd"/>
 	<xs:import namespace="http://www.w3.org/2005/05/xmlmime"
@@ -88,6 +101,13 @@
             <xs:documentation xml:lang="fi">Toteutusilmoituksen yksilöivä viite. Ilmoituksen lähettäjän antama ilmoituskohtainen, valtakunnallisesti yksilöivä viite. Ilmoitusviitteen muodostamissääntö: lähettäjän organisaatiotunnus, vuosi, lähettäjän antama ilmoituksen yksilöivä tunnus.  Lähettävän organisaation tunnukset:  Metsähallitus=M-H, Metsämannut=M-M, Metsänhoitoyhdistys=MHY, Stora Enso=S-E, Tornator=TOR, UPM-Kymmene=UPM, MetsäGroup=M-G, Metsään.fi = MFI,  L&amp;T Biowatti Oy = BWO, Muu organisaatio=MUU. Esim. MHY2015999999999999999999999. Jos siirtotiedostossa käytetään MUU-organisaatiotunnusta, on siitä oltava yhteydessä tiedonsiirtopalvelun ylläpitäjään.</xs:documentation>
             <xs:documentation xml:lang="sv"/>
             <xs:documentation xml:lang="en">Reference of Completion Declaration</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="ForestUseDeclarationReference" type="co:ReferenceType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">MKI-viite, käytetään metsänkäyttöilmoitukseen liittyvissä päätöksissä (Päätös poikkeuksen myöntämiseksi määräajasta).</xs:documentation>
+            <xs:documentation xml:lang="sv"/>
+            <xs:documentation xml:lang="en"/>
         </xs:annotation>
     </xs:element>
 	<xs:element name="CustomerReference" type="co:ReferenceType">
@@ -167,7 +187,7 @@
             <xs:documentation xml:lang="en"/>
         </xs:annotation>
     </xs:element>
-    <xs:element name="PaymentsDate" type="co:DateType">
+    <xs:element name="PaymentDate" type="co:DateType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Maksupäivä</xs:documentation>
             <xs:documentation xml:lang="sv"/>
@@ -430,7 +450,7 @@
             <xs:documentation xml:lang="en"/>
         </xs:annotation>
     </xs:element>
-    <xs:element name="PaymentsReference" type="PaymentsReferenceType">
+    <xs:element name="PaymentReference" type="PaymentsReferenceType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Maksuviite</xs:documentation>
             <xs:documentation xml:lang="sv"/>
@@ -514,9 +534,42 @@
         </xs:annotation>
     </xs:element>
     <xs:element name="ForestCentreMessageReferenceType" type="co:ForestCentreMessageReferenceType"/>
-    <xs:element name="CompletionDeclarationNumber" type="co:String100Type"/>
-    <xs:element name="RealEstates" type="PaymentsRealEstatesType"/>
-    <xs:element name="RealEstate" type="PaymentsRealEstateType"/>
+    <xs:element name="CompletionDeclarationNumber" type="co:String100Type">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Toteutusilmoituksen numero</xs:documentation>
+            <xs:documentation xml:lang="sv"/>
+            <xs:documentation xml:lang="en"/>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="TimeStamp" type="co:TimeStampType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Viestin lähetysajankohta, aikaleima</xs:documentation>
+            <xs:documentation xml:lang="sv"/>
+            <xs:documentation xml:lang="en"/>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="Message" type="co:ForestCentreDataMessageType"/>
+    <xs:element name="MetadataText" type="co:String1000Type">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Sanoman metatiedot</xs:documentation>
+            <xs:documentation xml:lang="sv"/>
+            <xs:documentation xml:lang="en"/>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="ForestCentreMessageReference" type="co:ReferenceType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Metsäkeskusviestin viite</xs:documentation>
+            <xs:documentation xml:lang="sv"/>
+            <xs:documentation xml:lang="en">Reference of Forest Centre Message</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="RequestReference" type="co:ReferenceType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Metsäkeskusviestin kyselyviite</xs:documentation>
+            <xs:documentation xml:lang="sv"/>
+            <xs:documentation xml:lang="en">Request reference of Forest Centre Message</xs:documentation>
+        </xs:annotation>
+    </xs:element>
     
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
@@ -1109,7 +1162,7 @@
             <xs:element ref="CostType" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="CompletedWorkAmount" minOccurs="0" maxOccurs="1"/>
             <xs:element ref="UnitPrice" minOccurs="0" maxOccurs="1"/>
-            <xs:element ref="PaymentsReference" minOccurs="0" maxOccurs="1"/>
+            <xs:element ref="PaymentReference" minOccurs="0" maxOccurs="1"/>
             <xs:element ref="SubsidyAmount" minOccurs="1" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
@@ -1144,32 +1197,34 @@
         </xs:sequence>
     </xs:complexType>
     
-    <xs:complexType name="SubsidyApplierBaseContactAndEstateInfoType">
+    <xs:complexType name="ForestCentreDataType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Metsäkeskuksesta ulospäin suuntautuvien sanomien yleisten osien määrittely</xs:documentation>
+            <xs:documentation xml:lang="sv"/>
+            <xs:documentation xml:lang="en"/>
+        </xs:annotation>
         <xs:sequence>
-            <xs:choice>
-                <xs:sequence>
-                    <xs:element ref="ci:BusinessId" minOccurs="1"/>
-                    <xs:element ref="ci:FirstName" minOccurs="1"/>
-                    <xs:element ref="ci:LastName" minOccurs="1"/>
-                    <xs:element ref="ci:PersonOrganizationName" minOccurs="0"/>
-                </xs:sequence>
-                <xs:element ref="ci:OrganizationName" minOccurs="1"/>
-            </xs:choice>
-            <xs:element ref="RealEstates" minOccurs="0"/>
+            <xs:element ref="TimeStamp"/>
+            <xs:element ref="Message" minOccurs="1" maxOccurs="1"/>
+            <xs:element ref="RequestReference" minOccurs="0"/>
+            <xs:element ref="MetadataText" minOccurs="0"/>
+            <!-- <xs:element ref="ControlObjectData" minOccurs="1" maxOccurs="1"/> -->
         </xs:sequence>
-    </xs:complexType>
-    
-    <xs:complexType name="PaymentsRealEstatesType">
-        <xs:sequence>
-            <xs:element ref="RealEstate" minOccurs="1" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:complexType>
-    
-    <xs:complexType name="PaymentsRealEstateType">
-        <xs:sequence>
-            <xs:element ref="re:RegisterUnitId" minOccurs="1"/>
-            <xs:element ref="SubsidyAmount" minOccurs="1"/>
-        </xs:sequence>
+        <xs:attribute name="id" type="co:IdStringType">
+            <xs:annotation>
+                <xs:documentation xml:lang="fi">Viestin id</xs:documentation>
+                <xs:documentation xml:lang="sv"/>
+                <xs:documentation xml:lang="en">Message id</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="schemaPackageVersion"
+            type="co:ForestDataStandardSchemaPackageVersionType">
+            <xs:annotation>
+                <xs:documentation xml:lang="fi">Viesti perustuu skeemapakettiin ...</xs:documentation>
+                <xs:documentation xml:lang="sv"/>
+                <xs:documentation xml:lang="en">Message based on schema package ...</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
     </xs:complexType>
 
 </xs:schema>

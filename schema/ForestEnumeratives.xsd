@@ -7,7 +7,7 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	*****************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V11.09">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V11.11">
   <xs:include schemaLocation="ForestFeatureEnumeratives.xsd" />
   <xs:simpleType name="TurningPointClassType">
     <xs:annotation>
@@ -7866,6 +7866,13 @@
           <xs:documentation xml:lang="fi">Hirvivahinkoalueviite</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en">Moose damage area reference</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="9">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kyselyviite</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -16582,20 +16589,6 @@
           <xs:documentation xml:lang="en">Financing act application</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="KMRMA">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Kemera maksatusviesti</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">Financing act application payment message</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="KMRPS">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Kemera rahoitushakemuksen päätösviesti</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">Financing act application decision message</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value="KMRTI">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kemera toteutusilmoitus</xs:documentation>
@@ -20071,6 +20064,13 @@
           <xs:documentation xml:lang="en">Schema package V11</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="V12">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V12</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V12</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="DiameterClassType">
@@ -21217,6 +21217,34 @@
           <xs:documentation xml:lang="en">Schema package V11.09</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="V11.10">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V11.10</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V11.10</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V11.11">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V11.11</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V11.11</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V12.00">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V12.00</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V12.00</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V12.01">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V12.01</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V12.01</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="PreferredContactingMethodType">
@@ -21880,80 +21908,6 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="ControlDataMessageType">
-    <xs:annotation>
-      <xs:documentation xml:lang="fi">Tarkastustietojen sanomatyyppi</xs:documentation>
-      <xs:documentation xml:lang="sv"> </xs:documentation>
-      <xs:documentation xml:lang="en"> </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="TT">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Tarkastustiedot</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">Control data</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="MKM">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Metsäkeskuksen maksatussanoma</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">Forestry centre payment message</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="MKPS">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Metsäkeskuksen päätössanoma</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="ActionTypeType">
-    <xs:annotation>
-      <xs:documentation xml:lang="fi">Toimenpidetyyppi</xs:documentation>
-      <xs:documentation xml:lang="sv"> </xs:documentation>
-      <xs:documentation xml:lang="en"> </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="1">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Hakemus</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="2">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Kuuleminen</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="3">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Päätös</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="4">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Maksatus</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="5">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Asiakirjan lähettäminen (merkkijono)</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
   <xs:simpleType name="DecisionGeometryObjectType">
     <xs:annotation>
       <xs:documentation xml:lang="fi">Päätökseen liittyvän geometrian tyyppi</xs:documentation>
@@ -22183,6 +22137,66 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Omavalvonta - korjuujälki</xs:documentation>
           <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ForestCentreDataMessageType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi">Sanomatyyppi</xs:documentation>
+      <xs:documentation xml:lang="sv"> </xs:documentation>
+      <xs:documentation xml:lang="en"> </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TT">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Tarkastustiedot</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MKM">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsäkeskuksen maksatussanoma</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MKPS">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsäkeskuksen päätössanoma</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PreclearingEvaluationType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi">Ennakkoraivauksen arviointi koodisto</xs:documentation>
+      <xs:documentation xml:lang="sv"> </xs:documentation>
+      <xs:documentation xml:lang="en"> </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ennakkoraivausta ei ole tehty eikä siihen ole ollut tarvetta</xs:documentation>
+          <xs:documentation xml:lang="sv">Förhandsröjning, inte gjort och inget behov</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ennakkoraivaus ei ole tehty, vaikka siihen olisi ollut tarvetta tai työ on toteutettu puutteellisesti</xs:documentation>
+          <xs:documentation xml:lang="sv">Förhandsröjning, inte gjort trots behov, eller bristfälligt utfört</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ennakkoraivaus on tehty suositusten mukaisesti</xs:documentation>
+          <xs:documentation xml:lang="sv">Förhandsröjning utförd enligt rekommendationerna</xs:documentation>
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>

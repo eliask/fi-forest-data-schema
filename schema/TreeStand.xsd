@@ -15,6 +15,9 @@
     -Lisätty määrittely elementille SpareTreeGroups
     -Lisätty määrittely elementille SpareTreeGroup
     -Lisätty määrittely elementille TreeClass
+
+    Muutokset skeemapakettiin V11.10:
+    -Lisätty uusi tyyppimäärittely TreeStandDataDate2Type joka on rinnakkaismäärittely puustoajankohdalle
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -26,7 +29,7 @@
 	xmlns:dts="http://standardit.tapio.fi/schemas/forestData/deadTreeStrata"
 	xmlns:tss="http://standardit.tapio.fi/schemas/forestData/treeStandSummary"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
-	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" elementFormDefault="qualified" version="V11.06">
+	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" elementFormDefault="qualified" version="V11.10">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStratum" schemaLocation="TreeStratum.xsd"/>
@@ -100,17 +103,53 @@
 			<xs:element ref="tst:TreeStrata" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="dts:DeadTreeStrata" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="tss:TreeStandSummary" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="sd:StemDistribution" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="sds:StemDistributionStrata" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="type" type="TreeStandDataMomentType" use="required">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Ajankohdan tyyppi</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en">Type of moment.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="date" type="co:DateType" use="required">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Ajankohdan pvm. Inventointi-, laskenta- tai ennustepvm.</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en">Date of moment.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="inventoryMethod" type="co:InventoryMethodType" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Ajankohdan puuston inventointimenetelmä</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en">Moments forest inventory method</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="TreeStandDataDate2Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kuvion osoitetun tyyppinen (inventointi/laskenta/ennuste) puusto ajankohtana pvm.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Some moment data of tree stand specified by date and type.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="AlternativeIdentifier" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TreeStrata" type="tst:TreeStrata2Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="dts:DeadTreeStrata" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TreeStandSummary" type="tss:TreeStandSummary2Type" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="sd:Trees" minOccurs="0"/>
 			<xs:element ref="sd:StemDistribution" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="sds:StemDistributionStrata" minOccurs="0" maxOccurs="1"/>
-			<!-- <xs:element ref="OperationTreeReduction" minOccurs="0"/> -->
+			<xs:element ref="OperationTreeReduction" minOccurs="0"/>
 			<!-- <xs:element ref="SeedlingData" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Taimitiedot</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
+				<xs:documentation xml:lang="fi">Taimitiedot</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en"/>
 				</xs:annotation>
-			</xs:element> -->
+				</xs:element> -->
 			<!-- <xs:element ref="ControlStandTreeStandSummary" minOccurs="0"/> -->
 		</xs:sequence>
 		<xs:attribute name="type" type="TreeStandDataMomentType" use="required">
@@ -135,7 +174,7 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	
+
 	<xs:simpleType name="TreeStandDataMomentType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Laskenta- ja ennustetyyppi eri koodeina koska ainakin aiemmin metsäkeskuksissa on käytetty tulevaisuuden puuston esittämisessä molempia. Laskentatyyppisessä tiedot on esitetty puusto-ositetarkkuudella ja ennustetyyppisessä on ollut pelkkä yhteenveto. Näiden kahden tyypin soveltamisesta voivat tiedonsiirtosovellukset päättää keskenään.</xs:documentation>

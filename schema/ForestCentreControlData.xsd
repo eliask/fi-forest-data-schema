@@ -10,6 +10,9 @@
     Muutokset skeemapakettiin V11.09:
     -Lisätty uusi elementti MetaDataText
     -Muutettu complexType ForestCentreControlDataType:n attribuutin "id" tyyppimäärittely xs:string -> co:IdStringType
+
+    Muutokset skeemapakettiin V11.10:
+    -Skeeman rakennetta muutettu siten, että yleisten osien rakenne siirretty skeematiedostoon ForestCentreCommon.xsd ja tähän skeemaan jätetty tarkastustiedoille spesifit osat
 	***************************************************************
 -->
 
@@ -19,7 +22,8 @@
 	xmlns:cod="http://standardit.tapio.fi/schemas/forestData/commonObjectData"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
-	elementFormDefault="qualified" version="V11.09">
+	xmlns:fcc="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
+	elementFormDefault="qualified" version="V11.10">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/commonObjectData"
@@ -28,60 +32,28 @@
 		schemaLocation="Common.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 		schemaLocation="ContactInformation.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreCommon"
+		schemaLocation="ForestCentreCommon.xsd"/>
 
 	<!-- Elementtimääritykset / Element definitions -->
 	<xs:element name="ForestCentreData" type="ForestCentreControlDataType"/>
-	<xs:element name="TimeStamp" type="co:TimeStampType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Viestin lähetysajankohta, aikaleima</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en"/>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="Message" type="co:ControlDataMessageType"/>
 	<xs:element name="ControlObjectData" type="ControlObjectDataType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Tarkastuksen tiedot, kun Message = ???</xs:documentation>
+			<xs:documentation xml:lang="fi">Tarkastuksen tiedot, kun Message = TT</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Control information, when Message = ???</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="MetadataText" type="co:String1000Type">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Tarkastustietosanoman metatiedot</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en"/>
+			<xs:documentation xml:lang="en">Control information, when Message = TT</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 
 	<!-- Tyyppimääritykset / Type definitions -->
 	<xs:complexType name="ForestCentreControlDataType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Metsäkeskuksen tarkastustiedot</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Forest Centre control data</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="TimeStamp"/>
-			<xs:element ref="Message" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="MetadataText" minOccurs="0"/>
-			<xs:element ref="ControlObjectData" minOccurs="1" maxOccurs="1"/>
-		</xs:sequence>
-		<xs:attribute name="id" type="co:IdStringType">
-			<xs:annotation>
-				<xs:documentation xml:lang="fi">Viestin id</xs:documentation>
-				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en">Message id</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="schemaPackageVersion"
-			type="co:ForestDataStandardSchemaPackageVersionType">
-			<xs:annotation>
-				<xs:documentation xml:lang="fi">Viesti perustuu skeemapakettiin ...</xs:documentation>
-				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en">Message based on schema package ...</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
+		<xs:complexContent>
+			<xs:extension base="fcc:ForestCentreDataType">
+				<xs:sequence>
+					<xs:element ref="ControlObjectData" minOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="ControlObjectsType">
