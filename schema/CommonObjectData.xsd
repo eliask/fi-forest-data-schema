@@ -75,6 +75,13 @@
     WorkingSiteFinalAuditHarvesting, WorkingSiteFinalAuditRoadMaking, WorkingSiteFinalAuditSilviculture, WorkingSiteFinalAuditSoilConditioning ja MapSymbol. Lisätty seuraava elementti näkyville poistamalla se 
     kommenttitageista: WorkingSiteQualityControlPlantManagement
     -Lisätty uusi vapaaehtoinen elementti Image
+    
+    Muutokset skeemapakettiin V13.01:
+    -Lisätty uusi vapaaehtoinen elementti PowerOfAttorneyDate
+    -Lisätty uusi vapaaehtoinen elementti PowerOfAttorney
+    -Lisätty seuraavat elementit näkyviin: WorkingSiteFinalAuditSoilConditioning, WorkingSiteQualityControlSoilConditioning, WorkingSiteFinalAuditSilviculture ja WorkingSiteQualityControlSilviculture
+    -Lisätty uusi tyyppimäärittely ImageType
+    
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -101,7 +108,7 @@
 	xmlns:workingSiteQualityControlSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
 	xmlns:MapSymbol="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
 	xmlns:Image="http://standardit.tapio.fi/schemas/forestData/Image"
-	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V12.01">
+	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V13.01">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase" schemaLocation="StandBase.xsd"/>
@@ -408,6 +415,45 @@
 	<xs:element name="VehiclePathMeanWidth" type="Decimal5_1Type"/>
 	<xs:element name="VehiclePathSubsidenceLength" type="Decimal3_1Type"/>
 	<xs:element name="VehiclePathSubsidencePercentage" type="Decimal3_1Type"/>
+	<xs:element name="PowerOfAttorney" type="fcc:PowerOfAttorneyType"/>
+	<xs:element name="PowerOfAttorneyDate" type="fcc:PowerOfAttorneyDateType"/>
+	<xs:element name="Image"
+		type="Image:ImageType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ObjectBasicData" type="ObjectBasicDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tarkastuksen ennakkoilmoituspäivämäärä</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="NonPersonificationId" type="co:String100Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Ei-henkilöivä Id</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Non personification Id</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="UseCases" type="ForestDataUpdateUseCasesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsävaratiedon päivityspyynnön käyttötapaukset</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Forest data update use cases</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Documents" type="fcc:DocumentsType">
+		<xs:annotation>
+		<xs:documentation xml:lang="fi">Dokumentit</xs:documentation>
+		<xs:documentation xml:lang="sv"/>
+		<xs:documentation xml:lang="en">Documents</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
 
 
 	<!-- Tyyppimääritykset / Type definitions -->
@@ -603,36 +649,36 @@
 				</xs:annotation>
 				</xs:element>
 			<!-- <xs:element ref="workingSiteFinalAuditRoadMaking:WorkingSiteFinalAuditRoadMaking" minOccurs="0"/> -->
-			<!-- <xs:element ref="WorkingSiteFinalAuditSilviculture" minOccurs="0">
+			 <xs:element ref="WorkingSiteFinalAuditSilviculture" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Istutuksen omavalvonnan loppuarviointi/laadunseuranta</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
-			</xs:element> -->
-			<!-- <xs:element ref="WorkingSiteQualityControlSilviculture" minOccurs="0">
+			</xs:element> 
+			 <xs:element ref="WorkingSiteQualityControlSilviculture" minOccurs="0">
 				<xs:annotation>
 				<xs:documentation xml:lang="fi">Istutuksen omavalvonnan koealatiedot</xs:documentation>
 				<xs:documentation xml:lang="sv"/>
 				<xs:documentation xml:lang="en"/>
 				</xs:annotation>
-				</xs:element> -->
-			<!-- <xs:element ref="WorkingSiteFinalAuditSoilConditioning" minOccurs="0">
+				</xs:element> 
+			 <xs:element ref="WorkingSiteFinalAuditSoilConditioning" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Maanmuokkauksen omavalvonnan loppuarviointi/laadunseuranta</xs:documentation>
 					<xs:documentation/>
 					<xs:documentation/>
 				</xs:annotation>
-			</xs:element> -->
-			<!-- <xs:element ref="WorkingSiteQualityControlSoilConditioning" minOccurs="0">
+			</xs:element> 
+			 <xs:element ref="WorkingSiteQualityControlSoilConditioning" minOccurs="0">
 				<xs:annotation>
 				<xs:documentation xml:lang="fi">Maanmuokkauksen omavalvonnan koealatiedot</xs:documentation>
 				<xs:documentation xml:lang="sv"/>
 				<xs:documentation xml:lang="en"/>
 				</xs:annotation>
-				</xs:element> -->
+				</xs:element> 
 			<!-- <xs:element ref="MapSymbol:MapSymbol" minOccurs="0"/> -->
-			<xs:element ref="Image:Image" minOccurs="0"/>
+			<xs:element ref="Image" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute name="id" type="co:IdStringNotEmptyType">
 			<xs:annotation>
@@ -793,34 +839,34 @@
 					</xs:annotation>
 					</xs:element> -->
 			<!-- <xs:element ref="workingSiteFinalAuditRoadMaking:WorkingSiteFinalAuditRoadMaking" minOccurs="0"/> -->
-			<!-- <xs:element ref="WorkingSiteFinalAuditSilviculture" minOccurs="0">
+			 <xs:element ref="WorkingSiteFinalAuditSilviculture" minOccurs="0">
 					<xs:annotation>
 					<xs:documentation xml:lang="fi">Istutuksen omavalvonnan loppuarviointi/laadunseuranta</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 					</xs:annotation>
-					</xs:element> -->
-			<!-- <xs:element ref="WorkingSiteQualityControlSilviculture" minOccurs="0">
+					</xs:element>
+			 <xs:element ref="WorkingSiteQualityControlSilviculture" minOccurs="0">
 					<xs:annotation>
 					<xs:documentation xml:lang="fi">Istutuksen omavalvonnan koealatiedot</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 					</xs:annotation>
-					</xs:element> -->
-			<!-- <xs:element ref="WorkingSiteFinalAuditSoilConditioning" minOccurs="0">
+					</xs:element>
+			 <xs:element ref="WorkingSiteFinalAuditSoilConditioning" minOccurs="0">
 					<xs:annotation>
 					<xs:documentation>Maanmuokkauksen omavalvonnan loppuarviointi/laadunseuranta</xs:documentation>
 					<xs:documentation/>
 					<xs:documentation/>
 					</xs:annotation>
-					</xs:element> -->
-			<!-- <xs:element ref="WorkingSiteQualityControlSoilConditioning" minOccurs="0">
+					</xs:element> 
+			 <xs:element ref="WorkingSiteQualityControlSoilConditioning" minOccurs="0">
 					<xs:annotation>
 					<xs:documentation xml:lang="fi">Maanmuokkauksen omavalvonnan koealatiedot</xs:documentation>
 					<xs:documentation xml:lang="sv"/>
 					<xs:documentation xml:lang="en"/>
 					</xs:annotation>
-					</xs:element> -->
+					</xs:element>
 			<!-- <xs:element ref="MapSymbol:MapSymbol" minOccurs="0"/> -->
 		</xs:sequence>
 		<xs:attribute name="id" type="co:IdStringNotEmptyType">
@@ -951,7 +997,7 @@
 			</xs:element>
 			<xs:element minOccurs="0" name="SelfMonitoringEvaluations"
 				type="SelfMonitoringEvaluationsType"/>
-			<xs:element minOccurs="0" name="Documents" type="fcc:DocumentsType"/>
+			<xs:element minOccurs="0" ref="Documents"/>
 			<xs:element ref="workingSiteFinalAuditDraining:WorkingSiteFinalAuditDraining"
 				minOccurs="0"/>
 			<xs:element ref="WorkingSiteFinalAuditHarvesting" minOccurs="0">
@@ -1264,6 +1310,8 @@
 				<xs:sequence>
 					<xs:element ref="ControlAdditionalInformation" minOccurs="0"/>
 					<!-- <xs:element ref="BankAccount" minOccurs="0" maxOccurs="1"/> -->
+					<xs:element ref="PowerOfAttorney" minOccurs="0"/>
+					<xs:element ref="PowerOfAttorneyDate" minOccurs="0"/>
 				</xs:sequence>
 				<xs:attribute name="actorType" type="co:ActorTypeType">
 					<xs:annotation>
@@ -2670,6 +2718,60 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ForestCentreForestDataUpdateObjectType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"></xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"></xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ObjectGeometry" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ObjectBasicData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="UseCases" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Actors" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="StandBasicData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="SoilData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="TreeStandBasedData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="TreeStandData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="op:Operations" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="st:SpecialFeatures" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Documents" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="co:IdStringNotEmptyType">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Kohde voidaan yksilöidä tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en">Object can be identified using string id.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="objectType" type="co:ObjectTypeType">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Kohteen tyyppi</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en"/>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="objectTypeSpecifier" type="ObjectTypeSpecifierType">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Kohteen tyypin tarkenne</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en"/>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	
+	<xs:complexType name="ObjectBasicDataType">
+		<xs:sequence>
+			<xs:element ref="NonPersonificationId" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ForestDataUpdateUseCasesType">
+		<xs:sequence>
+			<xs:element name="UseCase" type="co:ForestDataUpdateUseCaseType" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 

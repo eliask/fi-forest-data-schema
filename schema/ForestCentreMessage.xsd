@@ -23,6 +23,12 @@
 	
 	Muutokset skeemapakettiin V12.01:
 	-Elementti ForestCentreCommonObjectData uudelleennimetty SelfMonitoringData:ksi. Samalla elementti otettu käyttöön poistamalla se kommenttitageista.
+	
+	Muutokset skeemapakettiin V13.01
+	-Lisätty elementti ForestDataUpdate
+	-Lisätty ForestDataUpdate-sanomaan elementit ObjectGeometry, ObjectBasicData, UseCases, Actors, StandBasicData, SoilData, TreeStandBasedData, TreeStandData, Operations, SpecialFeatures ja Documents
+	-Piilotettu elementit ForestUseDeclaration, FinancingActApplication, FinancingActCompletionDeclaration ja MooseDamageDeclaration 
+	-Muutettu Image:Image muotoon Image
 	***************************************************************
 -->
 
@@ -36,7 +42,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	xmlns:mdd="http://standardit.tapio.fi/schemas/forestData/MooseDamageDeclaration"
-	elementFormDefault="qualified" version="V12.01">
+	elementFormDefault="qualified" version="V13.01">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestUseDeclaration"
@@ -108,6 +114,15 @@
 			<xs:documentation xml:lang="en">Moose damage declaration data, when Message = HVI</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="ForestDataUpdate" type="ForestDataUpdateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsävaratiedon päivityspyyntö</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Forest data update request</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+
 
 	<!-- Tyyppimääritykset / Type definitions -->
 	<xs:complexType name="ForestCentreMessageType">
@@ -121,11 +136,12 @@
 			<xs:element ref="Message" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="SenderEmail" minOccurs="0"/>
 			<xs:choice>
-				<xs:element ref="ForestUseDeclaration" minOccurs="1" maxOccurs="1"/>
+				<!--	<xs:element ref="ForestUseDeclaration" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="FinancingActApplication" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="FinancingActCompletionDeclaration" minOccurs="1" maxOccurs="1"/>
-				<xs:element ref="MooseDamageDeclaration" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="MooseDamageDeclaration" minOccurs="1" maxOccurs="1"/> -->
 				<xs:element ref="SelfMonitoringData" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="ForestDataUpdate" minOccurs="1" maxOccurs="1"/>
 			</xs:choice>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
@@ -144,7 +160,7 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	
+
 	<xs:complexType name="SelfMonitoringDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsäkeskuksen omavalvonnan rakenteiden määrittely.</xs:documentation>
@@ -166,7 +182,7 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	
+
 	<xs:complexType name="ObjectsType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Paikannetut kohteet -määrittely</xs:documentation>
@@ -176,6 +192,30 @@
 		<xs:sequence>
 			<xs:element name="Object" type="cod:ForestCentreSelfMonitoringObjectType" minOccurs="1"
 				maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ForestDataUpdateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsävaratiedon päivityspyyntö</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Forest data update request</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Objects" type="ForestCentreForestDataUpdateObjectsType" minOccurs="1"
+				maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ForestCentreForestDataUpdateObjectsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Geometry objects definition</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Object" type="cod:ForestCentreForestDataUpdateObjectType"
+				minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 

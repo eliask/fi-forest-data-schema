@@ -2,13 +2,17 @@
 <!--
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V13.01:
+	-ImageType-määrittelyn jakaminen kolmeen osaan: ImageBaseType, ImageType ja SelfMonitoringImageType
+	
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/Image"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/Image"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V13.01">
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
 	<xs:element name="Image" type="ImageType">
@@ -16,14 +20,15 @@
 			<xs:documentation>Valokuvat</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="ImageType">
+	
+	<xs:complexType name="ImageBaseType">
 		<xs:sequence>
-			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
+			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WorkingSiteId" type="bdt:String20Type" minOccurs="1">
+			<xs:element name="WorkingSiteId" type="bdt:String20Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Lohkon tunniste, yksilöivä id</xs:documentation>
 				</xs:annotation>
@@ -33,12 +38,12 @@
 					<xs:documentation xml:lang="fi">Lohkon kuvion numero</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ServiceType" type="bdt:ServiceTypeType" minOccurs="1">
+			<xs:element name="ServiceType" type="bdt:ServiceTypeType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Palvelukokonaisuus</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Category" type="bdt:ImageCategoryType" minOccurs="1">
+			<xs:element name="Category" type="bdt:ImageCategoryType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Valokuvan luokittelu</xs:documentation>
 				</xs:annotation>
@@ -63,36 +68,181 @@
 					<xs:documentation xml:lang="fi">Karttamerkin yksilöivä id WF:ssä</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Position" type="gdt:PointGeometryType" minOccurs="1">
+			<xs:element name="Position" type="gdt:PointGeometryType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">valokuvan sijainti</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="InfoText" type="bdt:String200Type" minOccurs="1">
+			<xs:element name="InfoText" type="bdt:String200Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Kuvaus teksti</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Photographer" type="bdt:String50Type" minOccurs="1">
+			<xs:element name="Photographer" type="bdt:String50Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Valokuvaaja</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ImageDate" type="bdt:TimeStampType" minOccurs="1">
+			<xs:element name="ImageDate" type="bdt:TimeStampType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Kuvaus pvm</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Filename" type="bdt:String100Type" minOccurs="1">
+			<xs:element name="Filename" type="bdt:String100Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Kuvatiedoston nimi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Bytes" type="xs:base64Binary" minOccurs="1">
+			<xs:element name="Bytes" type="xs:base64Binary" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Kuvatiedoston sisältö</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+
+	<xs:complexType name="ImageType">
+		<xs:complexContent>
+			<xs:restriction base="ImageBaseType">
+				<xs:sequence>
+					<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="WorkingSiteId" type="bdt:String20Type" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Lohkon tunniste, yksilöivä id</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="StandId" type="bdt:String10Type" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Lohkon kuvion numero</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ServiceType" type="bdt:ServiceTypeType" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Palvelukokonaisuus</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Category" type="bdt:ImageCategoryType" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Valokuvan luokittelu</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="SubCategory" type="bdt:ImageSubCategoryType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Valokuvan alaluokka</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="MapSymbolType" type="bdt:FeatureCodeType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Karttamerkin tyyppi</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="MapSymbolId" type="bdt:String20Type" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Karttamerkin yksilöivä id MJ:ssä</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="InsertedMapSymbolId" type="bdt:String20Type" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Karttamerkin yksilöivä id WF:ssä</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Position" type="gdt:PointGeometryType" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">valokuvan sijainti</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="InfoText" type="bdt:String200Type" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Kuvaus teksti</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Photographer" type="bdt:String50Type" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Valokuvaaja</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ImageDate" type="bdt:TimeStampType" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Kuvaus pvm</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Filename" type="bdt:String100Type" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Kuvatiedoston nimi</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Bytes" type="xs:base64Binary" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Kuvatiedoston sisältö</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="SelfMonitoringImageType">
+		<xs:complexContent>
+			<xs:restriction base="ImageBaseType">
+				<xs:sequence>
+					<xs:element name="ServiceType" type="bdt:ServiceTypeType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Palvelukokonaisuus</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Category" type="bdt:ImageCategoryType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Valokuvan luokittelu</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="SubCategory" type="bdt:ImageSubCategoryType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Valokuvan alaluokka</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="MapSymbolType" type="bdt:FeatureCodeType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Karttamerkin tyyppi</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Position" type="gdt:PointGeometryType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">valokuvan sijainti</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="InfoText" type="bdt:String200Type" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Kuvaus teksti</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Photographer" type="bdt:String50Type" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Valokuvaaja</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ImageDate" type="bdt:TimeStampType" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Kuvaus pvm</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Filename" type="bdt:String100Type" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Kuvatiedoston nimi</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Bytes" type="xs:base64Binary" minOccurs="1">
+						<xs:annotation>
+							<xs:documentation xml:lang="fi">Kuvatiedoston sisältö</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	
 </xs:schema>

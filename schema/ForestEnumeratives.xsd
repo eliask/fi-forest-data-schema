@@ -7,7 +7,7 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	*****************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V12.01">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V13.01">
   <xs:include schemaLocation="ForestFeatureEnumeratives.xsd" />
   <xs:simpleType name="TurningPointClassType">
     <xs:annotation>
@@ -7866,6 +7866,13 @@
           <xs:documentation xml:lang="fi">Hirvivahinkoalueviite</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en">Moose damage area reference</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="9">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Kyselyviite</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -20064,6 +20071,13 @@
           <xs:documentation xml:lang="en">Schema package V12</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="V13">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V13</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V13</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="DiameterClassType">
@@ -21217,6 +21231,13 @@
           <xs:documentation xml:lang="en">Schema package V11.10</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="V11.11">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V11.11</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V11.11</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="V12.00">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Skeemapaketti V12.00</xs:documentation>
@@ -21229,6 +21250,13 @@
           <xs:documentation xml:lang="fi">Skeemapaketti V12.01</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en">Schema package V12.01</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V13.00">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V13.00</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V13.00</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -21399,14 +21427,7 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="1">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Omavalvonnan tilaaja</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en" />
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="2">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Omavalvonnan toteuttaja</xs:documentation>
+          <xs:documentation xml:lang="fi">Tilaaja</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
@@ -22183,6 +22204,64 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ennakkoraivaus on tehty suositusten mukaisesti</xs:documentation>
           <xs:documentation xml:lang="sv">Förhandsröjning utförd enligt rekommendationerna</xs:documentation>
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ForestDataUpdateUseCaseType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi">Metsävaratiedon päivityspyynnön käyttötapauskoodisto</xs:documentation>
+      <xs:documentation xml:lang="sv"> </xs:documentation>
+      <xs:documentation xml:lang="en">Forest data update request use case coding</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="301">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsävaratiedon päivitys - inventointipuusto-ositteet</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="302">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsävaratiedon päivitys - kasvupaikkatiedot</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="303">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsävaratiedon päivitys - käytönrajoitteet</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="304">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsävaratiedon päivitys - erityispiirretiedot</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="305">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsävaratiedon päivitys - toimenpiteen toteumatiedot</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="306">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Muu tiedonkeruu / havainto</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="307">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsävaratiedon päivitys - laajat metsävarakuviotiedot</xs:documentation>
+          <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>

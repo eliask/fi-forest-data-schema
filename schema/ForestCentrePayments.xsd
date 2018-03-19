@@ -21,6 +21,11 @@
 
     Muutokset skeemapakettiin V11.10:
     -Skeeman rakennetta muutettu siten, että yleisten osien rakenne siirretty skeematiedostoon ForestCentreCommon.xsd ja tähän skeemaan jätetty maksatussanomalle spesifit osat
+    
+    Muutokset skeemapakettii V11.11:
+    -Elementti PaymentsDate uudelleennimetty muotoon PaymentDate
+    -Elementti PaymentsReference uudelleennimetty muotoon PaymentReference
+    -Lisätty uusi vapaaehtoinen elementti RequestReference tyypiltään ForestCentreMessageReferenceType 9 (kyselyviite)
 	****************************************************************************
 -->
 
@@ -31,7 +36,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate"
-	elementFormDefault="qualified" version="V11.10">
+	elementFormDefault="qualified" version="V11.11">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -148,8 +153,8 @@
 			<xs:element ref="fcc:CustomerReference" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="fcc:ArrivalDate" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="fcc:SubsidyAmount" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="fcc:PaymentsReference" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="fcc:PaymentsDate" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fcc:PaymentReference" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="fcc:PaymentDate" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="SubsidyAppliers" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">

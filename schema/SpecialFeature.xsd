@@ -20,6 +20,9 @@
 	-Elementille UsingRight lisätty lapsielementti UsingRightCompensationResponsible, tyypiltään co:UsingRightResponsibleType
 	-Elementille UsingRight lisätty lapsielementti UsingRightDescription, tyypiltään co:String1500Type
 	-Tyyppimäärittelyn LocatedSpecialFeature2Type käyttämä data group muutettu gdt:AlternativeGeometriesGroup -> gdt:AlternativeGeometries2Group
+	
+	Muutokset skeemapakettiin V13.01:
+	-Lisätty complextypeen BasicFeature1Type uusi vapaaehtoinen elementti InventoryDate 
 	***************************************************************
 -->
 <xs:schema
@@ -31,7 +34,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:wso="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperational"
     elementFormDefault="qualified"
-    version="V11.06">
+    version="V13.01">
     
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -115,6 +118,13 @@
 			<xs:documentation xml:lang="en">Using right description</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="InventoryDate" type="co:DateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Inventointipäivämäärä</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Inventory date</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 
     <!-- Tyyppimääritykset -->
     <!-- Type definitions -->
@@ -136,6 +146,7 @@
             <xs:element ref="Validity" minOccurs="0"/>
             <xs:element ref="FeatureInfo" minOccurs="0"/>
             <xs:element ref="FeatureAdditionalInfo" minOccurs="0"/>
+        	<xs:element ref="InventoryDate" minOccurs="0"/>
             <xs:element ref="co:DataSource" minOccurs="0"/>
         </xs:sequence>	
         <xs:attribute name="id" type="xs:string">
