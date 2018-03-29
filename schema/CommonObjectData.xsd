@@ -82,6 +82,11 @@
     -Lisätty seuraavat elementit näkyviin: WorkingSiteFinalAuditSoilConditioning, WorkingSiteQualityControlSoilConditioning, WorkingSiteFinalAuditSilviculture ja WorkingSiteQualityControlSilviculture
     -Lisätty uusi tyyppimäärittely ImageType
     
+    Muutokset skeemapakettiin V13.02
+    -Lisätty object-tietoihin näkyviin kuvion perustiedot (StandBasicData)
+    -Muutettu elementti Image viittaamaan tyyppiin Image:SelfMonitoringImageType
+    -Poistettu määrittely ForestCentreSelfMonitoringObjectDataGroup
+    
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -533,6 +538,7 @@
 			<xs:element ref="ChildObjects" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="Actors" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="RealEstates" type="RealEstatesType" minOccurs="0"/>
+			<xs:element ref="StandBasicData" minOccurs="0"/>
 			<!-- <xs:element ref="SoilData" minOccurs="0" maxOccurs="1"/> -->
 			<!-- <xs:element ref="TreeStandBasedData" minOccurs="0" maxOccurs="1"/> -->
 			<!-- <xs:element ref="RestrictionData" minOccurs="0" maxOccurs="1"/> -->
@@ -678,7 +684,7 @@
 				</xs:annotation>
 				</xs:element> 
 			<!-- <xs:element ref="MapSymbol:MapSymbol" minOccurs="0"/> -->
-			<xs:element ref="Image" minOccurs="0"/>
+			<xs:element name="Image" type="Image:SelfMonitoringImageType" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute name="id" type="co:IdStringNotEmptyType">
 			<xs:annotation>
@@ -1058,164 +1064,6 @@
 					<xs:documentation xml:lang="en"/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="MapSymbol:MapSymbol" minOccurs="0"/>
-		</xs:sequence>
-	</xs:group>
-
-	<xs:group name="ForestCentreSelfMonitoringObjectDataGroup">
-		<xs:sequence>
-			<xs:element ref="ChildObjects" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="Actors" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="RealEstates" type="RealEstatesType" minOccurs="0"/>
-			<!-- <xs:element ref="SoilData" minOccurs="0" maxOccurs="1"/> -->
-			<!-- <xs:element ref="TreeStandBasedData" minOccurs="0" maxOccurs="1"/> -->
-			<!-- <xs:element ref="RestrictionData" minOccurs="0" maxOccurs="1"/> -->
-			<!-- <xs:element ref="StandBasicData" minOccurs="0" maxOccurs="1"/> -->
-			<!-- <xs:element ref="ts:TreeStandData" minOccurs="0" maxOccurs="1"/> -->
-			<xs:element ref="op:Operations" minOccurs="0" maxOccurs="1"/>
-			<!-- <xs:element ref="st:SpecialFeatures" minOccurs="0" maxOccurs="1"/> -->
-			<!-- <xs:element name="DamageData" type="DamageDataType" minOccurs="0"/> -->
-			<!-- <xs:element name="ControlBasicData" type="ControlBasicDataType" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-				<xs:documentation xml:lang="fi">Tarkastuksen perustiedot</xs:documentation>
-				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-				</xs:element> -->
-			<!-- <xs:element name="ControlObjectBasicData" type="ControlObjectBasicDataType" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-				<xs:documentation xml:lang="fi">Tarkastettavan kohteen perustiedot</xs:documentation>
-				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-				</xs:element> -->
-			<!-- <xs:element name="ControlOverallEvaluationData" type="ControlOverallEvaluationDataType" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-				<xs:documentation xml:lang="fi">Kokonaisarvostelu</xs:documentation>
-				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-				</xs:element> -->
-			<!-- <xs:element name="ControlStandBasicData" type="ControlStandBasicDataType" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-				<xs:documentation xml:lang="fi">Tarkastuskuvion perustieto</xs:documentation>
-				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-				</xs:element> -->
-			<!-- <xs:element name="ControlDataRegeneration" type="RegenerationDataType" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-				<xs:documentation xml:lang="fi">Uudistaminen</xs:documentation>
-				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-				</xs:element> -->
-			<!-- <xs:element name="HarvestingSignData" type="HarvestingSignDataType" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Korjuujälki</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element> -->
-			<!-- <xs:element name="ControlDataMooseDamageData" type="MooseDamageDataType" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-				<xs:documentation xml:lang="fi">Hirvivahinko</xs:documentation>
-				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-				</xs:element> -->
-			<!-- <xs:element name="SamplePlotBasicData" type="SamplePlotBasicDataType" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-				<xs:documentation xml:lang="fi">Koealan perustiedot</xs:documentation>
-				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-				</xs:element> -->
-			<!-- <xs:element name="ControlDataWaterSystemProtection" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Vesiensuojelun tiedot</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element> -->
-			<!-- <xs:element name="ControlDataSpecialFeatures" type="ControlDataSpecialFeaturesType" minOccurs="0"/> -->
-			<!-- <xs:element name="ControlEvaluations" type="ControlEvaluationsType" minOccurs="0"/> -->
-			<!-- <xs:element name="ControlDataForestRoadConstruction" type="ControlDataForestRoadConstructionType" minOccurs="0"/> -->
-			<!-- <xs:element name="ControlDataSwampForestManagement" type="ControlDataSwampForestManagementType" minOccurs="0"/> -->
-			<xs:element minOccurs="0" name="SelfMonitoringBasicData"
-				type="SelfMonitoringBasicDataType"/>
-			<xs:element minOccurs="0" name="SelfMonitoringObjectData"
-				type="SelfMonitoringObjectDataType"/>
-			<xs:element minOccurs="0" name="SelfMonitoringObjectProtectionOperationsData"
-				type="SelfMonitoringObjectProtectionOperationsDataType">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Omavalvontakohteen ympäristön ja vesiensuojelun toimenpidetiedot</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<!-- <xs:element minOccurs="0" name="SelfMonitoringEvaluations" type="SelfMonitoringEvaluationsType"/> -->
-			<xs:element minOccurs="0" name="Documents" type="fcc:DocumentsType"/>
-			<xs:element ref="workingSiteFinalAuditDraining:WorkingSiteFinalAuditDraining"
-				minOccurs="0"/>
-			<xs:element ref="WorkingSiteFinalAuditHarvesting" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Korjuun omavalvonnan loppuarviointi/laadunseuranta</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<!-- <xs:element ref="WorkingSiteQualityControlCutting" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Korjuun omavalvonnan koealatiedot</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element> -->
-			<xs:element ref="WorkingSiteFinalAuditPlantManagement" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Taimikonhoidon omavalvonnan loppuarviointi/laadunseuranta</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<!-- <xs:element ref="WorkingSiteQualityControlPlantManagement" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Taimikonhoidon omavalvonnan koealatiedot</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element> -->
-			<xs:element ref="workingSiteFinalAuditRoadMaking:WorkingSiteFinalAuditRoadMaking"
-				minOccurs="0"/>
-			<xs:element ref="WorkingSiteFinalAuditSilviculture" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Istutuksen omavalvonnan loppuarviointi/laadunseuranta</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element>
-			<!-- <xs:element ref="WorkingSiteQualityControlSilviculture" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Istutuksen omavalvonnan koealatiedot</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element> -->
-			<xs:element ref="WorkingSiteFinalAuditSoilConditioning" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Maanmuokkauksen omavalvonnan loppuarviointi/laadunseuranta</xs:documentation>
-					<xs:documentation/>
-					<xs:documentation/>
-				</xs:annotation>
-			</xs:element>
-			<!-- <xs:element ref="WorkingSiteQualityControlSoilConditioning" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="fi">Maanmuokkauksen omavalvonnan koealatiedot</xs:documentation>
-					<xs:documentation xml:lang="sv"/>
-					<xs:documentation xml:lang="en"/>
-				</xs:annotation>
-			</xs:element> -->
 			<xs:element ref="MapSymbol:MapSymbol" minOccurs="0"/>
 		</xs:sequence>
 	</xs:group>

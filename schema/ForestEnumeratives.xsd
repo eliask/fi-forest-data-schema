@@ -7,7 +7,7 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	*****************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V13.01">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V13.02">
   <xs:include schemaLocation="ForestFeatureEnumeratives.xsd" />
   <xs:simpleType name="TurningPointClassType">
     <xs:annotation>
@@ -16596,6 +16596,13 @@
           <xs:documentation xml:lang="en">Financing act completion declaration</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="MKMVTP">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsävaratietojen päivityspyyntö</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Forest data update request</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="PointLocationType">
@@ -21259,6 +21266,20 @@
           <xs:documentation xml:lang="en">Schema package V13.00</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="V13.01">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V13.01</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V13.01</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V13.02">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V13.02</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V13.02</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="PreferredContactingMethodType">
@@ -21384,6 +21405,13 @@
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Omavalvontakuvio</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Omavalvontavalokuva</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>

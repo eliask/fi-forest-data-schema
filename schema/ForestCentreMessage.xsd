@@ -29,6 +29,7 @@
 	-Lisätty ForestDataUpdate-sanomaan elementit ObjectGeometry, ObjectBasicData, UseCases, Actors, StandBasicData, SoilData, TreeStandBasedData, TreeStandData, Operations, SpecialFeatures ja Documents
 	-Piilotettu elementit ForestUseDeclaration, FinancingActApplication, FinancingActCompletionDeclaration ja MooseDamageDeclaration 
 	-Muutettu Image:Image muotoon Image
+	
 	***************************************************************
 -->
 
