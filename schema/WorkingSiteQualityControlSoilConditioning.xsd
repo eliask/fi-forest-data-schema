@@ -26,6 +26,9 @@
 	
 	Muutokset skeemapakettiin V10.14:
 	-Korjattu omavalvontatyyppimäärittelyn (SelfMonitoringWorkingSiteQualityControlSoilConditioningType) elementtien pakollisuudet
+	
+	Muutokset skeemapakettiin V13.03:
+	-Lisätty uusi vapaaehtoinen elementti SamplePlotInfoText koealan vapaamuotoisen tekstin syöttämistä varten
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
@@ -34,7 +37,7 @@
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified"
-	version="V10.14">
+	version="V13.03">
 	
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
@@ -303,6 +306,12 @@
 					<xs:documentation xml:lang="fi">Maapohja kivinen</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="SamplePlotInfoText" type="bdt:String1000Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealan vapaamuotoista tekstiä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 </xs:schema>

@@ -38,13 +38,16 @@
 	-Muutettu elementti BasalAreaSilverBirch pakollisesta vapaaehtoiseksi
 	-Lisätty uudet vapaaehtoiset elementit MeanDiameterPine, MeanDiameterSpruce, MeanDiameterHardWood ja MeanDiameterSilverBirch
 	-Lisätty uusi vapaaehtoinen elementti StandAvgDominantHeight
+	
+	Muutokset skeemapakettiin V13.03:
+	-Lisätty uusi vapaaehtoinen elementti SamplePlotInfoText koealan vapaamuotoisen tekstin syöttämistä varten
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.07">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V13.03">
 	
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
@@ -410,6 +413,11 @@
 			<xs:element name="RootDamages" type="bdt:PositiveInteger3digitsType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Juurivauriot, kpl</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SamplePlotInfoText" type="bdt:String1000Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealan vapaamuotoista tekstiä</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

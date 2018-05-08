@@ -30,6 +30,10 @@
 	-Piilotettu elementit ForestUseDeclaration, FinancingActApplication, FinancingActCompletionDeclaration ja MooseDamageDeclaration 
 	-Muutettu Image:Image muotoon Image
 	
+	Muutokset skeemapakettiin V13.03:
+	-Tyyppimäärittely SelfMonitoringDataType siirretty skeematiedostoon CommonObjectData.xsd, samalla nimetty uudelleen -> ForestCentreSelfMonitoringDataType
+	-Tyyppimäärittely ObjectsType siirretty skeematiedostoon CommonObjectData.xsd, samalla nimetty uudelleen -> ForestCentreSelfMonitoringObjectsType
+	-Elementti ForestDataUpdate poistettu käytöstä sijoittamalla se kommenttitageihin
 	***************************************************************
 -->
 
@@ -43,7 +47,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	xmlns:mdd="http://standardit.tapio.fi/schemas/forestData/MooseDamageDeclaration"
-	elementFormDefault="qualified" version="V13.01">
+	elementFormDefault="qualified" version="V13.03">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestUseDeclaration"
@@ -101,7 +105,7 @@
 			<xs:documentation xml:lang="en">Financing act completion declaration data, when Message = KMRTI</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SelfMonitoringData" type="SelfMonitoringDataType">
+	<xs:element name="SelfMonitoringData" type="cod:ForestCentreSelfMonitoringDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Omavalvonnan tiedot, kun Message = OVT</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
@@ -123,8 +127,6 @@
 		</xs:annotation>
 	</xs:element>
 
-
-
 	<!-- Tyyppimääritykset / Type definitions -->
 	<xs:complexType name="ForestCentreMessageType">
 		<xs:annotation>
@@ -142,7 +144,7 @@
 				<xs:element ref="FinancingActCompletionDeclaration" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="MooseDamageDeclaration" minOccurs="1" maxOccurs="1"/> -->
 				<xs:element ref="SelfMonitoringData" minOccurs="1" maxOccurs="1"/>
-				<xs:element ref="ForestDataUpdate" minOccurs="1" maxOccurs="1"/>
+				<!-- <xs:element ref="ForestDataUpdate" minOccurs="1" maxOccurs="1"/> -->
 			</xs:choice>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
@@ -160,40 +162,6 @@
 				<xs:documentation xml:lang="en">Message based on schema package ...</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-	</xs:complexType>
-
-	<xs:complexType name="SelfMonitoringDataType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Metsäkeskuksen omavalvonnan rakenteiden määrittely.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en"/>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="cod:CommonObjectDataReference" minOccurs="1"/>
-			<xs:element ref="cod:AdditionalDetails" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="cod:Sender" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="cod:UseCase" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="Objects" type="ObjectsType" minOccurs="1" maxOccurs="1"/>
-		</xs:sequence>
-		<xs:attribute name="id" type="xs:string">
-			<xs:annotation>
-				<xs:documentation xml:lang="fi"/>
-				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en"/>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
-
-	<xs:complexType name="ObjectsType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Paikannetut kohteet -määrittely</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Geometry objects definition</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Object" type="cod:ForestCentreSelfMonitoringObjectType" minOccurs="1"
-				maxOccurs="unbounded"/>
-		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="ForestDataUpdateType">

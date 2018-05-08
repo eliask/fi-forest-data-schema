@@ -9,6 +9,9 @@
 	
 	Muutokset skeemapakettiin V11.06:
 	-Elementin Stand lapseksi lisätty uusi vapaaehtoinen elementti StandLocatedOnIsland, tyypiltään co:YesNoType
+	
+	Muutokset skeemapakettiin V13.03
+	-Piilotettu elementti StandLocatedOnIsland
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -109,7 +112,7 @@
 			<xs:element ref="op:Operations" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="SpecialFeatures" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="StandWoodTradeInfo" minOccurs="0"/>
-			<xs:element ref="StandLocatedOnIsland" minOccurs="0"/>
+			<!--<xs:element ref="StandLocatedOnIsland" minOccurs="0"/>-->
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
 			<xs:annotation>
