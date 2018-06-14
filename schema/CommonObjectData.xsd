@@ -96,6 +96,9 @@
 	-Lisätty uusi vapaaehtoinen elementti ObjectBasicData ja sille vapaaehtoinen lapsielementti ObjectReference, tyypiltään co:ReferenceType
 	-Lisätty uusi vapaaehtoinen elementti Works ja sille lapsielementti Work
 	-Lisätty elementille Work kolme lapsielemettiä: pakollinen elementti WorkCode, ja vapaaehtoiset elementit MaterialCode sekä WorkCompletionDate
+	
+	Muutokset skeemapakettiin V14.01:
+	-Päivitetty elementin CommonObjectDataReference dokumentaatiota
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -122,7 +125,7 @@
 	xmlns:workingSiteQualityControlSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
 	xmlns:MapSymbol="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
 	xmlns:Image="http://standardit.tapio.fi/schemas/forestData/Image" elementFormDefault="qualified"
-	attributeFormDefault="unqualified" version="V13.03">
+	attributeFormDefault="unqualified" version="V14.01">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase"
@@ -399,7 +402,7 @@
 	</xs:element>
 	<xs:element name="CommonObjectDataReference" type="co:ReferenceType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Viite</xs:documentation>
+			<xs:documentation xml:lang="fi">Omavalvontailmoitusviite. Ilmoituksen lähettäjän antama ilmoituskohtainen, valtakunnallisesti yksilöivä viite. Ilmoitusviitteen muodostamissääntö: lähettäjän organisaatiotunnus, vuosi, lähettäjän antama ilmoituksen yksilöivä tunnus. Lähettävän organisaation tunnukset:  Metsähallitus=M-H, Metsämannut=M-M, Metsänhoitoyhdistys=MHY, Stora Enso=S-E, Tornator=TOR, UPM-Kymmene=UPM, MetsäGroup=M-G, Metsään.fi = MFI, L&amp;T Biowatti Oy = BWO, MHG Systems Oy=MHG, Muu organisaatio=MUU. Esim. MHY2015999999999999999999999. Jos siirtotiedostossa käytetään MUU-organisaatiotunnusta, on siitä oltava yhteydessä tiedonsiirtopalvelun ylläpitäjään.</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>

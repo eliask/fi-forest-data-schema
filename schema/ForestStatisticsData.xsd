@@ -31,6 +31,8 @@
 	-Päivitetty elementin OperationRows dokumentaatio
 	-Päivitetty complexTypen LoggingsRowType dokumentaatio
 	
+	Muutokset skeemapakettiin V14.01:
+	-Elementille ForestStatisticsData lisätty pakollinen attribuutti "schemaPackageVersion", lisäksi vapaaehtoiset attribuutit "schemaPackageSubversion" ja "schemaPackageVersionDate"
 	*************************************************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -41,7 +43,7 @@
     xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04"
     xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
     xmlns:rws="http://standardit.tapio.fi/schemas/workingsitetrade/woodpurchasestatistics"
-    elementFormDefault="qualified" attributeFormDefault="qualified" version="V10.08">
+    elementFormDefault="qualified" attributeFormDefault="qualified" version="V14.01">
 
     <!-- Imports / Includes -->
     <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/assortment"
@@ -124,7 +126,11 @@
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
+        <xs:attribute name="schemaPackageVersion" type="co:ForestDataStandardSchemaPackageVersionType" use="required"/>
+        <xs:attribute name="schemaPackageSubversion" type="co:ForestDataStandardSchemaPackageSubversionType" use="optional"/>
+        <xs:attribute name="schemaPackageVersionDate" type="co:DateType" use="optional"/>
     </xs:complexType>
+    
     <xs:simpleType name="CompanyIDType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Yrityksen Y-tunnus</xs:documentation>

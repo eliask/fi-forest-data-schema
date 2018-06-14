@@ -5,14 +5,17 @@
     -Lisätty import sekä namespacemääritykset ProductInstruction_V3p2.xsd stanford-skeematiedostolle
     -Lisätty uusi elementti ProductInstruction. Skeema on peräisin StanForD-skeemapaketista.
     -Järjestetty skeematiedoston namespacemääritykset, importit sekä elementit aakkosjärjestykseen
-    
+
     Muutokset skeemapakettiin V10.05:
     -"ProductInstruction" stanford skeematiedoston import on muutettu käyttämään versiota 3.0
     -Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
-    
+
     Muutokset skeemapakettiin V11.03:
     -Skeematiedostoon lisätty namespace ja import uudelle skeematiedostolle ExternalFile.xsd
     -Lisätty PayloadType complexTypeen uusi elementti ExternalFile
+    
+    Muutokset skeemapakettiin V14.01:
+    -Skeema päivitetty vastaamaan WoodForce-skeemapaketin 3.1 sisältöä
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/envelope"
@@ -66,8 +69,8 @@
            xmlns:workingSiteWorkLoad="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkLoad"
            xmlns:workingSiteWorkTime="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkTime"
            xmlns:externalFile="http://standardit.tapio.fi/schemas/forestData/ExternalFile"
-           targetNamespace="http://standardit.tapio.fi/schemas/forestData/envelope" elementFormDefault="qualified" version="V11.03">
-    
+           targetNamespace="http://standardit.tapio.fi/schemas/forestData/envelope" elementFormDefault="qualified" version="V14.01">
+
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Acknowledge" schemaLocation="Acknowledge.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/CompanyInformation" schemaLocation="CompanyInformation.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Contract" schemaLocation="Contract.xsd"/>
@@ -78,7 +81,7 @@
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Image" schemaLocation="Image.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/MapSymbol" schemaLocation="MapSymbol.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/OrderConfirmation" schemaLocation="OrderConfirmation.xsd"/>
-    <xs:import namespace="urn:skogforsk:stanford2010" schemaLocation="../stanford2010/ProductInstruction_V3p0.xsd"/>
+    <xs:import namespace="urn:skogforsk:stanford2010" schemaLocation="../stanford2010/ProductInstruction_V3p1.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/QualityAttachment" schemaLocation="QualityAttachment.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Resource" schemaLocation="Resource.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ResourceSchedule" schemaLocation="ResourceSchedule.xsd"/>
@@ -118,8 +121,8 @@
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkLoad" schemaLocation="WorkingSiteWorkLoad.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkTime" schemaLocation="WorkingSiteWorkTime.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ExternalFile" schemaLocation="ExternalFile.xsd"/>
-    
-    
+
+
     <xs:element name="Envelope" type="EnvelopeType"/>
 	<xs:complexType name="EnvelopeType">
 		<xs:sequence>

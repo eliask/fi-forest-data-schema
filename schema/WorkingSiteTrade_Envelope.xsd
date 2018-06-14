@@ -2,11 +2,13 @@
 
 <!--
     ***************************************************************
-    ???
     Skeema on JHS-170 -suosituksen mukainen.
     
     Muutokset skeemapakettiin V10.05:
     -Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+    
+    Muutokset skeemapakettiin V14.01:
+    -Elementille WorkingSiteTradeEnvelope lisätty pakollinen attribuutti "schemaPackageVersion", lisäksi vapaaehtoiset attribuutit "schemaPackageSubversion" ja "schemaPackageVersionDate"
     ***************************************************************
 -->
 
@@ -29,7 +31,8 @@
     xmlns:ms="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
     xmlns:cod="http://standardit.tapio.fi/schemas/forestData/commonObjectData"
     xmlns:ack="http://standardit.tapio.fi/schemas/forestData/Acknowledge"
-    elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
+    xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+    elementFormDefault="qualified" attributeFormDefault="unqualified" version="V14.01">
 
     <xs:import namespace="http://standardit.tapio.fi/schemas/header" schemaLocation="header.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/workingsitetrade/callforoffer" schemaLocation="WorkingSiteTrade_CallForOffer.xsd"/>
@@ -47,6 +50,7 @@
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/MapSymbol" schemaLocation="MapSymbol.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/commonObjectData" schemaLocation="CommonObjectData.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Acknowledge" schemaLocation="Acknowledge.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
 
     <!-- Elementtimääritykset / Element definitions -->
     <xs:element name="WorkingSiteTradeEnvelope" type="WorkingSiteTradeEnvelopeType"/>
@@ -55,10 +59,13 @@
     <!-- Tyyppimääritykset / Type definitions -->
     <xs:complexType name="WorkingSiteTradeEnvelopeType">
         <xs:complexContent>
-            <xs:extension base="eb:EnvelopeBaseType">
+            <xs:extension base="eb:EnvelopeBaseType"> 
                 <xs:sequence>
                     <xs:element ref="Message"/>
                 </xs:sequence>
+                <xs:attribute name="schemaPackageVersion" type="co:ForestDataStandardSchemaPackageVersionType" use="required"/>
+                <xs:attribute name="schemaPackageSubversion" type="co:ForestDataStandardSchemaPackageSubversionType" use="optional"/>
+                <xs:attribute name="schemaPackageVersionDate" type="co:DateType" use="optional"/>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>

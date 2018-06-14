@@ -34,6 +34,10 @@
 	-Tyyppimäärittely SelfMonitoringDataType siirretty skeematiedostoon CommonObjectData.xsd, samalla nimetty uudelleen -> ForestCentreSelfMonitoringDataType
 	-Tyyppimäärittely ObjectsType siirretty skeematiedostoon CommonObjectData.xsd, samalla nimetty uudelleen -> ForestCentreSelfMonitoringObjectsType
 	-Elementti ForestDataUpdate poistettu käytöstä sijoittamalla se kommenttitageihin
+	
+	Muutokset skeemapakettiin V14.01:
+	-Elementille ForestCentreMessage lisätty vapaaehtoiset attribuutit "schemaPackageSubversion" ja "schemaPackageVersionDate". Lisäksi lisätty attribuutille "schemaPackageVersion" pakollisuus.
+	-ForestCentreMessage-elementin vapaaehtoiset määritykset otettu käyttöön SelfMonitoringData-elementin rinnalle.
 	***************************************************************
 -->
 
@@ -47,7 +51,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	xmlns:mdd="http://standardit.tapio.fi/schemas/forestData/MooseDamageDeclaration"
-	elementFormDefault="qualified" version="V13.03">
+	elementFormDefault="qualified" version="V14.01">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestUseDeclaration"
@@ -121,9 +125,9 @@
 	</xs:element>
 	<xs:element name="ForestDataUpdate" type="ForestDataUpdateType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Metsävaratiedon päivityspyyntö</xs:documentation>
+			<xs:documentation xml:lang="fi">Metsävaratiedon päivityspyyntö, kun Message = MVTP</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Forest data update request</xs:documentation>
+			<xs:documentation xml:lang="en">Forest data update request, when Message = MVTP</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 
@@ -139,12 +143,12 @@
 			<xs:element ref="Message" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="SenderEmail" minOccurs="0"/>
 			<xs:choice>
-				<!--	<xs:element ref="ForestUseDeclaration" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="ForestUseDeclaration" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="FinancingActApplication" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="FinancingActCompletionDeclaration" minOccurs="1" maxOccurs="1"/>
-				<xs:element ref="MooseDamageDeclaration" minOccurs="1" maxOccurs="1"/> -->
+				<xs:element ref="MooseDamageDeclaration" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="SelfMonitoringData" minOccurs="1" maxOccurs="1"/>
-				<!-- <xs:element ref="ForestDataUpdate" minOccurs="1" maxOccurs="1"/> -->
+				<xs:element ref="ForestDataUpdate" minOccurs="1" maxOccurs="1"/>
 			</xs:choice>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
@@ -155,13 +159,16 @@
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="schemaPackageVersion"
-			type="co:ForestDataStandardSchemaPackageVersionType">
+			type="co:ForestDataStandardSchemaPackageVersionType" use="required">
 			<xs:annotation>
 				<xs:documentation xml:lang="fi">Viesti perustuu skeemapakettiin ...</xs:documentation>
 				<xs:documentation xml:lang="sv"/>
 				<xs:documentation xml:lang="en">Message based on schema package ...</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+		<xs:attribute name="schemaPackageSubversion"
+			type="co:ForestDataStandardSchemaPackageSubversionType" use="optional"/>
+		<xs:attribute name="schemaPackageVersionDate" type="co:DateType" use="optional"/>
 	</xs:complexType>
 
 	<xs:complexType name="ForestDataUpdateType">

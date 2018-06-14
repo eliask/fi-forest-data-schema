@@ -43,6 +43,9 @@
     Muutokset skeemapakettii V13.01:
     -Lisätty uusi tyyppimäärittely PoweOfAttorneyDateType
     -Lisätty uusi tyyppimäärittely PowerOfAttorneyType
+    
+    Muutokset skeemapakettiin V14.01:
+    -Elementille ForestCentreData (tyyppiin ForestCentreDataType) lisätty vapaaehtoiset attribuutit "schemaPackageSubversion" ja "schemaPackageVersionDate". Lisäksi lisätty attribuutille "schemaPackageVersion" pakollisuus.
 	***************************************************************
 -->
 
@@ -58,7 +61,7 @@
 	xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
 	xmlns:gml="http://www.opengis.net/gml"
 	elementFormDefault="qualified"
-	version="V13.01">
+	version="V14.01">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -1230,14 +1233,15 @@
                 <xs:documentation xml:lang="en">Message id</xs:documentation>
             </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="schemaPackageVersion"
-            type="co:ForestDataStandardSchemaPackageVersionType">
+        <xs:attribute name="schemaPackageVersion" type="co:ForestDataStandardSchemaPackageVersionType" use="required">
             <xs:annotation>
                 <xs:documentation xml:lang="fi">Viesti perustuu skeemapakettiin ...</xs:documentation>
                 <xs:documentation xml:lang="sv"/>
                 <xs:documentation xml:lang="en">Message based on schema package ...</xs:documentation>
             </xs:annotation>
         </xs:attribute>
+        <xs:attribute name="schemaPackageSubversion" type="co:ForestDataStandardSchemaPackageSubversionType" use="optional"/>
+        <xs:attribute name="schemaPackageVersionDate" type="co:DateType" use="optional"/>
     </xs:complexType>
 
 </xs:schema>

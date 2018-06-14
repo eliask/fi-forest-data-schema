@@ -6,6 +6,9 @@
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V14.01:
+	-Elementille ForestPropertyData lisätty pakollinen attribuutti "schemaPackageVersion", lisäksi vapaaehtoiset attribuutit "schemaPackageSubversion" ja "schemaPackageVersionDate"
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -13,15 +16,18 @@
 	xmlns="http://standardit.tapio.fi/schemas/forestData"
 	xmlns:re="http://standardit.tapio.fi/schemas/forestData/realEstate"
 	xmlns:st="http://standardit.tapio.fi/schemas/forestData/Stand"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified"
-	version="V10.05">
+	version="V14.01">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/realEstate"
 		schemaLocation="RealEstate.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Stand"
 		schemaLocation="Stand.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+		schemaLocation="Common.xsd"/>
 
 	<!-- Elementtimääritykset -->
 	<!-- Element definitions -->
@@ -39,6 +45,9 @@
 			<xs:element ref="re:RealEstates" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="st:Stands" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
+		<xs:attribute name="schemaPackageVersion" type="co:ForestDataStandardSchemaPackageVersionType" use="required"/>
+		<xs:attribute name="schemaPackageSubversion" type="co:ForestDataStandardSchemaPackageSubversionType" use="optional"/>
+		<xs:attribute name="schemaPackageVersionDate" type="co:DateType" use="optional"/>
 	</xs:complexType>
 
 </xs:schema>

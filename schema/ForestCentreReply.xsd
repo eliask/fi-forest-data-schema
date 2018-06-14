@@ -18,6 +18,9 @@
 	Muutokset skeemapakettiin V11.03:
 	-Muutettu elementti ForestCentreMessageReference pakollisesta vapaaehtoiseksi
 	-Muutettu elementti Reference pakollisesta vapaaehtoiseksi
+	
+	Muutokset skeemapakettiin V14.01:
+	-Elementille ForestCentreReply lisätty pakollinen attribuutti "schemaPackageVersion", lisäksi vapaaehtoiset attribuutit "schemaPackageSubversion" ja "schemaPackageVersionDate"
 	****************************************************************************
 -->
 
@@ -28,7 +31,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	elementFormDefault="qualified"
-	version="V11.03">
+	version="V14.01">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -182,5 +185,8 @@
 			<xs:element ref="ErrorMessages" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="AdditionalInfo" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
+		<xs:attribute name="schemaPackageVersion" type="co:ForestDataStandardSchemaPackageVersionType" use="required"/>
+		<xs:attribute name="schemaPackageSubversion" type="co:ForestDataStandardSchemaPackageSubversionType" use="optional"/>
+		<xs:attribute name="schemaPackageVersionDate" type="co:DateType" use="optional"/>
 	</xs:complexType>
 </xs:schema>
