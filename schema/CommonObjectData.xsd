@@ -99,6 +99,14 @@
 	
 	Muutokset skeemapakettiin V14.01:
 	-Päivitetty elementin CommonObjectDataReference dokumentaatiota
+	
+	Muutokset skeemapakettiin V14.02:
+	-Tyyppimäärittely ForestDataUpdateType siirretty skeematiedostosta ForestCentreMessage.xsd skeematiedostoon CommonObjectData.xsd
+	-Tyyppimäärittely ForestCentreForestDataUpdateObjectsType siirretty skeematiedostosta ForestCentreMessage.xsd skeematiedostoon CommonObjectData.xsd
+	-Lisätty elementille ForestDataUpdate uusi pakollinen lapsielementti CommonObjectDataReference (päivityspyyntöviite)
+	-Elementin ForestDataUpdate lapsielementin Objects maxOccurs muutettu "unbounded" -> "1"
+	-Lisätty tyyppimäärittelyn ForestCentreSelfMonitoringDataType attribuutille "id" dokumentaatio
+	-Lisätty tyyppimäärittelyyn ForestDataUpdateType attribuutti "id" (metsävaratiedon päivityspyynnön id)
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -125,7 +133,7 @@
 	xmlns:workingSiteQualityControlSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
 	xmlns:MapSymbol="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
 	xmlns:Image="http://standardit.tapio.fi/schemas/forestData/Image" elementFormDefault="qualified"
-	attributeFormDefault="unqualified" version="V14.01">
+	attributeFormDefault="unqualified" version="V14.02">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase"
@@ -500,7 +508,6 @@
 			<xs:documentation xml:lang="en">Documents</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 
 
 	<!-- Tyyppimääritykset / Type definitions -->
@@ -2708,9 +2715,9 @@
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string">
 			<xs:annotation>
-				<xs:documentation xml:lang="fi"/>
+				<xs:documentation xml:lang="fi">Omavalvontatietojen id</xs:documentation>
 				<xs:documentation xml:lang="sv"/>
-				<xs:documentation xml:lang="en"/>
+				<xs:documentation xml:lang="en">Self monitoring data id</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -2723,6 +2730,43 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Object" type="ForestCentreSelfMonitoringObjectType" minOccurs="1"
+				maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ForestDataUpdateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsävaratiedon päivityspyyntö</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Forest data update request</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="CommonObjectDataReference" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Päivityspyyntöviite. Ilmoituksen lähettäjän antama ilmoituskohtainen, valtakunnallisesti yksilöivä viite. Päivityspyyntöviitteen muodostamissääntö: lähettäjän organisaatiotunnus, vuosi, lähettäjän antama ilmoituksen yksilöivä tunnus. Lähettävän organisaation tunnukset: Metsähallitus=M-H, Metsämannut=M-M, Metsänhoitoyhdistys=MHY, Stora Enso=S-E, Tornator=TOR, UPM-Kymmene=UPM, MetsäGroup=M-G, Metsään.fi = MFI, L&amp;T Biowatti Oy = BWO, MHG Systems Oy=MHG, Muu organisaatio=MUU. Esim. MHY2015999999999999999999999. Jos siirtotiedostossa käytetään MUU-organisaatiotunnusta, on siitä oltava yhteydessä tiedonsiirtopalvelun ylläpitäjään.</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Objects" type="ForestCentreForestDataUpdateObjectsType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Metsävaratiedon päivityspyynnön id</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en">Forest data update request id</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="ForestCentreForestDataUpdateObjectsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Geometry objects definition</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Object" type="ForestCentreForestDataUpdateObjectType" minOccurs="1"
 				maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>

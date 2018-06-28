@@ -38,6 +38,10 @@
 	Muutokset skeemapakettiin V14.01:
 	-Elementille ForestCentreMessage lisätty vapaaehtoiset attribuutit "schemaPackageSubversion" ja "schemaPackageVersionDate". Lisäksi lisätty attribuutille "schemaPackageVersion" pakollisuus.
 	-ForestCentreMessage-elementin vapaaehtoiset määritykset otettu käyttöön SelfMonitoringData-elementin rinnalle.
+	
+	Muutokset skeemapakettiin V14.02:
+	-Tyyppimäärittely ForestDataUpdateType siirretty siirretty skeematiedostosta ForestCentreMessage.xsd skeematiedostoon CommonObjectData.xsd
+	-Tyyppimäärittely ForestCentreForestDataUpdateObjectsType siirretty skeematiedostosta ForestCentreMessage.xsd skeematiedostoon CommonObjectData.xsd
 	***************************************************************
 -->
 
@@ -51,7 +55,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	xmlns:mdd="http://standardit.tapio.fi/schemas/forestData/MooseDamageDeclaration"
-	elementFormDefault="qualified" version="V14.01">
+	elementFormDefault="qualified" version="V14.02">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestUseDeclaration"
@@ -123,7 +127,7 @@
 			<xs:documentation xml:lang="en">Moose damage declaration data, when Message = HVI</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="ForestDataUpdate" type="ForestDataUpdateType">
+	<xs:element name="ForestDataUpdate" type="cod:ForestDataUpdateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsävaratiedon päivityspyyntö, kun Message = MVTP</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
@@ -169,30 +173,6 @@
 		<xs:attribute name="schemaPackageSubversion"
 			type="co:ForestDataStandardSchemaPackageSubversionType" use="optional"/>
 		<xs:attribute name="schemaPackageVersionDate" type="co:DateType" use="optional"/>
-	</xs:complexType>
-
-	<xs:complexType name="ForestDataUpdateType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Metsävaratiedon päivityspyyntö</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Forest data update request</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Objects" type="ForestCentreForestDataUpdateObjectsType" minOccurs="1"
-				maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-
-	<xs:complexType name="ForestCentreForestDataUpdateObjectsType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi"/>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Geometry objects definition</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Object" type="cod:ForestCentreForestDataUpdateObjectType"
-				minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>
 	</xs:complexType>
 
 </xs:schema>
