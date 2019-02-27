@@ -7,7 +7,7 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	*****************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V13.03">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V13.04">
   <xs:include schemaLocation="ForestFeatureEnumeratives.xsd" />
   <xs:simpleType name="TurningPointClassType">
     <xs:annotation>
@@ -7880,6 +7880,13 @@
           <xs:documentation xml:lang="fi">Omavalvontailmoitusviite</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en">Self-monitoring declaration reference</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="11">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsävaratietojen päivityspyyntöviite</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Forest data update request reference</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -16589,6 +16596,13 @@
           <xs:documentation xml:lang="en">Self-monitoring information</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="MVTP">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsävaratietojen päivityspyyntö</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Forest data update request</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="KMRHA">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kemera rahoitushakemus</xs:documentation>
@@ -16601,13 +16615,6 @@
           <xs:documentation xml:lang="fi">Kemera toteutusilmoitus</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en">Financing act completion declaration</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="MKMVTP">
-        <xs:annotation>
-          <xs:documentation xml:lang="fi">Metsävaratietojen päivityspyyntö</xs:documentation>
-          <xs:documentation xml:lang="sv" />
-          <xs:documentation xml:lang="en">Forest data update request</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -20092,6 +20099,13 @@
           <xs:documentation xml:lang="en">Schema package V13</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="V14">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V14</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V14</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="DiameterClassType">
@@ -21294,6 +21308,20 @@
           <xs:documentation xml:lang="en">Schema package V13.03</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="V13.04">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V13.04</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V13.04</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V14.00">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V14.00</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V14.00</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="PreferredContactingMethodType">
@@ -21426,6 +21454,20 @@
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Omavalvontavalokuva</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="4">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Omavalvonnan työlaji</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="5">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Omavalvontasijainti</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
@@ -22184,7 +22226,21 @@
       </xs:enumeration>
       <xs:enumeration value="205">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Omavalvonta - korjuujälki</xs:documentation>
+          <xs:documentation xml:lang="fi">Omavalvonta - Maanmuokkaus pistehavaintoina</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="206">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Omavalvonta - Kylvö pistehavaintoina</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="207">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Omavalvonta - Istutus pistehavaintoina</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
