@@ -14,6 +14,9 @@
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V14.04:
+	-Elementti DamageSource muutettu käyttämään suoraa tyyppimäärittelyä co:FeatureTypeType "ketjutetun" määrittelyn sijaan
 	***************************************************************
 -->
 <xs:schema
@@ -28,7 +31,7 @@
 	xmlns:gml="http://www.opengis.net/gml"
 	elementFormDefault="qualified"
 	attributeFormDefault="qualified"
-	version="V10.05">
+	version="V14.04">
 	
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
@@ -430,7 +433,7 @@
 	<xs:element name="GroundManipulationMethod" type="VirtaGroundManipulationMethodType"/>
 	<xs:element name="SoilImprovementEvaluation" type="sp:VirtaEvaluationType"/>
 	<xs:element name="ClearingEstimation" type="sp:VirtaEvaluationType"/>
-	<xs:element name="DamageSource" type="sfb:FeatureTypeType"/>
+	<xs:element name="DamageSource" type="co:FeatureTypeType"/>
 	<xs:element name="RegenerationEnsuring" type="op:SilvicultureTypeType"/>
 	<xs:element name="CultivationMaterial" type="VirtaCultivationMaterialType"/>
 	<xs:element name="PlantEvaluation" type="VirtaPlantEvaluationType"/>

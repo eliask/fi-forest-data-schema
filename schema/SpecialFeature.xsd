@@ -30,6 +30,13 @@
 	Muutokset skeemapakettiin V14.03:
 	-Poistettu tyyppimäärittely FeatureCodeType tarpeettomana (siirrytty käyttämään suoraan co:FeatureCodeTypeä)
 	-Elementti FeatureCode muutettu käyttämään suoraan tyyppimäärittelyä co:FeatureCodeType
+	
+	Muutokset skeemapakettiin V14.04:
+	-Elementti MainFeature muutettu käyttämään suoraa tyyppimäärittelyä co:YesNoType, "ketjutetut" tyyppimäärittelyt poistettu tarpeettomina
+	-Elementti FeatureType muutettu käyttämään suoraa tyyppimäärittelyä co:FeatureTypeType, "ketjutetut" tyyppimäärittelyt poistettu tarpeettomina
+	-Elementti FeatureAdditionalCode muutettu käyttämään suoraa tyyppimäärittelyä co:FeatureAdditionalCodeType, "ketjutetut" tyyppimäärittelyt poistettu tarpeettomina
+	-Elementti FeatureInfo muutettu käyttämään suoraa tyyppimäärittelyä sf:FeatureInfoType, "ketjutetut" tyyppimäärittelyt poistettu tarpeettomina
+	-Elementti FeatureAdditionalInfo muutettu käyttämään suoraa tyyppimäärittelyä sf:FeatureAdditionalInfoType, "ketjutetut" tyyppimäärittelyt poistettu tarpeettomina
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -39,7 +46,7 @@
 	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:wso="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperational"
-	elementFormDefault="qualified" version="V14.03">
+	elementFormDefault="qualified" version="V14.04">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -54,13 +61,19 @@
 	<!-- Elementtimääritykset -->
 	<!-- Element definitions -->
 	<xs:element name="Identifiers" type="IdentifiersType"/>
-	<xs:element name="MainFeature" type="MainFeatureType"/>
-	<xs:element name="FeatureType" type="FeatureTypeType"/>
+	<xs:element name="MainFeature" type="co:YesNoType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Pääasiallisen erityispiirteen osoittava tieto.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Boolean for the main special feature.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FeatureType" type="co:FeatureTypeType"/>
 	<xs:element name="FeatureCode" type="co:FeatureCodeType"/>
-	<xs:element name="FeatureAdditionalCode" type="FeatureAdditionalCodeType"/>
+	<xs:element name="FeatureAdditionalCode" type="co:FeatureAdditionalCodeType"/>
 	<xs:element name="Validity" type="ValidityType"/>
-	<xs:element name="FeatureInfo" type="FeatureInfoType"/>
-	<xs:element name="FeatureAdditionalInfo" type="FeatureAdditionalInfoType"/>
+	<xs:element name="FeatureInfo" type="sf:FeatureInfoType"/>
+	<xs:element name="FeatureAdditionalInfo" type="sf:FeatureAdditionalInfoType"/>
 	<!--<xs:element name="ObservationDate" type="co:DateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Havaintopäivämäärä</xs:documentation>
@@ -257,24 +270,6 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:simpleType name="MainFeatureType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Pääasiallisen erityispiirteen osoittava tieto.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Boolean for the main special feature.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="sf:MainFeatureType"/>
-	</xs:simpleType>
-
-	<xs:simpleType name="FeatureTypeType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Erityispiirteen tyyppi.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Type of feature.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="sf:FeatureTypeType"/>
-	</xs:simpleType>
-
 	<xs:group name="FeatureDataGroup">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Yksittäisen erityispiirteen tarkat tiedot.</xs:documentation>
@@ -287,15 +282,6 @@
 		</xs:sequence>
 	</xs:group>
 
-	<xs:simpleType name="FeatureAdditionalCodeType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Erityispiirteen lisämääre.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Additional code of feature.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="sf:FeatureAdditionalCodeType"/>
-	</xs:simpleType>
-
 	<xs:complexType name="ValidityType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Voimassaolo (alkamis- ja/tai loppumisajankohta).</xs:documentation>
@@ -306,24 +292,6 @@
 			<xs:extension base="sf:ValidityType"/>
 		</xs:complexContent>
 	</xs:complexType>
-
-	<xs:simpleType name="FeatureInfoType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Erityispiirrettä kuvaava teksti. Sijainnillisten kohteiden osalta tämä voi olla esim. kartalla näkyvä teksti.</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Information text for feature. E.g. located object, this can be text on map.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="sf:FeatureInfoType"/>
-	</xs:simpleType>
-
-	<xs:simpleType name="FeatureAdditionalInfoType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Erityispiirrettä kuvaava lisäteksti. Sijainnillisten kohteiden osalta tämä voi olla esim. erikseen näytettävä teksti (ei kartalla näkyvä teksti).</xs:documentation>
-			<xs:documentation xml:lang="sv"/>
-			<xs:documentation xml:lang="en">Additional information text for feature. E.g. located object, this can be separately shown text on map.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="sf:FeatureAdditionalInfoType"/>
-	</xs:simpleType>
 
 	<xs:complexType name="UsingRightType">
 		<xs:annotation>

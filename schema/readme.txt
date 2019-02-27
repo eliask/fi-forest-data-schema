@@ -1,6 +1,6 @@
 TIETOJA TÄSTÄ TIEDOSTOPAKETISTA
 
 - Skeemapaketti V14
-- Versio V14.03
+- Versio V14.04
 - Pakettiin sisällytetty StanForD-skeemapaketin version: 3.1
-- Julkaistu 19.9.2018
+- Julkaistu 1.10.2018

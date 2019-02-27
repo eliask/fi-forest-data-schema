@@ -45,6 +45,9 @@
 	Muutokset skeemapakettiin V14.03:
 	-Elementin "SamplePlotsSummaries" dokumentaatio päivitetty
 	-Muutettu common-nimiavaruuden skeematiedostoviittaus Common_BasicDataType.xsd -> Common.xsd
+	
+	Muutokset skeemapakettiin V14.04:
+	-Tyyppimäärittelyyn SamplePlotType lisätty uusi vapaaehtoinen attribuutti ”id”, tyypiltään IdStringNotEmptyType
 -->
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -54,7 +57,7 @@
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting"
            elementFormDefault="qualified" 
            attributeFormDefault="unqualified" 
-           version="V14.03">
+           version="V14.04">
 	
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
@@ -428,6 +431,13 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
+		<xs:attribute name="id" type="bdt:IdStringNotEmptyType" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Koealan id</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en">Sample plot id</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	
 	<xs:complexType name="SamplePlotSummariesType">

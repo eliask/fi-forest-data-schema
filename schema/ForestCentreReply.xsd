@@ -21,6 +21,13 @@
 	
 	Muutokset skeemapakettiin V14.01:
 	-Elementille ForestCentreReply lisätty pakollinen attribuutti "schemaPackageVersion", lisäksi vapaaehtoiset attribuutit "schemaPackageSubversion" ja "schemaPackageVersionDate"
+	
+	Muutokset skeemapakettiin V14.04:
+	-Elementti ReferenceType muutettu pakollisesta vapaaehtoiseksi
+	-Lisätty uusi vapaaehtoinen elementti KeyInfoAsText
+	-Lisätty uusi vapaaehtoinen elementti KeyElementId
+	-Lisätty uusi vapaaehtoinen elementti KeyElementName
+	-Lisätty uusi vapaaehtoinen elementti KeyElementNS
 	****************************************************************************
 -->
 
@@ -31,7 +38,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	elementFormDefault="qualified"
-	version="V14.01">
+	version="V14.04">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -134,6 +141,34 @@
 			<xs:documentation xml:lang="en">AdditionalInfo. Free text</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="KeyElementNS" type="co:String500Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Avainelementin nimiavaruus (namespace).</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Key element namespace.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="KeyElementName" type="co:String200Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Avainelementin nimi.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Key element name.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="KeyElementId" type="co:IdStringNotEmptyType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Avainelementin id.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Key element id.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="KeyInfoAsText" type="co:String2000Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Tekstimuotoinen viittaus avaintietoon.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Text reference to key information.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 
 	<!-- Tyyppimääritykset -->
 	<!-- Type definitions -->
@@ -144,8 +179,12 @@
 			<xs:documentation xml:lang="en">Forest Centre Reply</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="ReferenceType" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="ReferenceType" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="Reference" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="KeyElementNS" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="KeyElementName" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="KeyElementId" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="KeyInfoAsText" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="ErrorCode" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="ErrorMessage" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>

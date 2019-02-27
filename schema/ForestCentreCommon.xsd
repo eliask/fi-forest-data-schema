@@ -46,6 +46,10 @@
     
     Muutokset skeemapakettiin V14.01:
     -Elementille ForestCentreData (tyyppiin ForestCentreDataType) lisätty vapaaehtoiset attribuutit "schemaPackageSubversion" ja "schemaPackageVersionDate". Lisäksi lisätty attribuutille "schemaPackageVersion" pakollisuus.
+    
+    Muutokset skeemapakettiin V14.04:
+    -Lisätty määrittelyt uudelle elementille ForestUseDeclarationNumber, tyypiltään ForestUseDeclarationNumberType
+    -Lisätty uusi tyyppimäärittely ForestUseDeclarationNumberType
 	***************************************************************
 -->
 
@@ -61,7 +65,7 @@
 	xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
 	xmlns:gml="http://www.opengis.net/gml"
 	elementFormDefault="qualified"
-	version="V14.01">
+	version="V14.04">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -155,6 +159,13 @@
     <xs:element name="FinancingActNumber" type="FinancingActNumberType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Hankkeen Riihinumero. Perusrahoituspäätöksessä mainittu numero (hankenumero), esim. 11-2016-123456.</xs:documentation>
+            <xs:documentation xml:lang="sv"/>
+            <xs:documentation xml:lang="en"/>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="ForestUseDeclarationNumber" type="ForestUseDeclarationNumberType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Metsänkäyttöilmoitusnumero. Esim. 1-2016-123456.</xs:documentation>
             <xs:documentation xml:lang="sv"/>
             <xs:documentation xml:lang="en"/>
         </xs:annotation>
@@ -1088,6 +1099,17 @@
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:pattern value="1[0-9]{1}[-][2][0-9]{3}[-][0-9]{1,}"/>
+        </xs:restriction>
+    </xs:simpleType>
+	
+    <xs:simpleType name="ForestUseDeclarationNumberType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fi">Metsänkäyttöilmoitusnumero. Numeron määrittely.</xs:documentation>
+            <xs:documentation xml:lang="sv"/>
+            <xs:documentation xml:lang="en"/>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="1[-][2][0-9]{3}[-][0-9]{1,}"/>
         </xs:restriction>
     </xs:simpleType>
 

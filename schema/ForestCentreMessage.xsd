@@ -94,8 +94,7 @@
 			<xs:documentation xml:lang="en"/>
 		</xs:annotation>
 	</xs:element>
-
-<!--	<xs:element name="ForestUseDeclaration" type="fud:ForestUseDeclarationType">
+	<xs:element name="ForestUseDeclaration" type="fud:ForestUseDeclarationType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsänkäyttöilmoituksen tiedot, kun Message = MKI</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
@@ -130,7 +129,7 @@
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Moose damage declaration data, when Message = HVI</xs:documentation>
 		</xs:annotation>
-	</xs:element> -->
+	</xs:element>
 	<xs:element name="ForestDataUpdate" type="cod:ForestDataUpdateType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Metsävaratiedon päivityspyyntö, kun Message = MVTP</xs:documentation>
@@ -154,8 +153,8 @@
 			<!--<xs:element ref="ForestUseDeclaration" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="FinancingActApplication" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="FinancingActCompletionDeclaration" minOccurs="1" maxOccurs="1"/>
-				<xs:element ref="MooseDamageDeclaration" minOccurs="1" maxOccurs="1"/>
-				<xs:element ref="SelfMonitoringData" minOccurs="1" maxOccurs="1"/>-->
+				<xs:element ref="MooseDamageDeclaration" minOccurs="1" maxOccurs="1"/>-->
+				<xs:element ref="SelfMonitoringData" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="ForestDataUpdate" minOccurs="1" maxOccurs="1"/>
 			</xs:choice>
 		</xs:sequence>
