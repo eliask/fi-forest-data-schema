@@ -14,6 +14,9 @@
 	
 	Muutokset skeemapakettiin V14.01: 
 	-Lisätty uudet vapaaehtoiset elementit CanCultivateInAutumn ja IsValueForceWorkingSite, molemmat tyypiltään "bdt:YesNoType" 
+	
+	Muutokset skeemapakettiin V14.03:
+	-Lisätty uusi vapaaehtoinen elementti MaterialProducer
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperational"
@@ -21,10 +24,10 @@
            xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
            xmlns:wct="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteOperational"
-           elementFormDefault="qualified" attributeFormDefault="qualified" version="V14.01">
+           elementFormDefault="qualified" attributeFormDefault="qualified" version="V14.03">
 
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
-               schemaLocation="Common_BasicDataType.xsd"/>
+               schemaLocation="Common.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
                schemaLocation="WoodForceCommonTypes.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
@@ -990,6 +993,11 @@
 			<xs:element name="Supplier" type="bdt:String50Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Materiaalin toimittaja</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaterialProducer" type="bdt:String50Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Materiaalin alkuperä</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Diameter" type="bdt:PositiveInteger4digitsType" minOccurs="0">

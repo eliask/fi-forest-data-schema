@@ -15,9 +15,23 @@
 	
 	Muutokset skeemapakettiin V11.07:
 	-Elementti InverseVAT poistettu skeematiedostosta
+	
+	Muutokset skeemapakettiin V14.03:
+	-Elementin "VATStatus" dokumentaatio päivitetty
+	-Elementin "EmployeeWrittenAgreement" dokumentaatio päivitetty
+	-Elementin "SubContractorWrittenAgreement" dokumentaatio päivitetty
+	-Elementin "SubContractors" dokumentaatio päivitetty
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/CompanyInformation" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/CompanyInformation" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.07">
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://standardit.tapio.fi/schemas/forestData/CompanyInformation"
+	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/CompanyInformation"
+	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V14.03">
+	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
+		schemaLocation="Common.xsd"/>
+	
 	<xs:element name="CompanyInformation" type="CompanyInformationType">
 		<xs:annotation>
 			<xs:documentation>Yritystiedot</xs:documentation>
@@ -107,22 +121,22 @@
 			</xs:element>
 			<xs:element name="SubContractorWrittenAgreement" type="bdt:YesNoType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">OsayrittajaKirjallinenSopimus</xs:documentation>
+					<xs:documentation xml:lang="fi">Aliurakoitsija, kirjallinen sopimus</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EmployeeWrittenAgreement" type="bdt:YesNoType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">TyontekijaKirjallinenSopimus</xs:documentation>
+					<xs:documentation xml:lang="fi">Työntekijä, kirjallinen sopimus</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="VATStatus" type="bdt:YesNoType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">AlvVelvollinen</xs:documentation>
+					<xs:documentation xml:lang="fi">ALV-velvollinen</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PreDebtCollectionRegister" type="bdt:YesNoType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Ennakkoperintarekisteri</xs:documentation>
+					<xs:documentation xml:lang="fi">Ennakkoperintärekisteri</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EmployerRegister" type="EmployerRegisterType" minOccurs="1">
@@ -147,7 +161,7 @@
 			</xs:element>
 			<xs:element name="SubContractors" type="SubContractorsType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Osayrittäjät</xs:documentation>
+					<xs:documentation xml:lang="fi">Aliurakoitsijat</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -157,7 +171,8 @@
 			<xs:documentation xml:lang="fi">Osayrittäjät</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="SubContractor" type="bdt:String20Type" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="SubContractor" type="bdt:String20Type" minOccurs="0"
+				maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="EmployerRegisterType">
@@ -175,7 +190,8 @@
 			<xs:documentation xml:lang="fi">Laatujärjestelmät</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="QualitySystem" type="bdt:QualitySystemType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="QualitySystem" type="bdt:QualitySystemType" minOccurs="0"
+				maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="CertificationSystemsType">
@@ -197,7 +213,8 @@
 			<xs:documentation xml:lang="fi">Työehtosopimukset</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="CollectiveAgreement" type="bdt:String100Type" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="CollectiveAgreement" type="bdt:String100Type" minOccurs="1"
+				maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

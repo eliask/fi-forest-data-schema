@@ -8,12 +8,16 @@
 
     Muutokset skeemapakettiin V11.10:
     -Skeeman ForestCentrePayments.xsd namespace muutettu ForestryCentrePayments -> ForestCentrePayments
+    
+    Muutokset skeemapakettiin V14.03:
+    -Lisätty import nimiavaruudelle "ForestCentreControlData"
+    -Poistettu import skeematiedostolta ForestObjectPropertyData.xsd
 -->
 <xs:schema
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns="http://standardit.tapio.fi/schemas/forestDataValidation"
     targetNamespace="http://standardit.tapio.fi/schemas/forestDataValidation"
-    version="V11.10">
+    version="V14.03">
 
     <!-- Imports / Includes -->
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData"
@@ -26,8 +30,6 @@
         schemaLocation="ForestCentrePayments.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreReply"
         schemaLocation="ForestCentreReply.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestobjectpropertydata"
-        schemaLocation="ForestObjectPropertyData.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/envelope"
         schemaLocation="Envelope.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/forestobject"
@@ -52,5 +54,7 @@
         schemaLocation="ContactRequests.xsd"/>
     <xs:import namespace="http://kuutio.fi/schemas/offers"
         schemaLocation="Offers.xsd"/>
+    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ForestCentreControlData" 
+        schemaLocation="ForestCentreControlData.xsd"/>
     
 </xs:schema>

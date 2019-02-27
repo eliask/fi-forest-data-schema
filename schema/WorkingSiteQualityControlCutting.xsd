@@ -41,16 +41,23 @@
 	
 	Muutokset skeemapakettiin V13.03:
 	-Lisätty uusi vapaaehtoinen elementti SamplePlotInfoText koealan vapaamuotoisen tekstin syöttämistä varten
+	
+	Muutokset skeemapakettiin V14.03:
+	-Elementin "SamplePlotsSummaries" dokumentaatio päivitetty
+	-Muutettu common-nimiavaruuden skeematiedostoviittaus Common_BasicDataType.xsd -> Common.xsd
 -->
+
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlCutting"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V13.03">
+           elementFormDefault="qualified" 
+           attributeFormDefault="unqualified" 
+           version="V14.03">
 	
 	<!-- Imports / Includes -->
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
 	
 	<!-- Elementtimääritykset / Element definitions -->
@@ -65,32 +72,32 @@
 	<!-- Tyyppimääritykset / Type definitions -->
 	<xs:complexType name="WorkingSiteQualityControlBaseCuttingType">
 		<xs:sequence>
-			<xs:element ref = "ServiceBuyerId" minOccurs="0" maxOccurs="1">
+			<xs:element ref="ServiceBuyerId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Urakanantajan tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref = "WorkingSiteId" minOccurs="0" maxOccurs="1">
+			<xs:element ref="WorkingSiteId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Lohkon tunniste</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref = "ResourceId" minOccurs="0" maxOccurs="1">
+			<xs:element ref="ResourceId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Resurssin ID</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref = "QualityControlDate" minOccurs="0" maxOccurs="1">
+			<xs:element ref="QualityControlDate" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Kontrolli pvm</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref = "SamplePlotsSummaries" minOccurs="0" maxOccurs="1">
+			<xs:element ref="SamplePlotsSummaries" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Koealojen tiedot</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref = "SamplePlots" minOccurs="0" maxOccurs="1">
+			<xs:element ref="SamplePlots" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation xml:lang="fi">Koealojen tiedot</xs:documentation>
 				</xs:annotation>
@@ -124,7 +131,7 @@
 					</xs:element>
 					<xs:element ref="SamplePlotsSummaries" minOccurs="1">
 						<xs:annotation>
-							<xs:documentation xml:lang="fi">Koealojen tiedot</xs:documentation>
+							<xs:documentation xml:lang="fi">Koealojen summatiedot</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="SamplePlots" minOccurs="1">

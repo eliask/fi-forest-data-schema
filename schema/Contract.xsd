@@ -5,10 +5,17 @@
 	
 	Muutokset skeemapakettiin V11.06:
 	-Elementin Geometry tyyppimäärittely muutettu gdt:PolygonOrMultiPolygonType -> gdt:PolygonOrMultiPolygon2Type
+	
+	Muutokset skeemapakettiin V14.03:
+	-Elementin "SubContractorsAllowed" dokumentaatio päivitetty
+	-Elementin "CompanyMode" dokumentaatio päivitetty
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/Contract" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/Contract" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.06">
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/Contract" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/Contract" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V14.03">
+	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
+	
 	<xs:element name="Contract" type="ContractType">
 		<xs:annotation>
 			<xs:documentation>Urakointisopimus</xs:documentation>
@@ -73,12 +80,12 @@
 			</xs:element>
 			<xs:element name="CompanyMode" type="bdt:CompanyModeType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Yrittäjämuoto</xs:documentation>
+					<xs:documentation xml:lang="fi">Yritysmuoto</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SubContractorsAllowed" type="bdt:YesNoType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Osayrittäjän käyttö sallittu</xs:documentation>
+					<xs:documentation xml:lang="fi">Aliurakoitsijan käyttö sallittu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="WorkingAreas" type="WorkingAreasType" minOccurs="0">

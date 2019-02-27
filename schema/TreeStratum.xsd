@@ -12,6 +12,9 @@
 
     Muutokset skeemapakettiin V11.10:
     -Päivitetty ja täydennetty skeeman elementtien dokumentaatioita
+    
+    Muutokset skeemapakettiin V14.03:
+    -Lisätty uusi vapaaehtoinen elementti StratumOrigin tyypiltään SeedlingOriginType osaksi ositetietoja. 
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -20,7 +23,7 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:cdd="http://standardit.tapio.fi/schemas/forestData/commondistributiondata"
 	xmlns:tli="http://standardit.tapio.fi/schemas/forestData/treelistitem"
-	elementFormDefault="qualified" version="V11.10">
+	elementFormDefault="qualified" version="V14.03">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -84,6 +87,13 @@
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="MeanHeight" type="co:MeanHeightType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Puusto-ositteen keskipituus</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Tree stratum mean height</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="StratumOrigin" type="co:SeedlingOriginType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Puusto-ositteen keskipituus</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
@@ -261,6 +271,7 @@
 			<xs:element ref="StemCount" minOccurs="0"/>
 			<xs:element ref="MeanDiameter" minOccurs="0"/>
 			<xs:element ref="MeanHeight"/>
+			<xs:element ref="StratumOrigin" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="Volume" minOccurs="0"/>
 			<xs:element ref="SawLogPercent" minOccurs="0"/>
 			<xs:element ref="SawLogVolume" minOccurs="0"/>
@@ -322,6 +333,7 @@
 			<xs:element ref="StemCount" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="MeanDiameter" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="MeanHeight" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="StratumOrigin" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="Volume" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="SawLogPercent" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="SawLogVolume" minOccurs="0" maxOccurs="1"/>
@@ -394,6 +406,15 @@
 			<xs:documentation xml:lang="en">Mean diameter, cm.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="co:DiameterType"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="SeedlingOriginType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Taimen syntytapa.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Seedling origin.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="co:SeedlingOriginType"/>
 	</xs:simpleType>
 
 	<xs:simpleType name="VolumeType">

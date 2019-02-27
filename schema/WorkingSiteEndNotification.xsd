@@ -6,10 +6,22 @@
 	Muutokset skeemapakettiin V11.06:
 	-Elementin Geometry tyyppimäärittely muutettu gdt:PolygonOrMultiPolygonType -> gdt:PolygonOrMultiPolygon2Type
 	-Elementin UnfulfilledArea tyyppimäärittely muutettu gdt:PolygonOrMultiPolygonType -> gdt:PolygonOrMultiPolygon2Type
+	
+	Muutokset skeemapakettiin V14.03:
+	-Muutettu common-nimiavaruuden skeematiedostoviittaus Common_BasicDataType.xsd -> Common.xsd
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteEndNotification" xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteEndNotification" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.06">
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteEndNotification" 
+	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" 
+	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" 
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteEndNotification" 
+	elementFormDefault="qualified" 
+	attributeFormDefault="unqualified" 
+	version="V14.03">
+	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
+	
 	<xs:element name="WorkingSiteEndNotification" type="WorkingSiteEndNotificationType">
 		<xs:annotation>
 			<xs:documentation>Lohko päätetty keskeytettynä tai valmiina.</xs:documentation>

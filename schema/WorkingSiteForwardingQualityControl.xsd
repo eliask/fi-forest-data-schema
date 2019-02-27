@@ -2,14 +2,22 @@
 <!--
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V14.03:
+	-Muutettu common-nimiavaruuden skeematiedostoviittaus Common_BasicDataType.xsd -> Common.xsd
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteForwardingQualityControl"
-           xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
-           targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteForwardingQualityControl"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
-	<xs:element name="WorkingSiteForwardingQualityControl" type="WorkingSiteForwardingQualityControlType">
+	xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteForwardingQualityControl"
+	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
+	targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteForwardingQualityControl"
+	elementFormDefault="qualified" 
+	attributeFormDefault="unqualified" 
+	version="V14.03">
+	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
+	
+	<xs:element name="WorkingSiteForwardingQualityControl"
+		type="WorkingSiteForwardingQualityControlType">
 		<xs:annotation>
 			<xs:documentation>Metsätraktorin punnitustarkkuus</xs:documentation>
 		</xs:annotation>
@@ -53,10 +61,11 @@
 			</xs:element>
 			<xs:element name="MachineApplicationVersion" type="bdt:String100Type" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Vaaan versio tiedot</xs:documentation>
+					<xs:documentation>Vaa'an versio tiedot</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ControlReferenceMass" type="bdt:Decimal1FractionDigitType" minOccurs="1">
+			<xs:element name="ControlReferenceMass" type="bdt:Decimal1FractionDigitType"
+				minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Kuormaluku</xs:documentation>
 				</xs:annotation>
@@ -76,7 +85,8 @@
 					<xs:documentation>Nostot</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Calibration" type="CalibrationType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Calibration" type="CalibrationType" minOccurs="0"
+				maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Kalibroinnit</xs:documentation>
 				</xs:annotation>
@@ -104,7 +114,8 @@
 					<xs:documentation>Kalibrointi pvm</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="CalibrationAdjustment" type="bdt:PositiveInteger3digitsType" minOccurs="1">
+			<xs:element name="CalibrationAdjustment" type="bdt:PositiveInteger3digitsType"
+				minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Korjauksen määrä</xs:documentation>
 				</xs:annotation>

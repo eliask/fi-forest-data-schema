@@ -6,19 +6,24 @@
 	
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V14.03:
+	-Lisätty StandInfo-elementille attribuutit InfoProviderRole ja infoProviderOrganizationName. Samalla vaihdetty StandInfoType simpleType:sta complexType:ksi. 
 	***************************************************************
 -->
 <xs:schema
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/standbase" 
 	xmlns="http://standardit.tapio.fi/schemas/forestData/standbase" 
-	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" 
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
+	xmlns:ci="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified"
-	version="V10.05">
+	version="V14.03">
 	
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation" schemaLocation="ContactInformation.xsd"></xs:import>
 
 	<!-- Elementtimääritykset -->
    	<!-- Element definitions -->
@@ -170,14 +175,19 @@
 		</xs:annotation>
 		<xs:restriction base="co:DateType"/>
 	</xs:simpleType>
-	<xs:simpleType name="StandInfoType">
+	<xs:complexType name="StandInfoType">
 		<xs:annotation>
-			<xs:documentation xml:lang="fi">Kuvion vapaamuotoinen teksti.</xs:documentation>
+			<xs:documentation xml:lang="fi">Kuvion vapaamuotoinen teksti attribuuteilla.</xs:documentation>
 			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Stand info text.</xs:documentation>
+			<xs:documentation xml:lang="en">Stand info text with attributes.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string"/>
-	</xs:simpleType>
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="infoProviderRole" type="co:InfoProviderRoleType" use="optional"/>
+				<xs:attribute name="infoProviderOrganizationName" type="ci:OrganizationNameType" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="AreaType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvion kokonaispinta-ala hehtaareina.</xs:documentation>

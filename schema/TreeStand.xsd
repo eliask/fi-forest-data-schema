@@ -18,6 +18,9 @@
 
     Muutokset skeemapakettiin V11.10:
     -Lisätty uusi tyyppimäärittely TreeStandDataDate2Type joka on rinnakkaismäärittely puustoajankohdalle
+    
+    Muutokset skeemapakettiin V14.03: 
+    -Vaihdettu elementin SeedlingBeginningCode tyyppimäärittelyksi SeedlingOriginType
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -29,7 +32,7 @@
 	xmlns:dts="http://standardit.tapio.fi/schemas/forestData/deadTreeStrata"
 	xmlns:tss="http://standardit.tapio.fi/schemas/forestData/treeStandSummary"
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
-	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" elementFormDefault="qualified" version="V11.10">
+	xmlns:jhs="http://skeemat.jhs-suositukset.fi/yhteiset/2009/03/04" elementFormDefault="qualified" version="V14.03">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/treeStratum" schemaLocation="TreeStratum.xsd"/>
@@ -51,7 +54,7 @@
 	<xs:element name="StumpMeanDiameter" type="co:PositiveDecimalMax2IntegralPartMax1FractionalPartType"/>
 	<xs:element name="SeedlingStratum" type="SeedlingStratumType"/>
 	<xs:element name="TreeSpecies" type="co:TreeSpeciesType"/>
-	<xs:element name="SeedlingBeginningCode" type="co:SeedlingBeginningCodeType"/>
+	<xs:element name="SeedlingBeginningCode" type="co:SeedlingOriginType"/>
 	<xs:element name="Amount" type="co:PositiveInteger6digitsType"/>
 	<xs:element name="AmountInSpot" type="co:PositiveInteger6digitsType"/>
 	<xs:element name="AmountOutsideSpot" type="co:PositiveInteger6digitsType"/>

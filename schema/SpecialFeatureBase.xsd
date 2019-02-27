@@ -6,6 +6,10 @@
 
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V14.03:
+	-Poistettu tyyppimäärittely FeatureCodeType tarpeettomana (siirrytty käyttämään suoraan co:FeatureCodeTypeä)
+	-Poistettu elementti FeatureCode tarpeettomana (siirrytty käyttämään suoraan co:FeatureCodeTypeä)
 	***************************************************************
 -->
 <xs:schema
@@ -14,7 +18,7 @@
     xmlns="http://standardit.tapio.fi/schemas/forestData/specialFeatureBase"  
     xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" 
     elementFormDefault="qualified"
-    version="V10.05">
+    version="V14.03">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
@@ -28,7 +32,6 @@
 	<xs:element name="IdentifierValue" type="IdentifierValueType"/>
     <xs:element name="MainFeature" type="MainFeatureType"/>
     <xs:element name="FeatureType" type="FeatureTypeType"/>
-    <xs:element name="FeatureCode" type="FeatureCodeType"/>
     <xs:element name="FeatureAdditionalCode" type="FeatureAdditionalCodeType"/>
     <xs:element name="Validity" type="ValidityType"/>
     <xs:element name="StartDate" type="StartDateType"/>
@@ -92,14 +95,6 @@
 		</xs:annotation>
 		<xs:restriction base = "co:FeatureTypeType"/>
     </xs:simpleType>
-    <xs:simpleType name="FeatureCodeType">
-		<xs:annotation>
-			<xs:documentation xml:lang="fi">Alkuperäiset monimuotoisuuskoodit (1-9975) ja myöhemmin lisätyt (10001-20182).</xs:documentation>
-			<xs:documentation xml:lang="sv"></xs:documentation>
-			<xs:documentation xml:lang="en">Original special feature codes (1-9975) and extensions (10001-20182) that were added later.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="co:FeatureCodeType"/>
-    </xs:simpleType>    
     <xs:simpleType name="FeatureAdditionalCodeType">
         <xs:annotation>
             <xs:documentation xml:lang="fi">Erityispiirteen lisämääre.</xs:documentation>

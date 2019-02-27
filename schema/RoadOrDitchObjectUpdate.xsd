@@ -8,15 +8,21 @@
 	
 	Muutokset skeemapakettiin V11.06:
 	-Elementin Geometry tyyppimäärittely muutettu gdt:AlternativeGeometriesType -> gdt:AlternativeGeometries2Type
+	
+	Muutokset skeemapakettiin V14.03:
+	-Elementin "RoadDitchObject" dokumentaatio päivitetty
+	-Elementin "RoadOrDitchObjects" dokumentaatio päivitetty
+	-Muutettu common-nimiavaruuden skeematiedostoviittaus Common_BasicDataType.xsd -> Common.xsd
 -->
+
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/RoadOrDitchObjectUpdate"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/RoadOrDitchObjectUpdate"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.06">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V14.03">
 	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes" schemaLocation="Common_GeometricDataType.xsd"/>
 	
 	<xs:element name="RoadOrDitchObjectUpdate" type="RoadOrDitchObjectUpdateType">
@@ -53,7 +59,7 @@
 			</xs:element>
 			<xs:element name="RoadOrDitchObjects" type="RoadDitchObjectsType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Matka alkoi</xs:documentation>
+					<xs:documentation xml:lang="fi">Työlajin kohteet</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -62,7 +68,7 @@
 		<xs:sequence>
 			<xs:element name="RoadDitchObject" type="RoadDitchObjectType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Työlajin kohteet</xs:documentation>
+					<xs:documentation xml:lang="fi">Työlajin kohde</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

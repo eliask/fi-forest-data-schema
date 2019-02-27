@@ -2,13 +2,18 @@
 <!--
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V14.03:
+	-Muutettu common-nimiavaruuden skeematiedostoviittaus Common_BasicDataType.xsd -> Common.xsd
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/ResourceSchedule"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/ResourceSchedule"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V14.03">
+	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
+	
 	<xs:element name="ResourceSchedule" type="ResourceScheduleType"/>
 	<xs:complexType name="ResourceScheduleType">
 		<xs:sequence>

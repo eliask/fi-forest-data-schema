@@ -18,6 +18,9 @@
 	-Lisätty uusi tyyppimäärittely PreferredContactingMethodsType. Sisältää elementin PreferredContactingMethodType.
 	-Lisätty uusi vapaaehtoinen elementti PreferredContactingMethods, tyypiltään PreferredContactingMethodsType
 	-Lisätty uusi elementti PreferredContactingMethod, tyypiltään PreferredContactingMethodType. Kyseinen elementti voi esiintyä sanomassa 1…n kertaa.
+	
+	Muutokset skeematiedostoon V14.03:
+	-Muutettu common-nimiavaruuden skeematiedostoviittaus Common_BasicDataType.xsd -> Common.xsd
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -28,12 +31,12 @@
 	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common"
 	xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
 	xmlns:wtco="http://standardit.tapio.fi/schemas/workingsitetrade/common"
-	elementFormDefault="qualified" attributeFormDefault="qualified" version="V10.06">
+	elementFormDefault="qualified" attributeFormDefault="qualified" version="V14.03">
 
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
 		schemaLocation="Common_GeometricDataType.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
-		schemaLocation="Common_BasicDataType.xsd"/>
+		schemaLocation="Common.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/contactInformation"
 		schemaLocation="ContactInformation.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData"

@@ -16,6 +16,9 @@
     
     Muutokset skeemapakettiin V14.01:
     -Skeema päivitetty vastaamaan WoodForce-skeemapaketin 3.1 sisältöä
+    
+    Muutokset skeemapakettiin V14.03:
+    -Skeematiedostoon lisätty namespace ja import uudelle skeematiedostolle SmsOperatorStatus.xsd
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/envelope"
@@ -34,7 +37,8 @@
            xmlns:resource="http://standardit.tapio.fi/schemas/forestData/Resource"
            xmlns:resourceSchedule="http://standardit.tapio.fi/schemas/forestData/ResourceSchedule"
            xmlns:roadOrDitchObjectUpdate="http://standardit.tapio.fi/schemas/forestData/RoadOrDitchObjectUpdate"
-           xmlns:silvicultureOrder="http://standardit.tapio.fi/schemas/forestData/SilvicultureOrder"
+		   xmlns:silvicultureOrder="http://standardit.tapio.fi/schemas/forestData/SilvicultureOrder"
+		   xmlns:smsOperatorStatus="http://standardit.tapio.fi/schemas/forestData/SmsOperatorStatus"
            xmlns:stanfordFile="http://standardit.tapio.fi/schemas/forestData/StanfordFile"
            xmlns:userInformation="http://standardit.tapio.fi/schemas/forestData/UserInformation"
            xmlns:weekCalendar="http://standardit.tapio.fi/schemas/forestData/WeekCalendar"
@@ -69,7 +73,7 @@
            xmlns:workingSiteWorkLoad="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkLoad"
            xmlns:workingSiteWorkTime="http://standardit.tapio.fi/schemas/forestData/WorkingSiteWorkTime"
            xmlns:externalFile="http://standardit.tapio.fi/schemas/forestData/ExternalFile"
-           targetNamespace="http://standardit.tapio.fi/schemas/forestData/envelope" elementFormDefault="qualified" version="V14.01">
+           targetNamespace="http://standardit.tapio.fi/schemas/forestData/envelope" elementFormDefault="qualified" version="V14.03">
 
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Acknowledge" schemaLocation="Acknowledge.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/CompanyInformation" schemaLocation="CompanyInformation.xsd"/>
@@ -86,7 +90,8 @@
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/Resource" schemaLocation="Resource.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/ResourceSchedule" schemaLocation="ResourceSchedule.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/RoadOrDitchObjectUpdate" schemaLocation="RoadOrDitchObjectUpdate.xsd"/>
-    <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/SilvicultureOrder" schemaLocation="SilvicultureOrder.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/SilvicultureOrder" schemaLocation="SilvicultureOrder.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/SmsOperatorStatus" schemaLocation="SmsOperatorStatus.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/StanfordFile" schemaLocation="StanfordFile.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/UserInformation" schemaLocation="UserInformation.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WeekCalendar" schemaLocation="WeekCalendar.xsd"/>
@@ -234,13 +239,20 @@
 		            <xs:documentation xml:lang="en">Road/ditch object update, reference in header-part is MessageType = 'RoadOrDitchObjectUpdate'</xs:documentation>
 		        </xs:annotation>
 		    </xs:element>
-		    <xs:element name="SilvicultureOrder" type="silvicultureOrder:SilvicultureOrderType">
-		        <xs:annotation>
-		            <xs:documentation xml:lang="fi">Metsänhoitotyön tilaus, header-osiossa tähän viitataan MessageType = 'SilvicultureOrder'</xs:documentation>
-		            <xs:documentation xml:lang="sv"></xs:documentation>
-		            <xs:documentation xml:lang="en">Ordering of silvicultural operation, reference in header-part is MessageType = 'SilvicultureOrder'</xs:documentation>
-		        </xs:annotation>
-		    </xs:element>
+			<xs:element name="SilvicultureOrder" type="silvicultureOrder:SilvicultureOrderType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Metsänhoitotyön tilaus, header-osiossa tähän viitataan MessageType = 'SilvicultureOrder'</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en">Ordering of silvicultural operation, reference in header-part is MessageType = 'SilvicultureOrder'</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SmsOperatorStatus" type="smsOperatorStatus:SmsOperatorStatusType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">SMS-operaattorin lähettämä statuspäivitys</xs:documentation>
+					<xs:documentation xml:lang="sv"></xs:documentation>
+					<xs:documentation xml:lang="en">Status update sent by SMS Operator</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		    <xs:element name="StanfordFile" type="stanfordFile:StanfordFileType"/>
 		    <xs:element name="UserInformation" type="userInformation:UserInformationType">
 		        <xs:annotation>

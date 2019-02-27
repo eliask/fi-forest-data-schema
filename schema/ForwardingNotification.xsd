@@ -8,15 +8,18 @@
     
     Muutokset skeemapakettiin V11.07:
     -Elementin TreeSpecies tyyppimäärittely muutettu wct:StanfordTreeSpeciesType -> wct:ScaleFactorTreeSpeciesType
+    
+    Muutokset skeemapakettiin V14.03:
+    -Muutettu common-nimiavaruuden skeematiedostoviittaus Common_BasicDataType.xsd -> Common.xsd
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/ForwardingNotification"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            xmlns:wct="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/ForwardingNotification"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V14.03">
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
-               schemaLocation="Common_BasicDataType.xsd"/>
+               schemaLocation="Common.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
                schemaLocation="WoodForceCommonTypes.xsd"/>
 	

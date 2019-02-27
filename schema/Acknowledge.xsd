@@ -2,13 +2,15 @@
 <!-- 
 	Muutokset skeemapakettiin V10.05:
 	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
            xmlns="http://standardit.tapio.fi/schemas/forestData/Acknowledge" 
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common" 
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/Acknowledge" 
            elementFormDefault="qualified" attributeFormDefault="unqualified" version="V10.05">
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
 	<xs:element name="Acknowledge" type="AcknowledgeType">
 		<xs:annotation>
 			<xs:documentation>Kuittaus</xs:documentation>

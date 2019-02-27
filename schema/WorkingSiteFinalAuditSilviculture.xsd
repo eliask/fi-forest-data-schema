@@ -33,17 +33,22 @@
 	
 	Muutokset skeemapakettiin V10.14:
 	-Korjattu omavalvontatyyppimäärittelyn (SelfMonitoringWorkingSiteFinalAuditSilvicultureType) elementtien pakollisuudet
+	
+	Muutokset skeemapakettiin V14.03:
+	-Elementille "Audits" lisätty puuttuva dokumentaatio
+	-Muutettu common-nimiavaruuden skeematiedostoviittaus Common_BasicDataType.xsd -> Common.xsd
 -->
+
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSilviculture"
 	xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSilviculture"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified"
-	version="V10.14">
+	version="V14.03">
 	
 	<!-- Imports / Includes -->
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
 	
 	<!-- Elementtimääritykset / Element definitions -->
 	<xs:element name="WorkingSiteFinalAuditSilviculture" type="WorkingSiteFinalAuditSilvicultureType">
@@ -126,7 +131,11 @@
 			<xs:documentation xml:lang="fi">Valokuvien lkm</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="Audits" type="AuditsType"/>
+	<xs:element name="Audits" type="AuditsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Arvioitavat asiat</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	
 	<!-- Tyyppimääritykset / Type definitions -->
 	<xs:complexType name="WorkingSiteFinalAuditSilvicultureBaseType">

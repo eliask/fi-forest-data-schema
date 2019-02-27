@@ -19,6 +19,10 @@
 	
 	Muutokset skeemapakettiin V13.03:
 	-Lisätty uusi vapaaehtoinen elementti SamplePlotInfoText koealan vapaamuotoisen tekstin syöttämistä varten
+	
+	Muutokset skeemapakettiin V14.03:
+	-Elementin "SamplePlots" dokumentaatio päivitetty
+	-Muutettu common-nimiavaruuden skeematiedostoviittaus Common_BasicDataType.xsd -> Common.xsd
 -->
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -27,10 +31,12 @@
            xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
            xmlns:wct="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlFertilization"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V13.03">
+           elementFormDefault="qualified" 
+           attributeFormDefault="unqualified" 
+           version="V14.03">
 	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
-               schemaLocation="Common_BasicDataType.xsd"/>
+               schemaLocation="Common.xsd"/>
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
                schemaLocation="Common_GeometricDataType.xsd"/>
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
@@ -62,7 +68,7 @@
 			</xs:element>
 			<xs:element name="SamplePlots" type="SamplePlotsType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation xml:lang="fi">Koealat</xs:documentation>
+					<xs:documentation xml:lang="fi">Koealojen tiedot</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

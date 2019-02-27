@@ -1,5 +1,5 @@
-<!--
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
 	*****************************************************************
 	Metsävaratietojen koodistotyyppisten (enumerative) tietokenttien
 	koodistot. Huom: tämän skeeman on tarkoitus sisältää vain
@@ -7,7 +7,7 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	*****************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V14.02">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V14.03">
   <xs:include schemaLocation="ForestFeatureEnumeratives.xsd" />
   <xs:simpleType name="TurningPointClassType">
     <xs:annotation>
@@ -203,56 +203,56 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Metsämaa</xs:documentation>
           <xs:documentation xml:lang="sv">Skogsmark</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Forest land</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kitumaa</xs:documentation>
           <xs:documentation xml:lang="sv">Tvinmark</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Low-productive forest land</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Joutomaa</xs:documentation>
           <xs:documentation xml:lang="sv">Impediment</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Wasteland</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="4">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muu metsätalousmaa</xs:documentation>
           <xs:documentation xml:lang="sv">Annan skogsbruksmark</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Other forest management land</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="5">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tontti</xs:documentation>
           <xs:documentation xml:lang="sv">Tomtmark</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Lot</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="6">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Maatalousmaa</xs:documentation>
           <xs:documentation xml:lang="sv">Jordbruksmark</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Agricultural land</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="7">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Muu maa</xs:documentation>
           <xs:documentation xml:lang="sv">Annan mark</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Other land</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="8">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Vesistö</xs:documentation>
           <xs:documentation xml:lang="sv">Vattendrag</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Water land</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -268,35 +268,35 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kangas</xs:documentation>
           <xs:documentation xml:lang="sv">Momark</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Heathland</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Korpi</xs:documentation>
           <xs:documentation xml:lang="sv">Kärr</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Spruce peatland</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Räme</xs:documentation>
           <xs:documentation xml:lang="sv">Myr</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Pine peatland</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="4">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Neva</xs:documentation>
           <xs:documentation xml:lang="sv">Mosse</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Peat bog</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="5">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Letto</xs:documentation>
           <xs:documentation xml:lang="sv">Brunmosse</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Fen</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -377,14 +377,14 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Keskikarkea tai karkea kangasmaa</xs:documentation>
           <xs:documentation xml:lang="sv">Medelgrov och grov momark</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Rough or medium grade soil of heathland</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Karkea moreeni</xs:documentation>
           <xs:documentation xml:lang="sv">Grov morän</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Rough moraine</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12">
@@ -426,21 +426,21 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Savimaa</xs:documentation>
           <xs:documentation xml:lang="sv">Lerjord</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Clay</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="30">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kivinen keskikarkea tai karkea kangasmaa</xs:documentation>
           <xs:documentation xml:lang="sv">Stenig medelgrov eller grov momark</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Stony rough or medium grade soil of heathland</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="31">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kivinen karkea moreeni</xs:documentation>
           <xs:documentation xml:lang="sv">Stenig grov morän</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Stony rough moraine</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="32">
@@ -461,28 +461,28 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kallio tai kivikko</xs:documentation>
           <xs:documentation xml:lang="sv">Berg eller stenbunden mark</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Rocky groud</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="60">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Turvemaa</xs:documentation>
           <xs:documentation xml:lang="sv">Torvjord</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Peatland</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="61">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Saraturve</xs:documentation>
           <xs:documentation xml:lang="sv">Starrtorv</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Carex peat</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="62">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Rahkaturve</xs:documentation>
           <xs:documentation xml:lang="sv">Vitmosstorv</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Sphagnum-peat</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="63">
@@ -524,14 +524,14 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Multamaa</xs:documentation>
           <xs:documentation xml:lang="sv">Mulljord</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Mold soil</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="80">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Liejumaa</xs:documentation>
           <xs:documentation xml:lang="sv">Gyttjejord</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Silt</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -547,35 +547,35 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ojittamaton kangas</xs:documentation>
           <xs:documentation xml:lang="sv">Odikad momark</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Non-ditched heathland</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Soistunut kangas</xs:documentation>
           <xs:documentation xml:lang="sv">Försumpad momark</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Swampy heathland</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ojitettu kangas</xs:documentation>
           <xs:documentation xml:lang="sv">Dikad momark</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Ditched heathland</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="6">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Luonnontilainen suo</xs:documentation>
           <xs:documentation xml:lang="sv">Torvmark i naturtillstånd</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Virgin mire</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="7">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ojikko</xs:documentation>
           <xs:documentation xml:lang="sv">Nydikning</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Recently drained swamp</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="8">
@@ -589,7 +589,7 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Turvekangas</xs:documentation>
           <xs:documentation xml:lang="sv">Torvmo</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Heathy peatland</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -770,98 +770,98 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ei määritelty</xs:documentation>
           <xs:documentation xml:lang="sv">Ej definierad</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Not defined</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Hyvä</xs:documentation>
           <xs:documentation xml:lang="sv">God</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Good</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kehityskelpoinen, hyvä</xs:documentation>
           <xs:documentation xml:lang="sv">Utvecklingsdugligt, god</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Developable, good</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="20">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Tyydyttävä</xs:documentation>
           <xs:documentation xml:lang="sv">Tillfredsställande</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Satisfactory</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kehityskelpoinen, tyydyttävä: aukkoinen, harva, vähäpuustoinen</xs:documentation>
           <xs:documentation xml:lang="sv">Utvecklingsdugligt, tillfredsställande: luckigt, glest, lågt virkesförråd</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Developable, satisfactory: holey, sparsely stocked</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="22">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kehityskelpoinen, tyydyttävä: ylitiheä, hoitamaton</xs:documentation>
           <xs:documentation xml:lang="sv">Utvecklingsdugligt, tillfredsställande: övertätt, oskött</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Developable, satisfactory: overstocked, unmanaged</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="23">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kehityskelpoinen tyydyttävä/välttävä: vajaalaatuinen</xs:documentation>
           <xs:documentation xml:lang="sv">Utvecklingsdugligt, tillfredsställande: övertätt, oskött</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Developable, satisfactory/tolerable: underquality</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="30">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Välttävä</xs:documentation>
           <xs:documentation xml:lang="sv">Nöjaktig</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Tolerable</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="31">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kehityskelvoton: aukkoinen, harva, vähäpuustoinen</xs:documentation>
           <xs:documentation xml:lang="sv">Icke utvecklingsduglig: luckig, gles, lågt virkesförråd</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No development potential: holey, sparsely stocked</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="32">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kehityskelvoton: ylitiheä, hoitamaton</xs:documentation>
           <xs:documentation xml:lang="sv">Icke utvecklingsduglig: övertät, oskött</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No development potential: overstocked, unmanaged</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="33">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kehityskelvoton: kasvupaikalle metsänhoidollisesti sopimaton puulaji</xs:documentation>
           <xs:documentation xml:lang="sv">Icke utvecklingsduglig: för ståndorten olämpligt trädslag</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No development potential: wrong tree species for site class (silvicultural reason)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="34">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kehityskelvoton: yli-ikäinen</xs:documentation>
           <xs:documentation xml:lang="sv">Icke utvecklingsduglig: överårigt</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No development potential: over-aged</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="35">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kehityskelvoton: huonokasvuinen, harsittu, jätemetsikkö</xs:documentation>
           <xs:documentation xml:lang="sv">Icke utvecklingsduglig: dålig tillväxt, blädat, restskog</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No development potential: low productivity, selection cutting, residual stand</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="36">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Kehityskelvoton: tuhometsikkö</xs:documentation>
           <xs:documentation xml:lang="sv">Icke utvecklingsduglig: skadat bestånd</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No development potential: damaged stand</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -1170,70 +1170,70 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ei rajoituksia</xs:documentation>
           <xs:documentation xml:lang="sv">Inga begränsningar</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No restriction</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ei ylispuidenpoistoa</xs:documentation>
           <xs:documentation xml:lang="sv">Ingen avverkning av överståndare</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No fellings of hold-overs</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ei ensiharvennuksia</xs:documentation>
           <xs:documentation xml:lang="sv">Inga första gallringar</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No first thinnings</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ei harvennushakkuita</xs:documentation>
           <xs:documentation xml:lang="sv">Inga gallringar</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No thinnings</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="4">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ei kasvatushakkuita</xs:documentation>
           <xs:documentation xml:lang="sv">Inga beståndsvårdande avverkningar</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No intermediate fellings</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="5">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ei avohakkuuta</xs:documentation>
           <xs:documentation xml:lang="sv">Inga kalavverkningar</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No clearcuttings</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="6">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ei suojuspuuhakkuuta</xs:documentation>
           <xs:documentation xml:lang="sv">Inga avverkningar i skärmställning</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No shelterwood fellings</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="7">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ei siemenpuuhakkuuta</xs:documentation>
           <xs:documentation xml:lang="sv">Inga avverkningar i fröträdsställning</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No seeding felling</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="8">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ei uudistushakkuuta</xs:documentation>
           <xs:documentation xml:lang="sv">Inga förnyelseavverkningar</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No regeneration cuttings</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="9">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ei hakkuita</xs:documentation>
           <xs:documentation xml:lang="sv">Inga avverkningar</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No cuttings</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -1249,49 +1249,49 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ei rajoituksia</xs:documentation>
           <xs:documentation xml:lang="sv">Inga begränsningar</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No restriction</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ei viljelyä</xs:documentation>
           <xs:documentation xml:lang="sv">Ej skogsodling</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No cultivations</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="5">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ei maanmuokkausta</xs:documentation>
           <xs:documentation xml:lang="sv">Ej markberedning</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No soil preparation</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="6">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ei ojitusta</xs:documentation>
           <xs:documentation xml:lang="sv">Ej dikning</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No ditching</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="7">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ei maa-ainestenottoa</xs:documentation>
           <xs:documentation xml:lang="sv">Ej marktäkt</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No using material under ground</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="9">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ei metsänhoitotöitä</xs:documentation>
           <xs:documentation xml:lang="sv">Inga skogsvårdsarbeten</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No silvicultural operations</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="10">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Ei kannonnostoa</xs:documentation>
           <xs:documentation xml:lang="sv">Ej stubbrytning</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">No stump picking</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -3121,7 +3121,7 @@
         <xs:annotation>
           <xs:documentation xml:lang="fi">Hakkuutähteiden korjuu</xs:documentation>
           <xs:documentation xml:lang="sv">SV Hakkuutähteiden korjuu</xs:documentation>
-          <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="en">Gathering cutting residues</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="951">
@@ -20314,12 +20314,19 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="SeedlingBeginningCodeType">
+  <xs:simpleType name="SeedlingOriginType">
     <xs:annotation>
       <xs:documentation xml:lang="fi">Taimen syntytapa-koodisto</xs:documentation>
       <xs:documentation xml:lang="en">Coding for origin of the seedling</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
+      <xs:enumeration value="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Ei tiedossa</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Unknown</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Luontainen</xs:documentation>
@@ -21348,6 +21355,13 @@
           <xs:documentation xml:lang="fi">Skeemapaketti V14.02</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en">Schema package V14.02</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V14.03">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Skeemapaketti V14.03</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en">Schema package V14.03</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -22387,6 +22401,64 @@
       <xs:enumeration value="307">
         <xs:annotation>
           <xs:documentation xml:lang="fi">Metsävaratiedon päivitys - laajat metsävarakuviotiedot</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="308">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsävaratiedon päivitys - toimenpide-ehdotus</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="309">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsävaratiedon päivitys - muistiinpanot</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="310">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsävaratiedon päivitys - saavutettavuus</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="311">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsävaratiedon päivitys - paikkatieto</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="InfoProviderRoleType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fi">Tiedon tuottajan rooli</xs:documentation>
+      <xs:documentation xml:lang="sv"> </xs:documentation>
+      <xs:documentation xml:lang="en">Info provider role</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Metsänomistaja</xs:documentation>
+          <xs:documentation xml:lang="sv">Skogsägare</xs:documentation>
+          <xs:documentation xml:lang="en">Forest owner</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Toimihenkilö</xs:documentation>
+          <xs:documentation xml:lang="sv" />
+          <xs:documentation xml:lang="en" />
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation xml:lang="fi">Urakoitsija</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>

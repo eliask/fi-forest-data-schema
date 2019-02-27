@@ -107,6 +107,12 @@
 	-Elementin ForestDataUpdate lapsielementin Objects maxOccurs muutettu "unbounded" -> "1"
 	-Lisätty tyyppimäärittelyn ForestCentreSelfMonitoringDataType attribuutille "id" dokumentaatio
 	-Lisätty tyyppimäärittelyyn ForestDataUpdateType attribuutti "id" (metsävaratiedon päivityspyynnön id)
+	
+	Muutokset skeemapakettiin V14.03:
+	-Lisätty uusi vapaaehtoinen elementti RestrictionData tyyppimäärittelyyn ForestCentreForestDataUpdateObjectType
+	-Lisätty uusi vapaaehtoinen elementti AccessibilityData tyyppimäärittelyyn ForestCentreForestDataUpdateObjectType, ja sille lapsielementit Accessibility, TransportAccessibility ja HarvestingAccessibility
+	-Lisätty uudelle ObjectKeysType-elementille lapsielementit StandKeyGroup1 ja StandKeyGroup2, jotka sisältävät vapaaehtoiset kohdetiedot RealEstateId, ParcelId ja StandId (StandKeyGroup1) tai RegisterUnitId, ParcelNumber, StandNumber ja StandNumberExtension (StandKeyGroup2)
+	-Lisätty uusi vapaaehtoinen elementti ObjectKeysType tyyppimäärittelyyn ForestCentreForestDataUpdateObjectType
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -132,8 +138,9 @@
 	xmlns:workingSiteFinalAuditSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteFinalAuditSoilConditioning"
 	xmlns:workingSiteQualityControlSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
 	xmlns:MapSymbol="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
-	xmlns:Image="http://standardit.tapio.fi/schemas/forestData/Image" elementFormDefault="qualified"
-	attributeFormDefault="unqualified" version="V14.02">
+	xmlns:Image="http://standardit.tapio.fi/schemas/forestData/Image" 
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified" version="V14.03">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase"
@@ -310,6 +317,13 @@
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="StandBasicData" type="st:BaseCompactStandBasicDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="AccessibilityData" type="AccessibilityDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi"/>
 			<xs:documentation xml:lang="sv"/>
@@ -508,6 +522,9 @@
 			<xs:documentation xml:lang="en">Documents</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="ObjectKeys" type="ObjectKeysType"/>
+<!--	<xs:element name="StandKeyGroup1" type="StandKeyGroup1Type"/>
+	<xs:element name="StandKeyGroup2" type="StandKeyGroup2Type"/> -->
 
 
 	<!-- Tyyppimääritykset / Type definitions -->
@@ -1119,7 +1136,24 @@
 			<xs:element ref="MapSymbol:MapSymbol" minOccurs="0"/>
 		</xs:sequence>
 	</xs:group>
-
+	
+	<xs:group name="StandKeyGroup1">
+		<xs:sequence>
+			<xs:element name="RealEstateId" type="co:IdStringNotEmptyType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ParcelId" type="co:IdStringNotEmptyType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="CompartmentId" type="co:IdStringNotEmptyType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:group>
+	
+	<xs:group name="StandKeyGroup2">
+		<xs:sequence>
+			<xs:element name="RegisterUnitId" type="re:RegisterUnitIdType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ParcelNumber" type="re:ParcelNumberType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="StandNumber" type="stb:StandNumberType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="StandNumberExtension" type="stb:StandNumberExtensionType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:group>
+	
 	<xs:complexType name="ObjectGeometryType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi"/>
@@ -2606,6 +2640,32 @@
 		</xs:sequence>
 	</xs:complexType>
 
+	<xs:complexType name="AccessibilityDataType">
+		<xs:sequence>
+			<xs:element name="Accessibility" type="co:AccessibilityType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Metsikkökuvion saavutettavuus</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TransportAccessibility" type="co:TransportAccessibilityType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kaukokuljetuskelpoisuus, varastopaikan saavutettavuus</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HarvestingAccessibility" type="co:HarvestingAccessibilityType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Korjuukelpoisuus</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
 	<xs:complexType name="ControlDataTreeStandDataDateType">
 		<xs:complexContent>
 			<xs:extension base="ts:TreeStandDataDateType">
@@ -2649,8 +2709,10 @@
 			<xs:element ref="UseCases" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="Actors" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="StandBasicData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="AccessibilityData" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="SoilData" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="TreeStandBasedData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="RestrictionData" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="TreeStandData" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="op:Operations" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="st:SpecialFeatures" minOccurs="0" maxOccurs="1"/>
@@ -2769,6 +2831,63 @@
 			<xs:element name="Object" type="ForestCentreForestDataUpdateObjectType" minOccurs="1"
 				maxOccurs="unbounded"/>
 		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ForestObjectDataObjectType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ObjectKeys" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ObjectGeometry" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ObjectBasicData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="UseCases" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Actors" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="StandBasicData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="AccessibilityData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="SoilData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="TreeStandBasedData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="RestrictionData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="TreeStandData" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="op:Operations" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="st:SpecialFeatures" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Documents" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="co:IdStringNotEmptyType">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Kohde voidaan yksilöidä tiedonsiirrossa tiedonsiirto-osapuolien tarpeiden mukaan id:llä.</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en">Object can be identified using string id.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="objectType" type="co:ObjectTypeType">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Kohteen tyyppi</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en"/>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="objectTypeSpecifier" type="ObjectTypeSpecifierType">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi">Kohteen tyypin tarkenne</xs:documentation>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en"/>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	
+	<xs:complexType name="ObjectKeysType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi"/>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:choice>
+			<xs:group ref="StandKeyGroup1" minOccurs="1"/>
+			<xs:group ref="StandKeyGroup2" minOccurs="1"/>
+		</xs:choice>		
 	</xs:complexType>
 
 </xs:schema>

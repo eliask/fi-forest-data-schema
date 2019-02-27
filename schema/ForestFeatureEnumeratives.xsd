@@ -1,5 +1,5 @@
-<!--
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
 	*****************************************************************
 	Metsävaratietojen koodistotyyppisten (enumerative) tietokenttien
 	koodistot. Huom: tämän skeeman on tarkoitus sisältää vain
@@ -7,7 +7,7 @@
 	Skeema on JHS-170 -suosituksen mukainen.
 	*****************************************************************
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V14.02">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://standardit.tapio.fi/schemas/forestData/common" targetNamespace="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="unqualified" version="V14.03">
   <xs:simpleType name="OriginalFeatureCodeType">
     <xs:annotation>
       <xs:documentation xml:lang="fi">Erityispiirteen koodi (mm. monimuotoisuuskoodi).</xs:documentation>
@@ -3434,7 +3434,7 @@
           <xs:documentation xml:lang="fi">Mufloni</xs:documentation>
           <xs:documentation xml:lang="sv">Mufflon</xs:documentation>
           <xs:documentation xml:lang="en">Mouflon</xs:documentation>
-          <xs:documentation xml:lang="la">Ovis ammon</xs:documentation>
+          <xs:documentation xml:lang="la">Ovis orientalis musimon</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2030">
@@ -4419,7 +4419,7 @@
           <xs:documentation xml:lang="fi">Erakkokuoriainen</xs:documentation>
           <xs:documentation xml:lang="sv">Läderbagge</xs:documentation>
           <xs:documentation xml:lang="en" />
-          <xs:documentation xml:lang="la">Osmoderma eremita</xs:documentation>
+          <xs:documentation xml:lang="la">Osmoderma barnabita</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="3503">
@@ -6357,6 +6357,7 @@
           <xs:documentation xml:lang="fi">Kirjojäytäjäkoi</xs:documentation>
           <xs:documentation xml:lang="sv">Kirjojäytäjäkoi</xs:documentation>
           <xs:documentation xml:lang="en" />
+          <xs:documentation xml:lang="la">Pseudotelphusa scalella</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="4051">
@@ -17621,7 +17622,7 @@
           <xs:documentation xml:lang="fi">Punakämmekkä</xs:documentation>
           <xs:documentation xml:lang="sv">Ängsnycklar</xs:documentation>
           <xs:documentation xml:lang="en" />
-          <xs:documentation xml:lang="la">Dactylorhiza incarnata subsp. incarnata</xs:documentation>
+          <xs:documentation xml:lang="la">Dactylorhiza incarnata</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="7883">
@@ -18167,7 +18168,7 @@
           <xs:documentation xml:lang="fi">Väinönputki</xs:documentation>
           <xs:documentation xml:lang="sv">Kvanne</xs:documentation>
           <xs:documentation xml:lang="en" />
-          <xs:documentation xml:lang="la">Angelica archangelica subsp. archangelica</xs:documentation>
+          <xs:documentation xml:lang="la">Angelica archangelica</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="8500">
@@ -18539,7 +18540,7 @@
           <xs:documentation xml:lang="fi">Etelänhoikkaängelmä</xs:documentation>
           <xs:documentation xml:lang="sv">Etelänhoikkaängelmä</xs:documentation>
           <xs:documentation xml:lang="en" />
-          <xs:documentation xml:lang="la">Thalictrum simplex</xs:documentation>
+          <xs:documentation xml:lang="la">Thalictrum simplex subsp. simplex</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="9051">
@@ -19017,7 +19018,7 @@
           <xs:documentation xml:lang="fi">Lehtoukonhattu</xs:documentation>
           <xs:documentation xml:lang="sv">Nordisk stormhatt</xs:documentation>
           <xs:documentation xml:lang="en" />
-          <xs:documentation xml:lang="la">Aconitum lycoctonum</xs:documentation>
+          <xs:documentation xml:lang="la">Aconitum lycoctonum subsp. septentrionale</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="9136">
@@ -22591,7 +22592,7 @@
           <xs:documentation xml:lang="fi">Rustikka</xs:documentation>
           <xs:documentation xml:lang="sv">Rustikka</xs:documentation>
           <xs:documentation xml:lang="en" />
-          <xs:documentation xml:lang="la">Protomerulius caryae</xs:documentation>
+          <xs:documentation xml:lang="la">Aporpium canescens</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="9940">
@@ -27268,56 +27269,56 @@
       </xs:enumeration>
       <xs:enumeration value="40101">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Uudisoja raivattava</xs:documentation>
+          <xs:documentation xml:lang="fi">Täydennysoja, raivattava</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="40102">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Uudisoja hakattava</xs:documentation>
+          <xs:documentation xml:lang="fi">Täydennysoja, hakattava</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="40103">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Uudisoja raivattava ja hakattava</xs:documentation>
+          <xs:documentation xml:lang="fi">Täydennysoja, raivattava ja hakattava</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="40104">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Uudisoja kaivettava</xs:documentation>
+          <xs:documentation xml:lang="fi">Täydennysoja</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="40201">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Kunnostusoja raivattava</xs:documentation>
+          <xs:documentation xml:lang="fi">Perkausoja, raivattava</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="40202">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Kunnostusoja hakattava</xs:documentation>
+          <xs:documentation xml:lang="fi">Perkausoja, hakattava</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="40203">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Kunnostusoja raivattava ja hakattava</xs:documentation>
+          <xs:documentation xml:lang="fi">Perkausoja, raivattava ja hakattava</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="40204">
         <xs:annotation>
-          <xs:documentation xml:lang="fi">Kunnostusoja kaivettava</xs:documentation>
+          <xs:documentation xml:lang="fi">Perkausoja</xs:documentation>
           <xs:documentation xml:lang="sv" />
           <xs:documentation xml:lang="en" />
         </xs:annotation>

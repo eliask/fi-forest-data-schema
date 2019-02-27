@@ -6,15 +6,20 @@
 	Muutokset skeemapakettiin V11.03:
 	-Päivitetty elementin DisQualificationSign dokumentaatio
 	-Päivitetty elementin CuttingAccuracySign dokumentaatio
+	
+	Muutokset skeemapakettiin V14.03:
+	-Muutettu common-nimiavaruuden skeematiedostoviittaus Common_BasicDataType.xsd -> Common.xsd
 -->
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityNotification"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityNotification"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.03">
+           elementFormDefault="qualified" 
+           attributeFormDefault="unqualified" 
+           version="V14.03">
 	
-	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
 	
 	<xs:element name="WorkingSiteQualityNotification" type="WorkingSiteQualityNotificationType">
 		<xs:annotation>

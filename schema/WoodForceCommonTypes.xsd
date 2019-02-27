@@ -6,15 +6,18 @@
     Muutokset skeemapakettiin V11.07:
     -Skeematiedostoon lisätty uusi koodisto ScaleFactorTreeSpeciesType
     -Skeematiedostoon lisätty uusi koodisto DitchTypeType
+    
+    Muutokset skeemapakettiin V14.03
+    -DitchTypeType -koodistoon lisätty uusi arvo 4/Kokoojaoja
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
            xmlns:bdt="http://standardit.tapio.fi/schemas/forestData/common"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V11.07">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V14.03">
     
     <xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
-               schemaLocation="Common_BasicDataType.xsd"/>
+               schemaLocation="Common.xsd"/>
 
     <xs:complexType name="ContractorsType">
         <xs:annotation>
@@ -342,6 +345,13 @@
                 <xs:annotation>
                     <xs:documentation xml:lang="fi">Laskuoja</xs:documentation>
                     <xs:documentation xml:lang="sv">Avloppsdike</xs:documentation>
+                    <xs:documentation xml:lang="en"/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="4">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fi">Kokoojaoja</xs:documentation>
+                    <xs:documentation xml:lang="sv"></xs:documentation>
                     <xs:documentation xml:lang="en"/>
                 </xs:annotation>
             </xs:enumeration>

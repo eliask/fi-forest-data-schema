@@ -12,6 +12,9 @@
 	
 	Muutokset skeemapakettiin V13.03
 	-Piilotettu elementti StandLocatedOnIsland
+	
+	Muutokset skeemapakettiin V14.03:
+	-Muutettu StandInfoType simpleType:sta complexType:ksi StandBase.xsd-tiedoston StandInfoType-tyyppimäärittelyyn tehtyjen muutosten vuoksi. 
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -322,14 +325,25 @@
 		<xs:restriction base="stb:StandBasicDataDateType"/>
 	</xs:simpleType>
 	
-	<xs:simpleType name="StandInfoType">
+<!--	<xs:simpleType name="StandInfoType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Kuvion vapaamuotoinen teksti.</xs:documentation>
 			<xs:documentation xml:lang="sv"/>
 			<xs:documentation xml:lang="en">Stand info text.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="stb:StandInfoType"/>
-	</xs:simpleType>
+	</xs:simpleType>-->
+	
+	<xs:complexType name="StandInfoType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Kuvion vapaamuotoinen teksti attribuuteilla.</xs:documentation>
+			<xs:documentation xml:lang="sv"></xs:documentation>
+			<xs:documentation xml:lang="en">Stand info text with attributes.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="stb:StandInfoType"/>
+		</xs:simpleContent>
+	</xs:complexType>
 	
 	<xs:simpleType name="AreaType">
 		<xs:annotation>
