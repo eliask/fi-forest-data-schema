@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	Muutokset skeemapakettiin V10.05:
+	-Skeematiedoston xs:schema elementtiin muutettu versionumeroksi "V10.05". Jatkossa tämä versionumero tulee päivittymään tarpeen mukaan silloin kun tiedostoon tehdään muutoksia.
+	
+	Muutokset skeemapakettiin V10.07:
+	-Koodisto "ActionType" poistettu skeematiedostosta ja lisätty koodistoon. Elementti Action muutettu käyttämään samaa ActionType-tyyppimäärittelyä kuin ennenkin, mutta co: namespacesta.
+	-Koodisto "PriorityType" poistettu skeematiedostosta ja lisätty koodistoon. Elementti Priority muutettu käyttämään samaa PriorityType-tyyppimäärittelyä kuin ennenkin, mutta co: namespacesta.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://standardit.tapio.fi/schemas/header"
+	targetNamespace="http://standardit.tapio.fi/schemas/header"
+	xmlns:co="http://standardit.tapio.fi/schemas/forestData/common" elementFormDefault="qualified"
+	version="V10.05">
+	
+	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common.xsd"/>
+	
+	<xs:element name="Header" type="HeaderType"/>
+	<xs:complexType name="HeaderType">
+        <xs:sequence>
+			<xs:element name="MessageType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Viestin tyyppi</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TransmissionId" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Viestin yksilöivä ID</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="BusinessSender" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Lähettäjän tunniste</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="BusinessReceiver" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Vastaanottajan tunniste</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TransmissionSender" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Lähettävä järjestelmä</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TransmissionReceiver" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Vastaanottava järjestelmä</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="System" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Dev/Test/Prod</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="dev|test|prod"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TransmissionTime" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Action" type="co:ActionType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Priority" type="co:PriorityType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Prioriteetti</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+        <xs:attribute name="schemaPackageVersion" type="co:ForestDataStandardSchemaPackageVersionType" use="optional"/>
+		<xs:attribute name="schemaPackageSubversion" type="co:ForestDataStandardSchemaPackageSubversionType" use="optional"/>
+        <xs:attribute name="schemaPackageVersionDate" type="co:DateType" use="optional"/>
+    </xs:complexType>
+</xs:schema>

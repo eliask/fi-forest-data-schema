@@ -87,6 +87,10 @@
     -Muutettu elementti Image viittaamaan tyyppiin Image:SelfMonitoringImageType
     -Poistettu määrittely ForestCentreSelfMonitoringObjectDataGroup
     
+    Muutokset skeemapakettiin V13.03:
+    -Tyyppimäärittely ForestCentreSelfMonitoringDataType siirretty skeematiedostoon. Kts myös muutoshistoria id:llä 1488
+    -Tyyppimäärittely ForestCentreSelfMonitoringObjectsType siirretty skeematiedostoon. Kts myös muutoshistoria id:llä 1490
+    -Lisätty uusi vapaaehtoinen elementti UpdatePreviousMessage tyyppimäärittelyyn ForestCentreSelfMonitoringDataType. Käytetään välittämään tieto siitä, päivitetäänkö vanhaa viestiä vai sisältääkö uuden viestin
 	***************************************************************
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -113,7 +117,7 @@
 	xmlns:workingSiteQualityControlSoilConditioning="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlSoilConditioning"
 	xmlns:MapSymbol="http://standardit.tapio.fi/schemas/forestData/MapSymbol"
 	xmlns:Image="http://standardit.tapio.fi/schemas/forestData/Image"
-	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V13.01">
+	elementFormDefault="qualified" attributeFormDefault="unqualified" version="V13.03">
 
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/standbase" schemaLocation="StandBase.xsd"/>
@@ -2620,6 +2624,46 @@
 	<xs:complexType name="ForestDataUpdateUseCasesType">
 		<xs:sequence>
 			<xs:element name="UseCase" type="co:ForestDataUpdateUseCaseType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ForestCentreSelfMonitoringDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Metsäkeskuksen omavalvonnan rakenteiden määrittely.</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="UpdatePreviousMessage" type="co:YesNoType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Kyllä-/Ei-tieto, jolla viestin lähettäjä ilmaisee korvaako hän aikaisemman viestin lähettämällä uuden vai lähettääkö hän uutta viestiä. Arvo 0 = uusi viesti, arvo 1 = päivitettävä viesti.</xs:documentation>
+					<xs:documentation xml:lang="sv"/>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="CommonObjectDataReference" minOccurs="1"/>
+			<xs:element ref="AdditionalDetails" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="Sender" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="UseCase" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Objects" type="ForestCentreSelfMonitoringObjectsType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string">
+			<xs:annotation>
+				<xs:documentation xml:lang="fi"/>
+				<xs:documentation xml:lang="sv"/>
+				<xs:documentation xml:lang="en"/>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	
+	<xs:complexType name="ForestCentreSelfMonitoringObjectsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fi">Paikannetut kohteet -määrittely</xs:documentation>
+			<xs:documentation xml:lang="sv"/>
+			<xs:documentation xml:lang="en">Geometry objects definition</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Object" type="ForestCentreSelfMonitoringObjectType" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 

@@ -16,6 +16,9 @@
 	
 	Muutokset skeemapakettiin V12.01:
 	-Elementin InfoText minOccurs muutettu 1 -> 0
+	
+	Muutokset skeemapakettiin V13.03:
+	-Lisätty uusi vapaaehtoinen elementti SamplePlotInfoText koealan vapaamuotoisen tekstin syöttämistä varten
 -->
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -24,7 +27,7 @@
            xmlns:gdt="http://standardit.tapio.fi/schemas/forestData/common/geometricDataTypes"
            xmlns:wct="http://standardit.tapio.fi/schemas/forestData/WoodForceCommonTypes"
            targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlFertilization"
-           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V12.01">
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="V13.03">
 	
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common"
                schemaLocation="Common_BasicDataType.xsd"/>
@@ -34,6 +37,7 @@
                schemaLocation="WoodForceCommonTypes.xsd"/>
 	
     <xs:element name="WorkingSiteQualityControlFertilization" type="WorkingSiteQualityControlFertilizationType"/>
+	
 	<xs:complexType name="WorkingSiteQualityControlFertilizationType">
 		<xs:sequence>
 			<xs:element name="ServiceBuyerId" type="bdt:String20Type" minOccurs="1">
@@ -63,6 +67,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotsType">
 		<xs:sequence>
 			<xs:element name="SamplePlot" type="SamplePlotType" maxOccurs="unbounded">
@@ -72,6 +77,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="HoppersType">
 		<xs:sequence>
 			<xs:element name="Hopper" type="HopperType" minOccurs="0" maxOccurs="unbounded">
@@ -81,6 +87,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotType">
 		<xs:sequence>
 			<xs:element name="SamplePlotNumber" type="bdt:PositiveInteger3digitsType" minOccurs="1">
@@ -156,8 +163,14 @@
 				</xs:element>
 				<xs:element name="Hoppers" type="HoppersType"/>
 			</xs:choice>
+			<xs:element name="SamplePlotInfoText" type="bdt:String1000Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealan vapaamuotoista tekstiä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="HopperType">
 		<xs:annotation>
 			<xs:documentation xml:lang="fi">Suppilot</xs:documentation>
@@ -195,6 +208,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotSummariesType">
 		<xs:sequence>
 			<xs:element name="SamplePlotSummary" type="SamplePlotSummaryType" minOccurs="1" maxOccurs="unbounded">
@@ -204,6 +218,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotSummaryType">
 		<xs:sequence>
 			<xs:element name="StandNumber" type="bdt:String10Type" minOccurs="1">
@@ -219,6 +234,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotMeasurementSummaryType">
 		<xs:sequence>
 			<xs:element name="MeasurerType" type="bdt:MeasurerTypeType" minOccurs="1">
@@ -233,4 +249,5 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 </xs:schema>

@@ -14,6 +14,9 @@
 	
 	Muutokset skeemapakettiin V10.14:
 	-Korjattu omavalvontatyyppimäärittelyn (SelfMonitoringWorkingSiteQualityControlPlantManagementType) elementtien pakollisuudet
+	
+	Muutokset skeemapakettiin V13.03:
+	-Lisätty uusi vapaaehtoinen elementti SamplePlotInfoText koealan vapaamuotoisen tekstin syöttämistä varten
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlPlantManagement"
@@ -22,7 +25,7 @@
 	targetNamespace="http://standardit.tapio.fi/schemas/forestData/WorkingSiteQualityControlPlantManagement"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified"
-	version="V10.13">
+	version="V13.03">
 	
 	<!-- Imports / Includes -->
 	<xs:import namespace="http://standardit.tapio.fi/schemas/forestData/common" schemaLocation="Common_BasicDataType.xsd"/>
@@ -154,6 +157,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotSummaryType">
 		<xs:sequence>
 			<xs:element name="StandNumber" type="bdt:String10Type" minOccurs="1">
@@ -168,6 +172,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotMeasurementSummaryType">
 		<xs:sequence>
 			<xs:element name="MeasurerType" type="bdt:MeasurerTypeType" minOccurs="1">
@@ -213,6 +218,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotTreesSummaryType">
 		<xs:sequence>
 			<xs:element name="TreeSummary" type="TreeSummaryType" minOccurs="1" maxOccurs="unbounded">
@@ -222,6 +228,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="TreeSummaryType">
 		<xs:sequence>
 			<xs:element name="TreeSpecies" type="bdt:TreeSpeciesType" minOccurs="1">
@@ -251,6 +258,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotsType">
 		<xs:sequence>
 			<xs:element name="SamplePlot" type="SamplePlotType" minOccurs="1" maxOccurs="unbounded">
@@ -260,6 +268,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotType">
 		<xs:sequence>
 			<xs:element name="SamplePlotNumber" type="bdt:PositiveIntegerType" minOccurs="1">
@@ -342,8 +351,14 @@
 					<xs:documentation xml:lang="fi">Puulajikohtaiset mittaustiedot</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="SamplePlotInfoText" type="bdt:String1000Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fi">Koealan vapaamuotoista tekstiä</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="SamplePlotTreesType">
 		<xs:sequence>
 			<xs:element name="Trees" type="TreeType" minOccurs="1" maxOccurs="unbounded">
@@ -353,6 +368,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:complexType name="TreeType">
 		<xs:sequence>
 			<xs:element name="TreeSpecies" type="bdt:TreeSpeciesType" minOccurs="1">
@@ -382,4 +398,5 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
 </xs:schema>
